@@ -1,6 +1,7 @@
 base_url = "https://ccjmne.github.io"
 compile_sass = true
 build_search_index = true
+default_language = "en"
 
 [markdown]
 highlight_code = true
