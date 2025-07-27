@@ -4,5 +4,6 @@ build_search_index = true
 
 [markdown]
 highlight_code = true
+bottom_footnotes = true
 
 [extra]
