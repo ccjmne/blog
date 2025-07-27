@@ -21,4 +21,12 @@ main {
   flex-grow: 1;
   width: 72ch;
 }
+
+footer {
+  display: flex;
+  justify-content: center;
+  padding: 2em;
+  gap: 1em;
+  font-size: 0.875rem;
+  color: #666;
 }
