@@ -7,3 +7,17 @@ body {
   letter-spacing: 0.01em;
   font-style: normal;
 }
+
+a {
+  &, &:visited {
+    color: theme.$anchor;
+  }
+
+  &[href^=http]:not([href^='https://ccjmne.sh/'],[href^='https://ccjmne.github.io/'],:has(img)) {
+    &::after {
+      content: " ↗";
+      font-size: 0.66em;
+      font-family: "Hedvig Letters Serif";
+    }
+  }
+}
