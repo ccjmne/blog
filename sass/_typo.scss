@@ -1,11 +1,14 @@
 @use 'thme' as theme;
 
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Hedvig+Letters+Serif:opsz@12..24&display=swap');
+
 body {
   font-family: "Hedvig Letters Serif", serif;
   font-optical-sizing: auto;
   font-weight: 400;
   letter-spacing: 0.01em;
   font-style: normal;
+  color: #333;
 }
 
 sup.footnote-reference {
