@@ -8,6 +8,18 @@ body {
   font-style: normal;
 }
 
+sup.footnote-reference {
+  font-size: 0.8em;
+  vertical-align: super;
+  font-family: monospace;
+  color: theme.$anchor;
+  > a {
+    text-decoration: none;
+    &::before { content: "["; }
+    &::after  { content: "]"; }
+  }
+}
+
 a {
   &, &:visited {
     color: theme.$anchor;
