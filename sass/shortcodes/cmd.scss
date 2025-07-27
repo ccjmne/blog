@@ -1,0 +1,13 @@
+$bg: #ccc;
+
+table.shrt-cmd {
+  font-family: monospace;
+  border: 1px solid $bg;
+  border-collapse: collapse;
+  tr:nth-child(1) { background-color: $bg; }
+  td:nth-child(1) { padding-left: 1em; }
+  td:nth-child(2) { padding: 0 1em; text-align: end; }
+  a {
+    text-decoration: none;
+  }
+}

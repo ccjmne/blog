@@ -1,0 +1,10 @@
+<table class="shrt-cmd">
+  <tr><th colspan="2"><strong>{{ name }}</strong></th></tr>
+  <tr style="padding: 0 1em;">
+    <td colspan="2">from <a href="https://archlinux.org/packages/{{ package }}">{{ package | replace(from="/x86_64/", to="/") }}</a></td>
+  </tr>
+  <tr style="padding: 0 1em;">
+    <td><a href="https://man.archlinux.org/man/{{ name }}.1.en">manual</a></td>
+    <td><a href="{{ repo }}">repository</a></td>
+  </tr>
+</table>
