@@ -1,6 +1,7 @@
 @use 'thme' as theme;
 
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Hedvig+Letters+Serif:opsz@12..24&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols:wght@100..900&display=swap');
 
 body {
   font-family: "Hedvig Letters Serif", serif;
@@ -35,6 +36,14 @@ a {
       font-family: "Hedvig Letters Serif";
     }
   }
+}
+
+.anchor-link {
+  margin-left: -2.6ch;
+  margin-right: 1ch;
+  font-family: "Noto Sans Symbols";
+  font-weight: normal;
+  text-decoration: none;
 }
 
 // From https://www.getzola.org/documentation/content/syntax-highlighting/
