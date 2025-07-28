@@ -16,7 +16,7 @@ The current status quo regarding whitespace limits our stylistic expression:
   indentation), to delineate the hierarchy of our otherwise
   strictly vertically-topologically-laid-out content.
 
-   But here's the thing: the taxonomy of text shouldn't be limited to paragraphs
+ But here's the thing: the taxonomy of text shouldn't be limited to paragraphs
 and lines.  
    Let's go bidimensional!
 
