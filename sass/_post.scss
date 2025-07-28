@@ -1,0 +1,8 @@
+pre.language-sh:has(+ pre.language-txt) {
+  margin-bottom: 0;
+}
+
+pre.language-sh + pre.language-txt {
+  margin-top: 0;
+  padding-top: 0;
+}
