@@ -1,5 +1,5 @@
 +++
-title = 'Laying out text horizontally'
+title = 'Laying text out horizontally'
 date = 2025-07-25
 description = 'Putting chunks of text side by side'
 +++
