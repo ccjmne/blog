@@ -77,3 +77,37 @@ code:not(pre > code) {
   background-color: #e8e8e8;
   padding: 0.2em 0.4em;
 }
+
+abbr {
+  position: relative;
+  cursor: help;
+  text-decoration: none;
+
+  &::before {
+    background-color: #ccc;
+    content: "";
+    position: absolute;
+    width: calc(100% + 4px);
+    height: 40%;
+    left: -2px;
+    bottom: 0px;
+    z-index: -1;
+  }
+
+  &::after {
+    content: attr(title);
+    position: absolute;
+    width: max-content;
+    left: 50%;
+    bottom: calc(100% + 5px);
+    transform: translateX(-50%);
+    padding: 0 .5rem;
+    background-color: #ccc;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+}

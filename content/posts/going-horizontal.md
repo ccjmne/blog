@@ -198,9 +198,11 @@ http       33  /srv/http        /usr/bin/nologin
 nobody  65534  /                /usr/bin/nologin
 ```
 
-   Although, the above is rather extreme: I generally restrain myself to the
-`t`, `s` and `o` flags, preferably preparing data upstream with composable tools
-that I use often enough to need not browse the trusty `man`ual:
+   Although, the above is rather extreme: I generally limit myself the <abbr
+title="--table">t</abbr> , <abbr title="--separator">s</abbr> and <abbr
+title="--output-separator">o</abbr> flags, preferably preparing data upstream
+with composable tools that I use often enough to need not browse the trusty
+`man`ual:
 
 ```sh
 { echo 'User:UID:Home:Shell'; head -7 /etc/passwd | cut -d: -f1,3,6,7 } | column -ts:
