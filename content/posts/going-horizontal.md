@@ -47,7 +47,6 @@ across before:
 ls -F
 ls --classify
 ```
-
 ```txt
 node_modules/  compose.sh*  eslint.config.mjs  package.json    README.md
 src/           Dockerfile   LICENSE            pnpm-lock.yaml  TODO
@@ -61,7 +60,6 @@ them out in a grid with `column`[^column]:
 ```sh
 echo $PATH | tr : $'\n' | column
 ```
-
 ```txt
 /home/ccjmne/bin	/usr/local/sbin		/usr/bin/core_perl
 /usr/local/bin		/usr/bin/site_perl	/usr/lib/rustup/bin
@@ -92,7 +90,6 @@ seq 100 150 | column
 seq 100 150 | column -S2
 seq 100 150 | column --use-spaces 2
 ```
-
 ```txt,name=column -S2
 100  104  108  112  116  120  124  128  132  136  140  144  148
 101  105  109  113  117  121  125  129  133  137  141  145  149
@@ -107,7 +104,6 @@ can also have it go row-first by using `-x|--fillrows`:
 seq 100 150 | column -xS2
 seq 100 150 | column --fillrows --use-spaces 2
 ```
-
 ```txt
 100  101  102  103  104  105  106  107  108  109  110  111  112  113  114  115
 116  117  118  119  120  121  122  123  124  125  126  127  128  129  130  131
