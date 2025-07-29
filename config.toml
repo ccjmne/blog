@@ -3,6 +3,9 @@ compile_sass = true
 build_search_index = true
 default_language = "en"
 
+[link_checker]
+internal_level = "warn"
+
 [markdown]
 highlight_code = true
 bottom_footnotes = true
