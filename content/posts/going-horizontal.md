@@ -4,11 +4,12 @@ date = 2025-07-25
 description = 'Putting chunks of text side by side'
 +++
 
-   Professionally, I put code together. Intimately, I am compelled to make it
-neat: one of the ways I achieve this is by wielding non-printable characters
-like monochrome photography uses light, with *purpose* and finesse.
+   Professionally, I put code together. Intimately, I am compelled to make
+it neat: I get closer to that goal by wielding non-printable characters like
+monochrome photography uses light, with *purpose* and finesse.
 
-The current status quo regarding whitespace limits our stylistic expression:
+   In my line of work, the current status quo regarding whitespace limits our
+stylistic expression:
 
 - vertically to the linefeed[^esoteric-vertical-whitespace] (coalescing into
   blank lines), to pack together logical blocks of data or instructions, and
@@ -17,7 +18,7 @@ The current status quo regarding whitespace limits our stylistic expression:
   strictly vertically-topologically-laid-out content.
 
  But here's the thing: the taxonomy of text shouldn't be limited to paragraphs
-and lines.  
+and lines.<br>
    Let's go bidimensional!
 
 [^esoteric-vertical-whitespace]: Let's not talk of
@@ -27,20 +28,20 @@ the [CR](https://www.compart.com/en/unicode/U+000D),
 
 ## The few forms of horizontal alignment
 
-   In the wild, I identified four classes of occurrences begging for what I
-shall call *intralinear partitioning*—though you don't need to worry, I won't
-call it that again... Surely.  Let's recognise, appreciate, celebrate and
-reproduce them!
+   In the wild, I identified four classes of occurrences itching for what I
+shall refer to as *intralinear partitioning* (I promise, it's the last time I
+call it that).  In this article, we'll appreciate and learn to reproduce the
+first three.
 
-### Lists in a grid
+### The list in a grid
 
-   Collections of items may very well be one-dimensional, but it turns out that
-organising them in a grid is quite natural, unless you're a stock exchange
-banner designer, of course, but then I believe that the idea is indeed to have
-the list forever scrolling: I suppose keeping it linear lets you conceal the
-finiteness of your data.
+   Collections of items are quite happily organised in a grid, unless you're a
+stock exchange ticker tape designer, of course.  As such, so long as you want to
+*present* your data rather than have it seemingly scroll forever, the matrix is
+a practical ally.
 
-Here's the output of `ls`, a specimen I'm sure you've come across before:
+   For illustration, here's the output of `ls`, a specimen I'm sure you've come
+across before:
 
 ```sh
 ls -F
@@ -52,7 +53,7 @@ node_modules/  compose.sh*  eslint.config.mjs  package.json    README.md
 src/           Dockerfile   LICENSE            pnpm-lock.yaml  TODO
 ```
 
-   I've you've got a list of items begging to fit on a single page, you can lay
+   If your items are begging to fit on a single screenful of text, you can lay
 them out in a grid with `column`[^column]:
 
 [^column]: {{ cmd(name="column", repo = "https://github.com/util-linux/util-linux", package="core/x86_64/util-linux") }}
@@ -67,11 +68,11 @@ echo $PATH | tr : $'\n' | column
 /usr/bin		/usr/bin/vendor_perl	/home/ccjmne/share/pnpm
 ```
 
-   Note that `column` wants to output columns of unique width, regardless of
+   Note that `column` wants to print out columns of unique width, regardless of
 their individual content.
    By default, it uses tabulations, but you may have it use spaces with the
-`-S|--use-spaces` flag, which takes the minimum number of whitespaces that
-separate two columns:
+`-S|--use-spaces` flag, which takes the minimum number of whitespaces to
+separate columns by:
 
 
 ```sh
@@ -114,6 +115,7 @@ seq 100 150 | column --fillrows --use-spaces 2
 148  149  150
 ```
 
-   Avoiding the `-x` flag yields grids that are generally more evenly packed, if
-your display is wide enough to accommodate more of your items as you'd need rows
-to fit them all.  Either case will use exactly as many rows as necessary.
+   Avoiding the `-x` flag yields grids that are generally more evenly packed,
+provided that your display is wide enough to accommodate more of your items as
+you'd need rows to contain them all.  Either case will use exactly as many rows
+as necessary.
