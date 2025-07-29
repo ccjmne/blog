@@ -67,11 +67,10 @@ echo $PATH | tr : $'\n' | column
 ```
 
    Note that `column` wants to print out columns of unique width, regardless of
-their individual content.
+their individual content.<br>
    By default, it uses tabulations, but you may have it use spaces with the
-`-S|--use-spaces` flag, which takes the minimum number of whitespaces to
-separate columns by:
-
+<abbr font="mono" title="-S">--use-spaces</abbr> flag, which takes the minimum
+number of whitespaces to separate columns by:
 
 ```sh
 seq 100 150 | column
@@ -97,8 +96,9 @@ seq 100 150 | column --use-spaces 2
 103  107  111  115  119  123  127  131  135  139  143  147
 ```
 
-   Unless instructed otherwise, it will fill its grid column by column, but you
-can also have it go row-first by using `-x|--fillrows`:
+   Unless instructed otherwise, it will fill its grid column by column,
+but you can also have it go row-first by using <abbr font="mono"
+title="-x">--fillrows</abbr>
 
 ```sh
 seq 100 150 | column -xS2
@@ -111,10 +111,10 @@ seq 100 150 | column --fillrows --use-spaces 2
 148  149  150
 ```
 
-   Avoiding the `-x` flag yields grids that are generally more evenly packed,
-provided that your display is wide enough to accommodate more of your items as
-you'd need rows to contain them all.  Either case will use exactly as many rows
-as necessary.
+   Avoiding the <abbr font="mono" title="-x">--fillrows</abbr> flag yields
+grids that are generally more evenly packed, provided that your display is wide
+enough to accommodate more of your items as you'd need rows to contain them all.
+Either case will use exactly as many rows as necessary.
 
 ### The tabular data
 
@@ -134,12 +134,11 @@ uni identify É É 🧉
 'É'  U+00C9  201    c3 89       &Eacute;   LATIN CAPITAL LETTER E WITH ACUTE
 '🧉' U+1F9C9 129481 f0 9f a7 89 &#x1f9c9;  MATE DRINK
 ```
-
-Ah, so that's why I appear twice in `git shortlog --summary`...
+Ah, so that's why I appear twice in `git shortlog` <abbr font="mono" title="-s">--summary</abbr>...
 
    If you find yourself wanting to create such table, `column`[^column] again
-has got you covered: use its `-t|--table` flag to have it create or manipulate
-tabular data.<br>
+has got you covered: use its <abbr font="mono" title="-t">--table</abbr> flag to
+have it create or manipulate tabular data.<br>
    Have a look at `/etc/passwd`:
 
 ```sh
@@ -198,9 +197,10 @@ http       33  /srv/http        /usr/bin/nologin
 nobody  65534  /                /usr/bin/nologin
 ```
 
-   Although, the above is rather extreme: I generally limit myself the <abbr
-title="--table">t</abbr> , <abbr title="--separator">s</abbr> and <abbr
-title="--output-separator">o</abbr> flags, preferably preparing data upstream
+   Although, the above is rather extreme: I generally limit
+myself the <abbr font="mono" title="--table">-t</abbr>, <abbr
+font="mono" title="--separator">-s</abbr> and <abbr font="mono"
+title="--output-separator">-o</abbr> flags, preferably preparing data upstream
 with composable tools that I use often enough to need not browse the trusty
 `man`ual:
 
