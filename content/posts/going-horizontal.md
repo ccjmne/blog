@@ -115,3 +115,103 @@ seq 100 150 | column --fillrows --use-spaces 2
 provided that your display is wide enough to accommodate more of your items as
 you'd need rows to contain them all.  Either case will use exactly as many rows
 as necessary.
+
+### The tabular data
+
+   This one needs no introduction, yet the only example that came to mind is
+that of probing `uni`[^uni] for whatever fantastical sigil I last came across:
+
+[^uni]: {{ cmd(name="uni", repo = "https://github.com/util-linux/util-linux", package="core/x86_64/util-linux") }}
+
+```sh
+uni i ÉÉ🧉
+uni identify É É 🧉
+```
+```txt
+             Dec    UTF8        HTML       Name
+'E'  U+0045  69     45          &#x45;     LATIN CAPITAL LETTER E
+'◌́'  U+0301  769    cc 81       &#x301;    COMBINING ACUTE ACCENT
+'É'  U+00C9  201    c3 89       &Eacute;   LATIN CAPITAL LETTER E WITH ACUTE
+'🧉' U+1F9C9 129481 f0 9f a7 89 &#x1f9c9;  MATE DRINK
+```
+
+Ah, so that's why I appear twice in `git shortlog --summary`...
+
+   If you find yourself wanting to create such table, `column`[^column] again
+has got you covered: use its `-t|--table` flag to have it create or manipulate
+tabular data.<br>
+   Have a look at `/etc/passwd`:
+
+```sh
+head -7 /etc/passwd
+head --lines 7 /etc/passwd
+```
+```txt
+root:x:0:0::/root:/bin/bash
+bin:x:1:1::/:/usr/bin/nologin
+daemon:x:2:2::/:/usr/bin/nologin
+mail:x:8:12::/var/spool/mail:/usr/bin/nologin
+ftp:x:14:11::/srv/ftp:/usr/bin/nologin
+http:x:33:33::/srv/http:/usr/bin/nologin
+nobody:x:65534:65534:Kernel Overflow User:/:/usr/bin/nologin
+```
+
+   (You may nod in approval of the startling absence of an overwhelmingly
+mundane [UUOC](@/posts/first.md))
+
+Watch it now blossom into its intended form, fit for human consumption:
+
+```sh
+head -7 /etc/passwd | column -ts:
+head --lines 7 /etc/passwd | column --table --separator :
+```
+```txt
+root    x  0      0                            /root            /bin/bash
+bin     x  1      1                            /                /usr/bin/nologin
+daemon  x  2      2                            /                /usr/bin/nologin
+mail    x  8      12                           /var/spool/mail  /usr/bin/nologin
+ftp     x  14     11                           /srv/ftp         /usr/bin/nologin
+http    x  33     33                           /srv/http        /usr/bin/nologin
+nobody  x  65534  65534  Kernel Overflow User  /                /usr/bin/nologin
+```
+
+   But that's not all: `column` really lets you manipulate that data table in
+a myriad of ways.  Name columns, shuffle them around, wrap them, hide them...
+Have at it!
+
+```sh
+column --table                                                      \
+       --separator     :                                            \
+       --table-columns User,Password,UID,GID,Description,Home,Shell \
+       --table-hide    Password,GID,Description                     \
+       --table-right   UID                                          \
+       <(head -7 /etc/passwd)
+```
+```txt
+User      UID  Home             Shell
+root        0  /root            /bin/bash
+bin         1  /                /usr/bin/nologin
+daemon      2  /                /usr/bin/nologin
+mail        8  /var/spool/mail  /usr/bin/nologin
+ftp        14  /srv/ftp         /usr/bin/nologin
+http       33  /srv/http        /usr/bin/nologin
+nobody  65534  /                /usr/bin/nologin
+```
+
+   Although, the above is rather extreme: I generally restrain myself to the
+`t`, `s` and `o` flags, preferably preparing data upstream with composable tools
+that I use often enough to need not browse the trusty `man`ual:
+
+```sh
+{ echo 'User:UID:Home:Shell'; head -7 /etc/passwd | cut -d: -f1,3,6,7 } | column -ts:
+```
+```txt
+User    UID    Home             Shell
+root    0      /root            /bin/bash
+bin     1      /                /usr/bin/nologin
+daemon  2      /                /usr/bin/nologin
+mail    8      /var/spool/mail  /usr/bin/nologin
+ftp     14     /srv/ftp         /usr/bin/nologin
+http    33     /srv/http        /usr/bin/nologin
+nobody  65534  /                /usr/bin/nologin
+```
