@@ -16,7 +16,8 @@ body {
 sup.footnote-reference {
   font-size: 0.8em;
   vertical-align: super;
-  font-family: monospace;
+  font-family: "Fira Code", monospace;
+  font-weight: 600;
   color: theme.$anchor;
   > a {
     text-decoration: none;
