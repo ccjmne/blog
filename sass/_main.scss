@@ -17,7 +17,8 @@ main {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  width: 72ch;
+  width: min(100%, 72ch);
+  overflow-x: hidden;
 }
 
 footer {
