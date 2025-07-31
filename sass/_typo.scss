@@ -27,6 +27,9 @@ sup.footnote-reference {
 }
 
 a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+
   &, &:visited {
     color: theme.$anchor;
   }

@@ -155,8 +155,9 @@ http:x:33:33::/srv/http:/usr/bin/nologin
 nobody:x:65534:65534:Kernel Overflow User:/:/usr/bin/nologin
 ```
 
-   (You may nod in approval of the startling absence of an overwhelmingly
-mundane [UUOC](@/posts/first.md))
+   (You may nod in approval of the startling absence of an
+overwhelmingly mundane <abbr font="mono" title="Useless Use Of
+Cat">[UUOC](@/posts/first.md)</abbr>)
 
 Watch it now blossom into its intended form, fit for human consumption:
 
