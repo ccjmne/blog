@@ -1,0 +1,14 @@
+// Won't work on Firefox, because it respects the spec, which is... lacklustrous.
+// See https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scrollbars_styling
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 0px;
+  background-color: rgba(0, 0, 0, 0.4);
+  &:hover { background-color: rgba(0, 0, 0, 0.6); }
+}
