@@ -1,6 +1,7 @@
 html, html > body {
   min-height: 100vh;
   height: unset;
+  overflow-x: hidden;
 }
 
 html {
@@ -21,7 +22,6 @@ main {
   width: min(100%, 80ch);
   padding: 0 5vw;
   box-sizing: border-box;
-  overflow-x: hidden;
 }
 
 footer {
