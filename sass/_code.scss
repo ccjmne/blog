@@ -1,0 +1,37 @@
+@use 'thme' as theme;
+
+pre, code, [font^=mono] {
+  font-family: "Fira Code", monospace;
+  font-size: .92em;
+}
+
+code:not(pre > code), [font^=mono] {
+  white-space: nowrap;
+  font-weight: 600;
+  color: theme.$code;
+}
+
+// From https://www.getzola.org/documentation/content/syntax-highlighting/
+pre {
+  padding: 1rem;
+  overflow: auto;
+}
+pre[data-linenos] {
+  padding: 1rem 0;
+}
+pre table td {
+  padding: 0;
+}
+pre table td:nth-of-type(1) {
+  text-align: center;
+  vertical-align: top;
+  user-select: none;
+}
+pre mark {
+  display: block;
+  background-color: rgba(254, 252, 232, 0.9);
+}
+pre table {
+  width: 100%;
+  border-collapse: collapse;
+}
