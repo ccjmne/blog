@@ -4,7 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
 
-body {
+body, abbr[title-font=reset]::after {
   font-family: "Hedvig Letters Serif", serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -55,10 +55,11 @@ abbr {
   position: relative;
   cursor: help;
   text-decoration: none;
+  isolation: isolate;
 
   &::before {
-    background-color: #ccc;
-    opacity: .9;
+    background-color: #000;
+    opacity: .15;
     content: "";
     position: absolute;
     width: 100%;
@@ -72,9 +73,9 @@ abbr {
     content: attr(title);
     position: absolute;
     width: max-content;
-    right: 0;
-    bottom: 100%;
-    transform: translateX(100%);
+    left: 50%;
+    top: -2rem;
+    transform: translateX(-50%);
     padding: 0 .5rem;
     background-color: #f0f0f0;
     border: 1px solid #ccc;
