@@ -11,35 +11,29 @@ code:not(pre > code), [font^=mono] {
   color: theme.$code;
 }
 
-pre.language-sh:has(+ pre.language-txt) {
-  margin-bottom: 0;
-}
-pre.language-sh + pre.language-txt {
-  margin-top: 0;
-  padding-top: 0;
-}
-
-// From https://www.getzola.org/documentation/content/syntax-highlighting/
 pre {
+  margin: 0;
   padding: 1rem;
   overflow: auto;
-}
-pre[data-linenos] {
-  padding: 1rem 0;
-}
-pre table td {
-  padding: 0;
-}
-pre table td:nth-of-type(1) {
-  text-align: center;
-  vertical-align: top;
-  user-select: none;
-}
-pre mark {
-  display: block;
-  background-color: rgba(254, 252, 232, 0.9);
-}
-pre table {
-  width: 100%;
-  border-collapse: collapse;
+  &.language-sh + pre.language-txt { padding-top: 0; }
+  &:not(pre.language-sh + pre.language-txt) { margin-top: 1rem; }
+
+  // Below is about data-linenos, ported from https://www.getzola.org/documentation/content/syntax-highlighting/
+  &[data-linenos] { padding: 1rem 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    td {
+      padding: 0;
+      &:nth-of-type(1) {
+        text-align: center;
+        vertical-align: top;
+        user-select: none;
+      }
+    }
+  }
+  mark {
+    display: block;
+    background-color: rgba(254, 252, 232, 0.9);
+  }
 }
