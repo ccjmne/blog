@@ -123,6 +123,10 @@ that of probing `uni`[^uni] for whatever fantastical sigil I last came across:
 
 [^uni]: {{ cmd(name="uni", repo = "https://github.com/util-linux/util-linux", package="core/x86_64/util-linux") }}
 
+{% codeblock(
+   heading=""
+   comment="Ah, so that's why I appear twice in <abbr font='mono' title-font='reset' title='Summarize &apos;git log&apos; output'>git shortlog</abbr>` --summary`..."
+) %}
 ```sh
 uni i ÉÉ🧉
 uni identify É É 🧉
@@ -134,13 +138,14 @@ uni identify É É 🧉
 'É'  U+00C9  201    c3 89       &Eacute;   LATIN CAPITAL LETTER E WITH ACUTE
 '🧉' U+1F9C9 129481 f0 9f a7 89 &#x1f9c9;  MATE DRINK
 ```
-Ah, so that's why I appear twice in `git shortlog` <abbr font="mono" title="-s">--summary</abbr>...
+{% end %}
 
    If you find yourself wanting to create such table, `column`[^column] again
 has got you covered: use its <abbr font="mono" title="-t">--table</abbr> flag to
 have it create or manipulate tabular data.<br>
    Have a look at `/etc/passwd`:
 
+{% codeblock(heading="" comment="Note the startling absence of a [UUOC](@/posts/first.md)") %}
 ```sh
 head -7 /etc/passwd
 head --lines 7 /etc/passwd
@@ -154,10 +159,7 @@ ftp:x:14:11::/srv/ftp:/usr/bin/nologin
 http:x:33:33::/srv/http:/usr/bin/nologin
 nobody:x:65534:65534:Kernel Overflow User:/:/usr/bin/nologin
 ```
-
-   (You may nod in approval of the startling absence of an
-overwhelmingly mundane <abbr font="mono" title="Useless Use Of
-Cat">[UUOC](@/posts/first.md)</abbr>)
+{% end %}
 
 Watch it now blossom into its intended form, fit for human consumption:
 

@@ -1,0 +1,5 @@
+<div class="codeblock">
+  {% if heading | length > 0 %}<div class="heading">{{ heading | markdown | safe }}</div>{% endif %}
+  {{ body | markdown | safe }}
+  {% if comment | length > 0 %}<div class="comment">{{ comment | markdown | safe }}</div>{% endif %}
+</div>
