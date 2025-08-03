@@ -14,8 +14,8 @@ stylistic expression:
 - vertically to the linefeed[^esoteric-vertical-whitespace] (coalescing into
   blank lines), to pack together logical blocks of data or instructions, and
 - horizontally to the beginning of the line (in the form of
-  indentation), to delineate the hierarchy of our otherwise
-  strictly vertically-topologically-laid-out content.
+  indentation), to delineate the hierarchy of our otherwise strictly
+  vertically-topologically-laid-out content.
 
  But here's the thing: the taxonomy of text shouldn't be limited to paragraphs
 and lines.<br>
@@ -38,11 +38,15 @@ first three.
    Collections of items are quite happily organised in a grid, unless you're a
 stock exchange ticker tape designer, of course.  As such, so long as you want to
 *present* your data rather than have it seemingly scroll forever, the matrix is
-a practical ally.
+a practical ally, Neo.
 
-   For illustration, here's the output of `ls`, a specimen I'm sure you've come
-across before:
+   For illustration, here's the output of <abbr font="mono" title="List
+directory contents">`ls`</abbr>, a specimen I'm sure you've come across before:
 
+{% codeblock(
+   heading=""
+   comment="I use `--classify`/`-F` to annotate various file types, like executables and directories"
+) %}
 ```sh
 ls -F
 ls --classify
@@ -51,6 +55,7 @@ ls --classify
 node_modules/  compose.sh*  eslint.config.mjs  package.json    README.md
 src/           Dockerfile   LICENSE            pnpm-lock.yaml  TODO
 ```
+{% end %}
 
    If your items are begging to fit on a single screenful of text, you can lay
 them out in a grid with `column`[^column]:
@@ -58,7 +63,7 @@ them out in a grid with `column`[^column]:
 [^column]: {{ cmd(name="column", repo = "https://github.com/util-linux/util-linux", package="core/x86_64/util-linux") }}
 
 ```sh
-echo $PATH | tr : $'\n' | column
+echo $PATH | tr : '\n' | column
 ```
 ```txt
 /home/ccjmne/bin	/usr/local/sbin		/usr/bin/core_perl
@@ -69,8 +74,8 @@ echo $PATH | tr : $'\n' | column
    Note that `column` wants to print out columns of unique width, regardless of
 their individual content.<br>
    By default, it uses tabulations, but you may have it use spaces with the
-<abbr font="mono" title="-S">--use-spaces</abbr> flag, which takes the minimum
-number of whitespaces to separate columns by:
+`--use-spaces`/`-S` flag, which takes the minimum number of whitespaces to
+separate columns by:
 
 ```sh
 seq 100 150 | column
@@ -96,9 +101,8 @@ seq 100 150 | column --use-spaces 2
 103  107  111  115  119  123  127  131  135  139  143  147
 ```
 
-   Unless instructed otherwise, it will fill its grid column by column,
-but you can also have it go row-first by using <abbr font="mono"
-title="-x">--fillrows</abbr>
+   Unless instructed otherwise, it will fill its grid column by column, but you
+can also have it go row-first by using `--fillrows`/`-x`:
 
 ```sh
 seq 100 150 | column -xS2
@@ -141,9 +145,10 @@ uni identify É É 🧉
 {% end %}
 
    If you find yourself wanting to create such table, `column`[^column] again
-has got you covered: use its <abbr font="mono" title="-t">--table</abbr> flag to
-have it create or manipulate tabular data.<br>
-   Have a look at `/etc/passwd`:
+has got you covered: use its `--table`/`-t` flag to have it create or manipulate
+tabular data.<br>
+   Have a look at <abbr font="mono" title="User account
+information">`/etc/passwd`</abbr>:
 
 {% codeblock(heading="" comment="Note the startling absence of a [UUOC](@/posts/first.md)") %}
 ```sh
@@ -178,8 +183,8 @@ nobody  x  65534  65534  Kernel Overflow User  /                /usr/bin/nologin
 ```
 
    But that's not all: `column` really lets you manipulate that data table in
-a myriad of ways.  Name columns, shuffle them around, wrap them, hide them...
-Have at it!
+a myriad of ways.  Name columns, shuffle them around, truncate or wrap their
+content, hide them...  Have at it!
 
 ```sh
 column --table                                                      \
@@ -200,23 +205,13 @@ http       33  /srv/http        /usr/bin/nologin
 nobody  65534  /                /usr/bin/nologin
 ```
 
-   Although, the above is rather extreme: I generally limit
+   However, the above is rather extreme: I generally limit
 myself the <abbr font="mono" title="--table">-t</abbr>, <abbr
 font="mono" title="--separator">-s</abbr> and <abbr font="mono"
 title="--output-separator">-o</abbr> flags, preferably preparing data upstream
-with composable tools that I use often enough to need not browse the trusty
-`man`ual:
+with composable tools that I use often enough to need not [browse the trusty
+manual](@/posts/man):
 
 ```sh
 { echo 'User:UID:Home:Shell'; head -7 /etc/passwd | cut -d: -f1,3,6,7 } | column -ts:
-```
-```txt
-User    UID    Home             Shell
-root    0      /root            /bin/bash
-bin     1      /                /usr/bin/nologin
-daemon  2      /                /usr/bin/nologin
-mail    8      /var/spool/mail  /usr/bin/nologin
-ftp     14     /srv/ftp         /usr/bin/nologin
-http    33     /srv/http        /usr/bin/nologin
-nobody  65534  /                /usr/bin/nologin
 ```
