@@ -43,10 +43,6 @@ a practical ally, Neo.
    For illustration, here's the output of <abbr font="mono" title="List
 directory contents">`ls`</abbr>, a specimen I'm sure you've come across before:
 
-{% codeblock(
-   heading=""
-   comment="I use `--classify`/`-F` to annotate various file types, like executables and directories"
-) %}
 ```sh
 ls -F
 ls --classify
@@ -55,7 +51,7 @@ ls --classify
 node_modules/  compose.sh*  eslint.config.mjs  package.json    README.md
 src/           Dockerfile   LICENSE            pnpm-lock.yaml  TODO
 ```
-{% end %}
+{% note(type="comment") %} I use `--classify`/`-F` to annotate various file types, like executables and directories {% end %}
 
    If your items are begging to fit on a single screenful of text, you can lay
 them out in a grid with `column`[^column]:
@@ -127,10 +123,6 @@ that of probing `uni`[^uni] for whatever fantastical sigil I last came across:
 
 [^uni]: {{ cmd(name="uni", repo = "https://github.com/util-linux/util-linux", package="core/x86_64/util-linux") }}
 
-{% codeblock(
-   heading=""
-   comment="Ah, so that's why I appear twice in <abbr font='mono' title-font='reset' title='Summarize &apos;git log&apos; output'>git shortlog</abbr>` --summary`..."
-) %}
 ```sh
 uni i ÉÉ🧉
 uni identify É É 🧉
@@ -142,7 +134,7 @@ uni identify É É 🧉
 'É'  U+00C9  201    c3 89       &Eacute;   LATIN CAPITAL LETTER E WITH ACUTE
 '🧉' U+1F9C9 129481 f0 9f a7 89 &#x1f9c9;  MATE DRINK
 ```
-{% end %}
+{% note(type="comment") %} Ah, so that's why I appear twice in <abbr font='mono' title-font='reset' title='Summarize &apos;git log&apos; output'>git shortlog</abbr>` --summary`... {% end %}
 
    If you find yourself wanting to create such table, `column`[^column] again
 has got you covered: use its `--table`/`-t` flag to have it create or manipulate
@@ -150,7 +142,6 @@ tabular data.<br>
    Have a look at <abbr font="mono" title="User account
 information">`/etc/passwd`</abbr>:
 
-{% codeblock(heading="" comment="Note the startling absence of a [UUOC](@/posts/first.md)") %}
 ```sh
 head -7 /etc/passwd
 head --lines 7 /etc/passwd
@@ -164,7 +155,7 @@ ftp:x:14:11::/srv/ftp:/usr/bin/nologin
 http:x:33:33::/srv/http:/usr/bin/nologin
 nobody:x:65534:65534:Kernel Overflow User:/:/usr/bin/nologin
 ```
-{% end %}
+{% note(type="comment") %} Note the startling absence of a [UUOC](@/posts/first.md) {% end %}
 
 Watch it now blossom into its intended form, fit for human consumption:
 

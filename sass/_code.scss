@@ -1,17 +1,5 @@
 @use 'thme' as theme;
 
-.codeblock {
-  .heading, .comment {
-    background: #ccc;
-    padding: 0 1rem;
-    font-size: .95em;
-    > p { margin: 0 }
-  }
-
-  .heading { display: ruby; }
-  .comment { text-align: end; }
-}
-
 pre, code, [font^=mono] {
   font-family: "Fira Code", monospace;
   font-size: .92em;

@@ -1,0 +1,16 @@
+.note {
+  background: #bbb;
+  padding: 0 1rem;
+  font-size: .95em;
+  > p { margin: 0 }
+
+  &[type=heading] {
+    display: ruby;
+    color: black;
+  }
+  &[type=comment] {
+    color: black;
+    // text-align: end;
+  }
+}
+
