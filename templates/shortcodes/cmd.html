@@ -1,10 +1,14 @@
 <table class="shrt-cmd">
   <tr><th colspan="2"><strong>{{ name }}</strong></th></tr>
   <tr style="padding: 0 1em;">
-    <td colspan="2">from <a href="https://archlinux.org/packages/{{ package }}">{{ package | replace(from="/x86_64/", to="/") }}</a></td>
+    {% if package is starting_with("aur/") %}
+        <td colspan="2">from <a href="https://aur.archlinux.org/packages/{{ package | replace(from="aur/", to="") }}">{{ package }}</a></td>
+    {% else %}
+        <td colspan="2">from <a href="https://archlinux.org/packages/{{ package }}">{{ package | replace(from="/x86_64/", to="/") }}</a></td>
+    {% endif %}
   </tr>
   <tr style="padding: 0 1em;">
-    <td><a href="https://man.archlinux.org/man/{{ name }}.1.{{ lang }}">manual</a></td>
+    <td><a href="{{ manual }}">manual</a></td>
     <td><a href="{{ repo }}">repository</a></td>
   </tr>
 </table>

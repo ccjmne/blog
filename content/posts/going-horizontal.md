@@ -56,7 +56,7 @@ src/           Dockerfile   LICENSE            pnpm-lock.yaml  TODO
    If your items are begging to fit on a single screenful of text, you can lay
 them out in a grid with `column`[^column]:
 
-[^column]: {{ cmd(name="column", repo = "https://github.com/util-linux/util-linux", package="core/x86_64/util-linux") }}
+[^column]: {{ cmd(name="column", repo="https://github.com/util-linux/util-linux/", package="core/x86_64/util-linux", manual="https://man.archlinux.org/man/column.1.en") }}
 
 ```sh
 echo $PATH | tr : '\n' | column
@@ -121,7 +121,7 @@ Either case will use exactly as many rows as necessary.
    This one needs no introduction, yet the only example that came to mind is
 that of probing `uni`[^uni] for whatever fantastical sigil I last came across:
 
-[^uni]: {{ cmd(name="uni", repo = "https://github.com/util-linux/util-linux", package="core/x86_64/util-linux") }}
+[^uni]: {{ cmd(name="uni", repo="https://github.com/arp242/uni", package="aur/uni", manual="https://github.com/arp242/uni/#usage") }}
 
 ```sh
 uni i ÉÉ🧉
