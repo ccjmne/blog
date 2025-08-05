@@ -16,7 +16,6 @@ pre {
   padding: 1rem;
   overflow: auto;
   &.language-sh + pre.language-txt { padding-top: 0; }
-  &:not(pre.language-sh + pre.language-txt) { margin-top: 1rem; }
 
   // Below is about data-linenos, ported from https://www.getzola.org/documentation/content/syntax-highlighting/
   &[data-linenos] { padding: 1rem 0; }
