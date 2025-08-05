@@ -63,9 +63,9 @@ abbr {
     content: "";
     position: absolute;
     width: 100%;
-    height: 40%;
+    height: 4px;
     left: 0px;
-    bottom: 0px;
+    bottom: -1px;
     z-index: -1;
   }
 
