@@ -1,1 +1,1 @@
-setlocal tw=80 spell
+setlocal tw=80 sw=3 spell
