@@ -215,3 +215,206 @@ manual](@/posts/man):
 ```sh
 { echo 'User:UID:Home:Shell'; head -7 /etc/passwd | cut -d: -f1,3,6,7 } | column -ts:
 ```
+
+### The adjoined fragments
+
+   Finally, there's data that's not quite tabular enough to be called that...
+yet!  This final section of the article is where you finally get some bang
+for your buck: we'll try our hands at putting chunks of text next to one
+another.<br>
+   The `paste`[^paste] utility lets you join lines from multiple files:
+
+[^paste]: {{ cmd(name="paste", repo="https://github.com/coreutils/coreutils", package="core/x86_64/coreutils", manual="https://man.archlinux.org/man/paste.1.en") }}
+
+<div class="grid-1-3">
+<div>
+
+```sh
+cat a.txt
+```
+```txt
+a
+b
+c
+d
+e
+```
+</div>
+<div>
+
+```sh
+cat b.txt
+```
+```txt
+1
+2
+3
+4
+```
+</div>
+<div>
+
+```sh
+paste b.txt a.txt
+```
+```txt
+a	1
+b	2
+c	3
+d	4
+e
+```
+{% note(type="comment") %} these are *tabulations* {% end %}
+</div>
+</div>
+
+How often do you need to do that?  Precisely *never*, were it not for [(pretty
+much) everything being a file (descriptor)](@/posts/everything-is-a-file.md):
+you can also `paste` the output of commands together:
+
+```sh
+paste <(printf "%s\n" {a..e}) <(seq 1 4) <(man git | sed '/The commit/,/^$/!d')
+```
+```txt
+a	1	The commit, equivalent to what other systems call a "changeset" or
+b	2	"version", represents a step in the project’s history, and each parent
+c	3	represents an immediately preceding step. Commits with more than one
+d	4	parent represent merges of independent lines of development.
+e		
+```
+{% note(type="comment") %} these are still *tabulations* {% end %}
+
+You can just about feel that there's something usable there, but we'll have to
+address some tab-related limitations before unearthing this treasure:
+
+```sh
+paste <(echo 'NAME\nccjmne\nninoshka\nozymandias\nhe-who-must-not-be-named') \
+      <(echo 'JOB\nsoftware engineer\nfaithful companion\ngreek pharaoh\nrogue wizard')
+```
+```txt
+NAME	JOB
+ccjmne	software engineer
+ninoshka	faithful companion
+ozymandias	greek pharaoh
+he-who-must-not-be-named	rogue wizard
+
+```
+{% note(type="comment") %} data may overflow past the tabulations stops {% end %}
+
+<br>
+
+```sh
+paste <(recall 2.days.ago) <(recall yesterday) <(recall today)
+```
+```txt
+Sat, 17 July	Sun, 18 July	Mon, 19 July
+------------	------------	------------
+#edu 5h48m	#edu 2h09m	#edu 1h32m
+#foss 1h06m	#foss 3h04m	#foss 31m
+	#run 39m	#work 8h12m
+		#commute 49m
+```
+{% note(type="comment") %} imbalanced datasets also create problems (the `recall` command is made up) {% end %}
+
+The remedy is the `--delimiters`/`-d` flag, which pairs delightfully well
+with `column -ts` in a real ah-ha moment:
+
+<div class="grid-1-2">
+<div>
+
+```sh
+paste <(recall 2.days.ago) \
+      <(recall yesterday)  \
+      <(recall today)      \
+      --delimiters ':'
+```
+```txt
+Sat, 17 July:Sun, 18 July:Mon, 19 July
+------------:------------:------------
+#edu 5h48m:#edu 2h09m:#edu 1h32m
+#foss 1h06m:#foss 3h04m:#foss 31m
+:#run 39m:#work 8h12m
+::#commute 49m
+```
+{% note(type="comment") %} circling back to the `/etc/passwd` format {% end %}
+</div>
+<div>
+
+```sh
+paste <(recall 2.days.ago) \
+      <(recall yesterday)  \
+      <(recall today)      \
+      -d: | column -ts:
+```
+```txt
+Sat, 17 July  Sun, 18 July  Mon, 19 July
+------------  ------------  ------------
+#edu 5h48m    #edu 2h09m    #edu 1h32m
+#foss 1h06m   #foss 3h04m   #foss 31m
+              #run 39m      #work 8h12m
+                            #commute 49m
+```
+</div>
+</div>
+
+   However, this treatment is only curative if you can identify a symbol that
+your data doesn't contain.  We could almost make it a panacea, were it not for
+what I consider a quirk of `paste`.<br>
+
+   As you'll have noted, the `--delimiters` flag is *plural*: it can cycle
+through a list of <abbr font="mono" title="American Standard Code for
+Information Interchange">ASCII</abbr> characters to use instead of tabulations.
+Regardless of the practicality of this feature, its implementation has `paste`
+consider each *byte* as a distinct delimiter: committing to an esoteric Unicode
+character that spans several bytes will therefore not do you any good.
+
+   Here are a few examples for illustration, which are most probably best
+consumed with the questions likely raised by the above paragraph still on your
+mind:
+
+<div class="grid-1-2">
+<div>
+
+```sh
+xxd <<< 🦉
+```
+```txt
+f09f a689	....
+```
+```sh
+yes | head -5 | paste -d🦉 - - - - -
+```
+```txt
+yyyyy
+```
+```sh
+yes | head -5 | paste -d🦉 - - - - - | xxd
+```
+```txt
+79f0 799f 79a6 7989 79	y.y.y.y.y
+
+```
+</div>
+<div>
+
+```sh
+cat /dev/null                              \
+    | paste -d🦉 <(echo [) - - - <(echo ]) \
+    | xxd
+```
+```txt
+5bf0 9fa6 89f0 5d	[....]
+```
+```sh
+cat /dev/null \
+    | paste -d🦉 <(echo [) - - - <(echo ])
+```
+```txt
+[🦉]
+```
+{% note(type="comment") %} I allowed myself `cat /dev/null |` here for `- - -` {% end %}
+</div>
+</div>
+
+   I did alter `xxd`'s output for simplicity, though I recognise that adequate
+highlighting would be the ideal resolution.
