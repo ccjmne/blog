@@ -1,8 +1,27 @@
 +++
-title = 'Laying text out horizontally'
+title = 'Intralinear partitioning (part 1 of 3)'
 date = 2025-07-25
-description = 'Putting chunks of text side by side'
+description = 'Laying text out horizontally'
 +++
+
+<div style="background: #ccc; margin: 0 -2em; padding: .1px 2em;">
+
+### Preamble
+
+This 3-part article concerns itself with putting chunks of text side by side.
+
+1. This first, rambly piece addresses the *what* and *why*,
+2. the second goes over the practical use of some <abbr font="mono"
+   title="Command Line Interface, where I dwell">CLI</abbr> tools indispensable
+   to the task, and
+3. the third and final chapter will share some quite nifty <abbr font="mono"
+   title="The ubiquitous text editor">`Vim`</abbr>[^vim] tricks to the same end.
+</div>
+
+[^vim]: {{ cmd(name="vim", repo="https://github.com/vim/vim", package="extra/x86_64/vim", manual="https://vimhelp.org/") }}
+        {{ cmd(name="neovim", repo="https://github.com/neovim/neovim", package="extra/x86_64/neovim", manual="https://neovim.io/doc/user/") }}
+
+## Introduction
 
    Professionally, I put code together. Intimately, I am compelled to make
 it neat: I get closer to that goal by wielding non-printable characters like
