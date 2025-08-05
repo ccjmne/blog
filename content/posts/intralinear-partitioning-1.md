@@ -25,9 +25,9 @@ This 3-part article concerns itself with putting chunks of text side by side.
 
    Professionally, I put code together. Intimately, I am compelled to make
 it neat: I get closer to that goal by wielding non-printable characters like
-monochrome photography uses light, with *purpose* and finesse.
+monochrome photography uses light, with *purpose*.
 
-   In my line of work, the current status quo regarding whitespace limits our
+   The current status quo regarding whitespace, in my line of work, limits our
 stylistic expression:
 
 - vertically to the linefeed[^esoteric-vertical-whitespace] (coalescing into
@@ -109,15 +109,15 @@ seq 100 150 | column
 seq 100 150 | column -S2
 seq 100 150 | column --use-spaces 2
 ```
-```txt,name=column -S2
+```txt
 100  104  108  112  116  120  124  128  132  136  140  144  148
 101  105  109  113  117  121  125  129  133  137  141  145  149
 102  106  110  114  118  122  126  130  134  138  142  146  150
 103  107  111  115  119  123  127  131  135  139  143  147
 ```
 
-   Unless instructed otherwise, it will fill its grid column by column, but you
-can also have it go row-first by using `--fillrows`/`-x`:
+   Unless instructed otherwise, it will fill its grid column-first, but you can
+also have it go row by row with `--fillrows`/`-x`:
 
 ```sh
 seq 100 150 | column -xS2
@@ -130,10 +130,10 @@ seq 100 150 | column --fillrows --use-spaces 2
 148  149  150
 ```
 
-   Avoiding the <abbr font="mono" title="-x">--fillrows</abbr> flag yields
-grids that are generally more evenly packed, provided that your display is wide
-enough to accommodate more of your items as you'd need rows to contain them all.
-Either case will use exactly as many rows as necessary.
+   Avoiding the `--fillrows` flag yields grids that are generally more evenly
+packed, provided that your display is wide enough to accommodate more of your
+items as you'd need rows to contain them all.  Either case will use exactly as
+many rows as necessary.
 
 ### The tabular data
 
