@@ -4,6 +4,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
 
+strong { font-weight: 700; }
+ol { list-style-type: lower-roman; }
+ul { list-style-type: square; }
+
 body, abbr[title-font=reset]::after {
   font-family: "Hedvig Letters Serif", serif;
   font-optical-sizing: auto;
