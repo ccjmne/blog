@@ -306,9 +306,7 @@ mind:
 ```sh
 xxd <<< 🦉
 ```
-```txt
-f09f a689	....
-```
+<pre class="language-txt z-code"><code><span class="z-string">f09f</span> <span class="z-string">a689</span> <span class="z-constant">0a</span>  <span class="z-string">....</span><span class="z-constant">.</span></pre></code>
 ```sh
 yes | head -5 | paste -d🦉 - - - - -
 ```
@@ -318,10 +316,7 @@ yyyyy
 ```sh
 yes | head -5 | paste -d🦉 - - - - - | xxd
 ```
-```txt
-79f0 799f 79a6 7989 79	y.y.y.y.y
-
-```
+<pre class="language-txt z-code"><code><span class="z-variable">79</span><span class="z-string">f0</span> <span class="z-variable">79</span><span class="z-string">9f</span> <span class="z-variable">79</span><span class="z-string">a6</span> <span class="z-variable">79</span><span class="z-string">89</span> <span class="z-variable">79</span><span class="z-constant">0a</span>  <span class="z-variable">y</span><span class="z-string">.</span><span class="z-variable">y</span><span class="z-string">.</span><span class="z-variable">y</span><span class="z-string">.</span><span class="z-variable">y</span><span class="z-string">.</span><span class="z-variable">y</span><span class="z-constant">.</span></pre></code>
 </div>
 <div>
 
@@ -330,9 +325,7 @@ cat /dev/null                              \
     | paste -d🦉 <(echo [) - - - <(echo ]) \
     | xxd
 ```
-```txt
-5bf0 9fa6 89f0 5d	[....]
-```
+<pre class="language-txt z-code"><code><span class="z-variable">5b</span><span class="z-string">f0</span> <span class="z-string">9fa6</span> <span class="z-string">89</span><span class="z-variable">5d</span> <span class="z-constant">0a</span>  <span class="z-variable">[</span><span class="z-string">....</span><span class="z-variable">]</span><span class="z-constant">.</span></pre></code>
 ```sh
 cat /dev/null \
     | paste -d🦉 <(echo [) - - - <(echo ])
@@ -344,5 +337,6 @@ cat /dev/null \
 </div>
 </div>
 
-   I did alter `xxd`'s output for simplicity, though I recognise that adequate
-highlighting would be the ideal resolution.
+   I did alter `xxd`'s output for simplicity, and attempted to provide
+reasonably adequate highlighting, which I hope to be more helpful than it is
+confusing.
