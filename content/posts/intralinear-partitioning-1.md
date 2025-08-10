@@ -263,51 +263,33 @@ Here's the whole truth:
 
 ### You have time for this
 
-   If you're making adept, skilful contributions to meaningful software, your
-time is spent:
-
-- looking for information, locating the right piece of code,
-- reading up documentation, specifications and requirements, historical and
-  contemporary alike,
-- formulating implementation strategies,
-- building a proof of concept, seeing it work, and finally:
-- doing it over spotlessly, armed with your newly found personal and profound
-  understanding of the conceptual problem within the contexts that birthed it
-  and that shall see it expire, as well as the dubious pitfalls that your naive,
-  handle-as-you-discover implementation could avoid with the savvy, educated
-  ingenuity that only comes from hindsight.
-
- You're meant to be spending your time investigating and exploring.  Jotting
-down legible documents that procure workable instructions to the machine, any
-fool can do: every fool does.  If you're tasked with authoring code, you're
-assumed to have mastered the putting-text-together aspect of it already:
-[we are typists first](https://blog.codinghorror.com/we-are-typists-first-programmers-second/).
+   If you're making adept, skilful contributions to meaningful software, you're
+meant to be spending your time investigating and exploring.  Jotting down
+legible documents that procure workable instructions to the machine, any fool
+can do: every fool does.  If you're tasked with authoring code, you're assumed
+to have mastered the putting-text-together aspect of it already: [we are typists
+first](https://blog.codinghorror.com/we-are-typists-first-programmers-second/).
 
 ### Use tools that help
 
    If your tools are either not assisting or outright hindering you in some
 aspects of your goals, *do not blame or forsake the goal*.  You may simply
-need—or get!—to use them differently.  Mastery of masterful tools are a sure way
-to master your craft.
+need—or get!—to use them differently.
 
    If you find neat documents desirable but the baseline auto-formatter will
 squash your style, it may be time to ask yourself whether you and your team are
 such purposeful pigs that a generic, one-size-fits-all crutch is the preferred
-cure-all elixir to your systematic, inescapable blurts.<br>
+cure-all elixir to your systematic, inescapable blurts.
+
    The formatter and linter help, but in no way should dictate prescriptive
 style over the learned tastes of your experienced discernment: do review code.
 
-### This is nothing more than a green flag
+### You have the go-ahead
 
-   You do not have to make your code look pretty beyond mere logical structure,
-but you *do have to* read it, every now and again.  Just as a tech influencer's
-audacity in naming "CLEAN" his counsel tailored for careless, hurried neophytes
-doesn't mean that the only correct style is that of the spaghetti; this
-here guidance doesn't mean that anything less than deliberate, systemic and
-hand-woven text is the only rightful prescription.
-
-   This is just an encouragement, a call for you to assume your style and not
-shy away from crafting text with as much care as you wish.
+   You do not have to make your code look pretty beyond mere logical
+structure, but you *do have to* read it, every now and again.  This is just
+an encouragement, a call for you to assume your style and not shy away from
+crafting text with as much care as you wish.
 
 ## Next
 
