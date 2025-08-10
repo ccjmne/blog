@@ -44,8 +44,8 @@ the [CR](https://www.compart.com/en/unicode/U+000D),
 ## The few forms of horizontal alignment
 
    In the wild, I identified four classes of occurrences itching for what I
-shall refer to as *intralinear partitioning*.  In this article, we'll appreciate
-and learn to reproduce the first three.
+shall refer to as *intralinear partitioning*.  In this article, I propose to
+classify and appreciate them.
 
 ### The list in a grid
 
@@ -86,7 +86,7 @@ uni identify É É 🧉
 'É'  U+00C9  201    c3 89       &Eacute;   LATIN CAPITAL LETTER E WITH ACUTE
 '🧉' U+1F9C9 129481 f0 9f a7 89 &#x1f9c9;  MATE DRINK
 ```
-{% note(type="comment") %} Ah, so that's why I appear twice in <abbr title='Summarize &apos;git log&apos; output'>`git shortlog`</abbr>` --summary`... {% end %}
+{% note(type="comment") %} ah, so that's why I appear twice in <abbr title='Summarize &apos;git log&apos; output'>`git shortlog`</abbr>` --summary`... {% end %}
 
 ### The adjoined and annotated fragments
 
@@ -110,7 +110,7 @@ postgres_1   2025-08-09 12:35:15 | STATEMENT:  SELECT * FROM employees;
 postgres_1   2025-08-09 12:35:20 | LOG:  disconnection: session time: 9s user=acme database=mydb host=172.18.0.5 port=5432
 webserver_1  2025-08-09 12:35:05 | GET /api/employees 200 15ms
 ```
-{% note(type="comment") %} Here, `docker compose` decorates the concatenated logs with their provenance and timestamps {% end %}
+{% note(type="comment") %} here, `docker compose` decorates the concatenated logs with their provenance and timestamps {% end %}
 
 The juxtaposition of pieces of content also routinely aids in visual comparison:
 
@@ -189,7 +189,7 @@ public Adyen(final GeographicalArea shop) {
         .from(Props.getFrom(PROPS_FILE));
 }
 ```
-{% note(type="comment") %} Bonus points for the serendipitously native alignment of the `JSON` and `HTTP` constants declaration {% end %}
+{% note(type="comment") %} bonus points for the serendipitously native alignment of the `JSON` and `HTTP` constants declaration {% end %}
 
 <br>
 
@@ -249,9 +249,9 @@ Revisions 1 through 8 ............................ 2024-01-30 through 2024-02-04
 ## What to do about these
 
    I suppose this would be the place for the rhetorical question regarding the
-virtues of this fastidiousness but I'll only grace you with the broad strokes of
-its answer instead: yes, it is more beautiful, it aids in visual grepping, in
-contextual parsing, and it shows you care.
+virtues of this fastidiousness, but I'll only grace you with the broad strokes
+of its answer instead: yes, it is more beautiful, it aids in visual grepping, in
+contextual parsing, and it shows that you care.
 
   However, as the saying goes: "ain't nobody got time for that" is sure to be
 the most ready retort to my proposition, together with "the auto-formatter would
@@ -272,8 +272,8 @@ time is spent:
 - formulating implementation strategies,
 - building a proof of concept, seeing it work, and finally:
 - doing it over spotlessly, armed with your newly found personal and profound
-  understanding of the conceptual problem with the contexts in which it was born
-  and in which it shall expire, as well as the dubious pitfalls that your naive,
+  understanding of the conceptual problem within the contexts that birthed it
+  and that shall see it expire, as well as the dubious pitfalls that your naive,
   handle-as-you-discover implementation could avoid with the savvy, educated
   ingenuity that only comes from hindsight.
 
@@ -285,23 +285,19 @@ assumed to have mastered the putting-text-together aspect of it already:
 
 ### Use tools that help
 
-   If your tools aren't assisting or outright hinder you in some aspects of
-your goals, *do not blame or forsake the goal*.  You may simply need—or get!—to
-use them differently.  Mastery of masterful tools are a sure way to master your
-craft.
+   If your tools are either not assisting or outright hindering you in some
+aspects of your goals, *do not blame or forsake the goal*.  You may simply
+need—or get!—to use them differently.  Mastery of masterful tools are a sure way
+to master your craft.
 
-   A decent text editor can and will help, and formatters
-[can](https://github.com/CppCXY/EmmyLuaCodeStyle/blob/master/docs/format_action_EN.md#alignment)
-[indeed](https://eslint.style/) be
-[configured](https://eclipse.dev/eclipse/news/4.9/jdt.html#align-spaces)
-to meaningfully use whitespace.  If neat documents are desirable but the
-baseline auto-formatter will squash your style, it may be time to ask yourself
-whether your team are such purposeful pigs that a generic, one-size-fits-all
-crutch is the preferred elixir to your systematic, inescapable blurts.<br>
+   If you find neat documents desirable but the baseline auto-formatter will
+squash your style, it may be time to ask yourself whether you and your team are
+such purposeful pigs that a generic, one-size-fits-all crutch is the preferred
+cure-all elixir to your systematic, inescapable blurts.<br>
    The formatter and linter help, but in no way should dictate prescriptive
-style over the learned tastes of your experienced discernment.
+style over the learned tastes of your experienced discernment: do review code.
 
-### You don't have to do this
+### This is nothing more than a green flag
 
    You do not have to make your code look pretty beyond mere logical structure,
 but you *do have to* read it, every now and again.  Just as a tech influencer's
@@ -309,6 +305,9 @@ audacity in naming "CLEAN" his counsel tailored for careless, hurried neophytes
 doesn't mean that the only correct style is that of the spaghetti; this
 here guidance doesn't mean that anything less than deliberate, systemic and
 hand-woven text is the only rightful prescription.
+
+   This is just an encouragement, a call for you to assume your style and not
+shy away from crafting text with as much care as you wish.
 
 ## Next
 
