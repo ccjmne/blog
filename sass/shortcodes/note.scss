@@ -1,16 +1,9 @@
 .note {
-  background: #bbb;
+  background: #ccc;
   padding: 0 1rem;
   font-size: .95em;
   > p { margin: 0 }
 
-  &[type=heading] {
-    display: ruby;
-    color: black;
-  }
-  &[type=comment] {
-    color: black;
-    // text-align: end;
-  }
+  &[type=heading] { display: ruby; }
+  &[type=comment] { }
 }
-
