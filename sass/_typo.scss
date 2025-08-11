@@ -35,7 +35,7 @@ a {
     color: theme.$anchor;
   }
 
-  &[href^=http]:not([href^='https://ccjmne.sh/'],[href^='https://ccjmne.github.io/'],[href^='http://127.0.0.1'],:has(img)) {
+  &[href^=git],&[href^=http]:not([href^='https://ccjmne.sh/'],[href^='https://ccjmne.github.io/'],[href^='http://127.0.0.1'],:has(img)) {
     &::after {
       content: " ↗";
       font-size: 0.66em;
