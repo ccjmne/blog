@@ -1,0 +1,11 @@
+[package]
+name = "update-catppuccin"
+edition = "2024"
+
+[dependencies]
+sublime-color-scheme = "0.1.4"
+syntect = "5"
+
+[[bin]]
+name = "update-catppuccin"
+path = "update-catppuccin.rs"
