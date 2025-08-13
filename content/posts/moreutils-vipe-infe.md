@@ -1,7 +1,7 @@
 +++
-title = 'Script-friendliest $EDITOR with moreutils'
+title = 'Script-friendliest `$EDITOR` with `moreutils`'
 date = 2025-07-31
-description = "Adoping moreutils's vipe and ifne for friendlier scripting"
+description = "Adoping moreutils's `vipe` and `ifne` for friendlier scripting"
 +++
 
 I carry around a (very humble) collection of <abbr title="A command-line fuzzy
@@ -19,10 +19,10 @@ here and there: wait until you learn about `fc`!
 But I'm not talking about the speed: I'm talking about the *availability* and
 *convenience*.
 
-With <abbr title="Aptly and delightfully named">`moreutils`</abbr>,
+With <abbr title="Aptly and delightfully named companion to coreutils">`moreutils`</abbr>,
 this elevator pitch needs to be challenged: *between*
-two commands?  Laughable.  The adept [Functional
-Programmer](https://en.wikipedia.org/wiki/Functional_programming) in me should
+two commands?  Laughable.  The adept [functional
+programmer](https://en.wikipedia.org/wiki/Functional_programming) in me should
 have sniffed it out some time ago: I can use Vim like I use <abbr title="Stream
 editor for filtering and transforming text ">`sed`</abbr>.
 
@@ -51,7 +51,7 @@ will:
 1. let the user select a quote from some collection,
 2. prepare an e-mail sharing that quote to some unsuspecting recipient,
 3. let the user customise that e-mail,
-4. send the email to the unsuspecting recipient.
+4. send the e-mail to the unsuspecting recipient.
 
 Let's start off with steps 1 and 2:
 
@@ -102,14 +102,14 @@ Success is getting what you want, happiness is wanting what you get.
 
     — W.P. Kinsella
 ```
-{% note(type="comment") %} it'd be highlighted sensibly in your editor{% end %}
+{% note(type="comment") %} it'll be highlighted sensibly in your editor {% end %}
 
 [^jq]: {{ cmd(name="jq", repo="https://gitlab.archlinux.org/archlinux/packaging/packages/jq", package="extra/x86_64/jq", manual="https://man.archlinux.org/man/extra/jq/jq.1.en") }}
 
 On with the last two steps: if the user did select a quote, they'll get to edit
-their email in their favourite `$EDITOR`, with adequate highlighting for the
-email format.  When they're done, if they neither emptied or deleted the file,
-nor emitted an error (`:cq`), their email is then sent off to the unsuspecting
+their e-mail in their favourite `$EDITOR`, with adequate highlighting for the
+e-mail format.  When they're done, if they neither emptied or deleted the file,
+nor emitted an error (`:cq`), their e-mail is then sent off to the unsuspecting
 recipient:
 
 ```sh
@@ -122,7 +122,12 @@ fi
 rm $MAIL
 ```
 
-Fantastic!  But it gets better: you can have it part of a very
+There you go, all in a few lines of shell scripting, while you're out
+and about surfing the command line.  Spawn it in a <abbr title="Terminal
+multiplexer">`tmux`</abbr> pop-up and start spamming to your heart's content,
+barely interrupting your flow long enough to personalise the e-mail.  Fantastic!
+
+But it gets better: you can integrate it right inside an outright
 [pipeline](https://en.wikipedia.org/wiki/Pipeline_(Unix)).
 
 ## More friendliness with `moreutils`
@@ -130,7 +135,7 @@ Fantastic!  But it gets better: you can have it part of a very
 Enter [`moreutils`](https://joeyh.name/code/moreutils/), a "collection of the
 Unix tools that nobody thought to write long ago when Unix was young".
 
-It's got some niceties that do find some fame online, such <abbr title="Look
+It's got some niceties that do find some fame online, such as <abbr title="Look
 up errno names and descriptions">`errno`</abbr>, <abbr title="Soak up standard
 input and write to a file">`sponge`</abbr> and <abbr title="Timestamp
 input">`ts`</abbr>, but the treats of the day are `vipe` and `ifne`.
@@ -140,17 +145,18 @@ input">`ts`</abbr>, but the treats of the day are `vipe` and `ifne`.
 [^ifne]: {{ cmd(name="ifne", repo="git://git.joeyh.name/moreutils", package="extra/x86_64/moreutils", manual="https://man.archlinux.org/man/ifne.1.en") }}
 
    With <abbr title="Edit pipe">`vipe`</abbr>[^vipe], you can edit the standard
-input in your favourite editor, and then pipe the result to the next command.
-It accepts the same[^vipe-suffix] `--suffix` argument as `mktemp` to provide my
-`$EDITOR` with some context as to the syntax of the content.<br>
+input in your favourite editor, then pipe the result to the next command.  It
+accepts the same[^vipe-suffix] `--suffix` argument as `mktemp` to provide your
+`$EDITOR` with some context as to the syntax of your content.<br>
    With <abbr title="Run command if the standard input is not
-empty">`ifne`</abbr>[^ifne], you can run a command only if the standard input is
-not empty.<br>
+empty">`ifne`</abbr>[^ifne], you can guard the execution of a command on the
+condition that the standard input is not empty.<br>
 
+<!-- FIXME: wording -->
 [^vipe-suffix]: Essentially the same as that of `mktemp`, though with more
 ingenuity: it will assume the implied leading `.` in your suffix.
 
-That sounds like it just could replace the entire second half of our script.
+That all sounds like it could replace the entire second half of our script.
 Could it?  Let's try it out:
 
 ```diff
@@ -174,9 +180,14 @@ Could it?  Let's try it out:
 +   | ifne vipe --suffix eml \
 +   | msmtp sherlock.inbox@221b.uk
 ```
+{% note(type="comment") %} these two lines replace the entire second half of the script and forgo toying with a variable in the first {% end %}
 
-Well, what do you know: it can.  That tedious business from the earlier script?
-The variable we were passing around?  Gone, and gone!
+   Well, what do you know: it can.  That tedious business from the earlier
+script?  Gone.  The variable we were passing around?  Gone as well.<br>
+   We're left with *a single pipeline*: `curl` | `jq` | `fzf` | `vipe`
+| `msmtp`.  You can pretty much map it one-to-one to the original
+requirements!  And they say that <abbr title="The big OOP(s)">object-oriented
+programming</abbr> is modelling real-world concepts...
 
 ```sh
 curl https://zenquotes.io/api/quotes \
@@ -196,14 +207,16 @@ curl https://zenquotes.io/api/quotes \
    | ifne vipe --suffix eml \
    | msmtp sherlock.inbox@221b.uk
 ```
-{% note(type="comment") %} here's the full thing: the email template comprises most of it {% end %}
+{% note(type="comment") %} here's the full thing: the e-mail template comprises most of it {% end %}
 
 ## Compose your mastery
 
-In isolation, this isn't anything Earth-shattering, but here's the point: I can
-now write up this script in one go, no fumbling, no hesitation.
+In isolation, this isn't anything earth-shattering, but here's the point: I can
+now write this up in one go; no fumbling, no hesitation.
 
 Wielding *simple*, generic, *composable* tools lets you to reify your ideas
 without friction, as if you were merely transposing them more formally.  That
-concept, and its consequences in your ability to explore, play and eventually
-build up mastery of your craft, are indeed of remarkable importance.
+concept, and its consequences on your ability to explore, play and eventually
+build up mastery of your craft, are indeed of remarkable value.
+
+Have fun!
