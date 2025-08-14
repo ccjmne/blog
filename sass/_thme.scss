@@ -1,5 +1,12 @@
-@import url("subway-moscow.css");
+@use 'catppuccin';
 
-$accent: red;
-$anchor: blue;
-$code: darkblue;
+:root {
+  @each $name, $value in map-get(catppuccin.$palette, "latte") {
+    --colour-#{$name}: #{$value};
+  }
+  @media (prefers-color-scheme: dark) {
+    @each $name, $value in map-get(catppuccin.$palette, "mocha") {
+      --colour-#{$name}: #{$value};
+    }
+  }
+}

@@ -1,5 +1,3 @@
-@use 'thme' as theme;
-
 pre, code, abbr[font=mono]::after {
   font-family: "Fira Code", monospace;
   font-size: .92em;
@@ -7,8 +5,7 @@ pre, code, abbr[font=mono]::after {
 
 code:not(pre > code), abbr[font=mono]::after {
   white-space: nowrap;
-  font-weight: 600;
-  color: theme.$code;
+  color: var(--colour-peach);
 }
 
 pre {

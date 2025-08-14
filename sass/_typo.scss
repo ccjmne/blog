@@ -1,5 +1,3 @@
-@use 'thme' as theme;
-
 @import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
@@ -11,7 +9,7 @@ ul { list-style-type: square; }
 body {
   font-family: "Hedvig Letters Serif", serif;
   letter-spacing: 0.015em;
-  color: #333;
+  color: var(--colour-text);
 }
 
 sup.footnote-reference {
@@ -19,7 +17,7 @@ sup.footnote-reference {
   vertical-align: super;
   font-family: "Fira Code", monospace;
   font-weight: 600;
-  color: theme.$anchor;
+  color: var(--colour-peach);
   > a {
     text-decoration: none;
     &::before { content: "["; }
@@ -32,7 +30,7 @@ a {
   text-underline-offset: 3px;
 
   &, &:visited {
-    color: theme.$anchor;
+    color: var(--colour-overlay2);
   }
 
   &[href^=git],&[href^=http]:not([href^='https://ccjmne.sh/'],[href^='https://ccjmne.github.io/'],[href^='http://127.0.0.1'],:has(img)) {
