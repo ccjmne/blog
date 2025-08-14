@@ -17,7 +17,7 @@ section.footnotes {
     top: -1em;
     left: 0;
     right: 0;
-    border-top: 1px solid #000;
+    border-top: 1px solid var(--colour-surface1);
   }
   &::after {
     content: "footnotes";
@@ -25,7 +25,8 @@ section.footnotes {
     top: -1em;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: #f0f0f0;
+    background: var(--colour-base);
+    color: var(--colour-subtext0);
     padding: 0 0.5em;
   }
 }

@@ -57,8 +57,8 @@ abbr {
   isolation: isolate;
 
   &::before {
-    background-color: #000;
-    opacity: .15;
+    background-color: var(--colour-peach);
+    opacity: .35;
     content: "";
     position: absolute;
     width: 100%;
@@ -76,8 +76,8 @@ abbr {
     top: -2rem;
     transform: translateX(-50%);
     padding: 0 .5rem;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
+    background-color: var(--colour-mantle);
+    border: 1px solid var(--colour-surface0);
     pointer-events: none;
     opacity: 0;
   }

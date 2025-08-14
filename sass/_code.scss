@@ -12,6 +12,10 @@ pre {
   margin: 0;
   padding: 1rem;
   overflow: auto;
+  &.z-code {
+    background-color: var(--colour-mantle);
+  }
+
   &.language-sh + pre.language-txt { padding-top: 0; }
 
   &.language-sh * {

@@ -1,5 +1,6 @@
 .note {
-  background: #ccc;
+  background: var(--colour-crust);
+  color: var(--colour-subtext0);
   padding: 0 1rem;
   font-size: .95em;
   > p { margin: 0 }
