@@ -4,14 +4,60 @@ date = 2025-08-08
 description = 'Laying text out horizontally from the CLI'
 +++
 
-## The few forms of horizontal alignment
+This is the second of a 3-part article.
+
+1. [The first](@/posts/intralinear-partitioning-1.md), rambly piece addresses
+   the *what* and *why*,
+2. this second goes over the practical use of some <abbr title="Command Line
+   Interface, where I dwell">CLI</abbr> tools indispensable to the task, and
+3. [the third](@/posts/intralinear-partitioning-3.md) and final chapter
+   will share some quite nifty <abbr title="The ubiquitous text
+   editor">Vim</abbr>[^vim] tricks to the same end.
+
+[^vim]: {{ cmd(name="vim", repo="https://github.com/vim/vim", package="extra/x86_64/vim", manual="https://vimhelp.org/") }}
+        {{ cmd(name="neovim", repo="https://github.com/neovim/neovim", package="extra/x86_64/neovim", manual="https://neovim.io/doc/user/") }}
+
+## Introduction
+
+   While conducting software archaeology with a colleague some days ago, we ran
+into a 0-byte Java class and figured we'd look for more outliers and report to
+the responsible parties:
+
+```sh
+paste <(fd -S0b)                                             \
+      <(fd -S0b | cut -d/ -f1 | xargs -II grep I CODEOWNERS) \
+      -d: | column -ts:
+```
+```txt
+a/s/m/j/c/a/a/c/LoginController.java               auth-service     @big-brother
+a/s/m/j/c/a/a/d/LoginRequest.java                  auth-service     @big-brother
+a/s/t/j/c/a/a/s/AuthenticationServiceTest.java     auth-service     @big-brother
+b/s/m/j/c/a/b/c/InvoiceController.java             billing-service  @gold-diggers
+c/s/m/j/c/a/c/c/utils/DateUtils.java               core-common      @super-nerds
+c/s/t/j/c/a/c/c/utils/ValidationUtilsTest.java     core-common      @super-nerds
+c/s/t/j/c/a/c/s/services/EmployeeServiceTest.java  core-server      @fast-and-curious
+```
+{% note(type="comment") %} all that data was fake even before truncation: `src/test/java/com/acme/auth/controllers` {% end %}
+
+   From `cut` to `xargs`, the entire incantation was met with a mixture of
+incredulity and awe: some simple, composable tools go a long way to articulate
+queries for your Shell interpreter.  Here, I'll lay the foundations for your
+horizontal text alignment needs, from the CLI.
+
+## Using `column`
+
+   In the introductory piece of this article, I proposed a classification
+for the various forms of textual horizontal alignment.  The first three
+are mundane enough to be easily achieved using nothing but a pair of
+trustworthy tools; chief among them is <abbr font="mono" title="Columnate
+lists">`column`</abbr>[^column].
+
+[^column]: {{ cmd(name="column", repo="https://github.com/util-linux/util-linux/", package="core/x86_64/util-linux", manual="https://man.archlinux.org/man/column.1.en") }}
 
 ### The list in a grid
 
    If your items are begging to fit on a single screenful of text, you can lay
-them out in a grid with `column`[^column]:
-
-[^column]: {{ cmd(name="column", repo="https://github.com/util-linux/util-linux/", package="core/x86_64/util-linux", manual="https://man.archlinux.org/man/column.1.en") }}
+them out in a grid with `column`:
 
 ```sh
 echo $PATH | tr : '\n' | column
@@ -22,8 +68,8 @@ echo $PATH | tr : '\n' | column
 /usr/bin		/usr/bin/vendor_perl	/home/ccjmne/share/pnpm
 ```
 
-   Note that `column` wants to print out columns of unique width, regardless of
-their individual content.<br>
+   It wants to print out columns of unique width, regardless of their individual
+content.<br>
    By default, it uses tabulations, but you may have it use spaces with the
 `--use-spaces`/`-S` flag, which takes the minimum number of whitespaces to
 separate columns by:
@@ -73,11 +119,10 @@ many rows as necessary.
 
 ### The tabular data
 
-   If you find yourself wanting to create such table, `column`[^column] again
-has got you covered: use its `--table`/`-t` flag to have it create or manipulate
-tabular data.<br>
-   Have a look at <abbr font="mono" title="User account
-information">`/etc/passwd`</abbr>:
+   If you find yourself wanting to create a proper table, `column` again has got
+you covered: use its `--table`/`-t` flag to have it create or manipulate tabular
+data.<br>
+   Consider the case of <abbr title="User account information">`/etc/passwd`</abbr>:
 
 ```sh
 head -7 /etc/passwd
@@ -92,7 +137,7 @@ ftp:x:14:11::/srv/ftp:/usr/bin/nologin
 http:x:33:33::/srv/http:/usr/bin/nologin
 nobody:x:65534:65534:Kernel Overflow User:/:/usr/bin/nologin
 ```
-{% note(type="comment") %} Note the startling absence of a [UUOC](@/posts/first.md) {% end %}
+{% note(type="comment") %} note the startling absence of a [UUOC](@/posts/first.md) {% end %}
 
 Watch it now blossom into its intended form, fit for human consumption:
 
@@ -133,33 +178,81 @@ http       33  /srv/http        /usr/bin/nologin
 nobody  65534  /                /usr/bin/nologin
 ```
 
-   However, the above is rather extreme: I generally limit
-myself the <abbr font="mono" title="--table">-t</abbr>, <abbr
-font="mono" title="--separator">-s</abbr> and <abbr font="mono"
-title="--output-separator">-o</abbr> flags, preferably preparing data upstream
+   However, the above is rather extreme: I generally limit myself
+to the <abbr font="mono" title="--table">`-t`</abbr>, <abbr
+font="mono" title="--separator">`-s`</abbr>, <abbr font="mono"
+title="--output-separator">`-o`</abbr> (and on occasion, <abbr font="mono"
+title="--table-right">`-R`</abbr>) flags, preferably preparing data upstream
 with composable tools that I use often enough to need not [browse the trusty
 manual](@/posts/man):
 
 ```sh
 { echo 'User:UID:Home:Shell'; head -7 /etc/passwd | cut -d: -f1,3,6,7 } | column -ts:
 ```
+{% note(type="comment") %} this command is essentially equivalent to the one above it {% end %}
 
-### The adjoined fragments
+#### A note on field selection
 
-   Finally, there's data that's not quite tabular enough to be called that...
+   Now probably comes time to touch on touch on <abbr font="mono" title="Cut out
+selected fields of each line of a file ">`cut`</abbr>, which justly sounds like
+a fated partner to `paste`.
+
+   At its core, `cut` merely serves to carve out chunks ("fields") from
+your lines.  Specify the delimiter by which to delineate your fields with
+`--delimiter`/`-d`, and extract the ones you need with `--fields`/`-f`:
+
+```sh
+head -7 /etc/passwd | cut -d: -f1,6
+head --lines 7 /etc/passwd | cut --delimiter : --fields f1,6
+```
+```txt
+root:/root
+bin:/
+daemon:/
+mail:/var/spool/mail
+ftp:/srv/ftp
+http:/srv/http
+nobody:/
+```
+{% note(type="comment") %} select fields 1 and 6 {% end %}
+
+   Note that you may identify 1-indexed, comma-separated fields, *or ranges*,
+possibly open-ended:
+
+- `1,3,5` selects *fields 1, 3 and 5*,
+- `1-3` means *1 through 3*,
+- `-5` is *5 and below*, and
+- `3-` is *3 and beyond*.
+
+ With `column`, the various field-selecting flags behave similarly, with some
+notable extensions: you may use the `0` field alone to denote *all fields*, or
+use negative indices to target fields from the *end*.  Thus, `-1` is the *last
+field*, `-2` is the *penultimate field* and so on.<br>
+   This has the consequence of invalidating the range notation that uses an open
+lower bound: where `-3` would mean *1 through 3* in `cut`, it means *third field
+from the end* in `column`.
+
+## Using `paste`
+
+   Here we are, where it gets good, <abbr font="mono" title="Merge lines of
+files">`paste`</abbr>[^paste] is what we'd been after all along.  It only gets
+introduced now because it requires cooperation from its friends to get the job
+you likely want done.
+
+[^paste]: {{ cmd(name="paste", repo="https://github.com/coreutils/coreutils", package="core/x86_64/coreutils", manual="https://man.archlinux.org/man/paste.1.en") }}
+
+### The adjoined and annotated fragments
+
+   At last, there's data that's not quite tabular enough to be called that...
 yet!  This final section of the article is where you finally get some bang
 for your buck: we'll try our hands at putting chunks of text next to one
 another.<br>
-   The `paste`[^paste] utility lets you join lines from multiple files:
-
-[^paste]: {{ cmd(name="paste", repo="https://github.com/coreutils/coreutils", package="core/x86_64/coreutils", manual="https://man.archlinux.org/man/paste.1.en") }}
+   The `paste` utility lets you join lines from multiple files:
 
 <div class="grid-1-3">
 <div>
 
-```sh
-cat a.txt
-```
+{% note(type="heading") %} `a.txt` {% end %}
 ```txt
 a
 b
@@ -170,9 +263,7 @@ e
 </div>
 <div>
 
-```sh
-cat b.txt
-```
+{% note(type="heading") %} `b.txt` {% end %}
 ```txt
 1
 2
@@ -183,7 +274,7 @@ cat b.txt
 <div>
 
 ```sh
-paste b.txt a.txt
+paste a.txt b.txt
 ```
 ```txt
 a	1
@@ -198,7 +289,8 @@ e
 
 How often do you need to do that?  Precisely *never*, were it not for [(pretty
 much) everything being a file (descriptor)](@/posts/everything-is-a-file.md):
-you can also `paste` the output of commands together:
+you can also `paste` the output of commands together (beware the non-POSIX
+Bashism, however):
 
 ```sh
 paste <(printf "%s\n" {a..e}) <(seq 1 4) <(man git | sed '/The commit/,/^$/!d')
@@ -290,8 +382,8 @@ your data doesn't contain.  We could almost make it a panacea, were it not for
 what I consider a quirk of `paste`.<br>
 
    As you'll have noted, the `--delimiters` flag is *plural*: it can cycle
-through a list of <abbr font="mono" title="American Standard Code for
-Information Interchange">ASCII</abbr> characters to use instead of tabulations.
+through a list of <abbr title="American Standard Code for Information
+Interchange">`ASCII`</abbr> characters to use instead of tabulations.
 Regardless of the practicality of this feature, its implementation has `paste`
 consider each *byte* as a distinct delimiter: committing to an esoteric Unicode
 character that spans several bytes will therefore not do you any good.
@@ -333,10 +425,25 @@ cat /dev/null \
 ```txt
 [🦉]
 ```
-{% note(type="comment") %} I allowed myself `cat /dev/null |` here for `- - -` {% end %}
+{% note(type="comment") %} I'll allow `cat` here, for `- - -` {% end %}
 </div>
 </div>
 
-   I did alter `xxd`'s output for simplicity, and attempted to provide
+   I did alter <abbr font="mono" title="Make a hex dump or do the
+reverse">`xxd`</abbr>'s output for simplicity, and attempted to provide
 reasonably adequate highlighting, which I hope to be more helpful than it is
 confusing.
+
+## Next
+
+   Note that, if you want to add line numbers or timestamps of all kinds, you
+should prefer `nl` (from `coreutils`) or `ts` (from `moreutils`) to `paste`.
+
+   That's it, this article boils down to: `paste <(left) <(right)` and `column
+-ts:`, with some `-d:` passed here and there to `cut` or `paste` where
+necessary.  Go wild, have fun, don't forget that everything is possible, you
+just need to browse the `man`ual.
+
+   In the [next and final part](@/posts/intralinear-partitioning-3.md), find
+out how to swifty do all of that, and a *lot* more, from the comfort of an
+exceptional yet ubiquitous text editor.
