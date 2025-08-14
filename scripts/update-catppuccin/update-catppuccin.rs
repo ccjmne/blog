@@ -6,7 +6,7 @@ use syntect::{
 };
 
 fn main() {
-    let scheme = read_to_string(args().nth(1).unwrap()).expect("read file");
-    let theme = Theme::try_from(ColorScheme::from_str(&scheme).expect("parse")).expect("convert");
+    let scheme = read_to_string(args().nth(1).unwrap()).unwrap();
+    let theme = Theme::try_from(ColorScheme::from_str(&scheme).unwrap()).unwrap();
     println!("{}", css_for_theme_with_class_style(&theme, ClassStyle::SpacedPrefixed { prefix: "z-" }).unwrap());
 }

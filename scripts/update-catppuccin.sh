@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/sh -eu
 
 readonly project="$(readlink -f "$0" | xargs dirname | xargs dirname)"
 
