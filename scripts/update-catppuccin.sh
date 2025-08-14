@@ -9,3 +9,7 @@ cargo run --manifest-path update-catppuccin/Cargo.toml -- \
 cargo run --manifest-path update-catppuccin/Cargo.toml -- \
     <(curl -Ls https://github.com/catppuccin/sublime-text/raw/refs/heads/main/build/Catppuccin%20Mocha.sublime-color-scheme) \
     > "$project/static/mocha.css"
+
+t=$(mktemp --directory)
+( cd $t && pnpm install @catppuccin/palette )
+mv $t/node_modules/@catppuccin/palette/scss/_catppuccin.scss "$project/sass"
