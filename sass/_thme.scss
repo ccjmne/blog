@@ -1,9 +1,12 @@
 @use 'catppuccin';
 
 :root {
+  --colour-accent: var(--colour-peach);
+
   @each $name, $value in map-get(catppuccin.$palette, "latte") {
     --colour-#{$name}: #{$value};
   }
+
   @media (prefers-color-scheme: dark) {
     @each $name, $value in map-get(catppuccin.$palette, "mocha") {
       --colour-#{$name}: #{$value};

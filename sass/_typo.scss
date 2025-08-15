@@ -17,7 +17,7 @@ sup.footnote-reference {
   vertical-align: super;
   font-family: "Fira Code", monospace;
   font-weight: 600;
-  color: var(--colour-peach);
+  color: var(--colour-accent);
   > a {
     text-decoration: none;
     &::before { content: "["; }
@@ -30,7 +30,7 @@ a {
   text-underline-offset: 3px;
 
   &, &:visited {
-    color: var(--colour-overlay2);
+    color: var(--colour-accent);
   }
 
   &[href^=git],&[href^=http]:not([href^='https://ccjmne.sh/'],[href^='https://ccjmne.github.io/'],[href^='http://127.0.0.1'],:has(img)) {
@@ -55,7 +55,7 @@ abbr {
   cursor: help;
   text-decoration: none;
   text-decoration: underline wavy;
-  text-decoration-color: var(--colour-peach);
+  text-decoration-color: var(--colour-accent);
   isolation: isolate;
 
   &::after {

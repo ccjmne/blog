@@ -5,7 +5,7 @@ pre, code, abbr[font=mono]::after {
 
 code:not(pre > code), abbr[font=mono]::after {
   white-space: nowrap;
-  color: var(--colour-peach);
+  color: var(--colour-accent);
 }
 
 pre {
