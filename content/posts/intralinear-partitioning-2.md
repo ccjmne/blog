@@ -46,11 +46,10 @@ horizontal text alignment needs, from the CLI.
 
 ## Using `column`
 
-   In the introductory piece of this article, I proposed a classification
-for the various forms of textual horizontal alignment.  The first three
-are mundane enough to be easily achieved using nothing but a pair of
-trustworthy tools; chief among them is <abbr font="mono" title="Columnate
-lists">`column`</abbr>[^column].
+   In the introductory piece of this article, I proposed a classification for
+the various forms of textual horizontal alignment.  The first three are mundane
+enough to be easily achieved using nothing but a pair of trustworthy tools;
+chief among them is <abbr title="Columnate lists">`column`</abbr>[^column].
 
 [^column]: {{ cmd(name="column", repo="https://github.com/util-linux/util-linux/", package="core/x86_64/util-linux", manual="https://man.archlinux.org/man/column.1.en") }}
 
@@ -193,9 +192,9 @@ manual](@/posts/man):
 
 #### A note on field selection
 
-   Now probably comes time to touch on touch on <abbr font="mono" title="Cut out
-selected fields of each line of a file ">`cut`</abbr>, which justly sounds like
-a fated partner to `paste`.
+   Now probably comes time to touch on touch on <abbr title="Cut out selected
+fields of each line of a file ">`cut`</abbr>, which justly sounds like a fated
+partner to `paste`.
 
    At its core, `cut` merely serves to carve out chunks ("fields") from
 your lines.  Specify the delimiter by which to delineate your fields with
@@ -234,7 +233,7 @@ from the end* in `column`.
 
 ## Using `paste`
 
-   Here we are, where it gets good, <abbr font="mono" title="Merge lines of
+   Here we are, where it gets good, <abbr title="Merge lines of
 files">`paste`</abbr>[^paste] is what we'd been after all along.  It only gets
 introduced now because it requires cooperation from its friends to get the job
 you likely want done.
@@ -429,10 +428,9 @@ cat /dev/null \
 </div>
 </div>
 
-   I did alter <abbr font="mono" title="Make a hex dump or do the
-reverse">`xxd`</abbr>'s output for simplicity, and attempted to provide
-reasonably adequate highlighting, which I hope to be more helpful than it is
-confusing.
+   I did alter <abbr title="Make a hex dump or do the reverse">`xxd`</abbr>'s
+output for simplicity, and attempted to provide reasonably adequate
+highlighting, which I hope to be more helpful than it is confusing.
 
 ## Next
 
