@@ -110,7 +110,7 @@ postgres_1   2025-08-09 12:35:15 | STATEMENT:  SELECT * FROM employees;
 postgres_1   2025-08-09 12:35:20 | LOG:  disconnection: session time: 9s user=acme database=mydb host=172.18.0.5 port=5432
 webserver_1  2025-08-09 12:35:05 | GET /api/employees 200 15ms
 ```
-{% note(type="comment") %} here, `docker compose` decorates the concatenated logs with their provenance and timestamps {% end %}
+{% note(type="comment") %} here, `docker compose` annotates the concatenated logs with their provenance and timestamps {% end %}
 
 The juxtaposition of pieces of content also routinely aids in visual comparison:
 
@@ -297,3 +297,9 @@ crafting text with as much care as you wish.
 in parts 2 and 3 of this article series, pertaining to [horizontal
 alignment on the CLI](@/posts/intralinear-partitioning-2.md) and [inside
 Vim](@/posts/intralinear-partitioning-3.md), respectively.
+
+talk about moreutil/ln, moreutil/ts
+
+IN PART 3, TALK ABOUT VIRTUALEDIT!!!!!!!!!!!!!!!!!!!!!!!!! :help 'virtualedit'
+set ve=all cuc cc=80
+set ve& cuc& cc&

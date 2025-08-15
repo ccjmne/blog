@@ -47,5 +47,5 @@ I figured I'd try with <abbr title="The only capable 'alternative' to Vim
 ">Neovim</abbr>, too, to make sure that the *exact same instructions* (using
 `nvim` instead of `vim`) work just as well.  Lo and behold: of course it does.
 
-No more guesswork, no more "well on my machine [...]", we have access to as many
-fully isolated environments as we want: make good use of them!
+No more guesswork, no more "well, on my machine [...]", we have access to as
+many fully isolated environments as we want: make good use of them!
