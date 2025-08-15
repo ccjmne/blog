@@ -54,19 +54,9 @@ abbr {
   position: relative;
   cursor: help;
   text-decoration: none;
+  text-decoration: underline wavy;
+  text-decoration-color: var(--colour-peach);
   isolation: isolate;
-
-  &::before {
-    background-color: var(--colour-peach);
-    opacity: .35;
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 4px;
-    left: 0px;
-    bottom: -1px;
-    z-index: -1;
-  }
 
   &::after {
     content: attr(title);
