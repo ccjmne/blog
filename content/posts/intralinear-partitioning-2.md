@@ -41,7 +41,7 @@ c/s/t/j/c/a/c/s/services/EmployeeServiceTest.java  core-server      @fast-and-cu
 
    From `cut` to `xargs`, the entire incantation was met with a mixture of
 incredulity and awe: some simple, composable tools go a long way to articulate
-queries for your Shell interpreter.  Here, I'll lay the foundations for your
+queries for your shell interpreter.  Here, I'll lay the foundations for your
 horizontal text alignment needs, from the CLI.
 
 ## Using `column`
