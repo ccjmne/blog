@@ -9,7 +9,7 @@ This is the second of a 3-part article.
 1. [The first](@/posts/intralinear-partitioning-1.md), rambly piece addresses
    the *what* and *why*,
 2. this second goes over the practical use of some <abbr title="Command Line
-   Interface, where I dwell">CLI</abbr> tools indispensable to the task, and
+   Interface, where I dwell">`CLI`</abbr> tools indispensable to the task, and
 3. [the third](@/posts/intralinear-partitioning-3.md) and final chapter
    will share some quite nifty <abbr title="The ubiquitous text
    editor">Vim</abbr>[^vim] tricks to the same end.
@@ -136,7 +136,7 @@ ftp:x:14:11::/srv/ftp:/usr/bin/nologin
 http:x:33:33::/srv/http:/usr/bin/nologin
 nobody:x:65534:65534:Kernel Overflow User:/:/usr/bin/nologin
 ```
-{% note(type="comment") %} note the startling absence of a [UUOC](@/posts/first.md) {% end %}
+{% note(type="comment") %} note the startling absence of a [`UUOC`](@/posts/useless-use-of-cat.md) {% end %}
 
 Watch it now blossom into its intended form, fit for human consumption:
 
