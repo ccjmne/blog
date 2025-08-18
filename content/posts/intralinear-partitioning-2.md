@@ -286,10 +286,10 @@ e
 </div>
 </div>
 
-How often do you need to do that?  Precisely *never*, were it not for [(pretty
-much) everything being a file (descriptor)](@/posts/everything-is-a-file.md):
-you can also `paste` the output of commands together (beware the non-POSIX
-Bashism, however):
+How often do you need to do that?  Precisely *never*, were it not for
+[everything being a file (descriptor)](@/posts/everything-is-a-file.md): you can
+also `paste` the output of commands together (beware the non-`POSIX` Bashism,
+however):
 
 ```sh
 paste <(printf "%s\n" {a..e}) <(seq 1 4) <(man git | sed '/The commit/,/^$/!d')
