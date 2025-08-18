@@ -98,8 +98,8 @@ illiteracy](@/posts/rampant-shell-illiteracy).
 Despite my furry companion of choice being of the canine complexion, I have
 nothing against `cat` in principle.  Outside of scripts, I'd still argue that
 `less` is surely often preferable, possibly with `--quit-if-one-screen`/`-F` to
-have it behave like `cat` when you require no pagination; but nonetheless, here
-are a few instances where `cat` is indeed sensible:
+have it behave like `cat` when you require no pagination; but here are a few
+instances where `cat` is sensible nonetheless:
 
 ```sh
 # Create file in-line
@@ -117,18 +117,18 @@ cat header.txt section1.txt section2.txt footer.txt > article.txt
 echo 'About me:' | cat - aboutme.txt
 ```
 
-### Conclusion
+### The definitive escalation mechanism
 
 Somewhere along the way, we started using `cat` as a ceremonial prelude to
 everything, as if every command needed a feline blessing.  With [everything
 being a file (descriptor)](@/posts/everything-is-a-file.md), it turns out that
 quite a few commands will happily accept to read from a file!
 
-As such, here is the definitive escalation mechanism for your commands that are
-to consume the contents of a file:
+As such, here is the *definitive escalation mechanism* for your commands that
+are to consume the contents of a file:
 
 ```sh
-grep keyword file.txt       # the one way
-grep keyword < file.txt     # the workaround for curious utilities
-cat file.txt | grep keyword # the universally incorrect, useless use of cat
+grep keyword file.txt        # the one way
+grep keyword < file.txt      # the workaround for curious utilities
+cat file.txt | grep keyword  # the universally incorrect, useless use of cat
 ```
