@@ -1,5 +1,8 @@
 {%- extends "base.html" -%}
 {%- import "macros/pads.html" as pads -%}
+{%- block links -%}
+<link rel="stylesheet" href="/posts-listing.css">
+{%- endblock links -%}
 
 {%- block content -%}
 <h1 class="title">{{- section.title | markdown | safe -}}</h1>
