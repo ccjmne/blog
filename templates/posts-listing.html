@@ -9,20 +9,21 @@
   <!-- If you are using pagination, section.pages will be empty.
        You need to use the paginator object -->
   {%- for page in section.pages -%}
-  <a class="post-listing-item {% if section.extra.series -%} series {%- endif -%}" href="{{ page.permalink | safe }}">
+  <a class="post-listing-item" href="{{ page.permalink | safe }}">
     {%- if section.extra.series -%}
-    <span grid-area="idx">{{ pads::zpad(s=loop.index, w=2) }}.</span>
+    <span class="idx">{{- pads::zpad(s=loop.index, w=2) -}}.</span>
     {%- endif -%}
+    <div>
+      <h2>{{ page.title | markdown(inline=true) | safe }}</h2>
+      {%- if page.date -%}
+      <time>{{ page.date | date(format="%B %d, %Y") }}</time>
+      {%- endif -%}
 
-    <h2 grid-area="title">{{ page.title | markdown(inline=true) | safe }}</h2>
-    {%- if page.date -%}
-    <span grid-area="date">{{ page.date | date(format="%B %d, %Y") }}</span>
-    {%- endif -%}
-
-    {# Display the description if it exists #}
-    {%- if page.description -%}
-    {{- page.description | markdown | safe -}}
-    {%- endif -%}
+      {# Display the description if it exists #}
+      {%- if page.description -%}
+      {{- page.description | markdown | safe -}}
+      {%- endif -%}
+    </div>
   </a>
   {%- endfor -%}
 </div>
