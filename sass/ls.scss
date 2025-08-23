@@ -1,0 +1,47 @@
+@use 'thme';
+
+.ls-i {
+  display: flex;
+  padding: 1.5rem 0;
+  gap: 1rem;
+  text-decoration: none;
+
+  + .ls-i {
+    border-top: 1px solid var(--colour-surface0);
+  }
+}
+
+.i {
+  font-size: 2.25rem;
+  font-weight: bold;
+  color: var(--colour-surface2);
+  align-self: center;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+
+  // &:hover {
+  //   background-color: var(--colour-mantle);
+  // }
+
+  h2 {
+    font-size: 1.25rem;
+    margin: 0;
+    text-decoration: underline;
+    text-decoration-color: var(--colour-accent);
+    text-decoration-thickness: 1px;
+  }
+
+  time {
+    color: var(--colour-subtext0);
+  }
+
+  p {
+    color: var(--colour-text);
+    margin: 0;
+    padding: 0;
+  }
+}
