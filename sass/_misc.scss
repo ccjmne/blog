@@ -9,6 +9,6 @@
 }
 ::-webkit-scrollbar-thumb {
   border-radius: 0px;
-  background-color: rgba(0, 0, 0, 0.4);
-  &:hover { background-color: rgba(0, 0, 0, 0.6); }
+  background-color: var(--colour-overlay0);
+  &:hover { background-color: var(--colour-overlay2); }
 }
