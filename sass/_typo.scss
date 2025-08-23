@@ -25,6 +25,17 @@ sup.footnote-reference {
   }
 }
 
+ol.breadcrumbs {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  li:not(:last-child)::after {
+    content: "/";
+    margin: 0 .5ch;
+    color: var(--colour-subtext0);
+  }
+}
+
 a {
   text-decoration: underline;
   text-underline-offset: 3px;
