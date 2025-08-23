@@ -20,6 +20,8 @@ sup.footnote-reference {
   color: var(--colour-accent);
   > a {
     text-decoration: none;
+    color: var(--colour-accent);
+    &:not(:hover) { &::before, &::after { color: var(--colour-text); } }
     &::before { content: "["; }
     &::after  { content: "]"; }
   }
@@ -41,6 +43,11 @@ a {
   text-underline-offset: 3px;
 
   &, &:visited {
+    color: var(--colour-text);
+    text-decoration-color: var(--colour-accent);
+  }
+
+  &:hover, &:active {
     color: var(--colour-accent);
   }
 
