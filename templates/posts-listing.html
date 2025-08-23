@@ -1,12 +1,30 @@
-{% extends "base.html" %}
+{%- extends "base.html" -%}
+{%- import "macros/pads.html" as pads -%}
 
-{% block content %}
-<h1 class="title">{{ section.title }}</h1>
-<ul>
+{%- block content -%}
+<h1 class="title">{{- section.title | markdown | safe -}}</h1>
+{{- section.content | safe -}}
+
+<div class="post-listing">
   <!-- If you are using pagination, section.pages will be empty.
        You need to use the paginator object -->
-  {% for page in section.pages %}
-  <li><a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
-  {% endfor %}
-</ul>
-{% endblock content %}
+  {%- for page in section.pages -%}
+  <a class="post-listing-item {% if section.extra.series -%} series {%- endif -%}" href="{{ page.permalink | safe }}">
+    {%- if section.extra.series -%}
+    <span grid-area="idx">{{ pads::zpad(s=loop.index, w=2) }}.</span>
+    {%- endif -%}
+
+    <h2 grid-area="title">{{ page.title | markdown(inline=true) | safe }}</h2>
+    {%- if page.date -%}
+    <span grid-area="date">{{ page.date | date(format="%B %d, %Y") }}</span>
+    {%- endif -%}
+
+    {# Display the description if it exists #}
+    {%- if page.description -%}
+    {{- page.description | markdown | safe -}}
+    {%- endif -%}
+  </a>
+  {%- endfor -%}
+</div>
+
+{%- endblock content -%}

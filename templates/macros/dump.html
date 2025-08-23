@@ -1,0 +1,7 @@
+{% macro dump_map(map) %}
+  <ul>
+    {% for key, value in map %}
+      <li>{{ key }}: {{ value }}</li>
+    {% endfor %}
+  </ul>
+{% endmacro %}
