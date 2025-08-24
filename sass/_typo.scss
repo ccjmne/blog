@@ -1,28 +1,25 @@
 @font-face {
   font-family: Outfit;
   src: url('/outfit.woff2') format('woff2');
-  font-weight: 400;
+  font-weight: 500;
   font-display: swap;
 }
 
 @font-face {
   font-family: "Noto Sans Symbols";
   src: url('/noto.woff2') format('woff2');
-  font-weight: 400;
   font-display: swap;
 }
 
 @font-face {
   font-family: "Hedvig Letters Serif";
   src: url('/hedvig.woff2') format('woff2');
-  font-weight: 400;
   font-display: swap;
 }
 
 @font-face {
   font-family: "Fira Code";
   src: url('/fira.woff2') format('woff2');
-  font-weight: 400;
   font-display: swap;
 }
 
@@ -38,6 +35,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Outfit", sans-serif;
+  font-weight: 500;
 }
 
 sup.footnote-reference {
