@@ -5,7 +5,7 @@
 {%- endblock links -%}
 
 {%- block content -%}
-<h1 class="title">{{- section.title | markdown | safe -}}</h1>
+<h1 class="title">{{- section.title | markdown(inline=true) | safe -}}</h1>
 {{- section.content | safe -}}
 
 <!-- If you are using pagination, section.pages will be empty.
