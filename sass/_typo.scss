@@ -109,8 +109,8 @@ abbr {
     top: -2rem;
     transform: translateX(-50%);
     padding: 0 .5rem;
-    background-color: var(--colour-mantle);
-    border: 1px solid var(--colour-surface0);
+    background-color: var(--colour-base);
+    border: 1px solid var(--colour-overlay0);
     pointer-events: none;
     opacity: 0;
   }
