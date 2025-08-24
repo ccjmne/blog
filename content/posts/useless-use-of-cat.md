@@ -44,12 +44,11 @@ returns a *file descriptor* (abbreviated `FD`) to the process running `cat`,
 which reads from it and prints to another, specific `FD` (numbered `1`), which
 your shell interpreter displays on your terminal.
 
-   That is it, no mystery, nothing special; one mechanism to rule them all, and
-in the light bind them.<br>
-   Let's appreciate how silly `cat file | grep` is: reading from a file isn't
-any different from reading from the standard input.  Your tool only has to
-support being specified which file to read from, and you only need to <abbr
-title="Read The F... riendly Manual">`RTFM`</abbr>:
+That is it, no mystery, nothing special.  We can now appreciate how silly
+`cat file | grep` is: reading from a file isn't any different from reading
+from the standard input.  Your tool only has to support being specified which
+file to read from, and you only need to <abbr title="Read The F... riendly
+Manual">`RTFM`</abbr>:
 
 ```sh
 man grep | head
