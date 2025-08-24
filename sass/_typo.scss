@@ -82,13 +82,14 @@ a {
       font-family: "Hedvig Letters Serif";
     }
   }
-}
 
-.anchor-link {
-  margin-right: .5ch;
-  font-family: "Noto Sans Symbols";
-  font-weight: normal;
-  text-decoration: none;
+  &.anchor-link {
+    margin-right: .5ch;
+    font-family: "Noto Sans Symbols";
+    font-weight: normal;
+    color: var(--colour-accent);
+    text-decoration: none;
+  }
 }
 
 abbr {
