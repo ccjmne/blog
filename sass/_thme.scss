@@ -12,4 +12,9 @@
       --colour-#{$name}: #{$value};
     }
   }
+
+  .term-fg31 { color: var(--colour-red); }
+  .term-fg32 { color: var(--colour-green); }
+  .term-fg33 { color: var(--colour-yellow); }
+  .term-fg34 { color: var(--colour-blue); }
 }
