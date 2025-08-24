@@ -4,11 +4,11 @@ readonly project="$(readlink -f "$0" | xargs dirname | xargs dirname)"
 
 cargo run --manifest-path "$project/scripts/update-catppuccin/Cargo.toml" -- \
     <(curl -Ls https://github.com/catppuccin/sublime-text/raw/refs/heads/main/build/Catppuccin%20Latte.sublime-color-scheme) \
-    > "$project/static/latte.css"
+    > "$project/static/light.css"
 
 cargo run --manifest-path "$project/scripts/update-catppuccin/Cargo.toml" -- \
     <(curl -Ls https://github.com/catppuccin/sublime-text/raw/refs/heads/main/build/Catppuccin%20Macchiato.sublime-color-scheme) \
-    > "$project/static/mocha.css"
+    > "$project/static/dark.css"
 
 t=$(mktemp --directory)
 ( cd $t && pnpm install @catppuccin/palette )
