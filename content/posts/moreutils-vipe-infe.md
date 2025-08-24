@@ -7,9 +7,9 @@ description = "Adoping moreutils's `vipe` and `ifne` for friendlier scripting"
 I carry around a (very humble) collection of <abbr title="A command-line fuzzy
 finder">`fzf`</abbr>[^fzf] utilities, where I intend to leverage a tacit promise
 of <abbr title="The ubiquitous text editor">Vim</abbr>: I can edit content,
-right there in the terminal, between two commands, and be done earlier than
-a corporate <abbr title="Integrated Development Environment">IDE</abbr> has
-finished flashing their splash screen[^cli-editor].
+right there in the terminal, between two commands, and be done earlier than a
+corporate <abbr title="Integrated Development Environment">IDE</abbr> would be
+flashing its splash screen[^cli-editor].
 
 [^fzf]: {{ cmd(name="fzf", repo="https://github.com/junegunn/fzf", package="extra/x86_64/fzf", manual="https://man.archlinux.org/man/extra/fzf/fzf.1.en") }}
 
