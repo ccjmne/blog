@@ -18,7 +18,7 @@
   <article>
     <h2>{{ page.title | markdown(inline=true) | safe }}</h2>
     {%- if page.date -%}
-    <time>{{ page.date | date(format="%B %d, %Y") }}</time>
+    <time>{{- page.date | date(format="%B %d, %Y") -}}</time>
     {%- endif -%}
 
     {# Display the description if it exists #}
