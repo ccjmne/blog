@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block breadcrumb %}
+{% endblock breadcrumb %}
+
+{% block content %}
+<h1 class="title">Tags</h1>
+<ul class="tag-list" style="display: flex; flex-wrap: wrap; gap: 1rem; list-style: none; padding: 0;">
+  {% set tags = get_taxonomy(kind="tags") %}
+  {% for tag in tags.items %}
+  {# <pre>{{ tag | json_encode(pretty=true) }}</pre> #}
+  <li><h2 style="border: 1px solid var(--colour-surface2); padding: 0.125rem 1rem 0.5rem;">
+    <a href="{{ tag.permalink }}">{{ tag.name | markdown(inline=true) | safe }}</a> ({{ tag.pages | length }})
+  </h2></li>
+  {% endfor %}
+</ul>
+{% endblock content %}
