@@ -22,7 +22,7 @@
       <li><time>{{- page.date | date(format="%B %d, %Y") -}}</time></li>
       {%- endif -%}
       <li>{{- page.reading_time -}}-minute read</li>
-      {%- if page.extra.series.name and page.extra.series.part -%}
+      {%- if not section.extra.series and page.extra.series.name and page.extra.series.part -%}
       <li>
         part {{ page.extra.series.part }}
         of <a href="{{- page.path | split(pat="/") | slice(end=-2) | join(sep="/") -}}">{{- page.extra.series.name | markdown(inline=true) | safe -}}</a>
