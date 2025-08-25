@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 
+{% block links %}
+<link rel="stylesheet" href="/light.css">
+<link rel="stylesheet" href="/dark.css" media="(prefers-color-scheme: dark)">
+{% endblock links %}
+
 {% block content %}
 <h1 class="title">{{- page.title | markdown(inline=true) | safe -}}</h1>
 <time>{{- page.date | date(format="%B %d, %Y") -}}</time>
