@@ -26,7 +26,7 @@
       {%- endif -%}
     </ul>
     {%- if page.summary -%}
-    {{- page.summary | markdown | safe -}}
+    <div class="summary">{{- page.summary | safe -}}</div>
     {%- endif -%}
   </article>
 </div>

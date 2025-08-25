@@ -30,9 +30,8 @@ article {
     margin: 0;
   }
 
-  p {
-    color: var(--colour-text);
-    margin: 0;
-    padding: 0;
+  .summary {
+    > :first-child { margin-top: 0; }
+    > :last-child { margin-bottom: 0; }
   }
 }
