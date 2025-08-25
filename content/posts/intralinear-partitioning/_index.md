@@ -1,8 +1,7 @@
 +++
-title = "Intralinear Partitioning"
-sort_by = "date"
-page_template = "post.html"
-transparent = true
+title = 'Intralinear partitioning'
+sort_by = 'slug'
+page_template = 'post.html'
 
 [extra]
 series = true
