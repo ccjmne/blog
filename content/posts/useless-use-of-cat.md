@@ -2,6 +2,7 @@
 title = 'Useless use of `cat`'
 date = 2025-08-16
 description = 'The signature of the perpetually uneducated'
+taxonomies.tags = ['all', 'cli', 'tools', 'posix']
 +++
 
 Short for con`cat`enate, `cat`[^cat] takes multiple files and prints them

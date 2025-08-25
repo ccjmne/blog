@@ -2,6 +2,7 @@
 title = 'Laying text out horizontally'
 date = 2025-07-25
 description = 'Laying text out horizontally'
+taxonomies.tags = ['all']
 extra.idx = 1
 +++
 

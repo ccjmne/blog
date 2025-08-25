@@ -3,6 +3,7 @@ title = 'Everything is a file (descriptor)'
 date = 2025-08-18
 description = "Becoming one with the pipes, the Mario way"
 draft = true
+taxonomies.tags = ['all', 'cli', 'posix']
 +++
 
 You will certainly have come across the saying "everything is a file" in your

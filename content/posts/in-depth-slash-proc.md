@@ -3,6 +3,7 @@ title = 'In-depth: `/proc`'
 date = 2025-08-19
 description = ""
 draft = true
+taxonomies.tags = ['all', 'cli', 'posix']
 +++
 
 A follow-up to [everything is a file

@@ -2,6 +2,7 @@
 title = 'Reproducible, isolated demonstrations'
 date = 2025-08-10
 description = 'Create reproducible, isolated demonstration environments with containers'
+taxonomies.tags = ['all', 'cli', 'tools', 'docker']
 +++
 
 Earlier this week, I put together installation instructions for a syntax support

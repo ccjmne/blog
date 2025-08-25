@@ -2,6 +2,7 @@
 title = 'Laying text out horizontally from the `CLI`'
 date = 2025-08-08
 description = 'Laying text out horizontally from the CLI'
+taxonomies.tags = ['all', 'cli', 'text-processing', 'productivity']
 extra.idx = 2
 +++
 

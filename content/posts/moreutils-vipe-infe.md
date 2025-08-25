@@ -2,6 +2,7 @@
 title = 'Script-friendliest `$EDITOR` with `moreutils`'
 date = 2025-07-31
 description = "Adoping moreutils's `vipe` and `ifne` for friendlier scripting"
+taxonomies.tags = ['all', 'cli', 'tools', 'vim']
 +++
 
 I carry around a (very humble) collection of <abbr title="A command-line fuzzy
