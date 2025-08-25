@@ -8,32 +8,6 @@
 <h1 class="title">{{- section.title | markdown(inline=true) | safe -}}</h1>
 {{- section.content | safe -}}
 
-<!-- If you are using pagination, section.pages will be empty.
-     You need to use the paginator object -->
-{%- for page in section.pages -%}
-<div class="ls-i">
-  {%- if section.extra.series -%}
-  <span class="i">{{- pads::zpad(s=loop.index, w=2) -}}.</span>
-  {%- endif -%}
-  <article>
-    <h2><a href="{{ page.permalink | safe }}">{{ page.title | markdown(inline=true) | safe }}</a></h2>
-    <ul class="infobar">
-      {%- if page.date -%}
-      <li><time>{{- page.date | date(format="%B %d, %Y") -}}</time></li>
-      {%- endif -%}
-      <li>{{- page.reading_time -}}-minute read</li>
-      {%- if not section.extra.series and page.extra.series.name and page.extra.series.part -%}
-      <li>
-        part {{ page.extra.series.part }}
-        of <a href="{{- page.path | split(pat="/") | slice(end=-2) | join(sep="/") -}}">{{- page.extra.series.name | markdown(inline=true) | safe -}}</a>
-      </li>
-      {%- endif -%}
-    </ul>
-    {%- if page.summary -%}
-    {{- page.summary | markdown | safe -}}
-    {%- endif -%}
-  </article>
-</div>
-{%- endfor -%}
-
+{% set pages = section.pages %}
+{% include "partials/ls-pages.html" %}
 {%- endblock content -%}
