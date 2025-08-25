@@ -1,13 +1,7 @@
 {%- extends "base.html" -%}
 
-{%- import "macros/pads.html" as pads -%}
-
 {% block breadcrumb %}
 {% endblock breadcrumb %}
-
-{# {%- block links -%} #}
-{# <link rel="stylesheet" href="/ls.css"> #}
-{# {%- endblock links -%} #}
 
 {%- block content -%}
 <h1 class="title">Posts with {{ taxonomy.name }}: <code>{{ term.name }}</code></h1>
