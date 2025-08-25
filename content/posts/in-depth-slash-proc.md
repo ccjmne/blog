@@ -1,7 +1,7 @@
 +++
 title = 'In-depth: `/proc`'
 date = 2025-08-19
-description = ""
+description = ''
 draft = true
 taxonomies.tags = ['all', 'cli', 'posix']
 +++

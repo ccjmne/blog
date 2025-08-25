@@ -6,4 +6,3 @@ page_template = 'post.html'
 [extra]
 series = true
 +++
-
