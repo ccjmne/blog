@@ -17,6 +17,10 @@
     Part&nbsp;{{ page.extra.idx }}&nbsp;of&nbsp;<a href="{{ parent.permalink }}">{{ parent.title | markdown(inline=true) | safe }}</a>
   {%- endif -%}
 </ul>
+{%- if page.extra.toc | default(value=true) -%}
+<br>
+{%- include "partials/toc.html" -%}
+{%- endif -%}
 <article>
   {{ page.content | safe }}
 </article>
