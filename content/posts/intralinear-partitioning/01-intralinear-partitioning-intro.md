@@ -2,9 +2,7 @@
 title = 'Laying text out horizontally'
 date = 2025-07-25
 description = 'Laying text out horizontally'
-[extra]
-series.name = 'Intralinear partitioning'
-series.part = 1
+extra.idx = 1
 +++
 
 This 3-part article concerns itself with putting chunks of text side by side.
