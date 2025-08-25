@@ -1,7 +1,9 @@
 +++
-title = 'Intralinear partitioning (part 2 of 3)'
+title = 'Laying text out horizontally from the `CLI`'
 date = 2025-08-08
 description = 'Laying text out horizontally from the CLI'
+[extra]
+seriesinfo = 'part 2 of [Intralinear partitioning](@/posts/intralinear-partitioning.md)'
 +++
 
 This is the second of a 3-part article.

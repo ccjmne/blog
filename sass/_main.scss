@@ -31,3 +31,17 @@ footer {
   font-size: 0.875rem;
   color: var(--colour-subtext1);
 }
+
+ul.infobar {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: var(--colour-subtext0);
+  li:not(:last-child)::after {
+    content: "⯁";
+    margin: 0 .5ch;
+    color: var(--colour-surface2);
+  }
+}

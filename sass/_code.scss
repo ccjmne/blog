@@ -1,6 +1,4 @@
-h1 code {
-  font-weight: 700;
-}
+h1, h2, h3, h4, h5, h6 { code { font-weight: 700; } }
 
 pre, code, abbr[font=mono]::after {
   font-family: "Fira Code", monospace;

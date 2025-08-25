@@ -23,20 +23,9 @@ article {
   flex-direction: column;
   gap: .5rem;
 
-  // &:hover {
-  //   background-color: var(--colour-mantle);
-  // }
-
   h2 {
     font-size: 1.25rem;
     margin: 0;
-    text-decoration: underline;
-    text-decoration-color: var(--colour-accent);
-    text-decoration-thickness: 1px;
-  }
-
-  time {
-    color: var(--colour-subtext0);
   }
 
   p {
