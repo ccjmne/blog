@@ -9,7 +9,7 @@ I carry around a (very humble) collection of <abbr title="A command-line fuzzy
 finder">`fzf`</abbr>[^fzf] utilities, where I intend to leverage a tacit promise
 of <abbr title="The ubiquitous text editor">Vim</abbr>: I can edit content,
 right there in the terminal, between two commands, and be done earlier than a
-corporate <abbr title="Integrated Development Environment">IDE</abbr> would be
+corporate <abbr title="Integrated Development Environment">`IDE`</abbr> would be
 flashing its splash screen[^cli-editor].
 
 [^fzf]: {{ cmd(name="fzf", repo="https://github.com/junegunn/fzf", package="extra/x86_64/fzf", manual="https://man.archlinux.org/man/extra/fzf/fzf.1.en") }}
@@ -17,8 +17,8 @@ flashing its splash screen[^cli-editor].
 [^cli-editor]: So we're clear: it's not just about shaving off a few seconds
 here and there: wait until you learn about `fc`!
 
-But I'm not talking about the speed: I'm talking about the *availability* and
-*convenience*.
+**But let's put aside the speed: I mean to talk about the *availability* and
+*convenience*.**
 
 With <abbr title="Aptly and delightfully named companion to coreutils">`moreutils`</abbr>,
 this elevator pitch needs to be challenged: *between*
@@ -26,6 +26,8 @@ two commands?  Laughable.  The adept [functional
 programmer](https://en.wikipedia.org/wiki/Functional_programming) in me should
 have sniffed it out some time ago: I can use Vim like I use <abbr title="Stream
 editor for filtering and transforming text ">`sed`</abbr>.
+
+<!-- more -->
 
 ## The script-friendly editor
 
@@ -110,7 +112,7 @@ Success is getting what you want, happiness is wanting what you get.
 On with the last two steps: if the user did select a quote, they'll get to edit
 their e-mail in their favourite `$EDITOR`, with adequate highlighting for the
 e-mail format.  When they're done, if they neither emptied or deleted the file,
-nor emitted an error (`:cq`), their e-mail is then sent off to the unsuspecting
+nor emitted an error (`:cq`), their e-mail is sent off to the unsuspecting
 recipient:
 
 ```sh
@@ -133,8 +135,8 @@ But it gets better: you can integrate it right inside an outright
 
 ## More friendliness with `moreutils`
 
-Enter [`moreutils`](https://joeyh.name/code/moreutils/), a "collection of the
-Unix tools that nobody thought to write long ago when Unix was young".
+Enter [`moreutils`](https://joeyh.name/code/moreutils/), a *"collection of the
+Unix tools that nobody thought to write long ago when Unix was young"*.
 
 It's got some niceties that do find some fame online, such as <abbr title="Look
 up errno names and descriptions">`errno`</abbr>, <abbr title="Soak up standard
@@ -212,8 +214,8 @@ curl https://zenquotes.io/api/quotes \
 
 ## Compose your mastery
 
-In isolation, this isn't anything earth-shattering, but here's the point: I can
-now write this up in one go; no fumbling, no hesitation.
+In isolation, this isn't anything earth-shattering, but here's the point: **I
+can now write this up in one go; no fumbling, no hesitation**.
 
 Wielding *simple*, generic, *composable* tools lets you to reify your ideas
 without friction, as if you were merely transposing them more formally.  That
