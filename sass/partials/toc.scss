@@ -1,0 +1,11 @@
+details.toc {
+  background: var(--colour-mantle);
+  summary {
+    cursor: pointer;
+    font-family: Outfit, sans-serif;
+    user-select: none;
+  }
+  &[open] summary {
+    background: var(--colour-crust);
+  }
+}
