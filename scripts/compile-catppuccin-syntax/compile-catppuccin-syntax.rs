@@ -1,9 +1,6 @@
-use std::{env::args, fs::read_to_string, str::FromStr};
+use std::{ env::args, fs::read_to_string, str::FromStr };
 use sublime_color_scheme::ColorScheme;
-use syntect::{
-    highlighting::Theme,
-    html::{ClassStyle, css_for_theme_with_class_style},
-};
+use syntect::{ highlighting::Theme, html::{ ClassStyle, css_for_theme_with_class_style } };
 
 fn main() {
     let scheme = read_to_string(args().nth(1).unwrap()).unwrap();
