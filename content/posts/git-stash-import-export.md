@@ -1,7 +1,7 @@
 +++
-title = 'Back up your Git stashes easily'
+title = 'Share and recover your Git stashes with ease'
 date = 2025-08-26
-description = '`Import` and `export` your Git stashes with `2.51`'
+description = '`Import` and `export` your Git stashes with the `2.51` release'
 +++
 
 <abbr title="The stupid content tracker">Git</abbr> `2.51`[^2.51] released a
