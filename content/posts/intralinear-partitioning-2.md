@@ -2,6 +2,7 @@
 title = 'Intralinear partitioning (part 2 of 3)'
 date = 2025-08-08
 description = 'Laying text out horizontally from the CLI'
+draft = true
 +++
 
 This is the second of a 3-part article.
