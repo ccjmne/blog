@@ -66,40 +66,38 @@ introducing](https://github.com/git/git/compare/a013680162522425ab74d12f1d0cd4df
 
 ## Stashes were inherently local
 
-Until now, your stashes lived only in your local Git directory (`.git`). If
-you wanted to move them elsewhere, you had to resort to savvy (let's not call
-them "awkward") workarounds: patch files, stash branches, cherry-picking...
-Anything goes, with the exception of outright copying entire files or tree on
-your file-system, I'm sure.
+   Until now, your stashes lived only as `reflog` under a single `ref/stash`
+reference, which is not only fairly impractical for programmatic manipulation,
+but also means that all but the latest one essentially only existed *locally on
+your host*.<br>
+   If you wanted to move them elsewhere, you had to resort to savvy (let's not
+call them "awkward") workarounds: patch files, stash branches, cherry-picking...
+Anything would go, with the exception of outright copying entire files or tree
+on your file-system, I'm sure.
 
 ### Aren't they just usable commits under the hood?
 
-`Jein` ("yes and no"), as my German colleagues would say.  You could always `git
-show stash@{0}` and see it in all its splendour.  Let's play around!
+   `Jein` ("yes and no"), as my German colleagues would say.<br>
+   You could always `git show stash@{0}` and see it in all its splendour to find
+out.  Let's do just that!
 
 ```sh
 cd $(mktemp -d)
-git init  # ....................... 1, New repo with an empty file
+git init  # ....................... 1. New repo with an empty file
 touch file
 git add file
 git commit --message 'Create file'
-echo 'Line 1' >> file  # .......... 2, Stage the addition of Line 1
+echo 'Line 1' >> file  # .......... 2. Stage a change to the file
 git add file
-echo 'Line 2' >> file  # .......... 3, Modify file in the workdir
-touch other-file  # ............... 4, Add a new untracked file
-git stash push  # ................. 5, Stash everything
+echo 'Line 2' >> file  # .......... 3. Modify the workdir
+touch other-file  # ............... 4. Add a new untracked file
+git stash push  # ................. 5. Stash everything
 ```
-{% note(type="comment") %} note the nifty `cd $(mktemp -d)`: you may follow along by copy-pasting anywhere, anytime {% end %}
+{% note(type="comment") %} note the nifty `cd $(mktemp -d)`: you may follow along by copy-pasting without risk {% end %}
 
-Here, we:
-
-1. create a new repository with an empty file (`file`), under the commit `Create
-   file`.
-2. We then add `Line 1` to the file, and to my index/cache (the staging area),
-3. then another line, `Line 2`, only in my working directory.
-4. We also create an untracked file, `other-file`.
-5. Finally, we stash our changes with `stash push --include-untracked` (`stash
-   save` is deprecated).
+Here, I create a repository with a single commit containing a single empty file,
+`file`.  I add two lines to it, then stage the first one but not the second.  I
+also create an untracked file, `other-file`, then I stash all my changes.
 
 What have we done?!  Here's the monstrosity:
 
@@ -140,7 +138,8 @@ git log stash@{0} --oneline --decorate --graph
 * <span class="term-fg33">d4d8585 (</span><span class="term-fg36 term-fg1">HEAD</span><span class="term-fg33"> -&gt; </span><span class="term-fg32 term-fg1">master</span><span class="term-fg33">)</span> Create file</pre></code>
 
 Would you look at that!  Your stash isn't *one* commit, it's possibly **three**:
-one for your staged, your unstaged, and your untracked changes, respectively.
+one for each of your staged, your unstaged, and your untracked changes,
+respectively.
 
 ## A fourth parent with `2.51`
 
@@ -155,9 +154,9 @@ your current commit with three parents.
 make the solution scarier than it is, but I have some doubts now that I actually
 describe the reality aloud.
 
-The `export` subcommand to `git stash` lets you use that new format.  With
-it, you need to use one of the `--print` or the `--to-ref <ref>` options, to
-either display the hash of the new stash commit or save it under a specific ref,
+The `export` subcommand to `git stash` lets you use that new format.  With it,
+you need to use one of the `--print` or `--to-ref <ref>` options, to either
+display the hash of the new stash commit or save it under a specific ref,
 respectively.
 
 ```sh
@@ -166,7 +165,7 @@ git stash export --print stash@{0}
 ```txt
 3e57536c189d73308254f5e3f233b9b97e016d11
 ```
-{% note(type="comment") %} See the new format's hash with `export --print` {% end %}
+{% note(type="comment") %} get the hash of your stash's new variant representation with `export --print` {% end %}
 
 Let's open it up and see what it hides:
 
@@ -183,14 +182,14 @@ git log $(git stash export --print stash@{0}) --oneline --decorate --graph
 <span class="term-fg31">|</span> * <span class="term-fg33">d4d8585 (</span><span class="term-fg36 term-fg1">HEAD</span><span class="term-fg33"> -&gt; </span><span class="term-fg32 term-fg1">master</span><span class="term-fg33">)</span> Create file
 * <span class="term-fg33">73c9bab</span></pre></code>
 
-{% note(type="comment") %} the `a196b1a` commit (second parent) is *the regular, historical* "stash commit" (`stash@{0}`) {% end %}
+{% note(type="comment") %} the `a196b1a` commit (second parent) is the regular, historical "stash commit", `stash@{0}` {% end %}
 
-This is the same command as before, except that instead where I would before use
+This is the same command as before, except that where I would before use
 `stash@{0}` as the reference to `log`, I now use `$(git stash export --print
 stash@{0})` instead, to use the new model.
 
-The additional commit introduced by this new model is `3e57536`, whose parents
-are `a196b1a` (the "regular", historical stash commit) and `73c9bab`.
+The additional commit introduced under this new format is `3e57536`, whose
+parents are `a196b1a` (the "regular", historical stash commit) and `73c9bab`.
 
    What is `73c9bab`?  Just an **entire secondary history** to your
 repository!<br>
@@ -204,12 +203,18 @@ git show 73c9bab
 Author: git stash &lt;git@stash&gt;
 Date:   Mon Sep 17 00:00:00 2001 +0000</code></pre>
 
+As a fun tidbit, that date is essentially some sort of quirky
+"Git epoch".  It's not Git's birthday (despite [an attempt to
+have it as such](https://marc.info/?l=git&m=117230943206808)),
+but is here to stay regardless.  See [`git format-patch`'s
+documentation](https://git-scm.com/docs/git-format-patch#_description).
+
 ## Your stash stack
 
-Finally, we arrive at the point: your stash stack now properly *exists* as a
-bunch of references that you can actually push and fetch.  They used to only be
-available through the `reflog` of `refs/stash`, which is fairly impractical for
-programmatic manipulation, such as back-up and restore.
+Finally, we arrive at the point of this entire post: stashes that used to only
+be available through the `reflog` of `refs/stash` now properly *exist* as a
+bunch of references that you can actually `push` and `fetch`.  You may even move
+around your entire stack, or any subset of it, at once.
 
 Let's push another stash:
 
@@ -228,7 +233,7 @@ git log --oneline --decorate --graph stash@{0}
 <span class="term-fg31">|</span> * <span class="term-fg33">d94cc67</span> index on master: d4d8585 Create file
 <span class="term-fg31">|&#47;</span>
 * <span class="term-fg33">d4d8585 (</span><span class="term-fg36 term-fg1">HEAD</span><span class="term-fg33"> -&gt; </span><span class="term-fg32 term-fg1">master</span><span class="term-fg33">)</span> Create file</pre></code>
-{% note(type="comment") %} the new stash, `157c3dc`, is at the top of the stack, `stash@{0}` (or `refs/stash`) {% end %}
+{% note(type="comment") %} the new stash, `157c3dc`, is at the top of the stack, `stash@{0}`, or `refs/stash` {% end %}
 
 As a reminder, here's the earlier stash, now at `stash@{1}`:
 ```sh
@@ -240,14 +245,14 @@ git log --oneline --decorate --graph stash@{1}
 <span class="term-fg31">|</span> * <span class="term-fg33">aa4fa9e</span> index on master: d4d8585 Create file
 <span class="term-fg31">|&#47;</span>
 * <span class="term-fg33">d4d8585 (</span><span class="term-fg36 term-fg1">HEAD</span><span class="term-fg33"> -&gt; </span><span class="term-fg32 term-fg1">master</span><span class="term-fg33">)</span> Create file</pre></code>
-{% note(type="comment") %} the earlier stash, `a196b1a`, is now the second entry on the stack, `stash@{1}` {% end %}
+{% note(type="comment") %} the earlier stash, `a196b1a`, is now the second entry on the stack, `stash@{1}`, but no more `refs/stash` {% end %}
 
 The new model for stashes allow us to refer to our *entire stash stack*
 directly, since they'll be parents of one another, provided that you want this
 behaviour.
 
 Note that you may pass a list of stashes to `git stash export --print`, or omit
-it altogether to export it in its entirety:
+it altogether to export the stack in its entirety:
 
 ```sh
 git log $(git stash export --print stash@{0} stash@{1}) --oneline --decorate --graph
@@ -272,7 +277,7 @@ git log $(git stash export --print) --oneline --decorate --graph
 <span class="term-fg35">|</span> <span class="term-fg33">|&#47;</span>
 <span class="term-fg35">|</span> * <span class="term-fg33">d4d8585 (</span><span class="term-fg36 term-fg1">HEAD</span><span class="term-fg33"> -&gt; </span><span class="term-fg32 term-fg1">master</span><span class="term-fg33">)</span> Create file
 * <span class="term-fg33">73c9bab</span></pre></code>
-{% note(type="comment") %} yes, I'll admit, this looks sickening {% end %}
+{% note(type="comment") %} yes, I'll admit, this looks mad {% end %}
 
 Try to focus on the leftmost branch: that's your stash stack, with `ba4fea2` at
 the top, `3e57536` next, and `73c9bab` (the dummy initial "stash stack" commit)
