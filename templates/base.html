@@ -4,17 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>~ccjmne</title>
-    <link rel="preload" href="/outfit.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/hedvig.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/noto.woff2"   as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/fira.woff2"   as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/light.css">
-    <link rel="stylesheet" href="/dark.css" media="(prefers-color-scheme: dark)">
+    <link rel="preload" href="{{ get_url(path="/outfit.woff2") }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ get_url(path="/hedvig.woff2") }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ get_url(path="/noto.woff2") }}"   as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ get_url(path="/fira.woff2") }}"   as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="{{ get_url(path="/style.css") }}">
+    <link rel="stylesheet" href="{{ get_url(path="/light.css") }}">
+    <link rel="stylesheet" href="{{ get_url(path="/dark.css") }}" media="(prefers-color-scheme: dark)">
     {% block links %}
     {% endblock links %}
   </head>
   <body>
+  <style type="text/css">
+    @font-face {
+      font-family: Outfit;
+      src: url("{{ get_url(path="/outfit.woff2") }}") format('woff2');
+      font-weight: 500;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Noto Sans Symbols";
+      src: url("{{ get_url(path="/noto.woff2") }}") format('woff2');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Hedvig Letters Serif";
+      src: url("{{ get_url(path="/hedvig.woff2") }}") format('woff2');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Fira Code";
+      src: url("{{ get_url(path="/fira.woff2") }}") format('woff2');
+      font-display: swap;
+    }
+  </style>
     {% block breadcrumb %}
     <ol class="breadcrumbs">
       <li><a href="/">Home</a></li>

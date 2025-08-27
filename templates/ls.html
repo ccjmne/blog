@@ -1,7 +1,7 @@
 {%- extends "base.html" -%}
 {%- import "macros/pads.html" as pads -%}
 {%- block links -%}
-<link rel="stylesheet" href="/ls.css">
+<link rel="stylesheet" href="{{- get_url(path="/ls.css") -}}">
 {%- endblock links -%}
 
 {%- block content -%}
