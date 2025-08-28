@@ -4,12 +4,12 @@ date = 2025-08-26
 description = '`Import` and `export` your Git stashes with the `2.51` release'
 +++
 
-<abbr title="The stupid content tracker">Git</abbr> `2.51`[^2.51] released a
-week ago and is packed with upgrades to its plumbing and performance, with
-better indexes for some packfiles, *noticeably* improved `fetch`/`push` speed,
-deprecation[^istillusethis] of `whatchanged`, and promotion of `git switch`
-and `git restore` out of experimental status (though `checkout` is *not going
-anywhere*).
+<abbr title="The stupid content tracker">Git</abbr> version `2.51`[^2.51]
+was released some week ago and is packed with upgrades to its plumbing and
+performance, with better indexes for some packfiles, *noticeably* improved
+`fetch`/`push` speed, deprecation[^istillusethis] of `whatchanged` and promotion
+of `switch` and `restore` out of experimental status (though `checkout` is *not
+going anywhere*).
 
 Yet, to the <abbr title="Having two phases">diphasic</abbr>[^diphasic] end-user,
 the unassuming highlight of this release is the ability to **share your stashes
@@ -48,23 +48,12 @@ git fetch origin '+refs/stashes/*:refs/stashes/*'
 git stash import refs/stashes/my-stash
 ```
 
-The `fetch` command uses a refspec to fetch all stashes under `refs/stashes/`
-and store them locally under the same path: `<remote-ref>:<local-ref>`.  The `+`
-is equivalent to `--force`, to overwrite any existing local ref or the same
-name.
+The `fetch` command uses a
+[refspec](https://git-scm.com/book/en/v2/Git-Internals-The-Refspec) to fetch
+all stashes under `refs/stashes/` and store them locally under the same path:
+`<remote-ref>:<local-ref>`.  The `+` is equivalent to `--force`, to overwrite
+any existing local ref or the same name.
 
-### A note on garbage collection
-
-Remember that these are **dangling refs**, and as such are subject to garbage
-collection, if you've skilfully set up your repository.  Chances are that your
-Git host provider *does* by default end up pruning these after a while: nobody
-wants to keep around stale references forever that aren't reachable from any
-branch or tag.
-
-### See how the sausage is made
-
-Here's a link to the [commits
-introducing](https://github.com/git/git/compare/a013680162522425ab74d12f1d0cd4df1a389383...bc303718cc288b54233b204ce88223a16fb38487) these changes.
 </div>
 
 ## Stashes were inherently local
@@ -342,5 +331,13 @@ git stash import refs/my-stash
 Though I should point out that the emerging consensus suggests to keep things a
 bit more organised, and use `refs/stashes/<name>` instead of `refs/<name>`; I'll
 adopt this convention going forward.
+
+### A note on garbage collection
+
+Remember that these are **dangling refs**, and as such are subject to garbage
+collection, if you've skilfully set up your repository.  Chances are that your
+Git host provider *does* by default end up pruning these after a while: nobody
+wants to keep around stale references forever that aren't reachable from any
+branch or tag.
 
 Have fun!
