@@ -66,11 +66,11 @@ your host*.
 If you wanted to move them elsewhere, you had to resort to savvy (let's not call
 them "awkward") workarounds: patch files, stash branches, cherry-picking...
 Anything would go, with the exception of outright copying entire files or tree
-on your file-system, I'm sure.
+on your file system, I'm sure.
 
 ### Aren't they just usable commits under the hood?
 
-   `Jein` ("yes and no"), as my German colleagues would say.<br>
+   "Jein" ("yes and no"), as my German colleagues would say.<br>
    You could always `git show stash@{0}` and see it in all its splendour to find
 out.  Let's do just that!
 

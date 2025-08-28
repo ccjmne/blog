@@ -81,7 +81,7 @@ to highlight our document's syntax.
 
 [^tmpfs]: These files will routinely be cleared (historically, some systems
 would do that on each boot).  On mine, `/tmp` is a mount-point to some
-[RAM-backed file-system](https://en.wikipedia.org/wiki/tmpfs): the stuff going
+[RAM-backed file system](https://en.wikipedia.org/wiki/tmpfs): the stuff going
 in there *never* makes it to an actual storage device.
 
 The <abbr title="World Wide Web, with a capital W">Web</abbr> server at
