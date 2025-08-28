@@ -18,6 +18,9 @@ pre {
   overflow: auto;
   &.z-code {
     background-color: var(--colour-mantle);
+    @at-root .hi & {
+      background-color: var(--colour-crust);
+    }
   }
 
   &.language-sh + pre.language-txt { padding-top: 0; }

@@ -1,5 +1,6 @@
 .note {
   background: var(--colour-crust);
+  @at-root .hi & { background-color: var(--colour-core); }
   color: var(--colour-subtext0);
   padding: 0 1rem;
   font-size: .95em;
