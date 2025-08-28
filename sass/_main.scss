@@ -19,7 +19,6 @@ main {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  width: min(90%, 80ch);
   box-sizing: border-box;
 }
 
@@ -31,4 +30,22 @@ footer {
   gap: 1em;
   font-size: 0.875rem;
   color: var(--colour-subtext1);
+}
+
+@mixin centred() {
+  width: min(90vw, 768px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+main > :not(article), main > article > :not(.hi) {
+  @include centred();
+}
+
+.hi {
+  width: 100vw;
+  background-color: var(--colour-mantle);
+  > * {
+    @include centred();
+  }
 }
