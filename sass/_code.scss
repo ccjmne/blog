@@ -25,6 +25,11 @@ pre {
 
   &.language-sh + pre.language-txt { padding-top: 0; }
 
+  &.language-sh:has(+ &) > code > span::before {
+    content: "> ";
+    color: var(--colour-overlay0);
+  }
+
   * {
     font-style: initial !important; // disable italics in syntax highlighting
   }
