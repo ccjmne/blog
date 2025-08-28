@@ -15,29 +15,6 @@
     {% endblock links %}
   </head>
   <body>
-  <style type="text/css">
-    @font-face {
-      font-family: Outfit;
-      src: url("{{ get_url(path="/outfit.woff2") }}") format('woff2');
-      font-weight: 500;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: "Noto Sans Symbols";
-      src: url("{{ get_url(path="/noto.woff2") }}") format('woff2');
-      font-display: swap;
-    }
-    @font-face {
-      font-family: "Hedvig Letters Serif";
-      src: url("{{ get_url(path="/hedvig.woff2") }}") format('woff2');
-      font-display: swap;
-    }
-    @font-face {
-      font-family: "Fira Code";
-      src: url("{{ get_url(path="/fira.woff2") }}") format('woff2');
-      font-display: swap;
-    }
-  </style>
     {% block breadcrumb %}
     <div class="hi">
       <ol class="breadcrumbs">
