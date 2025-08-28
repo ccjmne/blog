@@ -39,28 +39,32 @@
     }
   </style>
     {% block breadcrumb %}
-    <ol class="breadcrumbs">
-      <li><a href="/">Home</a></li>
-      {% set current = section | default(value=page) %}
-      {% for ancestor in current.ancestors %}
-      {% if loop.first %}
-      {% continue %}
-      {% endif %}
-      {% set section = get_section(path=ancestor) %}
-      <li><a class="breadcrumb-link" href="{{ section.permalink }}">{{ section.title | markdown(inline=true) | safe }}</a></li>
-      {% endfor %}
-      <li><span>{{ current.title | markdown(inline=true) | safe }}</span></li>
-    </ol>
+    <div class="hi">
+      <ol class="breadcrumbs">
+        <li><a href="/">Home</a></li>
+        {% set current = section | default(value=page) %}
+        {% for ancestor in current.ancestors %}
+        {% if loop.first %}
+        {% continue %}
+        {% endif %}
+        {% set section = get_section(path=ancestor) %}
+        <li><a class="breadcrumb-link" href="{{ section.permalink }}">{{ section.title | markdown(inline=true) | safe }}</a></li>
+        {% endfor %}
+        <li><span>{{ current.title | markdown(inline=true) | safe }}</span></li>
+      </ol>
+    </div>
     {% endblock breadcrumb %}
     <main>
       {% block content %}
       {% endblock content %}
     </main>
-    <footer>
-      &copy; 2025
-      <a href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
-      <span>&lt;<a href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>&gt;</span>
-      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY-NC-SA</a>
-    </footer>
+    <div class="hi">
+      <footer>
+        &copy; 2025
+        <a href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <span>&lt;<a href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>&gt;</span>
+        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY-NC-SA</a>
+      </footer>
+    </div>
   </body>
 </html>
