@@ -29,6 +29,8 @@ refer here to the migration to your personal computer after work.
 
 <!--more-->
 
+<div class="hi">
+
 ## Obligatory [TL;DR](https://en.wikipedia.org/wiki/TL;DR)
 
 ```sh
@@ -63,6 +65,7 @@ branch or tag.
 
 Here's a link to the [commits
 introducing](https://github.com/git/git/compare/a013680162522425ab74d12f1d0cd4df1a389383...bc303718cc288b54233b204ce88223a16fb38487) these changes.
+</div>
 
 ## Stashes were inherently local
 
