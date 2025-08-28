@@ -75,16 +75,16 @@ on your file system, I'm sure.
 out.  Let's do just that!
 
 ```sh
-cd $(mktemp -d)
-git init  # ....................... 1. New repo with an empty file
+cd $(mktemp --directory)
+git init  # ......................... 1. New repo with an empty file
 touch file
 git add file
 git commit --message 'Create file'
-echo 'Line 1' >> file  # .......... 2. Stage a change to the file
+echo 'Line 1' >> file  # ............ 2. Stage a change to the file
 git add file
-echo 'Line 2' >> file  # .......... 3. Modify the workdir
-touch other-file  # ............... 4. Add a new untracked file
-git stash push  # ................. 5. Stash everything
+echo 'Line 2' >> file  # ............ 3. Modify the workdir
+touch other-file  # ................. 4. Add a new untracked file
+git stash push --include-untracked  # 5. Stash everything
 ```
 {% note(type="comment") %} note the nifty `cd $(mktemp -d)`: you may follow along by copy-pasting without risk {% end %}
 
