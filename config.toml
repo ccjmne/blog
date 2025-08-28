@@ -1,4 +1,4 @@
-base_url = "https://ccjmne.github.io"
+base_url = "https://ccjmne.sh/blog/"
 compile_sass = true
 build_search_index = true
 default_language = "en"
