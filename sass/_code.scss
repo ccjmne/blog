@@ -22,8 +22,8 @@ pre {
 
   &.language-sh + pre.language-txt { padding-top: 0; }
 
-  &.language-sh * {
-    font-style: initial !important;
+  * {
+    font-style: initial !important; // disable italics in syntax highlighting
   }
 
   // Below is about data-linenos, ported from https://www.getzola.org/documentation/content/syntax-highlighting/
