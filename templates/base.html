@@ -18,12 +18,8 @@
     {% block breadcrumb %}
     <div class="hi">
       <ol class="breadcrumbs">
-        <li><a href="/">Home</a></li>
         {% set current = section | default(value=page) %}
-        {% for ancestor in current.ancestors %}
-        {% if loop.first %}
-        {% continue %}
-        {% endif %}
+        {% for ancestor in current.ancestors | slice(start=1) %}
         {% set section = get_section(path=ancestor) %}
         <li><a class="breadcrumb-link" href="{{ section.permalink }}">{{ section.title | markdown(inline=true) | safe }}</a></li>
         {% endfor %}

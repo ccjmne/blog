@@ -59,6 +59,7 @@ sup.footnote-reference {
 
 ol.breadcrumbs {
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
   padding: 0;
   li:not(:last-child)::after {
