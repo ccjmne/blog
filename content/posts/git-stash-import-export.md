@@ -66,12 +66,13 @@ introducing](https://github.com/git/git/compare/a013680162522425ab74d12f1d0cd4df
 
 ## Stashes were inherently local
 
-   Until now, your stashes lived only as `reflog` under a single `ref/stash`
+Until now, your stashes lived only as `reflog` under a single `ref/stash`
 reference, which is not only fairly impractical for programmatic manipulation,
 but also means that all but the latest one essentially only existed *locally on
-your host*.<br>
-   If you wanted to move them elsewhere, you had to resort to savvy (let's not
-call them "awkward") workarounds: patch files, stash branches, cherry-picking...
+your host*.
+
+If you wanted to move them elsewhere, you had to resort to savvy (let's not call
+them "awkward") workarounds: patch files, stash branches, cherry-picking...
 Anything would go, with the exception of outright copying entire files or tree
 on your file-system, I'm sure.
 
@@ -143,7 +144,7 @@ respectively.
 
 ## A fourth parent with `2.51`
 
-You know what the stash commit needs?  *More parents, of course!*
+Do you know what the stash commit needs?  *More parents, of course!*
 
 With Git `2.51`, you may opt into a new representation of your stashes, which
 will have **one more parent**.  It's actually only a bit of a joke[^4-parents],
@@ -206,7 +207,7 @@ Date:   Mon Sep 17 00:00:00 2001 +0000</code></pre>
 As a fun tidbit, that date is essentially some sort of quirky
 "Git epoch".  It's not Git's birthday (despite [an attempt to
 have it as such](https://marc.info/?l=git&m=117230943206808)),
-but is here to stay regardless.  See [`git format-patch`'s
+but is here to stay regardless.  See [`format-patch`'s
 documentation](https://git-scm.com/docs/git-format-patch#_description).
 
 ## Your stash stack
@@ -251,8 +252,8 @@ The new model for stashes allow us to refer to our *entire stash stack*
 directly, since they'll be parents of one another, provided that you want this
 behaviour.
 
-Note that you may pass a list of stashes to `git stash export --print`, or omit
-it altogether to export the stack in its entirety:
+Note that you may pass a list of stashes to `git stash export --print` or omit
+them altogether to export the stack in its entirety:
 
 ```sh
 git log $(git stash export --print stash@{0} stash@{1}) --oneline --decorate --graph
@@ -301,18 +302,25 @@ ease:
 
 ```sh
 git stash list
-# stash@{0}: On master: A new stash
-# stash@{1}: WIP on master: d4d8585 Create file
-git stash drop
-# Dropped refs/stash@{0} (157c3dc905a6c52c6a56044e58d042b69827d8c4)
-git stash drop
-# Dropped refs/stash@{0} (a196b1a4c22a877046a8591fd15aedc4d596698b)
+```
+```txt
+stash@{0}: On master: A new stash
+stash@{1}: WIP on master: d4d8585 Create file
+```
+```sh
+git stash clear
 git stash list
-# <no output>
+```
+```txt
+<no output>
+```
+```sh
 git stash import refs/my-stash
 git stash list
-# stash@{0}: On master: A new stash
-# stash@{1}: WIP on master: d4d8585 Create file
+```
+```txt
+stash@{0}: On master: A new stash
+stash@{1}: WIP on master: d4d8585 Create file
 ```
 
 And of course, you can push and fetch `refs/my-stash` to and from any remote
@@ -328,10 +336,8 @@ git fetch origin refs/my-stash:refs/my-stash
 git stash import refs/my-stash
 ```
 
-   Though I should point out that the community (well, the very, very few
-people that have been playing with this bleeding-edge feature) suggests to
-keep things a bit more organised, and use `refs/stashes/<name>` instead of
-`refs/<name>`.<br>
-  I'll adopt this convention (in the making) going forward.
+Though I should point out that the emerging consensus suggests to keep things a
+bit more organised, and use `refs/stashes/<name>` instead of `refs/<name>`; I'll
+adopt this convention going forward.
 
 Have fun!
