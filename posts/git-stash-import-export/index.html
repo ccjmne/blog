@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>~ccjmne</title>
+    <link rel="preload" href="https://ccjmne.sh/blog/outfit.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://ccjmne.sh/blog/hedvig.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://ccjmne.sh/blog/noto.woff2"   as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://ccjmne.sh/blog/fira.woff2"   as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/style.css">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/light.css">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/dark.css" media="(prefers-color-scheme: dark)">
+    
+    
+  </head>
+  <body>
+    
+    <div class="hi">
+      <ol class="breadcrumbs">
+        
+        
+        
+        <li><a class="breadcrumb-link" href="https:&#x2F;&#x2F;ccjmne.sh&#x2F;blog&#x2F;posts&#x2F;">Recent posts</a></li>
+        
+        <li><span>Share and recover your Git stashes with ease</span></li>
+      </ol>
+    </div>
+    
+    <main>
+      
+<h1 class="title">Share and recover your Git stashes with ease</h1>
+<time>August 26, 2025</time>
+
+<details>
+    <summary>Table of contents</summary>
+    <ul>
+        
+        <li>
+            <a href="https://ccjmne.sh/blog/posts/git-stash-import-export/#obligatory-tl-dr">Obligatory TL;DR</a>
+            
+        </li>
+        
+        <li>
+            <a href="https://ccjmne.sh/blog/posts/git-stash-import-export/#stashes-were-inherently-local">Stashes were inherently local</a>
+            
+            <ul>
+                
+                <li><a href="https://ccjmne.sh/blog/posts/git-stash-import-export/#aren-t-they-just-usable-commits-under-the-hood">Aren't they just usable commits under the hood?</a></li>
+                
+                <li><a href="https://ccjmne.sh/blog/posts/git-stash-import-export/#one-stash-several-commits">One stash, several commits</a></li>
+                
+            </ul>
+            
+        </li>
+        
+        <li>
+            <a href="https://ccjmne.sh/blog/posts/git-stash-import-export/#a-fourth-parent-with-2-51">A fourth parent with 2.51</a>
+            
+        </li>
+        
+        <li>
+            <a href="https://ccjmne.sh/blog/posts/git-stash-import-export/#your-stash-stack">Your stash stack</a>
+            
+        </li>
+        
+        <li>
+            <a href="https://ccjmne.sh/blog/posts/git-stash-import-export/#so-what">So what?</a>
+            
+            <ul>
+                
+                <li><a href="https://ccjmne.sh/blog/posts/git-stash-import-export/#a-note-on-garbage-collection">A note on garbage collection</a></li>
+                
+            </ul>
+            
+        </li>
+        
+    </ul>
+</details>
+
+<article class="post">
+  <p><abbr title="The stupid content tracker">Git</abbr> version <code>2.51</code><sup class="footnote-reference" id="fr-2.51-1"><a href="#fn-2.51">1</a></sup>
+was released some week ago and is packed with upgrades to its plumbing and
+performance, with better indexes for some packfiles, <em>noticeably</em> improved
+<code>fetch</code>/<code>push</code> speed, deprecation<sup class="footnote-reference" id="fr-istillusethis-1"><a href="#fn-istillusethis">2</a></sup> of <code>whatchanged</code> and promotion
+of <code>switch</code> and <code>restore</code> out of experimental status (though <code>checkout</code> is <em>not
+going anywhere</em>).</p>
+<p>Yet, to the <abbr title="Having two phases">diphasic</abbr><sup class="footnote-reference" id="fr-diphasic-1"><a href="#fn-diphasic">3</a></sup> end-user,
+the unassuming highlight of this release is the ability to <strong>share your stashes
+through your remote</strong>: let's check it out!</p>
+<span id="continue-reading"></span><div class="hi">
+<h2 id="obligatory-tl-dr"><a class="anchor-link" href="#obligatory-tl-dr" aria-label="Anchor link for: obligatory-tl-dr">⚓</a>
+Obligatory <a href="https://en.wikipedia.org/wiki/TL;DR">TL;DR</a></h2>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> stash export<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>to-ref</span> refs/stashes/my-stash</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> push origin refs/stashes/my-stash</span>
+</span></code></pre>
+<p>This creates a new ref called <code>my-stash</code> under <code>refs/stashes/</code> and pushes it
+upstream (to a remote whose name is <code>origin</code>).</p>
+<p>On another machine, fetch all remote stashes and import the one you want:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> fetch origin <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>+refs/stashes/*:refs/stashes/*<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span></span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> stash import refs/stashes/my-stash</span>
+</span></code></pre>
+<p>The <code>fetch</code> command uses a
+<a href="https://git-scm.com/book/en/v2/Git-Internals-The-Refspec">refspec</a> to fetch
+all stashes under <code>refs/stashes/</code> and store them locally under the same path:
+<code>&lt;remote-ref&gt;:&lt;local-ref&gt;</code>.  The <code>+</code> is equivalent to <code>--force</code>, to overwrite
+any existing local ref or the same name.</p>
+</div>
+<h2 id="stashes-were-inherently-local"><a class="anchor-link" href="#stashes-were-inherently-local" aria-label="Anchor link for: stashes-were-inherently-local">⚓</a>
+Stashes were inherently local</h2>
+<p>Until now, your stashes lived only as <code>reflog</code> under a single <code>ref/stash</code>
+reference, which is not only fairly impractical for programmatic manipulation,
+but also means that all but the latest one essentially only existed <em>locally on
+your host</em>.</p>
+<p>If you wanted to move them elsewhere, you had to resort to savvy (let's not call
+them "awkward") workarounds: patch files, stash branches, cherry-picking...
+Anything would go, with the exception of outright copying entire files or tree
+on your file system, I'm sure.</p>
+<h3 id="aren-t-they-just-usable-commits-under-the-hood"><a class="anchor-link" href="#aren-t-they-just-usable-commits-under-the-hood" aria-label="Anchor link for: aren-t-they-just-usable-commits-under-the-hood">⚓</a>
+Aren't they just usable commits under the hood?</h3>
+<p>"Jein" ("yes and no"), as my German colleagues would say.<br>
+You could always <code>git show stash@{0}</code> and see it in all its splendour to find
+out.  Let's do just that!</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-support z-function z-cd z-shell">cd</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-meta z-group z-expansion z-command z-parens z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-punctuation z-section z-parens z-begin z-shell">(</span><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">mktemp</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>directory</span></span><span class="z-punctuation z-section z-parens z-end z-shell">)</span></span></span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> init  <span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> ......................... 1. New repo with an empty file</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">touch</span></span><span class="z-meta z-function-call z-arguments z-shell"> file</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> add file</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> commit<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>message</span> <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>Create file<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span></span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-support z-function z-echo z-shell">echo</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>Line 1<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span> <span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;&gt;</span> file  <span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> ............ 2. Stage a change to the file</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-arguments z-shell">git add file</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-support z-function z-echo z-shell">echo</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>Line 2<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span> <span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;&gt;</span> file  <span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> ............ 3. Modify the workdir</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-arguments z-shell">touch other-file  <span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> ................. 4. Add a new untracked file</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> stash push<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>include-untracked  <span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> 5. Stash everything</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span></span></span></code></pre>
+<div class="note" type="comment"><p>note the nifty <code>cd $(mktemp -d)</code>: you may follow along by copy-pasting without risk</p>
+</div>
+<p>Here, I create a repository with a single commit containing a single empty file,
+<code>file</code>.  I add two lines to it, then stage the first one but not the second.  I
+also create an untracked file, <code>other-file</code>, then I stash all my changes.</p>
+<p>What have we done?!  Here's the monstrosity:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> show stash@<span class="z-meta z-group z-expansion z-brace z-shell"><span class="z-punctuation z-section z-expansion z-brace z-begin z-shell">{</span>0<span class="z-punctuation z-section z-expansion z-brace z-end z-shell">}</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>oneline</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>decorate</span></span>
+</span></code></pre>
+<pre class="language-txt z-code"><code><span class="term-fg33">a196b1a (</span><span class="term-fg35 term-fg1">refs&#47;stash</span><span class="term-fg33">)</span> WIP on master: d4d8585 Create file
+&nbsp;
+<span class="term-fg1">diff --cc file</span>
+<span class="term-fg1">index e69de29,3be9c81,0000000..c82de6a</span>
+mode 100644,100644,000000..100644
+<span class="term-fg1">--- a&#47;file</span>
+<span class="term-fg1">+++ b&#47;file</span>
+<span class="term-fg36">@@@@ -1,0 -1,1 -1,0 +1,2 @@@@</span>
+<span class="term-fg32">+ +Line 1</span>
+<span class="term-fg32">+++Line 2</span></pre></code>
+<div class="note" type="comment"><p>the <code>diff --cc</code> will show the "combined diff", when a commit has several parents (a "merge commit")</p>
+</div>
+<h3 id="one-stash-several-commits"><a class="anchor-link" href="#one-stash-several-commits" aria-label="Anchor link for: one-stash-several-commits">⚓</a>
+One stash, several commits</h3>
+<p>Let's not go today over how precisely to decipher the content of an octopus
+commit<sup class="footnote-reference" id="fr-octopus-1"><a href="#fn-octopus">4</a></sup>, when a picture may well be worth a thousand words:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> log stash@<span class="z-meta z-group z-expansion z-brace z-shell"><span class="z-punctuation z-section z-expansion z-brace z-begin z-shell">{</span>0<span class="z-punctuation z-section z-expansion z-brace z-end z-shell">}</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>oneline</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>decorate</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>graph</span></span>
+</span></code></pre>
+<pre class="language-txt z-code"><code>*<span class="term-fg33">-.</span>   <span class="term-fg33">a196b1a (</span><span class="term-fg35 term-fg1">refs&#47;stash</span><span class="term-fg33">)</span> WIP on master: d4d8585 Create file
+<span class="term-fg31">|</span><span class="term-fg32">\</span> <span class="term-fg33">\</span>
+<span class="term-fg31">|</span> <span class="term-fg32">|</span> * <span class="term-fg33">15f2a4d</span> untracked files on master: d4d8585 Create file
+<span class="term-fg31">|</span> * <span class="term-fg33">aa4fa9e</span> index on master: d4d8585 Create file
+<span class="term-fg31">|&#47;</span>
+* <span class="term-fg33">d4d8585 (</span><span class="term-fg36 term-fg1">HEAD</span><span class="term-fg33"> -&gt; </span><span class="term-fg32 term-fg1">master</span><span class="term-fg33">)</span> Create file</pre></code>
+<p>Would you look at that!  Your stash isn't <em>one</em> commit, it's possibly <strong>three</strong>:
+one for each of your staged, your unstaged, and your untracked changes,
+respectively.</p>
+<h2 id="a-fourth-parent-with-2-51"><a class="anchor-link" href="#a-fourth-parent-with-2-51" aria-label="Anchor link for: a-fourth-parent-with-2-51">⚓</a>
+A fourth parent with <code>2.51</code></h2>
+<p>Do you know what the stash commit needs?  <em>More parents, of course!</em></p>
+<p>With Git <code>2.51</code>, you may opt into a new representation of your stashes, which
+will have <strong>one more parent</strong>.  It's actually only a bit of a joke<sup class="footnote-reference" id="fr-4-parents-1"><a href="#fn-4-parents">5</a></sup>,
+since in reality we're talking of an extra commit with two parents, on top of
+your current commit with three parents.</p>
+<p>The <code>export</code> subcommand to <code>git stash</code> lets you use that new format.  With it,
+you need to use one of the <code>--print</code> or <code>--to-ref &lt;ref&gt;</code> options, to either
+display the hash of the new stash commit or save it under a specific ref,
+respectively.</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> stash export<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>print</span> stash@<span class="z-meta z-group z-expansion z-brace z-shell"><span class="z-punctuation z-section z-expansion z-brace z-begin z-shell">{</span>0<span class="z-punctuation z-section z-expansion z-brace z-end z-shell">}</span></span></span>
+</span></code></pre>
+<pre data-lang="txt" class="language-txt z-code"><code class="language-txt" data-lang="txt"><span class="z-text z-plain">3e57536c189d73308254f5e3f233b9b97e016d11
+</span></code></pre>
+<div class="note" type="comment"><p>get the hash of your stash's new variant representation with <code>export --print</code></p>
+</div>
+<p>Let's open it up and see what it hides:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> log <span class="z-meta z-group z-expansion z-command z-parens z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-punctuation z-section z-parens z-begin z-shell">(</span><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> stash export<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>print</span> stash@<span class="z-meta z-group z-expansion z-brace z-shell"><span class="z-punctuation z-section z-expansion z-brace z-begin z-shell">{</span>0<span class="z-punctuation z-section z-expansion z-brace z-end z-shell">}</span></span></span><span class="z-punctuation z-section z-parens z-end z-shell">)</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>oneline</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>decorate</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>graph</span></span>
+</span></code></pre>
+<pre class="language-txt z-code"><code>*   <span class="term-fg33">3e57536</span> git stash: WIP on master: d4d8585 Create file
+<span class="term-fg31">|</span><span class="term-fg32">\</span>
+<span class="term-fg31">|</span> *<span class="term-fg35">-.</span>   <span class="term-fg33">a196b1a (</span><span class="term-fg35 term-fg1">refs&#47;stash</span><span class="term-fg33">)</span> WIP on master: d4d8585 Create file
+<span class="term-fg31">|</span> <span class="term-fg33">|</span><span class="term-fg34">\</span> <span class="term-fg35">\</span>
+<span class="term-fg31">|</span> <span class="term-fg33">|</span> <span class="term-fg34">|</span> * <span class="term-fg33">15f2a4d</span> untracked files on master: d4d8585 Create file
+<span class="term-fg31">|</span> <span class="term-fg33">|</span> * <span class="term-fg33">aa4fa9e</span> index on master: d4d8585 Create file
+<span class="term-fg31">|</span> <span class="term-fg33">|&#47;</span>
+<span class="term-fg31">|</span> * <span class="term-fg33">d4d8585 (</span><span class="term-fg36 term-fg1">HEAD</span><span class="term-fg33"> -&gt; </span><span class="term-fg32 term-fg1">master</span><span class="term-fg33">)</span> Create file
+* <span class="term-fg33">73c9bab</span></pre></code>
+<div class="note" type="comment"><p>the <code>a196b1a</code> commit (second parent) is the regular, historical "stash commit", <code>stash@{0}</code></p>
+</div>
+<p>This is the same command as before, except that where I would before use
+<code>stash@{0}</code> as the reference to <code>log</code>, I now use <code>$(git stash export --print stash@{0})</code> instead, to use the new model.</p>
+<p>The additional commit introduced under this new format is <code>3e57536</code>, whose
+parents are <code>a196b1a</code> (the "regular", historical stash commit) and <code>73c9bab</code>.</p>
+<p>What is <code>73c9bab</code>?  Just an <strong>entire secondary history</strong> to your
+repository!<br>
+This alternative initial commit is only a dummy one, to mark the base of your
+stash stack:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> show 73c9bab</span>
+</span></code></pre>
+<pre class="language-txt z-code"><code><span class="term-fg33">commit 73c9bab443d1f88ac61aa533d2eeaaa15451239c</span>
+Author: git stash &lt;git@stash&gt;
+Date:   Mon Sep 17 00:00:00 2001 +0000</code></pre>
+<p>As a fun tidbit, that date is essentially some sort of quirky
+"Git epoch".  It's not Git's birthday (despite <a href="https://marc.info/?l=git&amp;m=117230943206808">an attempt to
+have it as such</a>),
+but is here to stay regardless.  See <a href="https://git-scm.com/docs/git-format-patch#_description"><code>format-patch</code>'s
+documentation</a>.</p>
+<h2 id="your-stash-stack"><a class="anchor-link" href="#your-stash-stack" aria-label="Anchor link for: your-stash-stack">⚓</a>
+Your stash stack</h2>
+<p>Finally, we arrive at the point of this entire post: stashes that used to only
+be available through the <code>reflog</code> of <code>refs/stash</code> now properly <em>exist</em> as a
+bunch of references that you can actually <code>push</code> and <code>fetch</code>.  You may even move
+around your entire stack, or any subset of it, at once.</p>
+<p>Let's push another stash:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-support z-function z-echo z-shell">echo</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>Line 3<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span> <span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;&gt;</span> file</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> stash push<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>message</span> <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>A new stash<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span></span>
+</span></code></pre>
+<p>That new stash (whose message I set, to avoid confusion) is now the top of our
+stash stack:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> log<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>oneline</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>decorate</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>graph</span> stash@<span class="z-meta z-group z-expansion z-brace z-shell"><span class="z-punctuation z-section z-expansion z-brace z-begin z-shell">{</span>0<span class="z-punctuation z-section z-expansion z-brace z-end z-shell">}</span></span></span>
+</span></code></pre>
+<pre class="z-code"><code>*   <span class="term-fg33">157c3dc (</span><span class="term-fg35 term-fg1">refs&#47;stash</span><span class="term-fg33">)</span> On master: A new stash
+<span class="term-fg31">|</span><span class="term-fg32">\</span>
+<span class="term-fg31">|</span> * <span class="term-fg33">d94cc67</span> index on master: d4d8585 Create file
+<span class="term-fg31">|&#47;</span>
+* <span class="term-fg33">d4d8585 (</span><span class="term-fg36 term-fg1">HEAD</span><span class="term-fg33"> -&gt; </span><span class="term-fg32 term-fg1">master</span><span class="term-fg33">)</span> Create file</pre></code>
+<div class="note" type="comment"><p>the new stash, <code>157c3dc</code>, is at the top of the stack, <code>stash@{0}</code>, or <code>refs/stash</code></p>
+</div>
+<p>As a reminder, here's the earlier stash, now at <code>stash@{1}</code>:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> log<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>oneline</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>decorate</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>graph</span> stash@<span class="z-meta z-group z-expansion z-brace z-shell"><span class="z-punctuation z-section z-expansion z-brace z-begin z-shell">{</span>1<span class="z-punctuation z-section z-expansion z-brace z-end z-shell">}</span></span></span>
+</span></code></pre>
+<pre class="z-code"><code>*<span class="term-fg33">-.</span>   <span class="term-fg33">a196b1a</span> WIP on master: d4d8585 Create file
+<span class="term-fg31">|</span><span class="term-fg32">\</span> <span class="term-fg33">\</span>
+<span class="term-fg31">|</span> <span class="term-fg32">|</span> * <span class="term-fg33">15f2a4d</span> untracked files on master: d4d8585 Create file
+<span class="term-fg31">|</span> * <span class="term-fg33">aa4fa9e</span> index on master: d4d8585 Create file
+<span class="term-fg31">|&#47;</span>
+* <span class="term-fg33">d4d8585 (</span><span class="term-fg36 term-fg1">HEAD</span><span class="term-fg33"> -&gt; </span><span class="term-fg32 term-fg1">master</span><span class="term-fg33">)</span> Create file</pre></code>
+<div class="note" type="comment"><p>the earlier stash, <code>a196b1a</code>, is now the second entry on the stack, <code>stash@{1}</code>, but no more <code>refs/stash</code></p>
+</div>
+<p>The new model for stashes allow us to refer to our <em>entire stash stack</em>
+directly, since they'll be parents of one another, provided that you want this
+behaviour.</p>
+<p>Note that you may pass a list of stashes to <code>git stash export --print</code> or omit
+them altogether to export the stack in its entirety:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> log <span class="z-meta z-group z-expansion z-command z-parens z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-punctuation z-section z-parens z-begin z-shell">(</span><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> stash export<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>print</span> stash@<span class="z-meta z-group z-expansion z-brace z-shell"><span class="z-punctuation z-section z-expansion z-brace z-begin z-shell">{</span>0<span class="z-punctuation z-section z-expansion z-brace z-end z-shell">}</span></span> stash@<span class="z-meta z-group z-expansion z-brace z-shell"><span class="z-punctuation z-section z-expansion z-brace z-begin z-shell">{</span>1<span class="z-punctuation z-section z-expansion z-brace z-end z-shell">}</span></span></span><span class="z-punctuation z-section z-parens z-end z-shell">)</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>oneline</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>decorate</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>graph</span></span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> log <span class="z-meta z-group z-expansion z-command z-parens z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-punctuation z-section z-parens z-begin z-shell">(</span><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> stash export<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>print</span></span><span class="z-punctuation z-section z-parens z-end z-shell">)</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>oneline</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>decorate</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>graph</span></span>
+</span></code></pre>
+<pre class="z-code"><code>*   <span class="term-fg33">ba4fea2</span> git stash: On master: A new stash
+<span class="term-fg31">|</span><span class="term-fg32">\</span>
+<span class="term-fg31">|</span> *   <span class="term-fg33">157c3dc (</span><span class="term-fg35 term-fg1">refs&#47;stash</span><span class="term-fg33">)</span> On master: A new stash
+<span class="term-fg31">|</span> <span class="term-fg33">|</span><span class="term-fg34">\</span>
+<span class="term-fg31">|</span> <span class="term-fg33">|</span> * <span class="term-fg33">d94cc67</span> index on master: d4d8585 Create file
+<span class="term-fg31">|</span> <span class="term-fg33">|&#47;</span>
+* <span class="term-fg33">|</span>   <span class="term-fg33">3e57536</span> git stash: WIP on master: d4d8585 Create file
+<span class="term-fg35">|</span><span class="term-fg36">\</span> <span class="term-fg33">\</span>
+<span class="term-fg35">|</span> <span class="term-fg36">|</span> <span class="term-fg33">\</span>
+<span class="term-fg35">|</span> <span class="term-fg36">|</span>  <span class="term-fg33">\</span>
+<span class="term-fg35">|</span> *<span class="term-fg33 term-fg1">-.</span> <span class="term-fg33">\</span>   <span class="term-fg33">a196b1a</span> WIP on master: d4d8585 Create file
+<span class="term-fg35">|</span> <span class="term-fg33">|</span><span class="term-fg32 term-fg1">\</span> <span class="term-fg33 term-fg1">\</span> <span class="term-fg33">\</span>
+<span class="term-fg35">|</span> <span class="term-fg33">|</span> <span class="term-fg32 term-fg1">|</span><span class="term-fg33">_</span><span class="term-fg33 term-fg1">|</span><span class="term-fg33">&#47;</span>
+<span class="term-fg35">|</span> <span class="term-fg33">|&#47;</span><span class="term-fg32 term-fg1">|</span> <span class="term-fg33 term-fg1">|</span>
+<span class="term-fg35">|</span> <span class="term-fg33">|</span> <span class="term-fg32 term-fg1">|</span> * <span class="term-fg33">15f2a4d</span> untracked files on master: d4d8585 Create file
+<span class="term-fg35">|</span> <span class="term-fg33">|</span> * <span class="term-fg33">aa4fa9e</span> index on master: d4d8585 Create file
+<span class="term-fg35">|</span> <span class="term-fg33">|&#47;</span>
+<span class="term-fg35">|</span> * <span class="term-fg33">d4d8585 (</span><span class="term-fg36 term-fg1">HEAD</span><span class="term-fg33"> -&gt; </span><span class="term-fg32 term-fg1">master</span><span class="term-fg33">)</span> Create file
+* <span class="term-fg33">73c9bab</span></pre></code>
+<div class="note" type="comment"><p>yes, I'll admit, this looks mad</p>
+</div>
+<p>Try to focus on the leftmost branch: that's your stash stack, with <code>ba4fea2</code> at
+the top, <code>3e57536</code> next, and <code>73c9bab</code> (the dummy initial "stash stack" commit)
+at the bottom.</p>
+<p><em>Voilà</em>!  You need only your one reference from <code>git stash export --print</code>, and
+can carry around your entire stash stack.</p>
+<h2 id="so-what"><a class="anchor-link" href="#so-what" aria-label="Anchor link for: so-what">⚓</a>
+So what?</h2>
+<p>There's a counterpart to the <code>--print</code> option: <code>--to-ref &lt;ref&gt;</code> lets you export
+your stash stack (in its newly introduced model) to a proper Git ref, which you
+can then push and fetch like any other reference:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> stash export<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>to-ref</span> refs/my-stash</span>
+</span></code></pre>
+<p>There we go, <code>refs/my-stash</code> is there.  You can lose and recover it all with
+ease:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> stash list</span>
+</span></code></pre>
+<pre data-lang="txt" class="language-txt z-code"><code class="language-txt" data-lang="txt"><span class="z-text z-plain">stash@{0}: On master: A new stash
+</span><span class="z-text z-plain">stash@{1}: WIP on master: d4d8585 Create file
+</span></code></pre>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> stash clear</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> stash list</span>
+</span></code></pre>
+<pre data-lang="txt" class="language-txt z-code"><code class="language-txt" data-lang="txt"><span class="z-text z-plain">&lt;no output&gt;
+</span></code></pre>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> stash import refs/my-stash</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> stash list</span>
+</span></code></pre>
+<pre data-lang="txt" class="language-txt z-code"><code class="language-txt" data-lang="txt"><span class="z-text z-plain">stash@{0}: On master: A new stash
+</span><span class="z-text z-plain">stash@{1}: WIP on master: d4d8585 Create file
+</span></code></pre>
+<p>And of course, you can push and fetch <code>refs/my-stash</code> to and from any remote
+repository, just like any other ref.</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> push origin refs/my-stash</span>
+</span></code></pre>
+<p>Then, on another machine:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> fetch origin refs/my-stash:refs/my-stash</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> stash import refs/my-stash</span>
+</span></code></pre>
+<p>Though I should point out that the emerging consensus suggests to keep things a
+bit more organised, and use <code>refs/stashes/&lt;name&gt;</code> instead of <code>refs/&lt;name&gt;</code>; I'll
+adopt this convention going forward.</p>
+<h3 id="a-note-on-garbage-collection"><a class="anchor-link" href="#a-note-on-garbage-collection" aria-label="Anchor link for: a-note-on-garbage-collection">⚓</a>
+A note on garbage collection</h3>
+<p>Remember that these are <strong>dangling refs</strong>, and as such are subject to garbage
+collection, if you've skilfully set up your repository.  Chances are that your
+Git host provider <em>does</em> by default end up pruning these after a while: nobody
+wants to keep around stale references forever that aren't reachable from any
+branch or tag.</p>
+<p>Have fun!</p>
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn-2.51">
+<p>Git <code>2.51</code> (<a href="https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.51.0.adoc">release notes</a>)
+was released on August 18, 2025. <a href="#fr-2.51-1">↩</a></p>
+</li>
+<li id="fn-istillusethis">
+<p>With 2.51, <code>git whatchanged</code> shall only function when paired
+when invoked with the <code>--i-still-use-this</code> flag, just like <code>pack-redundant</code> was,
+2 years ago.  That's some pretty hard deprecation: I like it.  It's scheduled to
+be removed in Git 3.0. <a href="#fr-istillusethis-1">↩</a></p>
+</li>
+<li id="fn-diphasic">
+<p>"Having two phases"
+(<a href="https://www.merriam-webster.com/dictionary/diphasic">Merriam-Webster</a>).  I
+refer here to the migration to your personal computer after work. <a href="#fr-diphasic-1">↩</a></p>
+</li>
+<li id="fn-octopus">
+<p>I call an <em>octopus commit</em> that, because it has many arms!
+Sometimes I call them <em>hydra</em>, with greater reverence, when they are
+particularly hard to tame.  Neither term is part of the customary
+Git vernacular, but "octopus" is used to refer to a specific <a href="https://git-scm.com/docs/merge-strategies">merge
+strategy</a>. <a href="#fr-octopus-1">↩</a></p>
+</li>
+<li id="fn-4-parents">
+<p>I thought the joke about stash-commits having <em>four parents</em> would
+make the solution scarier than it is, but I have some doubts now that I actually
+describe the reality aloud. <a href="#fr-4-parents-1">↩</a></p>
+</li>
+</ol>
+</section>
+
+</article>
+
+    </main>
+    <div class="hi">
+      <footer>
+        &copy; 2025
+        <a href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <span>&lt;<a href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>&gt;</span>
+        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY-NC-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>
