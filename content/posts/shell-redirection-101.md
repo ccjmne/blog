@@ -2,7 +2,6 @@
 title = 'Redirection 101: the very basics'
 date = 2025-08-18
 description = 'A gentle introduction to redirection in the shell, for the uninitiated'
-draft = true
 taxonomies.tags = ['all', 'cli', 'posix']
 +++
 
