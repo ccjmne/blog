@@ -6,12 +6,15 @@ draft = true
 taxonomies.tags = ['all', 'cli', 'posix']
 +++
 
-Disclaimer: this article is tailored to those of us who are taking their first
-steps in the <abbr title="Command Line
-   Interface, where I dwell">`CLI`</abbr>.  These will be rare throughout this blog, but may exist
-nonetheless, when I would otherwise find it missing when I want to share more
-interesting knowledge that builds on it.  A seasoned user is sure to find this
-page too basic, but the following parts may still be of some value to them.
+  *Disclaimer:* this article is tailored to those of us who are taking
+their first steps in the <abbr title="Command Line Interface, where I
+dwell">`CLI`</abbr>.<br>
+  A seasoned user is still likely to find some quite interesting information
+in the various notes, but the main focus of the article still is only
+meant to level the playing field in order to approach the [everything is a
+file](@/posts/everything-is-a-file.md) series.
+
+<!-- more -->
 
 ## Redirection
 
