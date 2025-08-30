@@ -14,7 +14,7 @@
   <li>{{- page.reading_time -}}-minute read</li>
   {% set parent = get_section(path=page.ancestors | last) %}
   {%- if not section.extra.series and parent.extra.series -%}
-    Part&nbsp;{{ page.extra.idx }}&nbsp;of&nbsp;<a href="{{ parent.permalink }}">{{ parent.title | markdown(inline=true) | safe }}</a>
+    Part&nbsp;{{ page.slug | truncate(length=2, end="") | trim_start_matches(pat="0") }}&nbsp;of&nbsp;<a href="{{ parent.permalink }}">{{ parent.title | markdown(inline=true) | safe }}</a>
   {%- endif -%}
 </ul>
 {%- if page.extra.toc | default(value=true) -%}

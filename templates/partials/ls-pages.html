@@ -11,7 +11,7 @@
 {%- for page in pages -%}
 <div class="ls-i">
   {%- if section.extra.series -%}
-  <span class="i">{{- pads::zpad(s=page.extra.idx, w=2) -}}.</span>
+  <span class="i">{{- page.slug | truncate(length=2, end="") -}}.</span>
   {%- endif -%}
   <article>
     <h2><a href="{{ page.permalink | safe }}">{{ page.title | markdown(inline=true) | safe }}</a></h2>
@@ -22,7 +22,7 @@
       <li>{{- page.reading_time -}}-minute read</li>
       {% set parent = get_section(path=page.ancestors | last) %}
       {%- if not section.extra.series and parent.extra.series -%}
-        Part&nbsp;{{ page.extra.idx }}&nbsp;of&nbsp;<a href="{{ parent.permalink }}">{{ parent.title | markdown(inline=true) | safe }}</a>
+        Part&nbsp;{{ page.slug | truncate(length=2, end="") | trim_start_matches(pat="0") }}&nbsp;of&nbsp;<a href="{{ parent.permalink }}">{{ parent.title | markdown(inline=true) | safe }}</a>
       {%- endif -%}
     </ul>
     {%- if page.summary -%}
