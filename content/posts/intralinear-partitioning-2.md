@@ -2,7 +2,6 @@
 title = 'Intralinear partitioning (part 2 of 3)'
 date = 2025-08-08
 description = 'Laying text out horizontally from the CLI'
-draft = true
 +++
 
 This is the second of a 3-part article.
@@ -252,8 +251,7 @@ another.<br>
 <div class="grid-1-3">
 <div>
 
-{% note(type="heading") %} `a.txt` {% end %}
-```txt
+```txt,name=a.txt
 a
 b
 c
@@ -263,8 +261,7 @@ e
 </div>
 <div>
 
-{% note(type="heading") %} `b.txt` {% end %}
-```txt
+```txt,name=b.txt
 1
 2
 3

@@ -2,7 +2,6 @@
 title = 'Intralinear partitioning (part 1 of 3)'
 date = 2025-07-25
 description = 'Laying text out horizontally'
-draft = true
 +++
 
 This 3-part article concerns itself with putting chunks of text side by side.
@@ -144,8 +143,7 @@ composing instructions for machines to follow—"writing code", as we say.
 centred, right-aligned or even justified, any padded value, wrapped sentence,
 indented paragraph...  Have a look at the following examples:
 
-{% note(type="heading") %} `profile.ts` {% end %}
-```typescript
+```typescript,name=profile.ts
 export const education = [{
   degree:    `Engineer's Degree`,
   field:     'Network Security',
@@ -165,8 +163,7 @@ export const education = [{
 ```
 <br>
 
-{% note(type="heading") %} `Adyen.java` {% end %}
-```java
+```java,name=Adyen.java
 private static final Map<String, String> PROPS_DEFAULTS = Collections.singletonMap("environment", "test");
 private static final String              PROPS_FILE     = "creditcard/adyen-x.properties";
 private static final String[]            PROPS_KEYS     =
@@ -190,12 +187,11 @@ public Adyen(final GeographicalArea shop) {
         .from(Props.getFrom(PROPS_FILE));
 }
 ```
-{% note(type="comment") %} bonus points for the serendipitously native alignment of the `JSON` and `HTTP` constants declaration {% end %}
+{{ note(msg="bonus points for the serendipitously native alignment of the `JSON` and `HTTP` constants declaration") }}
 
 <br>
 
-{% note(type="heading") %} `queries.sql` {% end %}
-```sql
+```sql,name=queries.sql
 SELECT CASE airport_code
        WHEN 'CDG' THEN 'Paris'
        WHEN 'ICN' THEN 'Seoul'
@@ -207,8 +203,7 @@ SELECT CASE airport_code
 ```
 <br>
 
-{% note(type="heading") %} `delta-reports-exchange.txt` {% end %}
-```txt
+```txt,name=delta-reports-exchange.txt
 Status: DRAFT                DelTA Reports Exchange                 Éric NICOLAS
 Revisions: 12                ======================           <ccjmne@gmail.com>
 Latest: 2024-02-14
