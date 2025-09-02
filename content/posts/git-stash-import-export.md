@@ -86,7 +86,7 @@ echo 'Line 2' >> file  # ............ 3. Modify the workdir
 touch other-file  # ................. 4. Add a new untracked file
 git stash push --include-untracked  # 5. Stash everything
 ```
-{% note(type="comment") %} note the nifty `cd $(mktemp -d)`: you may follow along by copy-pasting without risk {% end %}
+{{ note(msg="note the nifty `cd $(mktemp -d)`: you may follow along by copy-pasting without risk") }}
 
 Here, I create a repository with a single commit containing a single empty file,
 `file`.  I add two lines to it, then stage the first one but not the second.  I
@@ -107,7 +107,7 @@ mode 100644,100644,000000..100644
 <span class="term-fg36">@@@@ -1,0 -1,1 -1,0 +1,2 @@@@</span>
 <span class="term-fg32">+ +Line 1</span>
 <span class="term-fg32">+++Line 2</span></pre></code>
-{% note(type="comment") %} the `diff --cc` will show the "combined diff", when a commit has several parents (a "merge commit") {% end %}
+{{ note(msg="the `diff --cc` will show the "combined diff", when a commit has several parents (a "merge commit")") }}
 
 ### One stash, several commits
 
@@ -158,7 +158,7 @@ git stash export --print stash@{0}
 ```txt
 3e57536c189d73308254f5e3f233b9b97e016d11
 ```
-{% note(type="comment") %} get the hash of your stash's new variant representation with `export --print` {% end %}
+{{ note(msg="get the hash of your stash's new variant representation with `export --print`") }}
 
 Let's open it up and see what it hides:
 
@@ -175,7 +175,7 @@ git log $(git stash export --print stash@{0}) --oneline --decorate --graph
 <span class="term-fg31">|</span> * <span class="term-fg33">d4d8585 (</span><span class="term-fg36 term-fg1">HEAD</span><span class="term-fg33"> -&gt; </span><span class="term-fg32 term-fg1">master</span><span class="term-fg33">)</span> Create file
 * <span class="term-fg33">73c9bab</span></pre></code>
 
-{% note(type="comment") %} the `a196b1a` commit (second parent) is the regular, historical "stash commit", `stash@{0}` {% end %}
+{{ note(msg='the `a196b1a` commit (second parent) is the regular, historical "stash commit", `stash@`') }}
 
 This is the same command as before, except that where I would before use
 `stash@{0}` as the reference to `log`, I now use `$(git stash export --print
@@ -226,7 +226,7 @@ git log --oneline --decorate --graph stash@{0}
 <span class="term-fg31">|</span> * <span class="term-fg33">d94cc67</span> index on master: d4d8585 Create file
 <span class="term-fg31">|&#47;</span>
 * <span class="term-fg33">d4d8585 (</span><span class="term-fg36 term-fg1">HEAD</span><span class="term-fg33"> -&gt; </span><span class="term-fg32 term-fg1">master</span><span class="term-fg33">)</span> Create file</pre></code>
-{% note(type="comment") %} the new stash, `157c3dc`, is at the top of the stack, `stash@{0}`, or `refs/stash` {% end %}
+{{ note(msg="the new stash, `157c3dc`, is at the top of the stack, `stash@{0}`, or `refs/stash`") }}
 
 As a reminder, here's the earlier stash, now at `stash@{1}`:
 ```sh
@@ -238,7 +238,7 @@ git log --oneline --decorate --graph stash@{1}
 <span class="term-fg31">|</span> * <span class="term-fg33">aa4fa9e</span> index on master: d4d8585 Create file
 <span class="term-fg31">|&#47;</span>
 * <span class="term-fg33">d4d8585 (</span><span class="term-fg36 term-fg1">HEAD</span><span class="term-fg33"> -&gt; </span><span class="term-fg32 term-fg1">master</span><span class="term-fg33">)</span> Create file</pre></code>
-{% note(type="comment") %} the earlier stash, `a196b1a`, is now the second entry on the stack, `stash@{1}`, but no more `refs/stash` {% end %}
+{{ note(msg="the earlier stash, `a196b1a`, is now the second entry on the stack, `stash@{1}`, but no more `refs/stash`") }}
 
 The new model for stashes allow us to refer to our *entire stash stack*
 directly, since they'll be parents of one another, provided that you want this
@@ -270,7 +270,7 @@ git log $(git stash export --print) --oneline --decorate --graph
 <span class="term-fg35">|</span> <span class="term-fg33">|&#47;</span>
 <span class="term-fg35">|</span> * <span class="term-fg33">d4d8585 (</span><span class="term-fg36 term-fg1">HEAD</span><span class="term-fg33"> -&gt; </span><span class="term-fg32 term-fg1">master</span><span class="term-fg33">)</span> Create file
 * <span class="term-fg33">73c9bab</span></pre></code>
-{% note(type="comment") %} yes, I'll admit, this looks mad {% end %}
+{{ note(msg="yes, I'll admit, this looks mad") }}
 
 Try to focus on the leftmost branch: that's your stash stack, with `ba4fea2` at
 the top, `3e57536` next, and `73c9bab` (the dummy initial "stash stack" commit)

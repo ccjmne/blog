@@ -65,7 +65,7 @@ ls --classify
 node_modules/  compose.sh*  eslint.config.mjs  package.json    README.md
 src/           Dockerfile   LICENSE            pnpm-lock.yaml  TODO
 ```
-{% note(type="comment") %} I use `--classify` to annotate various file types, like executables and directories {% end %}
+{{ note(msg="I use `--classify` to annotate various file types, like executables and directories") }}
 
 ### The tabular data
 
@@ -86,7 +86,7 @@ uni identify É É 🧉
 'É'  U+00C9  201    c3 89       &Eacute;   LATIN CAPITAL LETTER E WITH ACUTE
 '🧉' U+1F9C9 129481 f0 9f a7 89 &#x1f9c9;  MATE DRINK
 ```
-{% note(type="comment") %} ah, so that's why I appear twice in <abbr title='Summarize &apos;git log&apos; output'>`git shortlog`</abbr>` --summary`... {% end %}
+{{ note(msg="ah, so that's why I appear twice in <abbr title='Summarize &apos;git log&apos; output'>`git shortlog`</abbr>` --summary`...") }}
 
 ### The adjoined and annotated fragments
 
@@ -110,7 +110,7 @@ postgres_1   2025-08-09 12:35:15 | STATEMENT:  SELECT * FROM employees;
 postgres_1   2025-08-09 12:35:20 | LOG:  disconnection: session time: 9s user=acme database=mydb host=172.18.0.5 port=5432
 webserver_1  2025-08-09 12:35:05 | GET /api/employees 200 15ms
 ```
-{% note(type="comment") %} here, `docker compose` annotates the concatenated logs with their provenance and timestamps {% end %}
+{{ note(msg="here, `docker compose` annotates the concatenated logs with their provenance and timestamps") }}
 
 The juxtaposition of pieces of content also routinely aids in visual comparison:
 
