@@ -42,6 +42,6 @@ ul.infobar {
   li:not(:last-child)::after {
     content: "⯁";
     margin: 0 .5ch;
-    color: var(--colour-surface2);
+    color: var(--colour-surface1);
   }
 }
