@@ -31,14 +31,14 @@ Introduced in [ECMAScript 2015
 lets you yield values *on demand*, rather than computing them all at once.
 It works with the introduction of a new keyword, `yield`, which **pauses and
 resumes the function execution**.  The one practical difference between an
-[`iterator`](#under-the-hood) and a regular collection (like an `Array`) is that
-values are only computed when they're requested: you may generate an infinite
-sequence of values, for instance.
+[`iterator` (what the generator constructs)](#under-the-hood) and a regular
+collection (like an `Array`) is that values are only computed when they're
+requested: you may generate an infinite sequence of values, for instance.
 
 ### Defining a generator
 
-A generator function is declared using the function* syntax. Inside, the yield
-keyword is used to emit values one at a time:
+A generator function is declared using the `function*` syntax. Inside, the
+`yield` keyword is used to emit values one at a time:
 
 ```javascript
 function* countToThree() {
@@ -73,7 +73,7 @@ There is however **no equivalent arrow function syntax** for generators.
 
 Calling a generator function returns an
 [`iterator`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)
-object.  Well, it even is an *`iterable`* `iterator`, like most will be.
+object.  Well, it even is an *`iterable`*` iterator`, like most will be.
 
 ### The `iterator` protocol
 
@@ -84,7 +84,7 @@ with two properties:
 - `done`, a boolean indicating whether the generator has completed.
 
 Technically, both properties are optional: you may very well yield `undefined`
-at any time, and the omission of `done` is equivalent to have it be `false`.
+at any time, and the omission of `done` is equivalent to having it be `false`.
 
 An `iterator` is fairly simple to use: call its `next()` method to get the
 subsequent value; when `done` is `true`, the `iterator` is exhausted.
@@ -131,9 +131,9 @@ console.log(counter.next()) // { value: undefined, done: true }
 // The final 'tada' is *ignored*:
 console.log(...countToThreeAndReturn()) // 1 2 3
 ```
-{{ note(msg="the (oft left undefined) final `return` value is **ignored** by consumers of `iterable`s ") }}
+{{ note(msg="the (oft left undefined) final `return` value is **ignored** by consumers of `iterable` ") }}
 
-Which makes for a neat segue into the next section.
+... Which makes for a neat segue into the next section.
 
 ### The `iterable` interface
 
@@ -148,8 +148,8 @@ In practice, the `iterator` protocol is virtually never implemented without also
 providing an `iterable` interface, as most (all?) standard syntaxes and `API`s
 are designed to work with `iterable`s rather than raw `iterator`s.
 
-Generators `function*` return values that are `iterable`: you can use them in
-`for..of` loops:
+Generator `function*`s return values that are `iterable`.  As such, you can (for
+example) use them in `for..of` loops:
 
 ```javascript
 for (const num of countToThree()) {
@@ -158,9 +158,11 @@ for (const num of countToThree()) {
 ```
 
 Note that `Array`s, `String`s, `Map`s, `Set`s, and possibly other built-in
-types also implement the `iterable` interface. However, `Object`s do not, and
-are broken down with `Object.entries()`, `Object.keys()`, or `Object.values()`
-instead.
+types also implement the `iterable` interface[^object-not-iterable].
+
+[^object-not-iterable]: Note that plain `Object`s do **not** implement
+the `iterable` interface, and are broken down with `Object.entries()`,
+`Object.keys()`, or `Object.values()` instead.
 
 ```javascript
 for (const num of [1, 2, 3]) {
@@ -183,7 +185,7 @@ for (const [key, value] of new Map([['a', 1], ['b', 2], ['c', 3]])) {
 
 ## Not just `for..of`
 
-With `ES6` also came a plethora of new syntaxes and `API`s designed to work with
+With `ES6` also came a slew of new syntaxes and `API`s designed to work with
 `iterable`s, including but not limited to:
 
 - The *spread operator* (`...`), which expands an `iterable` into individual
@@ -218,9 +220,9 @@ declare and initialise multiple values at once:
   ```
 
 There is still some more brought by `ES6` with regards to integration with
-`iterable`s, as well as a *lot* more general goodness that came with it, but
-I should bring this article back on topic: how about the practical use of
-generator functions in the wild?
+`iterable`s, as well as a *lot* more general, unrelated goodness that came with
+it, but I should bring this article back on topic and to an end: how about the
+practical use of generator functions in the wild?
 
 ## A practical example
 
@@ -238,19 +240,19 @@ function* infiniteCounter() {
 
 Alright, it's good to know, but I was only messing with you: I'm yet to develop
 the need for an infinite sequence that isn't served just as well by a simple
-mutable `number` counter.
+mutable `number` counter or some other mechanism entirely.
 
-There's however [one
+There was however still [one
 time](https://github.com/vJechsmayr/JavaScriptAlgorithms/pull/142) that I
-figured would call for a generator `function*`.  It's not the code that runs
-fastest, but it's the one that is most elegant[^elegant]—though I welcome
-challenges to that claim.
+figured would call for a generator `function*`.  It wasn't the code that ran the
+fastest, but the most elegant[^elegant] one—though I welcome challenges to that
+claim.
 
 [^elegant]: Elegance is subjective, but 3 measly statements with no mutable
 variables has got to beat alternatives!  In reality, these acrobatics could
 otherwise be replaced by `Array#flat`, though that one only arrived with `ES10`.
 
-It's implementing a solution to [Reshape the
+It was implementing a solution to [Reshape the
 Matrix](https://leetcode.com/problems/reshape-the-matrix), <abbr title="Online
 coding challenges platform">LeetCode</abbr>'s challenge `#566`, despite the typo
 in my PR referring to `#556`, which reads:
@@ -287,11 +289,11 @@ function reshape(matrix, r, c) {
 }
 ```
 
-  Don't take my word for it: try for yourself to implement this solution;
+   Don't take my word for it: try for yourself to implement this solution;
 chances are it's only then that you'll best appreciate the generator
 `function*`.<br>
-  Though nowadays, for this specific example, I might rather reach for
-`Array#flat` instead, which, contrary to a naive belief, actually performs
+   Though nowadays, for this specific example, I might rather reach for
+`Array#flat` instead which, contrary to a naive belief, actually performs
 *better*.
 
 And don't hesitate to share with me if you ever come across a legitimate use for
