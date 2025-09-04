@@ -126,3 +126,10 @@ abbr {
     opacity: 1;
   }
 }
+
+blockquote {
+  border-inline-start: .75ch solid var(--colour-surface1);
+  padding-inline-start: 1.5ch;
+  box-sizing: border-box;
+  font-style: italic;
+}
