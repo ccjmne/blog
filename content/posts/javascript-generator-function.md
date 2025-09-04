@@ -237,7 +237,7 @@ function* infiniteCounter() {
 ```
 
 Alright, it's good to know, but I was only messing with you: I'm yet to develop
-the need for an infinite sequence that isn't served just as well with a simple
+the need for an infinite sequence that isn't served just as well by a simple
 mutable `number` counter.
 
 There's however [one
@@ -246,15 +246,14 @@ figured would call for a generator `function*`.  It's not the code that runs
 fastest, but it's the one that is most elegant[^elegant]—though I welcome
 challenges to that claim.
 
-[^elegant]: Elegance is subjective, of course, but 3 measly statements with no
-mutable variables has got to beat alternatives!  In reality, these acrobatics
-could otherwise be replaced by `Array#flat`, though that one only arrived with
-`ES10`.
+[^elegant]: Elegance is subjective, but 3 measly statements with no mutable
+variables has got to beat alternatives!  In reality, these acrobatics could
+otherwise be replaced by `Array#flat`, though that one only arrived with `ES10`.
 
 It's implementing a solution to [Reshape the
 Matrix](https://leetcode.com/problems/reshape-the-matrix), <abbr title="Online
 coding challenges platform">LeetCode</abbr>'s challenge `#566`, despite the typo
-in my PR referring to `556`, which reads:
+in my PR referring to `#556`, which reads:
 
 > In MATLAB, there is a handy function called `reshape` which can reshape an `m
 > x n` matrix into a new one with a different size `r x c` keeping its original
@@ -291,8 +290,9 @@ function reshape(matrix, r, c) {
   Don't take my word for it: try for yourself to implement this solution;
 chances are it's only then that you'll best appreciate the generator
 `function*`.<br>
-  Though nowadays, I might prefer to use `Array#flat` instead, which, contrary
-to a naive belief, actually performs *better*.
+  Though nowadays, for this specific example, I might rather reach for
+`Array#flat` instead, which, contrary to a naive belief, actually performs
+*better*.
 
 And don't hesitate to share with me if you ever come across a legitimate use for
 JavaScript's generators: I would love to know what you're tinkering with.
