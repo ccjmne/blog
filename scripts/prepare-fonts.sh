@@ -7,10 +7,10 @@ readonly noto=$(curl -L 'https://fonts.googleapis.com/css2?family=Noto+Sans+Symb
 
 # Get the full font
 readonly outfit=$(curl -L 'https://fonts.googleapis.com/css2?family=Outfit:wght@500' | grep -Po '(?<=url\()[^)]+')
-readonly hedvig=$(curl -L 'https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif' | grep -Po '(?<=url\()[^)]+')
+readonly work=$(curl -L 'https://fonts.googleapis.com/css2?family=Work+Sans:wght@400' | grep -Po '(?<=url\()[^)]+')
 readonly fira=$(curl -L 'https://fonts.googleapis.com/css2?family=Fira+Code' | grep -Po '(?<=url\()[^)]+')
 
-for font in outfit hedvig noto fira; do
+for font in outfit work noto fira; do
     curl -L "${!font}" -o $font.ttf
     woff2_compress $font.ttf
 done
