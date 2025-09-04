@@ -28,7 +28,7 @@ Getting some #work done.
 EOF
 vim +'set runtimepath+=vim-klog' +':syntax on' work.klg
 ```
-{{ note(type=comment, msg=I am fond of `--rm -it` and read it as "remove it") }}
+{{ note(msg='I am fond of `--rm -it` and read it as "remove it"') }}
 
 Just like that, a fresh Vim installation, augmented with the correct file type
 detection and corresponding syntax highlighting, right off the `master` branch
