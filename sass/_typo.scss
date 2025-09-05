@@ -65,6 +65,10 @@ a {
     }
   }
 
+  &[href^="#fr-"] { // backlink to footnote-reference
+    font-size: .75em;
+  }
+
   &.anchor-link {
     margin-right: .5ch;
     font-family: "Noto Sans Symbols";
