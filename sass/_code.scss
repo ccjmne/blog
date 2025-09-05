@@ -4,6 +4,7 @@ h1 code {
 
 pre, code, abbr[font=mono]::after {
   font-family: "Fira Code", monospace;
+  font-variant-ligatures: none;
   font-size: .92em;
 }
 
