@@ -1,29 +1,3 @@
-@font-face {
-  font-family: Outfit;
-  src: url("./outfit.woff2") format('woff2');
-  font-weight: 500;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Noto Sans Symbols";
-  src: url('./noto.woff2') format('woff2');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Work Sans";
-  src: url('./work.woff2') format('woff2');
-  font-weight: 400;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Fira Code";
-  src: url('./fira.woff2') format('woff2');
-  font-display: swap;
-}
-
 strong { font-weight: 700; }
 ol { list-style-type: lower-roman; }
 ul { list-style-type: square; }
