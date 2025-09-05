@@ -6,7 +6,7 @@ readonly project="$(readlink -f "$0" | xargs dirname | xargs dirname)"
 readonly noto=$(curl -Ls 'https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols&text=%e2%9a%93')
 
 # Get the full fonts:
-readonly ouft=$(curl -Ls 'https://fonts.googleapis.com/css2?family=Outfit:wght@500')
+readonly ouft=$(curl -Ls 'https://fonts.googleapis.com/css2?family=Outfit:wght@400;500')
 readonly work=$(curl -Ls 'https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;1,400')
 readonly fira=$(curl -Ls 'https://fonts.googleapis.com/css2?family=Fira+Code')
 
