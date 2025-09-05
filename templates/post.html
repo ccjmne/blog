@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 class="title">{{- page.title | markdown(inline=true) | safe -}}</h1>
+<style type="text/css">.{{- page.slug -}} { view-transition-name: {{- page.slug -}}; }</style>
+<h1 class="title {{ page.slug -}}">{{- page.title | markdown(inline=true) | safe -}}</h1>
 <time>{{- page.date | date(format="%B %d, %Y") -}}</time>
 {% if page.toc %}
 <details>
@@ -22,7 +23,7 @@
     </ul>
 </details>
 {% endif %}
-<article class="post">
+<article>
   {{ page.content | safe }}
 </article>
 {% endblock content %}
