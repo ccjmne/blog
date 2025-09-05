@@ -94,11 +94,11 @@ illiteracy](@/posts/rampant-shell-illiteracy).
 
 ## The legitimate use of `cat`
 
-Despite my furry companion of choice being of the canine complexion, I have
-nothing against `cat` in principle.  Outside of scripts, I'd still argue that
-`less` is surely often preferable, possibly with `--quit-if-one-screen`/`-F` to
-have it behave like `cat` when you require no pagination; but here are a few
-instances where `cat` is sensible nonetheless:
+Despite my furry companion being of the canine variety, I have nothing against
+`cat` in principle.  Outside of scripts, I'd still argue that `less` is surely
+often preferable, possibly with `--quit-if-one-screen`/`-F` to have it behave
+like `cat` when you require no pagination; but here are a few instances where
+`cat` is sensible nonetheless:
 
 ```sh
 # Create file in-line

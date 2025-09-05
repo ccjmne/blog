@@ -65,18 +65,17 @@ your host*.
 
 If you wanted to move them elsewhere, you had to resort to savvy (let's not call
 them "awkward") workarounds: patch files, stash branches, cherry-picking...
-Anything would go, with the exception of outright copying entire files or tree
+Anything would go, with the exception of outright copying entire files or trees
 on your file system, I'm sure.
 
 ### Aren't they just usable commits under the hood?
 
-   "Jein" ("yes and no"), as my German colleagues would say.<br>
-   You could always `git show stash@{0}` and see it in all its splendour to find
-out.  Let's do just that!
+"Jein" ("yes and no"), as my German colleagues would say; you could always `git
+show stash@{0}` and see it in all its splendour to find out:
 
 ```sh
 cd $(mktemp --directory)
-git init  # ......................... 1. New repo with an empty file
+git init  # ......................... 1. Create a new repo with an empty file
 touch file
 git add file
 git commit --message 'Create file'
