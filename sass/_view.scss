@@ -6,7 +6,6 @@ html { scroll-behavior: smooth; }
   * { view-transition-name: none; }
 }
 
-.static { view-transition-class: static; }
 ::view-transition-group(.static) { animation-duration: 0ms !important; }
 
 @keyframes fade-in { from { opacity: 0; } }

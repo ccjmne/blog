@@ -1,3 +1,5 @@
+{% import "macros/hlpr.html" as hlpr %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,7 +15,7 @@
   </head>
   <body>
     {%- block breadcrumb -%}
-    <div class="hi static" style="view-transition-name: breadcrumbs">
+    <div class="hi" {{ hlpr::vtn(name="breadcrumbs", static=true) -}}>
       <ol class="breadcrumbs">
         {%- set current = section | default(value=page) -%}
         {%- for ancestor in current.ancestors | slice(start=1) -%}
@@ -28,7 +30,7 @@
       {%- block content -%}
       {%- endblock content -%}
     </main>
-    <div class="hi static" style="view-transition-name: footer">
+    <div class="hi" {{ hlpr::vtn(name="footer", static=true) -}}>
       <footer>
         &copy; 2025
         <a href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
