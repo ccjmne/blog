@@ -106,7 +106,7 @@ mode 100644,100644,000000..100644
 <span class="term-fg36">@@@@ -1,0 -1,1 -1,0 +1,2 @@@@</span>
 <span class="term-fg32">+ +Line 1</span>
 <span class="term-fg32">+++Line 2</span></pre></code>
-{{ note(msg="the `diff --cc` will show the "combined diff", when a commit has several parents (a "merge commit")") }}
+{{ note(msg='the `diff --cc` will show the "combined diff", when a commit has several parents (a "merge commit")') }}
 
 ### One stash, several commits
 
