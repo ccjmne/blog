@@ -7,9 +7,6 @@
 {%- block content -%}
 <h1 class="title">{{- section.title | markdown(inline=true) | safe -}}</h1>
 {{- section.content | safe -}}
-<style type="text/css">
-{%- for page in section.pages -%}.{{- page.slug -}} { view-transition-name: {{- page.slug -}}; }{%- endfor -%}
-</style>
 
 <!-- If you are using pagination, section.pages will be empty.
      You need to use the paginator object -->
@@ -19,7 +16,7 @@
   <span class="i">{{- pads::zpad(s=loop.index, w=2) -}}.</span>
   {%- endif -%}
   <article>
-    <h2 class="{{- page.slug -}}">{{ page.title | markdown(inline=true) | safe }}</h2>
+    <h2 class="link-title" style="view-transition-name: {{- page.slug -}}">{{ page.title | markdown(inline=true) | safe }}</h2>
     {%- if page.date -%}
     <time>{{- page.date | date(format="%B %d, %Y") -}}</time>
     {%- endif -%}

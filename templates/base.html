@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>~ccjmne</title>
-    <style>@view-transition { navigation: auto; }</style>
     {% include "partials/fonts.html" %}
     <link rel="stylesheet" href="{{ get_url(path="/style.css") }}">
     <link rel="stylesheet" href="{{ get_url(path="/light.css") }}">
@@ -14,7 +13,7 @@
   </head>
   <body>
     {% block breadcrumb %}
-    <div class="hi">
+    <div class="hi static" style="view-transition-name: breadcrumbs">
       <ol class="breadcrumbs">
         {% set current = section | default(value=page) %}
         {% for ancestor in current.ancestors | slice(start=1) %}
@@ -29,7 +28,7 @@
       {% block content %}
       {% endblock content %}
     </main>
-    <div class="hi">
+    <div class="hi static" style="view-transition-name: footer">
       <footer>
         &copy; 2025
         <a href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
