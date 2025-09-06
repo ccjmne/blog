@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="{{- get_url(path="/dark.css") -}}" media="(prefers-color-scheme: dark)">
     {%- block links -%}
     {%- endblock links -%}
+    <link rel="expect" blocking="render" href="#footer">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
   </head>
   <body>
     {%- block breadcrumb -%}
@@ -31,7 +33,7 @@
       {%- endblock content -%}
     </main>
     <div class="hi" {{ hlpr::vtn(name="footer", static=true) -}}>
-      <footer>
+      <footer id="footer">
         &copy; 2025
         <a href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
         <span>&lt;<a href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>&gt;</span>
