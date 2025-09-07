@@ -2,7 +2,7 @@
 title = "JavaScript's generator `function*`"
 date = 2025-09-02
 description = 'Returning *multiple times* from a single `function` in ECMAScript'
-tags = ["JavaScript", "ES6"]
+taxonomies.tags = ['all', 'javascript', 'es6']
 +++
 
 [ECMAScript](https://tc39.es/ecma262/) ("JavaScript" for the

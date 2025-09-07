@@ -2,6 +2,7 @@
 title = 'Share and recover your Git stashes with ease'
 date = 2025-08-26
 description = '`Import` and `export` your Git stashes with the `2.51` release'
+taxonomies.tags = ['all', 'git', 'cli']
 +++
 
 <abbr title="The stupid content tracker">Git</abbr> version `2.51`[^2.51]
