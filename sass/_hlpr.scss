@@ -1,3 +1,5 @@
+@use 'vars' as *;
+
 @for $r from 1 through 3 {
   @for $c from 1 through 3 {
     .grid-#{$r}-#{$c} {
@@ -5,6 +7,7 @@
       grid-gap: 1em;
       grid-template-rows: repeat(#{$r}, 1fr);
       grid-template-columns: repeat(#{$c}, 1fr);
+      width: calc($w + 2rem) !important;
     }
   }
 }
