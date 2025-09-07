@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/noto-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/ouft-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2" as="font" type="font/woff2" crossorigin>
+<style type="text/css">  @font-face { font-family: 'Noto Sans Symbols'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/noto-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/ouft-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-2.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2') format('woff2'); }
+</style><link rel="stylesheet" href="https://ccjmne.sh/blog/style.css">
+<link rel="stylesheet" href="https://ccjmne.sh/blog/light.css">
+<link rel="stylesheet" href="https://ccjmne.sh/blog/dark.css" media="(prefers-color-scheme: dark)">
+<link rel="expect" blocking="render" href="#footer">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+  </head>
+  <body><div class="hi" 
+  style="view-transition-name: breadcrumbs; view-transition-class: static"
+>
+      <ol class="breadcrumbs"><li><a class="breadcrumb-link" href="https:&#x2F;&#x2F;ccjmne.sh&#x2F;blog&#x2F;posts&#x2F;">Recent posts</a></li><li><span>Useless use of <code>cat</code></span></li>
+      </ol>
+    </div><main>
+<h1><span class="link-title" 
+  style="view-transition-name: useless-use-of-cat"
+>Useless use of <code>cat</code></span></h1><ul class="infobar"><li><time>August 16, 2025</time></li><li>6-minute read</li>
+  </ul>
+<br><details class="toc">
+  <summary>Table of contents</summary>
+  <ul><li>
+      <a href="https://ccjmne.sh/blog/posts/useless-use-of-cat/#files-all-the-way-down">Files all the way down</a><ul>
+        
+        <li><a href="https://ccjmne.sh/blog/posts/useless-use-of-cat/#but-what-if">But what if?</a></li></ul></li><li>
+      <a href="https://ccjmne.sh/blog/posts/useless-use-of-cat/#the-legitimate-use-of-cat">The legitimate use of cat</a><ul>
+        
+        <li><a href="https://ccjmne.sh/blog/posts/useless-use-of-cat/#the-definitive-escalation-mechanism">The definitive escalation mechanism</a></li></ul></li></ul>
+</details>
+<article>
+  <p>Short for con<code>cat</code>enate, <code>cat</code><sup class="footnote-reference" id="fr-cat-1"><a href="#fn-cat">1</a></sup> takes multiple files and prints them
+together into one continuous stream of text.  However, the first introduction to
+the <abbr title="Command Line Interface, where I dwell"><code>CLI</code></abbr> is sure to
+establish into the wasteland of the hurried neophyte's mind a simplistic mental
+model boiling down to: "<code>cat</code> is what you use when you have a file and want its
+content".</p>
+<p>The consequence?  Processes multiplying like cancerous cells:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">cat</span></span><span class="z-meta z-function-call z-arguments z-shell"> 2020-05-13.log</span> <span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">grep</span></span><span class="z-meta z-function-call z-arguments z-shell"> ERROR</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">cat</span></span><span class="z-meta z-function-call z-arguments z-shell"> mentions.txt</span> <span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">wc</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>l</span></span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">cat</span></span><span class="z-meta z-function-call z-arguments z-shell"> catalina.out</span> <span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">tail</span></span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">cat</span></span><span class="z-meta z-function-call z-arguments z-shell"> server.cfg</span> <span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sed</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>s/127.0.0.1/localhost/<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span> <span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span> server.cfg</span>
+</span></code></pre>
+<div class="note">the ailment (the last one doesn't even work)</div>
+<br>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">grep</span></span><span class="z-meta z-function-call z-arguments z-shell"> ERROR 2020-05-13.log </span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">wc</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>l</span> mentions.txt</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">tail</span></span><span class="z-meta z-function-call z-arguments z-shell"> catalina.out </span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sed</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>i</span> <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>s/127.0.0.1/localhost/<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span> server.cfg</span>
+</span></code></pre>
+<div class="note">the remedy</div>
+<h2 id="files-all-the-way-down"><a class="anchor-link" href="#files-all-the-way-down" aria-label="Anchor link for: files-all-the-way-down">⚓</a>
+Files all the way down</h2>
+<p>Files are a fairly common in the world of computing, and even more
+so across Unix-like operating systems, where <a href="@/posts/everything-is-a-file.md">everything is a file
+(descriptor)</a>.</p>
+<p>When you do <code>cat asdf</code>, your Kernel looks up <code>asdf</code> in the file system and
+returns a <em>file descriptor</em> (abbreviated <code>FD</code>) to the process running <code>cat</code>,
+which reads from it and prints to another, specific <code>FD</code> (numbered <code>1</code>), which
+your shell interpreter displays on your terminal.</p>
+<p>That is it, no mystery, nothing special.  We can now appreciate how silly
+<code>cat file | grep</code> is: reading from a file isn't any different from reading
+from the standard input.  Your tool only has to support being specified which
+file to read from, and you only need to <abbr title="Read The F... riendly
+Manual"><code>RTFM</code></abbr>:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">man</span></span><span class="z-meta z-function-call z-arguments z-shell"> grep</span> <span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">head</span></span>
+</span></code></pre>
+<pre data-lang="txt" class="language-txt z-code"><code class="language-txt" data-lang="txt"><span class="z-text z-plain">GREP(1)                          User Commands                           GREP(1)
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">NAME
+</span><span class="z-text z-plain">       grep - print lines that match patterns
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">SYNOPSIS
+</span><span class="z-text z-plain">       grep [OPTION]... PATTERNS [FILE]...
+</span><span class="z-text z-plain">       grep [OPTION]... -e PATTERNS ... [FILE]...
+</span><span class="z-text z-plain">       grep [OPTION]... -f PATTERN_FILE ... [FILE]...
+</span></code></pre>
+<p>There you have it: <code>grep</code> and friends not only <em>obviously</em> accept files names as
+arguments, they <em>evidently</em> do.</p>
+<h3 id="but-what-if"><a class="anchor-link" href="#but-what-if" aria-label="Anchor link for: but-what-if">⚓</a>
+But what if?</h3>
+<p>What if one didn't?  After rounding up the usual suspects, I can attest
+to the stunning rarity of common utilities not playing by this tacit
+rule.  Let's conjure up <code>gerp</code> (<code>grep</code> + <abbr title="A foolish or ignorant
+person">derp</abbr>!), an abominable degradation of <code>grep</code> that only knows of
+<abbr title="The standard input"><code>stdin</code></abbr>.<br>
+You can use <em>input redirection</em> (<code>&lt;</code>) to funnel the data from whichever file
+descriptor you get over your file, to <code>FD 0</code> (the standard input):</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">gerp</span></span><span class="z-meta z-function-call z-arguments z-shell"> keyword <span class="z-keyword z-operator z-assignment z-redirection z-shell">&lt;</span> file.txt</span>
+</span></code></pre>
+<p>That's it!  A patched <code>gerp</code>, no <code>cat</code>, no <code>|</code>, just a smidgen of understanding;
+all <abbr title="Portable Operating System Interface"><code>POSIX</code></abbr>-compliant,
+too.</p>
+<p>How seldom have you come across the redirection above?  It should unquestionably
+be more common than <code>cat file | grep keyword</code>, yet I'm fairly confident it
+isn't, despite its twin counterpart (the <em>output</em> redirection) being virtually
+omnipresent: I explain this phenomenon with the concept of <a href="@/posts/rampant-shell-illiteracy">rampant shell
+illiteracy</a>.</p>
+<h2 id="the-legitimate-use-of-cat"><a class="anchor-link" href="#the-legitimate-use-of-cat" aria-label="Anchor link for: the-legitimate-use-of-cat">⚓</a>
+The legitimate use of <code>cat</code></h2>
+<p>Despite my furry companion being of the canine variety, I have nothing against
+<code>cat</code> in principle.  Outside of scripts, I'd still argue that <code>less</code> is surely
+often preferable, possibly with <code>--quit-if-one-screen</code>/<code>-F</code> to have it behave
+like <code>cat</code> when you require no pagination; but here are a few instances where
+<code>cat</code> is sensible nonetheless:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> Create file in-line</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">cat</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span> greeting.txt <span class="z-string z-unquoted z-heredoc z-shell"><span class="z-keyword z-operator z-assignment z-redirection z-shell">&lt;&lt;-</span><span class="z-keyword z-control z-heredoc-token z-shell">EOF</span></span><span class="z-string z-unquoted z-heredoc z-shell">
+</span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-arguments z-shell"><span class="z-string z-unquoted z-heredoc z-shell">	Hello, world!
+</span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-arguments z-shell"><span class="z-string z-unquoted z-heredoc z-shell"><span class="z-keyword z-control z-heredoc-token z-shell">EOF</span></span></span>
+</span><span class="z-source z-shell z-bash">
+</span><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> Concatenate several files</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">cat</span></span><span class="z-meta z-function-call z-arguments z-shell"> header.txt section1.txt section2.txt footer.txt <span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span> article.txt</span>
+</span><span class="z-source z-shell z-bash">
+</span><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> Compound commands</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span><span class="z-source z-shell z-bash"><span class="z-punctuation z-definition z-compound z-braces z-begin z-shell">{</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">print-header</span></span><span class="z-keyword z-operator z-logical z-continue z-shell">;</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">cat</span></span><span class="z-meta z-function-call z-arguments z-shell"> section1.txt</span><span class="z-keyword z-operator z-logical z-continue z-shell">;</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">print-footer</span></span><span class="z-meta z-function-call z-arguments z-shell"> </span><span class="z-punctuation z-definition z-compound z-braces z-end z-shell">}</span> <span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">package-article</span></span>
+</span><span class="z-source z-shell z-bash">
+</span><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> Concatenate standard input and file</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-support z-function z-echo z-shell">echo</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>About me:<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span></span> <span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">cat</span></span><span class="z-meta z-function-call z-arguments z-shell"> - aboutme.txt</span>
+</span></code></pre>
+<h3 id="the-definitive-escalation-mechanism"><a class="anchor-link" href="#the-definitive-escalation-mechanism" aria-label="Anchor link for: the-definitive-escalation-mechanism">⚓</a>
+The definitive escalation mechanism</h3>
+<p>Somewhere along the way, we started using <code>cat</code> as a ceremonial prelude to
+everything, as if every command needed a feline blessing.  With <a href="@/posts/everything-is-a-file.md">everything
+being a file (descriptor)</a>, it turns out that
+quite a few commands will happily accept to read from a file!</p>
+<p>As such, here is the <em>definitive escalation mechanism</em> for your commands that
+are to consume the contents of a file:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">grep</span></span><span class="z-meta z-function-call z-arguments z-shell"> keyword file.txt        <span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> the one way</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">grep</span></span><span class="z-meta z-function-call z-arguments z-shell"> keyword <span class="z-keyword z-operator z-assignment z-redirection z-shell">&lt;</span> file.txt      <span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> the workaround for curious utilities</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-arguments z-shell">cat file.txt</span> <span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">grep</span></span><span class="z-meta z-function-call z-arguments z-shell"> keyword  <span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> the universally incorrect, useless use of cat</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span></span></code></pre>
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn-cat"><table class="shrt-cmd">
+  <tr><th colspan="2"><strong>cat</strong></th></tr>
+  <tr style="padding: 0 1em;">
+    
+        <td colspan="2">from <a href="https://archlinux.org/packages/core&#x2F;x86_64&#x2F;coreutils">core&#x2F;coreutils</a></td>
+    
+  </tr>
+  <tr style="padding: 0 1em;">
+    <td><a href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;cat.1.en">manual</a></td>
+    <td><a href="https:&#x2F;&#x2F;github.com&#x2F;coreutils&#x2F;coreutils">repository</a></td>
+  </tr>
+</table>
+ <a href="#fr-cat-1">↩</a></li>
+</ol>
+</section>
+
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025
+        <a href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <span>&lt;<a href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>&gt;</span>
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>

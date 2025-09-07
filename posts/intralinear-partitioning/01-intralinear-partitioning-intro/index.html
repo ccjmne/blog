@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/noto-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/ouft-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2" as="font" type="font/woff2" crossorigin>
+<style type="text/css">  @font-face { font-family: 'Noto Sans Symbols'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/noto-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/ouft-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-2.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2') format('woff2'); }
+</style><link rel="stylesheet" href="https://ccjmne.sh/blog/style.css">
+<link rel="stylesheet" href="https://ccjmne.sh/blog/light.css">
+<link rel="stylesheet" href="https://ccjmne.sh/blog/dark.css" media="(prefers-color-scheme: dark)">
+<link rel="expect" blocking="render" href="#footer">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+  </head>
+  <body><div class="hi" 
+  style="view-transition-name: breadcrumbs; view-transition-class: static"
+>
+      <ol class="breadcrumbs"><li><a class="breadcrumb-link" href="https:&#x2F;&#x2F;ccjmne.sh&#x2F;blog&#x2F;posts&#x2F;">Recent posts</a></li><li><a class="breadcrumb-link" href="https:&#x2F;&#x2F;ccjmne.sh&#x2F;blog&#x2F;posts&#x2F;intralinear-partitioning&#x2F;">Intralinear partitioning</a></li><li><span>Laying text out horizontally</span></li>
+      </ol>
+    </div><main>
+<h1><span class="link-title" 
+  style="view-transition-name: 01-intralinear-partitioning-intro"
+>Laying text out horizontally</span></h1><ul class="infobar"><li><time>July 25, 2025</time></li><li>12-minute read</li>
+  Part&nbsp;1&nbsp;of&nbsp;<a href="https:&#x2F;&#x2F;ccjmne.sh&#x2F;blog&#x2F;posts&#x2F;intralinear-partitioning&#x2F;">Intralinear partitioning</a></ul>
+<br><details class="toc">
+  <summary>Table of contents</summary>
+  <ul><li>
+      <a href="https://ccjmne.sh/blog/posts/intralinear-partitioning/01-intralinear-partitioning-intro/#introduction">Introduction</a></li><li>
+      <a href="https://ccjmne.sh/blog/posts/intralinear-partitioning/01-intralinear-partitioning-intro/#the-few-forms-of-horizontal-alignment">The few forms of horizontal alignment</a><ul>
+        
+        <li><a href="https://ccjmne.sh/blog/posts/intralinear-partitioning/01-intralinear-partitioning-intro/#the-list-in-a-grid">The list in a grid</a></li>
+        <li><a href="https://ccjmne.sh/blog/posts/intralinear-partitioning/01-intralinear-partitioning-intro/#the-tabular-data">The tabular data</a></li>
+        <li><a href="https://ccjmne.sh/blog/posts/intralinear-partitioning/01-intralinear-partitioning-intro/#the-adjoined-and-annotated-fragments">The adjoined and annotated fragments</a></li>
+        <li><a href="https://ccjmne.sh/blog/posts/intralinear-partitioning/01-intralinear-partitioning-intro/#the-zealous-documents">The zealous documents</a></li></ul></li><li>
+      <a href="https://ccjmne.sh/blog/posts/intralinear-partitioning/01-intralinear-partitioning-intro/#what-to-do-about-these">What to do about these</a><ul>
+        
+        <li><a href="https://ccjmne.sh/blog/posts/intralinear-partitioning/01-intralinear-partitioning-intro/#you-have-time-for-this">You have time for this</a></li>
+        <li><a href="https://ccjmne.sh/blog/posts/intralinear-partitioning/01-intralinear-partitioning-intro/#use-tools-that-help">Use tools that help</a></li>
+        <li><a href="https://ccjmne.sh/blog/posts/intralinear-partitioning/01-intralinear-partitioning-intro/#you-have-the-go-ahead">You have the go-ahead</a></li></ul></li><li>
+      <a href="https://ccjmne.sh/blog/posts/intralinear-partitioning/01-intralinear-partitioning-intro/#next">Next</a></li></ul>
+</details>
+<article>
+  <p>This 3-part article concerns itself with putting chunks of text side by side.</p>
+<ol>
+<li>This first, rambly piece addresses the <em>what</em> and <em>why</em>,</li>
+<li><a href="@/posts/intralinear-partitioning-2.md">the second</a> goes over the practical
+use of some <abbr title="Command Line Interface, where I dwell"><code>CLI</code></abbr>
+tools indispensable to the task, and</li>
+<li><a href="@/posts/intralinear-partitioning-3.md">the third</a> and final chapter
+will share some quite nifty <abbr title="The ubiquitous text
+editor"><code>Vim</code></abbr><sup class="footnote-reference" id="fr-vim-1"><a href="#fn-vim">1</a></sup> tricks to the same end.</li>
+</ol>
+<h2 id="introduction"><a class="anchor-link" href="#introduction" aria-label="Anchor link for: introduction">⚓</a>
+Introduction</h2>
+<p>Professionally, I put code together. Intimately, I am compelled to make
+it neat: I get closer to that goal by wielding non-printable characters like
+monochrome photography uses light, with <em>purpose</em>.</p>
+<p>The current status quo regarding whitespace, in my line of work, limits our
+stylistic expression:</p>
+<ul>
+<li>vertically to the linefeed<sup class="footnote-reference" id="fr-esoteric-vertical-whitespace-1"><a href="#fn-esoteric-vertical-whitespace">2</a></sup> (coalescing into
+blank lines), to pack together logical blocks of data or instructions, and</li>
+<li>horizontally to the beginning of the line (in the form of
+indentation), to delineate the hierarchy of our otherwise strictly
+vertically-topologically-laid-out content.</li>
+</ul>
+<p>But here's the thing: the taxonomy of text shouldn't be limited to paragraphs
+and lines.<br>
+Let's go bidimensional!</p>
+<h2 id="the-few-forms-of-horizontal-alignment"><a class="anchor-link" href="#the-few-forms-of-horizontal-alignment" aria-label="Anchor link for: the-few-forms-of-horizontal-alignment">⚓</a>
+The few forms of horizontal alignment</h2>
+<p>In the wild, I identified four classes of occurrences itching for what I
+shall refer to as <em>intralinear partitioning</em>.  In this article, I propose to
+classify and appreciate them.</p>
+<h3 id="the-list-in-a-grid"><a class="anchor-link" href="#the-list-in-a-grid" aria-label="Anchor link for: the-list-in-a-grid">⚓</a>
+The list in a grid</h3>
+<p>Collections of items are quite happily organised in a grid, unless you're a
+stock exchange ticker tape designer, of course.  As such, so long as you want to
+<em>present</em> your data rather than have it seemingly scroll forever, the matrix is
+a practical ally, Neo.</p>
+<p>For illustration, here's the output of <abbr title="List directory
+contents"><code>ls</code></abbr>, a specimen I'm sure you've come across before:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ls</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>F</span></span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ls</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>classify</span></span>
+</span></code></pre>
+<pre data-lang="txt" class="language-txt z-code"><code class="language-txt" data-lang="txt"><span class="z-text z-plain">node_modules/  compose.sh*  eslint.config.mjs  package.json    README.md
+</span><span class="z-text z-plain">src/           Dockerfile   LICENSE            pnpm-lock.yaml  TODO
+</span></code></pre>
+<div class="note">I use <code>--classify</code> to annotate various file types, like executables and directories</div>
+<h3 id="the-tabular-data"><a class="anchor-link" href="#the-tabular-data" aria-label="Anchor link for: the-tabular-data">⚓</a>
+The tabular data</h3>
+<p>This one needs no introduction, yet the only example that came to mind is
+that of probing <abbr title="Query the Unicode database"><code>uni</code></abbr><sup class="footnote-reference" id="fr-uni-1"><a href="#fn-uni">3</a></sup> for
+whatever fantastical sigil I last came across:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">uni</span></span><span class="z-meta z-function-call z-arguments z-shell"> i ÉÉ🧉</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">uni</span></span><span class="z-meta z-function-call z-arguments z-shell"> identify É É 🧉</span>
+</span></code></pre>
+<pre data-lang="txt" class="language-txt z-code"><code class="language-txt" data-lang="txt"><span class="z-text z-plain">             Dec    UTF8        HTML       Name
+</span><span class="z-text z-plain">&#39;E&#39;  U+0045  69     45          &amp;#x45;     LATIN CAPITAL LETTER E
+</span><span class="z-text z-plain">&#39;◌́&#39;  U+0301  769    cc 81       &amp;#x301;    COMBINING ACUTE ACCENT
+</span><span class="z-text z-plain">&#39;É&#39;  U+00C9  201    c3 89       &amp;Eacute;   LATIN CAPITAL LETTER E WITH ACUTE
+</span><span class="z-text z-plain">&#39;🧉&#39; U+1F9C9 129481 f0 9f a7 89 &amp;#x1f9c9;  MATE DRINK
+</span></code></pre>
+<div class="note">ah, so that's why I appear twice in <abbr title='Summarize &apos;git log&apos; output'><code>git shortlog</code></abbr><code> --summary</code>...</div>
+<h3 id="the-adjoined-and-annotated-fragments"><a class="anchor-link" href="#the-adjoined-and-annotated-fragments" aria-label="Anchor link for: the-adjoined-and-annotated-fragments">⚓</a>
+The adjoined and annotated fragments</h3>
+<p>Serving as our penultimate stop is data that's not quite tabular enough to be
+called that; chunks of text laid out next to one another:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">docker</span></span><span class="z-meta z-function-call z-arguments z-shell"> compose logs<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>t</span></span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">docker</span></span><span class="z-meta z-function-call z-arguments z-shell"> compose logs<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>timestamps</span></span>
+</span></code></pre>
+<pre data-lang="txt" class="language-txt z-code"><code class="language-txt" data-lang="txt"><span class="z-text z-plain">postgres_1   2025-08-09 12:34:56 | LOG:  database system was shut down at 2025-08-09 12:30:00 UTC
+</span><span class="z-text z-plain">postgres_1   2025-08-09 12:34:56 | LOG:  MultiXact member wraparound protections are now enabled
+</span><span class="z-text z-plain">postgres_1   2025-08-09 12:35:01 | LOG:  autovacuum launcher started
+</span><span class="z-text z-plain">postgres_1   2025-08-09 12:35:10 | LOG:  connection received: host=172.18.0.5 port=5432
+</span><span class="z-text z-plain">postgres_1   2025-08-09 12:35:10 | LOG:  connection authorized: user=acme dbname=mydb application_name=psql
+</span><span class="z-text z-plain">webserver_1  2025-08-09 12:35:11 | Starting myapp web server on http://0.0.0.0:8080
+</span><span class="z-text z-plain">webserver_1  2025-08-09 12:35:11 | Listening for connections...
+</span><span class="z-text z-plain">postgres_1   2025-08-09 12:35:12 | ERROR:  relation &quot;employees&quot; does not exist at character 15
+</span><span class="z-text z-plain">postgres_1   2025-08-09 12:35:15 | STATEMENT:  SELECT * FROM employees;
+</span><span class="z-text z-plain">postgres_1   2025-08-09 12:35:20 | LOG:  disconnection: session time: 9s user=acme database=mydb host=172.18.0.5 port=5432
+</span><span class="z-text z-plain">webserver_1  2025-08-09 12:35:05 | GET /api/employees 200 15ms
+</span></code></pre>
+<div class="note">here, <code>docker compose</code> annotates the concatenated logs with their provenance and timestamps</div>
+<p>The juxtaposition of pieces of content also routinely aids in visual comparison:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">diff</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-keyword z-operator z-assignment z-redirection z-process z-shell">&lt;</span><span class="z-punctuation z-section z-parens z-begin z-shell">(</span><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">seq</span></span><span class="z-meta z-function-call z-arguments z-shell"> 1 5</span><span class="z-punctuation z-section z-parens z-end z-shell">)</span> <span class="z-keyword z-operator z-assignment z-redirection z-process z-shell">&lt;</span><span class="z-punctuation z-section z-parens z-begin z-shell">(</span><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">seq</span></span><span class="z-meta z-function-call z-arguments z-shell"> 2 6</span> <span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sed</span></span><span class="z-meta z-function-call z-arguments z-shell"> s/3/-/</span><span class="z-punctuation z-section z-parens z-end z-shell">)</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>y</span></span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">diff</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-keyword z-operator z-assignment z-redirection z-process z-shell">&lt;</span><span class="z-punctuation z-section z-parens z-begin z-shell">(</span><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">seq</span></span><span class="z-meta z-function-call z-arguments z-shell"> 1 5</span><span class="z-punctuation z-section z-parens z-end z-shell">)</span> <span class="z-keyword z-operator z-assignment z-redirection z-process z-shell">&lt;</span><span class="z-punctuation z-section z-parens z-begin z-shell">(</span><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">seq</span></span><span class="z-meta z-function-call z-arguments z-shell"> 2 6</span> <span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sed</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>e</span> s/3/-/</span><span class="z-punctuation z-section z-parens z-end z-shell">)</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>side-by-side</span></span>
+</span></code></pre>
+<pre data-lang="txt" class="language-txt z-code"><code class="language-txt" data-lang="txt"><span class="z-text z-plain">1   &lt;
+</span><span class="z-text z-plain">2       2
+</span><span class="z-text z-plain">3   |   -
+</span><span class="z-text z-plain">4       4
+</span><span class="z-text z-plain">5       5
+</span><span class="z-text z-plain">    &gt;   6
+</span></code></pre>
+<p>These may be rather rarely come across naturally, but quite neat to arrive to
+while scripting: this goal will be the culmination of the second article.</p>
+<h3 id="the-zealous-documents"><a class="anchor-link" href="#the-zealous-documents" aria-label="Anchor link for: the-zealous-documents">⚓</a>
+The zealous documents</h3>
+<p>Here we are, the apotheosis of intralinear partitioning (I promise, it's
+the last time I call it that): organised documents authored with intent and
+finesse, text laid out in a semantic structure, meant to be <em>read</em> and possibly
+maintained for a while.<br>
+In truth, that sounds a lot like what I and my professional peers do, in
+composing instructions for machines to follow—"writing code", as we say.</p>
+<p>The horizontal alignment is ubiquitous, it's in every bit of text that's
+centred, right-aligned or even justified, any padded value, wrapped sentence,
+indented paragraph...  Have a look at the following examples:</p>
+<pre data-lang="typescript" data-name="profile.ts" class="language-typescript z-code"><code class="language-typescript" data-lang="typescript" data-name="profile.ts"><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-keyword z-control z-export z-ts">export</span> <span class="z-storage z-type z-ts">const</span> <span class="z-meta z-var-single-variable z-expr z-ts"><span class="z-meta z-definition z-variable z-ts"><span class="z-variable z-other z-constant z-ts">education</span></span> </span><span class="z-keyword z-operator z-assignment z-ts">=</span><span class="z-meta z-array z-literal z-ts"> <span class="z-meta z-brace z-square z-ts">[</span><span class="z-meta z-objectliteral z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-meta z-array z-literal z-ts"><span class="z-meta z-objectliteral z-ts">  <span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts">degree</span></span><span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts"><span class="z-punctuation z-separator z-key-value z-ts">:</span></span>    <span class="z-string z-template z-ts"><span class="z-punctuation z-definition z-string z-template z-begin z-ts">`</span>Engineer&#39;s Degree<span class="z-punctuation z-definition z-string z-template z-end z-ts">`</span></span></span><span class="z-punctuation z-separator z-comma z-ts">,</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-meta z-array z-literal z-ts"><span class="z-meta z-objectliteral z-ts">  <span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts">field</span></span><span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts"><span class="z-punctuation z-separator z-key-value z-ts">:</span></span>     <span class="z-string z-quoted z-single z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&#39;</span>Network Security<span class="z-punctuation z-definition z-string z-end z-ts">&#39;</span></span></span><span class="z-punctuation z-separator z-comma z-ts">,</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-meta z-array z-literal z-ts"><span class="z-meta z-objectliteral z-ts">  <span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts">dates</span></span><span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts"><span class="z-punctuation z-separator z-key-value z-ts">:</span></span>     <span class="z-string z-quoted z-single z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&#39;</span>2010 – 2013<span class="z-punctuation z-definition z-string z-end z-ts">&#39;</span></span></span><span class="z-punctuation z-separator z-comma z-ts">,</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-meta z-array z-literal z-ts"><span class="z-meta z-objectliteral z-ts">  <span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts">highlight</span></span><span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts"><span class="z-punctuation z-separator z-key-value z-ts">:</span></span> <span class="z-string z-quoted z-single z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&#39;</span>Upskilled in the Java language by [Rémi FORAX](https://github.com/forax), major contributor to its expansion.<span class="z-constant z-character z-escape z-ts">\n</span>Awarded with the greatest distinction. Graduated top of class.<span class="z-punctuation z-definition z-string z-end z-ts">&#39;</span></span></span><span class="z-punctuation z-separator z-comma z-ts">,</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-meta z-array z-literal z-ts"><span class="z-meta z-objectliteral z-ts"><span class="z-punctuation z-definition z-block z-ts">}</span></span><span class="z-punctuation z-separator z-comma z-ts">,</span> <span class="z-meta z-objectliteral z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-meta z-array z-literal z-ts"><span class="z-meta z-objectliteral z-ts">  <span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts">degree</span></span><span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts"><span class="z-punctuation z-separator z-key-value z-ts">:</span></span>    <span class="z-string z-quoted z-single z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&#39;</span>Licentiate Degree<span class="z-punctuation z-definition z-string z-end z-ts">&#39;</span></span></span><span class="z-punctuation z-separator z-comma z-ts">,</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-meta z-array z-literal z-ts"><span class="z-meta z-objectliteral z-ts">  <span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts">field</span></span><span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts"><span class="z-punctuation z-separator z-key-value z-ts">:</span></span>     <span class="z-string z-quoted z-single z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&#39;</span>Computer Science<span class="z-punctuation z-definition z-string z-end z-ts">&#39;</span></span></span><span class="z-punctuation z-separator z-comma z-ts">,</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-meta z-array z-literal z-ts"><span class="z-meta z-objectliteral z-ts">  <span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts">dates</span></span><span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts"><span class="z-punctuation z-separator z-key-value z-ts">:</span></span>     <span class="z-string z-quoted z-single z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&#39;</span>2008 – 2010<span class="z-punctuation z-definition z-string z-end z-ts">&#39;</span></span></span><span class="z-punctuation z-separator z-comma z-ts">,</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-meta z-array z-literal z-ts"><span class="z-meta z-objectliteral z-ts">  <span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts">highlight</span></span><span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts"><span class="z-punctuation z-separator z-key-value z-ts">:</span></span> <span class="z-string z-quoted z-single z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&#39;</span>Awarded with the greatest dis-tinction. Graduated top of class.<span class="z-punctuation z-definition z-string z-end z-ts">&#39;</span></span></span><span class="z-punctuation z-separator z-comma z-ts">,</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-meta z-array z-literal z-ts"><span class="z-meta z-objectliteral z-ts"><span class="z-punctuation z-definition z-block z-ts">}</span></span><span class="z-punctuation z-separator z-comma z-ts">,</span> <span class="z-meta z-objectliteral z-ts"><span class="z-punctuation z-definition z-block z-ts">{</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-meta z-array z-literal z-ts"><span class="z-meta z-objectliteral z-ts">  <span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts">degree</span></span><span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts"><span class="z-punctuation z-separator z-key-value z-ts">:</span></span>    <span class="z-string z-quoted z-single z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&#39;</span>Baccalaureate<span class="z-punctuation z-definition z-string z-end z-ts">&#39;</span></span></span><span class="z-punctuation z-separator z-comma z-ts">,</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-meta z-array z-literal z-ts"><span class="z-meta z-objectliteral z-ts">  <span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts">field</span></span><span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts"><span class="z-punctuation z-separator z-key-value z-ts">:</span></span>     <span class="z-string z-quoted z-single z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&#39;</span>Applied Physics for Electronics<span class="z-punctuation z-definition z-string z-end z-ts">&#39;</span></span></span><span class="z-punctuation z-separator z-comma z-ts">,</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-meta z-array z-literal z-ts"><span class="z-meta z-objectliteral z-ts">  <span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts">dates</span></span><span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts"><span class="z-punctuation z-separator z-key-value z-ts">:</span></span>     <span class="z-string z-quoted z-single z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&#39;</span>2005 – 2008<span class="z-punctuation z-definition z-string z-end z-ts">&#39;</span></span></span><span class="z-punctuation z-separator z-comma z-ts">,</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-meta z-array z-literal z-ts"><span class="z-meta z-objectliteral z-ts">  <span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts">highlight</span></span><span class="z-meta z-object z-member z-ts"><span class="z-meta z-object-literal z-key z-ts"><span class="z-punctuation z-separator z-key-value z-ts">:</span></span> <span class="z-string z-quoted z-single z-ts"><span class="z-punctuation z-definition z-string z-begin z-ts">&#39;</span>Awarded with the greatest dis-tinction. Graduated top of class; top 0.4% nationwide.<span class="z-punctuation z-definition z-string z-end z-ts">&#39;</span></span></span><span class="z-punctuation z-separator z-comma z-ts">,</span>
+</span></span></span></span><span class="z-source z-ts"><span class="z-meta z-var z-expr z-ts"><span class="z-meta z-array z-literal z-ts"><span class="z-meta z-objectliteral z-ts"><span class="z-punctuation z-definition z-block z-ts">}</span></span><span class="z-meta z-brace z-square z-ts">]</span></span></span>
+</span></code></pre>
+<br>
+<pre data-lang="java" data-name="Adyen.java" class="language-java z-code"><code class="language-java" data-lang="java" data-name="Adyen.java"><span class="z-source z-java"><span class="z-storage z-modifier z-java">private</span> <span class="z-storage z-modifier z-java">static</span> <span class="z-storage z-modifier z-java">final</span> <span class="z-support z-class z-java">Map</span><span class="z-meta z-generic z-java"><span class="z-punctuation z-definition z-generic z-begin z-java">&lt;</span><span class="z-support z-class z-java">String</span><span class="z-punctuation z-separator z-comma z-java">,</span> <span class="z-support z-class z-java">String</span><span class="z-punctuation z-definition z-generic z-end z-java">&gt;</span></span> <span class="z-constant z-other z-java">PROPS_DEFAULTS</span> <span class="z-meta z-assignment z-rhs z-java"><span class="z-keyword z-operator z-assignment z-java">=</span> <span class="z-support z-class z-java">Collections</span><span class="z-punctuation z-accessor z-dot z-java">.</span><span class="z-meta z-function-call z-java"><span class="z-variable z-function z-java">singletonMap</span><span class="z-punctuation z-section z-parens z-begin z-java">(</span><span class="z-string z-quoted z-double z-java"><span class="z-punctuation z-definition z-string z-begin z-java">&quot;</span>environment<span class="z-punctuation z-definition z-string z-end z-java">&quot;</span></span><span class="z-punctuation z-separator z-comma z-java">,</span> <span class="z-string z-quoted z-double z-java"><span class="z-punctuation z-definition z-string z-begin z-java">&quot;</span>test<span class="z-punctuation z-definition z-string z-end z-java">&quot;</span></span><span class="z-punctuation z-section z-parens z-end z-java">)</span></span></span><span class="z-punctuation z-terminator z-java">;</span>
+</span><span class="z-source z-java"><span class="z-storage z-modifier z-java">private</span> <span class="z-storage z-modifier z-java">static</span> <span class="z-storage z-modifier z-java">final</span> <span class="z-support z-class z-java">String</span>              <span class="z-constant z-other z-java">PROPS_FILE</span>     <span class="z-meta z-assignment z-rhs z-java"><span class="z-keyword z-operator z-assignment z-java">=</span> <span class="z-string z-quoted z-double z-java"><span class="z-punctuation z-definition z-string z-begin z-java">&quot;</span>creditcard/adyen-x.properties<span class="z-punctuation z-definition z-string z-end z-java">&quot;</span></span></span><span class="z-punctuation z-terminator z-java">;</span>
+</span><span class="z-source z-java"><span class="z-storage z-modifier z-java">private</span> <span class="z-storage z-modifier z-java">static</span> <span class="z-storage z-modifier z-java">final</span> <span class="z-support z-class z-java">String</span><span class="z-storage z-modifier z-array z-java">[]</span>            <span class="z-constant z-other z-java">PROPS_KEYS</span>     <span class="z-meta z-assignment z-rhs z-java"><span class="z-keyword z-operator z-assignment z-java">=</span>
+</span></span><span class="z-source z-java"><span class="z-meta z-assignment z-rhs z-java">    <span class="z-meta z-block z-java"><span class="z-punctuation z-section z-block z-begin z-java">{</span> <span class="z-string z-quoted z-double z-java"><span class="z-punctuation z-definition z-string z-begin z-java">&quot;</span>environment<span class="z-punctuation z-definition z-string z-end z-java">&quot;</span></span><span class="z-punctuation z-separator z-comma z-java">,</span> <span class="z-string z-quoted z-double z-java"><span class="z-punctuation z-definition z-string z-begin z-java">&quot;</span>expire-after<span class="z-punctuation z-definition z-string z-end z-java">&quot;</span></span><span class="z-punctuation z-separator z-comma z-java">,</span> <span class="z-string z-quoted z-double z-java"><span class="z-punctuation z-definition z-string z-begin z-java">&quot;</span>api-version<span class="z-punctuation z-definition z-string z-end z-java">&quot;</span></span><span class="z-punctuation z-separator z-comma z-java">,</span> <span class="z-string z-quoted z-double z-java"><span class="z-punctuation z-definition z-string z-begin z-java">&quot;</span>api-key!<span class="z-punctuation z-definition z-string z-end z-java">&quot;</span></span><span class="z-punctuation z-separator z-comma z-java">,</span> <span class="z-string z-quoted z-double z-java"><span class="z-punctuation z-definition z-string z-begin z-java">&quot;</span>client-key!<span class="z-punctuation z-definition z-string z-end z-java">&quot;</span></span><span class="z-punctuation z-separator z-comma z-java">,</span> <span class="z-string z-quoted z-double z-java"><span class="z-punctuation z-definition z-string z-begin z-java">&quot;</span>hmac-key!<span class="z-punctuation z-definition z-string z-end z-java">&quot;</span></span><span class="z-punctuation z-separator z-comma z-java">,</span> <span class="z-string z-quoted z-double z-java"><span class="z-punctuation z-definition z-string z-begin z-java">&quot;</span>merchant-account!<span class="z-punctuation z-definition z-string z-end z-java">&quot;</span></span><span class="z-punctuation z-separator z-comma z-java">,</span> <span class="z-string z-quoted z-double z-java"><span class="z-punctuation z-definition z-string z-begin z-java">&quot;</span>theme-id!<span class="z-punctuation z-definition z-string z-end z-java">&quot;</span></span> <span class="z-punctuation z-section z-block z-end z-java">}</span></span></span><span class="z-punctuation z-terminator z-java">;</span>
+</span><span class="z-source z-java">
+</span><span class="z-source z-java"><span class="z-storage z-modifier z-java">private</span> <span class="z-storage z-modifier z-java">static</span> <span class="z-storage z-modifier z-java">final</span> <span class="z-support z-class z-java">String</span>  <span class="z-constant z-other z-java">HMAC_ALGORITHM</span> <span class="z-meta z-assignment z-rhs z-java"><span class="z-keyword z-operator z-assignment z-java">=</span> <span class="z-string z-quoted z-double z-java"><span class="z-punctuation z-definition z-string z-begin z-java">&quot;</span>HmacSHA256<span class="z-punctuation z-definition z-string z-end z-java">&quot;</span></span></span><span class="z-punctuation z-terminator z-java">;</span>
+</span><span class="z-source z-java"><span class="z-storage z-modifier z-java">private</span> <span class="z-storage z-modifier z-java">static</span> <span class="z-storage z-modifier z-java">final</span> <span class="z-support z-class z-java">Charset</span> <span class="z-constant z-other z-java">CHARSET</span>        <span class="z-meta z-assignment z-rhs z-java"><span class="z-keyword z-operator z-assignment z-java">=</span> <span class="z-support z-class z-java">StandardCharsets</span><span class="z-punctuation z-accessor z-dot z-java">.</span><span class="z-constant z-other z-java">UTF_8</span></span><span class="z-punctuation z-terminator z-java">;</span>
+</span><span class="z-source z-java">
+</span><span class="z-source z-java"><span class="z-storage z-modifier z-java">private</span> <span class="z-storage z-modifier z-java">static</span> <span class="z-storage z-modifier z-java">final</span> <span class="z-support z-class z-java">ObjectMapper</span> <span class="z-constant z-other z-java">JSON</span> <span class="z-meta z-assignment z-rhs z-java"><span class="z-keyword z-operator z-assignment z-java">=</span> <span class="z-meta z-instantiation z-java"><span class="z-keyword z-other z-storage z-new z-java">new</span> <span class="z-support z-class z-java">ObjectMapper</span><span class="z-meta z-parens z-constructor-arguments z-java"><span class="z-punctuation z-section z-parens z-begin z-java">(</span><span class="z-punctuation z-section z-parens z-end z-java">)</span></span></span></span><span class="z-punctuation z-terminator z-java">;</span>
+</span><span class="z-source z-java"><span class="z-storage z-modifier z-java">private</span> <span class="z-storage z-modifier z-java">static</span> <span class="z-storage z-modifier z-java">final</span> <span class="z-support z-class z-java">OkHttpClient</span> <span class="z-constant z-other z-java">HTTP</span> <span class="z-meta z-assignment z-rhs z-java"><span class="z-keyword z-operator z-assignment z-java">=</span> <span class="z-meta z-instantiation z-java"><span class="z-keyword z-other z-storage z-new z-java">new</span> <span class="z-support z-class z-java">OkHttpClient</span><span class="z-meta z-parens z-constructor-arguments z-java"><span class="z-punctuation z-section z-parens z-begin z-java">(</span><span class="z-punctuation z-section z-parens z-end z-java">)</span></span></span></span><span class="z-punctuation z-terminator z-java">;</span>
+</span><span class="z-source z-java">
+</span><span class="z-source z-java"><span class="z-storage z-modifier z-java">private</span> <span class="z-storage z-modifier z-java">final</span> <span class="z-support z-class z-java">GeographicalArea</span> shop<span class="z-punctuation z-terminator z-java">;</span>
+</span><span class="z-source z-java"><span class="z-storage z-modifier z-java">private</span> <span class="z-storage z-modifier z-java">final</span> <span class="z-support z-class z-java">Props</span>            props<span class="z-punctuation z-terminator z-java">;</span>
+</span><span class="z-source z-java">
+</span><span class="z-source z-java"><span class="z-storage z-modifier z-java">public</span> <span class="z-meta z-function-call z-java"><span class="z-variable z-function z-java">Adyen</span><span class="z-punctuation z-section z-parens z-begin z-java">(</span>final <span class="z-support z-class z-java">GeographicalArea</span> shop<span class="z-punctuation z-section z-parens z-end z-java">)</span></span> <span class="z-meta z-block z-java"><span class="z-punctuation z-section z-block z-begin z-java">{</span>
+</span></span><span class="z-source z-java"><span class="z-meta z-block z-java">    <span class="z-variable z-language z-java">this</span><span class="z-punctuation z-accessor z-dot z-java">.</span>shop <span class="z-meta z-assignment z-rhs z-java"><span class="z-keyword z-operator z-assignment z-java">=</span> shop</span><span class="z-punctuation z-terminator z-java">;</span>
+</span></span><span class="z-source z-java"><span class="z-meta z-block z-java">    <span class="z-variable z-language z-java">this</span><span class="z-punctuation z-accessor z-dot z-java">.</span>props <span class="z-meta z-assignment z-rhs z-java"><span class="z-keyword z-operator z-assignment z-java">=</span> <span class="z-support z-class z-java">Props</span>
+</span></span></span><span class="z-source z-java"><span class="z-meta z-block z-java"><span class="z-meta z-assignment z-rhs z-java">        <span class="z-punctuation z-accessor z-dot z-java">.</span><span class="z-meta z-function-call z-java"><span class="z-variable z-function z-java">load</span><span class="z-punctuation z-section z-parens z-begin z-java">(</span><span class="z-constant z-other z-java">PROPS_KEYS</span><span class="z-punctuation z-section z-parens z-end z-java">)</span></span>
+</span></span></span><span class="z-source z-java"><span class="z-meta z-block z-java"><span class="z-meta z-assignment z-rhs z-java">        <span class="z-punctuation z-accessor z-dot z-java">.</span><span class="z-meta z-function-call z-java"><span class="z-variable z-function z-java">withDefaults</span><span class="z-punctuation z-section z-parens z-begin z-java">(</span><span class="z-constant z-other z-java">PROPS_DEFAULTS</span><span class="z-punctuation z-section z-parens z-end z-java">)</span></span>
+</span></span></span><span class="z-source z-java"><span class="z-meta z-block z-java"><span class="z-meta z-assignment z-rhs z-java">        <span class="z-punctuation z-accessor z-dot z-java">.</span><span class="z-meta z-function-call z-java"><span class="z-variable z-function z-java">withScope</span><span class="z-punctuation z-section z-parens z-begin z-java">(</span>shop<span class="z-punctuation z-accessor z-dot z-java">.</span><span class="z-meta z-function-call z-java"><span class="z-variable z-function z-java">name</span><span class="z-punctuation z-section z-parens z-begin z-java">(</span><span class="z-punctuation z-section z-parens z-end z-java">)</span></span><span class="z-punctuation z-section z-parens z-end z-java">)</span></span>
+</span></span></span><span class="z-source z-java"><span class="z-meta z-block z-java"><span class="z-meta z-assignment z-rhs z-java">        <span class="z-punctuation z-accessor z-dot z-java">.</span><span class="z-meta z-function-call z-java"><span class="z-variable z-function z-java">from</span><span class="z-punctuation z-section z-parens z-begin z-java">(</span><span class="z-support z-class z-java">Props</span><span class="z-punctuation z-accessor z-dot z-java">.</span><span class="z-meta z-function-call z-java"><span class="z-variable z-function z-java">getFrom</span><span class="z-punctuation z-section z-parens z-begin z-java">(</span><span class="z-constant z-other z-java">PROPS_FILE</span><span class="z-punctuation z-section z-parens z-end z-java">)</span></span><span class="z-punctuation z-section z-parens z-end z-java">)</span></span></span><span class="z-punctuation z-terminator z-java">;</span>
+</span></span><span class="z-source z-java"><span class="z-meta z-block z-java"><span class="z-punctuation z-section z-block z-end z-java">}</span></span>
+</span></code></pre>
+<div class="note">bonus points for the serendipitously native alignment of the <code>JSON</code> and <code>HTTP</code> constants declaration</div>
+<br>
+<pre data-lang="sql" data-name="queries.sql" class="language-sql z-code"><code class="language-sql" data-lang="sql" data-name="queries.sql"><span class="z-source z-sql"><span class="z-keyword z-other z-DML z-sql">SELECT</span> <span class="z-keyword z-other z-DML z-sql">CASE</span> airport_code
+</span><span class="z-source z-sql">       <span class="z-keyword z-other z-DML z-sql">WHEN</span> <span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>CDG<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span> <span class="z-keyword z-other z-DML z-sql">THEN</span> <span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>Paris<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span>
+</span><span class="z-source z-sql">       <span class="z-keyword z-other z-DML z-sql">WHEN</span> <span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>ICN<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span> <span class="z-keyword z-other z-DML z-sql">THEN</span> <span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>Seoul<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span>
+</span><span class="z-source z-sql">       <span class="z-keyword z-other z-DML z-sql">END</span> <span class="z-keyword z-operator z-assignment z-alias z-sql">AS</span> city
+</span><span class="z-source z-sql">  <span class="z-keyword z-other z-DML z-sql">FROM</span> flight_schedules
+</span><span class="z-source z-sql"> <span class="z-keyword z-other z-DML z-sql">WHERE</span> airline <span class="z-keyword z-operator z-comparison z-sql">=</span> <span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>Air Global<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span>
+</span><span class="z-source z-sql">   <span class="z-keyword z-operator z-logical z-sql">AND</span> departure_hour <span class="z-keyword z-operator z-logical z-sql">BETWEEN</span> <span class="z-constant z-numeric z-sql">18</span> <span class="z-keyword z-operator z-logical z-sql">AND</span> <span class="z-constant z-numeric z-sql">20</span>
+</span><span class="z-source z-sql">   <span class="z-keyword z-operator z-logical z-sql">AND</span> airport_code <span class="z-keyword z-operator z-logical z-sql">IN</span> (<span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>CDG<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span>, <span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>ICN<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span>, <span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>NRT<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span>, <span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>DXB<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span>);
+</span></code></pre>
+<br>
+<pre data-lang="txt" data-name="delta-reports-exchange.txt" class="language-txt z-code"><code class="language-txt" data-lang="txt" data-name="delta-reports-exchange.txt"><span class="z-text z-plain">Status: DRAFT                DelTA Reports Exchange                 Éric NICOLAS
+</span><span class="z-text z-plain">Revisions: 12                ======================           &lt;ccjmne@gmail.com&gt;
+</span><span class="z-text z-plain">Latest: 2024-02-14
+</span><span class="z-text z-plain">                       Retiring file-based communications
+</span><span class="z-text z-plain">                           for DelTA reports analysis
+</span><span class="z-text z-plain">                               -----------------
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">    The object of these reports is the discrepancy between expected and actual
+</span><span class="z-text z-plain">delivery times.  DelTA is an acronym for [DEL]ivery [T]ime [A]nalysis, but is
+</span><span class="z-text z-plain">also the Greek letter δ or ∆, often used in calculus for differential values:
+</span><span class="z-text z-plain">How lovely!
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">                                -- CHANGELOG --
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">Revision 12 ......................................................... 2024-02-14
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">    - Address and rectify discrepancy between sections 2.1.1 and 5-C
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">Revision 11 ......................................................... 2024-02-13
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">    - Clarify usages of the &#39;deliverytime&#39; module in section 3
+</span><span class="z-text z-plain">    - Introduce section 5, Accidental Complexity vs Obsolescence
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">Revision 10 ......................................................... 2024-02-06
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">    - Explain the &quot;crashing&quot; allusion made in article 2.1.7
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">Revision 9 .......................................................... 2024-02-05
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">    - Introduce CHANGELOG
+</span><span class="z-text z-plain">    - Introduce article 2.3.2, on the reduced testability
+</span><span class="z-text z-plain">    - Fix a few typographic errors and blurts here and there
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">Revisions 1 through 8 ............................ 2024-01-30 through 2024-02-04
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">    Irrelevant (unpublished) and/or lost to time.
+</span></code></pre>
+<h2 id="what-to-do-about-these"><a class="anchor-link" href="#what-to-do-about-these" aria-label="Anchor link for: what-to-do-about-these">⚓</a>
+What to do about these</h2>
+<p>I suppose this would be the place for the rhetorical question regarding the
+virtues of this fastidiousness, but I'll only grace you with the broad strokes
+of its answer instead: yes, it is more beautiful, it aids in visual grepping, in
+contextual parsing, and it shows that you care.</p>
+<p>However, as the saying goes: "ain't nobody got time for that" is sure to be
+the most ready retort to my proposition, together with "the auto-formatter would
+thrash it" and "no linting rules would account for that".  I hear you, and
+you're indeed making valid arguments... in disfavour of generic auto-formatters
+and misguided stylistic linting tools!</p>
+<p>Here's the whole truth:</p>
+<h3 id="you-have-time-for-this"><a class="anchor-link" href="#you-have-time-for-this" aria-label="Anchor link for: you-have-time-for-this">⚓</a>
+You have time for this</h3>
+<p>If you're making adept, skilful contributions to meaningful software, you're
+meant to be spending your time investigating and exploring.  Jotting down
+legible documents that procure workable instructions to the machine, any fool
+can do: every fool does.  If you're tasked with authoring code, you're assumed
+to have mastered the putting-text-together aspect of it already: <a href="https://blog.codinghorror.com/we-are-typists-first-programmers-second/">we are typists
+first</a>.</p>
+<h3 id="use-tools-that-help"><a class="anchor-link" href="#use-tools-that-help" aria-label="Anchor link for: use-tools-that-help">⚓</a>
+Use tools that help</h3>
+<p>If your tools are either not assisting or outright hindering you in some
+aspects of your goals, <em>do not blame or forsake the goal</em>.  You may simply
+need—or get!—to use them differently.</p>
+<p>If you find neat documents desirable but the baseline auto-formatter will
+squash your style, it may be time to ask yourself whether you and your team are
+such purposeful pigs that a generic, one-size-fits-all crutch is the preferred
+cure-all elixir to your systematic, inescapable blurts.</p>
+<p>The formatter and linter help, but in no way should dictate prescriptive
+style over the learned tastes of your experienced discernment: do review code.</p>
+<h3 id="you-have-the-go-ahead"><a class="anchor-link" href="#you-have-the-go-ahead" aria-label="Anchor link for: you-have-the-go-ahead">⚓</a>
+You have the go-ahead</h3>
+<p>You do not have to make your code look pretty beyond mere logical
+structure, but you <em>do have to</em> read it, every now and again.  This is just
+an encouragement, a call for you to assume your style and not shy away from
+crafting text with as much care as you wish.</p>
+<h2 id="next"><a class="anchor-link" href="#next" aria-label="Anchor link for: next">⚓</a>
+Next</h2>
+<p>Find out how simple tools can help you lay out text with polish
+in parts 2 and 3 of this article series, pertaining to <a href="@/posts/intralinear-partitioning-2.md">horizontal
+alignment on the CLI</a> and <a href="@/posts/intralinear-partitioning-3.md">inside
+Vim</a>, respectively.</p>
+<p>talk about moreutil/ln, moreutil/ts</p>
+<p>IN PART 3, TALK ABOUT VIRTUALEDIT!!!!!!!!!!!!!!!!!!!!!!!!! :help 'virtualedit'
+set ve=all cuc cc=80
+set ve&amp; cuc&amp; cc&amp;</p>
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn-vim">
+<p><table class="shrt-cmd">
+  <tr><th colspan="2"><strong>vim</strong></th></tr>
+  <tr style="padding: 0 1em;">
+    
+        <td colspan="2">from <a href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;vim">extra&#x2F;vim</a></td>
+    
+  </tr>
+  <tr style="padding: 0 1em;">
+    <td><a href="https:&#x2F;&#x2F;vimhelp.org&#x2F;">manual</a></td>
+    <td><a href="https:&#x2F;&#x2F;github.com&#x2F;vim&#x2F;vim">repository</a></td>
+  </tr>
+</table>
+
+<table class="shrt-cmd">
+  <tr><th colspan="2"><strong>neovim</strong></th></tr>
+  <tr style="padding: 0 1em;">
+    
+        <td colspan="2">from <a href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;neovim">extra&#x2F;neovim</a></td>
+    
+  </tr>
+  <tr style="padding: 0 1em;">
+    <td><a href="https:&#x2F;&#x2F;neovim.io&#x2F;doc&#x2F;user&#x2F;">manual</a></td>
+    <td><a href="https:&#x2F;&#x2F;github.com&#x2F;neovim&#x2F;neovim">repository</a></td>
+  </tr>
+</table>
+ <a href="#fr-vim-1">↩</a></p>
+</li>
+<li id="fn-esoteric-vertical-whitespace">
+<p>Let's not talk of
+the <a href="https://www.compart.com/en/unicode/U+000D">CR</a>,
+<a href="https://www.compart.com/en/unicode/U+000B">VT</a> or
+<a href="https://www.compart.com/en/unicode/U+000C">FF</a> here. <a href="#fr-esoteric-vertical-whitespace-1">↩</a></p>
+</li>
+<li id="fn-uni"><table class="shrt-cmd">
+  <tr><th colspan="2"><strong>uni</strong></th></tr>
+  <tr style="padding: 0 1em;">
+    
+        <td colspan="2">from <a href="https://aur.archlinux.org/packages/uni">aur&#x2F;uni</a></td>
+    
+  </tr>
+  <tr style="padding: 0 1em;">
+    <td><a href="https:&#x2F;&#x2F;github.com&#x2F;arp242&#x2F;uni&#x2F;#usage">manual</a></td>
+    <td><a href="https:&#x2F;&#x2F;github.com&#x2F;arp242&#x2F;uni">repository</a></td>
+  </tr>
+</table>
+ <a href="#fr-uni-1">↩</a></li>
+</ol>
+</section>
+
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025
+        <a href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <span>&lt;<a href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>&gt;</span>
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>
