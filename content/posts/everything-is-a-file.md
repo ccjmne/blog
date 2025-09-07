@@ -1,7 +1,7 @@
 +++
 title = 'Everything is a file (descriptor)'
 date = 2025-08-18
-description = 'Becoming one with the pipes, the Mario way'
+description = 'Becoming one with the pipes, in ways only [Mario](https://en.wikipedia.org/wiki/Mario) could'
 taxonomies.tags = ['all', 'cli', 'posix']
 draft = true
 +++

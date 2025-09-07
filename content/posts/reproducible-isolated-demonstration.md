@@ -14,6 +14,8 @@ will get Vim to disregard my years of sensibly crafted configuration, but I
 wanted to go one step further: **from zero to a working plug-in, undoubtedly
 reproducible on any machine**.
 
+<!-- more -->
+
 I spun up a fleeting shell session in a base [Docker](https://www.docker.com/)
 image of my distribution of choice, installed the editor, the plug-in, verified
 its functionality and *voilà*!

@@ -1,7 +1,7 @@
 +++
 title = 'Useless use of `cat`'
 date = 2025-08-16
-description = 'The signature of the perpetually uneducated'
+description = 'The signature of the shell-illiterate'
 taxonomies.tags = ['all', 'cli', 'tools', 'posix']
 +++
 
