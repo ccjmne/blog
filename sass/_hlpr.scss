@@ -1,5 +1,6 @@
 @use 'vars' as *;
 
+// TODO: consider using wrapping flexbox
 @for $r from 1 through 3 {
   @for $c from 1 through 3 {
     .grid-#{$r}-#{$c} {
@@ -8,6 +9,12 @@
       grid-template-rows: repeat(#{$r}, 1fr);
       grid-template-columns: repeat(#{$c}, 1fr);
       width: calc($w + 2rem) !important;
+
+      @media (max-width: 768px) {
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr;
+        width: 100% !important;
+      }
     }
   }
 }
