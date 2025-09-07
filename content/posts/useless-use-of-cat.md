@@ -22,7 +22,7 @@ cat mentions.txt | wc -l
 cat catalina.out | tail
 cat server.cfg | sed 's/127.0.0.1/localhost/' > server.cfg
 ```
-{% note(type="comment") %} the ailment (the last one doesn't even work) {% end %}
+{{ note(msg="the ailment (the last one doesn't even work)") }}
 
 <br>
 
@@ -32,7 +32,7 @@ wc -l mentions.txt
 tail catalina.out 
 sed -i 's/127.0.0.1/localhost/' server.cfg
 ```
-{% note(type="comment") %} the remedy {% end %}
+{{ note(msg="the remedy") }}
 
 ## Files all the way down
 
@@ -95,11 +95,11 @@ illiteracy](@/posts/rampant-shell-illiteracy).
 
 ## The legitimate use of `cat`
 
-Despite my furry companion of choice being of the canine complexion, I have
-nothing against `cat` in principle.  Outside of scripts, I'd still argue that
-`less` is surely often preferable, possibly with `--quit-if-one-screen`/`-F` to
-have it behave like `cat` when you require no pagination; but here are a few
-instances where `cat` is sensible nonetheless:
+Despite my furry companion being of the canine variety, I have nothing against
+`cat` in principle.  Outside of scripts, I'd still argue that `less` is surely
+often preferable, possibly with `--quit-if-one-screen`/`-F` to have it behave
+like `cat` when you require no pagination; but here are a few instances where
+`cat` is sensible nonetheless:
 
 ```sh
 # Create file in-line

@@ -32,7 +32,7 @@ lines it has received, and writes the result to its standard output (`stdout`,
 ```sh
 sort
 ```
-{% note(type="comment") %} this will wait for your input {% end %}
+{{ note(msg="this will wait for your input") }}
 
 Terminate your input on `stdin` with `Ctrl-D`[^ctrl-d].  As presented in [shell
 redirections 101](@/posts/shell-redirections-101.md), you can open various file
@@ -60,17 +60,16 @@ B anana
 C oconut
 D ragonfruit
 ```
-{% note(type="comment") %} this uses `unsorted.txt` as standard input {% end %}
+{{ note(msg="this uses `unsorted.txt` as standard input") }}
 </div><div>
 
 ```sh
 sort 3< unsorted.txt
 ```
-{% note(type="comment") %} this will wait for your input, `FD 3` has no use {% end %}
+{{ note(msg="this will wait for your input, `FD 3` has no use") }}
 </div><div style="grid-area: 1 / 2 / 3 / 3;">
 
-{% note(type="heading") %} `unsorted.txt` {% end %}
-```txt
+```txt,name=unsorted.txt
 D ragonfruit
 C oconut
 A pricot
@@ -104,8 +103,7 @@ This is the content of file.txt
 ```
 </div><div>
 
-{% note(type="heading") %} `file.txt` {% end %}
-```txt
+```txt,name=file.txt
 This is the content of file.txt
 ```
 </div></div>
@@ -122,7 +120,7 @@ cat - < file.txt
 ```txt
 This is the content of file.txt
 ```
-{% note(type="comment") %} `-` instructs `cat` to read from its `stdin` {% end %}
+{{ note(msg="`-` instructs `cat` to read from its `stdin`") }}
 </div><div>
 
 ```sh
@@ -131,7 +129,7 @@ cat < file.txt
 ```txt
 This is the content of file.txt
 ```
-{% note(type="comment") %} though `cat` *by default* reads the standard input {% end %}
+{{ note(msg="though `cat` *by default* reads the standard input") }}
 </div></div>
 
 How about `cat - -`&nbsp;? It would read from `FD 0` (the standard input) twice,
@@ -154,7 +152,7 @@ cat - - < file.txt
 ```txt
 This is the content of file.txt
 ```
-{% note(type="comment") %} `stdin` is closed after `EOF` {% end %}
+{{ note(msg="`stdin` is closed after `EOF`") }}
 </div><div>
 
 ```sh
@@ -164,5 +162,5 @@ cat /proc/self/fd/0 /proc/self/fd/0 < file.txt
 This is the content of file.txt
 This is the content of file.txt
 ```
-{% note(type="comment") %} each file descriptor indirectly points to `file.txt` {% end %}
+{{ note(msg="each file descriptor indirectly points to `file.txt`") }}
 </div></div>

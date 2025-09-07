@@ -2,6 +2,7 @@ h1, h2, h3, h4, h5, h6 { code { font-weight: 700; } }
 
 pre, code, abbr[font=mono]::after {
   font-family: "Fira Code", monospace;
+  font-variant-ligatures: none;
   font-size: .92em;
 }
 
@@ -10,22 +11,55 @@ code:not(pre > code), abbr[font=mono]::after {
   color: var(--colour-accent);
 }
 
+$code-padding: 1rem;
 pre {
+  position: relative;
   margin: 0;
-  padding: 1rem;
+  padding: $code-padding;
   overflow: auto;
-  &.z-code {
-    background-color: var(--colour-mantle);
+  --bg: var(--colour-mantle);
+  --filename-bg: var(--colour-crust);
+  @at-root .hi & {
+    --bg: var(--colour-crust);
+    --filename-bg: var(--colour-core);
+  }
+
+  &:not([data-name]) {
+    background-color: var(--bg);
+  }
+  &[data-name] {
+    padding-top: calc($code-padding + 1lh);
+    background: linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 1lh,
+      var(--bg) 1lh,
+      var(--bg) 100%
+    );
+    &::before {
+      content: attr(data-name);
+      position: absolute;
+      top: 0;
+      inset-inline-start: 0;
+      background-color: var(--filename-bg);
+      padding: 0 $code-padding;
+      color: var(--colour-accent);
+    }
   }
 
   &.language-sh + pre.language-txt { padding-top: 0; }
 
-  &.language-sh * {
-    font-style: initial !important;
+  &.language-sh:has(+ &) > code > span::before {
+    content: "> ";
+    color: var(--colour-overlay0);
+  }
+
+  * {
+    font-style: initial !important; // disable italics in syntax highlighting
   }
 
   // Below is about data-linenos, ported from https://www.getzola.org/documentation/content/syntax-highlighting/
-  &[data-linenos] { padding: 1rem 0; }
+  &[data-linenos] { padding: $code-padding 0; }
   table {
     width: 100%;
     border-collapse: collapse;

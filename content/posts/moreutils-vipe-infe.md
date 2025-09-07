@@ -76,7 +76,7 @@ curl https://zenquotes.io/api/quotes \
 		EOF' \
    > $MAIL
 ```
-{% note(type="comment") %} I didn't even put quotation marks around `$MAIL`: all the variables in the script are expansion-safe! {% end %}
+{{ note(msg="I didn't even put quotation marks around `$MAIL`: all the variables in the script are expansion-safe!") }}
 
 We create a temporary[^tmpfs] file with `mktemp`, using a specific *file
 extension* with the `--suffix` flag: that'll let our text editor figure out how
@@ -84,7 +84,7 @@ to highlight our document's syntax.
 
 [^tmpfs]: These files will routinely be cleared (historically, some systems
 would do that on each boot).  On mine, `/tmp` is a mount-point to some
-[RAM-backed file-system](https://en.wikipedia.org/wiki/tmpfs): the stuff going
+[RAM-backed file system](https://en.wikipedia.org/wiki/tmpfs): the stuff going
 in there *never* makes it to an actual storage device.
 
 The <abbr title="World Wide Web, with a capital W">Web</abbr> server at
@@ -105,7 +105,7 @@ Success is getting what you want, happiness is wanting what you get.
 
     — W.P. Kinsella
 ```
-{% note(type="comment") %} it'll be highlighted sensibly in your editor {% end %}
+{{ note(msg="it'll be highlighted sensibly in your editor") }}
 
 [^jq]: {{ cmd(name="jq", repo="https://gitlab.archlinux.org/archlinux/packaging/packages/jq", package="extra/x86_64/jq", manual="https://man.archlinux.org/man/extra/jq/jq.1.en") }}
 
@@ -183,7 +183,7 @@ Could it?  Let's try it out:
 +   | ifne vipe --suffix eml \
 +   | msmtp sherlock.inbox@221b.uk
 ```
-{% note(type="comment") %} these two lines replace the entire second half of the script and forgo toying with a variable in the first {% end %}
+{{ note(msg="these two lines replace the entire second half of the script and forgo toying with a variable in the first") }}
 
    Well, what do you know: it can.  That tedious business from the earlier
 script?  Gone.  The variable we were passing around?  Gone as well.<br>
@@ -210,7 +210,7 @@ curl https://zenquotes.io/api/quotes \
    | ifne vipe --suffix eml \
    | msmtp sherlock.inbox@221b.uk
 ```
-{% note(type="comment") %} here's the full thing: the e-mail template comprises most of it {% end %}
+{{ note(msg="here's the full thing: the e-mail template comprises most of it") }}
 
 ## Compose your mastery
 

@@ -1,41 +1,42 @@
+{%- import "macros/hlpr.html" as hlpr -%}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>~ccjmne</title>
-    <link rel="preload" href="/outfit.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/hedvig.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/noto.woff2"   as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/fira.woff2"   as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/style.css">
-    {% block links %}
-    {% endblock links %}
+    {%- include "partials/fonts.html" -%}
+    <link rel="stylesheet" href="{{- get_url(path="/style.css") -}}">
+    {%- block links -%}
+    {%- endblock links -%}
+    <link rel="expect" blocking="render" href="#footer">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
   </head>
   <body>
-    {% block breadcrumb %}
-    <ol class="breadcrumbs">
-      <li><a href="/">Home</a></li>
-      {% set current = section | default(value=page) %}
-      {% for ancestor in current.ancestors %}
-      {% if loop.first %}
-      {% continue %}
-      {% endif %}
-      {% set section = get_section(path=ancestor) %}
-      <li><a class="breadcrumb-link" href="{{ section.permalink }}">{{ section.title | markdown(inline=true) | safe }}</a></li>
-      {% endfor %}
-      <li><span>{{ current.title | markdown(inline=true) | safe }}</span></li>
-    </ol>
-    {% endblock breadcrumb %}
+    {%- block breadcrumb -%}
+    <div class="hi" {{ hlpr::vtn(name="breadcrumbs", static=true) -}}>
+      <ol class="breadcrumbs">
+        {%- set current = section | default(value=page) -%}
+        {%- for ancestor in current.ancestors | slice(start=1) -%}
+        {%- set section = get_section(path=ancestor) -%}
+        <li><a class="breadcrumb-link" href="{{- section.permalink -}}">{{- section.title | markdown(inline=true) | safe -}}</a></li>
+        {%- endfor -%}
+        <li><span>{{- current.title | markdown(inline=true) | safe -}}</span></li>
+      </ol>
+    </div>
+    {%- endblock breadcrumb -%}
     <main>
-      {% block content %}
-      {% endblock content %}
+      {%- block content -%}
+      {%- endblock content -%}
     </main>
-    <footer>
-      &copy; 2025
-      <a href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
-      <span>&lt;<a href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>&gt;</span>
-      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY-NC-SA</a>
-    </footer>
+    <div class="hi" {{ hlpr::vtn(name="footer", static=true) -}}>
+      <footer id="footer">
+        &copy; 2025
+        <a href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <span>&lt;<a href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>&gt;</span>
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
   </body>
 </html>

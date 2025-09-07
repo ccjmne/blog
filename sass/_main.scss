@@ -6,6 +6,7 @@ html, html > body {
 
 html {
   background-color: var(--colour-base);
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -19,12 +20,12 @@ main {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  width: min(90%, 80ch);
   box-sizing: border-box;
 }
 
 footer {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   padding: 2em;
   gap: 1em;
@@ -43,5 +44,29 @@ ul.infobar {
     content: "⯁";
     margin: 0 .5ch;
     color: var(--colour-surface1);
+  }
+}
+
+@mixin centred() {
+  width: min(90vw, 768px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+main > :not(article), main > article > :not(.hi) {
+  @include centred();
+}
+
+.hi {
+  @at-root main .hi {
+    padding: 1.75rem 0;
+    margin: 1.75rem 0;
+    > :first-child { margin-top: 0; }
+    > :last-child { margin-bottom: 0; }
+  }
+  width: 100vw;
+  background-color: var(--colour-mantle);
+  > * {
+    @include centred();
   }
 }

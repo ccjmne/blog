@@ -56,11 +56,10 @@ B anana
 C oconut
 D ragonfruit
 ```
-{% note(type="comment") %} this uses `unsorted.txt` as standard input {% end %}
+{{ note(msg="this uses `unsorted.txt` as standard input") }}
 </div><div>
 
-{% note(type="heading") %} `unsorted.txt` {% end %}
-```txt
+```txt,name=unsorted.txt
 D ragonfruit
 C oconut
 A pricot
@@ -92,11 +91,10 @@ may have it write the sorted output to a file on disk instead:
 ```sh
 sort unsorted.txt > sorted.txt
 ```
-{% note(type="comment") %} this has no visible output, since `stdout` was redirected to `sorted.txt` {% end %}
+{{ note(msg="this has no visible output, since `stdout` was redirected to `sorted.txt`") }}
 </div><div>
 
-{% note(type="heading") %} `unsorted.txt` {% end %}
-```txt
+```txt,name=unsorted.txt
 D ragonfruit
 C oconut
 A pricot
@@ -104,8 +102,7 @@ B anana
 ```
 </div><div>
 
-{% note(type="heading") %} `sorted.txt` {% end %}
-```txt
+```txt,name=sorted.txt
 A pricot
 B anana
 C oconut
@@ -126,7 +123,7 @@ B anana
 C oconut
 D ragonfruit
 ```
-{% note(type="comment") %} `errors.txt` would contain any error output {% end %}
+{{ note(msg="`errors.txt` would contain any error output") }}
 
 You may redirect *both* `stdout` and `stderr` at the same time, using the `&>`
 operator, though it is not `POSIX`-compliant.
@@ -192,7 +189,7 @@ B anana
 C oconut
 D ragonfruit
 ```
-{% note(type="comment") %} `<<<` isn't part of the `POSIX` specification {% end %}
+{{ note(msg="`<<<` isn't part of the `POSIX` specification") }}
 </div><div>
 
 ```sh
@@ -204,7 +201,7 @@ B anana
 C oconut
 D ragonfruit
 ```
-{% note(type="comment") %} `<<<` and `$'...'` make this *doubly* non-`POSIX` {% end %}
+{{ note(msg="`<<<` and `$'...'` make this *doubly* non-`POSIX`") }}
 </div></div>
 
 Since you'll already be using Bashisms if you're there, you may like to know
@@ -233,14 +230,14 @@ B
 C
 D
 ```
-{% note(type="comment") %} the `\n` are interpreted by `printf` and therefore *aren't non-POSIX* constructs here! {% end %}
+{{ note(msg="the `\n` are interpreted by `printf` and therefore *aren't non-POSIX* constructs here!") }}
 
 <div class="grid-1-2"><div>
 
 ```sh
 sort 3< unsorted.txt
 ```
-{% note(type="comment") %} this will wait for your input, `FD 3` has no use {% end %}
+{{ note(msg="this will wait for your input, `FD 3` has no use") }}
 </div><div>
 
 ```sh
@@ -252,11 +249,10 @@ B anana
 C oconut
 D ragonfruit
 ```
-{% note(type="comment") %} this uses `unsorted.txt` as standard input {% end %}
+{{ note(msg="this uses `unsorted.txt` as standard input") }}
 </div><div style="grid-area: 1 / 2 / 3 / 3;">
 
-{% note(type="heading") %} `unsorted.txt` {% end %}
-```txt
+```txt,name=unsorted.txt
 D ragonfruit
 C oconut
 A pricot

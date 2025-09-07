@@ -66,7 +66,7 @@ ls --classify
 node_modules/  compose.sh*  eslint.config.mjs  package.json    README.md
 src/           Dockerfile   LICENSE            pnpm-lock.yaml  TODO
 ```
-{% note(type="comment") %} I use `--classify` to annotate various file types, like executables and directories {% end %}
+{{ note(msg="I use `--classify` to annotate various file types, like executables and directories") }}
 
 ### The tabular data
 
@@ -87,7 +87,7 @@ uni identify É É 🧉
 'É'  U+00C9  201    c3 89       &Eacute;   LATIN CAPITAL LETTER E WITH ACUTE
 '🧉' U+1F9C9 129481 f0 9f a7 89 &#x1f9c9;  MATE DRINK
 ```
-{% note(type="comment") %} ah, so that's why I appear twice in <abbr title='Summarize &apos;git log&apos; output'>`git shortlog`</abbr>` --summary`... {% end %}
+{{ note(msg="ah, so that's why I appear twice in <abbr title='Summarize &apos;git log&apos; output'>`git shortlog`</abbr>` --summary`...") }}
 
 ### The adjoined and annotated fragments
 
@@ -111,7 +111,7 @@ postgres_1   2025-08-09 12:35:15 | STATEMENT:  SELECT * FROM employees;
 postgres_1   2025-08-09 12:35:20 | LOG:  disconnection: session time: 9s user=acme database=mydb host=172.18.0.5 port=5432
 webserver_1  2025-08-09 12:35:05 | GET /api/employees 200 15ms
 ```
-{% note(type="comment") %} here, `docker compose` annotates the concatenated logs with their provenance and timestamps {% end %}
+{{ note(msg="here, `docker compose` annotates the concatenated logs with their provenance and timestamps") }}
 
 The juxtaposition of pieces of content also routinely aids in visual comparison:
 
@@ -144,8 +144,7 @@ composing instructions for machines to follow—"writing code", as we say.
 centred, right-aligned or even justified, any padded value, wrapped sentence,
 indented paragraph...  Have a look at the following examples:
 
-{% note(type="heading") %} `profile.ts` {% end %}
-```typescript
+```typescript,name=profile.ts
 export const education = [{
   degree:    `Engineer's Degree`,
   field:     'Network Security',
@@ -165,8 +164,7 @@ export const education = [{
 ```
 <br>
 
-{% note(type="heading") %} `Adyen.java` {% end %}
-```java
+```java,name=Adyen.java
 private static final Map<String, String> PROPS_DEFAULTS = Collections.singletonMap("environment", "test");
 private static final String              PROPS_FILE     = "creditcard/adyen-x.properties";
 private static final String[]            PROPS_KEYS     =
@@ -190,12 +188,11 @@ public Adyen(final GeographicalArea shop) {
         .from(Props.getFrom(PROPS_FILE));
 }
 ```
-{% note(type="comment") %} bonus points for the serendipitously native alignment of the `JSON` and `HTTP` constants declaration {% end %}
+{{ note(msg="bonus points for the serendipitously native alignment of the `JSON` and `HTTP` constants declaration") }}
 
 <br>
 
-{% note(type="heading") %} `queries.sql` {% end %}
-```sql
+```sql,name=queries.sql
 SELECT CASE airport_code
        WHEN 'CDG' THEN 'Paris'
        WHEN 'ICN' THEN 'Seoul'
@@ -207,8 +204,7 @@ SELECT CASE airport_code
 ```
 <br>
 
-{% note(type="heading") %} `delta-reports-exchange.txt` {% end %}
-```txt
+```txt,name=delta-reports-exchange.txt
 Status: DRAFT                DelTA Reports Exchange                 Éric NICOLAS
 Revisions: 12                ======================           <ccjmne@gmail.com>
 Latest: 2024-02-14

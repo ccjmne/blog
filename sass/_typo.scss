@@ -1,46 +1,18 @@
-@font-face {
-  font-family: Outfit;
-  src: url('/outfit.woff2') format('woff2');
-  font-weight: 500;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Noto Sans Symbols";
-  src: url('/noto.woff2') format('woff2');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Hedvig Letters Serif";
-  src: url('/hedvig.woff2') format('woff2');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Fira Code";
-  src: url('/fira.woff2') format('woff2');
-  font-display: swap;
-}
-
 strong { font-weight: 700; }
 ol { list-style-type: lower-roman; }
 ul { list-style-type: square; }
 
 body {
-  font-family: "Hedvig Letters Serif", serif;
-  letter-spacing: 0.015em;
+  font-family: "Work Sans", serif;
+  font-optical-sizing: auto;
   color: var(--colour-text);
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Outfit", sans-serif;
-  font-weight: 500;
-}
-
-h1 {
-  margin: 3rem 0;
-}
+h1, h2, h3, h4, h5, h6 { font-family: "Outfit", sans-serif; }
+h1, h2 { font-weight: 500; }
+h3, h4, h5, h6 { font-weight: 400; }
+h1 { margin: 3rem 0; }
+h2, h3 { margin: 1.75rem 0; }
 
 sup.footnote-reference {
   font-size: 0.8em;
@@ -59,6 +31,7 @@ sup.footnote-reference {
 
 ol.breadcrumbs {
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
   padding: 0;
   li:not(:last-child)::after {
@@ -84,10 +57,14 @@ a {
 
   &[href^=git],&[href^=http]:not([href^='https://ccjmne.sh/'],[href^='https://ccjmne.github.io/'],[href^='http://localhost'],[href^='http://127.0.0.1'],:has(img)) {
     &::after {
-      content: " ↗";
-      font-size: 0.66em;
-      font-family: "Hedvig Letters Serif";
+      content: "\202F↗"; // U+202F is NARROW NO-BREAK SPACE
+      font-size: 0.75em;
+      font-family: "Fira Code", sans-serif;
     }
+  }
+
+  &[href^="#fr-"] { // backlink to footnote-reference
+    font-size: .75em;
   }
 
   &.anchor-link {
@@ -125,4 +102,11 @@ abbr {
   &:hover::after {
     opacity: 1;
   }
+}
+
+blockquote {
+  border-inline-start: .75ch solid var(--colour-surface1);
+  padding-inline-start: 1.5ch;
+  box-sizing: border-box;
+  font-style: italic;
 }

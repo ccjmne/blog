@@ -6,10 +6,19 @@
   @each $name, $value in map-get(catppuccin.$palette, "latte") {
     --colour-#{$name}: #{$value};
   }
+  --colour-core: color-mix(in srgb, var(--colour-crust) 95%, black);
 
   @media (prefers-color-scheme: dark) {
     @each $name, $value in map-get(catppuccin.$palette, "macchiato") {
       --colour-#{$name}: #{$value};
     }
+    --colour-core: color-mix(in srgb, var(--colour-crust) 75%, black);
   }
+
+  .term-fg31 { color: var(--colour-red); }
+  .term-fg32 { color: var(--colour-green); }
+  .term-fg33 { color: var(--colour-yellow); }
+  .term-fg34 { color: var(--colour-blue); }
+  .term-fg35 { color: var(--colour-pink); }
+  .term-fg36 { color: var(--colour-teal); }
 }
