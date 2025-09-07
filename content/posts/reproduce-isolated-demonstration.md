@@ -19,16 +19,17 @@ its functionality and *voilà*!
 ```sh
 docker run --rm -it archlinux sh
 pacman -Sy --noconfirm vim git
-git clone https://github.com/73/vim-klog.git
 cat > work.klg <<EOF
 2025-08-10 (8h!)
 Getting some #work done.
     08:45 - ?
     -1h #lunch
 EOF
+# The demonstrably complete instructions: have the plug-in on your runtimepath
+git clone https://github.com/73/vim-klog.git
 vim +'set runtimepath+=vim-klog' +':syntax on' work.klg
 ```
-{{ note(msg='I am fond of `--rm -it` and read it as "remove it"') }}
+{{ note(msg='I like using `--rm -it`, for which you may use the mnemonic "remove it"') }}
 
 Just like that, a fresh Vim installation, augmented with the correct file type
 detection and corresponding syntax highlighting, right off the `master` branch
