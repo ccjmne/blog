@@ -19,6 +19,8 @@
     {%- if page.summary -%}
     <div class="summary">{{- page.summary | safe -}}</div>
     <a style="align-self: self-end;" href="{{ page.permalink }}#continue-reading">Continue reading →</a>
+    {%- elif page.description -%}
+    <div class="summary">{{- page.description | markdown | safe -}}</div>
     {%- endif -%}
   </article>
 </div>
