@@ -1,5 +1,7 @@
 base_url = "https://ccjmne.sh/blog/"
+author = "Éric NICOLAS (ccjmne)"
 compile_sass = true
+generate_feeds = true
 build_search_index = true
 default_language = "en"
 taxonomies = [
