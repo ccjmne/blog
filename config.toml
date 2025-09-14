@@ -1,20 +1,20 @@
-base_url = "https://ccjmne.sh/blog/"
-author = "Éric NICOLAS (ccjmne)"
-compile_sass = true
-generate_feeds = true
+base_url           = "https://ccjmne.sh/blog/"
+author             = "Éric NICOLAS (ccjmne)"
+compile_sass       = true
+generate_feeds     = true
 build_search_index = true
-default_language = "en"
-taxonomies = [
-  { name = "tags" },
-]
+default_language   = "en"
+
+[[taxonomies]]
+name = "tags"
 
 [link_checker]
 internal_level = "warn"
 
 [markdown]
-highlight_code = true
-bottom_footnotes = true
+highlight_code      = true
+bottom_footnotes    = true
 insert_anchor_links = "left"
-highlight_theme = "css"
+highlight_theme     = "css"
 
 [extra]
