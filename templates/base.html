@@ -11,6 +11,7 @@
     {%- block links -%}
     {%- endblock links -%}
     <link rel="expect" blocking="render" href="#footer">
+    <link rel="alternate" type="application/atom+xml" title="rss" href="{{ get_url(path="atom.xml", trailing_slash=false) }}">
     <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
   </head>
   <body>
