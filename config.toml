@@ -1,5 +1,6 @@
 base_url           = "https://ccjmne.sh/blog/"
 author             = "Éric NICOLAS (ccjmne)"
+title              = "ccjmne's blog"
 compile_sass       = true
 generate_feeds     = true
 build_search_index = true
