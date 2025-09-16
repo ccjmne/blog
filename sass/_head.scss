@@ -1,0 +1,21 @@
+$hedpadx: 2rem;
+$btnpadx: .75rem;
+
+// TODO: make responsive
+header {
+  display: flex;
+  width: 100%;
+  padding: 0 calc($hedpadx - $btnpadx);
+  box-sizing: border-box;
+  a {
+    color: inherit;
+    text-decoration: none;
+    padding: 1rem $btnpadx;
+  }
+}
+
+.accent-bar {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, var(--colour-accent), var(--colour-maroon), var(--colour-mauve), var(--colour-lavender));
+}

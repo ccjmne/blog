@@ -15,6 +15,17 @@
     <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
   </head>
   <body>
+    {# TODO: Disable current header #}
+    <header {{ hlpr::vtn(name="header", static=true) -}}>
+      <a href="{{ get_url(path="/") }}">Home</a>
+      <a href="{{ get_url(path="posts") }}">Posts</a>
+      {# <a href="{{ get_url(path="tags") }}">Tags</a> #}
+      <a href="{{ get_url(path="thoughts") }}">Thoughts</a>
+      {# <a href="{{ get_url(path="about") }}">Meta</a> #}
+      <span style="flex-grow: 1"></span>
+      <a href="{{ get_url(path="atom.xml", trailing_slash=false) }}">RSS</a>
+    </header>
+    <div class="accent-bar" {{ hlpr::vtn(name="accent-bar", static=true) -}}></div>
     {%- block breadcrumb -%}
     <div class="hi" {{ hlpr::vtn(name="breadcrumbs", static=true) -}}>
       <ol class="breadcrumbs">
