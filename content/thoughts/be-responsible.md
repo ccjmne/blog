@@ -8,7 +8,7 @@ So there is a task; it's yours.  It's ill-defined; that's not your fault.
 
 **Your fault is presenting the seemingly irreconcilable, incomprehensible,
 incomplete or otherwise irrational requirements as a blocker** the next day
-during your daily stand-up.  And I'm not even talking about how this privileged
+during our daily stand-up.  And I'm not even talking about how this privileged
 time isn't for reporting—you're not in school any more; it's for coordination.
 
 In a few word, **don't just wait around: address the problem.**  You were never
