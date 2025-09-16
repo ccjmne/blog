@@ -1,0 +1,23 @@
+// Inspired by https://manuelmoreale.com
+a.line {
+  display: flex;
+  text-wrap: nowrap;
+  gap: 1rem;
+  align-items: baseline;
+  font-size: 1.2em;
+  color: inherit;
+  text-decoration: none;
+  h3 { margin: 0; }
+  time { font-size: 0.8em; }
+  &:hover { color: var(--colour-accent); }
+  .dots {
+    color: var(--colour-surface2);
+    letter-spacing: 0.1em;
+    overflow: hidden;
+    &::before {
+      content: "........................................................................................................................";
+      flex-shrink: 1;
+    }
+  }
+}
+

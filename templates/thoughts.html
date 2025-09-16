@@ -1,0 +1,30 @@
+{%- extends "base.html" -%}
+
+{%- block links -%}
+<link rel="stylesheet" href="{{ get_url(path="/thoughts.css") }}">
+{%- endblock links -%}
+
+{% block breadcrumb %}
+{% endblock breadcrumb %}
+
+{%- block content -%}
+<h1 class="title">Dubito, ergo cogito, ergo scribo</h1>
+{{- section.content | safe -}}
+{% set pages = section.pages %}
+<!-- If you are using pagination, section.pages will be empty.
+     You need to use the paginator object -->
+{%- for page in pages -%}
+<div class="ls-i">
+  {%- if section.extra.series -%}
+  <span class="i">{{- page.slug | truncate(length=2, end="") -}}.</span>
+  {%- endif -%}
+  <a class="line" href="{{ page.permalink | safe }}">
+    <h3 class="link-title" {{ hlpr::vtn(name=page.slug) -}}>{{ page.title | markdown(inline=true) | safe }}</h3>
+    <span class="dots"></span>
+    {% set day = page.date | date(format="%d") %}
+    <time>{{- page.date | date(format="%d") -}}{% if day == 1 or day == 21 or day == 31 %}st{% elif day == 2 or day == 22 %}nd{% elif day == 3 or day == 23 %}rd{% else %}th{% endif %}</time>
+  </a>
+</div>
+{%- endfor -%}
+
+{%- endblock content -%}
