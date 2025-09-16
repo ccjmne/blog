@@ -1,11 +1,11 @@
 $hedpadx: 2rem;
 $btnpadx: .75rem;
 
-// TODO: make responsive
+// TODO: make responsive when there'll be more links
 header {
   display: flex;
   width: 100%;
-  padding: 0 calc($hedpadx - $btnpadx);
+  padding: 0 calc(min(5vw, $hedpadx) - $btnpadx);
   box-sizing: border-box;
   a {
     color: inherit;
