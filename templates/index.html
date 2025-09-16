@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 
+{% block breadcrumb %}
+{% endblock breadcrumb %}
+
 {% block content %}
 <h1>~ccjmne</h1>
-<p><a href="{{ get_url(path="/posts") }}">Recent posts</a></p>
+<p>I publish some technical <a href="{{ get_url(path="/posts") }}">posts</a> that may serve as helpful, practical guides towards mastering your software development craft.</p>
+<p>I also share some <a href="{{ get_url(path="/thoughts") }}">thoughts</a> that are more conceptual or less grounded in relevance and practicality, but may be consumed more recreationally.</p>
 {% endblock content %}
