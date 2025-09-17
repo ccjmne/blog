@@ -9,7 +9,7 @@ So there is a task; it's yours.  It's ill-defined; that's not your fault.
 **Your fault is presenting the seemingly irreconcilable, incomprehensible,
 incomplete or otherwise irrational requirements as a blocker** the next day
 during our daily stand-up.  And I'm not even talking about how this privileged
-time isn't for reporting—you're not in school any more; it's for coordination.
+time is for coordination, not for reporting—you're not in school any more.
 
 In a few words, **don't just wait around: address the problem.**  You were
 never brought here to carry on doing the dull thing you've come to expect
