@@ -11,10 +11,10 @@ incomplete or otherwise irrational requirements as a blocker** the next day
 during our daily stand-up.  And I'm not even talking about how this privileged
 time isn't for reporting—you're not in school any more; it's for coordination.
 
-In a few word, **don't just wait around: address the problem.**  You were never
+In a few words, **don't just wait around: address the problem.**  You were never
 meant to be here to carry on doing the dull thing you've come to expect of
 yourself: we have machines for that, infallible tools working around the
-clock and churning through any task defined explicitly enough faster than you
+clock and churning through any task (defined explicitly enough) faster than you
 can click "assign to me".  You're supposedly here because we expect you to
 **function autonomously**, and possibly function despite the unexpected.
 
