@@ -7,7 +7,7 @@ readonly noto=$(curl -Ls 'https://fonts.googleapis.com/css2?family=Noto+Sans+Sym
 
 # Get the full fonts:
 readonly ouft=$(curl -Ls 'https://fonts.googleapis.com/css2?family=Outfit:wght@400;500')
-readonly work=$(curl -Ls 'https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,500;1,400')
+readonly work=$(curl -Ls 'https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,600;1,400')
 readonly fira=$(curl -Ls 'https://fonts.googleapis.com/css2?family=Fira+Code')
 
 preload=()
