@@ -1,5 +1,14 @@
 // Inspired by https://manuelmoreale.com
-a.line {
+time.month-switch {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  margin-bottom: .5rem;
+  &:first-of-type { margin-top: 0rem; }
+  h2 { margin: 0; }
+}
+
+a.entry {
   display: flex;
   text-wrap: nowrap;
   gap: 1rem;

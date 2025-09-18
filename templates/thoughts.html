@@ -9,22 +9,22 @@
 
 {%- block content -%}
 <h1 class="title">Dubito, ergo cogito, ergo scribo</h1>
-{{- section.content | safe -}}
-{% set pages = section.pages %}
-<!-- If you are using pagination, section.pages will be empty.
-     You need to use the paginator object -->
-{%- for page in pages -%}
-<div class="ls-i">
-  {%- if section.extra.series -%}
-  <span class="i">{{- page.slug | truncate(length=2, end="") -}}.</span>
-  {%- endif -%}
-  <a class="line" href="{{ page.permalink | safe }}">
-    <h3 class="link-title" {{ hlpr::vtn(name=page.slug) -}}>{{ page.title | markdown(inline=true) | safe }}</h3>
-    <span class="dots"></span>
-    {% set day = page.date | date(format="%d") %}
-    <time>{{- page.date | date(format="%d") -}}{% if day == 1 or day == 21 or day == 31 %}st{% elif day == 2 or day == 22 %}nd{% elif day == 3 or day == 23 %}rd{% else %}th{% endif %}</time>
-  </a>
-</div>
+{%- set year = 0 -%}
+{%- set month = 0 -%}
+{%- for page in section.pages -%}
+{%- if page.year != year -%}
+{%- set_global year = page.year -%}
+{%- set_global month = page.month -%}
+<time class="month-switch"><h2>{{ year }}</h2><h2>{{ page.date | date(format="%B") }}</h2></time>
+{%- elif page.month != month -%}
+{%- set_global month = page.month -%}
+<time class="month-switch"><span></span><h2>{{ page.date | date(format="%B") }}</h2></time>
+{%- endif -%}
+<a class="entry" href="{{- page.permalink | safe -}}">
+  <h3 class="link-title" {{- hlpr::vtn(name=page.slug) -}}>{{- page.title | markdown(inline=true) | safe -}}</h3>
+  <span class="dots"></span>
+  <time>{%- set d = page.day -%}{{- d -}}{% if d == 1 or d == 21 or d == 31 %}st{% elif d == 2 or d == 22 %}nd{% elif d == 3 or d == 23 %}rd{% else %}th{% endif %}</time>
+</a>
 {%- endfor -%}
 
 {%- endblock content -%}
