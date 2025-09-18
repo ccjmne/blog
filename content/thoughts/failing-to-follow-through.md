@@ -36,37 +36,39 @@ The new year hits, and we're even graced by the presence of some board member's
 face in the fully remote kick-off meeting: the show is officially on the road!
 
 Q1, spirits are high, advisory groups aplenty, meetings
-eagerly planned and subsequently attended: the well-oiled
+eagerly planned and subsequently attended: **the well-oiled
 [Dreadnought](https://en.wikipedia.org/wiki/Dreadnought) of progress is set in
-motion.
+motion**.
 
 Q2, meetings were planned recurrently to begin with; resources are temporarily
-diverted, as is the custom; the battering ram of progress is still indeed
-heading somewhere, as evidenced by the risk incurred, in leaning against it for
-and early afternoon nap, of slumping off in its trail.
+diverted, as is the custom; **the battering ram of progress is still indeed
+heading somewhere**, as evidenced by the risk incurred, in leaning against it
+for and early afternoon nap, of slumping off in its trail.
 
 Q3, every other worker (in the idiomatic sense) has their 4-week vacation lined
 up and every other worker (in the literal sense) is consequently overrun with
-unprecedented and unexpected workload.  The rudimentary vehicle of progress is
-still rumoured to be crawling.  The stakeholders are nowhere to be seen but,
+unprecedented and unexpected workload.  **The rudimentary vehicle of progress is
+still rumoured to be crawling**.  The stakeholders are nowhere to be seen but,
 what stakes, really?  The "place order" button is working, after all; [life is
 beautiful](https://en.wikipedia.org/wiki/Life_Is_Beautiful) and neither effort
 nor indolence is rewarded nor punished.
 
-Before the end of the year, our retroactively baseless, worn-out jalopy of
-progress shares [Tom Riddle's](https://en.wikipedia.org/wiki/Life_Is_Beautiful)
-predicament in that it shall not any more be named: it was indeed headed for a
-wall, there's no denying that, but its battering prowess may have been greatly
-exaggerated.  It withered and went away without as much as a whimper.  It
-was everybody's, therefore it was nobody's; the corpse remains unclaimed and
-unidentified but, [comrade](https://en.wikipedia.org/wiki/Nineteen_Eighty-Four),
-is it really dead if the records don't show that we decided to kill it?
+Before the end of the year, **our retroactively baseless, worn-out jalopy
+of progress was indeed headed for a wall**, there's no denying that,
+**but its battering prowess may have been greatly exaggerated**.  It now
+shares [Tom Riddle's](https://en.wikipedia.org/wiki/Life_Is_Beautiful)
+predicament in that it shall not any more be named.  It withered and
+went away without as much as a whimper.  It was everybody's, therefore
+it was nobody's; the corpse remains unclaimed and unidentified but,
+[comrade](https://en.wikipedia.org/wiki/Nineteen_Eighty-Four), is it really dead
+if the records don't show that we decided to kill it?
 
 [It was the spring of hope, it was the winter of
-despair](https://www.goodreads.com/quotes/341391-it-was-the-best-of-times-it-was-the-worst).
-As an effort, it was, as always, resounding—indisputably, one of the endeavours
-of all times.  If you want to know more, you may [join K. in inquiring of the
-authoritative parties](https://en.wikipedia.org/wiki/The_Castle_(novel)).
+despair](https://www.goodreads.com/quotes/341391-it-was-the-best-of-times-it-was-the-worst).<br>
+   As an effort, it was, as always, resounding; you may [join K. in inquiring of
+the authoritative parties](https://en.wikipedia.org/wiki/The_Castle_(novel)) to
+learn more about what constitutes, indisputably, **one of the endeavours of all
+times**.
 
 As far as history shall be concerned, the solution is all but
 established, the time has passed and the resources were spent: [in our
