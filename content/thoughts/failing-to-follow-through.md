@@ -45,7 +45,7 @@ eagerly planned and subsequently attended: **the well-oiled
 motion**.
 
 Q2, meetings were planned recurrently to begin with; resources are temporarily
-diverted, as is the custom; **the battering ram of progress is still indeed
+diverted, as is the custom; **the battering ram of progress is still certainly
 heading somewhere**, as evidenced by the risk incurred, in leaning against it
 for and early afternoon nap, of slumping off in its trail.
 
@@ -58,7 +58,7 @@ beautiful](https://en.wikipedia.org/wiki/Life_Is_Beautiful) and neither effort
 nor indolence is rewarded nor punished.
 
 Before the end of the year, **our retroactively baseless, worn-out jalopy
-of progress was indeed headed for a wall**, there's no denying that,
+of progress did indeed ram itself into a wall**, there's no denying that,
 **but its battering prowess may have been greatly exaggerated**.  It now
 shares [Tom Riddle's](https://en.wikipedia.org/wiki/Life_Is_Beautiful)
 predicament in that it shall not any more be named.  It withered and
