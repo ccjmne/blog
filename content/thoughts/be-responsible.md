@@ -1,7 +1,6 @@
 +++
 title = 'Be responsible'
 date = 2025-09-16
-draft = false
 +++
 
 So there is a task; it's yours.  It's ill-defined; that's not your fault.
@@ -18,8 +17,8 @@ clock and churning through any task (defined explicitly enough) faster than
 you can click "assign to me".  You're supposedly here because we expect you to
 **function autonomously**, and possibly function despite the unexpected.
 
-   Who knows, with a bit of drive, you might yourself contribute to the
-unexpected!<br>
+   Who knows, with a bit of drive, you might yourself operate beyond
+expectations!<br>
    Until then, heed these insights I want to share with you:
 
 I know you've got a boss, a project manager, a scrum master, a team lead, a
