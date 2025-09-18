@@ -10,8 +10,8 @@ date = 2025-09-17
 Suppose that we have a problem.
 
 Suppose that our entire business communicates through some handcrafted marvel
-of software architecture built by a few guys, who left the company 10 years
-ago, in a language that scholars today's scholars could only describe as [Pig
+of software architecture built by a few prolific souls who left the company 10 years
+ago, in a language that today's scholars could only describe as [Pig
 Latin](https://en.wikipedia.org/wiki/Pig_Latin).
 
 Or suppose that our data centre runs on a fleet of systems so ancient that
@@ -26,9 +26,9 @@ that only [Tom Bombadil](https://en.wikipedia.org/wiki/Tom_Bombadil) can tame.
 And they're cross-referencing one another.  And they're stashed across several
 source repositories.  Hosted at different providers.
 
-Or suppose that it'd be cool to use that shiny ["new" multiline Java
-`String`](https://blogs.oracle.com/javamagazine/post/text-blocks-come-to-java)...
-In summary, suppose that we have a serious problem that calls for
+   Or suppose that it'd be cool to use that shiny ["new" multiline Java
+`String`](https://blogs.oracle.com/javamagazine/post/text-blocks-come-to-java)...<br>
+   In summary, suppose that we have a serious problem that calls for
 all-hands-on-deck, cross-team, cross-discipline, focus-of-the-semester
 remediation.
 
@@ -73,6 +73,6 @@ established, the time has passed and the resources were spent: [in our
 book](https://en.wikipedia.org/wiki/Effort_justification), it's a done task; but
 to the keen mind, it's one more shipwreck elevated to the status of cultural
 landmark, a new hurdle to toughen the sale regarding possibly addressing the
-original issue once more.
+original issue "once more".
 
 Suppose that we had a problem...  Now the problem has its own meta problem.
