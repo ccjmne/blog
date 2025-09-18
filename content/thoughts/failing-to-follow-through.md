@@ -3,9 +3,9 @@ title = 'Failing to follow through'
 date = 2025-09-17
 +++
 
-> **Prefatory note:** This is the brighter of a 2-part dystopian "choose your
-> own adventure" essay on systemic failures to carry through sizeable projects
-> in "enterprise" environments.
+> **Prefatory note:** This is the brighter branch of a dystopian
+> choose-your-own-adventure essay on systemic failures to carry through sizeable
+> projects in "enterprise" environments.
 
 Suppose that we have a problem.
 
