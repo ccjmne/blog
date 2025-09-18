@@ -65,10 +65,10 @@ if the records don't show that we decided to kill it?
 
 [It was the spring of hope, it was the winter of
 despair](https://www.goodreads.com/quotes/341391-it-was-the-best-of-times-it-was-the-worst).<br>
-   As an effort, it was, as always, resounding; you may [join K. in inquiring of
-the authoritative parties](https://en.wikipedia.org/wiki/The_Castle_(novel)) to
-learn more about what constitutes, indisputably, **one of the endeavours of all
-times**.
+   As an effort, it was, as always, resounding, and
+you may [join K. in inquiring of the authoritative
+parties](https://en.wikipedia.org/wiki/The_Castle_(novel)) about what
+constitutes, indisputably, **one of the endeavours of all times**.
 
 As far as history shall be concerned, the solution is all but
 established, the time has passed and the resources were spent: [in our
