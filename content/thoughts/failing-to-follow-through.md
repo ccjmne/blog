@@ -7,6 +7,8 @@ date = 2025-09-17
 > choose-your-own-adventure essay on systemic failures to carry through sizeable
 > projects in "enterprise" environments.
 
+<br>
+
 Suppose that we have a problem.
 
 Suppose that our entire business communicates through some handcrafted marvel
@@ -31,6 +33,8 @@ source repositories.  Hosted at different providers.
    In summary, suppose that we have a serious problem that calls for
 all-hands-on-deck, cross-team, cross-discipline, focus-of-the-semester
 remediation.
+
+<br>
 
 The new year hits, and we're even graced by the presence of some board member's
 face in the fully remote kick-off meeting: the show is officially on the road!
@@ -63,6 +67,8 @@ it was nobody's; the corpse remains unclaimed and unidentified but,
 [comrade](https://en.wikipedia.org/wiki/Nineteen_Eighty-Four), is it really dead
 if the records don't show that we decided to kill it?
 
+<br>
+
 [It was the spring of hope, it was the winter of
 despair](https://www.goodreads.com/quotes/341391-it-was-the-best-of-times-it-was-the-worst).<br>
    As an effort, it was, as always, resounding, and
@@ -70,8 +76,8 @@ you may [join K. in inquiring of the authoritative
 parties](https://en.wikipedia.org/wiki/The_Castle_(novel)) about what
 constitutes, indisputably, **one of the endeavours of all times**.
 
-As far as history shall be concerned, the solution is all but
-established, the time has passed and the resources were spent: [in our
+As far as history shall be concerned, the solution is all but established,
+the time has passed and the resources were spent in accordance: [in our
 book](https://en.wikipedia.org/wiki/Effort_justification), it's a done task; but
 to the keen mind, it's one more shipwreck elevated to the status of cultural
 landmark, a new hurdle to toughen the sale regarding possibly addressing the
