@@ -57,7 +57,7 @@ main > :not(article), main > article > :not(.hi, .lo) {
   @include centred();
 }
 
-.hi, .lo {
+@mixin hilo($hi: true) {
   @at-root main & {
     padding: 1.75rem 0;
     margin: 1.75rem 0;
@@ -65,10 +65,10 @@ main > :not(article), main > article > :not(.hi, .lo) {
     > :last-child { margin-bottom: 0; }
   }
   width: 100vw;
-  > * {
-    @include centred();
-  }
+  > * { @include centred(); }
+  @if $hi { background-color: var(--colour-mantle); }
+  @else   { background-color: var(--colour-surface0); }
 }
 
-.hi { background-color: var(--colour-mantle); }
-.lo { background-color: var(--colour-surface0); }
+.hi { @include hilo(true); }
+.lo { @include hilo(false); }
