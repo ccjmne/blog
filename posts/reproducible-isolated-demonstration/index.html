@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/noto-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/ouft-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2" as="font" type="font/woff2" crossorigin>
+<style type="text/css">  @font-face { font-family: 'Noto Sans Symbols'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/noto-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/ouft-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-2.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/work-3.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2') format('woff2'); }
+</style><link rel="stylesheet" href="https://ccjmne.sh/blog/style.css">
+<link rel="stylesheet" href="https://ccjmne.sh/blog/light.css">
+<link rel="stylesheet" href="https://ccjmne.sh/blog/dark.css" media="(prefers-color-scheme: dark)">
+<link rel="expect" blocking="render" href="#footer">
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+  </head>
+  <body>
+    
+    <header 
+  style="view-transition-name: header; view-transition-class: static"
+>
+      <a href="https://ccjmne.sh/blog">Home</a>
+      <a href="https://ccjmne.sh/blog/posts">Posts</a>
+      
+      <a href="https://ccjmne.sh/blog/thoughts">Thoughts</a>
+      
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: accent-bar; view-transition-class: static"
+></div><div class="hi" 
+  style="view-transition-name: breadcrumbs; view-transition-class: static"
+>
+      <ol class="breadcrumbs"><li><a class="breadcrumb-link" href="https:&#x2F;&#x2F;ccjmne.sh&#x2F;blog&#x2F;posts&#x2F;">Recent posts</a></li><li><span>Reproducible, isolated demonstrations</span></li>
+      </ol>
+    </div><main>
+<h1><span class="link-title" 
+  style="view-transition-name: reproducible-isolated-demonstration"
+>Reproducible, isolated demonstrations</span></h1><ul class="infobar"><li><time>August 10, 2025</time></li><li>4-minute read</li>
+  </ul>
+<article>
+  <p>Earlier this week, I put together installation instructions for a syntax support
+package for <abbr title="The ubiquitous text editor">Vim</abbr>.</p>
+<p>I have an idea how these things work and I'm fairly confident that <code>-u NONE</code>
+will get Vim to disregard my years of sensibly crafted configuration, but I
+wanted to go one step further: <strong>from zero to a working plug-in, undoubtedly
+reproducible on any machine</strong>.</p>
+<span id="continue-reading"></span>
+<p>I spun up a fleeting shell session in a base <a href="https://www.docker.com/">Docker</a>
+image of my distribution of choice, installed the editor, the plug-in, verified
+its functionality and <em>voilà</em>!</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">docker</span></span><span class="z-meta z-function-call z-arguments z-shell"> run<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>rm</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>it</span> archlinux sh</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">pacman</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>Sy</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>noconfirm</span> vim git</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">cat</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span> work.klg <span class="z-string z-unquoted z-heredoc z-shell"><span class="z-keyword z-operator z-assignment z-redirection z-shell">&lt;&lt;</span><span class="z-keyword z-control z-heredoc-token z-shell">EOF</span></span><span class="z-string z-unquoted z-heredoc z-shell">
+</span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-arguments z-shell"><span class="z-string z-unquoted z-heredoc z-shell">2025-08-10 (8h!)
+</span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-arguments z-shell"><span class="z-string z-unquoted z-heredoc z-shell">Getting some #work done.
+</span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-arguments z-shell"><span class="z-string z-unquoted z-heredoc z-shell">    08:45 - ?
+</span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-arguments z-shell"><span class="z-string z-unquoted z-heredoc z-shell">    -1h #lunch
+</span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-arguments z-shell"><span class="z-string z-unquoted z-heredoc z-shell"><span class="z-keyword z-control z-heredoc-token z-shell">EOF</span></span></span>
+</span><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> The demonstrably complete instructions: have the plug-in on your runtimepath</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> clone https://github.com/73/vim-klog.git</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">vim</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>u</span> NONE +<span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>set rtp+=vim-klog<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span> +<span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>syn on<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span> work.klg</span>
+</span></code></pre>
+<div class="note">I like using <code>--rm -it</code>, for which you may use the mnemonic "remove it"</div>
+<p>Just like that, a fresh Vim installation, augmented with the correct file type
+detection and corresponding syntax highlighting, right off the <code>master</code> branch
+of its plug-in's source code: no compilation even needed<sup class="footnote-reference" id="fr-1-1"><a href="#fn-1">1</a></sup>.  Wanna give it
+a spin?  Assuming you already have your favourite distribution's image ready,
+pasting the few commands above gets you <strong>up and running in 5 seconds flat</strong>.</p>
+<p>With the simple <code>docker run</code> command, your container will be pruned as soon as
+you exit your shell: the above excerpt even contains all the clean-up you need.</p>
+<p>I figured I'd try with <abbr title="The one capable 'alternative' to Vim
+">Neovim</abbr>, too, to make sure that the <em>exact same instructions</em> (using
+<code>nvim</code> instead of <code>vim</code>) work just as well.  Lo and behold: of course it does.</p>
+<p>No more guesswork, no more "well, on my machine [...]"; we have access to as
+many fully isolated environments as we want: make good use of them!</p>
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn-1">
+<p>By the way, the entire project consists of <em>TWO!</em> measly files (it does
+two things, after all), plus a short <code>README</code> and its supporting <code>LICENSE</code>.  No
+fuss, no dependencies, no compilation: no problem. <a href="#fr-1-1">↩</a></p>
+</li>
+</ol>
+</section>
+
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025
+        <a href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <span>&lt;<a href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>&gt;</span>
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>
