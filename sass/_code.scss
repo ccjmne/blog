@@ -23,6 +23,10 @@ pre {
     --bg: var(--colour-crust);
     --filename-bg: var(--colour-core);
   }
+  @at-root .lo & {
+    --bg: var(--colour-base);
+    --filename-bg: var(--colour-crust);
+  }
 
   &:not([data-name]) {
     background-color: var(--bg);

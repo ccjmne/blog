@@ -53,20 +53,22 @@ ul.infobar {
   margin-right: auto;
 }
 
-main > :not(article), main > article > :not(.hi) {
+main > :not(article), main > article > :not(.hi, .lo) {
   @include centred();
 }
 
-.hi {
-  @at-root main .hi {
+.hi, .lo {
+  @at-root main & {
     padding: 1.75rem 0;
     margin: 1.75rem 0;
     > :first-child { margin-top: 0; }
     > :last-child { margin-bottom: 0; }
   }
   width: 100vw;
-  background-color: var(--colour-mantle);
   > * {
     @include centred();
   }
 }
+
+.hi { background-color: var(--colour-mantle); }
+.lo { background-color: var(--colour-surface0); }
