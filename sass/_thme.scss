@@ -9,7 +9,7 @@
   --colour-core: color-mix(in srgb, var(--colour-crust) 95%, black);
 
   @media (prefers-color-scheme: dark) {
-    @each $name, $value in map-get(catppuccin.$palette, "macchiato") {
+    @each $name, $value in map-get(catppuccin.$palette, "frappe") {
       --colour-#{$name}: #{$value};
     }
     --colour-core: color-mix(in srgb, var(--colour-crust) 75%, black);
