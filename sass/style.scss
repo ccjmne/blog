@@ -13,24 +13,5 @@
 @use 'shortcodes/note';
 
 section.footnotes {
-  position: relative;
-  margin-top: 2em;
-  &::before {
-    content: "";
-    position: absolute;
-    top: -1em;
-    left: 0;
-    right: 0;
-    border-top: 1px solid var(--colour-surface1);
-  }
-  &::after {
-    content: "footnotes";
-    position: absolute;
-    top: -1em;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: var(--colour-base);
-    color: var(--colour-subtext0);
-    padding: 0 0.5em;
-  }
+  margin-bottom: 0;
 }

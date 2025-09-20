@@ -20,7 +20,9 @@ main {
   flex-direction: column;
   flex-grow: 1;
   box-sizing: border-box;
-  padding-block-end: 3rem;
+  &:not(:has(> article > .footnotes:last-child)) {
+    padding-block-end: 3rem;
+  }
 }
 
 footer {
@@ -53,11 +55,11 @@ ul.infobar {
   margin-right: auto;
 }
 
-main > :not(article), main > article > :not(.hi, .lo) {
+main > :not(article), main > article > :not(%hilo) {
   @include centred();
 }
 
-@mixin hilo($hi: true) {
+%hilo {
   @at-root main & {
     padding: 1.75rem 0;
     margin: 1.75rem 0;
@@ -66,9 +68,13 @@ main > :not(article), main > article > :not(.hi, .lo) {
   }
   width: 100vw;
   > * { @include centred(); }
-  @if $hi { background-color: var(--colour-mantle); }
-  @else   { background-color: var(--colour-surface0); }
 }
 
-.hi { @include hilo(true); }
-.lo { @include hilo(false); }
+.hi {
+  @extend %hilo;
+  background-color: var(--colour-mantle);
+}
+.lo, .footnotes {
+  @extend %hilo;
+  background-color: var(--colour-surface0);
+}
