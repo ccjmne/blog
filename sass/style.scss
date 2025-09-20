@@ -6,11 +6,8 @@
 @use 'code';
 @use 'misc';
 @use 'hlpr';
+@use 'ftnt';
 
 @use 'partials/toc';
 @use 'shortcodes/cmd';
 @use 'shortcodes/note';
-
-section.footnotes {
-  margin-bottom: 0;
-}

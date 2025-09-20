@@ -1,0 +1,36 @@
+@import 'typo';
+
+section.footnotes {
+  margin-bottom: 0;
+}
+
+sup.footnote-reference {
+  font-size: 0.8em;
+  vertical-align: super;
+  font-family: $codefont;
+  font-weight: 600;
+  color: var(--colour-accent);
+  > a {
+    text-decoration: none;
+    color: var(--colour-accent);
+    &:not(:hover) { &::before, &::after { color: var(--colour-text); } }
+    &::before { content: "["; }
+    &::after  { content: "]"; }
+  }
+}
+
+.footnotes-list {
+  list-style: none;
+  counter-reset: i;
+  padding-left: 3ch;
+  li {
+    counter-increment: i;
+    &::before {
+      content: "[" counter(i) "]";
+      font-size: 0.8em;
+      font-family: $codefont;
+      position: absolute;
+      transform: translate(calc(-100% - 1ch), 1px);
+    }
+  }
+}
