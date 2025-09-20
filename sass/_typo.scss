@@ -29,6 +29,22 @@ sup.footnote-reference {
   }
 }
 
+.footnotes-list {
+  list-style: none;
+  counter-reset: i;
+  padding-left: 3ch;
+  li {
+    counter-increment: i;
+    &::before {
+      content: "[" counter(i) "]";
+      font-size: 0.8em;
+      font-family: "Fira Code", monospace;
+      position: absolute;
+      transform: translate(calc(-100% - 1ch), 1px);
+    }
+  }
+}
+
 ol.breadcrumbs {
   display: flex;
   flex-wrap: wrap;
