@@ -1,6 +1,9 @@
+$codefont: "Fira Code", monospace;
+
 strong { font-weight: 600; }
 ol { list-style-type: lower-roman; }
 ul { list-style-type: square; }
+ol, ul { box-sizing: border-box; }
 
 body {
   font-family: "Work Sans", serif;
@@ -75,7 +78,7 @@ a {
     &::after {
       content: "\202F↗"; // U+202F is NARROW NO-BREAK SPACE
       font-size: 0.75em;
-      font-family: "Fira Code", sans-serif;
+      font-family: $codefont;
     }
   }
 
