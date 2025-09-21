@@ -21,15 +21,18 @@ a.entry {
   text-decoration: none;
   padding: .2rem 0;
   h3 { margin: 0; }
-  time { font-size: 0.8em; }
   &:hover { color: var(--colour-accent); }
+  :first-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
   .dots {
+    min-width: 1rem;
+    flex-shrink: 9999;
     color: var(--colour-surface2);
     letter-spacing: 0.1em;
     overflow: hidden;
-    &::before {
-      content: "........................................................................................................................";
-      flex-shrink: 1;
-    }
+    text-overflow: clip;
+    &::before { content: "................................................................................"; }
   }
 }
