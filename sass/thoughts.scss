@@ -2,20 +2,24 @@
 time.month-switch {
   display: flex;
   justify-content: space-between;
-  margin-top: 2rem;
-  margin-bottom: .5rem;
+  margin-top: 1.5rem;
+  margin-bottom: .25rem;
   &:first-of-type { margin-top: 0rem; }
-  h2 { margin: 0; }
+  h3 { margin: 0; }
+}
+
+main > :not(article), main > article > :not(%hilo) {
+  width: min(90vw, 480px);
 }
 
 a.entry {
   display: flex;
   text-wrap: nowrap;
-  gap: 1rem;
+  gap: .5rem;
   align-items: baseline;
-  font-size: 1.2em;
   color: inherit;
   text-decoration: none;
+  padding: .2rem 0;
   h3 { margin: 0; }
   time { font-size: 0.8em; }
   &:hover { color: var(--colour-accent); }
@@ -29,4 +33,3 @@ a.entry {
     }
   }
 }
-
