@@ -1,3 +1,3 @@
 {% macro vtn(name, static=false) %}
-  style="view-transition-name: {{ name }}{% if static %}; view-transition-class: static{% endif %}"
+  style="view-transition-name: view-{{ name }}{% if static %}; view-transition-class: static{% endif %}"
 {% endmacro %}
