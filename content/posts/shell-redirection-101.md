@@ -232,6 +232,7 @@ D
 ```
 {{ note(msg="the `\n` are interpreted by `printf` and therefore *aren't non-POSIX* constructs here!") }}
 
+<br>
 <div class="grid-1-2"><div>
 
 ```sh
