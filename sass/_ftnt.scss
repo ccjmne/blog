@@ -38,5 +38,6 @@ sup.footnote-reference {
       position: absolute;
       transform: translate(calc(-100% - 1ch), 1px);
     }
+    & > p:empty { display: none; }
   }
 }
