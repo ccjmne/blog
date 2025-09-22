@@ -1,5 +1,5 @@
 +++
-title = 'On a systemic failure to follow through'
+title = 'A systemic failure to follow through'
 date = 2025-09-17
 +++
 
