@@ -25,6 +25,12 @@ sup.footnote-reference {
   padding-left: 3ch;
   li {
     counter-increment: i;
+    &:has(> table.shrt-cmd) {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      align-items: center;
+    }
     &::before {
       content: "[" counter(i) "]";
       font-size: 0.8em;
