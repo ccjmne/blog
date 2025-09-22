@@ -34,7 +34,7 @@ source repositories.  Hosted at different providers.
 all-hands-on-deck, cross-team, cross-discipline, focus-of-the-semester
 remediation.
 
-<br>
+<div class="hi">
 
 The new year hits, and we're even graced by the presence of some board member's
 face in the fully remote kick-off meeting: the show is officially on the road!
@@ -67,9 +67,9 @@ it was nobody's; the corpse remains unclaimed and unidentified but,
 [comrade](https://en.wikipedia.org/wiki/Nineteen_Eighty-Four), is it really dead
 if the records don't show that we decided to kill it?
 
-<br>
+</div>
 
-[It was the spring of hope, it was the winter of
+   [It was the spring of hope, it was the winter of
 despair](https://www.goodreads.com/quotes/341391-it-was-the-best-of-times-it-was-the-worst).<br>
    As an effort, it was, as always, resounding, and
 you may [join K. in inquiring of the authoritative
