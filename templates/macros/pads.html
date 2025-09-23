@@ -1,6 +1,0 @@
-{# pad string with leading zeros #}
-{%- macro zpad(s, w) -%}
-{%- set padded = "000" ~ s -%}
-{%- set end = padded | length -%}
-{{- padded | split(pat="") | slice(start=end-w+1, end=end+1) | join(sep="") -}}
-{%- endmacro zpad -%}
