@@ -15,7 +15,7 @@
 <article>
   {{ page.content | safe }}
   {% if page.extra.cited_tools is defined %}
-  <h2 id="cited-tools"><a class="anchor-link" href="#cited-tools" aria-label="Anchor link for: cited-tools">⚓</a>Referenced tools</h2>
+  <h2 id="cited-tools">{%- set id="cited-tools" -%}{%- include "anchor-link.html" -%}Referenced tools</h2>
   <div class="cited-tools">
     {% for work in page.extra.cited_tools %} {{- tmpl::cmd(tool=work) -}} {% endfor %}
   </div>
