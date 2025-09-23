@@ -3,6 +3,22 @@ title = 'Laying text out horizontally'
 date = 2025-07-25
 description = 'Laying text out horizontally'
 taxonomies.tags = ['all']
+
+[[extra.cited_tools]]
+   name    = "vim"
+   repo    = "https://github.com/vim/vim"
+   package = "extra/x86_64/vim"
+   manual  = "https://vimhelp.org/"
+[[extra.cited_tools]]
+   name    = "neovim"
+   repo    = "https://github.com/neovim/neovim"
+   package = "extra/x86_64/neovim"
+   manual  = "https://neovim.io/doc/user/"
+[[extra.cited_tools]]
+   name    = "uni"
+   repo    = "https://github.com/arp242/uni"
+   package = "aur/uni"
+   manual  = "https://github.com/arp242/uni/#usage"
 +++
 
 This 3-part article concerns itself with putting chunks of text side by side.
@@ -11,12 +27,9 @@ This 3-part article concerns itself with putting chunks of text side by side.
 2. [the second](@/posts/intralinear-partitioning-2.md) goes over the practical
    use of some <abbr title="Command Line Interface, where I dwell">`CLI`</abbr>
    tools indispensable to the task, and
-3. [the third](@/posts/intralinear-partitioning-3.md) and final chapter
-   will share some quite nifty <abbr title="The ubiquitous text
-   editor">`Vim`</abbr>[^vim] tricks to the same end.
-
-[^vim]: {{ cmd(name="vim", repo="https://github.com/vim/vim", package="extra/x86_64/vim", manual="https://vimhelp.org/") }}
-        {{ cmd(name="neovim", repo="https://github.com/neovim/neovim", package="extra/x86_64/neovim", manual="https://neovim.io/doc/user/") }}
+3. [the third](@/posts/intralinear-partitioning-3.md) and final chapter will
+   share some quite nifty <abbr title="The ubiquitous text editor">`Vim`</abbr>
+   tricks to the same end.
 
 ## Introduction
 
@@ -71,10 +84,8 @@ src/           Dockerfile   LICENSE            pnpm-lock.yaml  TODO
 ### The tabular data
 
    This one needs no introduction, yet the only example that came to mind is
-that of probing <abbr title="Query the Unicode database">`uni`</abbr>[^uni] for
+that of probing <abbr title="Query the Unicode database">`uni`</abbr> for
 whatever fantastical sigil I last came across:
-
-[^uni]: {{ cmd(name="uni", repo="https://github.com/arp242/uni", package="aur/uni", manual="https://github.com/arp242/uni/#usage") }}
 
 ```sh
 uni i ÉÉ🧉
