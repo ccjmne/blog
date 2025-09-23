@@ -13,10 +13,12 @@ This is the second of a 3-part article.
    Interface, where I dwell">`CLI`</abbr> tools indispensable to the task, and
 3. [the third](@/posts/intralinear-partitioning-3.md) and final chapter
    will share some quite nifty <abbr title="The ubiquitous text
-   editor">Vim</abbr>[^vim] tricks to the same end.
+   editor">Vim</abbr>[^cited-tools] tricks to the same end.
 
-[^vim]: {{ cmd(name="vim", repo="https://github.com/vim/vim", package="extra/x86_64/vim", manual="https://vimhelp.org/") }}
-        {{ cmd(name="neovim", repo="https://github.com/neovim/neovim", package="extra/x86_64/neovim", manual="https://neovim.io/doc/user/") }}
+[^cited-tools]: {{ cmd(name="vim", repo="https://github.com/vim/vim", package="extra/x86_64/vim", manual="https://vimhelp.org/") }}
+                {{ cmd(name="neovim", repo="https://github.com/neovim/neovim", package="extra/x86_64/neovim", manual="https://neovim.io/doc/user/") }}
+                {{ cmd(name="column", repo="https://github.com/util-linux/util-linux/", package="core/x86_64/util-linux", manual="https://man.archlinux.org/man/column.1.en") }}
+                {{ cmd(name="paste", repo="https://github.com/coreutils/coreutils", package="core/x86_64/coreutils", manual="https://man.archlinux.org/man/paste.1.en") }}
 
 ## Introduction
 
@@ -50,9 +52,7 @@ horizontal text alignment needs, from the CLI.
    In the introductory piece of this article, I proposed a classification for
 the various forms of textual horizontal alignment.  The first three are mundane
 enough to be easily achieved using nothing but a pair of trustworthy tools;
-chief among them is <abbr title="Columnate lists">`column`</abbr>[^column].
-
-[^column]: {{ cmd(name="column", repo="https://github.com/util-linux/util-linux/", package="core/x86_64/util-linux", manual="https://man.archlinux.org/man/column.1.en") }}
+chief among them is <abbr title="Columnate lists">`column`</abbr>[^cited-tools].
 
 ### The list in a grid
 
@@ -235,11 +235,9 @@ from the end* in `column`.
 ## Using `paste`
 
    Here we are, where it gets good, <abbr title="Merge lines of
-files">`paste`</abbr>[^paste] is what we'd been after all along.  It only gets
+files">`paste`</abbr>[^cited-tools] is what we'd been after all along.  It only gets
 introduced now because it requires cooperation from its friends to get the job
 you likely want done.
-
-[^paste]: {{ cmd(name="paste", repo="https://github.com/coreutils/coreutils", package="core/x86_64/coreutils", manual="https://man.archlinux.org/man/paste.1.en") }}
 
 ### The adjoined and annotated fragments
 
