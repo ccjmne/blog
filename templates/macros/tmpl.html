@@ -1,0 +1,16 @@
+{% macro cmd(tool) %}
+<table class="tool">
+  <tr><th colspan="2"><strong>{{ tool.name }}</strong></th></tr>
+  <tr>
+    {% if tool.package is starting_with("aur/") %}
+        <td colspan="2">from <a href="https://aur.archlinux.org/packages/{{ tool.package | replace(from="aur/", to="") }}">{{ tool.package }}</a></td>
+    {% else %}
+        <td colspan="2">from <a href="https://archlinux.org/packages/{{ tool.package }}">{{ tool.package | replace(from="/x86_64/", to="/") }}</a></td>
+    {% endif %}
+  </tr>
+  <tr>
+    <td><a href="{{ tool.manual }}">manual</a></td>
+    <td><a href="{{ tool.repo }}">repository</a></td>
+  </tr>
+</table>
+{% endmacro %}

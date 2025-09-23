@@ -12,3 +12,23 @@
   background-color: var(--colour-overlay0);
   &:hover { background-color: var(--colour-overlay2); }
 }
+
+.cited-tools {
+  $tool-bg: var(--colour-surface1);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  .tool {
+    font-family: monospace;
+    border: 1px solid $tool-bg;
+    border-collapse: collapse;
+    tr:nth-child(1) { background-color: $tool-bg; }
+    td, th {
+      &:nth-child(1) { padding-left: 1em; }
+      &:nth-child(2) { padding: 0 1em; text-align: end; }
+      &:only-child { padding: 0 1em; }
+    }
+    th { text-align: center; }
+    a { text-decoration: none; }
+  }
+}
