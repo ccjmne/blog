@@ -80,7 +80,7 @@ As far as history shall be concerned, the solution is all but established,
 the time has passed and the resources were spent in accordance: [in our
 book](https://en.wikipedia.org/wiki/Effort_justification), it's a done task; but
 to the keen mind, it's one more shipwreck elevated to the status of cultural
-landmark, a new hurdle toughening the sale regarding possibly addressing the
+landmark, a new hurdle toughening the sell regarding possibly addressing the
 original issue "once more".
 
 Suppose that we had a problem...  Now the problem has its own meta problem.
