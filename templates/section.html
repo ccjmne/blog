@@ -1,8 +1,8 @@
 {%- extends "base.html" -%}
 
-{% block links %}
-<link rel="stylesheet" href="{{- get_url(path="/posts/main.css") -}}">
-{% endblock links %}
+{%- block links -%}
+<link rel="stylesheet" href="{{ get_url(path="/posts/list.css") }}">
+{%- endblock links -%}
 
 {%- block content -%}
 <h1 class="title">{{- section.title | markdown(inline=true) | safe -}}</h1>
