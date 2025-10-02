@@ -42,17 +42,16 @@ upfront to ensure we'd build the right thing at the right time**—when all the
 resources (human and other) would be suitably available and primed, then spent 2
 more weeks actually taking on the 2-week job.
 
-That task went smoothly.  It doesn't sound sound like much, because we aren't
-juxtaposing it to how poorly it could have gone.
-
 Of course, this only works if we indeed start **ahead of time**, otherwise this
 discovery and planning not only is directly delaying the project and eating
 into its allotted time and resources, but also is doomed to be biased towards
 expediency as we're basically discovering **when would be the right time to
-begin the activity we're currently supposedly working on**.  Sure, in total,
-it'll have taken strictly more than 2 weeks for something that'll have just
-been a simple 2-week job.  That's not too bad, but nothing to write home about
-either...  So I shall write about it here.
+begin the activity we're currently supposedly working on**.
+
+In total, it'll have taken somewhat more than 2 weeks for something that'll have
+just been a simple 2-week job, but still went smoothly.  Without juxtaposing
+it to how poorly it could have gone, it's nothing to write home about...  So I
+shall write about it here.
 </div>
 
 If you find yourself in an environment routinely bearing with projects being
@@ -63,14 +62,14 @@ out fires, you may want to consider shifting your perspective:
 One simple job scheduled, discussed, planned and delivered on time is a success
 story.
 
-If a team consistently handle these straightforward tasks in that manner,
+If a team consistently handles these straightforward tasks in that manner,
 don't make [the mistake of assuming they look good because their tasks are
 easy](https://en.wikipedia.org/wiki/Post_hoc_ergo_propter_hoc): **their tasks
 are easy because they are that good**.  They're giving you the value they sold
 you on; in many contexts in the software industry, that is quite a great value.
 
 Celebrate, encourage, analyse and emulate these blueprints for success: this
-is where you can most reliably ensure your department is more reminiscent
+is where you can most reliably ensure your department will be more reminiscent
 of an [icebreaker](https://en.wikipedia.org/wiki/Icebreaker) steadily and
 reliably ploughing its way through the Arctic, rather than a leaky [oil
 tanker](https://en.wikipedia.org/wiki/Oil_tanker) spilling its noxious entrails
