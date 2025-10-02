@@ -24,6 +24,7 @@ sup.footnote-reference {
   counter-reset: i;
   padding-left: 3ch;
   li {
+    // TODO: do away w/ specialised footnotes for cited-tools
     &:not(#fn-cited-tools) {
       counter-increment: i;
       &::before {
