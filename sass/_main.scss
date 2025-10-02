@@ -1,4 +1,5 @@
-@import 'vars';
+@forward 'vars';
+@use 'vars' as *;
 
 html, html > body {
   min-height: 100vh;

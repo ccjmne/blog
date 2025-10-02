@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{%- block links -%}
+<link rel="stylesheet" href="{{- get_url(path="/thoughts/main.css") -}}">
+{%- endblock links -%}
+
 {% block breadcrumb %}
 {% endblock breadcrumb %}
 

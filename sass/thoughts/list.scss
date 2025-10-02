@@ -1,3 +1,7 @@
+@use '../shared' with (
+  $w: min(90vw, 480px)
+);
+
 // Inspired by https://manuelmoreale.com
 time.month-switch {
   display: flex;
@@ -6,10 +10,6 @@ time.month-switch {
   margin-bottom: .25rem;
   &:first-of-type { margin-top: 0rem; }
   h3 { margin: 0; }
-}
-
-main > :not(article), main > article > :not(%hilo) {
-  width: min(90vw, 480px);
 }
 
 a.entry {

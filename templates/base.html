@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>~ccjmne</title>
     {%- include "partials/fonts.html" -%}
-    <link rel="stylesheet" href="{{- get_url(path="/style.css") -}}">
     {%- block links -%}
+    <link rel="stylesheet" href="{{- get_url(path="/shared.css") -}}">
     {%- endblock links -%}
     <link rel="expect" blocking="render" href="#footer">
     <link rel="alternate" type="application/atom+xml" title="rss" href="{{ get_url(path="atom.xml", trailing_slash=false) }}">
