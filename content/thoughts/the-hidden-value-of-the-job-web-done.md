@@ -22,7 +22,7 @@ VCS of choice (Git, surely), close the remaining tasks as "won't fix" or discard
 We thought we'd be on top of things and could be surfing the wave
 of due features but ended up submerged under a rip tide of unknown
 unknowns violently revealing themselves; nobody's happy and we shipped
-a half-baked product that we now tell the stakeholders was [perpetual
+a half-baked product that we now tell the stakeholders was a [perpetual
 stew](https://en.wikipedia.org/wiki/Perpetual_stew) all along.
 
 At that story's post-mortem retrospective (you do these, right?), we conclude
@@ -43,15 +43,16 @@ resources (human and other) would be suitably available and primed, then spent 2
 more weeks actually taking on the 2-week job.
 
 Of course, this only works if we indeed start **ahead of time**, otherwise this
-discovery and planning not only is directly delaying the project and eating
-into its allotted time and resources, but also is doomed to be biased towards
-expediency as we're basically discovering **when would be the right time to
-begin the activity we're currently supposedly working on**.
+planning not only is directly delaying the project and eating into its allotted
+time and resources, but also is doomed to be biased towards expediency as we're
+basically discovering **when would be the right time to begin the activity we're
+currently supposedly working on**.
 
-In total, it'll have taken somewhat more than 2 weeks for something that'll have
-just been a simple 2-week job, but still went smoothly.  Without juxtaposing
-it to how poorly it could have gone, it's nothing to write home about...  So I
-shall write about it here.
+Considering the upstream preparations, it'll have taken somewhat more than the
+estimate, but still went smoothly.  Without juxtaposing it to how poorly it
+could have gone, it's nothing to write home about...  So I shall write about it
+here.
+
 </div>
 
 If you find yourself in an environment routinely bearing with projects being
