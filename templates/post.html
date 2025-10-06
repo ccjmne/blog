@@ -9,7 +9,7 @@
 {% block content %}
 <h1><span class="link-title" {{ hlpr::vtn(name=page.slug) -}}>{{- page.title | markdown(inline=true) | safe -}}</span></h1>
 {%- include "partials/infobar.html" -%}
-{%- if page.extra.toc | default(value=true) -%}
+{%- if page.toc | default(value=false) -%}
 <br>
 {%- include "partials/toc.html" -%}
 {%- endif -%}
