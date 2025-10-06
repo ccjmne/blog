@@ -1,7 +1,7 @@
 +++
 title = 'Laying text out horizontally'
 date = 2025-07-25
-description = 'Laying text out horizontally'
+description = 'Why and when to put chunks of text side by side'
 taxonomies.tags = ['all']
 
 [[extra.cited_tools]]
@@ -20,18 +20,6 @@ taxonomies.tags = ['all']
    package = "aur/uni"
    manual  = "https://github.com/arp242/uni/#usage"
 +++
-
-This 3-part article concerns itself with putting chunks of text side by side.
-
-1. This first, rambly piece addresses the *what* and *why*,
-2. [the second](@/posts/intralinear-partitioning-2.md) goes over the practical
-   use of some <abbr title="Command Line Interface, where I dwell">`CLI`</abbr>
-   tools indispensable to the task, and
-3. [the third](@/posts/intralinear-partitioning-3.md) and final chapter will
-   share some quite nifty <abbr title="The ubiquitous text editor">`Vim`</abbr>
-   tricks to the same end.
-
-## Introduction
 
    Professionally, I put code together. Intimately, I am compelled to make
 it neat: I get closer to that goal by wielding non-printable characters like
@@ -253,8 +241,9 @@ Revisions 1 through 8 ............................ 2024-01-30 through 2024-02-04
 
     Irrelevant (unpublished) and/or lost to time.
 ```
+{{ note(msg="don't worry, no trade secrets in here: it's indeed half made up for this exercise.") }}
 
-## What to do about these
+## What now?
 
    I suppose this would be the place for the rhetorical question regarding the
 virtues of this fastidiousness, but I'll only grace you with the broad strokes
@@ -267,22 +256,19 @@ thrash it" and "no linting rules would account for that".  I hear you, and
 you're indeed making valid arguments... in disfavour of generic auto-formatters
 and misguided stylistic linting tools!
 
-Here's the whole truth:
-
-### You have time for this
-
-   If you're making adept, skilful contributions to meaningful software, you're
-meant to be spending your time investigating and exploring.  Jotting down
-legible documents that procure workable instructions to the machine, any fool
-can do: every fool does.  If you're tasked with authoring code, you're assumed
-to have mastered the putting-text-together aspect of it already: [we are typists
+   **You have time for this.**<br>
+   If you're making adept, skilful contributions to meaningful
+software, you're meant to be spending your time investigating and
+exploring.  Jotting down semi-legible documents that procure workable
+instructions to the machine, any fool can do: every fool does.  If
+you're tasked with authoring code, you're assumed to have mastered
+the putting-text-together aspect of it already: [we are typists
 first](https://blog.codinghorror.com/we-are-typists-first-programmers-second/).
 
-### Use tools that help
-
+   **Use tools that help.**<br>
    If your tools are either not assisting or outright hindering you in some
 aspects of your goals, *do not blame or forsake the goal*.  You may simply
-need—or get!—to use them differently.
+need to (or get to!) use them differently.
 
    If you find neat documents desirable but the baseline auto-formatter will
 squash your style, it may be time to ask yourself whether you and your team are
@@ -292,8 +278,7 @@ cure-all elixir to your systematic, inescapable blurts.
    The formatter and linter help, but in no way should dictate prescriptive
 style over the learned tastes of your experienced discernment: do review code.
 
-### You have the go-ahead
-
+   **You have the go-ahead.**<br>
    You do not have to make your code look pretty beyond mere logical
 structure, but you *do have to* read it, every now and again.  This is just
 an encouragement, a call for you to assume your style and not shy away from
@@ -301,13 +286,6 @@ crafting text with as much care as you wish.
 
 ## Next
 
-   Find out how simple tools can help you lay out text with polish
-in parts 2 and 3 of this article series, pertaining to [horizontal
-alignment on the CLI](@/posts/intralinear-partitioning-2.md) and [inside
-Vim](@/posts/intralinear-partitioning-3.md), respectively.
-
-talk about moreutil/ln, moreutil/ts
-
-IN PART 3, TALK ABOUT VIRTUALEDIT!!!!!!!!!!!!!!!!!!!!!!!!! :help 'virtualedit'
-set ve=all cuc cc=80
-set ve& cuc& cc&
+   Find out how simple tools can help you [lay out text with polish in the
+`CLI`]((@/posts/intralinear-partitioning-2.md)), using `column`, `cut` and
+`paste`.

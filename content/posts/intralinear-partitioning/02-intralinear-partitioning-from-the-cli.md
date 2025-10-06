@@ -1,26 +1,14 @@
 +++
 title = 'Laying text out horizontally from the `CLI`'
 date = 2025-08-08
-description = 'Laying text out horizontally from the CLI'
+description = 'Getting to know `column`, `cut` and `paste`'
 taxonomies.tags = ['all', 'cli', 'text-processing', 'productivity']
 +++
-
-This is the second of a 3-part article.
-
-1. [The first](@/posts/intralinear-partitioning-1.md), rambly piece addresses
-   the *what* and *why*,
-2. this second goes over the practical use of some <abbr title="Command Line
-   Interface, where I dwell">`CLI`</abbr> tools indispensable to the task, and
-3. [the third](@/posts/intralinear-partitioning-3.md) and final chapter
-   will share some quite nifty <abbr title="The ubiquitous text
-   editor">Vim</abbr>[^cited-tools] tricks to the same end.
 
 [^cited-tools]: {{ cmd(name="vim", repo="https://github.com/vim/vim", package="extra/x86_64/vim", manual="https://vimhelp.org/") }}
                 {{ cmd(name="neovim", repo="https://github.com/neovim/neovim", package="extra/x86_64/neovim", manual="https://neovim.io/doc/user/") }}
                 {{ cmd(name="column", repo="https://github.com/util-linux/util-linux/", package="core/x86_64/util-linux", manual="https://man.archlinux.org/man/column.1.en") }}
                 {{ cmd(name="paste", repo="https://github.com/coreutils/coreutils", package="core/x86_64/coreutils", manual="https://man.archlinux.org/man/paste.1.en") }}
-
-## Introduction
 
    While conducting software archaeology with a colleague some days ago, we ran
 into a 0-byte Java class and figured we'd look for more outliers and report to
@@ -429,7 +417,7 @@ cat /dev/null \
 output for simplicity, and attempted to provide reasonably adequate
 highlighting, which I hope to be more helpful than it is confusing.
 
-## Next
+## Closing words
 
    Note that, if you want to add line numbers or timestamps of all kinds, you
 should prefer `nl` (from `coreutils`) or `ts` (from `moreutils`) to `paste`.
