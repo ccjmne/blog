@@ -79,5 +79,5 @@ main > :not(article), main > article > :not(%hilo) {
 }
 .lo, .footnotes {
   @extend %hilo;
-  background-color: var(--colour-surface0);
+  background-color: var(--colour-lo-bg);
 }
