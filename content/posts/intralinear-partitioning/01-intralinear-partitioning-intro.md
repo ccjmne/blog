@@ -287,5 +287,5 @@ crafting text with as much care as you wish.
 ## Next
 
    Find out how simple tools can help you [lay out text with polish in the
-`CLI`]((@/posts/intralinear-partitioning-2.md)), using `column`, `cut` and
-`paste`.
+`CLI`](@/posts/intralinear-partitioning/02-intralinear-partitioning-from-the-cli.md), using
+`column`, `cut` and `paste`.

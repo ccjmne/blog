@@ -171,8 +171,10 @@ to the <abbr font="mono" title="--table">`-t`</abbr>, <abbr
 font="mono" title="--separator">`-s`</abbr>, <abbr font="mono"
 title="--output-separator">`-o`</abbr> (and on occasion, <abbr font="mono"
 title="--table-right">`-R`</abbr>) flags, preferably preparing data upstream
-with composable tools that I use often enough to need not [browse the trusty
-manual](@/posts/man):
+with composable tools that I use often enough to need not browse the trusty
+`man`ual:
+
+<!-- [browse the trusty manual](@/posts/read-the-friendly-manual). TODO: LINKME -->
 
 ```sh
 { echo 'User:UID:Home:Shell'; head -7 /etc/passwd | cut -d: -f1,3,6,7 } | column -ts:
@@ -271,10 +273,11 @@ e
 </div>
 </div>
 
-How often do you need to do that?  Precisely *never*, were it not for
-[everything being a file (descriptor)](@/posts/everything-is-a-file.md): you can
-also `paste` the output of commands together (beware the non-`POSIX` Bashism,
-however):
+How often do you need to do that?  Precisely *never*, were it not for everything
+being a file (descriptor): you can also `paste` the output of commands together
+(beware the non-`POSIX` Bashism, however):
+
+<!-- [everything being a file (descriptor)](@/posts/everything-is-a-file.md). TODO: LINKME -->
 
 ```sh
 paste <(printf "%s\n" {a..e}) <(seq 1 4) <(man git | sed '/The commit/,/^$/!d')
@@ -427,6 +430,7 @@ should prefer `nl` (from `coreutils`) or `ts` (from `moreutils`) to `paste`.
 necessary.  Go wild, have fun, don't forget that everything is possible, you
 just need to browse the `man`ual.
 
-   In the [next and final part](@/posts/intralinear-partitioning-3.md), find
-out how to swifty do all of that, and a *lot* more, from the comfort of an
-exceptional yet ubiquitous text editor.
+   Throughout this blog, you'll also find (in time), a few short articles
+showcasing Vim's unparalleled agility in doing everything mentioned here and a
+*lot* more, from the comfort of an exceptional yet ubiquitous text editor.  Have
+fun!
