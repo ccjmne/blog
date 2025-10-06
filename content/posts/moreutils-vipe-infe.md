@@ -27,7 +27,7 @@ taxonomies.tags = ['all', 'cli', 'tools', 'vim']
 +++
 
 I carry around a (very humble) collection of <abbr title="A command-line fuzzy
-finder">`fzf`</abbr>[^fzf] utilities, where I intend to leverage a tacit promise
+finder">`fzf`</abbr> utilities, where I intend to leverage a tacit promise
 of <abbr title="The ubiquitous text editor">Vim</abbr>: I can edit content,
 right there in the terminal, between two commands, and be done earlier than a
 corporate <abbr title="Integrated Development Environment">`IDE`</abbr> would be
@@ -108,11 +108,11 @@ in there *never* makes it to an actual storage device.
 
 The <abbr title="World Wide Web, with a capital W">Web</abbr> server at
 `https://zenquotes.io/api/quotes` will yield 50 randomised quotes (with their
-respective authors' name) as a [JSON](https://www.json.org/json-en.html)
-array.  We'll process them with <abbr title="Command-line JSON
-processor">`jq`</abbr>[^jq] and pass them along to `fzf`, offering an
-interactive interface for the user to pick an entry.  The selected quote is
-finally written to `$MAIL`, in a format suitable for plain-text e-mails:
+respective authors' name) as a [JSON](https://www.json.org/json-en.html) array.
+We'll process them with <abbr title="Command-line JSON processor">`jq`</abbr>
+and pass them along to `fzf`, offering an interactive interface for the user to
+pick an entry.  The selected quote is finally written to `$MAIL`, in a format
+suitable for plain-text e-mails:
 
 ```eml
 Date: Mon, 11 Aug 2025 00:20:43 +0200
@@ -160,13 +160,13 @@ up errno names and descriptions">`errno`</abbr>, <abbr title="Soak up standard
 input and write to a file">`sponge`</abbr> and <abbr title="Timestamp
 input">`ts`</abbr>, but the treats of the day are `vipe` and `ifne`.
 
-   With <abbr title="Edit pipe">`vipe`</abbr>[^vipe], you can edit the standard
-input in your favourite editor, then pipe the result to the next command.  It
-accepts the same[^vipe-suffix] `--suffix` argument as `mktemp` to provide your
-`$EDITOR` with some context as to the syntax of your content.<br>
+   With <abbr title="Edit pipe">`vipe`</abbr>, you can edit the standard input
+in your favourite editor, then pipe the result to the next command.  It accepts
+the same[^vipe-suffix] `--suffix` argument as `mktemp` to provide your `$EDITOR`
+with some context as to the syntax of your content.<br>
    With <abbr title="Run command if the standard input is not
-empty">`ifne`</abbr>[^ifne], you can guard the execution of a command on the
-condition that the standard input is not empty.<br>
+empty">`ifne`</abbr>, you can guard the execution of a command on the condition
+that the standard input is not empty.<br>
 
 <!-- FIXME: wording -->
 [^vipe-suffix]: Essentially the same as that of `mktemp`, though with more

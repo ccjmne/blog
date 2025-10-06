@@ -11,9 +11,9 @@ taxonomies.tags = ['all', 'cli', 'tools', 'posix']
    manual  = "https://man.archlinux.org/man/cat.1.en"
 +++
 
-Short for con`cat`enate, `cat`[^cat] takes multiple files and prints them
-together into one continuous stream of text.  However, the first introduction to
-the <abbr title="Command Line Interface, where I dwell">`CLI`</abbr> is sure to
+Short for con`cat`enate, `cat` takes multiple files and prints them together
+into one continuous stream of text.  However, the first introduction to the
+<abbr title="Command Line Interface, where I dwell">`CLI`</abbr> is sure to
 establish into the wasteland of the hurried neophyte's mind a simplistic mental
 model boiling down to: "`cat` is what you use when you have a file and want its
 content".

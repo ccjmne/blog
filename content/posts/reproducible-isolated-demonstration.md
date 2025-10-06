@@ -37,13 +37,14 @@ vim -u NONE +'set rtp+=vim-klog' +'syn on' work.klg
 
 Just like that, a fresh Vim installation, augmented with the correct file type
 detection and corresponding syntax highlighting, right off the `master` branch
-of its plug-in's source code: no compilation even needed[^1].  Wanna give it
-a spin?  Assuming you already have your favourite distribution's image ready,
-pasting the few commands above gets you **up and running in 5 seconds flat**.
+of its plug-in's source code: no compilation even needed[^bare-and-simple].
+Wanna give it a spin?  Assuming you already have your favourite distribution's
+image ready, pasting the few commands above gets you **up and running in 5
+seconds flat**.
 
-[^1]:  By the way, the entire project consists of *TWO!* measly files (it does
-two things, after all), plus a short `README` and its supporting `LICENSE`.  No
-fuss, no dependencies, no compilation: no problem.
+[^bare-and-simple]:  By the way, the entire project consists of *TWO!* measly
+files (it does two things, after all), plus a short `README` and its supporting
+`LICENSE`.  No fuss, no dependencies, no compilation: no problem.
 
 With the simple `docker run` command, your container will be pruned as soon as
 you exit your shell: the above excerpt even contains all the clean-up you need.
