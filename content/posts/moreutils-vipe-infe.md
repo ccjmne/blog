@@ -3,6 +3,27 @@ title = 'Script-friendliest `$EDITOR` with `moreutils`'
 date = 2025-07-31
 description = "Adoping moreutils's `vipe` and `ifne` for friendlier scripting"
 taxonomies.tags = ['all', 'cli', 'tools', 'vim']
+
+[[extra.cited_tools]]
+   name    = "fzf"
+   repo    = "https://github.com/junegunn/fzf"
+   package = "extra/x86_64/fzf"
+   manual  = "https://man.archlinux.org/man/extra/fzf/fzf.1.en"
+[[extra.cited_tools]]
+   name    = "jq"
+   repo    = "https://gitlab.archlinux.org/archlinux/packaging/packages/jq"
+   package = "extra/x86_64/jq"
+   manual  = "https://man.archlinux.org/man/extra/jq/jq.1.en"
+[[extra.cited_tools]]
+   name    = "vipe"
+   repo    = "git://joeyh.name/code/moreutils/"
+   package = "extra/x86_64/moreutils"
+   manual  = "https://man.archlinux.org/man/vipe.1.en"
+[[extra.cited_tools]]
+   name    = "ifne"
+   repo    = "git://git.joeyh.name/moreutils"
+   package = "extra/x86_64/moreutils"
+   manual  = "https://man.archlinux.org/man/ifne.1.en"
 +++
 
 I carry around a (very humble) collection of <abbr title="A command-line fuzzy
@@ -11,8 +32,6 @@ of <abbr title="The ubiquitous text editor">Vim</abbr>: I can edit content,
 right there in the terminal, between two commands, and be done earlier than a
 corporate <abbr title="Integrated Development Environment">`IDE`</abbr> would be
 flashing its splash screen[^cli-editor].
-
-[^fzf]: {{ cmd(name="fzf", repo="https://github.com/junegunn/fzf", package="extra/x86_64/fzf", manual="https://man.archlinux.org/man/extra/fzf/fzf.1.en") }}
 
 [^cli-editor]: So we're clear: it's not just about shaving off a few seconds
 here and there: wait until you learn about `fc`!
@@ -107,8 +126,6 @@ Success is getting what you want, happiness is wanting what you get.
 ```
 {{ note(msg="it'll be highlighted sensibly in your editor") }}
 
-[^jq]: {{ cmd(name="jq", repo="https://gitlab.archlinux.org/archlinux/packaging/packages/jq", package="extra/x86_64/jq", manual="https://man.archlinux.org/man/extra/jq/jq.1.en") }}
-
 On with the last two steps: if the user did select a quote, they'll get to edit
 their e-mail in their favourite `$EDITOR`, with adequate highlighting for the
 e-mail format.  When they're done, if they neither emptied or deleted the file,
@@ -142,10 +159,6 @@ It's got some niceties that do find some fame online, such as <abbr title="Look
 up errno names and descriptions">`errno`</abbr>, <abbr title="Soak up standard
 input and write to a file">`sponge`</abbr> and <abbr title="Timestamp
 input">`ts`</abbr>, but the treats of the day are `vipe` and `ifne`.
-
-[^vipe]: {{ cmd(name="vipe", repo="git://joeyh.name/code/moreutils/", package="extra/x86_64/moreutils", manual="https://man.archlinux.org/man/vipe.1.en") }}
-
-[^ifne]: {{ cmd(name="ifne", repo="git://git.joeyh.name/moreutils", package="extra/x86_64/moreutils", manual="https://man.archlinux.org/man/ifne.1.en") }}
 
    With <abbr title="Edit pipe">`vipe`</abbr>[^vipe], you can edit the standard
 input in your favourite editor, then pipe the result to the next command.  It

@@ -3,12 +3,28 @@ title = 'Laying text out horizontally from the `CLI`'
 date = 2025-08-08
 description = 'Getting to know `column`, `cut` and `paste`'
 taxonomies.tags = ['all', 'cli', 'text-processing', 'productivity']
-+++
 
-[^cited-tools]: {{ cmd(name="vim", repo="https://github.com/vim/vim", package="extra/x86_64/vim", manual="https://vimhelp.org/") }}
-                {{ cmd(name="neovim", repo="https://github.com/neovim/neovim", package="extra/x86_64/neovim", manual="https://neovim.io/doc/user/") }}
-                {{ cmd(name="column", repo="https://github.com/util-linux/util-linux/", package="core/x86_64/util-linux", manual="https://man.archlinux.org/man/column.1.en") }}
-                {{ cmd(name="paste", repo="https://github.com/coreutils/coreutils", package="core/x86_64/coreutils", manual="https://man.archlinux.org/man/paste.1.en") }}
+[[extra.cited_tools]]
+   name    = "vim"
+   repo    = "https://github.com/vim/vim"
+   package = "extra/x86_64/vim"
+   manual  = "https://vimhelp.org/"
+[[extra.cited_tools]]
+   name    = "neovim"
+   repo    = "https://github.com/neovim/neovim"
+   package = "extra/x86_64/neovim"
+   manual  = "https://neovim.io/doc/user/"
+[[extra.cited_tools]]
+   name    = "column"
+   repo    = "https://github.com/util-linux/util-linux/"
+   package = "core/x86_64/util-linux"
+   manual  = "https://man.archlinux.org/man/column.1.en"
+[[extra.cited_tools]]
+   name    = "paste"
+   repo    = "https://github.com/coreutils/coreutils"
+   package = "core/x86_64/coreutils"
+   manual  = "https://man.archlinux.org/man/paste.1.en"
++++
 
    While conducting software archaeology with a colleague some days ago, we ran
 into a 0-byte Java class and figured we'd look for more outliers and report to
@@ -40,7 +56,7 @@ horizontal text alignment needs, from the CLI.
    In the introductory piece of this article, I proposed a classification for
 the various forms of textual horizontal alignment.  The first three are mundane
 enough to be easily achieved using nothing but a pair of trustworthy tools;
-chief among them is <abbr title="Columnate lists">`column`</abbr>[^cited-tools].
+chief among them is <abbr title="Columnate lists">`column`</abbr>.
 
 ### The list in a grid
 
@@ -225,7 +241,7 @@ from the end* in `column`.
 ## Using `paste`
 
    Here we are, where it gets good, <abbr title="Merge lines of
-files">`paste`</abbr>[^cited-tools] is what we'd been after all along.  It only gets
+files">`paste`</abbr> is what we'd been after all along.  It only gets
 introduced now because it requires cooperation from its friends to get the job
 you likely want done.
 

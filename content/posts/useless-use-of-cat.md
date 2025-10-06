@@ -3,6 +3,12 @@ title = 'Useless use of `cat`'
 date = 2025-08-16
 description = 'The signature of the shell-illiterate'
 taxonomies.tags = ['all', 'cli', 'tools', 'posix']
+
+[[extra.cited_tools]]
+   name    = "cat"
+   repo    = "https://github.com/coreutils/coreutils"
+   package = "core/x86_64/coreutils"
+   manual  = "https://man.archlinux.org/man/cat.1.en"
 +++
 
 Short for con`cat`enate, `cat`[^cat] takes multiple files and prints them
@@ -11,8 +17,6 @@ the <abbr title="Command Line Interface, where I dwell">`CLI`</abbr> is sure to
 establish into the wasteland of the hurried neophyte's mind a simplistic mental
 model boiling down to: "`cat` is what you use when you have a file and want its
 content".
-
-[^cat]: {{ cmd(name="cat", repo="https://github.com/coreutils/coreutils", package="core/x86_64/coreutils", manual="https://man.archlinux.org/man/cat.1.en") }}
 
 The consequence?  Processes multiplying like cancerous cells:
 
