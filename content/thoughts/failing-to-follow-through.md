@@ -30,9 +30,9 @@ that only [Tom Bombadil](https://en.wikipedia.org/wiki/Tom_Bombadil) can tame.
 And they're cross-referencing one another.  And they're stashed across several
 source repositories.  Hosted at different providers.
 
-   Or suppose that it'd be cool to use that shiny ["new" multiline Java
-`String`](https://blogs.oracle.com/javamagazine/post/text-blocks-come-to-java)...<br>
-   In summary, suppose that we have a serious problem that calls for
+Or suppose that it'd be cool to use that shiny ["new" multiline Java
+`String`](https://blogs.oracle.com/javamagazine/post/text-blocks-come-to-java).
+In summary, suppose that we have a serious problem that calls for
 all-hands-on-deck, cross-team, cross-discipline, focus-of-the-semester
 remediation.
 
