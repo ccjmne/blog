@@ -40,9 +40,10 @@ sed -i 's/127.0.0.1/localhost/' server.cfg
 
 ## Files all the way down
 
-Files are a fairly common in the world of computing, and even more
-so across Unix-like operating systems, where [everything is a file
-(descriptor)](@/posts/everything-is-a-file.md).
+Files are a fairly common in the world of computing, and even more so across
+Unix-like operating systems, where everything is a file (descriptor).
+
+<!-- [everything being a file (descriptor)](@/posts/everything-is-a-file.md). TODO: LINKME -->
 
 When you do `cat asdf`, your Kernel looks up `asdf` in the file system and
 returns a *file descriptor* (abbreviated `FD`) to the process running `cat`,
@@ -54,6 +55,8 @@ That is it, no mystery, nothing special.  We can now appreciate how silly
 from the standard input.  Your tool only has to support being specified which
 file to read from, and you only need to <abbr title="Read The F... riendly
 Manual">`RTFM`</abbr>:
+
+<!-- (@/posts/read-the-friendly-manual). TODO: LINKME -->
 
 ```sh
 man grep | head
@@ -94,8 +97,10 @@ too.
 How seldom have you come across the redirection above?  It should unquestionably
 be more common than `cat file | grep keyword`, yet I'm fairly confident it
 isn't, despite its twin counterpart (the *output* redirection) being virtually
-omnipresent: I explain this phenomenon with the concept of [rampant shell
-illiteracy](@/posts/rampant-shell-illiteracy).
+omnipresent: I explain this phenomenon with the concept of rampant shell
+illiteracy.
+
+<!-- [rampant shell illiteracy](@/posts/rampant-shell-illiteracy). TODO: LINKME -->
 
 ## The legitimate use of `cat`
 
@@ -124,9 +129,11 @@ echo 'About me:' | cat - aboutme.txt
 ### The definitive escalation mechanism
 
 Somewhere along the way, we started using `cat` as a ceremonial prelude to
-everything, as if every command needed a feline blessing.  With [everything
-being a file (descriptor)](@/posts/everything-is-a-file.md), it turns out that
-quite a few commands will happily accept to read from a file!
+everything, as if every command needed a feline blessing.  With everything being
+a file (descriptor), it turns out that quite a few commands will happily accept
+to read from a file!
+
+<!-- [everything being a file (descriptor)](@/posts/everything-is-a-file.md). TODO: LINKME -->
 
 As such, here is the *definitive escalation mechanism* for your commands that
 are to consume the contents of a file:

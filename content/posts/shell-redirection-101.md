@@ -10,8 +10,10 @@ their first steps in the <abbr title="Command Line Interface, where I
 dwell">`CLI`</abbr>.<br>
   A seasoned user is still likely to find some quite interesting information
 in the various notes, but the main focus of the article still is only
-meant to level the playing field in order to approach the [everything is a
-file](@/posts/everything-is-a-file.md) series.
+meant to level the playing field in order to approach the *everything is a
+file* series.
+
+<!-- [everything being a file (descriptor)](@/posts/everything-is-a-file.md). TODO: LINKME -->
 
 <!-- more -->
 
