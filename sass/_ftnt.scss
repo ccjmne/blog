@@ -24,24 +24,13 @@ sup.footnote-reference {
   counter-reset: i;
   padding-left: 3ch;
   li {
-    // TODO: do away w/ specialised footnotes for cited-tools
-    &:not(#fn-cited-tools) {
-      counter-increment: i;
-      &::before {
-        content: "[" counter(i) "]";
-        font-size: 0.8em;
-        font-family: $codefont;
-        position: absolute;
-        transform: translate(calc(-100% - 1ch), 1px);
-      }
-    }
-    &#fn-cited-tools {
-      margin-left: -3ch;
-      display: flex;
-      flex-wrap: wrap;
-      gap: .5rem;
-      align-items: center;
-      & > p:empty { display: none; }
+    counter-increment: i;
+    &::before {
+      content: "[" counter(i) "]";
+      font-size: 0.8em;
+      font-family: $codefont;
+      position: absolute;
+      transform: translate(calc(-100% - 1ch), 1px);
     }
   }
 }
