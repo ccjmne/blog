@@ -7,7 +7,7 @@ date = 2025-10-05
 >    This is the sombrer branch of a dystopian choose-your-own-adventure essay
 > on systemic failures to carry through sizeable projects in "enterprise"
 > environments.<br>
->    Its alternative write-up is found at [A systemic failure to follow
+>    Its alternative write-up is found at: [A systemic failure to follow
 > through](@/thoughts/failing-to-follow-through.md).
 
 <br>
