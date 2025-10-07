@@ -7,7 +7,7 @@ date = 2025-09-25
 >    This is the brighter branch of a dystopian choose-your-own-adventure essay
 > on systemic failures to carry through sizeable projects in "enterprise"
 > environments.<br>
->    Its alternative write-up is found at: [Unfinished software
+>    Its alternative write-up is found at: [On unfinished software
 > migrations](@/thoughts/unfinished-software-migrations.md).
 
 <br>
