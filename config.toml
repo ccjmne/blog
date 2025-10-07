@@ -13,6 +13,7 @@ name = "tags"
 internal_level = "warn"
 
 [markdown]
+github_alerts       = true
 highlight_code      = true
 bottom_footnotes    = true
 insert_anchor_links = "left"
