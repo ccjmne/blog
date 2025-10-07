@@ -99,13 +99,13 @@ abbr {
   }
 }
 
-$quote:      (color: var(--colour-surface2), text: "quote",     icon: "book");
+$quote:      (color: var(--colour-text),  text: "quote",     icon: "book");
 $markdown-alerts: (
-  note:      (color: var(--colour-text),     text: "note",      icon: "info"),
-  tip:       (color: var(--colour-teal),     text: "tip",       icon: "light-bulb"),
-  important: (color: var(--colour-mauve),    text: "important", icon: "report"),
-  warning:   (color: var(--colour-peach),    text: "warning",   icon: "alert"),
-  caution:   (color: var(--colour-red),      text: "caution",   icon: "stop"),
+  note:      (color: var(--colour-text),  text: "note",      icon: "info"),
+  tip:       (color: var(--colour-teal),  text: "tip",       icon: "light-bulb"),
+  important: (color: var(--colour-mauve), text: "important", icon: "report"),
+  warning:   (color: var(--colour-peach), text: "warning",   icon: "alert"),
+  caution:   (color: var(--colour-red),   text: "caution",   icon: "stop"),
 );
 
 blockquote {
@@ -136,11 +136,11 @@ blockquote {
     > * { font-style: italic; }
     &::before {
       content: map-get($quote, text);
-      color: var(--colour-text);
+      color: map-get($quote, color);
     }
     &::after {
       mask: url('/octicons/#{map-get($quote, icon)}-16.svg');
-      background-color: var(--colour-text);
+      background-color: map-get($quote, color);
     }
   }
 
