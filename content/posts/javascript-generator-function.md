@@ -14,7 +14,8 @@ title="the Rust connoisseurs">Rustacean</abbr> blush.
 
 [^ecmascript]: [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript) is the
 standard, the specification; JavaScript is the language built on that standard,
-plus extra features for browsers.
+plus some extra features (such as Web `API`s, like the <abbr title="Document
+Object Model">`DOM`</abbr>), for browsers.
 
 You've no doubt come across the destructuring syntax to *effectively return
 multiple values* from a single function, but we can do even better: we can
