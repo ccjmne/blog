@@ -30,9 +30,10 @@ that started out as a decision never formally taken and grew into a
 institutionalised way of life.
 
 Well, it's 2025 now, and it turns out that while the IT department never
-considered smartphones, tablets, or the fact that windows aren't always
-maximised and on a horizontal monitor with the default font size or zoom factor,
-our customer service department did...  Where they get their ideas, huh?
+considered smartphones, tablets (or the fact that windows aren't always
+maximised, and on a horizontal monitor with the default font size and zoom
+factor), our customer service department did...  Where do they get their ideas
+from, eh?
 
 <div class="hi">
 
@@ -48,15 +49,18 @@ significant experience maintaining a corporate-scale application to boot, yet
 they still managed to land on the one panacea that contemporarily solves all
 problems: obviously, it is that simple; we're off to the races.
 
-   We have tools to run the tools to operate the transpilers, bundlers,
-minifiers, linters, formatters (*et caetera*); we have tools to facilitate
-the usage of the tools to version-control our code.  Name your micro-task,
-we've got some specialised (read: contrived) mean to do it some sort
-of way.  All that remains is to migrate/adapt/rewrite everybody to [El
-Dorado](https://en.wikipedia.org/wiki/El_Dorado).<br>
-   **Enough time has passed to knit a scarf for a yet-to-exist grandchild.**
+We create tools to run the tools to operate the transpilers, bundlers,
+minifiers, linters, formatters (*et caetera*); we create tools to facilitate the
+usage of the tools to version-control our code.  Name your micro-task, we are
+building some specialised (read: contrived) mean to do it some sort of way.
+
+Soon enough, everything is ready, **90% of the job is done** and
+all that remains is to migrate/adapt/rewrite everybody to [El
+Dorado](https://en.wikipedia.org/wiki/El_Dorado).
 
 </div>
+
+Now, **onto the remaining 90% of the job** (ha!): integrating the solution.
 
 Every now and again we advocate for the new platform, but each team is
 responsible for bringing their piece of the puzzle up to date, on their own
@@ -75,12 +79,11 @@ comedy](https://en.wikipedia.org/wiki/The_Office_(British_TV_series)).
 
 <!-- [is so DRY](@/thoughts/the-dry-hoax.md). TODO: LINKME -->
 
-   We struggle to bring the two worlds to parity.  In fact, we're nowhere
-near: we have to start actually using it in its current state.  We can offer
-customers (maybe the new ones?) to use that version while ensuring that the [Old
+We struggle to bring the two worlds to parity.  In fact, we're nowhere near: we
+have to start actually using it in its current state.  We can offer customers
+(maybe the new ones?) to use that version while ensuring that the [Old
 Faithful](https://en.wikipedia.org/wiki/Old_Faithful) still avails itself our
-clientele deserving of the same epithet.<br>
-   **Enough time has passed to develop a mild addiction to houseplants.**
+clientele deserving of the same epithet.
 
 <div class="hi">
 
@@ -99,10 +102,10 @@ is sporadic, as it turns out that quite a few bits and bobs depend on other
 odds and sods, and a few whatchamacallits are tangled up with some stray
 thingamajigs.
 
-   Customers of either solution are overall somewhat satisfied with the
-experience, but the whole IT department has somehow ground itself to a halt: we
-do maintain two separate solutions, after all.<br>
-   **Enough time has passed to watch trends die, resurrect, and die again.**
+Customers of either solution are overall somewhat satisfied with the experience,
+but the whole IT department has somehow ground itself to a halt, for which an
+innocuous explanation ends up becoming quite a gloomy revelation: **we do
+maintain two separate solutions, after all**.
 
 </div>
 
