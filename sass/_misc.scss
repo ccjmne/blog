@@ -40,11 +40,16 @@
   padding: 0;
   list-style: none;
 }
-.tag {
-  border: 1px solid var(--colour-surface2);
+a.tag, a.tag:visited {
+  border: 1px solid;
   padding: 0.5rem 1rem;
   text-decoration: none;
   display: inline-block;
+  color: var(--colour);
+  border-color: var(--colour);
+  &.tag-hi    { --colour: var(--colour-text); }
+  &.tag-me, & { --colour: var(--colour-subtext0); }
+  &.tag-lo    { --colour: var(--colour-overlay1); }
   &:hover {
     border-color: var(--colour-accent);
     background-color: var(--colour-mantle);
