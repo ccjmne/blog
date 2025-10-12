@@ -16,14 +16,15 @@
     <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
   </head>
   <body>
-    {%-   if section is defined -%} {%- set path = section.path -%}
-    {%- elif page    is defined -%} {%- set path = page.path -%}
-    {%- else -%}                    {%- set path = "/" -%} {%- endif -%}
+    {%-   if section      is defined -%} {%- set path = section.path -%}
+    {%- elif page         is defined -%} {%- set path = page.path -%}
+    {%- elif current_path is defined -%} {%- set path = current_path -%}
+    {%- else -%}                         {%- set path = "/" -%} {%- endif -%}
     <header {{ hlpr::vtn(name="header", static=true) -}}>
       <a href="{{ get_url(path="/") }}">        {%- if path == "/" -%}                        <strong>Home</strong>     {%- else -%} Home     {%- endif -%} </a>
       <a href="{{ get_url(path="posts") }}">    {%- if path is starting_with("/posts") -%}    <strong>Posts</strong>    {%- else -%} Posts    {%- endif -%} </a>
       <a href="{{ get_url(path="thoughts") }}"> {%- if path is starting_with("/thoughts") -%} <strong>Thoughts</strong> {%- else -%} Thoughts {%- endif -%} </a>
-      {# <a href="{{ get_url(path="tags") }}">     {%- if path is starting_with("/tags") -%}     <strong>Tags</strong>     {%- else -%} Tags     {%- endif -%} </a> #}
+      <a href="{{ get_url(path="tags") }}">     {%- if path is starting_with("/tags") -%}     <strong>Tags</strong>     {%- else -%} Tags     {%- endif -%} </a>
       {# <a href="{{ get_url(path="about") }}">    {%- if path is starting_with("/about") -%}    <strong>Meta</strong>     {%- else -%} Meta     {%- endif -%} </a> #}
       <span style="flex-grow: 1"></span>
       <a href="{{ get_url(path="atom.xml", trailing_slash=false) }}">RSS</a>
