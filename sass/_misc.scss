@@ -47,9 +47,9 @@ a.tag, a.tag:visited {
   display: inline-block;
   color: var(--colour);
   border-color: var(--colour);
-  &.tag-hi    { --colour: var(--colour-text); }
-  &.tag-me, & { --colour: var(--colour-subtext0); }
-  &.tag-lo    { --colour: var(--colour-overlay1); }
+  &.tag-hi    { --colour: var(--colour-text);     --icon: url('../octicons/ruby-16.svg'); }
+  &.tag-me, & { --colour: var(--colour-subtext0); --icon: url('../octicons/star-16.svg');}
+  &.tag-lo    { --colour: var(--colour-overlay1); --icon: url('../octicons/sparkle-16.svg');}
   &:hover {
     border-color: var(--colour-accent);
     background-color: var(--colour-lo-bg);
@@ -64,6 +64,6 @@ a.tag, a.tag:visited {
     width: 16px;
     height: 16px;
     background-color: currentColor;
-    mask: url('../octicons/tag-16.svg');
+    mask: var(--icon);
   }
 }
