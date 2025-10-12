@@ -209,7 +209,7 @@ You may target some function from a script:
 # - its declaration: /function handleanything/, to:
 # - its closing brace: /^}$/
 sed '/function handleanything/, /^}$/ d' <<'EOF'
-$answer=42
+answer=42
 function handleanything() {
     echo "We will look into it next sprint, please create a Jira ticket"
 }
@@ -219,7 +219,7 @@ function why() {
 EOF
 ```
 ```txt
-$answer=42
+answer=42
 function why() {
     echo $answer
 }
