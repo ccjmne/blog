@@ -2,7 +2,7 @@
 title = 'Laying text out horizontally from the `CLI`'
 date = 2025-08-08
 description = 'Getting to know `column`, `cut` and `paste`'
-taxonomies.tags = ['all', 'cli', 'text-processing', 'productivity']
+taxonomies.tags = ['all', 'cli']
 
 [[extra.cited_tools]]
    name    = "vim"

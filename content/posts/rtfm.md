@@ -3,7 +3,7 @@ title = 'RTFM'
 date = 2025-08-16
 description = 'The signature of the perpetually uneducated'
 draft = true
-taxonomies.tags = ['all', 'cli', 'tools']
+taxonomies.tags = ['all', 'cli']
 +++
 
 

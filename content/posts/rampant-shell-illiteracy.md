@@ -3,7 +3,7 @@ title = 'Rampant shell illiteracy'
 date = 2025-08-16
 description = "You don't need decent grammar to be well understood, but it'll help taking you seriously"
 draft = true
-taxonomies.tags = ['all', 'cli', 'tools', 'posix']
+taxonomies.tags = ['all', 'cli', 'posix']
 +++
 
 Sprinkle in some couple of years of not opening the `man`ual, several

@@ -2,7 +2,7 @@
 title = 'Reproducible, isolated demonstrations'
 date = 2025-08-10
 description = 'Create reproducible, isolated demonstration environments with containers'
-taxonomies.tags = ['all', 'cli', 'tools', 'docker']
+taxonomies.tags = ['all', 'cli', 'docker']
 extra.toc = false
 +++
 
