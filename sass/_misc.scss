@@ -52,7 +52,7 @@ a.tag, a.tag:visited {
   &.tag-lo    { --colour: var(--colour-overlay1); }
   &:hover {
     border-color: var(--colour-accent);
-    background-color: var(--colour-mantle);
+    background-color: var(--colour-lo-bg);
     color: var(--colour-accent);
   }
   &::before {
