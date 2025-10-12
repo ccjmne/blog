@@ -26,6 +26,9 @@ main {
   &:not(:has(> article > .footnotes:last-child)) {
     padding-block-end: 3rem;
   }
+  > h1:first-child + * {
+    margin-top: 0;
+  }
 }
 
 footer {
