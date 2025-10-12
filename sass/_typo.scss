@@ -113,6 +113,7 @@ blockquote {
   border-inline-start: .75ch solid;
   padding-inline-start: 1.5ch;
   box-sizing: border-box;
+  margin-inline: 0;
 
   > p:first-of-type { margin-top: .5em; }
 
