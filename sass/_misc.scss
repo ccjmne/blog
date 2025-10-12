@@ -32,3 +32,22 @@
     a { text-decoration: none; }
   }
 }
+
+.tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0;
+  list-style: none;
+}
+.tag {
+  border: 1px solid var(--colour-surface2);
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  display: inline-block;
+  &:hover {
+    border-color: var(--colour-accent);
+    background-color: var(--colour-mantle);
+    color: var(--colour-accent);
+  }
+}
