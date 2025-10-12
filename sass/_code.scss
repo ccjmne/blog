@@ -9,7 +9,7 @@ pre, code, abbr[font=mono]::after {
 }
 
 code:not(pre > code), abbr[font=mono]::after {
-  white-space: nowrap;
+  white-space: pre;
   color: var(--colour-accent);
 }
 
