@@ -41,29 +41,34 @@
   list-style: none;
 }
 a.tag, a.tag:visited {
-  border: 1px solid;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
   display: inline-block;
-  color: var(--colour);
-  border-color: var(--colour);
-  &.tag-hi    { --colour: var(--colour-text);     --icon: url('../octicons/ruby-16.svg'); }
-  &.tag-me, & { --colour: var(--colour-subtext0); --icon: url('../octicons/star-16.svg');}
-  &.tag-lo    { --colour: var(--colour-overlay1); --icon: url('../octicons/sparkle-16.svg');}
-  &:hover {
-    border-color: var(--colour-accent);
-    background-color: var(--colour-lo-bg);
-    color: var(--colour-accent);
-  }
-  &::before {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--colour-subtext1);
+  color: var(--colour-overlay2);
+  // color: var(--colour-accent); // interesting...
+  text-decoration: none;
+  &.tag-low { border-color: var(--colour-overlay1); }
+  &.tag-high::before {
     content: '';
     display: inline-block;
     position: relative;
     top: 2px;
-    left: -4px;
+    left: -2px;
     width: 16px;
     height: 16px;
     background-color: currentColor;
-    mask: var(--icon);
+    mask: url('./octicons/ruby-16.svg');
+  }
+  &:hover {
+    color:             var(--colour-accent);
+    border-color:      var(--colour-accent);
+    background-color:  var(--colour-lo-bg);
+    .tag-name { color: var(--colour-accent); }
+  }
+  h2.tag-name {
+    display: inline;
+    padding: 0;
+    font-size: 1.1em;
+    color: var(--colour-text);
   }
 }

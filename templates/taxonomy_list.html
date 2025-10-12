@@ -27,9 +27,10 @@
   <li>
     <a
       {# TODO: consider >= rather than >, once we have more articles. #}
-      class="tag tag-{%- if tag.pages | length > median_66 -%} hi {%- elif tag.pages | length > median_33 -%} me {%- else -%} lo {%- endif -%}"
+      class="tag tag-{%- if tag.pages | length > median_66 -%} high {%- elif tag.pages | length > median_33 -%} medium {%- else -%} low {%- endif -%}"
       href="{{ tag.permalink }}">
-      {{ tag.name | markdown(inline=true) | safe }} ({{ tag.pages | length }})
+      <h2 class="tag-name">{{ tag.name }}</h2>
+      ({{ tag.pages | length }})
     </a>
   </li>
   {%- endfor -%}
