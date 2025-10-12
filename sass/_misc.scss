@@ -55,4 +55,15 @@ a.tag, a.tag:visited {
     background-color: var(--colour-mantle);
     color: var(--colour-accent);
   }
+  &::before {
+    content: '';
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    left: -4px;
+    width: 16px;
+    height: 16px;
+    background-color: currentColor;
+    mask: url('../octicons/tag-16.svg');
+  }
 }
