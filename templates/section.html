@@ -1,7 +1,7 @@
 {%- extends "base.html" -%}
 
 {%- block links -%}
-<link rel="stylesheet" href="{{ get_url(path="/posts/list.css") }}">
+<link rel="stylesheet" href="{{ get_url(path="/partials/ls.css") }}">
 {%- endblock links -%}
 
 {%- block content -%}
@@ -13,5 +13,5 @@
 {% else %}
 {% set pages = section.pages %}
 {% endif %}
-{% include "partials/ls-pages.html" %}
+{% include "partials/ls.html" %}
 {%- endblock content -%}
