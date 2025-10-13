@@ -5,6 +5,6 @@
   <li>{{- page.reading_time -}}-minute read</li>
   {% set parent = get_section(path=page.ancestors | last) %}
   {%- if not section.extra.series and parent.extra.series -%}
-    Part&nbsp;{{ page.slug | truncate(length=2, end="") | trim_start_matches(pat="0") }}&nbsp;of&nbsp;<a href="{{ parent.permalink }}">{{ parent.title | markdown(inline=true) | safe }}</a>
+    <li>Part&nbsp;{{ page.slug | truncate(length=2, end="") | trim_start_matches(pat="0") }}&nbsp;of&nbsp;<a href="{{ parent.permalink }}">{{ parent.title | markdown(inline=true) | safe }}</a></li>
   {%- endif -%}
 </ul>
