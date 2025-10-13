@@ -2,13 +2,8 @@
 
 .ls-i {
   display: flex;
-  padding: 1.5rem 0;
   gap: 1rem;
   text-decoration: none;
-
-  + .ls-i {
-    border-top: 1px solid var(--colour-surface0);
-  }
 }
 
 .i {
