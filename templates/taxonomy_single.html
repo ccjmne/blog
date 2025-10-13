@@ -1,10 +1,15 @@
 {%- extends "base.html" -%}
 
+{%- block links -%}
+<link rel="stylesheet" href="{{- get_url(path="/posts/list.css") -}}">
+<link rel="stylesheet" href="{{- get_url(path="/taxonomy/single.css") -}}">
+{%- endblock links -%}
+
 {% block breadcrumb %}
 {% endblock breadcrumb %}
 
 {%- block content -%}
-<h1 class="title">Posts with {{ taxonomy.name }}: <code>{{ term.name }}</code></h1>
+<h1 class="title">Posts tagged <span class="tag-name">{{ term.name }}</span></h1>
 
 {% set pages = term.pages %}
 {% include "partials/ls-pages.html" %}
