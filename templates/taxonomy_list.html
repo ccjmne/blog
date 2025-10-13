@@ -3,6 +3,8 @@
 {% block breadcrumb %}
 {% endblock breadcrumb %}
 
+{# TODO: preload ruby icon #}
+
 {% block content %}
 <h1 class="title">Posts by tag</h1>
 <ul class="tags-list">
@@ -30,7 +32,7 @@
       class="tag tag-{%- if tag.pages | length > median_66 -%} high {%- elif tag.pages | length > median_33 -%} medium {%- else -%} low {%- endif -%}"
       href="{{ tag.permalink }}">
       <h2 class="tag-name">{{ tag.name }}</h2>
-      ({{ tag.pages | length }})
+      {{ tag.pages | length }}
     </a>
   </li>
   {%- endfor -%}

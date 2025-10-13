@@ -33,6 +33,7 @@
   }
 }
 
+// TODO: consider moving to tags-specific stylesheet
 .tags-list {
   display: flex;
   flex-wrap: wrap;
@@ -44,8 +45,7 @@ a.tag, a.tag:visited {
   display: inline-block;
   padding: 0.5rem 1rem;
   border: 1px solid var(--colour-subtext1);
-  color: var(--colour-overlay2);
-  // color: var(--colour-accent); // interesting...
+  color: var(--colour-accent);
   text-decoration: none;
   &.tag-low { border-color: var(--colour-overlay1); }
   &.tag-high::before {
