@@ -369,11 +369,11 @@ sed '/location.*{/,  /^}/  s/http/https/' nginx.conf
 Or maybe all lines following `/app1`:
 
 ```sh
-sed './app1.,$s/http/https/' nginx.conf
-sed './app1.,  $  s/http/https/' nginx.conf
-sed '\./app1.,  $  s/http/https/' nginx.conf  # GNU sed only
+sed '#/app1#,$s/http/https/' nginx.conf
+sed '#/app1#,  $  s/http/https/' nginx.conf
+sed '\#/app1#,  $  s/http/https/' nginx.conf  # GNU sed only
 ```
-{{ note(msg="I used dots (`.`) to delineate <abbr title='Regular Expressions'>RegExps</abbr> here since I want to match a literal `/` in the pattern") }}
+{{ note(msg="for illustration, I used hashes (`#`) to delineate the <abbr title='Regular Expressions'>RegExp</abbr> here, to not have to escape the literal `/`") }}
 
 Or lines 5 and onwards:
 
@@ -482,7 +482,7 @@ git commit --verbose
 <span class="term-fg31">-Let me tell you about something</span>
 <span class="term-fg32">+Let me tell you about something cool</span>
 </pre></code>
-{{ note(msg="In reality, I obviously actually have configured `git-commit` to always use `--verbose`") }}
+{{ note(msg="in reality, I have configured `git-commit` to always use `--verbose` and needn't specify it") }}
 
 Much tidier, isn't it?
 
