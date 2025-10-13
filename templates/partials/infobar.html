@@ -7,4 +7,19 @@
   {%- if not section.extra.series and parent.extra.series -%}
     <li>Part&nbsp;{{ page.slug | truncate(length=2, end="") | trim_start_matches(pat="0") }}&nbsp;of&nbsp;<a href="{{ parent.permalink }}">{{ parent.title | markdown(inline=true) | safe }}</a></li>
   {%- endif -%}
+
+  {# filter out the "all" tag #}
+  {%- set tags = [] -%}
+  {%- for tag in page.taxonomies.tags | default(value=[]) -%}
+  {%- if tag != "all" -%} {%- set_global tags = tags | concat(with=tag) -%} {%- endif -%}
+  {%- endfor -%}
+
+  {%- if tags | length -%}
+  <li class="tags-li">tagged
+    {% for tag in tags -%}
+    {%- if not loop.first -%}, {% endif -%}
+    <a href="{{ get_url(path="/tags/" ~ tag) }}">{{ tag | markdown(inline=true) | safe }}</a>
+    {%- endfor -%}
+  </li>
+  {%- endif -%}
 </ul>
