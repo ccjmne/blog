@@ -21,14 +21,14 @@ taxonomies.tags = ['all', 'cli', 'posix', 'sed']
    manual  = "https://vimhelp.org/"
 +++
 
-I really like `sed`.  Chances are that you use it sporadically to search and
-replace text from the `CLI`, and if that is all you plan on reaching for this
-trusty tool for, you may want to know of a very popular alternative that
-somewhat simplifies that specific task: [`sd`](https://github.com/chmln/sd).
+I really like `sed`.  If you merely use it sporadically to search and replace
+text from the `CLI`, and have no interest in reaching for this trusty tool for
+anything else, you may want to know of a very popular alternative that somewhat
+simplifies that specific task: [`sd`](https://github.com/chmln/sd).
 
-For the finer folks, you will find boundless treasures in the venerable `man`ual
-pages, and perhaps a few tips and tricks scattered online, such as those I plan
-to publish on this very platform.
+The finer folks will find boundless treasures in the venerable `man`ual pages,
+and perhaps a few tips and tricks scattered online, such as those I plan to
+publish on this very platform.
 
 > [!TIP]
 > The <abbr title="Portable Operating System Interface">`POSIX`</abbr> `man`
