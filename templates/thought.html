@@ -9,7 +9,7 @@
 
 {% block content %}
 <h1><span class="link-title" {{ hlpr::vtn(name=page.slug) -}}>{{- page.title | markdown(inline=true) | safe -}}</span></h1>
-<time style="color: var(--colour-subtext0)">{{- page.date | date(format="%B %d, %Y") -}}</time>
+{%- include "partials/infobar.html" -%}
 <article>
   {{ page.content | safe }}
 </article>
