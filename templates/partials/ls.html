@@ -5,7 +5,10 @@
 <!-- If you are using pagination, section.pages will be empty.
      You need to use the paginator object -->
 {%- for page in pages -%}
-<div class="ls-i {% if loop.index is odd -%} hi {%- endif -%}">
+{%- if loop.index is odd -%}
+<div class="hi">
+{%- endif -%}
+<div class="ls-i">
   {%- if section.extra.series -%}
   <span class="i">{{- page.slug | truncate(length=2, end="") -}}.</span>
   {%- endif -%}
@@ -20,6 +23,9 @@
     {%- endif -%}
   </article>
 </div>
+{%- if loop.index is odd -%}
+</div>
+{%- endif -%}
 {%- endfor -%}
 
 {%- endblock content -%}
