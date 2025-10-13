@@ -1,11 +1,15 @@
 details.toc {
-  background: var(--colour-mantle);
+  padding: 0;
+  margin: 0;
   summary {
-    cursor: pointer;
+    padding: 1rem 0;
     font-family: Outfit, sans-serif;
     user-select: none;
-  }
-  &[open] summary {
-    background: var(--colour-crust);
+    cursor: pointer;
+    &:hover { color: var(--colour-accent); }
+    + * {
+      margin-top: 0;
+      padding-bottom: 1.5rem;
+    }
   }
 }
