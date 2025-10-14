@@ -8,7 +8,7 @@ date = 2025-09-25
 > on systemic failures to carry through sizeable projects in "enterprise"
 > environments.<br>
 >    Its alternative write-up is found at: [On unfinished software
-> migrations](@/thoughts/unfinished-software-migrations.md).
+> migrations](@/ramblings/unfinished-software-migrations.md).
 
 <br>
 

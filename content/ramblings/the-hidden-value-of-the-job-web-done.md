@@ -31,7 +31,7 @@ on:
 
 - the staggering cost of unplanned cross-team collaboration, and
 - the lack of a clear, shared vision of what "done" means, possibly aggravated
-  <!-- by some [well-intended scope creep](@/thoughts/refine-and-do-the-job.md). TODO: LINKME -->
+  <!-- by some [well-intended scope creep](@/ramblings/refine-and-do-the-job.md). TODO: LINKME -->
   by some well-intended scope creep.
 
 <div class="hi">

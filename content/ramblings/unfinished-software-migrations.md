@@ -8,7 +8,7 @@ date = 2025-10-05
 > on systemic failures to carry through sizeable projects in "enterprise"
 > environments.<br>
 >    Its alternative write-up is found at: [A systemic failure to follow
-> through](@/thoughts/failing-to-follow-through.md).
+> through](@/ramblings/failing-to-follow-through.md).
 
 <br>
 
@@ -77,7 +77,7 @@ this project [is so DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)
 it could pass for [a British
 comedy](https://en.wikipedia.org/wiki/The_Office_(British_TV_series)).
 
-<!-- [is so DRY](@/thoughts/the-dry-hoax.md). TODO: LINKME -->
+<!-- [is so DRY](@/ramblings/the-dry-hoax.md). TODO: LINKME -->
 
 We struggle to bring the two worlds to parity.  In fact, we're nowhere near: we
 have to start actually using it in its current state.  We can offer customers
