@@ -9,6 +9,7 @@ sup.footnote-reference {
   vertical-align: super;
   font-family: $codefont;
   font-weight: 600;
+  line-height: 0;
   color: var(--colour-accent);
   > a {
     text-decoration: none;
