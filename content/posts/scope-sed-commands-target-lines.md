@@ -1,5 +1,5 @@
 +++
-title = 'Target blocks of text with `sed`'
+title = 'Scope `sed` commands to some target lines'
 date = 2025-09-06
 description = 'How to use `sed` to target **chunks of text** between two patterns'
 taxonomies.tags = ['all', 'cli', 'posix', 'sed']
