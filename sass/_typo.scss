@@ -159,3 +159,8 @@ blockquote {
     > * { font-style: italic; }
   }
 }
+
+.paragraph-separator {
+  + p { text-indent: 2em; }
+  &:is(hr) { display: none; }
+}
