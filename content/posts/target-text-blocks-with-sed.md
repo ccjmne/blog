@@ -49,10 +49,10 @@ with one or two **addresses**.  An address may be a line number, a regular
 expression, or a few other special forms.
 
 ```sh
-sed '/match/       s/before/after'  file.txt   # substitute only on lines matching 'match'
-sed '5,20          s/before/after'  file.txt   # substitute only on lines 5 through 20
-sed '/if/,  /fi/   d'               script.sh  # delete if-blocks (not production-ready...)
-sed '/!important/  !d'              style.css  # extract css !important rules
+sed '/match/       s/before/after/'  file.txt   # substitute only on lines matching 'match'
+sed '5,20          s/before/after/'  file.txt   # substitute only on lines 5 through 20
+sed '/if/,  /fi/   d'                script.sh  # delete if-blocks (not production-ready...)
+sed '/!important/  !d'               style.css  # extract css !important rules
 ```
 </div>
 
