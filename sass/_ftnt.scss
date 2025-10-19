@@ -23,7 +23,7 @@ sup.footnote-reference {
   list-style: none;
   counter-reset: i;
   padding-left: 3ch;
-  li {
+  > li {
     counter-increment: i;
     &::before {
       content: "[" counter(i) "]";
