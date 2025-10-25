@@ -30,24 +30,6 @@
       <a href="{{ get_url(path="/atom.xml", trailing_slash=false) }}">RSS</a>
     </header>
     <div class="accent-bar" {{ hlpr::vtn(name="accent-bar", static=true) -}}></div>
-    {%- block breadcrumb -%}
-    {%- if page is defined -%}
-    {%- set parent = page.ancestors | last -%}
-    {%- set psection = get_section(path=parent) -%}
-    {%- if psection.extra.series -%}
-    <div class="hi" {{ hlpr::vtn(name="breadcrumbs", static=true) -}}>
-      <ol class="breadcrumbs">
-        {%- set current = section | default(value=page) -%}
-        {%- for ancestor in current.ancestors | slice(start=2) -%}
-        {%- set section = get_section(path=ancestor) -%}
-        <li><a class="breadcrumb-link" href="{{- section.permalink -}}">{{- section.title | markdown(inline=true) | safe -}}</a></li>
-        {%- endfor -%}
-        <li><span>{{- current.title | markdown(inline=true) | safe -}}</span></li>
-      </ol>
-    </div>
-    {%- endif -%}
-    {%- endif -%}
-    {%- endblock breadcrumb -%}
     <main>
       {%- block content -%}
       {%- endblock content -%}

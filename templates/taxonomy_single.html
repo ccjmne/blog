@@ -4,9 +4,6 @@
 <link rel="stylesheet" href="{{- get_url(path="/partials/ls.css") -}}">
 {%- endblock links -%}
 
-{% block breadcrumb %}
-{% endblock breadcrumb %}
-
 {%- block content -%}
 <h1>Flight rules tagged <span class="link-title accent" {{ hlpr::vtn(name=term.slug) -}}>{{ term.name }}</span></h1>
 

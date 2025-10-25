@@ -4,9 +4,6 @@
 <link rel="stylesheet" href="{{- get_url(path="/ramblings/main.css") -}}">
 {%- endblock links -%}
 
-{% block breadcrumb %}
-{% endblock breadcrumb %}
-
 {% block content %}
 <h1><span class="link-title" {{ hlpr::vtn(name=page.slug) -}}>{{- page.title | markdown(inline=true) | safe -}}</span></h1>
 {%- include "partials/infobar.html" -%}
