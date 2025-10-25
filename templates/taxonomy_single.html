@@ -8,7 +8,7 @@
 {% endblock breadcrumb %}
 
 {%- block content -%}
-<h1>Posts tagged <span class="link-title accent" {{ hlpr::vtn(name=term.slug) -}}>{{ term.name }}</span></h1>
+<h1>Flight rules tagged <span class="link-title accent" {{ hlpr::vtn(name=term.slug) -}}>{{ term.name }}</span></h1>
 
 {% set pages = term.pages %}
 {% include "partials/ls.html" %}

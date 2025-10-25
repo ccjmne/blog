@@ -57,12 +57,12 @@ and `d`, on four separate lines.
 
 ### File descriptors in `/proc`
 
-The [in-depth: `/proc`](@/posts/in-depth-slash-proc.md) follow-up to
+The [in-depth: `/proc`](@/flight-rules/in-depth-slash-proc.md) follow-up to
 this article touches on the `/proc` virtual filesystem, which primarily
 lets you refer to your processes' `I/O` resources, and complements this
 introduction from a more technical perspective.  It pairs nicely with
 all sort of shell redirection mechanisms: I go over those in the [shell
-redirection 101](@/posts/shell-redirection-101.md) article.
+redirection 101](@/flight-rules/shell-redirection-101.md) article.
 
 
 

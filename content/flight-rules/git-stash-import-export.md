@@ -204,7 +204,7 @@ documentation](https://git-scm.com/docs/git-format-patch#_description).
 
 ## Your stash stack
 
-Finally, we arrive at the point of this entire post: stashes that used to only
+Finally, we arrive at the point of this entire article: stashes that used to only
 be available through the `reflog` of `refs/stash` now properly *exist* as a
 bunch of references that you can actually `push` and `fetch`.  You may even move
 around your entire stack, or any subset of it, at once.

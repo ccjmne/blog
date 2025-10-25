@@ -143,7 +143,7 @@ method that returns an `iterator`.  This is essentially JavaScript's take on
 composition, a superior alternative to inheritance.
 
 [^symbols]: `Symbol`s are special, unique identifiers in JavaScript, also
-introduced in `ES6`: maybe they deserve a post of their own sometime.
+introduced in `ES6`: maybe they deserve an entry of their own sometime.
 
 In practice, the `iterator` protocol is virtually never implemented without also
 providing an `iterable` interface, as most (all?) standard syntaxes and `API`s

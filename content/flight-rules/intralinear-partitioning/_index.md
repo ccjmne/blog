@@ -1,7 +1,7 @@
 +++
 title = 'Intralinear partitioning'
 sort_by = 'slug'
-page_template = 'post.html'
+page_template = 'flight-rule.html'
 
 [extra]
 series = true
