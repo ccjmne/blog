@@ -21,7 +21,7 @@
       <a href="{{ get_url(path="/flight-rules") }}">{%- if current_path is starting_with("/flight-rules") -%} <strong>Flight rules</strong> {%- else -%} Flight rules {%- endif -%} </a>
       <a href="{{ get_url(path="/ramblings") }}">   {%- if current_path is starting_with("/ramblings") -%}    <strong>Ramblings</strong>    {%- else -%} Ramblings    {%- endif -%} </a>
       <a href="{{ get_url(path="/tags") }}">        {%- if current_path is starting_with("/tags") -%}         <strong>Tags</strong>         {%- else -%} Tags         {%- endif -%} </a>
-      <a href="{{ get_url(path="/about") }}">       {%- if current_path is starting_with("/about") -%}        <strong>Meta</strong>         {%- else -%} Meta         {%- endif -%} </a>
+      {# <a href="{{ get_url(path="/about") }}">       {%- if current_path is starting_with("/about") -%}        <strong>Meta</strong>         {%- else -%} Meta         {%- endif -%} </a> #}
       <span style="flex-grow: 1"></span>
       <a href="{{ get_url(path="/atom.xml", trailing_slash=false) }}">RSS</a>
     </header>
