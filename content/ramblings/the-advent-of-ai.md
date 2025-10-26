@@ -134,13 +134,13 @@ isn't always, let alone exemplary, let alone graceful.
 
 <div class="hi">
 
-In short, I am, intrinsically, somebody that does stuff.  Not because I can't
-delegate, not because I need the stuff done (though sometimes I do), but because
-I was plagued and blessed with a profound obsession for refining my craft.  And
-I was afforded the luxury of being born just in time for not only software being
-a major, obvious, lucrative industry, but also the notion that care, skill and
-experience can make a tremendous difference in the quality of the resulting
-product.
+In short, I am, intrinsically, **somebody that does stuff**.  Not because I
+can't delegate, not because I need the stuff done (though sometimes I do), but
+because I was plagued and blessed with a profound obsession for refining my
+craft.  And I was afforded the luxury of being born just in time for not only
+software being a major, obvious, lucrative industry, but also the notion that
+care, skill and experience can make a tremendous difference in the quality of
+the resulting product.
 
 I come from a time when every kid at school heard that we wouldn't always have a
 calculator in our pocket; when, if we played video games, it'd be the few that
@@ -149,17 +149,17 @@ ingenuity just to have a counter-melody play over the main theme and sprites
 would flicker to work around memory constraints; when access to a digital, *let
 alone on-line!* encyclopaedia was an indulgence; in summary, I come from a time
 where the family camera and the family computer would never have been thought to
-soon be available as a personal smartphone.  And I'm not that old!
+soon be available as a single, personal device.  And I'm not that old!
 
-Yet the [Discord](https://en.wikipedia.org/wiki/Discord)
+Yet, the [Discord](https://en.wikipedia.org/wiki/Discord)
 of today is substantially more sluggish than the [MSN
 Messenger](https://en.wikipedia.org/wiki/MSN_Messenger) of
 yesteryear.  It does far more, certainly, but I do realise that
 hardware and networking have come a long, long way since I took my
 first steps into [IRC](https://en.wikipedia.org/wiki/IRC) servers and
 [BBS](https://en.wikipedia.org/wiki/Bulletin_board_system) Websites; to my
-understanding, there still is room for some excellence even in the execution of
-the vision to bear fruit.
+understanding, there still is room for some excellence even in the **execution
+of the vision**.
 
 </div>
 
