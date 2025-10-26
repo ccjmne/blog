@@ -1,4 +1,4 @@
-@use '../mxin' as *;
+@use '../mxin' as * with($assets-path: '..');
 @use '../shared';
 
 .ls-i {

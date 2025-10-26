@@ -1,4 +1,4 @@
-@use '../mxin' as *;
+@use '../mxin' as * with($assets-path: '..');
 @use '../shared' with (
   $w: min(90vw, 480px)
 );
