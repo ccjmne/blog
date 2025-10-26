@@ -1,7 +1,7 @@
 +++
-title = 'Laying text out horizontally from the `CLI`'
+title = 'Getting to know `column`, `cut` and `paste`'
 date = 2025-08-08
-description = 'Getting to know `column`, `cut` and `paste`'
+description = 'Grids, lists, and other horizontally split what-have-yous, from the CLI'
 taxonomies.tags = ['all', 'cli']
 
 [[extra.cited_tools]]
