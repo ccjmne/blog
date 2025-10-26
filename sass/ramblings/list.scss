@@ -1,3 +1,4 @@
+@use '../mxin' as *;
 @use '../shared' with (
   $w: min(90vw, 480px)
 );
@@ -22,8 +23,10 @@ a.entry {
   padding: .2rem 0;
   h3 { margin: 0; }
   &:hover { color: var(--colour-accent); }
+  &::before { @include icon(book, (top: 3px, left: 0)); }
   @each $type, $icon in (flight-rules: code, ramblings: book) {
     h1.#{$type} ~ &:not(.#{$type}):not(:hover) { &, :not(.dots) { color: var(--colour-overlay1); } }
+    &.#{$type}::before { mask: url('../octicons/#{$icon}-16.svg'); }
   }
   :first-child {
     overflow: hidden;
