@@ -1,3 +1,5 @@
+@use 'mxin' as *;
+
 // Won't work on Firefox, because it respects the spec, which is... lacklustrous.
 // See https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scrollbars_styling
 ::-webkit-scrollbar {
@@ -49,15 +51,7 @@ a.tag, a.tag:visited {
   text-decoration: none;
   &.tag-low { border-color: var(--colour-overlay1); }
   &.tag-high::before {
-    content: '';
-    display: inline-block;
-    position: relative;
-    top: 2px;
-    left: -2px;
-    width: 16px;
-    height: 16px;
-    background-color: currentColor;
-    mask: url('./octicons/ruby-16.svg');
+    @include icon(ruby, (top: 2px, left: -2px));
   }
   &:hover {
     color:             var(--colour-accent);

@@ -1,3 +1,5 @@
+@use 'mxin' as *;
+
 $codefont: "Fira Code", monospace;
 
 strong { font-weight: 600; }
@@ -128,12 +130,8 @@ blockquote {
   }
 
   &::after {
-    content: '';
+    @include icon(book, (top: 2px));
     position: absolute;
-    top: 2px;
-    height: 16px;
-    width: 16px;
-    font-weight: 600;
   }
 
   @mixin admonition($props) {
@@ -144,7 +142,7 @@ blockquote {
     }
     &::after {
       mask: url('../octicons/#{map-get($props, icon)}-16.svg');
-      background-color: map-get($props, color);
+      color: map-get($props, color);
     }
   }
 

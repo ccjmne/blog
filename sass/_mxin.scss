@@ -1,0 +1,11 @@
+@mixin icon($name, $pos: (top: 2px, left: -2px)) {
+  content: '';
+  display: inline-block;
+  position: relative;
+  top: map-get($pos, top);
+  left: map-get($pos, left);
+  width: 16px;
+  height: 16px;
+  background-color: currentColor;
+  mask: url('../octicons/#{$name}-16.svg');
+}
