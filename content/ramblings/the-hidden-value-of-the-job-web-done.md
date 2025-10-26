@@ -1,6 +1,8 @@
 +++
 title = 'The hidden value of the job well done'
 date = 2025-10-02
+taxonomies.section = ['ramblings']
+taxonomies.tags = ['all']
 +++
 
 Once in a while, a project ends up completely off-course.  We end up having to

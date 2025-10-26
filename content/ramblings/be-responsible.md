@@ -1,6 +1,8 @@
 +++
 title = 'Be responsible'
 date = 2025-09-16
+taxonomies.section = ['ramblings']
+taxonomies.tags = ['all']
 +++
 
 So there is a task; it's yours.  It's ill-defined; that's not your fault.

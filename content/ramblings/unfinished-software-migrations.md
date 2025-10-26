@@ -1,6 +1,8 @@
 +++
 title = 'On unfinished software migrations'
 date = 2025-10-05
+taxonomies.section = ['ramblings']
+taxonomies.tags = ['all']
 +++
 
 > [!NOTE]

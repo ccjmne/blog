@@ -22,6 +22,9 @@ a.entry {
   padding: .2rem 0;
   h3 { margin: 0; }
   &:hover { color: var(--colour-accent); }
+  @each $type, $icon in (flight-rules: code, ramblings: book) {
+    h1.#{$type} ~ &:not(.#{$type}):not(:hover) { &, :not(.dots) { color: var(--colour-overlay1); } }
+  }
   :first-child {
     overflow: hidden;
     text-overflow: ellipsis;
