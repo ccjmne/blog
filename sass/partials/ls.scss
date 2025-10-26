@@ -1,3 +1,4 @@
+@use '../mxin' as *;
 @use '../shared';
 
 .ls-i {
@@ -26,5 +27,14 @@ article {
   .summary {
     > :first-child { margin-top: 0; }
     > :last-child { margin-bottom: 0; }
+  }
+}
+
+.most-recent {
+  margin-top: -.5rem;
+  color: var(--colour-overlay2);
+  &::before {
+    @include icon(flame, (top: 2px));
+    margin-right: 0.5rem;
   }
 }

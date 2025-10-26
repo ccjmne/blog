@@ -15,6 +15,7 @@
     <span class="i">{{- page.slug | truncate(length=2, end="") -}}.</span>
     {%- endif -%}
     <article>
+      <span class="most-recent">Most recent</span>
       <h2><a href="{{ page.permalink | safe }}" class="link-title" {{ hlpr::vtn(name=page.slug) -}}>{{ page.title | markdown(inline=true) | safe }}</a></h2>
       {%- include "partials/infobar.html" -%}
       {%- if page.summary -%}
