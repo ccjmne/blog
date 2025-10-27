@@ -1,5 +1,3 @@
-$assets-path: '.' !default;
-
 @mixin icon($name, $pos: (top: 2px, left: -2px)) {
   content: '';
   display: inline-block;
@@ -9,5 +7,9 @@ $assets-path: '.' !default;
   width: 16px;
   height: 16px;
   background-color: currentColor;
-  mask: url('#{$assets-path}/octicons/#{$name}-16.svg');
+  @include iconmask($name);
+}
+
+@mixin iconmask($name) {
+  mask: url('./octicons/#{$name}-16.svg');
 }

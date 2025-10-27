@@ -141,7 +141,7 @@ blockquote {
       color: map-get($props, color);
     }
     &::after {
-      mask: url('../octicons/#{map-get($props, icon)}-16.svg');
+      @include iconmask(map-get($props, icon));
       color: map-get($props, color);
     }
   }
