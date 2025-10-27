@@ -1,11 +1,9 @@
 {%- import "macros/hlpr.html" as hlpr -%}
 
 {%- block content -%}
-
 {%- for page in pages -%}
 {%- if loop.index is odd -%}<div class="hi">{%- endif -%}
   {%- include "partials/article-hero.html" -%}
 {%- if loop.index is odd -%}</div>          {%- endif -%}
 {%- endfor -%}
-
 {%- endblock content -%}

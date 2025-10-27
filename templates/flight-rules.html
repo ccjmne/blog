@@ -6,13 +6,10 @@
 
 {%- block content -%}
 <h1 class="title flight-rules">{{- section.title -}}</h1>
-
 {% set most_recent = section.pages | first %}
 {% set page = most_recent %}
 <div class="hi">
   {%- include "partials/article-hero.html" -%}
 </div>
-
 {%- include "partials/ls.html" -%}
-
 {%- endblock content -%}
