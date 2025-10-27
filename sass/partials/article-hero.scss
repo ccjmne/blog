@@ -10,6 +10,10 @@ article.hero {
     margin: 0;
   }
 
+  a[href$="#continue-reading"] {
+    text-align: end;
+  }
+
   .summary {
     > :first-child { margin-top: 0; }
     > :last-child { margin-bottom: 0; }
