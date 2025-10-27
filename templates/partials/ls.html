@@ -11,7 +11,7 @@
 {%- set_global month = page.month -%}
 <time class="month-switch"><span></span><h3>{{ page.date | date(format="%B") }}</h3></time>
 {%- endif -%}
-{%- if most_recent is not defined or page != most_recent -%}
+{%- if most_recent is not defined or most_recent.permalink != page.permalink  -%}
 <a class="entry {{ page.taxonomies.section | default(value=["flight-rules"]) | first }}" href="{{- page.permalink | safe -}}">
   <span class="link-title" {{- hlpr::vtn(name=page.slug) -}}>{{- page.title | markdown(inline=true) | safe -}}</span>
   <span class="dots"></span>
