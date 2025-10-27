@@ -1,9 +1,8 @@
 {%- extends "base.html" -%}
 
-{%- block links -%}
-<link rel="stylesheet" href="{{ get_url(path="/partials/ls.css") }}">
-<link rel="stylesheet" href="{{ get_url(path="/ramblings/list.css") }}">
-{%- endblock links -%}
+{%- block cssvars -%}
+--column-width: min(90vw, 480px);
+{%- endblock cssvars -%}
 
 {%- block content -%}
 <h1 class="title flight-rules">{{- section.title -}}</h1>
@@ -11,44 +10,9 @@
 {% set most_recent = section.pages | first %}
 {% set page = most_recent %}
 <div class="hi">
-  <div class="ls-i">
-    {%- if section.extra.series -%}
-    <span class="i">{{- page.slug | truncate(length=2, end="") -}}.</span>
-    {%- endif -%}
-    <article>
-      <span class="most-recent">Most recent</span>
-      <h2><a href="{{ page.permalink | safe }}" class="link-title" {{ hlpr::vtn(name=page.slug) -}}>{{ page.title | markdown(inline=true) | safe }}</a></h2>
-      {%- include "partials/infobar.html" -%}
-      {%- if page.summary -%}
-      <div class="summary">{{- page.summary | safe -}}</div>
-      <a style="align-self: self-end;" href="{{ page.permalink }}#continue-reading">Continue reading →</a>
-      {%- elif page.description -%}
-      <div class="summary">{{- page.description | markdown | safe -}}</div>
-      {%- endif -%}
-    </article>
-  </div>
+  {%- include "partials/article-hero.html" -%}
 </div>
 
-{%- set year = 0 -%}
-{%- set month = 0 -%}
-{# TODO: consider using group_by filter to group by year, month #}
-{%- set txnm = get_taxonomy_term(kind="tags", term="all") -%}
-{%- for page in txnm.pages -%}
-{%- if page.year != year -%}
-{%- set_global year = page.year -%}
-{%- set_global month = page.month -%}
-<time class="month-switch"><h3>{{ year }}</h3><h3>{{ page.date | date(format="%B") }}</h3></time>
-{%- elif page.month != month -%}
-{%- set_global month = page.month -%}
-<time class="month-switch"><span></span><h3>{{ page.date | date(format="%B") }}</h3></time>
-{%- endif -%}
-{%- if page.slug != most_recent.slug -%}
-<a class="entry {{ page.taxonomies.section | default(value=["flight-rules"]) | first }}" href="{{- page.permalink | safe -}}">
-  <span class="link-title" {{- hlpr::vtn(name=page.slug) -}}>{{- page.title | markdown(inline=true) | safe -}}</span>
-  <span class="dots"></span>
-  <time>{%- set d = page.day -%}{{- d -}}{% if d == 1 or d == 21 or d == 31 %}st{% elif d == 2 or d == 22 %}nd{% elif d == 3 or d == 23 %}rd{% else %}th{% endif %}</time>
-</a>
-{%- endif -%}
-{%- endfor -%}
+{%- include "partials/ls.html" -%}
 
 {%- endblock content -%}

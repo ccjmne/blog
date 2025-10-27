@@ -1,0 +1,12 @@
+<article>
+  {%- if most_recent is defined and page == most_recent -%} <span class="most-recent">Most recent</span> {%- endif -%}
+  {%- if section.extra.series -%} <span>{{- page.slug | truncate(length=2, end="") -}}.</span> {%- endif -%}
+  <h2><a href="{{ page.permalink | safe }}" class="link-title" {{ hlpr::vtn(name=page.slug) -}}>{{ page.title | markdown(inline=true) | safe }}</a></h2>
+  {%- include "partials/infobar.html" -%}
+  {%- if page.summary -%}
+  <div class="summary">{{- page.summary | safe -}}</div>
+  <a style="align-self: self-end;" href="{{ page.permalink }}#continue-reading">Continue reading →</a>
+  {%- elif page.description -%}
+  <div class="summary">{{- page.description | markdown | safe -}}</div>
+  {%- endif -%}
+</article>

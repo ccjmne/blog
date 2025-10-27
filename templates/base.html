@@ -8,12 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>~ccjmne</title>
     {%- include "partials/fonts.html" -%}
-    {%- block links -%}
     <link rel="stylesheet" href="{{- get_url(path="/shared.css") -}}">
-    {%- endblock links -%}
     <link rel="expect" blocking="render" href="#footer">
     <link rel="alternate" type="application/atom+xml" title="rss" href="{{ get_url(path="/atom.xml", trailing_slash=false) }}">
     <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {
+        {%- block cssvars -%}
+        {%- endblock cssvars -%}
+      }
+    </style>
   </head>
   <body>
     <header {{ hlpr::vtn(name="header", static=true) -}}>

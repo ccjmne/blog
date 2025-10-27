@@ -1,31 +1,21 @@
-{%- import "macros/hlpr.html" as hlpr -%}
-
-{%- block content -%}
-
-<!-- If you are using pagination, section.pages will be empty.
-     You need to use the paginator object -->
-{%- for page in pages -%}
-{%- if loop.index is odd -%}
-<div class="hi">
+{%- set year = 0 -%}
+{%- set month = 0 -%}
+{# TODO: consider using group_by filter to group by year, month #}
+{%- set txnm = get_taxonomy_term(kind="tags", term="all") -%}
+{%- for page in txnm.pages -%}
+{%- if page.year != year -%}
+{%- set_global year = page.year -%}
+{%- set_global month = page.month -%}
+<time class="month-switch"><h3>{{ year }}</h3><h3>{{ page.date | date(format="%B") }}</h3></time>
+{%- elif page.month != month -%}
+{%- set_global month = page.month -%}
+<time class="month-switch"><span></span><h3>{{ page.date | date(format="%B") }}</h3></time>
 {%- endif -%}
-<div class="ls-i">
-  {%- if section.extra.series -%}
-  <span class="i">{{- page.slug | truncate(length=2, end="") -}}.</span>
-  {%- endif -%}
-  <article>
-    <h2><a href="{{ page.permalink | safe }}" class="link-title" {{ hlpr::vtn(name=page.slug) -}}>{{ page.title | markdown(inline=true) | safe }}</a></h2>
-    {%- include "partials/infobar.html" -%}
-    {%- if page.summary -%}
-    <div class="summary">{{- page.summary | safe -}}</div>
-    <a style="align-self: self-end;" href="{{ page.permalink }}#continue-reading">Continue reading →</a>
-    {%- elif page.description -%}
-    <div class="summary">{{- page.description | markdown | safe -}}</div>
-    {%- endif -%}
-  </article>
-</div>
-{%- if loop.index is odd -%}
-</div>
+{%- if most_recent is not defined or page != most_recent -%}
+<a class="entry {{ page.taxonomies.section | default(value=["flight-rules"]) | first }}" href="{{- page.permalink | safe -}}">
+  <span class="link-title" {{- hlpr::vtn(name=page.slug) -}}>{{- page.title | markdown(inline=true) | safe -}}</span>
+  <span class="dots"></span>
+  <time>{%- set d = page.day -%}{{- d -}}{% if d == 1 or d == 21 or d == 31 %}st{% elif d == 2 or d == 22 %}nd{% elif d == 3 or d == 23 %}rd{% else %}th{% endif %}</time>
+</a>
 {%- endif -%}
 {%- endfor -%}
-
-{%- endblock content -%}

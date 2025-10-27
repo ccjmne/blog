@@ -1,5 +1,6 @@
-@forward 'vars';
-@use 'vars' as *;
+:root {
+  --column-width: min(90vw, 768px);
+}
 
 html, html > body {
   min-height: 100vh;
@@ -42,7 +43,7 @@ footer {
 }
 
 @mixin centred() {
-  width: $w;
+  width: var(--column-width);
   margin-left: auto;
   margin-right: auto;
 }

@@ -1,9 +1,5 @@
 {%- extends "base.html" -%}
 
-{%- block links -%}
-<link rel="stylesheet" href="{{ get_url(path="/partials/ls.css") }}">
-{%- endblock links -%}
-
 {%- block content -%}
 <h1 class="title">{{- section.title | markdown(inline=true) | safe -}}</h1>
 {{- section.content | safe -}}
@@ -13,5 +9,5 @@
 {% else %}
 {% set pages = section.pages %}
 {% endif %}
-{% include "partials/ls.html" %}
+{% include "partials/ls-hero.html" %}
 {%- endblock content -%}
