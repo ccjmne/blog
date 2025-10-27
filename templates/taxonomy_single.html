@@ -1,8 +1,5 @@
 {%- extends "base.html" -%}
 
-{%- block links -%}
-<link rel="stylesheet" href="{{- get_url(path="/partials/ls.css") -}}">
-{%- endblock links -%}
 
 {%- block content -%}
 <h1>Flight rules tagged <span class="link-title accent" {{ hlpr::vtn(name=term.slug) -}}>{{ term.name }}</span></h1>
