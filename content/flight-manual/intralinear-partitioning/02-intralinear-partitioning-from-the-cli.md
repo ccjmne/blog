@@ -141,7 +141,7 @@ ftp:x:14:11::/srv/ftp:/usr/bin/nologin
 http:x:33:33::/srv/http:/usr/bin/nologin
 nobody:x:65534:65534:Kernel Overflow User:/:/usr/bin/nologin
 ```
-{{ note(msg="note the startling absence of a [`UUOC`](@/flight-rules/useless-use-of-cat.md)") }}
+{{ note(msg="note the startling absence of a [`UUOC`](@/flight-manual/useless-use-of-cat.md)") }}
 
 Watch it now blossom into its intended form, fit for human consumption:
 
@@ -190,7 +190,7 @@ title="--table-right">`-R`</abbr>) flags, preferably preparing data upstream
 with composable tools that I use often enough to need not browse the trusty
 `man`ual:
 
-<!-- [browse the trusty manual](@/flight-rules/read-the-friendly-manual). TODO: LINKME -->
+<!-- [browse the trusty manual](@/flight-manual/read-the-friendly-manual). TODO: LINKME -->
 
 ```sh
 { echo 'User:UID:Home:Shell'; head -7 /etc/passwd | cut -d: -f1,3,6,7 } | column -ts:
@@ -293,7 +293,7 @@ How often do you need to do that?  Precisely *never*, were it not for everything
 being a file (descriptor): you can also `paste` the output of commands together
 (beware the non-`POSIX` Bashism, however):
 
-<!-- [everything being a file (descriptor)](@/flight-rules/everything-is-a-file.md). TODO: LINKME -->
+<!-- [everything being a file (descriptor)](@/flight-manual/everything-is-a-file.md). TODO: LINKME -->
 
 ```sh
 paste <(printf "%s\n" {a..e}) <(seq 1 4) <(man git | sed '/The commit/,/^$/!d')

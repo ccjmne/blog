@@ -7,8 +7,8 @@ taxonomies.tags = ['all', 'cli', 'posix']
 +++
 
 A follow-up to [everything is a file
-(descriptor)](@/flight-rules/everything-is-a-file.md), this article will serve as a
-deep dive into the `/proc` virtual filesystem.
+(descriptor)](@/flight-manual/everything-is-a-file.md), this article will serve
+as a deep dive into the `/proc` virtual filesystem.
 
 SHOULD PROBABLY BE A SERIES!!!!
 
@@ -35,8 +35,8 @@ sort
 {{ note(msg="this will wait for your input") }}
 
 Terminate your input on `stdin` with `Ctrl-D`[^ctrl-d].  As presented in [shell
-redirections 101](@/flight-rules/shell-redirections-101.md), you can open various file
-descriptors and assign them to your processes' `stdin`:
+redirections 101](@/flight-manual/shell-redirections-101.md), you can open
+various file descriptors and assign them to your processes' `stdin`:
 
   [^ctrl-d]: An <abbr title="Input/Output">`I/O`</abbr> stream is typically
 closed by pressing `Ctrl-D`, which sends an *end-of-file* sequence.
@@ -139,10 +139,10 @@ read (and spat back) `-` (`stdin`) once, `cat` attempts again to read from `FD
 
 Conversely, `/proc/self/fd/0` is a *descriptor* to the
 resource that `FD 0` points to (see [File descriptors in
-`/proc`](@/flight-rules/everything-is-a-file.md#file-descriptors)).  In our case,
-that resource is a simple file on our system and we can open a new stream to
-it: `cat` can consume it several times; despite pointing to the same resource,
-`/proc/self/fd/0` is *not* the same `I/O` stream as `FD 0`!
+`/proc`](@/flight-manual/everything-is-a-file.md#file-descriptors)).  In our
+case, that resource is a simple file on our system and we can open a new
+stream to it: `cat` can consume it several times; despite pointing to the same
+resource, `/proc/self/fd/0` is *not* the same `I/O` stream as `FD 0`!
 
 <div class="grid-1-2"><div>
 

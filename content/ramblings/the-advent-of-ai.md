@@ -67,7 +67,7 @@ some regards that I'm certain is far from being available to the general public,
 would they even by armed with the World-Wide-Web and aided by some companions of
 the artificial kind.
 
-<!-- (@/flight-rules/switch-audio-sink-gpt-vs-me). TODO: LINKME -->
+<!-- (@/flight-manual/switch-audio-sink-gpt-vs-me). TODO: LINKME -->
 
 If I use a tool to author and compose code for me, I rob myself of the
 opportunity and experience of thinking through the problem, arriving at a

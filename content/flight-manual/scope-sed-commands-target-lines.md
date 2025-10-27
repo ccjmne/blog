@@ -38,7 +38,7 @@ publish on this very platform.
 > more exhaustive version through either `info sed` or its [on-line
 > version](https://www.gnu.org/software/sed/manual/).
 
-<!-- , and I write about using the `man`ual here. (@/flight-rules/read-the-friendly-manual). TODO: LINKME -->
+<!-- , and I write about using the `man`ual here. (@/flight-manual/read-the-friendly-manual). TODO: LINKME -->
 
 <div class="hi">
 

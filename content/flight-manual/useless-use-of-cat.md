@@ -43,7 +43,7 @@ sed -i 's/127.0.0.1/localhost/' server.cfg
 Files are a fairly common in the world of computing, and even more so across
 Unix-like operating systems, where everything is a file (descriptor).
 
-<!-- [everything being a file (descriptor)](@/flight-rules/everything-is-a-file.md). TODO: LINKME -->
+<!-- [everything being a file (descriptor)](@/flight-manual/everything-is-a-file.md). TODO: LINKME -->
 
 When you do `cat asdf`, your Kernel looks up `asdf` in the file system and
 returns a *file descriptor* (abbreviated `FD`) to the process running `cat`,
@@ -56,7 +56,7 @@ from the standard input.  Your tool only has to support being specified which
 file to read from, and you only need to <abbr title="Read The F... riendly
 Manual">`RTFM`</abbr>:
 
-<!-- (@/flight-rules/read-the-friendly-manual). TODO: LINKME -->
+<!-- (@/flight-manual/read-the-friendly-manual). TODO: LINKME -->
 
 ```sh
 man grep | head
@@ -100,7 +100,7 @@ isn't, despite its twin counterpart (the *output* redirection) being virtually
 omnipresent: I explain this phenomenon with the concept of rampant shell
 illiteracy.
 
-<!-- [rampant shell illiteracy](@/flight-rules/rampant-shell-illiteracy). TODO: LINKME -->
+<!-- [rampant shell illiteracy](@/flight-manual/rampant-shell-illiteracy). TODO: LINKME -->
 
 ## The legitimate use of `cat`
 
@@ -133,7 +133,7 @@ everything, as if every command needed a feline blessing.  With everything being
 a file (descriptor), it turns out that quite a few commands will happily accept
 to read from a file!
 
-<!-- [everything being a file (descriptor)](@/flight-rules/everything-is-a-file.md). TODO: LINKME -->
+<!-- [everything being a file (descriptor)](@/flight-manual/everything-is-a-file.md). TODO: LINKME -->
 
 As such, here is the *definitive escalation mechanism* for your commands that
 are to consume the contents of a file:

@@ -21,7 +21,7 @@ a.entry {
   h3 { margin: 0; }
   &:hover { color: var(--colour-accent); }
   &::before { @include icon(book, (top: 3px, left: 0)); }
-  @each $type, $icon in (flight-rules: repo, ramblings: note) {
+  @each $type, $icon in (flight-manual: repo, ramblings: note) {
     h1.#{$type} ~ &:not(.#{$type}):not(:hover) { &, :not(.dots) { color: var(--colour-overlay1); } }
     &.#{$type}::before { mask: url('../octicons/#{$icon}-16.svg'); }
   }

@@ -13,7 +13,7 @@ in the various notes, but the main focus of the article still is only
 meant to level the playing field in order to approach the *everything is a
 file* series.
 
-<!-- [everything being a file (descriptor)](@/flight-rules/everything-is-a-file.md). TODO: LINKME -->
+<!-- [everything being a file (descriptor)](@/flight-manual/everything-is-a-file.md). TODO: LINKME -->
 
 <!-- more -->
 
