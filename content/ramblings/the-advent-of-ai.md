@@ -195,7 +195,7 @@ Will our own systems and products stand the test of time, or shall we right
 away mandate [Vibe Coding](https://en.wikipedia.org/wiki/Vibe_coding) to faster
 implement complexity[^faster-implement-complexity]?
 
-[^faster-implement-complexity]: being a proponent of radical simplicity, I
-smirk in smugness at the idea, yet shudder at the realisation that some serious
+[^faster-implement-complexity]: Being a proponent of radical simplicity, I
+may smugly smirk at the idea, yet I shudder at the realisation that some serious
 people are indeed in favour of such mandates, and in position to put them into
 practice.
