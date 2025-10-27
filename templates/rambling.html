@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{%- block cssvars -%}
+--column-width: min(90vw, 600px);
+{%- endblock cssvars -%}
+
 {% block content %}
 <h1><span class="link-title" {{ hlpr::vtn(name=page.slug) -}}>{{- page.title | markdown(inline=true) | safe -}}</span></h1>
 {%- include "partials/infobar.html" -%}
