@@ -10,4 +10,20 @@ ul.infobar {
     margin: 0 .5ch;
     color: var(--colour-surface1);
   }
+  &.oneline {
+    position: relative;
+    overflow: hidden;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 3ch;
+      pointer-events: none;
+      background: linear-gradient(to right, transparent, var(--bg));
+    }
+  }
 }

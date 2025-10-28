@@ -1,4 +1,4 @@
-<ul class="infobar">
+<ul class="infobar {% if oneline -%} oneline {%- endif -%}">
   {%- if page.date -%}
   <li><time>{{- page.date | date(format="%B %d, %Y") -}}</time></li>
   {%- endif -%}
