@@ -9,6 +9,7 @@
 {% set most_recent = section.pages | first %}
 {% set page = most_recent %}
 <div class="hi">
+  {%- set oneline=true -%}
   {%- include "partials/article-hero.html" -%}
 </div>
 {%- include "partials/ls.html" -%}
