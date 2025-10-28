@@ -38,4 +38,5 @@ a.entry {
     text-overflow: clip;
     &::before { content: "................................................................................"; }
   }
+  &::before, time { flex-shrink: 0; }
 }
