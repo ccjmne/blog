@@ -9,7 +9,8 @@ html, html > body {
 }
 
 html {
-  background-color: var(--colour-base);
+  --bg: var(--colour-base);
+  background-color: var(--bg);
 }
 
 body {
@@ -53,21 +54,22 @@ main > :not(article), main > article > :not(%hilo) {
 }
 
 %hilo {
+  width: 100vw;
+  background-color: var(--bg);
   @at-root main & {
     padding: 1.75rem 0;
     margin: 1.75rem 0;
     > :first-child { margin-top: 0; }
     > :last-child { margin-bottom: 0; }
   }
-  width: 100vw;
   > * { @include centred(); }
 }
 
 .hi {
+  --bg: var(--colour-mantle);
   @extend %hilo;
-  background-color: var(--colour-mantle);
 }
 .lo, .footnotes {
+  --bg: var(--colour-lo-bg);
   @extend %hilo;
-  background-color: var(--colour-lo-bg);
 }
