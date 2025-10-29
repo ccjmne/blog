@@ -12,26 +12,30 @@ taxonomies.tags = ['all']
 a sure cornerstone of technological advancement in respectable [4x
 games](https://en.wikipedia.org/wiki/4X), did not only usher in the age of
 enlightenment, but also solidified our familiar Latin alphabet into its
-majuscule and minuscule forms.
+contemporary majuscule and minuscule forms.
 
 Its influence is such that its operators' vernacular became the *de facto*
-(colloquial) language of typography:
+language of (colloquial) typography:
 
 - the "*cases*" (lower and upper) actually used to refer to the physical boxes
   holding the movable types to be used in printing;
-- these families themselves were "*fonts*" as desired from the French word for
-  "cast iron", "*fonte*";
+- these families themselves were "*fonts*", from the French word for "cast
+  iron", "*fonte*";
 - the *"leading"* referring to the strips of lead placed between lines of type
-  (and therefore pronounced "ledding"!), and some more I am surely forgetting.
+  (and therefore pronounced "ledding"!);
+- surely some more that I am forgetting.
 
 But even today, we, the impersonal collective "we", still come to ask ourselves
-what "casing" would be most appropriate for the occasion—or worse yet, not
-even bat an eye as we read of the "git" [sic] tools.
+from time to time what "casing" would be most appropriate for the occasion...
+Or worse yet, not even bat an eye as we read of the "git" [sic] <abbr
+title="Version Control System">VCS</abbr>.
 
-It's *Git*.  There's also *GitHub*, *GitLab*, but *Bitbucket* and *Codeberg* (I
-highly recommend the first and the last).  We don't have to like how *NVIDIA* or
-*Neovim* is spelled out, but we can still strive to get it right.  Let's jump
-right in, alphabetically:
+  It's *Git*.<br>
+  There's also *GitHub* and *GitLab*, but *Gitea*; *BitKeeper* but *Bitbucket*;
+*SourceForge* but *Codeberg*—I highly recommend the first and the last.
+
+Ultimately, while we do not have to like how *NVIDIA* or *Neovim* are spelled,
+we can still strive to get it right.  Let's jump right in, alphabetically:
 
 - It's [**braille**](https://www.brailleauthority.org/capitalization/capitalization.html)
 
@@ -45,7 +49,7 @@ right in, alphabetically:
   Group">MPEG</abbr>"*, check out [this thread on the FFmpeg mailing
   list](https://ffmpeg.org/pipermail/ffmpeg-devel/2006-February/thread.html#10142).
 
-  Ah, I ran into a nice pearl there: *"[...] Linus insisting on using the evil
+  A quaint bit I found there: *"[...] Linus insisting on using the evil
   BitKeeper system for the Linux source (although IIRC they moved to something
   more sane eventually)"*.
 
