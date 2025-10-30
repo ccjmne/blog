@@ -81,7 +81,7 @@ we can still strive to get it right.  Let's jump right in, alphabetically:
 
 - It's [**niri**](https://github.com/YaLTeR/niri)
 
-- It's [**Node.js**](https://www.nvidia.com/), [**Next.js**](https://nextjs.org/) and [**Nuxt**](https://nuxt.org/)  
+- It's [**Node.js**](https://nodejs.org/), [**Next.js**](https://nextjs.org/) and [**Nuxt**](https://nuxt.org/)  
 
   Ah, it used to be *NuxtJS*, quite amusingly.  But we shouldn't care much
   anyway, since **Svelte** is really the superior alternative in all matters.
