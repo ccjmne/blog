@@ -97,6 +97,11 @@ we can still strive to get it right.  Let's jump right in, alphabetically:
   I can actually see the casing difference actually making sense even
   intuitively, when you consider their history.
 
+- It's [**Syncthing**](https://syncthing.net/)
+
+  Let's appreciate [their
+  FAQ](https://docs.syncthing.net/users/faq.html#is-it-syncthing-syncthing-or-syncthing) addressing this very question so clearly.
+
 - It's [**tmux**](https://github.com/tmux)
 
 - It's [**Vim**](https://www.vim.org/)
