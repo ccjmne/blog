@@ -1,8 +1,8 @@
 @view-transition { navigation: auto; }
 
 @media (prefers-reduced-motion) {
-  html { scroll-behavior: unset; }
-  * { view-transition-name: none; }
+  html { scroll-behavior:      unset; }
+  *    { view-transition-name: none !important; }
 }
 
 ::view-transition-group(.static) { animation-duration: 0ms !important; }
