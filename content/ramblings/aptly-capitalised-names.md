@@ -113,6 +113,8 @@ we can still strive to get it right.  Let's jump right in, alphabetically:
 
 - It's [**tmux**](https://github.com/tmux)
 
+- It's [**Unicode**](https://home.unicode.org/)
+
 - It's [**Vim**](https://www.vim.org/)
 
   Well-known to mean *"Vi IMproved"*, yet it originally stood for the less
