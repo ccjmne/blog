@@ -41,6 +41,8 @@ underline;">F</strong>_orge_ but _Codeberg_...
 Ultimately, while we do not have to like how *NVIDIA* or *Neovim* are spelled,
 we can still strive to get it right.  Let's jump right in, alphabetically:
 
+{{ hr(class="alternating-list-marker") }}
+
 - It's [**braille**](https://www.brailleauthority.org/capitalization/capitalization.html)
 
 - It's [**ccjmne**](https://github.com/ccjmne)

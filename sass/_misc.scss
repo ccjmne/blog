@@ -66,3 +66,27 @@ a.tag, a.tag:visited {
     color: var(--colour-text);
   }
 }
+
+.alternating-list-marker {
+  $code-padding: 1rem; // Should match that in _code.scss
+  display: none;
+  + ul {
+    padding: 0;
+    list-style: none;
+    li {
+      &:nth-child(odd) {
+        margin-inline: -$code-padding;
+        padding: 0.1px $code-padding;
+        background-color: var(--colour-mantle);
+      }
+      p:not(:first-child) {
+        padding-inline: $code-padding * 2;
+        @media (max-width: 768px) {
+          padding-inline: $code-padding;
+        }
+        color: var(--colour-subtext0);
+      }
+    }
+  }
+}
+
