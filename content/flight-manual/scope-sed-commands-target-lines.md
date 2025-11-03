@@ -444,8 +444,8 @@ git commit --verbose
 <span class="term-fg33">--- a/test</span>
 <span class="term-fg35">+++ b/test</span>
 <span class="term-fg36">@@ -1 +1 @@</span>
-<span class="term-fg31">-Let me tell you about something</span>
-<span class="term-fg32">+Let me tell you about something cool</span>
+<span class="term-fg31">-Let me show you something</span>
+<span class="term-fg32">+Let me show you something cool</span>
 </pre></code>
 {{ note(msg="I like having a recap of my changes below the [scissors line](https://git-scm.com/docs/git-mailinfo#Documentation/git-mailinfo.txt---scissors)") }}
 
@@ -479,8 +479,8 @@ git commit --verbose
 <span class="term-fg33">--- a/test</span>
 <span class="term-fg35">+++ b/test</span>
 <span class="term-fg36">@@ -1 +1 @@</span>
-<span class="term-fg31">-Let me tell you about something</span>
-<span class="term-fg32">+Let me tell you about something cool</span>
+<span class="term-fg31">-Let me show you something</span>
+<span class="term-fg32">+Let me show you something cool</span>
 </pre></code>
 {{ note(msg="in reality, I have configured `git-commit` to always use `--verbose` and needn't specify it") }}
 
