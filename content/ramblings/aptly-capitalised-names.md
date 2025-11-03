@@ -63,8 +63,14 @@ we can still strive to get it right.  Let's jump right in, alphabetically:
 
 - It's [**GNOME**](https://www.gnome.org/)
 
-  Though that one is, somewhat regrettably, [possibly
-  rebranding](https://cassidyjames.com/blog/gnome-foot-logo-rebrand/) soon.
+  While the project has been rebranding lately, there is no (publicly disclosed)
+  intention by the [GNOME Foundation](https://foundation.gnome.org/) to alter
+  the beloved name and logo anytime soon, though [the community is talking about
+  this](https://cassidyjames.com/blog/gnome-foot-logo-rebrand/).
+
+  Oh, and, as seems to be customary within the GNU community, this acronym is
+  rather a ["backronym"](https://en.wikipedia.org/wiki/Backronym), purportedly
+  standing for *"GNU Network Object Model Environment"*.
 
 - It's [**GNU**](https://www.gnu.org/)
 
