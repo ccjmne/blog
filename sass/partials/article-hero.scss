@@ -4,6 +4,11 @@ article.hero {
   display: flex;
   flex-direction: column;
   gap: .5rem;
+  counter-increment: ls-hero-counter;
+
+  .ls-hero-counter::before {
+    content: counter(ls-hero-counter, decimal-leading-zero) '.';
+  }
 
   h2 {
     font-size: 1.25rem;
