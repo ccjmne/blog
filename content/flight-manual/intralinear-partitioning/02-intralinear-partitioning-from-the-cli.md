@@ -67,9 +67,9 @@ them out in a grid with `column`:
 echo $PATH | tr : '\n' | column
 ```
 ```txt
-/home/ccjmne/bin	/usr/local/sbin		/usr/bin/core_perl
-/usr/local/bin		/usr/bin/site_perl	/usr/lib/rustup/bin
-/usr/bin		/usr/bin/vendor_perl	/home/ccjmne/share/pnpm
+/home/ccjmne/bin    /usr/local/sbin         /usr/bin/core_perl
+/usr/local/bin      /usr/bin/site_perl      /usr/lib/rustup/bin
+/usr/bin            /usr/bin/vendor_perl    /home/ccjmne/share/pnpm
 ```
 
    It wants to print out columns of unique width, regardless of their individual
