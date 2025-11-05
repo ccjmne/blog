@@ -5,25 +5,25 @@ description = 'Grids, lists, and other horizontally split what-have-yous, from t
 taxonomies.tags = ['all', 'cli']
 
 [[extra.cited_tools]]
-   name    = "vim"
-   repo    = "https://github.com/vim/vim"
-   package = "extra/x86_64/vim"
-   manual  = "https://vimhelp.org/"
-[[extra.cited_tools]]
-   name    = "neovim"
-   repo    = "https://github.com/neovim/neovim"
-   package = "extra/x86_64/neovim"
-   manual  = "https://neovim.io/doc/user/"
-[[extra.cited_tools]]
    name    = "column"
    repo    = "https://github.com/util-linux/util-linux/"
    package = "core/x86_64/util-linux"
    manual  = "https://man.archlinux.org/man/column.1.en"
 [[extra.cited_tools]]
+   name    = "cut"
+   repo    = "https://github.com/coreutils/coreutils"
+   package = "core/x86_64/coreutils"
+   manual  = "https://man.archlinux.org/man/cut.1.en"
+[[extra.cited_tools]]
    name    = "paste"
    repo    = "https://github.com/coreutils/coreutils"
    package = "core/x86_64/coreutils"
    manual  = "https://man.archlinux.org/man/paste.1.en"
+[[extra.cited_tools]]
+   name    = "vim"
+   repo    = "https://github.com/vim/vim"
+   package = "extra/x86_64/vim"
+   manual  = "https://vimhelp.org/"
 +++
 
    While conducting software archaeology with a colleague some days ago, we ran
