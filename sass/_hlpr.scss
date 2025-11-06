@@ -8,12 +8,11 @@
       grid-gap: 1em;
       grid-template-rows: 1fr;
       grid-template-columns: 1fr;
-      width: 100% !important; // FIXME: that's visually messed up
+      width: calc(var(--column-width) + 2rem) !important;
 
       @include md {
-        grid-template-rows: repeat(#{$r}, 1fr);
-        grid-template-columns: repeat(#{$c}, 1fr);
-        width: calc(var(--column-width) + 2rem) !important;
+        grid-template-rows: repeat(#{$r}, minmax(0, 1fr));
+        grid-template-columns: repeat(#{$c}, minmax(0, 1fr));
       }
     }
   }
