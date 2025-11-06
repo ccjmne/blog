@@ -2,7 +2,7 @@
 title = 'Useless use of `cat`'
 date = 2025-08-16
 description = 'The signature of the shell-illiterate'
-taxonomies.tags = ['all', 'cli', 'posix']
+taxonomies.tags = ['all', 'cli', 'meticulousness', 'posix']
 
 [[extra.cited_tools]]
    name    = "cat"

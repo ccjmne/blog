@@ -2,7 +2,7 @@
 title = 'A glossary of aptly capitalised names'
 date = 2025-08-03
 taxonomies.section = ['ramblings']
-taxonomies.tags = ['all']
+taxonomies.tags = ['all', 'meticulousness']
 +++
 
 > [!NOTE]
