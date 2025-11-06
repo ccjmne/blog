@@ -77,25 +77,20 @@ a {
 
   $sz: 16px;
   &.anchor-link {
-    @include icon(hash);
+    @include icon(hash, (top: 50%, left: unset));
     position: absolute;
-    top: -8px;
-    margin-left: -3 * $sz;
+    margin-left: 3 * -$sz;
     padding: $sz;
+    transform: translateY(-50%);
     color: var(--colour-surface2);
-
-    @media (max-width: 768px) {
-      position: absolute;
-      top: -8px;
-      margin-left: -$sz;
-    }
+    @include lg { margin-left: -3 * $sz; }
 
     @at-root :has(> &:first-child) {
       position: relative;
-      @media (max-width: 768px) {
-        padding-left: calc($sz + 1rem);
-        box-sizing: border-box;
-      }
+      padding-left: 2 * $sz;
+      box-sizing: border-box;
+      @include lg { padding: 0; }
+
       &:hover > :first-child {
         color: var(--colour-accent);
       }
