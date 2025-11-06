@@ -69,11 +69,19 @@ a {
   }
 
   &.anchor-link {
-    margin-right: .5ch;
-    font-family: "Noto Sans Symbols";
-    font-weight: normal;
-    color: var(--colour-accent);
-    text-decoration: none;
+    @include icon(hash);
+    position: absolute;
+    top: 50% !important;
+    transform: translate(-100%, -50%);
+    padding: 1rem;
+    color: var(--colour-surface2);
+
+    @at-root :has(> &:first-child) {
+      position: relative;
+      &:hover > :first-child {
+        color: var(--colour-accent);
+      }
+    }
   }
 }
 
