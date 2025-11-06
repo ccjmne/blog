@@ -1,3 +1,4 @@
+nmap <Leader>p o<pre>{{ ^ \| json_encode(pretty=true) }}</pre>F^cl
 vmap <Leader>a satabbrhi title=""i
 nmap <Leader>j !ippar 80
 nmap <Leader>k !ippar 80d
