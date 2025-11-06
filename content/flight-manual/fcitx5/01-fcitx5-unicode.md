@@ -11,12 +11,6 @@ taxonomies.tags = ['all', 'quibblery']
    manual  = "https://github.com/ibus/ibus/wiki"
 
 [[extra.cited_tools]]
-   name    = "fcitx4"
-   repo    = "https://github.com/fcitx/fcitx"
-   package = "extra/x86_64/fcitx"
-   manual  = "https://fcitx-im.org/wiki/Fcitx"
-
-[[extra.cited_tools]]
    name    = "fcitx5"
    repo    = "https://github.com/fcitx/fcitx5"
    package = "extra/x86_64/fcitx5"
@@ -98,34 +92,31 @@ digits](https://www.pi-world-ranking-list.com/?page=lists).
 
 ## Unicode search
 
-Or with `Ctrl`+`Shift`+`Alt`+`U` (I like to call this "<abbr title="relating to
-fingers">digital</abbr> mouthful" a *"handful"*), you will be able to **search
-by description**.
+What about the characters you won't reach for regularly enough to commit to
+(muscle?) memory their code point?  With `Ctrl`+`Shift`+`Alt`+`U` (I like
+to call this "<abbr title="relating to fingers">digital</abbr> mouthful" a
+*"handful"*), you will be able to **search by description**.
 
-- Drawing up some <abbr title="Terminal User Interface">`TUI`</abbr> menu? Have at it!
+- Drawing up some <abbr title="Terminal User Interface">`TUI`</abbr> menu?  Have
+at it!
 
    ```
-   ┌─┬┐  ╔═╦╗  ╓─╥╖  ╒═╤╕
-   │ ││  ║ ║║  ║ ║║  │ ││
-   ├─┼┤  ╠═╬╣  ╟─╫╢  ╞═╪╡
-   └─┴┘  ╚═╩╝  ╙─╨╜  ╘═╧╛
    ┌───────────────────┐
-   │  ╔═══╗ Some Text  │▒
-   │  ╚═╦═╝ in the box │▒
-   ╞═╤══╩══╤═══════════╡▒
-   │ ├──┬──┤           │▒
-   │ └──┴──┘           │▒
-   └───────────────────┘▒
-    ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+   │  ╔═══╗ Some Text  │
+   │  ╚═╦═╝ in the box │
+   ╞═╤══╩══╤═══════════╡
+   │ ├──┬──┤           │
+   │ └──┴──┘           │
+   └───────────────────┘
    ```
    ― from Wikipedia's article on [box-drawing
    characters](https://en.wikipedia.org/wiki/Box-drawing_characters)
 
-- the ideograph for love? [戀 is all that you
-need!](https://en.wikipedia.org/wiki/All_You_Need_Is_Love)—according to the
+- the ideograph for love?  [戀 is all that you
+need](https://en.wikipedia.org/wiki/All_You_Need_Is_Love)—according to the
 Beatles
 
-- a healthy serving of spaghetti? 🍝, delivered on a silver platter!
+- a healthy serving of spaghetti?  🍝, delivered on a silver platter!
 
 ## And even reverse-search
 
