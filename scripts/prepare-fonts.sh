@@ -2,9 +2,6 @@
 
 readonly project="$(readlink -f "$0" | xargs dirname | xargs dirname)"
 
-# Get only the anchor: ⚓
-readonly noto=$(curl -Ls 'https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols&text=%e2%9a%93')
-
 # Get the full fonts:
 readonly ouft=$(curl -Ls 'https://fonts.googleapis.com/css2?family=Outfit:wght@400;500')
 readonly work=$(curl -Ls 'https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,600;1,400')
@@ -12,7 +9,7 @@ readonly fira=$(curl -Ls 'https://fonts.googleapis.com/css2?family=Fira+Code')
 
 preload=()
 style=()
-for font in noto ouft work fira; do
+for font in ouft work fira; do
     i=1
     while read -r ff; do
         file=$font-$((i++))
@@ -28,7 +25,7 @@ rm *.ttf
 mv *.woff2 "$project/static"
 {
     printf "%s\n" "${preload[@]}"
-    printf '<style type="text/css">'
+    printf '<style type="text/css">\n'
     printf "%s\n" "${style[@]}"
     printf '</style>'
 } > "$project/templates/partials/fonts.html"
