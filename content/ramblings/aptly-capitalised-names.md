@@ -126,6 +126,15 @@ we can still strive to get it right.  Let's jump right in, alphabetically:
   communication.  The community overwhelmingly settled on *VS Code*, in part
   because **Visual Studio** is an entirely different tool.
 
+- It's the [**WHATWG**](https://whatwg.org/)
+
+  That may not be what we wish, but that is undoubtedly *"what we get"*.
+
+  It stands for *"Web Hypertext Application Technology
+  Working Group"*, and is [apparently pronounced whatever you
+  want](https://whatwg.org/faq#spell-and-pronounce), so long as the first part
+  is read as "what".
+
 - It's the (World Wide) [**Web**](https://en.wikipedia.org/wiki/World_Wide_Web)
 
   We few pained by the missing hyphen in "world-wide" may find solace in the
