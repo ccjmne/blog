@@ -2,6 +2,7 @@
 title = 'Script-friendliest `$EDITOR` with `moreutils`'
 date = 2025-07-31
 description = "Adoping moreutils's `vipe` and `ifne` for friendlier scripting"
+taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'cli', 'vim']
 
 [[extra.cited_tools]]

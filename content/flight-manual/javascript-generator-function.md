@@ -2,6 +2,7 @@
 title = "JavaScript's generator `function*`"
 date = 2025-09-02
 description = 'Returning *multiple times* from a single `function` in ECMAScript'
+taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'javascript', 'es6']
 +++
 

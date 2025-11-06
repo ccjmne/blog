@@ -6,9 +6,10 @@
 
 {%- block content -%}
 <h1 class="title flight-manual">{{- section.title -}}</h1>
-{% set most_recent = section.pages | first %}
-{% set page = most_recent %}
+{%- set txnm = get_taxonomy_term(kind="section", term="flight-manual") -%}
+{%- set most_recent = txnm.pages | first -%}
 <div class="hi">
+  {%- set page = most_recent -%}
   {%- set oneline=true -%}
   {%- include "partials/article-hero.html" -%}
 </div>

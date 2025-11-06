@@ -3,6 +3,7 @@ title = 'RTFM'
 date = 2025-08-16
 description = 'The signature of the perpetually uneducated'
 draft = true
+taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'cli']
 +++
 

@@ -3,6 +3,7 @@ title = 'Rampant shell illiteracy'
 date = 2025-08-16
 description = "You don't need decent grammar to be well understood, but it'll help taking you seriously"
 draft = true
+taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'cli', 'posix']
 +++
 

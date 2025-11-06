@@ -2,6 +2,7 @@
 title = 'Share and recover your Git stashes with ease'
 date = 2025-08-26
 description = '`Import` and `export` your Git stashes with the `2.51` release'
+taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'git', 'cli']
 +++
 

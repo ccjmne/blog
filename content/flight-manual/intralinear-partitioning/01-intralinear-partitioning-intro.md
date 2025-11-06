@@ -2,6 +2,7 @@
 title = 'Laying text out horizontally'
 date = 2025-07-25
 description = 'Why and when to put chunks of text side by side'
+taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'quibblery']
 
 [[extra.cited_tools]]

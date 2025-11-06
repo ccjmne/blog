@@ -2,6 +2,7 @@
 title = 'Adapt the Web to `@media` preferences'
 date = 2025-10-28
 description = "Account for [media features](https://developer.mozilla.org/en-US/docs/Web/CSS/@media#media_features) describing your user's wants or needs."
+taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'web', 'css', 'accessibility']
 +++
 
