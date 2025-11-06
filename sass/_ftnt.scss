@@ -1,4 +1,4 @@
-@import 'typo';
+@use 'typo' as *;
 
 section.footnotes {
   margin-bottom: 0;
