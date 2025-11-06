@@ -19,11 +19,18 @@ h3, h4, h5, h6 { font-weight: 400; }
 h1 { margin: 3rem 0; }
 h2, h3 { margin: 1.75rem 0; }
 
-@media (max-width: 600px) {
-  h1 { font-size: 1.5rem; }
-  h2 { font-size: 1.3rem; }
-  h3 { font-size: 1.15rem; }
-  body { font-size: calc(1rem - 1px); }
+h1   { font-size: 1.5rem; }
+h2   { font-size: 1.3rem; }
+h3   { font-size: 1.15rem; }
+body { font-size: calc(1rem - 1px); }
+
+// From the WHATWG:
+// https://html.spec.whatwg.org/multipage/rendering.html#sections-and-headings
+@include sm {
+  h1   { font-size: 2em; }
+  h2   { font-size: 1.5em; }
+  h3   { font-size: 1.17em; }
+  body { font-size: 1rem; }
 }
 
 ol.breadcrumbs {

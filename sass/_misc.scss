@@ -80,11 +80,11 @@ a.tag, a.tag:visited {
         background-color: var(--colour-mantle);
       }
       p:not(:first-child) {
-        padding-inline: $code-padding * 2;
-        @media (max-width: 768px) {
-          padding-inline: $code-padding;
-        }
+        padding-inline: $code-padding;
         color: var(--colour-subtext0);
+        @include md {
+          padding-inline: $code-padding * 2;
+        }
       }
     }
   }

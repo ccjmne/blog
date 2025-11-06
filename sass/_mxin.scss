@@ -15,3 +15,10 @@
 @mixin iconmask($name) {
   mask: url('./octicons/#{$name}-16.svg');
 }
+
+// GitHub Primer's breakpoint values:
+// https://primer.style/product/css-utilities/grid/#breakpoints
+@mixin sm { @media (min-width: 544px)  { @content; } }
+@mixin md { @media (min-width: 768px)  { @content; } }
+@mixin lg { @media (min-width: 1004px) { @content; } }
+@mixin xl { @media (min-width: 1280px) { @content; } }

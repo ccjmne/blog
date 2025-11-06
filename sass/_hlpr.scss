@@ -1,17 +1,19 @@
+@use 'mxin' as *;
+
 // TODO: consider using wrapping flexbox
 @for $r from 1 through 3 {
   @for $c from 1 through 3 {
     .grid-#{$r}-#{$c} {
       display: grid;
       grid-gap: 1em;
-      grid-template-rows: repeat(#{$r}, 1fr);
-      grid-template-columns: repeat(#{$c}, 1fr);
-      width: calc(var(--column-width) + 2rem) !important;
+      grid-template-rows: 1fr;
+      grid-template-columns: 1fr;
+      width: 100% !important; // FIXME: that's visually messed up
 
-      @media (max-width: 768px) {
-        grid-template-rows: 1fr;
-        grid-template-columns: 1fr;
-        width: 100% !important;
+      @include md {
+        grid-template-rows: repeat(#{$r}, 1fr);
+        grid-template-columns: repeat(#{$c}, 1fr);
+        width: calc(var(--column-width) + 2rem) !important;
       }
     }
   }
