@@ -93,14 +93,15 @@ digits](https://www.pi-world-ranking-list.com/?page=lists).
 ## Unicode search
 
 What about the characters you won't reach for regularly enough to commit to
-(muscle?) memory their code point?  With `Ctrl`+`Shift`+`Alt`+`U` (I like
-to call this "<abbr title="relating to fingers">digital</abbr> mouthful" a
+(muscle?) memory their code point?  With `Ctrl`+`Shift`+`Alt`+`U` (I like to
+call this "<abbr title="relating to the fingers">digital</abbr> mouthful" a
 *"handful"*), you will be able to **search by description**.
 
-- Drawing up some <abbr title="Terminal User Interface">`TUI`</abbr> menu?  Have
-at it!
+- Drawing some <abbr title="Terminal User Interface">`TUI`</abbr>
+menu?  Have enough boxes to [make Brad Pitt's head
+spin](https://en.wikipedia.org/wiki/Seven_(1995_film)):
 
-   ```
+   ```txt
    ┌───────────────────┐
    │  ╔═══╗ Some Text  │
    │  ╚═╦═╝ in the box │
@@ -109,14 +110,13 @@ at it!
    │ └──┴──┘           │
    └───────────────────┘
    ```
-   ― from Wikipedia's article on [box-drawing
-   characters](https://en.wikipedia.org/wiki/Box-drawing_characters)
+   {{ note(msg="from Wikipedia's article on [box-drawing characters](https://en.wikipedia.org/wiki/Box-drawing_characters)") }}
 
 - the ideograph for love?  [戀 is all that you
 need](https://en.wikipedia.org/wiki/All_You_Need_Is_Love)—according to the
 Beatles
 
-- a healthy serving of spaghetti?  🍝, delivered on a silver platter!
+- a healthy serving of spaghetti?  🍝, delivered on a silver platter.
 
 ## And even reverse-search
 
