@@ -68,16 +68,27 @@ a {
     font-size: .75em;
   }
 
+  $sz: 16px;
   &.anchor-link {
     @include icon(hash);
     position: absolute;
-    top: 50% !important;
-    transform: translate(-100%, -50%);
-    padding: 1rem;
+    top: -8px;
+    margin-left: -3 * $sz;
+    padding: $sz;
     color: var(--colour-surface2);
+
+    @media (max-width: 768px) {
+      position: absolute;
+      top: -8px;
+      margin-left: -$sz;
+    }
 
     @at-root :has(> &:first-child) {
       position: relative;
+      @media (max-width: 768px) {
+        padding-left: calc($sz + 1rem);
+        box-sizing: border-box;
+      }
       &:hover > :first-child {
         color: var(--colour-accent);
       }
