@@ -1,4 +1,5 @@
-nmap <Leader>p o<pre>{{ ^ \| json_encode(pretty=true) }}</pre>F^cl
+nmap <Leader>p    o<pre>{{ ^ \| json_encode(pretty=true) }}</pre><ESC>F^cl
+vmap <Leader>p "vyo<pre>{{ ^ \| json_encode(pretty=true) }}</pre><ESC>F^v"vp
 vmap <Leader>a satabbrhi title=""i
 nmap <Leader>j !ippar 80
 nmap <Leader>k !ippar 80d
