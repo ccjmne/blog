@@ -13,5 +13,8 @@
       {%- endif -%}
     </li>
     {%- endfor -%}
+    {% if page.extra.cited_tools is defined %}
+    <li><a href="#cited-tools">Referenced tools</a></li>
+    {% endif %}
   </ul>
 </details>
