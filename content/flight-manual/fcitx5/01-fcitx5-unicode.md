@@ -55,19 +55,20 @@ unorthodoxy in the rhetoric of your fellow comrades:
 
 <div style="text-align: end;">— George Orwell, <em>Nineteen Eighty-Four</em></div>
 
-- `Ctrl-Shift-U`, then `300` unlocks a Frenchman's ability to start a sentence
-with the preposition "to", `À`.
+- `Ctrl-Shift-U`, then `300` gives you the grave accent (`` ` ``), which unlocks
+a Frenchman's ability to start a sentence with the preposition "to", `À`.
 
-- `301`, and I get to put the acute accent (`́ `) on any letter I fancy,
-possibly even spelling my name the way my parents intended, `Éric`.
+- `301`, and you get to put the acute accent on any letter you fancy, possibly
+even spelling my name the way my parents intended, `Éric`.
 
-- `302` gives you the circumflex, as in `Île` (island in French), `303`
-the tilde, `304` the macron, `305` the overline, and so on... [take your
+- `302` gives you the circumflex, `303` the tilde, `304`
+the macron, `305` the overline, and so on... [take your
 pick!](https://codepoints.net/combining_diacritical_marks)
 
-But you don't have to index all of Unicode in your head—besides,
-that valuable space is well-known to be [most suitable for `π`'s
-digits](https://www.pi-world-ranking-list.com/?page=lists).
+But while I find all of these notable examples to be surprisingly
+easy to remember, you do not have to index all of Unicode in your
+head—that valuable space is well known to be [most suitable to `π`'s
+digits](https://www.pi-world-ranking-list.com/?page=lists) after all.
 
 ## Unicode search
 
@@ -77,7 +78,7 @@ call this "<abbr title="relating to the fingers">digital</abbr> mouthful" a
 *"handful"*), you will be able to **search by description**.
 
 - Drawing some <abbr title="Terminal User Interface">`TUI`</abbr>
-menu?  Have enough boxes to [make Brad Pitt's head
+menu?  Have enough [boxes to make Brad Pitt's head
 spin](https://en.wikipedia.org/wiki/Seven_(1995_film)):
 
    ```txt

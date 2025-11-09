@@ -41,6 +41,8 @@ cat server.cfg | sed 's/127.0.0.1/localhost/' > server.cfg
 ```
 {{ note(msg="the ailment (the last one doesn't even work)") }}
 
+Is there a cure?  Yes, the one that shall be obvious in retrospect: **tell your
+tool itself what data to use**.
 <br>
 
 ```sh
@@ -150,7 +152,7 @@ echo 'About me:' | cat - aboutme.txt     # The - is conventionally used to denot
 cat - aboutme.txt <<< 'About me'         # Here-strings are neat, albeit a bashism as well
 ```
 
-### The definitive escalation mechanism
+## The definitive escalation mechanism
 
 Somewhere along the way, we started using `cat` as a ceremonial prelude to
 everything, as if every command needed a feline blessing.  With everything being

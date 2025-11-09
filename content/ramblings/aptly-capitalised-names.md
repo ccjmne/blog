@@ -84,7 +84,7 @@ we can still strive to get it right.  Let's jump right in, alphabetically:
 
 - It's the [**Internet**](https://en.wikipedia.org/wiki/Internet)
 
-- It's an [**iPad**](https://www.apple.com/iphone/), an **iPhone**, an **iMac**
+- It's an [**iPhone**](https://www.apple.com/iphone/), an **iPad**, an **iMac**
 
 - It's [**LaTeX**](https://www.latex-project.org/)
 
