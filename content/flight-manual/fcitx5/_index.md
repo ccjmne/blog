@@ -1,5 +1,5 @@
 +++
-title = '`fcitx5`'
+title = 'Maybe a new `fcitx`'
 sort_by = 'slug'
 
 [extra]
