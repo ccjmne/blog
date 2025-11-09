@@ -2,7 +2,11 @@
 
 {%- block content -%}
 <h1 class="title">{{- section.title | markdown(inline=true) | safe -}}</h1>
-{{- section.content | safe -}}
-{% set pages = section.pages %}
-{% include "partials/ls-hero.html" %}
+<article>
+  {%- set footnotes = hlpr::extract(content=section.content,   which="footnotes") -%}
+  {{ hlpr::extract(content=section.content, which="main") }}
+  {% set pages = section.pages %}
+  {% include "partials/ls-hero.html" %}
+  {{ hlpr::footnotes(items=footnotes) }}
+</article>
 {%- endblock content -%}
