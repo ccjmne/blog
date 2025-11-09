@@ -1,13 +1,29 @@
 {% extends "base.html" %}
 
 {% block content %}
+{%- set parent = get_section(path=page.ancestors | last) -%}
 <h1><span class="link-title" {{ hlpr::vtn(name=page.slug) -}}>{{- page.title | markdown(inline=true) | safe -}}</span></h1>
 {%- include "partials/infobar.html" -%}
 {%- if page.toc | default(value=false) -%}
 {%- include "partials/toc.html" -%}
 {%- endif -%}
+{%- if parent.extra.series -%}
+<details class="lo summary">
+  <summary>Series introduction</summary>
+  {{ hlpr::extract(content=parent.content, which="main") }}
+</details>
+{%- endif -%}
 <article>
+  {%- if parent.extra.series -%}
+  {{ hlpr::extract(content=page.content, which="main") }}
+  {%- set footnotes =        hlpr::extract(content=page.content,   which="footnotes") -%}
+  {%- set parent_footnotes = hlpr::extract(content=parent.content, which="footnotes") -%}
+  {{ hlpr::footnotes(items=parent_footnotes ~ footnotes) }}
+
+  {%- else -%}
   {{ page.content | safe }}
+  {%- endif -%}
+
   {% if page.extra.cited_tools is defined %}
   <h2 id="cited-tools">{%- set id="cited-tools" -%}{%- include "anchor-link.html" -%}Referenced tools</h2>
   <div class="cited-tools">

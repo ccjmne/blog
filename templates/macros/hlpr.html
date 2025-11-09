@@ -1,3 +1,19 @@
 {% macro vtn(name, static=false) %}
   style="view-transition-name: view-{{ name }}{% if static %}; view-transition-class: static{% endif %}"
 {% endmacro %}
+
+{%- macro extract(content, which) -%}
+  {%- if which == "main" -%}
+    {{ content | regex_replace(pattern='(?s)\s*<section class="footnotes">.*', rep='') | safe }}
+  {%- elif which == "footnotes" and '<ol class="footnotes-list">' in content -%}
+    {{ content | regex_replace(pattern='(?s).*?<ol class="footnotes-list">(.*)</ol>.*', rep='$1') }}
+  {%- endif -%}
+{%- endmacro -%}
+
+{%- macro footnotes(items) -%}
+  {%- if items | trim != "" -%}
+    <section class="footnotes" aria-label="Footnotes">
+      <ol class="footnotes-list">{{- items | safe -}}</ol>
+    </section>
+  {%- endif -%}
+{%- endmacro -%}
