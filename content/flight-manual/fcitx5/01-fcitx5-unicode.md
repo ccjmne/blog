@@ -1,7 +1,7 @@
 +++
 title = 'Enter Unicode characters with `fcitx5`'
 date = 2025-11-04
-description = 'Reclaim the em-dash from the LLMs—or spell my name as my parents intended'
+description = 'Reclaim the em-dash from the `LLM`s—or spell my name as my parents intended'
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'quibblery']
 

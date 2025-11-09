@@ -1,7 +1,7 @@
 +++
 title = 'Getting to know `column`, `cut` and `paste`'
 date = 2025-08-08
-description = 'Grids, lists, and other horizontally split what-have-yous, from the CLI'
+description = 'Grids, lists, and other horizontally split what-have-yous, from the `CLI`'
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'cli']
 
