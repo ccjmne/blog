@@ -23,15 +23,15 @@ taxonomies.tags = ['all', 'quibblery']
 +++
 
    In the wild, I identified four classes of occurrences itching for what I
-shall refer to as *intralinear partitioning*.  In this article, I propose to
+shall refer to as **intralinear partitioning**.  In this article, I propose to
 classify and appreciate them.
 
 ### The list in a grid
 
    Collections of items are quite happily organised in a grid, unless you're a
 stock exchange ticker tape designer, of course.  As such, so long as you want to
-*present* your data rather than have it seemingly scroll forever, the matrix is
-a practical ally, Neo.
+**present your data rather than have it seemingly scroll forever**, [the matrix
+is a practical ally, Neo](https://en.wikipedia.org/wiki/Neo_(The_Matrix)).
 
    For illustration, here's the output of <abbr title="List directory
 contents">`ls`</abbr>, a specimen I'm sure you've come across before:
@@ -110,15 +110,16 @@ while scripting: this goal will be the culmination of the second article.
 ### The zealous documents
 
    Here we are, the apotheosis of intralinear partitioning (I promise, it's
-the last time I call it that): organised documents authored with intent and
-finesse, text laid out in a semantic structure, meant to be *read* and possibly
-maintained for a while.<br>
+the last time I call it that): **organised documents authored with intent
+and finesse**, text laid out in a semantic structure, meant to be *read* and
+possibly maintained for a while.<br>
    In truth, that sounds a lot like what I and my professional peers do, in
-composing instructions for machines to follow—"writing code", as we say.
+composing instructions for machines to follow—*"writing code"*, as we say.
 
-   The horizontal alignment is ubiquitous, it's in every bit of text that's
-centred, right-aligned or even justified, any padded value, wrapped sentence,
-indented paragraph...  Have a look at the following examples:
+   **The horizontal alignment is longing to be ubiquitous**, its natural habitat
+would see it sprawl out in every bit of text that's centred, right-aligned or
+even justified, any padded value, wrapped sentence, indented paragraph...  Have
+a look at the following examples:
 
 ```typescript,name=profile.ts
 export const education = [{
@@ -227,20 +228,24 @@ virtues of this fastidiousness, but I'll only grace you with the broad strokes
 of its answer instead: yes, it is more beautiful, it aids in visual grepping, in
 contextual parsing, and it shows that you care.
 
-  However, as the saying goes: "ain't nobody got time for that" is sure to be
-the most ready retort to my proposition, together with "the auto-formatter would
-thrash it" and "no linting rules would account for that".  I hear you, and
+  However, as the saying goes: *["ain't nobody got time for
+that"*](https://en.wikipedia.org/wiki/Ain%27t_Nobody_Got_Time_for_That) is sure
+to be the most ready retort to my proposition, together with "the auto-formatter
+would thrash it" and "no linting rules would account for that".  I hear you, and
 you're indeed making valid arguments... in disfavour of generic auto-formatters
-and misguided stylistic linting tools!
+and **misguided stylistic linting tools**!
 
    **You have time for this.**<br>
-   If you're making adept, skilful contributions to meaningful
-software, you're meant to be spending your time investigating and
-exploring.  Jotting down semi-legible documents that procure workable
-instructions to the machine, any fool can do: every fool does.  If
-you're tasked with authoring code, you're assumed to have mastered
-the putting-text-together aspect of it already: [we are typists
+   If you're making adept, skilful contributions to meaningful software,
+you're meant to be spending your time investigating and exploring.
+Jotting down semi-legible documents that procure workable instructions
+to the machine, **any fool can do[^even-the-fooliest]: every fool
+does**.  If you're tasked with authoring code, you're assumed to have
+mastered the putting-text-together aspect of it already: [we are typists
 first](https://blog.codinghorror.com/we-are-typists-first-programmers-second/).
+
+[^even-the-fooliest]: Even **the more (most?) foolish among us**, the "coding
+agent" `LLM`s near the end of the first quarter of the twenty-first century.
 
    **Use tools that help.**<br>
    If your tools are either not assisting or outright hindering you in some
@@ -256,9 +261,9 @@ cure-all elixir to your systematic, inescapable blurts.
 style over the learned tastes of your experienced discernment: do review code.
 
    **You have the go-ahead.**<br>
-   You do not have to make your code look pretty beyond mere logical
-structure, but you *do have to* read it, every now and again.  This is just
-an encouragement, a call for you to assume your style and not shy away from
+   You do not have to make your code look pretty beyond mere logical structure,
+but **you do have to read it**, every now and again.  This is just an
+encouragement, a call for you to assume your style and not shy away from
 crafting text with as much care as you wish.
 
 ## Next
