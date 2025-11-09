@@ -16,9 +16,10 @@
 {%- endif -%}
 <article>
   {%- if parent.extra.series -%}
-  {{ hlpr::extract(content=page.content, which="main") }}
   {%- set footnotes =        hlpr::extract(content=page.content,   which="footnotes") -%}
   {%- set parent_footnotes = hlpr::extract(content=parent.content, which="footnotes") -%}
+  {%- set offset = parent_footnotes | regex_replace(pattern='(?s)<li[^>]*>.*?</li>', rep='§') | split(pat='§') | length - 1 -%}
+  {{ hlpr::extract(content=page.content, which="main", footnotes_start=offset) }}
   {{ hlpr::footnotes(items=parent_footnotes ~ footnotes) }}
 
   {%- else -%}
