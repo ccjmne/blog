@@ -7,6 +7,7 @@
 {%- if parent.extra.series -%}
 <details class="lo summary">
   <summary>Series introduction</summary>
+  <h2>{{ parent.title | markdown(inline=true) | safe }}</h2>
   {{ hlpr::extract(content=parent.content, which="main") }}
 </details>
 {%- endif -%}
