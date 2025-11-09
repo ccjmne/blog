@@ -4,14 +4,14 @@
 {%- set parent = get_section(path=page.ancestors | last) -%}
 <h1><span class="link-title" {{ hlpr::vtn(name=page.slug) -}}>{{- page.title | markdown(inline=true) | safe -}}</span></h1>
 {%- include "partials/infobar.html" -%}
-{%- if page.toc | default(value=false) -%}
-{%- include "partials/toc.html" -%}
-{%- endif -%}
 {%- if parent.extra.series -%}
 <details class="lo summary">
   <summary>Series introduction</summary>
   {{ hlpr::extract(content=parent.content, which="main") }}
 </details>
+{%- endif -%}
+{%- if page.toc | default(value=false) -%}
+{%- include "partials/toc.html" -%}
 {%- endif -%}
 <article>
   {%- if parent.extra.series -%}
