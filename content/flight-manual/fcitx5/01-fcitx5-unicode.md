@@ -18,34 +18,12 @@ taxonomies.tags = ['all', 'quibblery']
    manual  = "https://fcitx-im.org/wiki/Fcitx_5"
 +++
 
-`IBus`, standing (vaguely) for *Intelligent Input Bus*, is an input framework
-that allows users to, for example, switch between different keyboard layouts,
-which any non-English native speakers reading this blog would certainly be
-familiar with.
-
-It is used by default notably on `GNOME`-based desktop environments, making it
-the *de facto* standard for many Linux users.  However, `IBus` has been somewhat
-finicky for me (and others) when working with <abbr title="A replacement for the
-X11 window system protocol">Wayland</abbr>[^wayland-finicky]—which is where
-`fcitx5`[^fcitx-5] comes in.
-
-[^wayland-finicky]: Although "applications being finicky" under Wayland will
-come at no surprise to anyone, I will note that it mostly has to do with running
-a lot of <abbr title="X Window System version 11">`X11`</abbr> applications
-actually **through a compatibility layer**, and [`NVIDIA` notoriously having
-been an execrable collaborator](https://www.youtube.com/watch?v=MShbP3OpASA) in
-helping the Linux kernel developers integrate their hardware into the ecosystem.
-
-[^fcitx-5]: `fcitx5` is a fairly recent project (started around 2019) led by the
-same original author, a *complete rewrite* of its predecessor, infusing new life
-into `fcitx` notably in including first-class Wayland support, a vastly more
-modern codebase, greater performance (reportedly), and some unified theming and
-configuration tools.
-
-But `fcitx5` is a lot other than *"Wayland's `IBus`"*: just as vaguely, it
-stands for *Flexible Context-aware Input Tool with eXtension support*, and today
-I intend to keep it short and focus on its [Unicode](https://home.unicode.org/)
-input module, to tie up this introduction.
+The `fcitx5` functionality I reach for the most, its
+[Unicode](https://home.unicode.org/) module lets you **access an astronomical
+number of characters**, symbols and glyphs with the expected convenience.
+But beyond the obvious, it also bundles a pearl of ingenuity that lets you
+**identify** these invisible, combining or other peculiarly artful characters
+like a jeweller would delight in examining a rare gem.
 
 ## Familiar code points entry
 
