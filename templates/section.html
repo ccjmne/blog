@@ -1,7 +1,7 @@
 {%- extends "base.html" -%}
 
 {%- block content -%}
-<h1 class="title">{{- section.title | markdown(inline=true) | safe -}}</h1>
+<h1 class="title"><span class="link-title" {{ hlpr::vtn(name=section.components | last) -}}>{{- section.title | markdown(inline=true) | safe -}}</span></h1>
 <article>
   {%- set footnotes = hlpr::extract(content=section.content,   which="footnotes") -%}
   {{ hlpr::extract(content=section.content, which="main") }}
