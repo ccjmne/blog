@@ -3,11 +3,6 @@
 {%- block content -%}
 <h1 class="title">{{- section.title | markdown(inline=true) | safe -}}</h1>
 {{- section.content | safe -}}
-{% if section.extra.pages_from_tag %}
-{% set term = get_taxonomy_term(kind="tags", term=section.extra.pages_from_tag) %}
-{% set pages = term.pages %}
-{% else %}
 {% set pages = section.pages %}
-{% endif %}
 {% include "partials/ls-hero.html" %}
 {%- endblock content -%}
