@@ -3,8 +3,9 @@
   "default": true,
   "MD003": { "style": "consistent" }, // heading style must just be consistent
   "MD010": { "code_blocks": false },  // allow hard-tabs in code blocks
-  "MD013": { "code_blocks": false },  // No limit to line length in code blocks
+  "MD013": { "code_blocks": false },  // no limit to line length in code blocks
   "MD031": false,                     // allow no space between fenced code blocks, for my shell+output trick
   "MD033": false,                     // allow inline HTML
   "MD034": false,                     // allow bare URLs in shortcodes, notably
+  "MD049": { "style": "underscore" }, // use underscores for emphasis
 }

@@ -223,21 +223,21 @@ nobody:/
 ```
 {{ note(msg= select fields 1 and 6  ) }}
 
-   Note that you may identify 1-indexed, comma-separated fields, *or ranges*,
+   Note that you may identify 1-indexed, comma-separated fields, _or ranges_,
 possibly open-ended:
 
-- `1,3,5` selects *fields 1, 3 and 5*,
-- `1-3` means *1 through 3*,
-- `-5` is *5 and below*, and
-- `3-` is *3 and beyond*.
+- `1,3,5` selects _fields 1, 3 and 5_,
+- `1-3` means _1 through 3_,
+- `-5` is _5 and below_, and
+- `3-` is _3 and beyond_.
 
  With `column`, the various field-selecting flags behave similarly, with some
-notable extensions: you may use the `0` field alone to denote *all fields*, or
-use negative indices to target fields from the *end*.  Thus, `-1` is the *last
-field*, `-2` is the *penultimate field* and so on.<br>
+notable extensions: you may use the `0` field alone to denote _all fields_, or
+use negative indices to target fields from the _end_.  Thus, `-1` is the _last
+field_, `-2` is the _penultimate field_ and so on.<br>
    This has the consequence of invalidating the range notation that uses an open
-lower bound: where `-3` would mean *1 through 3* in `cut`, it means *third field
-from the end* in `column`.
+lower bound: where `-3` would mean _1 through 3_ in `cut`, it means _third field
+from the end_ in `column`.
 
 ## Using `paste`
 
@@ -286,11 +286,11 @@ c	3
 d	4
 e
 ```
-{{ note(msg="these are *tabulations*") }}
+{{ note(msg="these are _tabulations_") }}
 </div>
 </div>
 
-How often do you need to do that?  Precisely *never*, were it not for everything
+How often do you need to do that?  Precisely _never_, were it not for everything
 being a file (descriptor): you can also `paste` the output of commands together
 (beware the non-`POSIX` Bashism, however):
 
@@ -306,7 +306,7 @@ c	3	represents an immediately preceding step. Commits with more than one
 d	4	parent represent merges of independent lines of development.
 e		
 ```
-{{ note(msg="these are still *tabulations*") }}
+{{ note(msg="these are still _tabulations_") }}
 
 You can just about feel that there's something usable there, but we'll have to
 address some tab-related limitations before unearthing this treasure:
@@ -385,11 +385,11 @@ Sat, 17 July  Sun, 18 July  Mon, 19 July
 your data doesn't contain.  We could almost make it a panacea, were it not for
 what I consider a quirk of `paste`.<br>
 
-   As you'll have noted, the `--delimiters` flag is *plural*: it can cycle
+   As you'll have noted, the `--delimiters` flag is _plural_: it can cycle
 through a list of <abbr title="American Standard Code for Information
 Interchange">`ASCII`</abbr> characters to use instead of tabulations.
 Regardless of the practicality of this feature, its implementation has `paste`
-consider each *byte* as a distinct delimiter: committing to an esoteric Unicode
+consider each _byte_ as a distinct delimiter: committing to an esoteric Unicode
 character that spans several bytes will therefore not do you any good.
 
    Here are a few examples for illustration, which are most probably best
@@ -449,5 +449,5 @@ just need to browse the `man`ual.
 
    Throughout this blog, you'll also find (in time), a few short articles
 showcasing Vim's unparalleled agility in doing everything mentioned here and a
-*lot* more, from the comfort of an exceptional yet ubiquitous text editor.  Have
+_lot_ more, from the comfort of an exceptional yet ubiquitous text editor.  Have
 fun!

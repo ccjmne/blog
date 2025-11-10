@@ -40,7 +40,7 @@ redirections 101](@/flight-manual/shell-redirections-101.md), you can open
 various file descriptors and assign them to your processes' `stdin`:
 
   [^ctrl-d]: An <abbr title="Input/Output">`I/O`</abbr> stream is typically
-closed by pressing `Ctrl-D`, which sends an *end-of-file* sequence.
+closed by pressing `Ctrl-D`, which sends an _end-of-file_ sequence.
 That combination is interpreted by your terminal emulator, and may be
 queried and manipulated with <abbr title="Set the options for a terminal
 ">`stty`</abbr>.<br>
@@ -78,20 +78,20 @@ B anana
 ```
 </div></div>
 
-  With "everything being a file", you'll be happy to know that you may[^permissions] access *the resource that a process has opened
-on one of its file descriptors* (this specific nuance is relevant), by referring
+  With "everything being a file", you'll be happy to know that you may[^permissions] access _the resource that a process has opened
+on one of its file descriptors_ (this specific nuance is relevant), by referring
 to as `/proc/<pid>/fd/<fd>`, where `<pid>` is the process `ID`, and `<fd>` is
 the file descriptor you want to access.<br>
   You may use `self` in place of a <abbr title="Process ID">`PID`</abbr> to
-refer to the *current* process `/proc/self/fd/<fd>`.  Remember this, it'll come
+refer to the _current_ process `/proc/self/fd/<fd>`.  Remember this, it'll come
 back in a minute.
 
-[^permissions]: You may, *provided that you have the adequate permissions*.
+[^permissions]: You may, _provided that you have the adequate permissions_.
 
 Since `sort` falls somewhat flat when receiving non-standard file descriptors,
 let's have `cat` do things (namely: print out) with any file descriptor you feed
 it.  The following will have `FD 3` point to `file.txt`, and `cat` regurgitate
-the content from its `FD 3`, *twice*, back to back:
+the content from its `FD 3`, _twice_, back to back:
 
 <div class="grid-1-2"><div>
 
@@ -130,20 +130,20 @@ cat < file.txt
 ```txt
 This is the content of file.txt
 ```
-{{ note(msg="though `cat` *by default* reads the standard input") }}
+{{ note(msg="though `cat` _by default_ reads the standard input") }}
 </div></div>
 
 How about `cat - -`&nbsp;? It would read from `FD 0` (the standard input) twice,
-but *`stdin` is closed when you arrive at the end of the stream*: after having
+but _`stdin` is closed when you arrive at the end of the stream_: after having
 read (and spat back) `-` (`stdin`) once, `cat` attempts again to read from `FD
-0`, which is now closed and therefore *empty*.
+0`, which is now closed and therefore _empty_.
 
-Conversely, `/proc/self/fd/0` is a *descriptor* to the
+Conversely, `/proc/self/fd/0` is a _descriptor_ to the
 resource that `FD 0` points to (see [File descriptors in
 `/proc`](@/flight-manual/everything-is-a-file.md#file-descriptors)).  In our
 case, that resource is a simple file on our system and we can open a new
 stream to it: `cat` can consume it several times; despite pointing to the same
-resource, `/proc/self/fd/0` is *not* the same `I/O` stream as `FD 0`!
+resource, `/proc/self/fd/0` is _not_ the same `I/O` stream as `FD 0`!
 
 <div class="grid-1-2"><div>
 

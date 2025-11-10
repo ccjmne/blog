@@ -121,8 +121,8 @@ notably for the dark variants.
 For example, [Rosé Pine](https://github.com/rose-pine/neovim) has three variants:
 
 - the default one is dark,
-- a *"Moon"* variant is dark with lowered contrast, and
-- a *"Dawn"* variant is light.
+- a _"Moon"_ variant is dark with lowered contrast, and
+- a _"Dawn"_ variant is light.
 
 You could use a combination of `prefers-color-scheme` and `prefers-contrast` to
 serve the appropriate variant based on the user's preferences:

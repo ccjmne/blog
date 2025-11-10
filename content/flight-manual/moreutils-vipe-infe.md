@@ -41,7 +41,7 @@ here and there: wait until you learn about `fc`!
 *convenience*.**
 
 With <abbr title="Aptly and delightfully named companion to coreutils">`moreutils`</abbr>,
-this elevator pitch needs to be challenged: *between*
+this elevator pitch needs to be challenged: _between_
 two commands?  Laughable.  The adept [functional
 programmer](https://en.wikipedia.org/wiki/Functional_programming) in me should
 have sniffed it out some time ago: I can use Vim like I use <abbr title="Stream
@@ -63,7 +63,7 @@ Code](https://code.visualstudio.com/), [Eclipse](https://www.eclipse.org/) and
 - none of them provide a reasonable way to error out (`exit 1`).
 
 These functionalities don't sound like much, but they're part of what I would
-expect from a *script-friendly editor*.
+expect from a _script-friendly editor_.
 
 ### Building a quaint example
 
@@ -98,14 +98,14 @@ curl https://zenquotes.io/api/quotes \
 ```
 {{ note(msg="I didn't even put quotation marks around `$MAIL`: all the variables in the script are expansion-safe!") }}
 
-We create a temporary[^tmpfs] file with `mktemp`, using a specific *file
-extension* with the `--suffix` flag: that'll let our text editor figure out how
+We create a temporary[^tmpfs] file with `mktemp`, using a specific _file
+extension_ with the `--suffix` flag: that'll let our text editor figure out how
 to highlight our document's syntax.
 
 [^tmpfs]: These files will routinely be cleared (historically, some systems
 would do that on each boot).  On mine, `/tmp` is a mount-point to some
 [RAM-backed file system](https://en.wikipedia.org/wiki/tmpfs): the stuff going
-in there *never* makes it to an actual storage device.
+in there _never_ makes it to an actual storage device.
 
 The <abbr title="World Wide Web, with a capital W">Web</abbr> server at
 `https://zenquotes.io/api/quotes` will yield 50 randomised quotes (with their
@@ -153,8 +153,8 @@ But it gets better: you can integrate it right inside an outright
 
 ## More friendliness with `moreutils`
 
-Enter [`moreutils`](https://joeyh.name/code/moreutils/), a *"collection of the
-Unix tools that nobody thought to write long ago when Unix was young"*.
+Enter [`moreutils`](https://joeyh.name/code/moreutils/), a _"collection of the
+Unix tools that nobody thought to write long ago when Unix was young"_.
 
 It's got some niceties that do find some fame online, such as <abbr title="Look
 up errno names and descriptions">`errno`</abbr>, <abbr title="Soak up standard
@@ -201,7 +201,7 @@ Could it?  Let's try it out:
 
    Well, what do you know: it can.  That tedious business from the earlier
 script?  Gone.  The variable we were passing around?  Gone as well.<br>
-   We're left with *a single pipeline*: `curl` | `jq` | `fzf` | `vipe`
+   We're left with _a single pipeline_: `curl` | `jq` | `fzf` | `vipe`
 | `msmtp`.  You can pretty much map it one-to-one to the original
 requirements!  And they say that <abbr title="The big OOP(s)">object-oriented
 programming</abbr> is modelling real-world concepts...
@@ -231,7 +231,7 @@ curl https://zenquotes.io/api/quotes \
 In isolation, this isn't anything earth-shattering, but here's the point: **I
 can now write this up in one go; no fumbling, no hesitation**.
 
-Wielding *simple*, generic, *composable* tools lets you to reify your ideas
+Wielding _simple_, generic, _composable_ tools lets you to reify your ideas
 without friction, as if you were merely transposing them more formally.  That
 concept, and its consequences on your ability to explore, play and eventually
 build up mastery of your craft, are indeed of remarkable value.

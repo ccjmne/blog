@@ -10,7 +10,7 @@ taxonomies.tags = ['all', 'cli', 'posix']
 Sprinkle in some couple of years of not opening the `man`ual, several
 generations of learners whose main (if not sole) source of know-how and
 information are the first handful of results yielded by their search engine, and
-you have it: *rampant shell illiteracy*.
+you have it: _rampant shell illiteracy_.
 
 The symptoms?
 

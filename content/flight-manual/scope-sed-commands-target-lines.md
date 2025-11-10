@@ -67,8 +67,8 @@ A `sed` **command** takes the following form:
 
 In this syntax, `function` represents a single-character **command verb** in
 `sed`, followed by any applicable arguments.  The most common function is `s`,
-which stands for *substitute*, but you'll find numerous others, such a `d` for
-*delete*, `p` for *print*, `a` for *append*...[^from-ed-to-nvim]
+which stands for _substitute_, but you'll find numerous others, such a `d` for
+_delete_, `p` for _print_, `a` for _append_...[^from-ed-to-nvim]
 
 [^from-ed-to-nvim]: They all were inherited from the traditional `ed`
 line-oriented editor, and this legacy still lives on to this day, stronger than
@@ -78,14 +78,14 @@ the `CLI`-only crew has it all figured out!
 
 > [!TIP]
 > To keep things readable (we wield regular expressions but we're not animals),
-> the `address`es and `function` can be preceded and/or followed by *blank*
+> the `address`es and `function` can be preceded and/or followed by _blank_
 > characters.  The **command** in its entirety, `[address[,address]]function`,
-> may be preceded and/or followed by *blank and/or semicolon* characters.
+> may be preceded and/or followed by _blank and/or semicolon_ characters.
 
 One last, simple yet quite useful trick regarding line selection: you can
 **negate the selection** over which a `function` shall operate by preceding it
 with an exclamation mark (`!`), which will cause the command to be executed on
-all lines *except* those addressed.
+all lines _except_ those addressed.
 
 Each **function** you can execute may take **up to either zero, one, or two**
 **addresses**.
@@ -94,25 +94,25 @@ Each **function** you can execute may take **up to either zero, one, or two**
 
 An **address** may take one of the following forms:
 
-- a *decimal number* that counts input lines cumulatively across files
+- a _decimal number_ that counts input lines cumulatively across files
   (`1`-indexed),
-- a *dollar sign* (`$`) character, which references the last line of input, or
-- a *context address*, which consists of a <abbr title="Basic Regular
+- a _dollar sign_ (`$`) character, which references the last line of input, or
+- a _context address_, which consists of a <abbr title="Basic Regular
   Expression">`BRE`</abbr> as described [here in the complete `GNU` `sed` manual
   on-line](https://www.gnu.org/software/sed/manual/html_node/BRE-syntax.html),
-  preceded and followed by a delimiter—usually a *forward slash* (`/`).
+  preceded and followed by a delimiter—usually a _forward slash_ (`/`).
 
    > [!WARNING]
    > Using `GNU` `sed`, using a different delimiter **in the context of
    > addresses** requires a `backslash` (`\`) **before the preceding
-   > delimiter**.  For example, to use a *hash* [^hash] as the delimiter, with
+   > delimiter**.  For example, to use a _hash_ [^hash] as the delimiter, with
    > `GNU` `sed`, you'd write `\#regexp#` instead of `#regexp#`.<br>
    >
    > In addition, `GNU`'s implementation [introduces the `/re/I` and `/re/M`
    > syntaxes](https://www.gnu.org/software/sed/manual/html_node/Regexp-Addresses.html#Regexp-Addresses)
    > for case-insensitive and multi-line matching, respectively.  Most often
    > in other contexts these flags are lower-case, but `GNU` `sed` offers a
-   > would-be conflicting `i` function verb for *insert* that couldn't be
+   > would-be conflicting `i` function verb for _insert_ that couldn't be
    > interpreted adequately, had the flags been `i` and `m` instead of `I` and
    > `M`.
 
@@ -121,7 +121,7 @@ Americanisms "octothorpe", or more absurdly "pound sign"
 
 To these `POSIX` standards, `GNU sed` adds the following option:
 
-- the `first~step` form, where `first` and `step` are both *decimal numbers*.
+- the `first~step` form, where `first` and `step` are both _decimal numbers_.
 
   This matches one every every `step` lines, starting with `first`.  For
   example, `1~2` matches all odd-numbered lines, while `2~2` matches the even
@@ -136,7 +136,7 @@ In `sed`, most **commands** can be given with:
 - **one address**, then only input lines which match that address will be
   considered, or
 - **two addresses**, in which case the command will operate over all input lines
-  matching the *inclusive* range of lines starting from the first address and
+  matching the _inclusive_ range of lines starting from the first address and
   continuing to the second address.
 
   > [!NOTE]
@@ -145,8 +145,8 @@ In `sed`, most **commands** can be given with:
   > even if `address2` selects an earlier line; and if `address2` is a regular
   > expression, it will not be tested against the line that `address1` matched.
 
-Using two addresses allows you to target *ranges
-of lines* where the two addresses serve as
+Using two addresses allows you to target _ranges
+of lines_ where the two addresses serve as
 [flip-flop](https://en.wikipedia.org/wiki/Flip-flop_(electronics)) markers: when
 the first address is matched, if we're currently outside a match range, we start
 processing the input lines for that command, until the second address is matched

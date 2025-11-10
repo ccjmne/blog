@@ -28,8 +28,8 @@ Short for con`cat`enate, `cat` takes multiple files and prints them together
 into one continuous stream of text.  However, the first introduction to the
 <abbr title="Command Line Interface, where I dwell">`CLI`</abbr> is sure to
 establish into the wasteland of the hurried neophyte's mind a simplistic mental
-model boiling down to: *"`cat` is what you use when you have a file and want its
-content"*.
+model boiling down to: _"`cat` is what you use when you have a file and want its
+content"_.
 
 The consequence?  Processes multiplying like cancerous cells:
 
@@ -89,8 +89,8 @@ SYNOPSIS
        grep [OPTION]... -f PATTERN_FILE ... [FILE]...
 ```
 
-There you have it: `grep` and friends not only *obviously* accept files names as
-arguments, they *evidently* do.
+There you have it: `grep` and friends not only _obviously_ accept files names as
+arguments, they _evidently_ do.
 
 ### When all else fails
 

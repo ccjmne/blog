@@ -111,10 +111,10 @@ while scripting: this goal will be the culmination of the second article.
 
    Here we are, the apotheosis of intralinear partitioning (I promise, it's
 the last time I call it that): **organised documents authored with intent
-and finesse**, text laid out in a semantic structure, meant to be *read* and
+and finesse**, text laid out in a semantic structure, meant to be _read_ and
 possibly maintained for a while.<br>
    In truth, that sounds a lot like what I and my professional peers do, in
-composing instructions for machines to follow—*"writing code"*, as we say.
+composing instructions for machines to follow—_"writing code"_, as we say.
 
    **The horizontal alignment is longing to be ubiquitous**, its natural habitat
 would see it sprawl out in every bit of text that's centred, right-aligned or
@@ -228,8 +228,8 @@ virtues of this fastidiousness, but I'll only grace you with the broad strokes
 of its answer instead: yes, it is more beautiful, it aids in visual grepping, in
 contextual parsing, and it shows that you care.
 
-  However, as the saying goes: *["ain't nobody got time for
-that"*](https://en.wikipedia.org/wiki/Ain%27t_Nobody_Got_Time_for_That) is sure
+  However, as the saying goes: [_"ain't nobody got time for
+that"_](https://en.wikipedia.org/wiki/Ain%27t_Nobody_Got_Time_for_That) is sure
 to be the most ready retort to my proposition, together with "the auto-formatter
 would thrash it" and "no linting rules would account for that".  I hear you, and
 you're indeed making valid arguments... in disfavour of generic auto-formatters
@@ -249,7 +249,7 @@ agent" `LLM`s near the end of the first quarter of the twenty-first century.
 
    **Use tools that help.**<br>
    If your tools are either not assisting or outright hindering you in some
-aspects of your goals, *do not blame or forsake the goal*.  You may simply
+aspects of your goals, _do not blame or forsake the goal_.  You may simply
 need to (or get to!) use them differently.
 
    If you find neat documents desirable but the baseline auto-formatter will

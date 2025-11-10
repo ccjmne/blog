@@ -18,8 +18,8 @@ standard, the specification; JavaScript is the language built on that standard,
 plus some extra features (such as Web `API`s, like the <abbr title="Document
 Object Model">`DOM`</abbr>), for browsers.
 
-You've no doubt come across the destructuring syntax to *effectively return
-multiple values* from a single function, but we can do even better: we can
+You've no doubt come across the destructuring syntax to _effectively return
+multiple values_ from a single function, but we can do even better: we can
 **return multiple times** from the same invocation.
 
 Possibly mad yet patently beautiful, let's explore the **generator**.
@@ -30,7 +30,7 @@ Possibly mad yet patently beautiful, let's explore the **generator**.
 
 Introduced in [ECMAScript 2015
 (`ES6`)](https://262.ecma-international.org/6.0/), the generator `function*`
-lets you yield values *on demand*, rather than computing them all at once.
+lets you yield values _on demand_, rather than computing them all at once.
 It works with the introduction of a new keyword, `yield`, which **pauses and
 resumes the function execution**.  The one practical difference between an
 [`iterator` (what the generator constructs)](#under-the-hood) and a regular
@@ -67,7 +67,7 @@ const countToThree = new GeneratorFunction(`
   yield 3
 `)
 ```
-{{ note(msg="oh yeah, JavaScript has no problem (de)serialising *code* on the fly: [quine](https://en.wikipedia.org/wiki/Quine_(computing)) enthusiasts, take note!") }}
+{{ note(msg="oh yeah, JavaScript has no problem (de)serialising _code_ on the fly: [quine](https://en.wikipedia.org/wiki/Quine_(computing)) enthusiasts, take note!") }}
 
 There is however **no equivalent arrow function syntax** for generators.
 
@@ -190,7 +190,7 @@ for (const [key, value] of new Map([['a', 1], ['b', 2], ['c', 3]])) {
 With `ES6` also came a slew of new syntaxes and `API`s designed to work with
 `iterable`s, including but not limited to:
 
-- The *spread operator* (`...`), which expands an `iterable` into individual
+- The _spread operator_ (`...`), which expands an `iterable` into individual
 elements.  You can use it to pass values as separate arguments to a `function`
 or to create an `array literal` with it:
 
@@ -202,7 +202,7 @@ or to create an `array literal` with it:
   })(...countToThree()) // 6
   ```
 
-- The *assignment destructuring*, which also may work over `iterables` to
+- The _assignment destructuring_, which also may work over `iterables` to
 declare and initialise multiple values at once:
 
   ```javascript
@@ -210,7 +210,7 @@ declare and initialise multiple values at once:
   const [a, b, c] = countToThree()
   ```
 
-- The *rest parameter* syntax, which collects multiple values into an array:
+- The _rest parameter_ syntax, which collects multiple values into an array:
 
   ```javascript
   function print(...args) {
@@ -222,13 +222,13 @@ declare and initialise multiple values at once:
   ```
 
 There is still some more brought by `ES6` with regards to integration with
-`iterable`s, as well as a *lot* more general, unrelated goodness that came with
+`iterable`s, as well as a _lot_ more general, unrelated goodness that came with
 it, but I should bring this article back on topic and to an end: how about the
 practical use of generator functions in the wild?
 
 ## A practical example
 
-Because their values are, as their name would heavily suggest, *generated* on
+Because their values are, as their name would heavily suggest, _generated_ on
 demand, you can use generators to create, for instance, infinite `iterator`s:
 
 ```javascript
@@ -296,7 +296,7 @@ chances are it's only then that you'll best appreciate the generator
 `function*`.<br>
    Though nowadays, for this specific example, I might rather reach for
 `Array#flat` instead which, contrary to a naive belief, actually performs
-*better*.
+_better_.
 
 And don't hesitate to share with me if you ever come across a legitimate use for
 JavaScript's generators: I would love to know what you're tinkering with.

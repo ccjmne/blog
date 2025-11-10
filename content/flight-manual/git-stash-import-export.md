@@ -8,10 +8,10 @@ taxonomies.tags = ['all', 'git', 'cli']
 
 <abbr title="The stupid content tracker">Git</abbr> version `2.51`[^2.51]
 was released some week ago and is packed with upgrades to its plumbing and
-performance, with better indexes for some packfiles, *noticeably* improved
+performance, with better indexes for some packfiles, _noticeably_ improved
 `fetch`/`push` speed, deprecation[^istillusethis] of `whatchanged` and promotion
-of `switch` and `restore` out of experimental status (though `checkout` is *not
-going anywhere*).
+of `switch` and `restore` out of experimental status (though `checkout` is _not
+going anywhere_).
 
 Yet, to the <abbr title="Having two phases">diphasic</abbr>[^diphasic] end-user,
 the unassuming highlight of this release is the ability to **share your stashes
@@ -62,8 +62,8 @@ any existing local ref or the same name.
 
 Until now, your stashes lived only as `reflog` under a single `ref/stash`
 reference, which is not only fairly impractical for programmatic manipulation,
-but also means that all but the latest one essentially only existed *locally on
-your host*.
+but also means that all but the latest one essentially only existed _locally on
+your host_.
 
 If you wanted to move them elsewhere, you had to resort to savvy (let's not call
 them "awkward") workarounds: patch files, stash branches, cherry-picking...
@@ -115,8 +115,8 @@ mode 100644,100644,000000..100644
 Let's not go today over how precisely to decipher the content of an octopus
 commit[^octopus], when a picture may well be worth a thousand words:
 
-[^octopus]: I call an *octopus commit* that, because it has many arms!
-Sometimes I call them *hydra*, with greater reverence, when they are
+[^octopus]: I call an _octopus commit_ that, because it has many arms!
+Sometimes I call them _hydra_, with greater reverence, when they are
 particularly hard to tame.  Neither term is part of the customary
 Git vernacular, but "octopus" is used to refer to a specific [merge
 strategy](https://git-scm.com/docs/merge-strategies).
@@ -131,20 +131,20 @@ git log stash@{0} --oneline --decorate --graph
 <span class="term-fg31">|&#47;</span>
 * <span class="term-fg33">d4d8585 (</span><span class="term-fg36 term-fg1">HEAD</span><span class="term-fg33"> -&gt; </span><span class="term-fg32 term-fg1">master</span><span class="term-fg33">)</span> Create file</pre></code>
 
-Would you look at that!  Your stash isn't *one* commit, it's possibly **three**:
+Would you look at that!  Your stash isn't _one_ commit, it's possibly **three**:
 one for each of your staged, your unstaged, and your untracked changes,
 respectively.
 
 ## A fourth parent with `2.51`
 
-Do you know what the stash commit needs?  *More parents, of course!*
+Do you know what the stash commit needs?  _More parents, of course!_
 
 With Git `2.51`, you may opt into a new representation of your stashes, which
 will have **one more parent**.  It's actually only a bit of a joke[^4-parents],
 since in reality we're talking of an extra commit with two parents, on top of
 your current commit with three parents.
 
-[^4-parents]: I thought the joke about stash-commits having *four parents* would
+[^4-parents]: I thought the joke about stash-commits having _four parents_ would
 make the solution scarier than it is, but I have some doubts now that I actually
 describe the reality aloud.
 
@@ -206,7 +206,7 @@ documentation](https://git-scm.com/docs/git-format-patch#_description).
 ## Your stash stack
 
 Finally, we arrive at the point of this entire article: stashes that used to only
-be available through the `reflog` of `refs/stash` now properly *exist* as a
+be available through the `reflog` of `refs/stash` now properly _exist_ as a
 bunch of references that you can actually `push` and `fetch`.  You may even move
 around your entire stack, or any subset of it, at once.
 
@@ -241,7 +241,7 @@ git log --oneline --decorate --graph stash@{1}
 * <span class="term-fg33">d4d8585 (</span><span class="term-fg36 term-fg1">HEAD</span><span class="term-fg33"> -&gt; </span><span class="term-fg32 term-fg1">master</span><span class="term-fg33">)</span> Create file</pre></code>
 {{ note(msg="the earlier stash, `a196b1a`, is now the second entry on the stack, `stash@{1}`, but no more `refs/stash`") }}
 
-The new model for stashes allow us to refer to our *entire stash stack*
+The new model for stashes allow us to refer to our _entire stash stack_
 directly, since they'll be parents of one another, provided that you want this
 behaviour.
 
@@ -277,7 +277,7 @@ Try to focus on the leftmost branch: that's your stash stack, with `ba4fea2` at
 the top, `3e57536` next, and `73c9bab` (the dummy initial "stash stack" commit)
 at the bottom.
 
-*Voilà*!  You need only your one reference from `git stash export --print`, and
+_Voilà_!  You need only your one reference from `git stash export --print`, and
 can carry around your entire stash stack.
 
 ## So what?
@@ -337,7 +337,7 @@ adopt this convention going forward.
 
 Remember that these are **dangling refs**, and as such are subject to garbage
 collection, if you've skilfully set up your repository.  Chances are that your
-Git host provider *does* by default end up pruning these after a while: nobody
+Git host provider _does_ by default end up pruning these after a while: nobody
 wants to keep around stale references forever that aren't reachable from any
 branch or tag.
 

@@ -19,7 +19,7 @@ reproducible on any machine**.
 
 I spun up a fleeting shell session in a base [Docker](https://www.docker.com/)
 image of my distribution of choice, installed the editor, the plug-in, verified
-its functionality and *voilà*!
+its functionality and _voilà_!
 
 ```sh
 docker run --rm -it archlinux sh
@@ -43,7 +43,7 @@ Wanna give it a spin?  Assuming you already have your favourite distribution's
 image ready, pasting the few commands above gets you **up and running in 5
 seconds flat**.
 
-[^bare-and-simple]:  By the way, the entire project consists of *TWO!* measly
+[^bare-and-simple]:  By the way, the entire project consists of _TWO!_ measly
 files (it does two things, after all), plus a short `README` and its supporting
 `LICENSE`.  No fuss, no dependencies, no compilation: no problem.
 
@@ -51,7 +51,7 @@ With the simple `docker run` command, your container will be pruned as soon as
 you exit your shell: the above excerpt even contains all the clean-up you need.
 
 I figured I'd try with <abbr title="The one capable 'alternative' to Vim
-">Neovim</abbr>, too, to make sure that the *exact same instructions* (using
+">Neovim</abbr>, too, to make sure that the _exact same instructions_ (using
 `nvim` instead of `vim`) work just as well.  Lo and behold: of course it does.
 
 No more guesswork, no more "well, on my machine [...]"; we have access to as

@@ -27,26 +27,26 @@ I'd like to start with something that's not often talked about: the AI
 that's now available to us is a huge achievement, something that'd been
 dreamt since the inception of computing, perhaps even before.  In my teenage
 years, I grew up with [Asimov](https://en.wikipedia.org/wiki/Isaac_Asimov)'s
-*Foundation* and *Robot* series.  I also remember the iconic
-[HAL 9000](https://en.wikipedia.org/wiki/HAL_9000)'s eerie *"I
-think you know what the problem is just as well as I do"*,
+_Foundation_ and _Robot_ series.  I also remember the iconic
+[HAL 9000](https://en.wikipedia.org/wiki/HAL_9000)'s eerie _"I
+think you know what the problem is just as well as I do"_,
 [K.I.T.T.](https://en.wikipedia.org/wiki/KITT) as the original
 [J.A.R.V.I.S.](https://en.wikipedia.org/wiki/J.A.R.V.I.S.),
 [GLaDOS](https://en.wikipedia.org/wiki/GLaDOS)'s sinister humour in yet another
-of Valve's game-changing accomplishments, and *Star Wars*' beloved [C-3PO and
+of Valve's game-changing accomplishments, and _Star Wars_' beloved [C-3PO and
 R2-D2](https://en.wikipedia.org/wiki/Droid_(Star_Wars)) doing their best [Laurel
 and Hardy](https://en.wikipedia.org/wiki/Laurel_and_Hardy) impression.
 
 That's quite a few acronyms[^acronyms], come to think of it.  We should consider
 christening (ha!) our first **Artificial General Intelligence** (AGI) something
-like SAGE, for *Self-Adapting General Entity*.  Or whatever OVERLORD might spell
+like SAGE, for _Self-Adapting General Entity_.  Or whatever OVERLORD might spell
 out, to tease the soothsayers.  But I digress.
 
 [^acronyms]:
-    - **K.I.T.T.** stands for *Knight Industries Two Thousand*,
-    - **J.A.R.V.I.S.** for *Just A Rather Very Intelligent System*,
-    - **GLaDOS** for *Genetic Lifeform and Disk Operating System*, and
-    - **HAL** for *Heuristically Programmed Algorithmic Computer* (go figure).
+    - **K.I.T.T.** stands for _Knight Industries Two Thousand_,
+    - **J.A.R.V.I.S.** for _Just A Rather Very Intelligent System_,
+    - **GLaDOS** for _Genetic Lifeform and Disk Operating System_, and
+    - **HAL** for _Heuristically Programmed Algorithmic Computer_ (go figure).
 
     The names of *Star Wars*' iconic droids are more the result of chance than
     deliberate acronyms.
@@ -71,7 +71,7 @@ the artificial kind.
 
 If I use a tool to author and compose code for me, I rob myself of the
 opportunity and experience of thinking through the problem, arriving at a
-solution, possibly trudging on my way there and only *then* realising that a
+solution, possibly trudging on my way there and only _then_ realising that a
 smoother path should be available.
 
 After some decades of this, the most excellent of us end up developing some
@@ -87,12 +87,12 @@ their own.  They exist in a fantasy world dreamed up from the weighted
 statistically average (or popular?) amalgamation of (only) the written report
 of third parties; it certainly doesn't "learn" in any human sense.  [Richard
 Sutton](https://en.wikipedia.org/wiki/Richard_S._Sutton) (a foundational figure
-in modern artificial intelligence) puts it well: *learning isn't just about
-training, it's an active process*.
+in modern artificial intelligence) puts it well: _learning isn't just about
+training, it's an active process_.
 
 The general-purpose programming assistant is **nothing like having a
 general-purpose tool** that would have been careful crafted to perform a
-specific task, possibly rather through *reinforcement learning* rather than mere
+specific task, possibly rather through _reinforcement learning_ rather than mere
 vaguely supervised mimicry training on a large corpus of text.
 
 And of course, with general-purpose chatting engines come the yet-to-be-solved
@@ -146,8 +146,8 @@ I come from a time when every kid at school heard that we wouldn't always have a
 calculator in our pocket; when, if we played video games, it'd be the few that
 were available, over and over; when the first consoles were requiring great
 ingenuity just to have a counter-melody play over the main theme and sprites
-would flicker to work around memory constraints; when access to a digital, *let
-alone on-line!* encyclopaedia was an indulgence; in summary, I come from a time
+would flicker to work around memory constraints; when access to a digital, _let
+alone on-line!_ encyclopaedia was an indulgence; in summary, I come from a time
 where the family camera and the family computer would never have been thought to
 soon be available as a single, personal device.  And I'm not that old!
 
@@ -169,8 +169,8 @@ implementation that mostly does the thing you asked it for.  But that is not
 remotely enough to pique my fervent interest:
 
 It does what we asked it for...  But what if we were misguided?  The
-well-travelled quote *"the customer is always right"* should be followed by:
-*"in matters of taste"*.
+well-travelled quote _"the customer is always right"_ should be followed by:
+_"in matters of taste"_.
 
 We built what the marketing department sold...  But what of the
 [-ilities](https://en.wikipedia.org/wiki/List_of_system_quality_attributes)?

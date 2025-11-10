@@ -44,7 +44,7 @@ present a range with anything other than the adequate punctuation mark.
 - `Ctrl`-`Shift`-`U`, then `2013` and voilà, an **en dash (`–`)**,
 transforming **subtractions** into a **numeric ranges**.
 
-   The first World War didn't *"span negative four"*, or whatever _1914-1918_
+   The first World War didn't _"span negative four"_, or whatever _1914-1918_
    may mean; it actually raged on **from 1914 through 1918**, _1914–1918_.
 
 - `Ctrl`-`Shift`-`U`, then `2014` and you can wield the **em dash (`—`)** to
@@ -108,7 +108,7 @@ displaying some elements** before you even start searching: they're **your
 current selection** and the contents of your clipboard, for convenient
 reverse-lookups.
 
-Will you need that often?  It does have *some* dubious value in being only able
+Will you need that often?  It does have _some_ dubious value in being only able
 to pop up **where you can type**, but I reckon that shouldn't be a problem for
 any serious `CLI` dwellers.
 
