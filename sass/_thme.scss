@@ -1,7 +1,7 @@
 @use 'catppuccin';
 
 :root {
-  --colour-accent: var(--colour-peach);
+  --colour-accent: var(--colour-maroon);
 
   @each $name, $value in map-get(catppuccin.$palette, "latte") { --colour-#{$name}: #{$value}; }
   --colour-core: color-mix(in srgb, var(--colour-crust) 95%, black);
