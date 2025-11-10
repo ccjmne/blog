@@ -376,18 +376,18 @@ sed '\#/app1#,  $  s/http/https/' nginx.conf  # GNU sed only
 ```
 {{ note(msg="for illustration, I used hashes (`#`) to delineate the <abbr title='Regular Expressions'>RegExp</abbr> here, to not have to escape the literal `/`") }}
 
-Or lines 5 and onwards:
+Or from line `5` onwards:
 
 ```sh
 sed '5,$s/http/https/' nginx.conf
-sed '5,  $  s/http/https/' nginx.conf
+sed '5,$  s/http/https/' nginx.conf
 ```
 
 The world is your oyster!  Know your options, start using them here and there,
 you'll find what works for you and maybe best accommodate your tools to your
 taste.
 
-### One savvy application I use all the time
+### One properly savvy application
 
 I'll share here a part of [my personal `prepare-commit-msg` Git
 hook](https://github.com/ccjmne/dotfiles2025/blob/master/home/config/git/template/hooks/prepare-commit-msg),

@@ -41,22 +41,24 @@ the dreadful notion that [writers that employ them may be of the artificial
 complexion](https://www.nightwater.email/em-dash-ai/), and you will not catch me
 present a range with anything other than the adequate punctuation mark.
 
-- `Ctrl-Shift-U`, then `2013` and voilà, you transformed **a subtraction** into
-a **numeric range**.
+- `Ctrl`-`Shift`-`U`, then `2013` and voilà, an **en dash (`–`)**,
+transforming **subtractions** into a **numeric ranges**.
 
-   The first World War didn't *"span negative four"*, or whatever `1914-1918`
-   may mean; it actually raged on **from 1914 through 1918**, `1914–1918`.
+   The first World War didn't *"span negative four"*, or whatever _1914-1918_
+   may mean; it actually raged on **from 1914 through 1918**, _1914–1918_.
 
-- `Ctrl-Shift-U`, then `2014`, and you can aptly document the suspicion of
-unorthodoxy in the rhetoric of your fellow comrades:
+- `Ctrl`-`Shift`-`U`, then `2014` and you can wield the **em dash (`—`)** to
+aptly document your suspicion of unorthodoxy in the rhetoric of your fellow
+comrades:
 
    > "Except—" began Winston doubtfully, and then stopped.<br>
    > It had been on the tip of his tongue to say "Except the proles," [...]
 
 <div style="text-align: end;">— George Orwell, <em>Nineteen Eighty-Four</em></div>
 
-- `Ctrl-Shift-U`, then `300` gives you the grave accent (`` ` ``), which unlocks
-a Frenchman's ability to start a sentence with the preposition "to", `À`.
+- `Ctrl`-`Shift`-`U`, then `300` gives you the grave accent (`` ` ``), which
+unlocks a Frenchman's ability to start a sentence with the preposition "to",
+`À`.
 
 - `301`, and you get to put the acute accent on any letter you fancy, possibly
 even spelling my name the way my parents intended, `Éric`.
@@ -73,7 +75,7 @@ digits](https://www.pi-world-ranking-list.com/?page=lists) after all.
 ## Unicode search
 
 What about the characters you won't reach for regularly enough to commit to
-(muscle?) memory their code point?  With `Ctrl`+`Shift`+`Alt`+`U` (I like to
+(muscle?) memory their code point?  With `Ctrl`-`Shift`-`Alt`-`U` (I like to
 call this "<abbr title="relating to the fingers">digital</abbr> mouthful" a
 *"handful"*), you will be able to **search by description**.
 
@@ -101,7 +103,7 @@ Beatles
 ## And even reverse-search
 
 Lastly, here's the neat trick that originally sold me on better adopting
-that tool: the "digital mouthful" `Ctrl`+`Shift`+`Alt`+`U` pops up **already
+that tool: the "digital mouthful" `Ctrl`-`Shift`-`Alt`-`U` pops up **already
 displaying some elements** before you even start searching: they're **your
 current selection** and the contents of your clipboard, for convenient
 reverse-lookups.
