@@ -5,7 +5,7 @@ readonly project="$(readlink -f "$0" | xargs dirname | xargs dirname)"
 # Get the full fonts:
 readonly ouft=$(curl -Ls 'https://fonts.googleapis.com/css2?family=Outfit:wght@400;500')
 readonly work=$(curl -Ls 'https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,600;1,400')
-readonly fira=$(curl -Ls 'https://fonts.googleapis.com/css2?family=Fira+Code')
+readonly fira=$(curl -Ls 'https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600')
 
 preload=()
 style=()

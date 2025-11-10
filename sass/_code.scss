@@ -1,6 +1,6 @@
 @use 'typo' as *;
 
-h1, h2, h3, h4, h5, h6 { code { font-weight: 700; } }
+h1, h2, h3, h4, h5, h6 { code { font-weight: 600; } }
 
 pre, code, abbr[font=mono]::after, .mono {
   white-space: pre;
