@@ -2,14 +2,14 @@
 
 h1, h2, h3, h4, h5, h6 { code { font-weight: 700; } }
 
-pre, code, abbr[font=mono]::after {
+pre, code, abbr[font=mono]::after, .mono {
+  white-space: pre;
   font-family: $codefont;
   font-variant-ligatures: none;
   font-size: .92em;
 }
 
 code:not(pre > code), abbr[font=mono]::after {
-  white-space: pre;
   color: var(--colour-accent);
 }
 

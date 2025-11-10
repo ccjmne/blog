@@ -21,7 +21,6 @@
   flex-wrap: wrap;
   gap: 1rem;
   .tool {
-    font-family: monospace;
     border: 1px solid $tool-bg;
     border-collapse: collapse;
     tr:nth-child(1) { background-color: $tool-bg; }
