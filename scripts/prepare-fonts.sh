@@ -3,7 +3,7 @@
 readonly project="$(readlink -f "$0" | xargs dirname | xargs dirname)"
 
 # Get the full fonts:
-readonly ouft=$(curl -Ls 'https://fonts.googleapis.com/css2?family=Outfit:wght@400;500')
+readonly ouft=$(curl -Ls 'https://fonts.googleapis.com/css2?family=Outfit:wght@500')
 readonly work=$(curl -Ls 'https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,600;1,400')
 readonly fira=$(curl -Ls 'https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600')
 
@@ -21,8 +21,8 @@ for font in ouft work fira; do
 done
 
 mkdir -p "$project/static" "$project/templates/partials"
-rm *.ttf
-mv *.woff2 "$project/static"
+rm -- *.ttf "$project/static"/*.woff2
+mv -- *.woff2 "$project/static"
 {
     printf "%s\n" "${preload[@]}"
     printf '<style type="text/css">\n'
