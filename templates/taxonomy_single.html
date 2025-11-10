@@ -1,5 +1,10 @@
 {%- extends "base.html" -%}
 
+{# TODO: css/atom per taxonomy term? #}
+{# {% block atom %} #}
+{#   {% set atom_path = "tags/" ~ term.name ~ "/atom.xml" %} #}
+{#   <link rel="alternate" type="application/atom+xml" title="rss" href="{{ get_url(path=atom_path, trailing_slash=false) }}"> #}
+{# {% endblock atom %} #}
 
 {%- block content -%}
 <h1>Flight manual for <span class="link-title accent" {{ hlpr::vtn(name=term.slug) -}}>{{ term.name }}</span></h1>
