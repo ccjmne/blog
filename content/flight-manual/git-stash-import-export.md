@@ -10,12 +10,13 @@ taxonomies.tags = ['all', 'git', 'cli']
 was released some week ago and is packed with upgrades to its plumbing and
 performance, with better indexes for some packfiles, _noticeably_ improved
 `fetch`/`push` speed, deprecation[^istillusethis] of `whatchanged` and promotion
-of `switch` and `restore` out of experimental status (though `checkout` is _not
-going anywhere_).
+of `switch` and `restore` out of experimental status—**though `checkout` is
+not going anywhere**).
 
-Yet, to the <abbr title="Having two phases">diphasic</abbr>[^diphasic] end-user,
-the unassuming highlight of this release is the ability to **share your stashes
-through your remote**: let's check it out!
+Yet, to the <abbr title="Code pusher by day, artisan by
+night">diphasic</abbr>[^diphasic] end-user, the unassuming highlight of this
+release is the ability to **share your stashes through your remote**: let's
+check it out!
 
 [^2.51]: Git `2.51` ([release notes](https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.51.0.adoc))
 was released on August 18, 2025.
@@ -25,7 +26,7 @@ when invoked with the `--i-still-use-this` flag, just like `pack-redundant` was,
 2 years ago.  That's some pretty hard deprecation: I like it.  It's scheduled to
 be removed in Git 3.0.
 
-[^diphasic]: "Having two phases"
+[^diphasic]: _"Having two phases"_
 ([Merriam-Webster](https://www.merriam-webster.com/dictionary/diphasic)).  I
 refer here to the migration to your personal computer after work.
 
@@ -60,8 +61,8 @@ any existing local ref or the same name.
 
 ## Stashes were inherently local
 
-Until now, your stashes lived only as `reflog` under a single `ref/stash`
-reference, which is not only fairly impractical for programmatic manipulation,
+Until now, your stashes **lived only as `reflog` under a single `ref/stash`**
+`ref`erence, which is not only fairly impractical for programmatic manipulation,
 but also means that all but the latest one essentially only existed _locally on
 your host_.
 
@@ -112,12 +113,12 @@ mode 100644,100644,000000..100644
 
 ### One stash, several commits
 
-Let's not go today over how precisely to decipher the content of an octopus
-commit[^octopus], when a picture may well be worth a thousand words:
+Let's not go today over how precisely to decipher the content of an _"octopus
+commit[^octopus]"_, when a picture may well be worth a thousand words:
 
-[^octopus]: I call an _octopus commit_ that, because it has many arms!
-Sometimes I call them _hydra_, with greater reverence, when they are
-particularly hard to tame.  Neither term is part of the customary
+[^octopus]: I call an _"octopus commit"_ that, because it has many
+arms!  Sometimes I call them _"hydra"_, with greater reverence, when they
+are particularly hard to tame.  Neither term is part of the customary
 Git vernacular, but "octopus" is used to refer to a specific [merge
 strategy](https://git-scm.com/docs/merge-strategies).
 
@@ -131,9 +132,9 @@ git log stash@{0} --oneline --decorate --graph
 <span class="term-fg31">|&#47;</span>
 * <span class="term-fg33">d4d8585 (</span><span class="term-fg36 term-fg1">HEAD</span><span class="term-fg33"> -&gt; </span><span class="term-fg32 term-fg1">master</span><span class="term-fg33">)</span> Create file</pre></code>
 
-Would you look at that!  Your stash isn't _one_ commit, it's possibly **three**:
-one for each of your staged, your unstaged, and your untracked changes,
-respectively.
+Would you look at that!  **Your stash isn't _one_ commit, it's _possibly
+three_**: one for each of your staged, your unstaged, and your untracked
+changes, respectively.
 
 ## A fourth parent with `2.51`
 
@@ -179,7 +180,7 @@ git log $(git stash export --print stash@{0}) --oneline --decorate --graph
 {{ note(msg='the `a196b1a` commit (second parent) is the regular, historical "stash commit", `stash@`') }}
 
 This is the same command as before, except that where I would before use
-`stash@{0}` as the reference to `log`, I now use `$(git stash export --print
+`stash@{0}` as the `ref`erence to `log`, I now use `$(git stash export --print
 stash@{0})` instead, to use the new model.
 
 The additional commit introduced under this new format is `3e57536`, whose
@@ -205,10 +206,10 @@ documentation](https://git-scm.com/docs/git-format-patch#_description).
 
 ## Your stash stack
 
-Finally, we arrive at the point of this entire article: stashes that used to only
-be available through the `reflog` of `refs/stash` now properly _exist_ as a
-bunch of references that you can actually `push` and `fetch`.  You may even move
-around your entire stack, or any subset of it, at once.
+Finally, we arrive at the point of this entire article: stashes that used to
+only be available through the `reflog` of `refs/stash` **now properly _exist_
+as a bunch of `ref`erences that you can actually `push` and `fetch`**.  You may
+even move around your entire stack, or any subset of it, at once.
 
 Let's push another stash:
 
@@ -241,8 +242,8 @@ git log --oneline --decorate --graph stash@{1}
 * <span class="term-fg33">d4d8585 (</span><span class="term-fg36 term-fg1">HEAD</span><span class="term-fg33"> -&gt; </span><span class="term-fg32 term-fg1">master</span><span class="term-fg33">)</span> Create file</pre></code>
 {{ note(msg="the earlier stash, `a196b1a`, is now the second entry on the stack, `stash@{1}`, but no more `refs/stash`") }}
 
-The new model for stashes allow us to refer to our _entire stash stack_
-directly, since they'll be parents of one another, provided that you want this
+The new model for stashes allows us to **refer to our entire stash stack
+directly**, since they'll be parents of one another, provided that you want this
 behaviour.
 
 Note that you may pass a list of stashes to `git stash export --print` or omit
@@ -277,14 +278,14 @@ Try to focus on the leftmost branch: that's your stash stack, with `ba4fea2` at
 the top, `3e57536` next, and `73c9bab` (the dummy initial "stash stack" commit)
 at the bottom.
 
-_Voilà_!  You need only your one reference from `git stash export --print`, and
-can carry around your entire stash stack.
+_Voilà_!  You need only your one `ref`erence from `git stash export --print`,
+and can carry around your entire stash stack.
 
 ## So what?
 
 There's a counterpart to the `--print` option: `--to-ref <ref>` lets you export
-your stash stack (in its newly introduced model) to a proper Git ref, which you
-can then push and fetch like any other reference:
+your stash stack (in its newly introduced model) to a proper Git `ref`erence,
+which you can then push and fetch like any other:
 
 ```sh
 git stash export --to-ref refs/my-stash
@@ -335,10 +336,10 @@ adopt this convention going forward.
 
 ### A note on garbage collection
 
-Remember that these are **dangling refs**, and as such are subject to garbage
+Remember that these are **dangling `ref`s**, and as such are subject to garbage
 collection, if you've skilfully set up your repository.  Chances are that your
 Git host provider _does_ by default end up pruning these after a while: nobody
-wants to keep around stale references forever that aren't reachable from any
+wants to keep around stale `ref`erences forever that aren't reachable from any
 branch or tag.
 
 Have fun!
