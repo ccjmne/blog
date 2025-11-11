@@ -11,6 +11,7 @@ ul.infobar {
     color: var(--colour-surface1);
   }
   .muted { color: var(--colour-overlay0); }
+  .current { color: var(--colour-text); }
   &.oneline {
     position: relative;
     overflow: hidden;

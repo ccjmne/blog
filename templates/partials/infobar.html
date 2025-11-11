@@ -42,7 +42,11 @@
     <li class="tags-li">tagged
       {% for tag in tags -%}
       {%- if not loop.first -%}, {% endif -%}
+      {%- if term is defined and term.name == tag -%}
+      <span class="current">{{ tag | markdown(inline=true) | safe }}</span>
+      {%- else -%}
       <a href="{{ get_url(path="/tags/" ~ tag) }}">{{ tag | markdown(inline=true) | safe }}</a>
+      {%- endif -%}
       {%- endfor -%}
     </li>
     {%- endif -%}
