@@ -23,7 +23,7 @@ stylistic expression:
 and lines.<br>
    Let's go bidimensional!
 
-[^esoteric-vertical-whitespace]: Let's not talk of
-the [CR](https://www.compart.com/en/unicode/U+000D),
-[VT](https://www.compart.com/en/unicode/U+000B) or
-[FF](https://www.compart.com/en/unicode/U+000C) here.
+[^esoteric-vertical-whitespace]: Let's not talk of the
+[`CR`](https://www.compart.com/en/unicode/U+000D),
+[`VT`](https://www.compart.com/en/unicode/U+000B) or
+[`FF`](https://www.compart.com/en/unicode/U+000C) here.

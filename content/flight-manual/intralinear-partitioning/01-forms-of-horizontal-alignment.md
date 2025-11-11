@@ -244,8 +244,8 @@ does**.  If you're tasked with authoring code, you're assumed to have
 mastered the putting-text-together aspect of it already: [we are typists
 first](https://blog.codinghorror.com/we-are-typists-first-programmers-second/).
 
-[^even-the-fooliest]: Even **the more (most?) foolish among us**, the "coding
-agent" `LLM`s near the end of the first quarter of the twenty-first century.
+[^even-the-fooliest]: Even the more (most?) foolish among us, the _"coding
+agents"_ `LLM`s, as of the end of the first quarter of the twenty-first century.
 
    **Use tools that help.**<br>
    If your tools are either not assisting or outright hindering you in some
