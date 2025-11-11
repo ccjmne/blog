@@ -119,7 +119,7 @@ An **address** may take one of the following forms:
 [^hash]: The "hash" or "number sign" (`#`), is also routinely referred to by the
 Americanisms "octothorpe", or more absurdly "pound sign"
 
-To these `POSIX` standards, `GNU sed` adds the following option:
+To these `POSIX` standards, `GNU` `sed` adds the following option:
 
 - the `first~step` form, where `first` and `step` are both _decimal numbers_.
 
@@ -152,7 +152,7 @@ the first address is matched, if we're currently outside a match range, we start
 processing the input lines for that command, until the second address is matched
 or the end of the input is reached.
 
-### Some `GNU sed`-specific pseudo-addresses
+### Some `GNU` `sed`-specific pseudo-addresses
 
 The `GNU` version of `sed` introduces three pseudo-addresses that may only
 be used in the context of address ranges, and **aren't valid as stand-alone
