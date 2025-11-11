@@ -10,6 +10,7 @@ ul.infobar {
     margin: 0 .5ch;
     color: var(--colour-surface1);
   }
+  .muted { color: var(--colour-overlay0); }
   &.oneline {
     position: relative;
     overflow: hidden;

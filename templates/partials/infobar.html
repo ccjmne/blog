@@ -1,25 +1,50 @@
 <ul class="infobar {% if oneline -%} oneline {%- endif -%}">
-  {%- if page.date -%}
-  <li><time>{{- page.date | date(format="%B %d, %Y") -}}</time></li>
-  {%- endif -%}
-  <li>{{- page.reading_time -}}-minute read</li>
-  {% set parent = get_section(path=page.ancestors | last) %}
-  {%- if not section.extra.series and parent.extra.series -%}
-    <li>Part&nbsp;{{ page.slug | truncate(length=2, end="") | trim_start_matches(pat="0") }}&nbsp;of&nbsp;<a href="{{ parent.permalink }}">{{ parent.title | markdown(inline=true) | safe }}</a></li>
-  {%- endif -%}
+  {%- if page is not defined and section is defined -%}
+    {%- set lo = section.pages | sort(attribute="date") | first | get(key="date") -%}
+    {%- set hi = section.pages | sort(attribute="date") | last  | get(key="date") -%}
+    {%- set ylo = lo | date(format="%Y") -%}
+    {%- set yhi = hi | date(format="%Y") -%}
+    {%- set mlo = lo | date(format="%m") -%}
+    {%- set mhi = hi | date(format="%m") -%}
+    {%- if lo == hi -%}
+    <li><time>{{ lo | date(format="%B %d, %Y") }}</time></li>
+    {%- elif ylo == yhi and mlo == mhi -%}
+    <li><time>{{ lo | date(format="%B %d") }}</time><span class="muted"> through </span><time>{{ hi | date(format="%d, %Y") }}</time></li>
+    {%- elif ylo == yhi -%}
+    <li><time>{{ lo | date(format="%B %d") }}</time><span class="muted"> through </span><time>{{ hi | date(format="%B %d, %Y") }}</time></li>
+    {%- else -%}
+    <li><time>{{ lo | date(format="%B %d, %Y") }}</time><span class="muted"> through </span><time>{{ hi | date(format="%B %d, %Y") }}</time></li>
+    {%- endif -%}
 
-  {# filter out the "all" tag #}
-  {%- set tags = [] -%}
-  {%- for tag in page.taxonomies.tags | default(value=[]) -%}
-  {%- if tag != "all" -%} {%- set_global tags = tags | concat(with=tag) -%} {%- endif -%}
-  {%- endfor -%}
-
-  {%- if tags | length -%}
-  <li class="tags-li">tagged
-    {% for tag in tags -%}
-    {%- if not loop.first -%}, {% endif -%}
-    <a href="{{ get_url(path="/tags/" ~ tag) }}">{{ tag | markdown(inline=true) | safe }}</a>
+    {%- set total_reading_time = 0 -%}
+    {%- for p in section.pages -%}
+    {%- set_global total_reading_time = total_reading_time + p.reading_time -%}
     {%- endfor -%}
-  </li>
+    <li>{{- total_reading_time -}}-minute read <span class="muted">for</span> {{ section.pages | length }} article{{ section.pages | length | pluralize }}</li>
+
+  {%- elif page is defined -%}
+    {%- if page.date -%}
+    <li><time>{{- page.date | date(format="%B %d, %Y") -}}</time></li>
+    {%- endif -%}
+    <li>{{- page.reading_time -}}-minute read</li>
+    {% set parent = get_section(path=page.ancestors | last) %}
+    {%- if not section.extra.series and parent.extra.series -%}
+      <li>Part&nbsp;{{ page.slug | truncate(length=2, end="") | trim_start_matches(pat="0") }}&nbsp;of&nbsp;<a href="{{ parent.permalink }}">{{ parent.title | markdown(inline=true) | safe }}</a></li>
+    {%- endif -%}
+
+    {# filter out the "all" tag #}
+    {%- set tags = [] -%}
+    {%- for tag in page.taxonomies.tags | default(value=[]) -%}
+    {%- if tag != "all" -%} {%- set_global tags = tags | concat(with=tag) -%} {%- endif -%}
+    {%- endfor -%}
+
+    {%- if tags | length -%}
+    <li class="tags-li">tagged
+      {% for tag in tags -%}
+      {%- if not loop.first -%}, {% endif -%}
+      <a href="{{ get_url(path="/tags/" ~ tag) }}">{{ tag | markdown(inline=true) | safe }}</a>
+      {%- endfor -%}
+    </li>
+    {%- endif -%}
   {%- endif -%}
 </ul>
