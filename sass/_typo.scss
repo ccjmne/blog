@@ -1,8 +1,9 @@
 @use 'mxin' as *;
 
 $codefont: "Fira Code", monospace;
+$boldface: 600;
 
-strong { font-weight: 600; }
+strong { font-weight: $boldface; }
 ol { list-style-type: lower-roman; }
 ul { list-style-type: square; }
 ol, ul { box-sizing: border-box; }
@@ -146,7 +147,7 @@ blockquote {
   > p:first-of-type { margin-top: .5em; }
 
   &::before {
-    font-weight: 600;
+    font-weight: $boldface;
     padding-inline-start: calc(16px + .5em);
     text-transform: capitalize;
   }
