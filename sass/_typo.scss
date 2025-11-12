@@ -185,3 +185,19 @@ blockquote {
   + p { text-indent: 2em; }
   &:is(hr) { display: none; }
 }
+
+.punchline {
+  margin: 0;
+  text-align: center;
+  &::before, &::after {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width: 50px;
+    height: 0;
+    border-top: 1px solid var(--colour-surface1);
+    text-align: center;
+  }
+  &::before { margin-bottom: -.5rem; }
+  &::after  { margin-top:    -.5rem; }
+}

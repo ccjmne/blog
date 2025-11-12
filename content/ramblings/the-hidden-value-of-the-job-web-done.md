@@ -17,12 +17,13 @@ the way of his seemingly innocuous goal.
 Somewhere along the line, **we're 3 month in that 2-week project,** everybody's
 getting fed up, and the deadline comes looming: we decide to implement only the
 half that's immediately doable, preserve the work-in-progress somewhere in our
-VCS of choice (Git, surely), close the remaining tasks as "won't fix" or discard
-(erm, "retroactively postpone", I mean) them to the infamous backlog, under the
-"technical debt" label.
+<abbr title="Version Control System">`VCS`</abbr> of choice (Git, surely), close
+the remaining tasks as "Won't Fix" or discard (erm, _"retroactively postpone"_,
+I mean) them to the infamous backlog, under the dreadfully omnipresent
+"Technical Debt" label.
 
 We thought we'd be on top of things and could be surfing the wave
-of due features but ended up submerged under a rip tide of unknown
+of due features, but ended up submerged under a rip tide of unknown
 unknowns violently revealing themselves; nobody's happy and we shipped
 a half-baked product that we now tell the stakeholders was a [perpetual
 stew](https://en.wikipedia.org/wiki/Perpetual_stew) all along.
@@ -62,8 +63,8 @@ unceremoniously started and just as organically derailed, in-house products that
 have aged into a mere maintenance burden, or teams that are perpetually putting
 out fires, you may want to consider shifting your perspective:
 
-One simple job scheduled, discussed, planned and delivered on time is a success
-story.
+{% punchline() %} One simple job substantiated, discussed, scheduled, planned
+and delivered on time is a success story. {% end %}
 
 If a team consistently handles these straightforward tasks in that manner,
 don't make [the mistake of assuming they look good because their tasks are
