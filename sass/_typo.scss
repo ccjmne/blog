@@ -179,6 +179,12 @@ blockquote {
     @include admonition($quote);
     > * { font-style: italic; }
   }
+
+  + .quote-attribution {
+    margin-top: -.75rem;
+    text-align: end;
+    color: var(--colour-subtext0);
+  }
 }
 
 .paragraph-separator {
