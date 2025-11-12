@@ -1,20 +1,20 @@
 +++
-title = 'The advent of AI'
+title = 'The advent of `AI`'
 date = 2025-10-14
 taxonomies.section = ['ramblings']
 taxonomies.tags = ['all']
 +++
 
-We've pretty much always had "artificial intelligence" in our lives: the
+We've pretty much always had _"artificial intelligence"_ in our lives: the
 [ghosts chasing Pac-Man](https://en.wikipedia.org/wiki/Ghosts_(Pac-Man)) in its
 eponymous arcade game from 1980 operate according to 4 sets of rules (each their
-own): that's **Artificial Intelligence** (AI), too.
+own): that's **Artificial Intelligence** (`AI`), too.
 
-I mean to talk here of **Machine Learning** (ML), the subset of AI that has been
-making waves in the last few years, and most specifically about **Large Language
-Models** (LLMs), which are capable of (essentially) conversing just as humans
-would[^are-we-sentient-yet].  I'll keep referring to these as AI, for it sadly
-is the established vernacular.
+I mean to talk here of **Machine Learning** (`ML`), the subset of `AI` that has
+been making waves in the last few years, and most specifically about **Large
+Language Models** (`LLM`), which are capable of (essentially) conversing just as
+humans would[^are-we-sentient-yet].  I'll keep referring to these as `AI`, for
+it sadly is the established vernacular.
 
 [^are-we-sentient-yet]: Artificial **sentience** is yet to be incepted
 electronically, to be best of my understanding.  Although, who am I to
@@ -23,7 +23,7 @@ begin with?
 
 <div class="hi">
 
-I'd like to start with something that's not often talked about: the AI
+I'd like to start with something that's not often talked about: the `AI`
 that's now available to us is a huge achievement, something that'd been
 dreamt since the inception of computing, perhaps even before.  In my teenage
 years, I grew up with [Asimov](https://en.wikipedia.org/wiki/Isaac_Asimov)'s
@@ -38,9 +38,9 @@ R2-D2](https://en.wikipedia.org/wiki/Droid_(Star_Wars)) doing their best [Laurel
 and Hardy](https://en.wikipedia.org/wiki/Laurel_and_Hardy) impression.
 
 That's quite a few acronyms[^acronyms], come to think of it.  We should consider
-christening (ha!) our first **Artificial General Intelligence** (AGI) something
-like SAGE, for _Self-Adapting General Entity_.  Or whatever OVERLORD might spell
-out, to tease the soothsayers.  But I digress.
+christening (ha!) our first **Artificial General Intelligence** (`AGI`)
+something like SAGE, for _Self-Adapting General Entity_.  Or whatever OVERLORD
+might spell out, to tease the soothsayers.  But I digress.
 
 [^acronyms]:
     - **K.I.T.T.** stands for _Knight Industries Two Thousand_,
@@ -62,9 +62,10 @@ As a programming companion, however, it's of **very little use to me**.
 
 {{ hr() }}
 
-**I like my craft.**  I refined it enormously and have achieved some mastery in
-some regards that I'm certain is far from being available to the general public,
-would they even by armed with the World-Wide-Web and aided by some companions of
+**I like my craft.**  I refined it enormously and have achieved some
+mastery in some regards that I'm certain is far from being available
+to the general public, were they even armed with the _World Wide Web_
+[[sic]](@/ramblings/aptly-capitalised-names.md) and aided by some companions of
 the artificial kind.
 
 <!-- (@/flight-manual/switch-audio-sink-gpt-vs-me). TODO: LINKME -->
@@ -82,7 +83,7 @@ different purposes.
 {{ hr() }}
 
 **None of this corresponds to any sort of experience that the current
-LLMs could at all contemplate acquiring:** they have no experience of
+`LLM`s could at all contemplate acquiring:** they have no experience of
 their own.  They exist in a fantasy world dreamed up from the weighted
 statistically average (or popular?) amalgamation of (only) the written report
 of third parties; it certainly doesn't "learn" in any human sense.  [Richard
@@ -111,7 +112,7 @@ only gets further and further ahead of their competency.
 {{ hr() }}
 
 My third point is that, under the hypothesis that we are to keep signing off on
-the code that an AI produces for us, the argument should be made that—to the
+the code that an `AI` produces for us, the argument should be made that—to the
 fanatic developer at least—**the mechanical act of curating the codebase is
 certainly not the bottleneck** in building perennial software.
 
@@ -121,9 +122,9 @@ to be.  It may have to do with the pull in opposing directions: you need to
 appropriate the entire context in the first place, but wouldn't quite dare, at
 this point, even considering alternative solutions.
 
-In any case, correctly identifying and contextualising the problem, the
+In any case, **correctly identifying and contextualising the problem, the
 solution space, the implicit and explicit constraints, the trade-offs to
-be made with regards to maintainability, performance, security, etc. are
+be made** with regards to maintainability, performance, security, etc. are
 indisputably the more costly (and valuable) parts of the process.  Having the
 artificial assistant **execute** the plan is not, in the general cases where the
 alternative would be that I personally fly through text documents, much of a
@@ -163,7 +164,7 @@ of the vision**.
 
 </div>
 
-AI will get better.  It already is of great value as a preliminary to some
+`AI` will get better.  It already is of great value as a preliminary to some
 search engine queries.  It's pretty great at getting some vaguely mushy
 implementation that mostly does the thing you asked it for.  But that is not
 remotely enough to pique my fervent interest:
