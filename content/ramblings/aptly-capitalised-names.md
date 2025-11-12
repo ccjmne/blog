@@ -101,6 +101,8 @@ we can still strive to get it right.  Let's jump right in, alphabetically:
 
 - It's [**NVIDIA**](https://www.nvidia.com/)
 
+  But the solution, in 2025, is [AMD](https://www.amd.com/en/support/download/drivers.html).
+
 - It's [**Sass**](https://sass-lang.com/), but it's [**SCSS**](https://sass-lang.com/documentation/syntax/#scss)
 
   I can actually see the casing difference actually making sense even
@@ -109,7 +111,8 @@ we can still strive to get it right.  Let's jump right in, alphabetically:
 - It's [**Syncthing**](https://syncthing.net/)
 
   Let's appreciate [their
-  FAQ](https://docs.syncthing.net/users/faq.html#is-it-syncthing-syncthing-or-syncthing) addressing this very question so clearly.
+  FAQ](https://docs.syncthing.net/users/faq.html#is-it-syncthing-syncthing-or-syncthing)
+  addressing this very question so clearly.
 
 - It's [**tmux**](https://github.com/tmux)
 
@@ -139,6 +142,9 @@ we can still strive to get it right.  Let's jump right in, alphabetically:
 
   We few pained by the missing hyphen in "world-wide" may find solace in the
   common parlance [largely favouring "worldwide"](https://books.google.com/ngrams/graph?content=worldwide%2Cworld+wide%2Cworld-wide&year_start=1900&corpus=en) altogether.
+
+- It's [**WebAssembly**](https://webassembly.org/) and
+  [**WebSocket**](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
 
 - It's [**Wi-Fi**](https://en.wikipedia.org/wiki/Wi-Fi)
 
