@@ -51,6 +51,8 @@ significant experience maintaining a corporate-scale application to boot, yet
 they still managed to land on the one panacea that contemporarily solves all
 problems: obviously, it is that simple; we're off to the races.
 
+<!-- [foundational understanding of building the Web](@/ramblings/youre-no-web-developer.md) in the first place, as well as TODO: LINKME-->
+
 We create tools to run the tools to operate the transpilers, bundlers,
 minifiers, linters, formatters (_et caetera_); we create tools to facilitate the
 usage of the tools to version-control our code.  Name your micro-task, we are
@@ -70,16 +72,14 @@ time: the feature requests for the established solution are still pouring in.
 Yet the curators of its modernised counterpart aren't left idle, there is much
 thumb-twiddling in the works:
 
-We establish [ADRs](https://adr.github.io/), we keep expanding the procedures
-and making things yet simpler by identifying patterns and systematically
-preventing anybody from having to endure how the sausage is made: do **not**
-repeat yourself—or anybody else, [consistency is the opiate of the sophisticated
+We establish [`ADR`s](https://adr.github.io/), we keep expanding
+the procedures and making things yet simpler by identifying
+patterns and systematically preventing anybody from having to
+endure how the sausage is made: do **not** repeat yourself—or
+anybody else, [consistency is the opiate of the sophisticated
 mind](https://en.wikipedia.org/wiki/Wikipedia:Emerson_and_Wilde_on_consistency),
-this project [is so DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)
-it could pass for [a British
-comedy](https://en.wikipedia.org/wiki/The_Office_(British_TV_series)).
-
-<!-- [is so DRY](@/ramblings/the-dry-hoax.md). TODO: LINKME -->
+this project [is so `DRY`](@/ramblings/the-dry-hoax.md) it could pass for [a
+British comedy](https://en.wikipedia.org/wiki/The_Office_(British_TV_series)).
 
 We struggle to bring the two worlds to parity.  In fact, we're nowhere near: we
 have to start actually using it in its current state.  We can offer customers
