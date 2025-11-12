@@ -23,10 +23,12 @@ you can click "assign to me".  You're supposedly here because we expect you to
 expectations!<br>
    Until then, heed these insights I want to share with you:
 
-I know you've got a boss, a project manager, a scrum master, a team lead, a
-product owner and that there's also that one guy in the team who knows better
-that area and always takes it on, but I'll tell you here the reality: **the one
-thing you have that you should cater to is your responsibility**.
+I know you've got a boss, a project manager, a scrum master
+[(yecch)](https://ronjeffries.com/articles/018-01ff/abandon-1/), a team lead,
+a product owner and that there's also that proverbial one guy in the team who
+knows better that area and always takes it on, but the reality, as is relevant
+to you, is far more modest: **the one thing you have that you should cater to is
+your responsibility**.
 
    **If you're lacking some resource, whatever it is, go acquire it.**<br>
    The person that has what you need does have the 5 minutes to give it to you.
@@ -52,7 +54,7 @@ it this once](https://quoteinvestigator.com/2012/04/28/shorter-letter).
 
    **The mythical, elusive one person that may or may not hold the key isn't
 that irreplaceable.**<br>
-   No, really, even if nobody else but "surely they" know, guess what: neither
+   No, really; even if nobody else but "surely they" know, guess what: neither
 do they.  They're just in that position where they have to decide whether
 something needs to be done, but there's not one person that knows anything.
 Assuming your business makes money, it takes at least 4 people to know what to

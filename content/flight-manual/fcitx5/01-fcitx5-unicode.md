@@ -77,7 +77,7 @@ digits](https://www.pi-world-ranking-list.com/?page=lists) after all.
 What about the characters you won't reach for regularly enough to commit to
 (muscle?) memory their code point?  With `Ctrl`-`Shift`-`Alt`-`U` (I like to
 call this "<abbr title="relating to the fingers">digital</abbr> mouthful" a
-*"handful"*), you will be able to **search by description**.
+_"handful"_), you will be able to **search by description**.
 
 - Drawing some <abbr title="Terminal User Interface">`TUI`</abbr>
 menu?  Have enough [boxes to make Brad Pitt's head
