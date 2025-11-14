@@ -22,3 +22,13 @@
 @mixin md { @media (min-width: 768px)  { @content; } }
 @mixin lg { @media (min-width: 1004px) { @content; } }
 @mixin xl { @media (min-width: 1280px) { @content; } }
+
+[min-sm] { display: none; @include sm { display: initial; } }
+[min-md] { display: none; @include sm { display: initial; } }
+[min-lg] { display: none; @include sm { display: initial; } }
+[min-xl] { display: none; @include sm { display: initial; } }
+
+[max-sm] { display: initial; @include sm { display: none; } }
+[max-md] { display: initial; @include sm { display: none; } }
+[max-lg] { display: initial; @include sm { display: none; } }
+[max-xl] { display: initial; @include sm { display: none; } }
