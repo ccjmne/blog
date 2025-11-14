@@ -141,11 +141,10 @@ It also understands a file descriptor number, like the two operators above.
 
 ### Here Document: `<<`
 
-The `<<` operator redirects a _here document_ (abbreviated `HEREDOC`) to
-`FD 0`.  A here document is a way to provide input to a command directly
-within the script or command line, rather than from a separate file.
-For instance, you can use it to sort a list of items without having to create a
-separate file:
+The `<<` operator redirects a _here document_ (often abbreviated `HEREDOC`)
+to `FD 0`.  A _here document_ provides input to a command directly within the
+script or command line, rather than from a separate file.  For instance, you can
+use it to sort a list of items without having to create a separate file:
 
 ```sh
 sort <<EOF
@@ -171,10 +170,10 @@ article](heredoc.md).
 
 Disclaimer: this one is not part of the `POSIX` standard.
 
-The `<<<` operator redirects a _here string_ to `FD 0`.  A here string is a
-way to provide a single line of input to a command directly within the script or
-command line, rather than from a separate file or a here document.  For example,
-you can use it to sort a single line of text:
+The `<<<` operator redirects a _here string_ (often abbreviated `HEREDOC`)
+to `FD 0`.  A _here string_ provides a *single string* as input to a command
+directly within the script or command line.  For example, you can use it some
+input defined as a single multi-line string:
 
 <div class="grid-1-2"><div>
 
@@ -211,8 +210,17 @@ Since you'll already be using Bashisms if you're there, you may like to know
 that the `$'...'` (`ANSI-C` quoting) allows you, in `bash`, `zsh` and other
 popular interactive interpreters, to interpret backlash escape sequences much
 like `C` string literals would.  There, `\n` is a linefeed, `\t` a tabulation,
-`\x20` is a byte with the hexadecimal value `20` (a whitespace), `\u20AC` is
-the Unicode character with code point `U+20AC` (the Euro sign), and so on.
+`\x20` is a byte with the hexadecimal value `20` (a whitespace), `\u20AC` is the
+Unicode character with code point `U+20AC` (the Euro sign), and so on.
+
+The usage of the _here string_ by far the most prevalent out there would be that
+which replaces `echo something | command`, as the resulting pipeline is regarded
+as somewhat more readable:
+
+```sh
+echo 'some input' | command --some-flag=value  # POSIX-compliant
+command --some-flag=value <<< 'some input'     # possibly more readable
+```
 
 ### Command piping: `|`
 
