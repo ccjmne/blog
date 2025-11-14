@@ -48,7 +48,10 @@ a.tag, a.tag:visited {
   border: 1px solid var(--colour-subtext1);
   color: var(--colour-accent);
   text-decoration: none;
-  &.tag-low { border-color: var(--colour-overlay1); }
+  &.tag-low {
+    border-color: var(--colour-overlay1);
+    color: var(--colour-text);
+  }
   &.tag-high::before {
     @include icon(ruby, (top: 2px, left: -2px));
   }
