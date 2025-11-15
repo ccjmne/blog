@@ -269,5 +269,5 @@ crafting text with as much care as you wish.
 ## Next
 
    Find out how simple tools can help you [lay out text with polish in the
-`CLI`](@/flight-manual/intralinear-partitioning/02-intralinear-partitioning-from-the-cli.md),
-using `column`, `cut` and `paste`.
+`CLI`](@/flight-manual/intralinear-partitioning/02-column-cut-paste.md), using
+`column`, `cut` and `paste`.
