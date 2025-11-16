@@ -92,3 +92,7 @@ a.tag, a.tag:visited {
   }
 }
 
+.user-agent * {
+  all:          revert     !important;
+  font-family:  system-ui  !important;
+}
