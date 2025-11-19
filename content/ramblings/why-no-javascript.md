@@ -93,7 +93,7 @@ beneath your feet.**
 design patterns, nauseatingly redundant "best practices", prescriptivist
 <abbr title="Clean Code">baseline guidelines for the neophytes of 20
 years ago</abbr> to contribute something vaguely coherent that "scales",
-[`DRY`](@/ramblings/the-dry-hoax.md), `SOLID`, _et.c._, that we somewhere
+[`DRY`](@/ramblings/the-dry-hoax.md), `SOLID`, _et cet._, that we somewhere
 seemingly **lost the habit of taking a break and a good holistic look at what
 it is we're putting together**, and what's underneath the soulless shell of
 ego-fattening inanities.

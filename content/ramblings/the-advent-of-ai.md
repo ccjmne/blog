@@ -123,8 +123,8 @@ appropriate the entire context in the first place, but wouldn't quite dare, at
 this point, even considering alternative solutions.
 
 In any case, **correctly identifying and contextualising the problem, the
-solution space, the implicit and explicit constraints, the trade-offs to
-be made** with regards to maintainability, performance, security, etc. are
+solution space, the implicit and explicit constraints, the trade-offs to be
+made** with regards to maintainability, performance, security, _et cet._ are
 indisputably the more costly (and valuable) parts of the process.  Having the
 artificial assistant **execute** the plan is not, in the general cases where the
 alternative would be that I personally fly through text documents, much of a

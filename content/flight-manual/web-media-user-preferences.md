@@ -98,7 +98,7 @@ motion:
 
 I had also been toying with the idea of using `smooth` scrolling, but couldn't
 even suffer it for myself and made sure to disable that in as well.  Other
-notable uses may be to avoid `autoplay`ing videos, animated GIFs, etc...
+notable uses may be to avoid `autoplay`ing videos, animated GIFs, _et cet._
 
 > [!NOTE]
 >
@@ -198,7 +198,7 @@ document is printed.
 > This isn't limited to style sheets or even `<link>` elements: you can use it
 > anywhere.  For example, it may find purpose in `<picture>` elements to serve
 > different images based on many things, such as your user's preference in terms
-> of contrast, whether their device is in portrait or landscape mode, etc...
+> of contrast, whether their device is in portrait or landscape mode, _et cet._
 >
 > ```html
 > <picture>
