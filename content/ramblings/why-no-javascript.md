@@ -181,8 +181,8 @@ desktop app running on Electron...  **Whatever revolutionary, remotely popular
 idea was had in the last 15 years with regards to building the Web, name it:
 good or bad, I've given it a serious go.**
 
-{% punchline() %} Now, I just want a break.  I want to be lean and scrappy, and
-work within the limitations that foster creativity. {% end %}
+{% punchline() %} For now, I just want a break.  I want to be lean and scrappy,
+and work within the limitations that foster creativity. {% end %}
 
 I want to focus on building something that lets me push content, on the Web, in
 a plain, simple, proven and perennial way, and build a system that could **stand
