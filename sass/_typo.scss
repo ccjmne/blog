@@ -198,11 +198,11 @@ blockquote {
     content: "";
     display: block;
     margin: 0 auto;
-    width: 50px;
+    width: 42%;
     height: 0;
-    border-top: 1px solid var(--colour-surface1);
+    border-top: 0.75ch solid var(--colour-subtext0);
     text-align: center;
   }
-  &::before { margin-bottom: -.5rem; }
-  &::after  { margin-top:    -.5rem; }
+  &::before { margin-bottom: -.4rem; }
+  &::after  { margin-top:    -.3rem; }
 }
