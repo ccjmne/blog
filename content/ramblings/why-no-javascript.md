@@ -20,7 +20,7 @@ points.**  If a script fails to load, a dependency breaks, an ad(vert)-blocker
 disallows some file or procedure, or through any of the slew of other errors
 that could happen, the site still functions.  You would essentially be doing
 away with an entire third of your technological landscape, and it would happen
-to be the one by far most prone to breaking spuriously—**though JavaScript in
+to be the one by far most prone to breaking haphazardly—**though JavaScript in
 itself isn't in any way unreliable**.
 
 <div class="hi">
