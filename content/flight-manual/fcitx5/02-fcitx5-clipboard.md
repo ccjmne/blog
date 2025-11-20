@@ -4,7 +4,7 @@ date = 2025-11-19
 description = 'Does not only the obvious, but also **hides your passwords**'
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all']
-draft = false
+draft = true
 
 [[extra.cited_tools]]
    name    = 'fcitx5'
