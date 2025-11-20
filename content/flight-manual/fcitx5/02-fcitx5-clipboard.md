@@ -94,7 +94,7 @@ obsolescence is obsolete.  What goes around comes around!
 ```
 
 <!-- can't spread this over several lines, lest it gets wrapped into a <p> -->
-<input type="password" onpaste="return false" placeholder="Passwords, please!" style=" display: block; background-color: var(--colour-surface0); border: 1px solid var(--colour-accent); padding: .5rem 1rem; color: var(--colour-text); width: var(--column-width); margin: auto;">
+<input type="password" onpaste="return false" placeholder="Passwords, please!" style="display: block; background-color: var(--colour-surface0); border: 1px solid var(--colour-accent); padding: .5rem 1rem; color: var(--colour-text); width: var(--column-width); box-shadow: 0 3px 0 0 var(--colour-crust); margin: 0 auto 3px;">
 {{ note(msg="you shouldn't be able to **paste** anything in this `<input>`") }}
 
 No pasting allowed.  But if you're running `fcitx5`, you may just open up
