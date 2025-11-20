@@ -22,15 +22,16 @@ A staple of the frantic user's tool belt, the clipboard history needs no
 introduction.
 
 I remember the day one of my colleagues excitedly demonstrated their
-newly-acquired special copy-paste history buffer plug-in that would work well
-inside the very specific _"file editing"_ view of their <abbr title="convoluted
+newly-acquired copy-paste buffer history plug-in that would work well inside
+the very specific _"file editing"_ view of their <abbr title="convoluted
 abstraction over build tools">`IDE`</abbr>.  I remember it well, because
-it was **last year**—a whopping **half a century** or so years after
+it was **last year**—a whopping **half a century** or so after
 [`vi`](https://en.wikipedia.org/wiki/Vi_(text_editor)) introduced them.
 
 Ah, and <abbr title="The ubiquitous editor">Vim</abbr> today offers a lofty
 **forty-five** registers, complete with bindings to append, replace, print from
-as plain text, print from as if you were typing it, _et cet._.
+as plain text, print from as if you were typing it, _et cet._; see [`:help
+registers`](https://vimdoc.sourceforge.net/htmldoc/usr_10.html).
 
 **But I digress.**
 
@@ -38,21 +39,27 @@ What Vim doesn't quite do with its many registers is **avail them to other
 applications**.  For that, you've got your syste—
 
 Ah, I'm being told that neither _Windows_ nor _macOS_ actually
-offer any more than _one_ measly "clipboard/buffer", despite `X11`
-having had a [complete, detailed specification for no less than
-_three_](https://www.x.org/archive/current/doc/xorg-docs/icccm/icccm.pdf)
-**since the early 1990s** at the latest, two of which being exceptionally
-convenient and still **completely supported and working across the board (BSD
-& Linux)**—even many [Wayland](https://wayland.freedesktop.org/) compositors
-implement that compatibility to the `X11` specification.
+offers any more than _one_ measly "clipboard", despite `X11`
+having had, **since the early 1990s** at the latest, a
+[complete, detailed specification for **no less than three such
+buffers**](https://www.x.org/archive/current/doc/xorg-docs/icccm/icccm.pdf),
+two of which are exceptionally convenient and still **completely
+supported and working across the board (BSD and Linux)**—even many
+[Wayland](https://wayland.freedesktop.org/) compositors implement that
+compatibility to the `X11` specification.
 
 **But I digress some more.**
 
-If you're neither in Vim, nor on a sensible `OS`, and that the dearth of
-practicality of your recurring-payment-contingent system starts to unveil its
-ugly core, but that heh, it's got a familiar enough face to have you keep coming
-back...  I bid you good luck.  For the rest of us, tonight, we feast on a tidy
-serving of `fcitx5` goodness.
+If you're neither in a sensible text editor, nor on a sensible `OS`, and that
+despite your recurring-payment-contingent system gradually unveiling its <abbr
+title="lacking, pauce">dearthy</abbr> core, its familiar-enough face has you
+keep coming back...  I bid you good luck[^good-luck]; the rest of us shall
+tonight feast on a tidy serving of `fcitx5` goodness.
+
+[^good-luck]: I truly mean this in good faith, and you're obviously much welcome
+to stay and join us—I only jest here, I have no qualms against users of any
+platform.  Plus, in all honestly, I have absolutely no doubt that the very same
+capabilities are available on these as well.
 
 ## Clipboard history with `fcitx5`
 
