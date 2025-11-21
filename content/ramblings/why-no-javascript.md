@@ -172,14 +172,14 @@ true this generally, I also am confidently armed with the rarefied aptitude to
 address and reconcile them through **incisive, learned, deliberate decisions
 that don't start and end with the _"obvious"_**.
 
-I've actually used all of the above technologies (and then some), enough to tout
-professional capabilities in most, and outright mastery in a few; I have surfed
-the `#usetheplatform` wave; I have built JavaScript-only applications; I have
-engineered my <abbr title="Single-Page Application">`SPA`</abbr> library, still
-used in production; I have made the innocent mistake of building my "native"
-desktop app running on Electron...  **Whatever revolutionary, remotely popular
-idea was had in the last 15 years with regards to building the Web, name it:
-good or bad, I've given it a serious go.**
+I've actually used all of the above technologies (and then some), enough to
+tout professional capabilities in most and outright mastery in a few; I have
+surfed the `#usetheplatform` wave; engineered my <abbr title="Single-Page
+Application">`SPA`</abbr> library, still used in production; made the innocent
+mistake of building my "native" desktop app running on Electron...  **Whatever
+pseudo-revolutionary, remotely popular idea was had in the last 15 years with
+regards to building the Web, name it: for better or worse, I've given it a
+serious go.**
 
 {% punchline() %} For now, I just want a break.  I want to be lean and scrappy,
 and work within the limitations that foster creativity. {% end %}
