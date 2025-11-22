@@ -4,6 +4,7 @@ date = 2025-11-16
 description = "The reasons why, without distate for nor lack of competence in JavaScript, numerous Web sites forgo it altogether"
 taxonomies.section = ['ramblings']
 taxonomies.tags = ['all', 'web', 'javascript']
+draft = true
 +++
 
 This very blog is notably exempt of JavaScript, and it certainly isn't born
