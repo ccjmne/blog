@@ -63,9 +63,7 @@ a {
     color: var(--colour-accent);
   }
 
-  // TODO: leverage `rel="external"` when zola:next is released
-  // or figure out how to use the next build in the CD pipeline
-  &[href^=git],&[href^=http]:not([href^='https://ccjmne.sh/'],[href^='https://ccjmne.github.io/'],[href^='http://localhost'],[href^='http://127.0.0.1'],:has(img)) {
+  &[href^=git],&[href^=http][rel=external]:not(:has(img)) {
     &::after {
       content: "\202F↗"; // U+202F is NARROW NO-BREAK SPACE
       font-size: 0.75em;
