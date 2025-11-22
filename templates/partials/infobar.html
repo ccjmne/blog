@@ -9,7 +9,7 @@
     {%- if lo == hi -%}
     <li><time>{{ lo | date(format="%B %d, %Y") }}</time></li>
     {%- elif ylo == yhi and mlo == mhi -%}
-    <li><time>{{ lo | date(format="%B %d") }}</time><span class="muted"> through </span><time>{{ hi | date(format="%d, %Y") }}</time></li>
+    <li><time>{{ lo | date(format="%B %d") }}</time><span class="muted">–</span><time>{{ hi | date(format="%d, %Y") }}</time></li>
     {%- elif ylo == yhi -%}
     <li><time>{{ lo | date(format="%B %d") }}</time><span class="muted"> through </span><time>{{ hi | date(format="%B %d, %Y") }}</time></li>
     {%- else -%}
@@ -20,7 +20,7 @@
     {%- for p in section.pages -%}
     {%- set_global total_reading_time = total_reading_time + p.reading_time -%}
     {%- endfor -%}
-    <li>{{- total_reading_time -}}-minute read <span class="muted">for</span> {{ section.pages | length }} article{{ section.pages | length | pluralize }}</li>
+    <li>{{- total_reading_time -}}-minute read <span class="muted">across</span> {{ section.pages | length }} article{{ section.pages | length | pluralize }}</li>
 
   {%- elif page is defined -%}
     {%- if page.date -%}
