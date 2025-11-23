@@ -40,7 +40,7 @@ on:
 <div class="hi">
 
 In the alternate reality where we'd have aptly assumed the responsibility of
-laying out the foundations for successful project, we have **spent some time
+laying out the foundations for a successful project, we have **spent some time
 upfront to ensure we'd build the right thing at the right time**—when all the
 resources (human and other) would be suitably available and primed, then spent 2
 more weeks actually taking on the 2-week job.
@@ -63,8 +63,8 @@ unceremoniously started and just as organically derailed, in-house products that
 have aged into a mere maintenance burden, or teams that are perpetually putting
 out fires, you may want to consider shifting your perspective:
 
-{% punchline() %} One simple job substantiated, discussed, scheduled, planned
-and delivered on time is a success story. {% end %}
+One simple job substantiated, discussed, scheduled, planned and delivered on
+time is a success story.
 
 If a team consistently handles these straightforward tasks in that manner,
 don't make [the mistake of assuming they look good because their tasks are

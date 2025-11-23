@@ -27,8 +27,8 @@ do—into a helpless automatism, and further as it insidiously
 transmutes into a **tenet of your newly, tacitly established [cargo
 cult](https://en.wikipedia.org/wiki/Cargo_cult)**.
 
-{% punchline() %} Not everything, everybody, every time, everywhere, demands the
-conception and curation of a uniform abstraction. {% end %}
+Not everything, everybody, every time, everywhere, demands the conception and
+curation of a uniform abstraction.
 
 Having a few of your purportedly autonomous, vaguely[^manifesto-agile]
 ["Agile"](https://en.wikipedia.org/wiki/Agile_software_development) teams

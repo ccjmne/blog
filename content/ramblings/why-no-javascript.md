@@ -37,9 +37,9 @@ means founding your Web site on technologies catering to <abbr title="DX"
 font="mono">_Developer Experience_</abbr>, presumably only ever tested on
 high-end devices with extremely fast connections.
 
-{% punchline() %} The product shouldn't take the back-seat to the developer's
-"convenience" to the point of enabling complacency while establishing disdain
-for enhancing the end-user experience. {% end %}
+The product shouldn't take the back-seat to the developer's "convenience" to
+the point of enabling complacency while establishing disdain for enhancing the
+end-user experience.
 
 For reference, here's an article detailing how [Netflix dramatically improved
 their site's performance by ditching React for their
@@ -182,8 +182,8 @@ pseudo-revolutionary, remotely popular idea was had in the last 15 years with
 regards to building the Web, name it: for better or worse, I've given it a
 serious go.**
 
-{% punchline() %} For now, I just want a break.  I want to be lean and scrappy,
-and work within the limitations that foster creativity. {% end %}
+For now, I just want a break.  I want to be lean and scrappy, and work within
+the limitations that foster creativity.
 
 I want to focus on building something that lets me push content, on the Web, in
 a plain, simple, proven and perennial way, and build a system that could **stand
