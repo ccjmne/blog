@@ -5,7 +5,7 @@ ul.infobar {
   padding: 0;
   margin-block: 0;
   color: var(--colour-overlay2);
-  li:not(:first-child)::before {
+  li:not(:last-child)::after {
     content: "⯁";
     margin: 0 .5ch;
     color: var(--colour-surface1);
