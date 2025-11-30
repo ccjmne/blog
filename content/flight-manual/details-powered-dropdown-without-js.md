@@ -141,7 +141,7 @@ with a `<summary>` child:
 ```html
 <details name="linked">
    <summary>Woof!</summary>
-   <span style="font-size: 3em !important;">🐶</span>
+   <span style="font-size: 3em;">🐶</span>
 </details>
 ```
 <br>
