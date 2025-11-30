@@ -25,7 +25,7 @@
     <header {{ hlpr::vtn(name="header", static=true) -}}>
       <a href="{{ get_url(path="/") }}">             {%- if current_path == "/" -%}                             <strong>Home</strong>          {%- else -%} Home          {%- endif -%} </a>
       <details class="dropdown" max-sm>
-        <summary>{%- if current_path != "/" -%} <strong>Articles</strong> {%- else -%} Articles {%- endif -%}</summary>
+        <summary>{%- if current_path != "/" and current_path != "/colophon/" -%} <strong>Articles</strong> {%- else -%} Articles {%- endif -%}</summary>
         <nav>
           <a href="{{ get_url(path="/flight-manual") }}">{%- if current_path is starting_with("/flight-manual") -%} <strong>Flight manual</strong> {%- else -%} Flight manual {%- endif -%} </a>
           <a href="{{ get_url(path="/tags") }}">         {%- if current_path is starting_with("/tags") -%}          <strong>By tags</strong>       {%- else -%} By tags       {%- endif -%} </a>
@@ -35,7 +35,7 @@
       <a href="{{ get_url(path="/flight-manual") }}" min-sm>{%- if current_path is starting_with("/flight-manual") -%} <strong>Flight manual</strong> {%- else -%} Flight manual {%- endif -%} </a>
       <a href="{{ get_url(path="/tags") }}"          min-sm>{%- if current_path is starting_with("/tags") -%}          <strong>By tags</strong>       {%- else -%} By tags       {%- endif -%} </a>
       <a href="{{ get_url(path="/ramblings") }}"     min-sm>{%- if current_path is starting_with("/ramblings") -%}     <strong>Ramblings</strong>     {%- else -%} Ramblings     {%- endif -%} </a>
-      {# <a href="{{ get_url(path="/about") }}"         min-sm>{%- if current_path is starting_with("/about") -%}         <strong>Meta</strong>          {%- else -%} Meta          {%- endif -%} </a> #}
+      <a href="{{ get_url(path="/colophon") }}"            >{%- if current_path is starting_with("/colophon") -%}      <strong>Colophon</strong>      {%- else -%} Colophon      {%- endif -%} </a>
       <span style="flex-grow: 1"></span>
       <a href="{{ get_url(path="/atom.xml", trailing_slash=false) }}">RSS</a>
     </header>
