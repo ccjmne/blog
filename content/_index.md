@@ -21,7 +21,7 @@ that.
 
 ## User guide
 
-This Website's colour scheme automatically adjusts to your preference as
+This Web site's colour scheme automatically adjusts to your preference as
 [indicated by your Web browser](@/flight-manual/web-media-user-preferences.md),
 which should forward that of your desktop environment; though it currently looks
 better in **light** mode.
