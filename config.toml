@@ -3,7 +3,7 @@ author             = "Éric NICOLAS (ccjmne)"
 title              = "ccjmne's blog"
 compile_sass       = true
 generate_feeds     = true
-build_search_index = true
+build_search_index = false
 default_language   = "en"
 taxonomies         = [{ name = "tags" }, { name = "section" }]
 
