@@ -90,7 +90,7 @@ little notes:
 So, that module grabs the textual content of what goes into your `clipboard`
 selection, and keep it in its memory, though **not only that last one**!  At any
 time, you can recall the most recent few (how many is configurable), and insert
-them [anywhere you can type—more on that later](#anywhere-you-can-type).
+them [anywhere you can type—more on that later](#anywhere-you-type).
 
 To recall your `clipboard` history, the default key binding is `Ctrl`+`;` (the
 semicolon).  You may then fully configure how to go about making your selection:
