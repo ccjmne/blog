@@ -1,5 +1,9 @@
 {%- extends "base.html" -%}
 
+{%- block cssvars -%}
+--column-width: min(90vw, 600px);
+{%- endblock cssvars -%}
+
 {%- block content -%}
 {%- if section is defined %}{% set page = section %}{% endif -%}
 <h1>{{ page.title }}</h1>
