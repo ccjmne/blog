@@ -1,5 +1,6 @@
 +++
 title = 'Colophon'
+template = 'plain.html'
 +++
 
 This Web site embraces boring technologies.
