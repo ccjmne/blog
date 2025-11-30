@@ -1,7 +1,5 @@
 +++
 title = '~ccjmne'
-template = 'section.html'
-extra.infobar = false
 +++
 
 <!-- <p>"One meticulous fellow"</p> -->

@@ -1,6 +1,5 @@
 +++
 title = 'Colophon'
-extra.infobar = false
 +++
 
 This Web site embraces boring technologies.
