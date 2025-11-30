@@ -1,8 +1,0 @@
-{%- extends "base.html" -%}
-
-{%- block content -%}
-<h1 class="title"><span class="link-title" {{ hlpr::vtn(name=section.components | last) -}}>{{- section.title | markdown(inline=true) | safe -}}</span></h1>
-<article>
-  {{ section.content | markdown | safe }}
-</article>
-{%- endblock content -%}
