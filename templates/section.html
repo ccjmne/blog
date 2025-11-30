@@ -2,7 +2,9 @@
 
 {%- block content -%}
 <h1 class="title"><span class="link-title" {{ hlpr::vtn(name=section.components | last) -}}>{{- section.title | markdown(inline=true) | safe -}}</span></h1>
+{%- if section.extra.infobar is not defined or section.extra.infobar != false -%}
 {%- include "partials/infobar.html" -%}
+{%- endif -%}
 <article>
   {%- set footnotes = hlpr::extract(content=section.content,   which="footnotes") -%}
   {{ hlpr::extract(content=section.content, which="main") }}
