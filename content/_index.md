@@ -4,11 +4,11 @@ title = '~ccjmne'
 
 <!-- <p>"One meticulous fellow"</p> -->
 
-I publish some technical [flight manual](@/flight-manual/) that curates
+I publish some technical [flight manual](@/flight-manual/_index.md) that curates
 practical guides towards mastering your software development craft.
 
-I also share some [ramblings](@/ramblings/) that are more conceptual or
-less grounded in relevance and practicality, but may be consumed more
+I also share some [ramblings](@/ramblings/_index.md) that are more conceptual
+or less grounded in relevance and practicality, but may be consumed more
 recreationally—or precautionarily.
 
    I am fairly slow and deliberate.<br>
