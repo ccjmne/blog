@@ -1,3 +1,5 @@
+@use '../mxin' as *;
+
 ul.infobar {
   display: flex;
   flex-wrap: wrap;
@@ -5,10 +7,14 @@ ul.infobar {
   padding: 0;
   margin-block: 0;
   color: var(--colour-overlay2);
-  li:not(:last-child)::after {
-    content: "⯁";
-    margin: 0 .5ch;
-    color: var(--colour-surface1);
+  li:not(:last-child) {
+    display: flex;
+    align-items: center;
+    &::after {
+      @include icon(diamond, (top: 1px, collection: tiny));
+      margin: 0 .2ch;
+      color: var(--colour-surface1);
+    }
   }
   .muted { color: var(--colour-overlay0); }
   .current { color: var(--colour-text); }

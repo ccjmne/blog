@@ -1,19 +1,21 @@
-@mixin icon($name, $pos: (top: 2px, left: -2px)) {
+@mixin icon($name, $opts: (top: 2px, left: -2px, collection: octicons)) {
   content: '';
   display: inline-block;
   position: relative;
-  top: map-get($pos, top);
-  left: map-get($pos, left);
+  top: map-get($opts, top);
+  left: map-get($opts, left);
   width: 16px;
   height: 16px;
   background-color: currentColor;
-  @include iconmask($name);
+  @include iconmask($name, map-get($opts, collection));
   mask-position: center, center;
   mask-repeat: no-repeat;
 }
 
-@mixin iconmask($name) {
-  mask: url('./octicons/#{$name}-16.svg');
+@mixin iconmask($name, $collection: octicons) {
+  $coll: if($collection == null, octicons, $collection);
+  $size: if($collection == tiny, '', -16);
+  mask: url('./#{$coll}/#{$name}#{$size}.svg');
 }
 
 // GitHub Primer's breakpoint values:

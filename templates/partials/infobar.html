@@ -39,7 +39,7 @@
     {%- endfor -%}
 
     {%- if tags | length -%}
-    <li class="tags-li">tagged
+    <li>tagged
       {% for tag in tags -%}
       {%- if not loop.first -%}, {% endif -%}
       {%- if term is defined and term.name == tag -%}
