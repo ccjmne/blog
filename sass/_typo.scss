@@ -125,11 +125,11 @@ abbr {
     background-color: var(--colour-base);
     border: 1px solid var(--colour-overlay0);
     pointer-events: none;
-    opacity: 0;
+    visibility: hidden;
   }
 
   &:hover::after {
-    opacity: 1;
+    visibility: visible;
   }
 }
 
