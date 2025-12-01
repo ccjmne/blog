@@ -22,7 +22,7 @@ a.entry {
   &:hover { color: var(--colour-accent); }
   &::before { @include icon(book, (top: 3px, left: 0)); }
   @each $type, $icon in (flight-manual: repo, ramblings: note) {
-    h1.#{$type} ~ &:not(.#{$type}):not(:hover) { &, :not(.dots) { color: var(--colour-overlay1); } }
+    h1##{$type} ~ &:not(.#{$type}):not(:hover) { &, :not(.dots) { color: var(--colour-overlay1); } }
     &.#{$type}::before { @include icon($icon); }
   }
   :first-child {

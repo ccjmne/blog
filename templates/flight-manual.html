@@ -5,7 +5,7 @@
 {%- endblock cssvars -%}
 
 {%- block content -%}
-<h1>{{- section.title -}}</h1>
+<h1 id="flight-manual">{{- section.title -}}</h1>
 {%- set txnm = get_taxonomy_term(kind="section", term="flight-manual") -%}
 {%- set most_recent = txnm.pages | first -%}
 <div class="hi">
