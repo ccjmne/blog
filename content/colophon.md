@@ -1,6 +1,7 @@
 +++
 title = 'Colophon'
 template = 'plain.html'
+description = 'Exceptionally boring technology, by design'
 +++
 
 This Web site embraces boring technologies.

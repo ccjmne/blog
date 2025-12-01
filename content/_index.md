@@ -1,6 +1,7 @@
 +++
 title = '~ccjmne'
 template = 'plain.html'
+description = 'One meticulous fellow yelling at clouds'
 +++
 
 <!-- <p>"One meticulous fellow"</p> -->
