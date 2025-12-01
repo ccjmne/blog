@@ -42,7 +42,7 @@ complexion](https://www.nightwater.email/em-dash-ai/), and you will not catch me
 present a range with anything other than the adequate punctuation mark.
 
 - `Ctrl`-`Shift`-`U`, then `2013` and voilà, an **en dash (`–`)**,
-transforming **subtractions** into a **numeric ranges**.
+transforming **subtractions** into **numeric ranges**.
 
    The first World War didn't _"span negative four"_, or whatever _1914-1918_
    may mean; it actually raged on **from 1914 through 1918**, _1914–1918_.
