@@ -18,12 +18,13 @@
   mask: url('./#{$coll}/#{$name}#{$size}.svg');
 }
 
+@mixin minw($w) { @media (min-width: $w) { @content; } }
 // GitHub Primer's breakpoint values:
 // https://primer.style/product/css-utilities/grid/#breakpoints
-@mixin sm { @media (min-width: 544px)  { @content; } }
-@mixin md { @media (min-width: 768px)  { @content; } }
-@mixin lg { @media (min-width: 1004px) { @content; } }
-@mixin xl { @media (min-width: 1280px) { @content; } }
+@mixin sm { @include minw(544px)  { @content; } }
+@mixin md { @include minw(768px)  { @content; } }
+@mixin lg { @include minw(1004px) { @content; } }
+@mixin xl { @include minw(1280px) { @content; } }
 
 [min-sm] { display: none; @include sm { display: initial; } }
 [min-md] { display: none; @include sm { display: initial; } }

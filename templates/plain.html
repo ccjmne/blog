@@ -10,5 +10,5 @@
 {%- if page.description is defined -%}
 <div class="subtitle">{{ page.description }}</div>
 {%- endif -%}
-<article>{{ page.content | safe }}</article>
+<article class="narrower">{{ page.content | safe }}</article>
 {%- endblock content -%}

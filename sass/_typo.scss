@@ -89,13 +89,15 @@ a {
     padding: $sz;
     transform: translateY(-50%);
     color: var(--colour-surface2);
-    @include lg { margin-left: -3 * $sz; }
+    @at-root .narrower & { @include md { margin-left: -3 * $sz; } }
+    @include                        lg { margin-left: -3 * $sz; }
 
     @at-root :has(> &:first-child) {
       position: relative;
       padding-left: 2 * $sz;
       box-sizing: border-box;
-      @include lg { padding: 0; }
+      @at-root .narrower & { @include md { padding: 0; } }
+      @include                        lg { padding: 0; }
 
       &:hover > :first-child {
         color: var(--colour-accent);
