@@ -1,10 +1,8 @@
 +++
-title = '~ccjmne'
+title = "ccjmne's tech blog"
 template = 'plain.html'
 description = 'One meticulous fellow yelling at clouds'
 +++
-
-<!-- <p>"One meticulous fellow"</p> -->
 
 I publish some technical [flight manual](@/flight-manual/_index.md) that curates
 practical guides towards mastering your software development craft.
@@ -14,11 +12,14 @@ or less grounded in relevance and practicality, but may be consumed more
 recreationally—or precautionarily.
 
    I am fairly slow and deliberate.<br>
-   I intend to keep producing approximately one article per week, but my
-propensity for ranting tangents significantly hinders the production of articles
-going straight to the point.<br>
+   I intend to keep putting out articles at the approximate rate of one
+per week, but my propensity for ranting tangents significantly hinders the
+production of articles getting to the point at all, let alone straight.<br>
    If you stick around a short while, I'm sure you'll come to find the irony in
 that.
+
+You'll find some meta information regarding the technology stack that this Web
+site is built upon in its [colophon](@/colophon.md).
 
 ## User guide
 
@@ -41,4 +42,3 @@ are annotated with an arrow pointing to the up and right.
 <!-- TODO: Document flight manual vs ramblings distinction w.r.t. their icons -->
 <!-- TODO: Document RSS feeds and their auto-discovery -->
 <!-- TODO: Document footnotes and their back-reference mechanisms -->
-<!-- TODO: Document colophon -->
