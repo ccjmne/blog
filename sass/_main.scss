@@ -28,8 +28,8 @@ main {
   &:not(:has(> article > .footnotes:last-child)) {
     padding-block-end: 3rem;
   }
-  > h1:first-child + * {
-    &, & > :first-child { margin-top: 0 !important; }
+  > h1, h1 + .subtitle {
+    + * { &, & > :first-child { margin-top: 0 !important; } }
   }
 }
 
