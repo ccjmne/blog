@@ -4,8 +4,10 @@ template = 'plain.html'
 description = 'One meticulous fellow yelling at clouds'
 +++
 
-I publish some technical [flight manual](@/flight-manual/_index.md) that curates
-practical guides towards mastering your software development craft.
+<div class="hi">
+
+I curate here a technical [flight manual](@/flight-manual/_index.md) that
+publishes practical guides towards mastering your software development craft.
 
 I also share some [ramblings](@/ramblings/_index.md) that are more conceptual
 or less grounded in relevance and practicality, but may be consumed more
@@ -20,6 +22,8 @@ that.
 
 You'll find some meta information regarding the technology stack that this Web
 site is built upon in its [colophon](@/colophon.md).
+
+</div>
 
 ## User guide
 
