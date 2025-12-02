@@ -71,7 +71,8 @@ a {
 
   &[href^=git],&[href^=http][rel=external]:not(:has(img)) {
     &::after {
-      content: "\202F↗"; // U+202F is NARROW NO-BREAK SPACE
+      content: " ↗";
+      margin-left: -.5ch;
       font-size: 0.75em;
       font-family: $codefont;
     }
