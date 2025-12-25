@@ -498,7 +498,9 @@ There remains one entire class of flags that we haven't touched on yet: which
 lines to number.  By default, **`nl` numbers all non-empty lines**.
 
 ```sh
-; printf "%s\n" {a..f} ''  hello world | nl -
+printf "%s\n" {a..f} ''  hello world | nl -
+```
+```txt
 1  a
 2  b
 3  c
@@ -509,6 +511,7 @@ lines to number.  By default, **`nl` numbers all non-empty lines**.
 7  hello
 8  world
 ```
+{{ note(msg="the empty line (`''`) isn't numbered and its following `hello` is only `1` greater than its preceding `f`") }}
 
 ### The concept of sections
 
@@ -715,14 +718,14 @@ nl -bn dailytasks.txt
 </div>
 </div>
 
-Most often nowadays, the default is actually what I want.  I don't mind typing
-the extra `-w1` or `-s:` here and there and generally further sanitise the
-output interactively, either manually or in a pipeline; but you may choose to,
-say, `alias` it with the defaults that suit you.
+Most often, the default is fairly close to what I want.  I don't mind typing the
+extra `-w1` or `-s:` here and there and generally further sanitise the output
+interactively, either manually or in a pipeline; but you may choose to, say,
+`alias` it with the defaults that suit you.
 
 Now that the frivolities are out of the way, let's get to the final
 piece, the one that actually feels more smooth to apply than some
-combination of [`v_b_I`](https://vimhelp.org/visual.txt.html#v_b_I) and
+combination of [`<C-V>I`](https://vimhelp.org/visual.txt.html#v_b_I) and
 [`g<C-A>`](https://vimhelp.org/change.txt.html#v_g_CTRL-A), or some possibly
 semi-awkward macro recording: discernment in line selection.
 
