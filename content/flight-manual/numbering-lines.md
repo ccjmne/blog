@@ -51,7 +51,7 @@ editor">Vim</abbr>.
 > flags is described in the `POSIX` specification: therefore `nl -w1` is
 > `POSIX`-compliant, `nl --number-width=1` isn't.
 
-- Number lines from a file or the standard output with `nl`:
+Number lines from a file or the standard output with `nl`:
 
 <div class="grid-1-2">
 
@@ -82,7 +82,9 @@ nl fruits.txt
 </div>
 </div>
 
-- Target lines to be numbered with the `-bpBRE` flag, matching against [basic regular expressions](https://www.gnu.org/software/sed/manual/html_node/BRE-syntax.html):
+Target lines to be numbered with the `-bpBRE`
+flag, matching against [basic regular
+expressions](https://www.gnu.org/software/sed/manual/html_node/BRE-syntax.html):
 
 <div class="grid-1-2">
 
@@ -118,8 +120,8 @@ nl -bp: ingredients.txt
 </div>
 </div>
 
-- Get fancy with it! Specify a custom separator, starting number, increment
-value, alignment, padding...
+Get fancy with it! Specify a custom separator, starting number, increment value,
+alignment, padding...
 
 ```sh
 openssl rand --hex 128 | sed -r 's/.{4}/ \0/g s/.{40}/\0\n/g' \
@@ -143,7 +145,7 @@ openssl rand --hex 128 | sed -r 's/.{4}/ \0/g s/.{40}/\0\n/g' \
 
 ## Number lines with style
 
-Let's start simple!  Just invoke `nl` with some filename, and it'll output its
+Let's start simple.  Just invoke `nl` with some filename, and it'll output its
 contents, prefixed with some line-by-line numbering:
 
 <div class="grid-1-2">
@@ -469,7 +471,6 @@ openssl rand --hex 128 | sed -r 's/.{4}/ \0/g s/.{40}/\0\n/g' \
 00000050: a288 5621 04ce c6d9 3e9d 4c44 aadb 6c58
 00000060: 39d5 ccf4 90aa e709 63a4 e2db 8ed0 4ea5
 00000070: cdd6 5dd2 e555 24fd c3a8 d95b 38fb f8b6
-
 ```
 {{ note(msg="look, ma! the `sed` addict couldn't keep it down for a single article!") }}
 
