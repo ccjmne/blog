@@ -124,7 +124,7 @@ Get fancy with it! Specify a custom separator, starting number, increment value,
 alignment, padding...
 
 ```sh
-openssl rand --hex 128 | sed -r 's/.{4}/ \0/g s/.{40}/\0\n/g' \
+openssl rand --hex 128 | sed -r 's/.{4}/ \0/g;s/.{40}/\0\n/g' \
                        | nl -v0 -i10 -w8 -nrz -s:
 ```
 ```txt
