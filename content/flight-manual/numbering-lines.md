@@ -35,6 +35,112 @@ tenured corporate developer's solution of having some `LLM` do it.
 
 <!-- [adopt skills you don't need yet](@/ramblings/adopt-stkills-you-dont-need-yet.md). TODO: LINKME -->
 
+<div class="hi">
+
+## Obligatory [TL;DR](https://en.wikipedia.org/wiki/TL;DR)
+
+Your first question will likely be: _why bother_?  To which I shall raise the
+[practical example](#a-practical-example) section.  And yeah, it supposes that
+you dwell on the `CLI`, most specifically in <abbr title="The ubiquitous text
+editor">Vim</abbr>.
+
+> [!WARNING]
+>
+> As far as I can tell, the `GNU` implementation matches exactly the
+> `POSIX` standard for `nl`.  However, only the short-form version of the
+> flags is described in the `POSIX` specification: therefore `nl -w1` is
+> `POSIX`-compliant, `nl --number-width=1` isn't.
+
+- Number lines from a file or the standard output with `nl`:
+
+<div class="grid-1-2">
+
+```txt,name=fruits.txt
+Apricot
+Apple
+
+Banana
+
+Cherry
+Carrot?
+```
+
+<div>
+
+```sh
+nl fruits.txt
+```
+```txt
+1  Apricot
+2  Apple
+
+3  Banana
+
+4  Cherry
+5  Carrot?
+```
+</div>
+</div>
+
+- Target lines to be numbered with the `-bpBRE` flag, matching against [basic regular expressions](https://www.gnu.org/software/sed/manual/html_node/BRE-syntax.html):
+
+<div class="grid-1-2">
+
+```txt,name=ingredients.txt
+Fruits:
+
+- Apricot
+- Banana
+- Cherry
+
+Others:
+
+- Milk
+- Egg
+```
+<div>
+
+```sh
+nl -bp: ingredients.txt
+```
+```txt
+1  Fruits:
+
+   - Apricot
+   - Banana
+   - Cherry
+
+2  Others:
+
+   - Milk
+   - Egg
+```
+</div>
+</div>
+
+- Get fancy with it! Specify a custom separator, starting number, increment
+value, alignment, padding...
+
+```sh
+openssl rand --hex 128 | sed -r 's/.{4}/ \0/g s/.{40}/\0\n/g' \
+                       | nl -v0 -i10 -w8 -nrz -s:
+```
+```txt
+00000000: 18be 2e82 3fc6 a77f da1a 7efa 26bc 1fa7
+00000010: 7e51 c213 d975 957a 1446 1382 a7ca e346
+00000020: 1b5d 3a37 b2cb 4319 ff98 5dae a93b 13e0
+00000030: 6366 34e0 640d 5765 cbe7 51df 0780 d2a4
+00000040: 3b41 2dfe 136a 372d 8278 1cdb cadc b598
+00000050: a288 5621 04ce c6d9 3e9d 4c44 aadb 6c58
+00000060: 39d5 ccf4 90aa e709 63a4 e2db 8ed0 4ea5
+00000070: cdd6 5dd2 e555 24fd c3a8 d95b 38fb f8b6
+```
+{{ note(msg="my best effort at a one-line gibberish hex dump output") }}
+
+<!-- TODO: use CAUTION rather than WARNING, here and everywhere else? -->
+
+</div>
+
 ## Number lines with style
 
 Let's start simple!  Just invoke `nl` with some filename, and it'll output its
@@ -667,7 +773,7 @@ you commit each time to one more project to review, for perpetuity, with each
 upgrade of each plug-in.  As somebody who chose the latter, I can confidently
 tell you that my incentive to not adopt plug-ins I don't need is quite strong!
 
-## A practical example
+## A practical example {#a-practical-example}
 
 Consider the following bit of text:
 
