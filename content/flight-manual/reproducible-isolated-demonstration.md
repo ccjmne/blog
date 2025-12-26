@@ -4,7 +4,17 @@ date = 2025-08-10
 description = 'Create reproducible, isolated demonstration environments with containers'
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'cli', 'docker']
-extra.toc = false
+
+[[extra.cited_tools]]
+   name    = "docker"
+   repo    = "https://github.com/moby/moby"
+   package = "extra/x86_64/docker"
+   manual  = "https://docs.docker.com/"
+[[extra.cited_tools]]
+   name    = "vim"
+   repo    = "https://github.com/vim/vim"
+   package = "extra/x86_64/vim"
+   manual  = "https://vimhelp.org/"
 +++
 
 Earlier this week, I put together installation instructions for a syntax support
