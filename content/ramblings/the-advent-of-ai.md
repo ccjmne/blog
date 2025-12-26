@@ -117,10 +117,10 @@ fanatic developer at least—**the mechanical act of curating the codebase is
 certainly not the bottleneck** in building perennial software.
 
 On that note, a close colleague of mine confided just this week that reviewing
-code may more strenuous than authoring it, depending on how diligent one wants
-to be.  It may have to do with the pull in opposing directions: you need to
-appropriate the entire context in the first place, but wouldn't quite dare, at
-this point, even considering alternative solutions.
+code may very well be **more strenuous than authoring it**, depending on
+how diligent one wants to be.  It may have to do with the pull in opposing
+directions: you need to appropriate the entire context in the first place, but
+wouldn't quite dare, at this point, even considering alternative solutions.
 
 In any case, **correctly identifying and contextualising the problem, the
 solution space, the implicit and explicit constraints, the trade-offs to be
