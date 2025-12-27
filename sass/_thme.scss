@@ -13,6 +13,7 @@
     --colour-lo-bg: var(--colour-surface0);
   }
 
+  .term-inv  { background-color: var(--colour-text); color: var(--colour-mantle); font-weight: bold; }
   .term-fg31 { color: var(--colour-red); }
   .term-fg32 { color: var(--colour-green); }
   .term-fg33 { color: var(--colour-yellow); }
