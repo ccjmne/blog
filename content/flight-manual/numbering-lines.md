@@ -3,7 +3,7 @@ title = 'How to number lines from the `CLI` (read: Vim)'
 date = 2025-12-25
 description = "Of seemingly little use, `coreutils`'s `nl` handles tasks that, however mundane, are indeed quite frequent"
 taxonomies.section = ['flight-manual']
-taxonomies.tags = ['all', 'cli', 'posix']
+taxonomies.tags = ['all', 'cli', 'posix', 'vim']
 
 [[extra.cited_tools]]
    name    = "nl"
