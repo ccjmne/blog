@@ -126,9 +126,9 @@ extracting a file from a layer to your host system for further processing.<br>
 
 > [!TIP]
 >
-> Well, that specific one merely [results in a systemic segmentation
-> fault](https://github.com/wagoodman/dive/issues/620); but hey, you can always
-> perform a quick:
+> Well, the file extraction procedure of `dive` merely [results in a systematic
+> segmentation fault](https://github.com/wagoodman/dive/issues/620); but hey,
+> you can always perform a quick:
 >
 > ```sh
 > docker exec $CONTAINER_NAME cat /path/to/some/file > extracted-file 
@@ -141,7 +141,7 @@ failure handling ever conceived: altogether silently disabling bindings it
 doesn't support or understand.
 
 Nonetheless, here's what I settled on, to make the navigation somewhat more
-natural to Vim users, and the file tree somewhat usable:
+Vim-diomatic, and the file tree ever-so-slightly more palatable:
 
 ```yaml,name=$XDG_CONFIG_HOME/dive/config.yaml
 keybinding:
