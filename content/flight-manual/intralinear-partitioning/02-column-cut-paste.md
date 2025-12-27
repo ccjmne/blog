@@ -439,8 +439,10 @@ highlighting, which I hope to be more helpful than it is confusing.
 
 ## Closing words
 
-   Note that, if you want to add line numbers or timestamps of all kinds, you
-should prefer `nl` (from `coreutils`) or `ts` (from `moreutils`) to `paste`.
+   Note that, if you want to add line numbers or timestamps of all kinds,
+you should prefer `nl` (from `coreutils`, which I dive into [another
+article](@/flight-manual/numbering-lines.md)) or `ts` (from `moreutils`) to
+`paste`.
 
    That's it, this article boils down to: `paste <(left) <(right)` and `column
 -ts:`, with some `-d:` passed here and there to `cut` or `paste` where
