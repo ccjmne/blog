@@ -54,7 +54,7 @@ also acquired the _essential_ status, yours truly was let loose.
 
 ## Back to the topic {#back-on-topic}
 
-Since pretty much all of that Apache `HTTPD` pre-dates the idea of
+Since pretty much all of that Apache `HTTPD` business pre-dates the idea of
 containerisation (or that of complete and accurate documentation, it seems), at
 some point came the question of where the _!@#$_ are the bits and pieces in each
 of these few third-party [Docker](https://www.docker.com/) images we had been
@@ -67,11 +67,11 @@ files you'd be looking for would be called exactly.  You could also read through
 the various `Dockerfile`s, which reference other base images, which in turn
 reference other base images, _et cet._
 
-### A quick overview
-
-**OR!** You could put on your <abbr title="(dated) A kind of diving
+Or you could put on your <abbr title="(dated) A kind of diving
 suit">scaphander</abbr> and interactively explore the contents of each layer of
 your Docker images with [`dive`](https://github.com/wagoodman/dive).
+
+### A quick overview
 
 Let's take a quick look at its `UI` that I semi-faithfully re-created below:
 
@@ -114,14 +114,20 @@ Not too shabby!  You may navigate between successive layers with the arrow
 keys (or Vim-like bindings), and see, with each layer, which files were added,
 modified or deleted with some colour-coding in the right pane.
 
-I definitely recommend that you take a look at their main
-[`README`](https://github.com/wagoodman/dive) page, which features primarily a
-screen recording of the tool in action.
+As you can see, **it exposes more information here and there**, but the entire
+thing is wobbly enough that I'd rather stick with the purpose it serves: I
+haven't had the occasion to use it for much else and do not believe there's much
+value in describing to you the rest of the mostly inert `UI`.
+
+However, **I definitely recommend that you take a look at their main
+[`README`](https://github.com/wagoodman/dive) page**, which features primarily
+a screen recording of the tool in action, and goes vaguely into some additional
+scenarios where it may come in handy.
 
 ### Usage and configuration
 
-Glancing at the bottom, you'll find a non-exhaustive list of keyboard
-shortcuts to help you navigate the interface and perform some actions, such as
+Glancing at the bottom, you'll find a non-exhaustive **collection of keyboard
+shortcuts to help you navigate the interface and perform some actions**, such as
 extracting a file from a layer to your host system for further processing.<br>
 
 > [!TIP]
@@ -134,7 +140,7 @@ extracting a file from a layer to your host system for further processing.<br>
 > docker exec $CONTAINER_NAME cat /path/to/some/file > extracted-file 
 > ```
 
-It also offers some configuration, although that may at times cause more
+It also offers some way of configuration, although that may at times cause more
 headaches than it solves, in notably its key-binding library being stunningly
 incapable, with exceedingly poor documentation and offering the very worst
 failure handling ever conceived: altogether silently disabling bindings it
@@ -150,7 +156,7 @@ filetree:
   collapse-dir: true
 ```
 
-## Not great, but the best
+## Not great yet still the best
 
 In any case, `dive` is a simple tool for a simple job.  It doesn't do that job
 too well, but it does it well enough to be of great relief when you need to do
@@ -166,9 +172,9 @@ quite a few other very rough edges are in the way of a great experience.
 > **This is beta quality!** Feel free to submit an issue if you want a new
 > feature or find a bug :)
 
-While the [project is officially not
-abandoned](https://github.com/wagoodman/dive/issues/568) either, that is also a
-doubt routinely expressed among the community.
+To make matters worse, while the [project is officially not
+abandoned](https://github.com/wagoodman/dive/issues/568), that doubt is
+routinely and understandably expressed among the community.
 
 Despite all that, until somebody comes around to rebuild the whole thing into
 a solid and sharp tool, **`dive` is still without a doubt the most interesting
