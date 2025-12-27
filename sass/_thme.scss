@@ -13,13 +13,19 @@
     --colour-lo-bg: var(--colour-surface0);
   }
 
-  .term-inv  { background-color: var(--colour-text); color: var(--colour-mantle); font-weight: bold; }
-  .term-fg31 { color: var(--colour-red); }
-  .term-fg32 { color: var(--colour-green); }
-  .term-fg33 { color: var(--colour-yellow); }
-  .term-fg34 { color: var(--colour-blue); }
-  .term-fg35 { color: var(--colour-pink); }
-  .term-fg36 { color: var(--colour-teal); }
-  .term-fg37 { color: var(--colour-subtext1); }
-  .term-fg38 { color: var(--colour-subtext0); }
+  .term-fg31 { --fg: var(--colour-red); }
+  .term-fg32 { --fg: var(--colour-green); }
+  .term-fg33 { --fg: var(--colour-yellow); }
+  .term-fg34 { --fg: var(--colour-blue); }
+  .term-fg35 { --fg: var(--colour-pink); }
+  .term-fg36 { --fg: var(--colour-teal); }
+  .term-fg37 { --fg: var(--colour-subtext1); }
+  .term-fg38 { --fg: var(--colour-subtext0); }
+  .term-inv  {
+    font-weight: bold;
+    // [o]verride
+    --bgo: var(--fg, var(--colour-text));
+    --fgo: var(--bg, var(--colour-mantle));
+  }
+  [class^=term-] { color: var(--fgo, var(--fg)); background-color: var(--bgo, var(--bg)); }
 }

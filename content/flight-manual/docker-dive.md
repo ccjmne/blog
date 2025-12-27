@@ -75,35 +75,37 @@ your Docker images with [`dive`](https://github.com/wagoodman/dive).
 
 Let's take a quick look at its `UI` that I semi-faithfully re-created below:
 
-<pre class="z-code"><code>
-│ Layers ├──────────────────────────────────────────── ┃ Current Layer Contents ┣━━━━━━━━━━━━━
+```sh
+dive httpd:2.4
+```
+<pre class="z-code language-txt"><code><strong>│ Layers ├────────────────────────────────────────────</strong> <strong>│ Current Layer Contents ├─────────────</strong>
 Cmp   Size  Command                                    ├── bin → usr/bin
-<span class="term-fg34">██</span>   79 MB  FROM blobs                                 ├── boot
-<span class="term-fg34">██</span>     0 B  RUN /bin/sh -c mkdir -p "$HTTPD_PREFIX"    ├── dev
-<span class="term-fg34">██</span>     0 B  WORKDIR /usr/local/apache2                 <span class="term-fg33">├── etc</span>
-<span class="term-fg32">██</span> <span class="term-inv"> 5.6 MB  RUN /bin/sh -c set -eux; apt-get install -</span> │   ├── .pwd.lock
+<span class="term-fg34 term-inv">  </span>   79 MB  FROM blobs                                 ├── boot
+<span class="term-fg34 term-inv">  </span>     0 B  RUN /bin/sh -c mkdir -p "$HTTPD_PREFIX"    ├── dev
+<span class="term-fg34 term-inv">  </span>     0 B  WORKDIR /usr/local/apache2                 <span class="term-fg33">├── etc</span>
+<span class="term-fg32 term-inv">  </span> <span class="term-inv"> 5.6 MB  RUN /bin/sh -c set -eux; apt-get install -</span> │   ├── .pwd.lock
      32 MB  RUN /bin/sh -c set -eux; savedAptMark="$(a │   ├─⊕ alternatives
      138 B  COPY httpd-foreground /usr/local/bin/ # bu │   ├─⊕ apt
                                                        │   ├── bash.bashrc
                                                        │   ├── bindresvport.blacklist
-│ Layer Details ├───────────────────────────────────── │   <span class="term-fg32">├─⊕ ca-certificates</span>
+<strong>│ Layer Details ├─────────────────────────────────────</strong> │   <span class="term-fg32">├─⊕ ca-certificates</span>
                                                        │   <span class="term-fg32">├── ca-certificates.conf</span>
-Tags:   (unavailable)                                  │   ├─⊕ cron.daily
-Id:     blobs                                          │   ├── debconf.conf
-Size:   5.6 MB                                         │   ├── debian_version
-Digest: sha256:5d3f0156053276adafa015f05477b6d5bbd48d3 │   ├─⊕ default
-Command:                                               │   ├─⊕ dpkg
+<strong>Tags:</strong>   <strong>(unavailable)</strong>                                  │   ├─⊕ cron.daily
+<strong>Id:</strong>     blobs                                          │   ├── debconf.conf
+<strong>Size:</strong>   5.6 MB                                         │   ├── debian_version
+<strong>Digest:</strong> sha256:5d3f0156053276adafa015f05477b6d5bbd48d3 │   ├─⊕ default
+<strong>Command:</strong>                                               │   ├─⊕ dpkg
 RUN /bin/sh -c set -eux;     apt-get install --update  │   ├── environment
   ca-certificates         libaprutil1-ldap         lib │   ├── fstab
                                                        │   ├── gai.conf
-│ Image Details ├───────────────────────────────────── │   ├── group
+<strong>│ Image Details ├─────────────────────────────────────</strong> │   ├── group
                                                        │   ├── group-
-Image name: httpd:2.4                                  │   ├── gshadow
-Total Image size: 117 MB                               │   ├── host.conf
-Potential wasted space: 4.0 MB                         │   ├── hostname
-Image efficiency score: 98 %                           │   ├── issue
+<strong>Image name:</strong> <strong>httpd:2.4</strong>                                  │   ├── gshadow
+<strong>Total Image size:</strong> 117 MB                               │   ├── host.conf
+<strong>Potential wasted space:</strong> 4.0 MB                         │   ├── hostname
+<strong>Image efficiency score:</strong> 98 %                           │   ├── issue
                                                        │   ├── issue.net
-Count   Total Space  Path                              │   ├─⊕ kernel
+<strong>Count   Total Space  Path</strong>                              │   ├─⊕ kernel
     2        1.6 MB  /var/cache/debconf/templates.dat  │   <span class="term-fg33">├── ld.so.cache</span>
 <span class="term-inv">▏^C Quit ▏^W Switch view ▏^F Filter ▏^Space Collapse all dir ▏^E Extract File ▏^O Toggle sort </span>
 </code></pre>
