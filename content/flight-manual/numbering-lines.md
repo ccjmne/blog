@@ -51,9 +51,10 @@ editor">Vim</abbr>.
 > flags is described in the `POSIX` specification: therefore `nl -w1` is
 > `POSIX`-compliant, `nl --number-width=1` isn't.
 
-Number lines from a file or the standard output with `nl`:
+Number non-blank lines from a file or the standard output with `nl`; number them
+all with the `-ba` flag:
 
-<div class="grid-1-2">
+<div class="grid-1-3">
 
 ```txt,name=fruits.txt
 Apricot
@@ -64,7 +65,6 @@ Banana
 Cherry
 Carrot?
 ```
-
 <div>
 
 ```sh
@@ -80,13 +80,28 @@ nl fruits.txt
 5  Carrot?
 ```
 </div>
+<div>
+
+```sh
+nl -ba fruits.txt
+```
+```txt
+1  Apricot
+2  Apple
+3
+4  Banana
+5
+6  Cherry
+7  Carrot?
+```
+</div>
 </div>
 
-Target lines to be numbered with the `-bpBRE`
-flag, matching against [basic regular
-expressions](https://www.gnu.org/software/sed/manual/html_node/BRE-syntax.html):
+Target lines to be numbered with the `-bp` flag, matching against [basic regular
+expressions](https://www.gnu.org/software/sed/manual/html_node/BRE-syntax.html);
+use a specific separator between the numbers and their content lines with `-s`:
 
-<div class="grid-1-2">
+<div class="grid-1-3">
 
 ```txt,name=ingredients.txt
 Fruits:
@@ -118,10 +133,28 @@ nl -bp: ingredients.txt
    - Egg
 ```
 </div>
+<div>
+
+```sh
+nl -bp: -s'. ' ingredients.txt
+```
+```txt
+1. Fruits:
+
+   - Apricot
+   - Banana
+   - Cherry
+
+2. Others:
+
+   - Milk
+   - Egg
+```
+</div>
 </div>
 
-Get fancy with it! Specify a custom separator, starting number, increment value,
-alignment, padding...
+Get fancy with it! You can also specify **starting number, increment value,
+alignment, padding**...
 
 ```sh
 openssl rand --hex 128 | sed -r 's/.{4}/ \0/g;s/.{40}/\0\n/g' \
