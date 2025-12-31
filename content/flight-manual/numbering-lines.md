@@ -1,5 +1,5 @@
 +++
-title = 'How to number lines from the `CLI` (read: Vim)'
+title = 'Number lines with `nl` from the `CLI` (read: Vim)'
 date = 2025-12-25
 description = "Of seemingly little use, `coreutils`'s `nl` handles tasks that, however mundane, are indeed quite frequent"
 taxonomies.section = ['flight-manual']
