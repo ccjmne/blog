@@ -46,7 +46,7 @@
     </main>
     <div class="hi" {{ hlpr::vtn(name="footer", static=true) -}}>
       <footer id="footer">
-        &copy; 2025
+        &copy; 2025–{{ now() | date(format="%Y") }}
         <a href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
         <span>&lt;<a href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>&gt;</span>
         <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
