@@ -3,7 +3,7 @@ title = 'Everything is a file (descriptor)'
 date = 2025-08-18
 description = 'Becoming one with the pipes, in ways only [Mario](https://en.wikipedia.org/wiki/Mario) could'
 taxonomies.section = ['flight-manual']
-taxonomies.tags = ['all', 'cli', 'posix']
+taxonomies.tags = ['all', 'cli', 'plumbing-secrets', 'posix']
 draft = true
 +++
 
@@ -91,9 +91,51 @@ SEE c2 wiki on symlink v hardlink
 
 
 
-  They're not the only thing you
-have, though: devices, sockets, "plain" pipes, named pipes (`FIFO`s), etc. all
-exist, and are accessed through a _file descriptor_ (oft abbreviated `FD`).
+  They're not the only thing you have, though: devices, sockets, "plain" pipes,
+named pipes (`FIFO`s), _et cet._ all exist, and are accessed through a _file
+descriptor_ (oft abbreviated `FD`).
 
    That is it, no mystery, nothing special; one mechanism to rule them all, and
 in the light bind them.<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### VAGUELY RELATING TO UUOC
+
+In fact, the pipe (`|`) operator is essentially a way to connect the `FD 1`
+("`stdout`") of one process to the `FD 0` ("`stdin`") of another.  And the
+output redirection (`>`) can be specified which file descriptor to redirect, as
+well as which to redirect it to:
+
+```sh
+echo 'Hello, world!'     1> greeting.txt   # Redirect fd1 (stdout) to greeting.txt
+echo 'Hello, world!'     >  greeting.txt   # ">" without a descriptor implies fd1
+sed 's/./\U\0/g'         0< file           # Redirect file to fd0 (stdin)
+sed 's/./\U\0/g'         <  file           # "<" without a descriptor implies fd0
+withdraw '1_000_000 EUR' 2> not-today.log  # Redirect fd2 (stderr) to errors.log
+./i-use-fd3.sh           3< input          # You're not limited to fd0, fd1, fd2!
+./live-a-little.sh       1> blog.md 2>&1   # Redirect fd1 blog.md and fd2 to fd1 (now blog.md)
+cat file                 |  process        # Connect fd1 of cat to fd0 of process
+cat                      0<in 1>out 2>err  # Read from in, write to out with errors to err
+```
+{{ note(msg="there's a lot more to go over; I only mean this as a quick, apt first encounter with file descriptors") }}
