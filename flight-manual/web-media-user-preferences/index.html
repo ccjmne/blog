@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-2.woff2" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/work-3.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/fira-2.woff2') format('woff2'); }
+</style><link rel="stylesheet" href="https://ccjmne.sh/blog/base.css">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/light.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/dark.css"  media="(prefers-color-scheme: dark)">
+    
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+>
+      <a href="https://ccjmne.sh/blog">Home</a>
+      <details class="dropdown" max-sm>
+        <summary><strong>Articles</strong></summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual"><strong>Flight manual</strong></a>
+          <a href="https://ccjmne.sh/blog/tags">By tags</a>
+          <a href="https://ccjmne.sh/blog/ramblings">Ramblings</a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual" min-sm><strong>Flight manual</strong></a>
+      <a href="https://ccjmne.sh/blog/tags"          min-sm>By tags</a>
+      <a href="https://ccjmne.sh/blog/ramblings"     min-sm>Ramblings</a>
+      <a href="https://ccjmne.sh/blog/colophon"            >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main><h1><span class="link-title" 
+  style="view-transition-name: view-web-media-user-preferences"
+>Adapt the Web to <code>@media</code> preferences</span></h1><ul class="infobar "><li><time>October 28, 2025</time></li><li>5-minute read</li>
+    <li>tagged
+      <a href="https://ccjmne.sh/blog/tags/web">web</a>, <a href="https://ccjmne.sh/blog/tags/css">css</a>, <a href="https://ccjmne.sh/blog/tags/accessibility">accessibility</a></li></ul>
+<details class="hi toc">
+  <summary>Table of contents</summary>
+  <ul><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/web-media-user-preferences/#prefers-color-scheme">prefers-color-scheme</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/web-media-user-preferences/#prefers-reduced-motion">prefers-reduced-motion</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/web-media-user-preferences/#prefers-contrast">prefers-contrast</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/web-media-user-preferences/#prefers-reduced-transparency">prefers-reduced-transparency</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/web-media-user-preferences/#prefers-reduced-data">prefers-reduced-data</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/web-media-user-preferences/#the-media-html-attribute">The media HTML attribute</a></li>
+  </ul>
+</details>
+<article><p>In building for the Web, we have access to quite a bit of context in surrounding
+the environment in which our content is being consumed.</p>
+<p>Right there, in <a rel="external" href="https://www.w3.org/People/howcome/">Håkon Wium's</a>
+original <a rel="external" href="https://www.w3.org/People/howcome/p/cascade.html">proposal for Cascading Style Sheets
+(<code>CSS</code>)</a> all the way back in
+1994, that idea had already been incepted—although only the <strong>presentation
+target medium</strong> was considered back then:</p>
+<blockquote>
+<p>Current browsers consider the computer screen to be the primary presentation
+target, but HTML [...] has the potential of supporting many output media, e.g.
+paper, speech and braille.</p>
+</blockquote>
+<p>Two years later, the first version of <code>CSS</code> saw the light of day, albeit without
+media rules, and another two years after that, <code>CSS2</code> introduced the <code>@media</code>
+queries reifying precisely Håkon's original vision.</p>
+<p>Now well into <code>CSS3</code>, the <code>@media</code> queries have kept evolving as a specification
+of their own, and today offer a large set of <a rel="external" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media#media_features">media
+features</a>,
+among which come several pertaining to <strong>user preferences</strong>
+introduced by the <a rel="external" href="https://www.w3.org/TR/mediaqueries-5/">W3C's Media Queries Level 5 working
+draft</a>.  Let's get familiarised with
+these, in decreasing order of prevalence in the wild.</p>
+<h2 id="prefers-color-scheme"><a class="anchor-link" href="#prefers-color-scheme" aria-label="Anchor link for: prefers-color-scheme"></a>
+<code>prefers-color-scheme</code></h2>
+<p>The most common <strong>user preference</strong> <code>@media</code> feature is the
+<a rel="external" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme"><code>prefers-color-scheme</code></a>,
+which lets you probe for the <strong>user's preference in either a light or a dark
+theme</strong>.  On operating systems that support dark mode settings, modern Web
+browsers often offer to propagate this option dynamically as the preference to
+be picked up by this <code>@media</code> feature.</p>
+<pre data-lang="css" class="language-css z-code"><code class="language-css" data-lang="css"><span class="z-source z-css"><span class="z-meta z-selector z-css"><span class="z-entity z-name z-tag z-css">body</span> </span><span class="z-meta z-property-list z-css"><span class="z-punctuation z-section z-property-list z-css">{</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css">  <span class="z-meta z-property-name z-css"><span class="z-support z-type z-property-name z-css">background-color</span></span><span class="z-punctuation z-separator z-key-value z-css">:</span><span class="z-meta z-property-value z-css"> </span><span class="z-meta z-property-value z-css"><span class="z-constant z-other z-color z-rgb-value z-css"><span class="z-punctuation z-definition z-constant z-css">#</span>333</span></span><span class="z-punctuation z-terminator z-rule z-css">;</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css">  <span class="z-meta z-property-name z-css"><span class="z-support z-type z-property-name z-css">color</span></span><span class="z-punctuation z-separator z-key-value z-css">:</span><span class="z-meta z-property-value z-css"> </span><span class="z-meta z-property-value z-css"><span class="z-constant z-other z-color z-rgb-value z-css"><span class="z-punctuation z-definition z-constant z-css">#</span>fff</span></span><span class="z-punctuation z-terminator z-rule z-css">;</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css"></span><span class="z-punctuation z-section z-property-list z-css">}</span>
+</span><span class="z-source z-css">
+</span><span class="z-source z-css"><span class="z-meta z-at-rule z-media z-css"><span class="z-keyword z-control z-at-rule z-media z-css"><span class="z-punctuation z-definition z-keyword z-css">@</span>media</span> <span class="z-punctuation z-definition z-group z-begin z-css">(</span>prefers-<span class="z-support z-type z-property-name z-media z-css">color</span>-scheme: light<span class="z-punctuation z-definition z-group z-end z-css">)</span> </span><span class="z-punctuation z-section z-property-list z-css">{</span>
+</span><span class="z-source z-css">  <span class="z-meta z-selector z-css"><span class="z-entity z-name z-tag z-css">body</span> </span><span class="z-meta z-property-list z-css"><span class="z-punctuation z-section z-property-list z-css">{</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css">    <span class="z-meta z-property-name z-css"><span class="z-support z-type z-property-name z-css">background-color</span></span><span class="z-punctuation z-separator z-key-value z-css">:</span><span class="z-meta z-property-value z-css"> </span><span class="z-meta z-property-value z-css"><span class="z-constant z-other z-color z-rgb-value z-css"><span class="z-punctuation z-definition z-constant z-css">#</span>fff</span></span><span class="z-punctuation z-terminator z-rule z-css">;</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css">    <span class="z-meta z-property-name z-css"><span class="z-support z-type z-property-name z-css">color</span></span><span class="z-punctuation z-separator z-key-value z-css">:</span><span class="z-meta z-property-value z-css"> </span><span class="z-meta z-property-value z-css"><span class="z-constant z-other z-color z-rgb-value z-css"><span class="z-punctuation z-definition z-constant z-css">#</span>333</span></span><span class="z-punctuation z-terminator z-rule z-css">;</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css"></span>  <span class="z-punctuation z-section z-property-list z-css">}</span>
+</span><span class="z-source z-css"><span class="z-punctuation z-section z-property-list z-css">}</span>
+</span></code></pre>
+<p>Its possible values are <code>light</code> and <code>dark</code>.</p>
+<p>In the example above, the default styles provide bright text (<code>#fff</code>) on a dark
+background (<code>#333</code>).  If the user prefers a light theme, the styles inside
+the <code>@media</code> rule will override the defaults to swap the background and text
+colours.</p>
+<blockquote class="markdown-alert-tip">
+<p>You can also use the <code>prefers-color-scheme</code> media feature directly in <code>&lt;link&gt;</code>
+elements to load different style sheets based on the user's colour scheme
+preference:</p>
+<pre data-lang="html" class="language-html z-code"><code class="language-html" data-lang="html"><span class="z-text z-html z-basic"><span class="z-meta z-tag z-inline z-any z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span><span class="z-entity z-name z-tag z-inline z-any z-html">link</span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">rel</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>stylesheet<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">href</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>/light.css<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-inline z-any z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span><span class="z-entity z-name z-tag z-inline z-any z-html">link</span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">rel</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>stylesheet<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">href</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>/dark.css<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">media</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>(prefers-color-scheme: dark)<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span></code></pre>
+<p>There's more on that in <strong>the last section of this article</strong> regarding the
+<a href="https://ccjmne.sh/blog/flight-manual/web-media-user-preferences/#the-media-html-attribute"><code>media</code> HTML attribute</a>.</p>
+</blockquote>
+<h2 id="prefers-reduced-motion"><a class="anchor-link" href="#prefers-reduced-motion" aria-label="Anchor link for: prefers-reduced-motion"></a>
+<code>prefers-reduced-motion</code></h2>
+<p>The <a rel="external" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion"><code>prefers-reduced-motion</code></a>
+media feature allows a site to detect if the user has requested that animations
+and motion be minimized.  While this is particularly important for users who
+may experience motion sickness, it also is much liked by those of us that like
+browsing the Web to <strong>gather information</strong>.</p>
+<p>For example, my blog uses <a rel="external" href="https://developer.mozilla.org/en-US/docs/Web/CSS/view-transitions">view
+transitions</a>,
+but justly disables them according to your possible preference for reduced
+motion:</p>
+<pre data-lang="css" class="language-css z-code"><code class="language-css" data-lang="css"><span class="z-source z-css"><span class="z-meta z-at-rule z-media z-css"><span class="z-keyword z-control z-at-rule z-media z-css"><span class="z-punctuation z-definition z-keyword z-css">@</span>media</span> <span class="z-punctuation z-definition z-group z-begin z-css">(</span>prefers-reduced-motion<span class="z-punctuation z-definition z-group z-end z-css">)</span> </span><span class="z-punctuation z-section z-property-list z-css">{</span>
+</span><span class="z-source z-css">  <span class="z-meta z-selector z-css"><span class="z-entity z-name z-tag z-css">html</span> </span><span class="z-meta z-property-list z-css"><span class="z-punctuation z-section z-property-list z-css">{</span> <span class="z-meta z-property-name z-css"><span class="z-support z-type z-property-name z-css">scroll-behavior</span></span><span class="z-punctuation z-separator z-key-value z-css">:</span><span class="z-meta z-property-value z-css">      </span><span class="z-meta z-property-value z-css"><span class="z-support z-constant z-property-value z-css">unset</span></span><span class="z-punctuation z-terminator z-rule z-css">;</span></span> <span class="z-punctuation z-section z-property-list z-css">}</span>
+</span><span class="z-source z-css">  <span class="z-meta z-selector z-css"><span class="z-entity z-name z-tag z-wildcard z-css">*</span>    </span><span class="z-meta z-property-list z-css"><span class="z-punctuation z-section z-property-list z-css">{</span> <span class="z-meta z-property-name z-css">view-<span class="z-support z-type z-property-name z-css">transition</span>-name</span><span class="z-punctuation z-separator z-key-value z-css">:</span><span class="z-meta z-property-value z-css"> </span><span class="z-meta z-property-value z-css"><span class="z-support z-constant z-property-value z-css">none</span> <span class="z-keyword z-other z-important z-css">!important</span></span><span class="z-punctuation z-terminator z-rule z-css">;</span></span> <span class="z-punctuation z-section z-property-list z-css">}</span>
+</span><span class="z-source z-css"><span class="z-punctuation z-section z-property-list z-css">}</span>
+</span></code></pre>
+<p>I had also been toying with the idea of using <code>smooth</code> scrolling, but couldn't
+even suffer it for myself and made sure to disable that in as well.  Other
+notable uses may be to avoid <code>autoplay</code>ing videos, animated GIFs, <em>et cet.</em></p>
+<blockquote class="markdown-alert-note">
+<p>Your implementation for "reduced" motion needn't be as drastic as I chose it
+to be for my blog: you could also opt for, for instance, <strong>largely speeding up
+animations instead of removing them</strong> altogether.</p>
+</blockquote>
+<p>Its possible values are <code>no-preference</code> and <code>reduce</code>.</p>
+<p>Besides the two most prevalent user preference <code>@media</code> features described
+above, there are a few more that you may consider supporting:</p>
+<h2 id="prefers-contrast"><a class="anchor-link" href="#prefers-contrast" aria-label="Anchor link for: prefers-contrast"></a>
+<code>prefers-contrast</code></h2>
+<p>This <code>@media</code> feature lets you adapt your design with regards to contrast
+preferences.  I've rarely seen this used, but I know that some popular colour
+schemes for syntax highlighting offer variants with varying contrast options,
+notably for the dark variants.</p>
+<p>For example, <a rel="external" href="https://github.com/rose-pine/neovim">Rosé Pine</a> has three variants:</p>
+<ul>
+<li>the default one is dark,</li>
+<li>a <em>"Moon"</em> variant is dark with lowered contrast, and</li>
+<li>a <em>"Dawn"</em> variant is light.</li>
+</ul>
+<p>You could use a combination of <code>prefers-color-scheme</code> and <code>prefers-contrast</code> to
+serve the appropriate variant based on the user's preferences:</p>
+<pre data-lang="css" class="language-css z-code"><code class="language-css" data-lang="css"><span class="z-source z-css"><span class="z-meta z-selector z-css"><span class="z-entity z-other z-pseudo-class z-css"><span class="z-punctuation z-definition z-entity z-css">:</span>root</span> </span><span class="z-meta z-property-list z-css"><span class="z-punctuation z-section z-property-list z-css">{</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css">  <span class="z-comment z-block z-css"><span class="z-punctuation z-definition z-comment z-css">/*</span> source Rosé Pine *Dawn* here         (light) <span class="z-punctuation z-definition z-comment z-css">*/</span></span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css"></span><span class="z-punctuation z-section z-property-list z-css">}</span>
+</span><span class="z-source z-css"><span class="z-meta z-at-rule z-media z-css"><span class="z-keyword z-control z-at-rule z-media z-css"><span class="z-punctuation z-definition z-keyword z-css">@</span>media</span> <span class="z-punctuation z-definition z-group z-begin z-css">(</span>prefers-<span class="z-support z-type z-property-name z-media z-css">color</span>-scheme: dark<span class="z-punctuation z-definition z-group z-end z-css">)</span> </span><span class="z-punctuation z-section z-property-list z-css">{</span>
+</span><span class="z-source z-css">  <span class="z-meta z-selector z-css"><span class="z-entity z-other z-pseudo-class z-css"><span class="z-punctuation z-definition z-entity z-css">:</span>root</span> </span><span class="z-meta z-property-list z-css"><span class="z-punctuation z-section z-property-list z-css">{</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css">    <span class="z-comment z-block z-css"><span class="z-punctuation z-definition z-comment z-css">/*</span> source Rosé Pine *default* here    (dark) <span class="z-punctuation z-definition z-comment z-css">*/</span></span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css"></span>  <span class="z-punctuation z-section z-property-list z-css">}</span>
+</span><span class="z-source z-css"><span class="z-punctuation z-section z-property-list z-css">}</span>
+</span><span class="z-source z-css"><span class="z-meta z-at-rule z-media z-css"><span class="z-keyword z-control z-at-rule z-media z-css"><span class="z-punctuation z-definition z-keyword z-css">@</span>media</span> <span class="z-punctuation z-definition z-group z-begin z-css">(</span>prefers-<span class="z-support z-type z-property-name z-media z-css">color</span>-scheme: dark<span class="z-punctuation z-definition z-group z-end z-css">)</span> <span class="z-keyword z-operator z-logic z-media z-css">and</span> <span class="z-punctuation z-definition z-group z-begin z-css">(</span>prefers-contrast: less<span class="z-punctuation z-definition z-group z-end z-css">)</span> </span><span class="z-punctuation z-section z-property-list z-css">{</span>
+</span><span class="z-source z-css">  <span class="z-meta z-selector z-css"><span class="z-entity z-other z-pseudo-class z-css"><span class="z-punctuation z-definition z-entity z-css">:</span>root</span> </span><span class="z-meta z-property-list z-css"><span class="z-punctuation z-section z-property-list z-css">{</span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css">    <span class="z-comment z-block z-css"><span class="z-punctuation z-definition z-comment z-css">/*</span> source Rosé Pine *Moon* here       (dark, lower contrast) <span class="z-punctuation z-definition z-comment z-css">*/</span></span>
+</span></span><span class="z-source z-css"><span class="z-meta z-property-list z-css"></span>  <span class="z-punctuation z-section z-property-list z-css">}</span>
+</span><span class="z-source z-css"><span class="z-punctuation z-section z-property-list z-css">}</span>
+</span></code></pre>
+<p>In the example above, you'd have the light theme by default, the main dark theme
+if your user communicates such a preference, and the lower-contrast one if you
+require both a dark theme and lower contrast.</p>
+<p>Its possible values are <code>no-preference</code>, <code>more</code>, and <code>less</code>.</p>
+<h2 id="prefers-reduced-transparency"><a class="anchor-link" href="#prefers-reduced-transparency" aria-label="Anchor link for: prefers-reduced-transparency"></a>
+<code>prefers-reduced-transparency</code></h2>
+<p>Rarely if ever come across, in my (admittedly) limited experience, this <code>@media</code>
+feature lets you respect your users' preference for reduced transparency
+effects.</p>
+<p>Its possible values are <code>no-preference</code> and <code>reduce</code>.</p>
+<h2 id="prefers-reduced-data"><a class="anchor-link" href="#prefers-reduced-data" aria-label="Anchor link for: prefers-reduced-data"></a>
+<code>prefers-reduced-data</code></h2>
+<p>Lastly, this <code>@media</code> feature is intended to help you detect whether your user
+prefers would prefer Web content that consumes less data.</p>
+<p>In practice, you could maybe disable the <a rel="external" href="https://developer.mozilla.org/en-US/docs/Glossary/Prefetch">prefetching of
+resources</a>, or could
+for example serve images of lower resolution:</p>
+<pre data-lang="html" class="language-html z-code"><code class="language-html" data-lang="html"><span class="z-text z-html z-basic"><span class="z-meta z-tag z-inline z-any z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span><span class="z-entity z-name z-tag z-inline z-any z-html">link</span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">rel</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>prefetch<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">href</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>readmore.html<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">media</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>(prefers-reduced-data: no-preference)<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span></code></pre>
+<div class="note">you can pre-load the next blog article unless the user wants to save their data</div>
+<p>Although, in practice, prefetching is more likely to be disabled in the data &amp;
+privacy configuration of a Web browser than through this preference.</p>
+<p>Its possible values are <code>no-preference</code> and <code>reduce</code>.</p>
+<h2 id="the-media-html-attribute"><a class="anchor-link" href="#the-media-html-attribute" aria-label="Anchor link for: the-media-html-attribute"></a>
+The <code>media</code> HTML attribute</h2>
+<p>The <code>media</code> attribute on the <code>&lt;link&gt;</code> and <code>&lt;style&gt;</code> HTML elements allows you to
+specify the media type or media query that the linked or embedded style sheet is
+designed for.  This attribute can be used to apply styles conditionally based on
+the user's device or preferences.</p>
+<p>For example, you can use the <code>media</code> attribute to apply styles specifically for
+print media:</p>
+<pre data-lang="html" class="language-html z-code"><code class="language-html" data-lang="html"><span class="z-text z-html z-basic"><span class="z-meta z-tag z-inline z-any z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span><span class="z-entity z-name z-tag z-inline z-any z-html">link</span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">rel</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>stylesheet<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">href</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>print.css<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">media</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>print<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span></code></pre>
+<p>In this example, the <code>print.css</code> style sheet will only be applied when the
+document is printed.</p>
+<blockquote class="markdown-alert-tip">
+<p>This isn't limited to style sheets or even <code>&lt;link&gt;</code> elements: you can use it
+anywhere.  For example, it may find purpose in <code>&lt;picture&gt;</code> elements to serve
+different images based on many things, such as your user's preference in terms
+of contrast, whether their device is in portrait or landscape mode, <em>et cet.</em></p>
+<pre data-lang="html" class="language-html z-code"><code class="language-html" data-lang="html"><span class="z-text z-html z-basic"><span class="z-meta z-tag z-inline z-any z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span><span class="z-entity z-name z-tag z-inline z-any z-html">picture</span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span><span class="z-text z-html z-basic">    <span class="z-meta z-tag z-inline z-any z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span><span class="z-entity z-name z-tag z-inline z-any z-html">source</span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">srcset</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>/assets/lamp-post.jpg<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span> <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">media</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>(orientation: portrait)<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span> <span class="z-punctuation z-definition z-tag z-end z-html">/&gt;</span></span>
+</span><span class="z-text z-html z-basic">    <span class="z-meta z-tag z-inline z-any z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;</span><span class="z-entity z-name z-tag z-inline z-any z-html">img</span>    <span class="z-meta z-attribute-with-value z-html"><span class="z-entity z-other z-attribute-name z-html">src</span><span class="z-punctuation z-separator z-key-value z-html">=</span><span class="z-string z-quoted z-double z-html"><span class="z-punctuation z-definition z-string z-begin z-html">&quot;</span>/assets/longboat.jpg<span class="z-punctuation z-definition z-string z-end z-html">&quot;</span></span></span> <span class="z-punctuation z-definition z-tag z-end z-html">/&gt;</span></span>
+</span><span class="z-text z-html z-basic"><span class="z-meta z-tag z-inline z-any z-html"><span class="z-punctuation z-definition z-tag z-begin z-html">&lt;/</span><span class="z-entity z-name z-tag z-inline z-any z-html">picture</span><span class="z-punctuation z-definition z-tag z-end z-html">&gt;</span></span>
+</span></code></pre>
+</blockquote>
+
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <span>&lt;<a href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>&gt;</span>
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>
