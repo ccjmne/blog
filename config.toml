@@ -18,5 +18,6 @@ insert_anchor_links = "left"
 [markdown.highlighting]
 light_theme = "catppuccin-latte"
 dark_theme  = "catppuccin-frappe"
+style       = "class"
 
 [extra]
