@@ -402,7 +402,7 @@ mind:
 ```sh
 xxd <<< 🦉
 ```
-<pre class="language-txt z-code"><code><span class="z-string">f09f</span> <span class="z-string">a689</span> <span class="z-constant">0a</span>  <span class="z-string">....</span><span class="z-constant">.</span></pre></code>
+<pre class="giallo z-code"><code data-lang="plain"><span class="z-string">f09f</span> <span class="z-string">a689</span> <span class="z-constant">0a</span>  <span class="z-string">....</span><span class="z-constant">.</span></pre></code>
 ```sh
 yes | head -5 | paste -d🦉 - - - - -
 ```
@@ -412,7 +412,7 @@ yyyyy
 ```sh
 yes | head -5 | paste -d🦉 - - - - - | xxd
 ```
-<pre class="language-txt z-code"><code><span class="z-variable">79</span><span class="z-string">f0</span> <span class="z-variable">79</span><span class="z-string">9f</span> <span class="z-variable">79</span><span class="z-string">a6</span> <span class="z-variable">79</span><span class="z-string">89</span> <span class="z-variable">79</span><span class="z-constant">0a</span>  <span class="z-variable">y</span><span class="z-string">.</span><span class="z-variable">y</span><span class="z-string">.</span><span class="z-variable">y</span><span class="z-string">.</span><span class="z-variable">y</span><span class="z-string">.</span><span class="z-variable">y</span><span class="z-constant">.</span></pre></code>
+<pre class="giallo z-code"><code data-lang="plain"><span class="z-variable">79</span><span class="z-string">f0</span> <span class="z-variable">79</span><span class="z-string">9f</span> <span class="z-variable">79</span><span class="z-string">a6</span> <span class="z-variable">79</span><span class="z-string">89</span> <span class="z-variable">79</span><span class="z-constant">0a</span>  <span class="z-variable">y</span><span class="z-string">.</span><span class="z-variable">y</span><span class="z-string">.</span><span class="z-variable">y</span><span class="z-string">.</span><span class="z-variable">y</span><span class="z-string">.</span><span class="z-variable">y</span><span class="z-constant">.</span></pre></code>
 </div>
 <div>
 
@@ -421,7 +421,7 @@ cat /dev/null                              \
     | paste -d🦉 <(echo [) - - - <(echo ]) \
     | xxd
 ```
-<pre class="language-txt z-code"><code><span class="z-variable">5b</span><span class="z-string">f0</span> <span class="z-string">9fa6</span> <span class="z-string">89</span><span class="z-variable">5d</span> <span class="z-constant">0a</span>  <span class="z-variable">[</span><span class="z-string">....</span><span class="z-variable">]</span><span class="z-constant">.</span></pre></code>
+<pre class="giallo z-code"><code data-lang="plain"><span class="z-variable">5b</span><span class="z-string">f0</span> <span class="z-string">9fa6</span> <span class="z-string">89</span><span class="z-variable">5d</span> <span class="z-constant">0a</span>  <span class="z-variable">[</span><span class="z-string">....</span><span class="z-variable">]</span><span class="z-constant">.</span></pre></code>
 ```sh
 cat /dev/null \
     | paste -d🦉 <(echo [) - - - <(echo ])

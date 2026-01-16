@@ -99,7 +99,7 @@ What have we done?!  Here's the monstrosity:
 ```sh
 git show stash@{0} --oneline --decorate
 ```
-<pre class="language-txt z-code"><code><span class="term-fg33">a196b1a (</span><span class="term-fg35 term-fg1">refs&#47;stash</span><span class="term-fg33">)</span> WIP on master: d4d8585 Create file
+<pre class="giallo z-code"><code data-lang="plain"><span class="term-fg33">a196b1a (</span><span class="term-fg35 term-fg1">refs&#47;stash</span><span class="term-fg33">)</span> WIP on master: d4d8585 Create file
 &nbsp;
 <span class="term-fg1">diff --cc file</span>
 <span class="term-fg1">index e69de29,3be9c81,0000000..c82de6a</span>
@@ -125,7 +125,7 @@ strategy](https://git-scm.com/docs/merge-strategies).
 ```sh
 git log stash@{0} --oneline --decorate --graph
 ```
-<pre class="language-txt z-code"><code>*<span class="term-fg33">-.</span>   <span class="term-fg33">a196b1a (</span><span class="term-fg35 term-fg1">refs&#47;stash</span><span class="term-fg33">)</span> WIP on master: d4d8585 Create file
+<pre class="giallo z-code"><code data-lang="plain">*<span class="term-fg33">-.</span>   <span class="term-fg33">a196b1a (</span><span class="term-fg35 term-fg1">refs&#47;stash</span><span class="term-fg33">)</span> WIP on master: d4d8585 Create file
 <span class="term-fg31">|</span><span class="term-fg32">\</span> <span class="term-fg33">\</span>
 <span class="term-fg31">|</span> <span class="term-fg32">|</span> * <span class="term-fg33">15f2a4d</span> untracked files on master: d4d8585 Create file
 <span class="term-fg31">|</span> * <span class="term-fg33">aa4fa9e</span> index on master: d4d8585 Create file
@@ -167,7 +167,7 @@ Let's open it up and see what it hides:
 ```sh
 git log $(git stash export --print stash@{0}) --oneline --decorate --graph
 ```
-<pre class="language-txt z-code"><code>*   <span class="term-fg33">3e57536</span> git stash: WIP on master: d4d8585 Create file
+<pre class="giallo z-code"><code data-lang="plain">*   <span class="term-fg33">3e57536</span> git stash: WIP on master: d4d8585 Create file
 <span class="term-fg31">|</span><span class="term-fg32">\</span>
 <span class="term-fg31">|</span> *<span class="term-fg35">-.</span>   <span class="term-fg33">a196b1a (</span><span class="term-fg35 term-fg1">refs&#47;stash</span><span class="term-fg33">)</span> WIP on master: d4d8585 Create file
 <span class="term-fg31">|</span> <span class="term-fg33">|</span><span class="term-fg34">\</span> <span class="term-fg35">\</span>
@@ -194,7 +194,7 @@ stash stack:
 ```sh
 git show 73c9bab
 ```
-<pre class="language-txt z-code"><code><span class="term-fg33">commit 73c9bab443d1f88ac61aa533d2eeaaa15451239c</span>
+<pre class="giallo z-code"><code data-lang="plain"><span class="term-fg33">commit 73c9bab443d1f88ac61aa533d2eeaaa15451239c</span>
 Author: git stash &lt;git@stash&gt;
 Date:   Mon Sep 17 00:00:00 2001 +0000</code></pre>
 
@@ -223,7 +223,7 @@ stash stack:
 ```sh
 git log --oneline --decorate --graph stash@{0}
 ```
-<pre class="z-code"><code>*   <span class="term-fg33">157c3dc (</span><span class="term-fg35 term-fg1">refs&#47;stash</span><span class="term-fg33">)</span> On master: A new stash
+<pre class="giallo z-code"><code data-lang="plain">*   <span class="term-fg33">157c3dc (</span><span class="term-fg35 term-fg1">refs&#47;stash</span><span class="term-fg33">)</span> On master: A new stash
 <span class="term-fg31">|</span><span class="term-fg32">\</span>
 <span class="term-fg31">|</span> * <span class="term-fg33">d94cc67</span> index on master: d4d8585 Create file
 <span class="term-fg31">|&#47;</span>
@@ -234,7 +234,7 @@ As a reminder, here's the earlier stash, now at `stash@{1}`:
 ```sh
 git log --oneline --decorate --graph stash@{1}
 ```
-<pre class="z-code"><code>*<span class="term-fg33">-.</span>   <span class="term-fg33">a196b1a</span> WIP on master: d4d8585 Create file
+<pre class="giallo z-code"><code data-lang="plain">*<span class="term-fg33">-.</span>   <span class="term-fg33">a196b1a</span> WIP on master: d4d8585 Create file
 <span class="term-fg31">|</span><span class="term-fg32">\</span> <span class="term-fg33">\</span>
 <span class="term-fg31">|</span> <span class="term-fg32">|</span> * <span class="term-fg33">15f2a4d</span> untracked files on master: d4d8585 Create file
 <span class="term-fg31">|</span> * <span class="term-fg33">aa4fa9e</span> index on master: d4d8585 Create file
@@ -253,7 +253,7 @@ them altogether to export the stack in its entirety:
 git log $(git stash export --print stash@{0} stash@{1}) --oneline --decorate --graph
 git log $(git stash export --print) --oneline --decorate --graph
 ```
-<pre class="z-code"><code>*   <span class="term-fg33">ba4fea2</span> git stash: On master: A new stash
+<pre class="giallo z-code"><code data-lang="plain">*   <span class="term-fg33">ba4fea2</span> git stash: On master: A new stash
 <span class="term-fg31">|</span><span class="term-fg32">\</span>
 <span class="term-fg31">|</span> *   <span class="term-fg33">157c3dc (</span><span class="term-fg35 term-fg1">refs&#47;stash</span><span class="term-fg33">)</span> On master: A new stash
 <span class="term-fg31">|</span> <span class="term-fg33">|</span><span class="term-fg34">\</span>

@@ -78,7 +78,7 @@ Let's take a quick look at its `UI` that I semi-faithfully re-created below:
 ```sh
 dive httpd:2.4
 ```
-<pre class="z-code language-txt"><code><strong>│ Layers ├────────────────────────────────────────────</strong> <strong>│ Current Layer Contents ├─────────────</strong>
+<pre class="giallo z-code"><code data-lang="plain"><strong>│ Layers ├────────────────────────────────────────────</strong> <strong>│ Current Layer Contents ├─────────────</strong>
 Cmp   Size  Command                                    ├── bin → usr/bin
 <span class="term-fg34 term-inv">  </span>   79 MB  FROM blobs                                 ├── boot
 <span class="term-fg34 term-inv">  </span>     0 B  RUN /bin/sh -c mkdir -p "$HTTPD_PREFIX"    ├── dev

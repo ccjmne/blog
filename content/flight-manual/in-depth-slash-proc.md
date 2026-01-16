@@ -47,7 +47,7 @@ queried and manipulated with <abbr title="Set the options for a terminal
   Your emulator is (enormously) likely configured to send `EOF` when you
 press that combination; you may use <abbr title="Print current terminal
 settings">`stty -a`</abbr> to verify:
-    <pre class="z-code"><code>intr = ^C; quit = ^\; erase = ^?; kill = ^U; <span
+    <pre class="giallo z-code"><code data-lang="plain">intr = ^C; quit = ^\; erase = ^?; kill = ^U; <span
     class="term-fg33">eof = ^D</span>; eol = &lt;undef&gt;;</pre></code>
 
 <div class="grid-1-2"><div>
