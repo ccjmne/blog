@@ -54,7 +54,7 @@ problems: obviously, it is that simple; we're off to the races.
 <!-- [foundational understanding of building the Web](@/ramblings/youre-no-web-developer.md) in the first place, as well as TODO: LINKME-->
 
 We create tools to run the tools to operate the transpilers, bundlers,
-minifiers, linters, formatters (_et caetera_); we create tools to facilitate the
+minifiers, linters, formatters, _et cet._; we create tools to facilitate the
 usage of the tools to version-control our code.  Name your micro-task, we are
 building some specialised (read: contrived) mean to do it some sort of way.
 
