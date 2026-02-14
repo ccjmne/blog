@@ -35,7 +35,12 @@ Well, it's 2025 now, and it turns out that while the IT department never
 considered smartphones, tablets (or the fact that windows aren't always
 maximised, and on a horizontal monitor with the default font size and zoom
 factor), our customer service department did...  Where do they get their ideas
-from, eh?
+from, eh? [^the-customer]
+
+[^the-customer]: It's the customer.  They get their ideas from the end user,
+the people we build this for.  Yeah, this entire thing we pour all that fun
+technology into actually wasn't meant to be built for our amusement.  Talk to
+your users, or at least analyse how they use your product!
 
 <div class="hi">
 
