@@ -412,7 +412,7 @@ begin with any starting number and use any increment, (not strictly) positive or
 negative, so long as they're integers.
 
 Most typically, in the world of 2-dimensional graphs, we talk of **slope and
-offsets**; in the world of software programming, we generally refer to these as
+offset**; in the world of software programming, we generally refer to these as
 **start and step**.
 
 > [!IMPORTANT]
