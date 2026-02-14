@@ -1,5 +1,5 @@
 {
-    echo -n '<pre class="z-code"><code>'
+    echo -n '<pre class="giallo z-code"><code data-lang="shellscript">'
     terminal-to-html
-    echo -n '</pre></code>'
+    echo -n '</code></pre>'
 } | wl-copy

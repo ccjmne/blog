@@ -53,9 +53,9 @@ pre {
     }
   }
 
-  &.language-sh + pre.language-txt { padding-top: 0; }
+  &:has(> [data-lang=shellscript]) + &:has(> [data-lang=plain]) { padding-top: 0; }
 
-  &.language-sh:has(+ &) > code > span::before {
+  &:has(> [data-lang=shellscript]):has(+ &) > code > span::before {
     content: "> ";
     color: var(--colour-overlay0);
   }

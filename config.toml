@@ -12,9 +12,12 @@ internal_level = "warn"
 
 [markdown]
 github_alerts       = true
-highlight_code      = true
 bottom_footnotes    = true
 insert_anchor_links = "left"
-highlight_theme     = "css"
+
+[markdown.highlighting]
+light_theme = "catppuccin-latte"
+dark_theme  = "catppuccin-frappe"
+style       = "class"
 
 [extra]
