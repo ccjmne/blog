@@ -30,10 +30,10 @@ pre {
     --filename-bg: var(--colour-crust);
   }
 
-  &:not([data-name]) {
+  &:not(:has(> [data-name])) {
     background-color: var(--bg);
   }
-  &[data-name] {
+  &:has(> [data-name]) {
     padding-top: calc($code-padding + 1lh);
     background: linear-gradient(
       to bottom,
@@ -42,13 +42,13 @@ pre {
       var(--bg) 1lh,
       var(--bg) 100%
     );
-    &::before {
+    > [data-name]::before {
       content: attr(data-name);
       position: absolute;
       top: 0;
       inset-inline-start: 0;
       background-color: var(--filename-bg);
-      padding: 0 $code-padding;
+      padding: 2px $code-padding;
       color: var(--colour-accent);
     }
   }
