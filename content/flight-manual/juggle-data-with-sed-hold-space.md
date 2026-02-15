@@ -28,10 +28,11 @@ Generally?  Let's look into it.
 
 > [!IMPORTANT]
 >
-> There's virtually no point in getting into this article if `sed '2!d'` leaves
-> you perplexed.  If that is the case, you may want my thorough (or quick,
-> there's a `TL;DR`) introduction to the one core, digestible, always practical
-> facet of `sed` you may be lacking, in [_Scope `sed` commands to specific
+> There's virtually no point in getting into this article if `sed '2!d'`
+> leaves you perplexed.  If that is the case, you may find better value
+> in a detour through some thorough (or quick, there's a `TL;DR`)
+> introduction to the one core, digestible, unequivocally practical facet
+> of `sed` that you may be lacking, in [_Scope `sed` commands to specific
 > lines_](@/flight-manual/scope-sed-commands-target-lines.md).
 
 <div class="hi">
@@ -83,16 +84,16 @@ dependencies.async-io = { version = "2.6.0", optional = true }
 dependencies.clap = { workspace = true, features = ["string"] }
 dependencies.libc = "0.2.176"
 ```
-{{ note(msg="horrifying?  possibly—beauty is in the eye of the beholder; `POSIX` compliance however is indisputable") }}
+{{ note(msg="horrifying?  possibly—beauty is in the eye of the beholder; `POSIX` compliance, however, is indisputable") }}
 
 </div>
 
-This example above in the `TL;DR` doesn't look too pretty (although,
-it'd be nicer with some extended RegExp syntax).  I would say in general
-that my articles on `sed` or `vim` won't quite be for the faint of
-heart: you have to pace yourself reading it, just like you would German
-literature[^long-german-words], but I assure you: it is so very simple to come
-up with.
+This example above in the `TL;DR` doesn't look too pretty (although, it'd
+be nicer with some extended <abbr title='Regular Expressions'>RegExp</abbr>
+syntax).  I would say in general that my articles on `sed` or `vim` won't quite
+be for the faint of heart: you have to pace yourself reading it, just like you
+would German literature[^long-german-words], but I assure you: it is so very
+simple to come up with.
 
 [^long-german-words]: I only jest and am referring here to the famously long
 compound words that German is known for.
@@ -100,11 +101,6 @@ compound words that German is known for.
 In any case, despite routinely lovingly calling these _"write-only"_, there's
 something about contorting `POSIX` tools to get the job done that I find serves
 me well in the long run.
-
-> [!NOTE]
->
-> Appending with `H` and `G` always involves a linefeed.  Plan your `s/.*//`
-> expressions accordingly.
 
 ## The processing cycle
 
@@ -138,8 +134,8 @@ popularity dictate your tastes, consider the elegance of the consequences.
     > `POSIX` only defines `-n`, but at least `GNU`'s implementation also
     > synonymously supports `--quiet` and `--silent`.
 
-    Do note, that `b` would **still print out the pattern space** before the
-    next loop, without the `-n` flag, while `d` wouldn't.
+    Do note that, without the `-n` flag, `b` would **still print out the pattern
+    space** before the next loop, whereas `d` wouldn't.
 
     There is more to the labelling and branching system, such as the `t` and `T`
     operations, but these are quite the head-scratcher and may be better left to
@@ -171,6 +167,11 @@ space,
 space,
 - `x` exchanges the contents of the pattern and hold spaces,
 
+> [!TIP]
+>
+> Appending with `H` and `G` always involves a linefeed: plan your `s///`
+> expressions accordingly.
+
 ## Some fantasy recipes
 
 There really isn't that much to the hold space in `sed`.  All that's possibly
@@ -178,29 +179,30 @@ quite noteworthy is that many seemingly go on their entire `CLI` dwelling life
 without using it: do we simply never need anything like that, or is it a case of
 not considering the options that require tools we haven't yet mastered?
 
-Here are some examples I just came up with, which may not be most practical for
-your software, but truly do come in handy when the servers are on fire and we
-wouldn't mind somebody navigating the system like they would the back of their
-hand—or, as the French would say, the bottom of their pocket.
+Without much ceremony, here come some examples that are certain to lack
+practicality for your software, but truly do come in handy when the servers are
+on fire and we wouldn't mind somebody navigating the system like they would the
+back of their hand—or, as the French would say, the bottom of their pocket.
 
 ### Reverse lines
+
+Well, `sed`'s not built for that, it processes _streams_ of data, and while
+this would indeed be guaranteed to work for files up to 8kb in size[^8kb],
+`tac` (`cat` in reverse!) from `GNU`'s excellent `coreutils` is a much more
+appropriate tool for that job.
+
+In any case, this shall still function as a reasonably adequate way to get
+started.
 
 ```sh
 sed '1!G;h;$!d' file
 sed '1!G; h; $!d' file
 sed '
-  1!G
   h         # [h]old on to it
   $!d
 ' file
 ```
 {{ note(msg="don't hesitate to format your `sed` scripts with newlines and comments for readability") }}
-
-Just kidding.  It's indeed what some articles use as an example, but that's just
-outrageous: `sed`'s not built for that, it processes _streams_ of data, and
-while this would indeed be guaranteed to work for files up to 8kb in size[^8kb],
-`tac` (`cat` in reverse!) from `GNU`'s excellent `coreutils` is a much more
-appropriate tool for that job.
 
 [^8kb]: The `POSIX` specification (`man 1p sed`) guarantees that both pattern
 and hold spaces can hold at least 8192 bytes.  `GNU sed` removes practical
@@ -210,7 +212,14 @@ limits for most uses.
   pattern;
 - `h`, save the aggregate into the hold;
 - `$!d`, unless at line `$` (the last), discard the pattern; `sed` will
-  implicitly print out the accumulated pattern for that last lint.
+  implicitly print out the only non-discarded pattern, the ultimate one
+  coalescing the entire accumulated reversed collection of lines.
+
+You could do away with specifying `1!`, in which case the (empty) hold space,
+**as well as an extra linefeed**, would be appended to the end of the output.
+Non-printable characters may very well not be most obvious, but we should strive
+to keep things tight.  Restricting `G` to `1!` avoids having to `$s/\n$//` at
+the end of the script.
 
 ### Annotate particularly long functions in source code
 
@@ -412,7 +421,7 @@ something within your <abbr title="Vim, of course">favourite editor</abbr>, but
 it already has [`J`](https://vimhelp.org/change.txt.html#v_J) for that.  One
 character, just at the tip of most natural finger, in its resting position!  And
 I suppose that if you can distinguish your editor from your shell, you'll likely
-dance the end-delete-down sequence for a while (which is actually quite fun to
+dance the _end-delete-down_ sequence for a while (which is actually quite fun to
 do!), so there may be no case for this specific one ever, ever; oh well.
 
 ## Practical use case: pull an entry to the top
@@ -427,7 +436,7 @@ and the rest knows how to best organise itself.
 ```sh
 sed -n '/^Password:/{p;b};H;${g;s/\n//p}'
 sed -n '
-  /^Password:/ {p;b}  # when the Password option is shown, print it and "bail" out
+  /^Password:/ {p;b}  # when the "Password" option is shown, print it and "bail" out
   H                   # accumulate other fields
   $ {                 # at the end of the document,
     g                 #   bring hold into pattern
