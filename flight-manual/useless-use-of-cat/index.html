@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-2.woff2" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/work-3.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/fira-2.woff2') format('woff2'); }
+</style><link rel="stylesheet" href="https://ccjmne.sh/blog/base.css">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-light.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-dark.css"  media="(prefers-color-scheme: dark)">
+    
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+>
+      <a href="https://ccjmne.sh/blog">Home</a>
+      <details class="dropdown" max-sm>
+        <summary><strong>Articles</strong></summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual"><strong>Flight manual</strong></a>
+          <a href="https://ccjmne.sh/blog/tags">By tags</a>
+          <a href="https://ccjmne.sh/blog/ramblings">Ramblings</a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual" min-sm><strong>Flight manual</strong></a>
+      <a href="https://ccjmne.sh/blog/tags"          min-sm>By tags</a>
+      <a href="https://ccjmne.sh/blog/ramblings"     min-sm>Ramblings</a>
+      <a href="https://ccjmne.sh/blog/colophon"            >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main><h1><span class="link-title" 
+  style="view-transition-name: view-useless-use-of-cat"
+>Useless use of <code>cat</code></span></h1><ul class="infobar "><li><time>August 16, 2025</time></li><li>4-minute read</li>
+    <li>tagged
+      <a href="https://ccjmne.sh/blog/tags/cli">cli</a>, <a href="https://ccjmne.sh/blog/tags/posix">posix</a>, <a href="https://ccjmne.sh/blog/tags/quibblery">quibblery</a></li></ul>
+<details class="hi toc">
+  <summary>Table of contents</summary>
+  <ul><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/useless-use-of-cat/#files-all-the-way-down">Files all the way down</a><ul>
+        
+        <li><a href="https://ccjmne.sh/blog/flight-manual/useless-use-of-cat/#when-all-else-fails">When all else fails</a></li></ul></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/useless-use-of-cat/#the-legitimate-use-of-cat">The legitimate use of cat</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/useless-use-of-cat/#the-definitive-escalation-mechanism">The definitive escalation mechanism</a></li>
+    <li><a href="#cited-tools">Referenced tools</a></li>
+    
+  </ul>
+</details>
+<article><p>Short for con<code>cat</code>enate, <code>cat</code> takes multiple files and prints them together
+into one continuous stream of text.  However, the first introduction to the
+<abbr title="Command Line Interface, where I dwell"><code>CLI</code></abbr> is sure to
+establish into the wasteland of the hurried neophyte's mind a simplistic mental
+model boiling down to: <em>"<code>cat</code> is what you use when you have a file and want its
+content"</em>.</p>
+<p>The consequence?  Processes multiplying like cancerous cells:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">cat</span><span class="z-string"> 2020-05-13.log</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> grep</span><span class="z-string"> ERROR</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">cat</span><span class="z-string"> mentions.txt</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> wc</span><span class="z-string"> -</span><span class="z-string">l</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">cat</span><span class="z-string"> catalina.out</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> tail</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">cat</span><span class="z-string"> server.cfg</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">s/127.0.0.1/localhost/</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-keyword z-operator"> &gt;</span><span class="z-string"> server.cfg</span></span></code></pre><div class="note">the ailment (the last one doesn't even work)</div>
+<p>Is there a cure?  Yes, the one that shall be obvious in retrospect: <strong>tell your
+tool itself what data to use</strong>.
+<br></p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">grep</span><span class="z-string"> ERROR</span><span class="z-string"> 2020-05-13.log</span><span class="z-source"> </span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">wc</span><span class="z-string"> -</span><span class="z-string">l</span><span class="z-string"> mentions.txt</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">tail</span><span class="z-string"> catalina.out</span><span class="z-source"> </span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-string"> -</span><span class="z-string">i</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">s/127.0.0.1/localhost/</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> server.cfg</span></span></code></pre><div class="note">the remedy</div>
+<h2 id="files-all-the-way-down"><a class="anchor-link" href="#files-all-the-way-down" aria-label="Anchor link for: files-all-the-way-down"></a>
+Files all the way down</h2>
+<p>Files are a fairly common in the world of computing, and even more so across
+Unix-like operating systems, where (famously) everything is a file (descriptor).</p>
+<!-- [everything being a file (descriptor)](@/flight-manual/everything-is-a-file.md). TODO: LINKME -->
+<p>When you do <code>cat asdf</code>, your kernel looks up <code>asdf</code> in the file system and
+<strong>returns a file descriptor</strong> (abbreviated <code>FD</code>) to the process running <code>cat</code>,
+which reads from it and <strong>writes to another, specific <code>FD</code></strong> (numbered <code>1</code>),
+<strong>which your shell interpreter displays</strong> in your terminal.</p>
+<p>That is it, no mystery, nothing special.  We can now appreciate how silly <code>cat file | grep</code> is: reading from a file isn't any different from reading from the
+standard input—<strong>the standard input is a file</strong> (in this context).</p>
+<p>Your tool only has to support being specified which file to read from, and you
+only need to <abbr title="Read The F... riendly Manual"><code>RTFM</code></abbr>:</p>
+<!-- (@/flight-manual/read-the-friendly-manual). TODO: LINKME -->
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">man</span><span class="z-string"> grep</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> head</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>GREP(1)                          User Commands                           GREP(1)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>NAME</span></span>
+<span class="giallo-l"><span>       grep - print lines that match patterns</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>SYNOPSIS</span></span>
+<span class="giallo-l"><span>       grep [OPTION]... PATTERNS [FILE]...</span></span>
+<span class="giallo-l"><span>       grep [OPTION]... -e PATTERNS ... [FILE]...</span></span>
+<span class="giallo-l"><span>       grep [OPTION]... -f PATTERN_FILE ... [FILE]...</span></span></code></pre>
+<p>There you have it: <code>grep</code> and friends not only <em>obviously</em> accept files names as
+arguments, they <em>evidently</em> do.</p>
+<h3 id="when-all-else-fails"><a class="anchor-link" href="#when-all-else-fails" aria-label="Anchor link for: when-all-else-fails"></a>
+When all else fails</h3>
+<p>But what if one didn't?  After rounding up the usual suspects, I can
+attest to the stunning rarity of common utilities not playing by this tacit
+rule.  Let's conjure up <code>gerp</code> (<code>grep</code> + <abbr title="A foolish or ignorant
+person">derp</abbr>!), an abominable degradation of <code>grep</code> that only knows of
+<abbr title="The standard input"><code>stdin</code></abbr>.<br>
+<strong>You can then use input redirection</strong> (<code>&lt;</code>) to funnel the data from
+whichever file descriptor you get over your file, to <code>FD 0</code> (the standard
+input):</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">gerp</span><span class="z-string"> keyword</span><span class="z-keyword z-operator"> &lt;</span><span class="z-string"> file.txt</span></span></code></pre>
+<p>That's it!  A patched <code>gerp</code>, no <code>cat</code>, no <code>|</code>, just a smidgen of understanding;
+all <abbr title="Portable Operating System Interface"><code>POSIX</code></abbr>-compliant,
+too.  In fact, the pipe (<code>|</code>) operator is essentially a way to connect the <code>FD 1</code> ("<code>stdout</code>") of one process to the <code>FD 0</code> ("<code>stdin</code>") of another.</p>
+<p>Yet how seldom have you come across the redirection above?  It should
+unquestionably be more common than <code>cat file | grep keyword</code>, yet I'm fairly
+confident it isn't, despite its twin counterpart (the <strong>output</strong> redirection)
+being virtually omnipresent: I explain this phenomenon with the concept of
+<strong>rampant shell illiteracy</strong> and attempt to address it through what I refer to
+as my <a href="https://ccjmne.sh/blog/tags/cli/"><code>CLI</code> flight manual</a>
+.</p>
+<!-- [rampant shell illiteracy](@/flight-manual/rampant-shell-illiteracy). TODO: LINKME -->
+<!-- I heartily recommend notably the series on shell redirections, which goes over -->
+<!-- the essentials that I brushed over in this short, prescriptivist quibble. -->
+<!-- [series on shell redirections](@/flight-manual/shell-redirection). TODO: LINKME -->
+<h2 id="the-legitimate-use-of-cat"><a class="anchor-link" href="#the-legitimate-use-of-cat" aria-label="Anchor link for: the-legitimate-use-of-cat"></a>
+The legitimate use of <code>cat</code></h2>
+<p>Despite my furry companion being of the canine variety, I have nothing against
+<code>cat</code> in principle.  Outside of scripts, I'd still argue that <code>less</code> is surely
+often preferable, possibly with <code>--quit-if-one-screen</code>/<code>-F</code> to have it behave
+like <code>cat</code> when you require no pagination; but here are a few instances where
+<code>cat</code> is sensible nonetheless:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-punctuation z-definition z-comment">#</span><span class="z-comment"> Create file in-line</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">cat</span><span class="z-keyword z-operator"> &gt;</span><span class="z-string"> greeting.txt</span><span class="z-keyword z-operator"> &lt;&lt;-</span><span class="z-punctuation z-definition z-string">EOF</span></span>
+<span class="giallo-l"><span class="z-string">	Hello, world!</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">EOF</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment">#</span><span class="z-comment"> Concatenate several files</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">cat</span><span class="z-string"> header.txt</span><span class="z-string"> section1.txt</span><span class="z-string"> section2.txt</span><span class="z-string"> footer.txt</span><span class="z-keyword z-operator"> &gt;</span><span class="z-string"> article.txt</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">cat</span><span class="z-string"> header.txt</span><span class="z-string"> section{1,2}.txt</span><span class="z-string"> footer.txt</span><span class="z-keyword z-operator"> &gt;</span><span class="z-string"> article.txt</span><span class="z-punctuation z-definition z-comment">  #</span><span class="z-comment"> Know also of (non-POSIX) brace</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">cat</span><span class="z-variable"> *</span><span class="z-string">.txt</span><span class="z-keyword z-operator"> &gt;</span><span class="z-string"> article.txt</span><span class="z-punctuation z-definition z-comment">                                   #</span><span class="z-comment"> expansions, or even globbing</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment">#</span><span class="z-comment"> Group commands</span></span>
+<span class="giallo-l"><span class="z-punctuation">{</span><span class="z-entity z-name z-function"> print-header</span><span class="z-punctuation">;</span><span class="z-entity z-name z-function"> cat</span><span class="z-string"> section1.txt</span><span class="z-punctuation">;</span><span class="z-entity z-name z-function"> print-footer</span><span class="z-string"> }</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> package-article</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment">#</span><span class="z-comment"> Concatenate standard input and file</span></span>
+<span class="giallo-l"><span class="z-support z-function z-builtin">echo</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">About me:</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> cat</span><span class="z-string"> -</span><span class="z-string"> aboutme.txt</span><span class="z-punctuation z-definition z-comment">     #</span><span class="z-comment"> The - is conventionally used to denote stdin</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">cat</span><span class="z-string"> -</span><span class="z-string"> aboutme.txt</span><span class="z-keyword z-operator"> &lt;&lt;&lt;</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">About me</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation z-definition z-comment">         #</span><span class="z-comment"> Here-strings are neat, albeit a bashism as well</span></span></code></pre><h2 id="the-definitive-escalation-mechanism"><a class="anchor-link" href="#the-definitive-escalation-mechanism" aria-label="Anchor link for: the-definitive-escalation-mechanism"></a>
+The definitive escalation mechanism</h2>
+<p>Somewhere along the way, we started using <code>cat</code> as a ceremonial prelude to
+everything, as if every command needed a feline blessing.  With everything being
+a file (descriptor), it turns out that quite a few commands will happily accept
+to read from a file!</p>
+<!-- [everything being a file (descriptor)](@/flight-manual/everything-is-a-file.md). TODO: LINKME -->
+<p>As such, here is the <strong>definitive escalation mechanism</strong> for your commands that
+are to consume the contents of a file:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">grep</span><span class="z-string"> keyword</span><span class="z-string"> file.txt</span><span class="z-punctuation z-definition z-comment">        #</span><span class="z-comment"> the one way</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">grep</span><span class="z-string"> keyword</span><span class="z-keyword z-operator"> &lt;</span><span class="z-string"> file.txt</span><span class="z-punctuation z-definition z-comment">      #</span><span class="z-comment"> the workaround for curious utilities</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">cat</span><span class="z-string"> file.txt</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> grep</span><span class="z-string"> keyword</span><span class="z-punctuation z-definition z-comment">  #</span><span class="z-comment"> the universally incorrect, useless use of cat</span></span></code></pre>
+  <h2 id="cited-tools"><a class="anchor-link" href="#cited-tools" aria-label="Anchor link for: cited-tools"></a>
+Referenced tools</h2>
+  <div class="cited-tools">
+    
+<table class="tool mono">
+  <tr><th colspan="2"><strong>cat</strong></th></tr>
+  <tr>
+    
+        <td colspan="2">from <a href="https://archlinux.org/packages/core&#x2F;x86_64&#x2F;coreutils">core&#x2F;coreutils</a></td>
+    
+  </tr>
+  <tr>
+    <td><a href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;cat.1.en">manual</a></td>
+    <td><a href="https:&#x2F;&#x2F;github.com&#x2F;coreutils&#x2F;coreutils">repository</a></td>
+  </tr>
+</table>
+
+<table class="tool mono">
+  <tr><th colspan="2"><strong>grep</strong></th></tr>
+  <tr>
+    
+        <td colspan="2">from <a href="https://archlinux.org/packages/core&#x2F;x86_64&#x2F;grep">core&#x2F;grep</a></td>
+    
+  </tr>
+  <tr>
+    <td><a href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;grep.1.en">manual</a></td>
+    <td><a href="https:&#x2F;&#x2F;cgit.git.savannah.gnu.org&#x2F;cgit&#x2F;grep.git&#x2F;">repository</a></td>
+  </tr>
+</table>
+
+<table class="tool mono">
+  <tr><th colspan="2"><strong>less</strong></th></tr>
+  <tr>
+    
+        <td colspan="2">from <a href="https://archlinux.org/packages/core&#x2F;x86_64&#x2F;less">core&#x2F;less</a></td>
+    
+  </tr>
+  <tr>
+    <td><a href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;less.1.en">manual</a></td>
+    <td><a href="https:&#x2F;&#x2F;github.com&#x2F;gwsw&#x2F;less">repository</a></td>
+  </tr>
+</table>
+
+  </div>
+  
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <span>&lt;<a href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>&gt;</span>
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>

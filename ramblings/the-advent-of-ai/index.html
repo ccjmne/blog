@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-2.woff2" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/work-3.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/fira-2.woff2') format('woff2'); }
+</style><link rel="stylesheet" href="https://ccjmne.sh/blog/base.css">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-light.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-dark.css"  media="(prefers-color-scheme: dark)">
+    
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {--column-width: min(90vw, 600px);}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+>
+      <a href="https://ccjmne.sh/blog">Home</a>
+      <details class="dropdown" max-sm>
+        <summary><strong>Articles</strong></summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual">Flight manual</a>
+          <a href="https://ccjmne.sh/blog/tags">By tags</a>
+          <a href="https://ccjmne.sh/blog/ramblings"><strong>Ramblings</strong></a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual" min-sm>Flight manual</a>
+      <a href="https://ccjmne.sh/blog/tags"          min-sm>By tags</a>
+      <a href="https://ccjmne.sh/blog/ramblings"     min-sm><strong>Ramblings</strong></a>
+      <a href="https://ccjmne.sh/blog/colophon"            >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main>
+<h1><span class="link-title" 
+  style="view-transition-name: view-the-advent-of-ai"
+>The advent of <code>AI</code></span></h1><ul class="infobar "><li><time>October 14, 2025</time></li><li>8-minute read</li>
+    </ul>
+<article>
+  <p>We've pretty much always had <em>"artificial intelligence"</em> in our lives: the
+<a rel="external" href="https://en.wikipedia.org/wiki/Ghosts_(Pac-Man)">ghosts chasing Pac-Man</a> in its
+eponymous arcade game from 1980 operate according to 4 sets of rules (each their
+own): that's <strong>Artificial Intelligence</strong> (<code>AI</code>), too.</p>
+<p>I mean to talk here of <strong>Machine Learning</strong> (<code>ML</code>), the subset of <code>AI</code> that has
+been making waves in the last few years, and most specifically about <strong>Large
+Language Models</strong> (<code>LLM</code>), which are capable of (essentially) conversing just as
+humans would<sup class="footnote-reference" id="fr-are-we-sentient-yet-1"><a href="#fn-are-we-sentient-yet">1</a></sup>.  I'll keep referring to these as <code>AI</code>, for
+it sadly is the established vernacular.</p>
+<div class="hi">
+<p>I'd like to start with something that's not often talked about: the <code>AI</code>
+that's now available to us is a huge achievement, something that'd been
+dreamt since the inception of computing, perhaps even before.  In my teenage
+years, I grew up with <a rel="external" href="https://en.wikipedia.org/wiki/Isaac_Asimov">Asimov</a>'s
+<em>Foundation</em> and <em>Robot</em> series.  I also remember the iconic
+<a rel="external" href="https://en.wikipedia.org/wiki/HAL_9000">HAL 9000</a>'s eerie <em>"I
+think you know what the problem is just as well as I do"</em>,
+<a rel="external" href="https://en.wikipedia.org/wiki/KITT">K.I.T.T.</a> as the original
+<a rel="external" href="https://en.wikipedia.org/wiki/J.A.R.V.I.S.">J.A.R.V.I.S.</a>,
+<a rel="external" href="https://en.wikipedia.org/wiki/GLaDOS">GLaDOS</a>'s sinister humour in yet another
+of Valve's game-changing accomplishments, and <em>Star Wars</em>' beloved <a rel="external" href="https://en.wikipedia.org/wiki/Droid_(Star_Wars)">C-3PO and
+R2-D2</a> doing their best <a rel="external" href="https://en.wikipedia.org/wiki/Laurel_and_Hardy">Laurel
+and Hardy</a> impression.</p>
+<p>That's quite a few acronyms<sup class="footnote-reference" id="fr-acronyms-1"><a href="#fn-acronyms">2</a></sup>, come to think of it.  We should consider
+christening (ha!) our first <strong>Artificial General Intelligence</strong> (<code>AGI</code>)
+something like SAGE, for <em>Self-Adapting General Entity</em>.  Or whatever OVERLORD
+might spell out, to tease the soothsayers.  But I digress.</p>
+<p><strong>We are now somewhere.</strong>  We can, albeit at a strenuous (if not staggering)
+computational cost, have machines that can "understand" and respond in a natural
+language.  It is now unequivocally workable as a long-awaited solution to be
+refined in the years to come.</p>
+</div>
+<p>As a programming companion, however, it's of <strong>very little use to me</strong>.</p>
+<hr class="paragraph-separator">
+<p><strong>I like my craft.</strong>  I refined it enormously and have achieved some
+mastery in some regards that I'm certain is far from being available
+to the general public, were they even armed with the <em>World Wide Web</em>
+<a href="https://ccjmne.sh/blog/ramblings/aptly-capitalised-names/">[sic]</a> and aided by some companions of
+the artificial kind.</p>
+<!-- (@/flight-manual/switch-audio-sink-gpt-vs-me). TODO: LINKME -->
+<p>If I use a tool to author and compose code for me, I rob myself of the
+opportunity and experience of thinking through the problem, arriving at a
+solution, possibly trudging on my way there and only <em>then</em> realising that a
+smoother path should be available.</p>
+<p>After some decades of this, the most excellent of us end up developing some
+sense for these mechanisms, as we've built similar things in different ways,
+in different cultural and technological contexts, using different tools, for
+different purposes.</p>
+<hr class="paragraph-separator">
+<p><strong>None of this corresponds to any sort of experience that the current
+<code>LLM</code>s could at all contemplate acquiring:</strong> they have no experience of
+their own.  They exist in a fantasy world dreamed up from the weighted
+statistically average (or popular?) amalgamation of (only) the written report
+of third parties; it certainly doesn't "learn" in any human sense.  <a rel="external" href="https://en.wikipedia.org/wiki/Richard_S._Sutton">Richard
+Sutton</a> (a foundational figure
+in modern artificial intelligence) puts it well: <em>learning isn't just about
+training, it's an active process</em>.</p>
+<p>The general-purpose programming assistant is <strong>nothing like having a
+general-purpose tool</strong> that would have been careful crafted to perform a
+specific task, possibly rather through <em>reinforcement learning</em> rather than mere
+vaguely supervised mimicry training on a large corpus of text.</p>
+<p>And of course, with general-purpose chatting engines come the yet-to-be-solved
+issues regarding, off the top of my head:</p>
+<ul>
+<li>outright dangerous rhetoric or instructions,</li>
+<li>"hallucinations" (i.e., confidently stating falsehoods),</li>
+<li>biases inherited from the training data, and</li>
+<li>intellectual property and data privacy concerns.</li>
+</ul>
+<p>There's also the seeping, encroaching problem of the horrifyingly inadequate
+<a rel="external" href="https://en.wikipedia.org/wiki/Argument_from_authority">appeal to authority</a>
+bias that we are getting increasingly subject to, using sources whose influence
+only gets further and further ahead of their competency.</p>
+<hr class="paragraph-separator">
+<p>My third point is that, under the hypothesis that we are to keep signing off on
+the code that an <code>AI</code> produces for us, the argument should be made that—to the
+fanatic developer at least—<strong>the mechanical act of curating the codebase is
+certainly not the bottleneck</strong> in building perennial software.</p>
+<p>On that note, a close colleague of mine confided just this week that reviewing
+code may very well be <strong>more strenuous than authoring it</strong>, depending on
+how diligent one wants to be.  It may have to do with the pull in opposing
+directions: you need to appropriate the entire context in the first place, but
+wouldn't quite dare, at this point, even considering alternative solutions.</p>
+<p>In any case, <strong>correctly identifying and contextualising the problem, the
+solution space, the implicit and explicit constraints, the trade-offs to be
+made</strong> with regards to maintainability, performance, security, <em>et cet.</em> are
+indisputably the more costly (and valuable) parts of the process.  Having the
+artificial assistant <strong>execute</strong> the plan is not, in the general cases where the
+alternative would be that I personally fly through text documents, much of a
+time-saver.</p>
+<p>And again, that's assuming the end result is correct under scrutiny—which it
+isn't always, let alone exemplary, let alone graceful.</p>
+<div class="hi">
+<p>In short, I am, intrinsically, <strong>somebody that does stuff</strong>.  Not because I
+can't delegate, not because I need the stuff done (though sometimes I do), but
+because I was plagued and blessed with a profound obsession for refining my
+craft.  And I was afforded the luxury of being born just in time for not only
+software being a major, obvious, lucrative industry, but also the notion that
+care, skill and experience can make a tremendous difference in the quality of
+the resulting product.</p>
+<p>I come from a time when every kid at school heard that we wouldn't always have a
+calculator in our pocket; when, if we played video games, it'd be the few that
+were available, over and over; when the first consoles were requiring great
+ingenuity just to have a counter-melody play over the main theme and sprites
+would flicker to work around memory constraints; when access to a digital, <em>let
+alone on-line!</em> encyclopaedia was an indulgence; in summary, I come from a time
+where the family camera and the family computer would never have been thought to
+soon be available as a single, personal device.  And I'm not that old!</p>
+<p>Yet, the <a rel="external" href="https://en.wikipedia.org/wiki/Discord">Discord</a>
+of today is substantially more sluggish than the <a rel="external" href="https://en.wikipedia.org/wiki/MSN_Messenger">MSN
+Messenger</a> of
+yesteryear.  It does far more, certainly, but I do realise that
+hardware and networking have come a long, long way since I took my
+first steps into <a rel="external" href="https://en.wikipedia.org/wiki/IRC">IRC</a> servers and
+<a rel="external" href="https://en.wikipedia.org/wiki/Bulletin_board_system">BBS</a> Web sites; to my
+understanding, there still is room for some excellence even in the <strong>execution
+of the vision</strong>.</p>
+</div>
+<p><code>AI</code> will get better.  It already is of great value as a preliminary to some
+search engine queries.  It's pretty great at getting some vaguely mushy
+implementation that mostly does the thing you asked it for.  But that is not
+remotely enough to pique my fervent interest:</p>
+<p>It does what we asked it for...  But what if we were misguided?  The
+well-travelled quote <em>"the customer is always right"</em> should be followed by:
+<em>"in matters of taste"</em>.</p>
+<p>We built what the marketing department sold...  But what of the
+<a rel="external" href="https://en.wikipedia.org/wiki/List_of_system_quality_attributes">-ilities</a>?</p>
+<p>What of the cut-throat, no-nonsense, ruthless pragmatism where one could
+want to do away with dependencies and frameworks altogether?  If made
+to optimise, could it avoid doing it prematurely—the <a rel="external" href="https://en.wikipedia.org/wiki/Program_optimization">root of all
+evil</a>, as proposed by the
+illustrious <a rel="external" href="https://en.wikipedia.org/wiki/Donald_Knuth">Donald Knuth</a>?</p>
+<p>We've arrived at a set of nascent tools that will help and get
+better.  Once again, a new fad is upon us, just as the past two decades
+brought us the <a rel="external" href="https://en.wikipedia.org/wiki/Big_data">Big Data</a>
+craze, the <a rel="external" href="https://en.wikipedia.org/wiki/NoSQL">NoSQL</a> movement, the
+<a rel="external" href="https://en.wikipedia.org/wiki/Microservices">Microservices</a> bandwagon,
+the <a rel="external" href="https://en.wikipedia.org/wiki/REST">REST</a> cult, the <a rel="external" href="https://en.wikipedia.org/wiki/Event-driven_architecture">Event
+Sourcing</a> phase...
+In some contexts, these are the right tools; in general, they merely serve to
+indicate when about were these solutions designed and built.</p>
+<p>Will our own systems and products stand the test of time, or shall we right
+away mandate <a rel="external" href="https://en.wikipedia.org/wiki/Vibe_coding">Vibe Coding</a> to faster
+implement complexity<sup class="footnote-reference" id="fr-faster-implement-complexity-1"><a href="#fn-faster-implement-complexity">3</a></sup>?</p>
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn-are-we-sentient-yet">
+<p>Artificial <strong>sentience</strong> is yet to be incepted
+electronically, to be best of my understanding.  Although, who am I to
+judge—<a rel="external" href="https://en.wikipedia.org/wiki/Consciousness">am I even conscious</a> to
+begin with? <a href="#fr-are-we-sentient-yet-1">↩</a></p>
+</li>
+<li id="fn-acronyms">
+<ul>
+<li><strong>K.I.T.T.</strong> stands for <em>Knight Industries Two Thousand</em>,</li>
+<li><strong>J.A.R.V.I.S.</strong> for <em>Just A Rather Very Intelligent System</em>,</li>
+<li><strong>GLaDOS</strong> for <em>Genetic Lifeform and Disk Operating System</em>, and</li>
+<li><strong>HAL</strong> for <em>Heuristically Programmed Algorithmic Computer</em> (go figure).</li>
+</ul>
+<p>The names of <em>Star Wars</em>' iconic droids are more the result of chance than
+deliberate acronyms. <a href="#fr-acronyms-1">↩</a></p>
+</li>
+<li id="fn-faster-implement-complexity">
+<p>Being a proponent of radical simplicity, I
+may smugly smirk at the idea, yet I shudder at the realisation that some serious
+people are indeed in favour of such mandates, and in position to put them into
+practice. <a href="#fr-faster-implement-complexity-1">↩</a></p>
+</li>
+</ol>
+</section>
+
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <span>&lt;<a href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>&gt;</span>
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>

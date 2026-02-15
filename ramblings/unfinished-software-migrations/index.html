@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-2.woff2" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/work-3.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/fira-2.woff2') format('woff2'); }
+</style><link rel="stylesheet" href="https://ccjmne.sh/blog/base.css">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-light.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-dark.css"  media="(prefers-color-scheme: dark)">
+    
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {--column-width: min(90vw, 600px);}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+>
+      <a href="https://ccjmne.sh/blog">Home</a>
+      <details class="dropdown" max-sm>
+        <summary><strong>Articles</strong></summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual">Flight manual</a>
+          <a href="https://ccjmne.sh/blog/tags">By tags</a>
+          <a href="https://ccjmne.sh/blog/ramblings"><strong>Ramblings</strong></a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual" min-sm>Flight manual</a>
+      <a href="https://ccjmne.sh/blog/tags"          min-sm>By tags</a>
+      <a href="https://ccjmne.sh/blog/ramblings"     min-sm><strong>Ramblings</strong></a>
+      <a href="https://ccjmne.sh/blog/colophon"            >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main>
+<h1><span class="link-title" 
+  style="view-transition-name: view-unfinished-software-migrations"
+>On unfinished software migrations</span></h1><ul class="infobar "><li><time>October 05, 2025</time></li><li>5-minute read</li>
+    </ul>
+<article>
+  <blockquote class="markdown-alert-note">
+<p>This is the sombrer branch of a dystopian choose-your-own-adventure essay
+on systemic failures to carry through sizeable projects in "enterprise"
+environments.<br>
+Its alternative write-up is found at: <a href="https://ccjmne.sh/blog/ramblings/failing-to-follow-through/">A systemic failure to follow
+through</a>.</p>
+</blockquote>
+<br>
+<p>Suppose that we have a problem.</p>
+<p>Suppose that our e-commerce Web app consists essentially of a
+patchwork of legacy "enterprise" Java front-and-back–end powered by
+<a rel="external" href="https://wicket.apache.org/">Apache Wicket</a> (popular 2007–2012),
+<a rel="external" href="https://struts.apache.org/">Apache Struts</a> (2002–2007), <a rel="external" href="https://tapestry.apache.org/">Apache
+Tapestry</a> (2004–2007), or <strong>all of the above</strong>,
+and we never quite considered ever serving customers on mobile devices.</p>
+<p>Or suppose any sort of system deeply entangled with
+everything, including itself, some sort of <a rel="external" href="https://en.wikipedia.org/wiki/Living_root_bridge">living root
+bridge</a>, except it's a whole
+treetop dwelling, nothing but intertwined roots as far as the eye can see, a
+gnarled knitting of <a rel="external" href="https://en.wikipedia.org/wiki/Gordian_Knot">Gordian knots</a>
+that started out as a decision never formally taken and grew into a
+institutionalised way of life.</p>
+<p>Well, it's 2025 now, and it turns out that while the IT department never
+considered smartphones, tablets (or the fact that windows aren't always
+maximised, and on a horizontal monitor with the default font size and zoom
+factor), our customer service department did...  Where do they get their ideas
+from, eh? <sup class="footnote-reference" id="fr-the-customer-1"><a href="#fn-the-customer">1</a></sup></p>
+<div class="hi">
+<p>The time comes to reinvent the entire thing.  We go for whatever is trendy and
+must therefore be the best in all regards, <a rel="external" href="https://react.dev/">React</a>.  Well,
+not just that, of course: we probably need a hefty dose of other frameworks
+(<a rel="external" href="https://nx.dev/">Nx</a> maybe?) on top, for greater simplicity; then some bespoke
+abstractions to avoid everybody having to learn the underlying tools.</p>
+<p>None of the parties responsible for the decisions have both a serious,
+foundational understanding of building the Web in the first place, as well as
+significant experience maintaining a corporate-scale application to boot, yet
+they still managed to land on the one panacea that contemporarily solves all
+problems: obviously, it is that simple; we're off to the races.</p>
+<!-- [foundational understanding of building the Web](@/ramblings/youre-no-web-developer.md) in the first place, as well as TODO: LINKME-->
+<p>We create tools to run the tools to operate the transpilers, bundlers,
+minifiers, linters, formatters, <em>et cet.</em>; we create tools to facilitate the
+usage of the tools to version-control our code.  Name your micro-task, we are
+building some specialised (read: contrived) mean to do it some sort of way.</p>
+<p>Soon enough, everything is ready, <strong>90% of the job is done</strong> and
+all that remains is to migrate/adapt/rewrite everybody to <a rel="external" href="https://en.wikipedia.org/wiki/El_Dorado">El
+Dorado</a>.</p>
+</div>
+<p>Now, <strong>onto the remaining 90% of the job</strong> (ha!): integrating the solution.</p>
+<p>Every now and again we advocate for the new platform, but each team is
+responsible for bringing their piece of the puzzle up to date, on their own
+time: the feature requests for the established solution are still pouring in.
+Yet the curators of its modernised counterpart aren't left idle, there is much
+thumb-twiddling in the works:</p>
+<p>We establish <a rel="external" href="https://adr.github.io/"><code>ADR</code>s</a>, we keep expanding
+the procedures and making things yet simpler by identifying
+patterns and systematically preventing anybody from having to
+endure how the sausage is made: do <strong>not</strong> repeat yourself—or
+anybody else, <a rel="external" href="https://en.wikipedia.org/wiki/Wikipedia:Emerson_and_Wilde_on_consistency">consistency is the opiate of the sophisticated
+mind</a>,
+this project <a href="https://ccjmne.sh/blog/ramblings/the-dry-hoax/">is so <code>DRY</code></a> it could pass for <a rel="external" href="https://en.wikipedia.org/wiki/The_Office_(British_TV_series)">a
+British comedy</a>.</p>
+<p>We struggle to bring the two worlds to parity.  In fact, we're nowhere near: we
+have to start actually using it in its current state.  We can offer customers
+(maybe the new ones?) to use that version while ensuring that the <a rel="external" href="https://en.wikipedia.org/wiki/Old_Faithful">Old
+Faithful</a> still avails itself our
+clientele deserving of the same epithet.</p>
+<div class="hi">
+<p>To help promote the new platform, we started building (on rare occasions, of
+course) some features only there.  We figure that the most adequate way to
+forcefully dedicate all our resources to the migration effort is indeed to
+corner ourselves in a situation where there is strong, business-driven demand
+for it.</p>
+<p>Some teams decide to opt for the <a rel="external" href="https://en.wikipedia.org/wiki/Strangler_fig_pattern">Strangler Fig
+Pattern</a>,
+some attempt to <a rel="external" href="https://martinfowler.com/bliki/BranchByAbstraction.html">Branch by
+Abstraction</a>, some
+plan to <a rel="external" href="https://www.youtube.com/watch?v=ZXsQAXx_ao0">just do it</a>.  Advancement
+is sporadic, as it turns out that quite a few bits and bobs depend on other
+odds and sods, and a few whatchamacallits are tangled up with some stray
+thingamajigs.</p>
+<p>Customers of either solution are overall somewhat satisfied with the experience,
+but the whole IT department has somehow ground itself to a halt, for which an
+innocuous explanation ends up becoming quite a gloomy revelation: <strong>we do
+maintain two separate solutions, after all</strong>.</p>
+</div>
+<p>In a bitterly ironic twist of fate only <a rel="external" href="https://www.xkcd.com/927/">Randall Munroe could have
+foreseen</a>, we are starting to consider that maybe the
+Second System (yes, we actually call it that) isn't the way to go.  It lacks
+features, isn't widely adopted, and still demands much upkeep.</p>
+<p>Suppose that we had a problem...  Now we have two.</p>
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn-the-customer">
+<p>It's the customer.  They get their ideas from the end user,
+the people we build this for.  Yeah, this entire thing we pour all that fun
+technology into actually wasn't meant to be built for our amusement.  Talk to
+your users, or at least analyse how they use your product! <a href="#fr-the-customer-1">↩</a></p>
+</li>
+</ol>
+</section>
+
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <span>&lt;<a href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>&gt;</span>
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>

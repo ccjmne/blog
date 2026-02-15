@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-2.woff2" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/work-3.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/fira-2.woff2') format('woff2'); }
+</style><link rel="stylesheet" href="https://ccjmne.sh/blog/base.css">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-light.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-dark.css"  media="(prefers-color-scheme: dark)">
+    
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+>
+      <a href="https://ccjmne.sh/blog">Home</a>
+      <details class="dropdown" max-sm>
+        <summary><strong>Articles</strong></summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual"><strong>Flight manual</strong></a>
+          <a href="https://ccjmne.sh/blog/tags">By tags</a>
+          <a href="https://ccjmne.sh/blog/ramblings">Ramblings</a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual" min-sm><strong>Flight manual</strong></a>
+      <a href="https://ccjmne.sh/blog/tags"          min-sm>By tags</a>
+      <a href="https://ccjmne.sh/blog/ramblings"     min-sm>Ramblings</a>
+      <a href="https://ccjmne.sh/blog/colophon"            >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main><h1><span class="link-title" 
+  style="view-transition-name: view-scope-sed-commands-target-lines"
+>Scope <code>sed</code> commands to specific lines</span></h1><ul class="infobar "><li><time>October 06, 2025</time></li><li>11-minute read</li>
+    <li>tagged
+      <a href="https://ccjmne.sh/blog/tags/cli">cli</a>, <a href="https://ccjmne.sh/blog/tags/posix">posix</a>, <a href="https://ccjmne.sh/blog/tags/sed">sed</a></li></ul>
+<details class="hi toc">
+  <summary>Table of contents</summary>
+  <ul><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/scope-sed-commands-target-lines/#obligatory-tl-dr">Obligatory TL;DR</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/scope-sed-commands-target-lines/#the-anatomy-of-a-sed-command">The anatomy of a sed command</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/scope-sed-commands-target-lines/#the-forms-of-addresses">The forms of addresses</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/scope-sed-commands-target-lines/#address-ranges">Address ranges</a><ul>
+        
+        <li><a href="https://ccjmne.sh/blog/flight-manual/scope-sed-commands-target-lines/#some-gnu-sed-specific-pseudo-addresses">Some GNU sed-specific pseudo-addresses</a></li></ul></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/scope-sed-commands-target-lines/#exempli-gratia">Exempli gratia</a><ul>
+        
+        <li><a href="https://ccjmne.sh/blog/flight-manual/scope-sed-commands-target-lines/#a-real-life-scenario">A real-life scenario</a></li>
+        <li><a href="https://ccjmne.sh/blog/flight-manual/scope-sed-commands-target-lines/#one-properly-savvy-application">One properly savvy application</a></li></ul></li>
+    <li><a href="#cited-tools">Referenced tools</a></li>
+    
+  </ul>
+</details>
+<article><p>I really like <code>sed</code>.  If you merely use it sporadically to search and replace
+text from the <code>CLI</code>, and have no interest in reaching for this trusty tool for
+anything else, you may want to know of a very popular alternative that somewhat
+simplifies that specific task: <a rel="external" href="https://github.com/chmln/sd"><code>sd</code></a>.</p>
+<p>The finer folks will find boundless treasures in the venerable <code>man</code>ual pages,
+and perhaps a few tips and tricks scattered online, such as those I plan to
+publish on this very platform.</p>
+<blockquote class="markdown-alert-tip">
+<p>The <abbr title="Portable Operating System Interface"><code>POSIX</code></abbr> <code>man</code>
+pages of <code>sed</code> are more complete than that of its <code>GNU</code> implementation:
+you may run <code>man 1p sed</code> to access the <code>POSIX</code> version for a more
+faithful (and universal) reference; however <code>GNU</code> offers a significantly
+more exhaustive version through either <code>info sed</code> or its <a rel="external" href="https://www.gnu.org/software/sed/manual/">on-line
+version</a>.</p>
+</blockquote>
+<!-- , and I write about using the `man`ual here. (@/flight-manual/read-the-friendly-manual). TODO: LINKME -->
+<div class="hi">
+<h2 id="obligatory-tl-dr"><a class="anchor-link" href="#obligatory-tl-dr" aria-label="Anchor link for: obligatory-tl-dr"></a>
+Obligatory <a rel="external" href="https://en.wikipedia.org/wiki/TL;DR">TL;DR</a></h2>
+<p>You can limit the scope over which <code>sed</code> commands operate by preceding them
+with one or two <strong>addresses</strong>.  An address may be a line number, a regular
+expression, or a few other special forms.</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">/match/       s/before/after/</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">  file.txt</span><span class="z-punctuation z-definition z-comment">   #</span><span class="z-comment"> substitute only on lines matching &#39;match&#39;</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">5,20          s/before/after/</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">  file.txt</span><span class="z-punctuation z-definition z-comment">   #</span><span class="z-comment"> substitute only on lines 5 through 20</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">/if/,  /fi/   d</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">                script.sh</span><span class="z-punctuation z-definition z-comment">  #</span><span class="z-comment"> delete if-blocks (not production-ready...)</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">/!important/  !d</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">               style.css</span><span class="z-punctuation z-definition z-comment">  #</span><span class="z-comment"> extract css !important rules</span></span></code></pre></div>
+<h2 id="the-anatomy-of-a-sed-command"><a class="anchor-link" href="#the-anatomy-of-a-sed-command" aria-label="Anchor link for: the-anatomy-of-a-sed-command"></a>
+The anatomy of a <code>sed</code> command</h2>
+<p>A <code>sed</code> <strong>command</strong> takes the following form:</p>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>[address[,address]]function</span></span></code></pre>
+<p>In this syntax, <code>function</code> represents a single-character <strong>command verb</strong> in
+<code>sed</code>, followed by any applicable arguments.  The most common function is <code>s</code>,
+which stands for <em>substitute</em>, but you'll find numerous others, such a <code>d</code> for
+<em>delete</em>, <code>p</code> for <em>print</em>, <code>a</code> for <em>append</em>...<sup class="footnote-reference" id="fr-from-ed-to-nvim-1"><a href="#fn-from-ed-to-nvim">1</a></sup></p>
+<blockquote class="markdown-alert-tip">
+<p>To keep things readable (we wield regular expressions but we're not animals),
+the <code>address</code>es and <code>function</code> can be preceded and/or followed by <em>blank</em>
+characters.  The <strong>command</strong> in its entirety, <code>[address[,address]]function</code>,
+may be preceded and/or followed by <em>blank and/or semicolon</em> characters.</p>
+</blockquote>
+<p>One last, simple yet quite useful trick regarding line selection: you can
+<strong>negate the selection</strong> over which a <code>function</code> shall operate by preceding it
+with an exclamation mark (<code>!</code>), which will cause the command to be executed on
+all lines <em>except</em> those addressed.</p>
+<p>Each <strong>function</strong> you can execute may take <strong>up to either zero, one, or two</strong>
+<strong>addresses</strong>.</p>
+<h2 id="the-forms-of-addresses"><a class="anchor-link" href="#the-forms-of-addresses" aria-label="Anchor link for: the-forms-of-addresses"></a>
+The forms of addresses</h2>
+<p>An <strong>address</strong> may take one of the following forms:</p>
+<ul>
+<li>
+<p>a <em>decimal number</em> that counts input lines cumulatively across files
+(<code>1</code>-indexed),</p>
+</li>
+<li>
+<p>a <em>dollar sign</em> (<code>$</code>) character, which references the last line of input, or</p>
+</li>
+<li>
+<p>a <em>context address</em>, which consists of a <abbr title="Basic Regular
+Expression"><code>BRE</code></abbr> as described <a rel="external" href="https://www.gnu.org/software/sed/manual/html_node/BRE-syntax.html">here in the complete <code>GNU</code> <code>sed</code> manual
+on-line</a>,
+preceded and followed by a delimiter—usually a <em>forward slash</em> (<code>/</code>).</p>
+<blockquote class="markdown-alert-warning">
+<p>Using <code>GNU</code> <code>sed</code>, using a different delimiter <strong>in the context of
+addresses</strong> requires a <code>backslash</code> (<code>\</code>) <strong>before the preceding
+delimiter</strong>.  For example, to use a <em>hash</em> <sup class="footnote-reference" id="fr-hash-1"><a href="#fn-hash">2</a></sup> as the delimiter, with
+<code>GNU</code> <code>sed</code>, you'd write <code>\#regexp#</code> instead of <code>#regexp#</code>.<br></p>
+<p>In addition, <code>GNU</code>'s implementation <a rel="external" href="https://www.gnu.org/software/sed/manual/html_node/Regexp-Addresses.html#Regexp-Addresses">introduces the <code>/re/I</code> and <code>/re/M</code>
+syntaxes</a>
+for case-insensitive and multi-line matching, respectively.  Most often
+in other contexts these flags are lower-case, but <code>GNU</code> <code>sed</code> offers a
+would-be conflicting <code>i</code> function verb for <em>insert</em> that couldn't be
+interpreted adequately, had the flags been <code>i</code> and <code>m</code> instead of <code>I</code> and
+<code>M</code>.</p>
+</blockquote>
+</li>
+</ul>
+<p>To these <code>POSIX</code> standards, <code>GNU</code> <code>sed</code> adds the following option:</p>
+<ul>
+<li>
+<p>the <code>first~step</code> form, where <code>first</code> and <code>step</code> are both <em>decimal numbers</em>.</p>
+<p>This matches one every every <code>step</code> lines, starting with <code>first</code>.  For
+example, <code>1~2</code> matches all odd-numbered lines, while <code>2~2</code> matches the even
+ones.</p>
+</li>
+</ul>
+<h2 id="address-ranges"><a class="anchor-link" href="#address-ranges" aria-label="Anchor link for: address-ranges"></a>
+Address ranges</h2>
+<p>In <code>sed</code>, most <strong>commands</strong> can be given with:</p>
+<ul>
+<li>
+<p><strong>no addresses</strong>, in which case the command will be executed for all input
+lines,</p>
+</li>
+<li>
+<p><strong>one address</strong>, then only input lines which match that address will be
+considered, or</p>
+</li>
+<li>
+<p><strong>two addresses</strong>, in which case the command will operate over all input lines
+matching the <em>inclusive</em> range of lines starting from the first address and
+continuing to the second address.</p>
+<blockquote class="markdown-alert-note">
+<p>The syntax is <code>address1,address2</code> (that is, the addresses are separated
+by a comma); the line which <code>address1</code> matched will always be accepted,
+even if <code>address2</code> selects an earlier line; and if <code>address2</code> is a regular
+expression, it will not be tested against the line that <code>address1</code> matched.</p>
+</blockquote>
+</li>
+</ul>
+<p>Using two addresses allows you to target <em>ranges
+of lines</em> where the two addresses serve as
+<a rel="external" href="https://en.wikipedia.org/wiki/Flip-flop_(electronics)">flip-flop</a> markers: when
+the first address is matched, if we're currently outside a match range, we start
+processing the input lines for that command, until the second address is matched
+or the end of the input is reached.</p>
+<h3 id="some-gnu-sed-specific-pseudo-addresses"><a class="anchor-link" href="#some-gnu-sed-specific-pseudo-addresses" aria-label="Anchor link for: some-gnu-sed-specific-pseudo-addresses"></a>
+Some <code>GNU</code> <code>sed</code>-specific pseudo-addresses</h3>
+<p>The <code>GNU</code> version of <code>sed</code> introduces three pseudo-addresses that may only
+be used in the context of address ranges, and <strong>aren't valid as stand-alone
+addresses</strong>:</p>
+<ul>
+<li>
+<p><code>+N</code> and <code>~N</code>, where <code>N</code> is a decimal number, only <strong>available to the second
+of an address pair</strong>:</p>
+<p><code>+N</code> matches the line that is <code>N</code> lines after that of the first address, <code>~N</code>
+matches the lines whose number is a multiple of <code>N</code>.</p>
+</li>
+<li>
+<p><code>0</code>, which <strong>may only be used as the first of an address pair</strong>.  It is most
+esoteric and only included here for completeness.  The special <code>0,address2</code>
+syntax is used to:</p>
+<blockquote>
+<p>Start out in "matched first address" state, until <code>address2</code> is found.  This
+is similar to <code>1,address2</code>, except that if <code>address2</code> matches the very first
+line of input the <code>0,address2</code> form will be at the end of its range, whereas
+the <code>1,address2</code> form will still be at the beginning of its range.  This
+works only when <code>address2</code> is a regular expression.</p>
+</blockquote>
+</li>
+</ul>
+<p>Well, that's a lot of theory, but nothing quite scary in practice, though I
+suppose some demonstrations are in order.</p>
+<h2 id="exempli-gratia"><a class="anchor-link" href="#exempli-gratia" aria-label="Anchor link for: exempli-gratia"></a>
+Exempli gratia</h2>
+<p>Here are some examples of <strong>addresses</strong> and <strong>address ranges</strong> in action, using
+the <strong><code>d</code>elete</strong> command:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">seq</span><span class="z-constant z-numeric"> 1</span><span class="z-constant z-numeric"> 10</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">1d</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation z-definition z-comment">      #</span><span class="z-comment"> delete the first line</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">seq</span><span class="z-constant z-numeric"> 1</span><span class="z-constant z-numeric"> 10</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">$d</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation z-definition z-comment">      #</span><span class="z-comment"> delete the last line</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">seq</span><span class="z-constant z-numeric"> 1</span><span class="z-constant z-numeric"> 10</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">2,4d</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation z-definition z-comment">    #</span><span class="z-comment"> delete lines 2 through 4, inclusive</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">seq</span><span class="z-constant z-numeric"> 1</span><span class="z-constant z-numeric"> 10</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">2,$d</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation z-definition z-comment">    #</span><span class="z-comment"> delete from line 2 to the end</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment">#</span><span class="z-comment"> The following are GNU sed extensions:</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">seq</span><span class="z-constant z-numeric"> 1</span><span class="z-constant z-numeric"> 10</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">1~2d</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation z-definition z-comment">    #</span><span class="z-comment"> delete odd-numbered lines</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">seq</span><span class="z-constant z-numeric"> 1</span><span class="z-constant z-numeric"> 10</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">2~2d</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation z-definition z-comment">    #</span><span class="z-comment"> delete even-numbered lines</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">seq</span><span class="z-constant z-numeric"> 1</span><span class="z-constant z-numeric"> 10</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">3,+2d</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation z-definition z-comment">   #</span><span class="z-comment"> delete line 3 and the two following it (3, 4, and 5)</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">seq</span><span class="z-constant z-numeric"> 1</span><span class="z-constant z-numeric"> 10</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">3,~7d</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation z-definition z-comment">   #</span><span class="z-comment"> delete line 3, up to the next multiple of 7 (3, 4, 5, 6, and 7)</span></span></code></pre>
+<p>It is also possible to use regular expressions as addresses:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">seq</span><span class="z-constant z-numeric"> 1</span><span class="z-constant z-numeric"> 20</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">/3/d</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation z-definition z-comment">       #</span><span class="z-comment"> delete lines matching &#39;3&#39; (lines 3 and 13)</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">seq</span><span class="z-constant z-numeric"> 1</span><span class="z-constant z-numeric"> 20</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">/[357]/d</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation z-definition z-comment">   #</span><span class="z-comment"> delete lines matching &#39;3&#39;, &#39;5&#39;, or &#39;7&#39; (lines 3, 5, 7, 13, 15, and 17)</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">seq</span><span class="z-constant z-numeric"> 1</span><span class="z-constant z-numeric"> 20</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">1,/[357]/d</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation z-definition z-comment"> #</span><span class="z-comment"> delete from line 1 to the first matching &#39;3&#39;, &#39;5&#39;, or &#39;7&#39; (lines 1, 2, 3)</span></span></code></pre>
+<p>You may target some function from a script:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-punctuation z-definition z-comment">#</span><span class="z-comment"> Delete the function &quot;handleanything&quot; by specifying lines ranging from:</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment">#</span><span class="z-comment"> - its declaration: /function handleanything/, to:</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment">#</span><span class="z-comment"> - its closing brace: /^}$/</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">/function handleanything/, /^}$/ d</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-keyword z-operator"> &lt;&lt;</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation z-definition z-string">EOF</span><span class="z-punctuation z-definition z-string">&#39;</span></span>
+<span class="giallo-l"><span class="z-string">answer=42</span></span>
+<span class="giallo-l"><span class="z-string">function handleanything() {</span></span>
+<span class="giallo-l"><span class="z-string">    echo &quot;We will look into it next sprint, please create a Jira ticket&quot;</span></span>
+<span class="giallo-l"><span class="z-string">}</span></span>
+<span class="giallo-l"><span class="z-string">function why() {</span></span>
+<span class="giallo-l"><span class="z-string">    echo $answer</span></span>
+<span class="giallo-l"><span class="z-string">}</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">EOF</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>answer=42</span></span>
+<span class="giallo-l"><span>function why() {</span></span>
+<span class="giallo-l"><span>    echo $answer</span></span>
+<span class="giallo-l"><span>}</span></span></code></pre><div class="note">you can use white space in the <code>[address[,address]]function</code> pattern for better readability</div>
+<p>You can also retain only that function, one of two ways:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-punctuation z-definition z-comment">#</span><span class="z-comment"> Using the `-n` (or `--quiet` or `--silent`) option to suppress automatic</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment">#</span><span class="z-comment"> printing of the processed stream, and the `p` command to print only the lines</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment">#</span><span class="z-comment"> in the specified range:</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-string"> -</span><span class="z-string">n</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">/function handleanything/, /^}$/  p</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> script.sh</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment">#</span><span class="z-comment"> Using the negation operator (!) to operate on lines *outside* the specified range:</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-punctuation z-definition z-string">    &#39;</span><span class="z-string">/function handleanything/, /^}$/ !d</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> script.sh</span></span></code></pre><div class="note">don't hesitate to use white-space, <code>/function handleanything/,  /^}$/  !d</code> is also legal</div>
+<p>For instance, you may refer to some of your favourite <code>man</code>ual entries in this way:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">man</span><span class="z-string"> strftime</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">/%D/,/^$/!d</span><span class="z-punctuation z-definition z-string">&#39;</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">man</span><span class="z-string"> strftime</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">/%D/,  /^$/  !d</span><span class="z-punctuation z-definition z-string">&#39;</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>       %D     Equivalent to %m/%d/%y.  (Yecch—for Americans only.  Americans should note that in</span></span>
+<span class="giallo-l"><span>              other countries %d/%m/%y is rather common.  This means that in international context</span></span>
+<span class="giallo-l"><span>              this format is ambiguous and should not be used.) (SU)</span></span></code></pre><h3 id="a-real-life-scenario"><a class="anchor-link" href="#a-real-life-scenario" aria-label="Anchor link for: a-real-life-scenario"></a>
+A real-life scenario</h3>
+<p>Another quick tip: if you find yourself wanting to <strong><code>s</code>ubstitute</strong> some text
+only on certain lines, you don't necessarily have to complicate your regular
+expression.</p>
+<p>Let's take the example of some <code>nginx</code> configuration:</p>
+<pre class="giallo z-code"><code data-lang="nginx"><span class="giallo-l"><span class="z-comment"># handles https traffic</span></span>
+<span class="giallo-l"><span class="z-storage z-type">server</span><span class="z-source"> {</span></span>
+<span class="giallo-l"><span class="z-keyword">    listen</span><span class="z-constant z-numeric"> 443</span><span class="z-source"> ssl http2</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-keyword">    server_</span><span class="z-keyword">name</span><span class="z-source"> example.com</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-storage z-type">    location</span><span class="z-source"> /app1 </span><span class="z-source">{</span></span>
+<span class="giallo-l"><span class="z-keyword">        proxy_</span><span class="z-keyword">pass</span><span class="z-source">      http://backend1</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-keyword">        proxy_</span><span class="z-keyword">redirect</span><span class="z-source">  http://backend1  /app1</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-source">    }</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-storage z-type">    location</span><span class="z-source"> /app2 </span><span class="z-source">{</span></span>
+<span class="giallo-l"><span class="z-keyword">        proxy_</span><span class="z-keyword">pass</span><span class="z-source">      http://backend2</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-keyword">        proxy_</span><span class="z-keyword">redirect</span><span class="z-source">  http://backend2  /app2</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-source">    }</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-storage z-type">    location</span><span class="z-source"> /app3 </span><span class="z-source">{</span></span>
+<span class="giallo-l"><span class="z-keyword">        proxy_</span><span class="z-keyword">pass</span><span class="z-source">      http://backend3</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-keyword">        proxy_</span><span class="z-keyword">redirect</span><span class="z-source">  http://backend3  /app3</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-source">    }</span></span>
+<span class="giallo-l"><span class="z-source">}</span></span></code></pre>
+<p>Suppose that you want to avoid performing <a rel="external" href="https://en.wikipedia.org/wiki/TLS_termination_proxy"><code>SSL</code>
+termination</a> in your
+reverse proxy: you'll need to change occurrences of <code>http</code> to <code>https</code>.</p>
+<p>Here's the diff you'd obtain after running a naive <code>sed 's/http/https/' nginx.conf</code>:</p>
+<pre class="giallo z-code"><code data-lang="diff"><span class="giallo-l"><span class="z-punctuation">-</span><span class="z-markup z-deleted z-diff"># handles https traffic</span></span>
+<span class="giallo-l"><span class="z-punctuation">+</span><span class="z-markup z-inserted z-diff"># handles httpss traffic</span></span>
+<span class="giallo-l"><span class="z-source"> server {</span></span>
+<span class="giallo-l"><span class="z-punctuation">-</span><span class="z-markup z-deleted z-diff">    listen 443 ssl http2;</span></span>
+<span class="giallo-l"><span class="z-punctuation">+</span><span class="z-markup z-inserted z-diff">    listen 443 ssl https2;</span></span>
+<span class="giallo-l"><span class="z-source">     server_name example.com;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-source">     location /app1 {</span></span>
+<span class="giallo-l"><span class="z-punctuation">-</span><span class="z-markup z-deleted z-diff">        proxy_pass      http://backend1;</span></span>
+<span class="giallo-l"><span class="z-punctuation">-</span><span class="z-markup z-deleted z-diff">        proxy_redirect  http://backend1  /app1;</span></span>
+<span class="giallo-l"><span class="z-punctuation">+</span><span class="z-markup z-inserted z-diff">        proxy_pass      https://backend1;</span></span>
+<span class="giallo-l"><span class="z-punctuation">+</span><span class="z-markup z-inserted z-diff">        proxy_redirect  https://backend1  /app1;</span></span>
+<span class="giallo-l"><span class="z-source">     }</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-source">     location /app2 {</span></span>
+<span class="giallo-l"><span class="z-punctuation">-</span><span class="z-markup z-deleted z-diff">        proxy_pass      http://backend2;</span></span>
+<span class="giallo-l"><span class="z-punctuation">-</span><span class="z-markup z-deleted z-diff">        proxy_redirect  http://backend2  /app2;</span></span>
+<span class="giallo-l"><span class="z-punctuation">+</span><span class="z-markup z-inserted z-diff">        proxy_pass      https://backend2;</span></span>
+<span class="giallo-l"><span class="z-punctuation">+</span><span class="z-markup z-inserted z-diff">        proxy_redirect  https://backend2  /app2;</span></span>
+<span class="giallo-l"><span class="z-source">     }</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-source">     location /app3 {</span></span>
+<span class="giallo-l"><span class="z-punctuation">-</span><span class="z-markup z-deleted z-diff">        proxy_pass      http://backend3;</span></span>
+<span class="giallo-l"><span class="z-punctuation">-</span><span class="z-markup z-deleted z-diff">        proxy_redirect  http://backend3  /app3;</span></span>
+<span class="giallo-l"><span class="z-punctuation">+</span><span class="z-markup z-inserted z-diff">        proxy_pass      https://backend3;</span></span>
+<span class="giallo-l"><span class="z-punctuation">+</span><span class="z-markup z-inserted z-diff">        proxy_redirect  https://backend3  /app3;</span></span>
+<span class="giallo-l"><span class="z-source">     }</span></span>
+<span class="giallo-l"><span class="z-source"> }</span></span></code></pre>
+<p>Oops, we don't actually want to change the comment line nor the protocol
+(there's no <code>https2</code>), but only the <code>proxy_pass</code> directives.</p>
+<p>You could revise your regular expression to something like:</p>
+<pre class="giallo z-code"><code data-lang="viml"><span class="giallo-l"><span class="z-source">s</span><span class="z-string">/\(proxy_pass *\|proxy_redirect *\) http/</span><span class="z-keyword z-operator">\</span><span class="z-constant z-numeric">1</span><span class="z-source"> https</span></span></code></pre>
+<p>That would work, but...  Good grief.</p>
+<p>Even if you're comfortable with regular expressions in the first place,
+and with the <code>BRE</code> flavour whenever necessary, in addition to the <abbr
+title="Perl-Compatible Regular Expressions"><code>PCRE</code></abbr> dialect I'm sure
+you'll often favour, that's still a troublesome incantation not only to read,
+but even to write: you may very well, for instance, forget about the pesky
+multiple spaces for horizontal alignment in your first attempt!</p>
+<p>A more idiomatic <code>sed</code> way would be to scope your substitution to the lines containing
+<code>proxy_</code>:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">/proxy_/s/http/https/</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> nginx.conf</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">/proxy_/  s/http/https/</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> nginx.conf</span></span></code></pre><div class="note">the second version is also entirely legal syntax, it merely adds white-space for readability</div>
+<p>How real-life is that, though?  Wouldn't you just spin up your favourite text
+editor at this point?</p>
+<p>Certainly.  But you'll be happy to know that your <abbr title="Vim, of
+course">favourite text editor</abbr> offers the same function!</p>
+<pre class="giallo z-code"><code data-lang="viml"><span class="giallo-l"><span class="z-source">:g</span><span class="z-string">/proxy_/</span><span class="z-source">s</span><span class="z-string">/http/</span><span class="z-source">https</span></span>
+<span class="giallo-l"><span class="z-source">:g  </span><span class="z-string">/proxy_/</span><span class="z-source">  s</span><span class="z-string">/http/</span><span class="z-source">https</span></span></code></pre><div class="note">Vim is more lenient and tolerates omitting the final <code>/</code> at the end of the replacement pattern</div>
+<p>You could also have selected the <code>location</code> blocks:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">/location.*{/,/^}/s/http/https/</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> nginx.conf</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">/location.*{/,  /^}/  s/http/https/</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> nginx.conf</span></span></code></pre>
+<p>Or maybe all lines following <code>/app1</code>:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">#/app1#,$s/http/https/</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> nginx.conf</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">#/app1#,  $  s/http/https/</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> nginx.conf</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">\#/app1#,  $  s/http/https/</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> nginx.conf</span><span class="z-punctuation z-definition z-comment">  #</span><span class="z-comment"> GNU sed only</span></span></code></pre><div class="note">for illustration, I used hashes (<code>#</code>) to delineate the <abbr title='Regular Expressions'>RegExp</abbr> here, to not have to escape the literal <code>/</code></div>
+<p>Or from line <code>5</code> onwards:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">5,$s/http/https/</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> nginx.conf</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">5,$  s/http/https/</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> nginx.conf</span></span></code></pre>
+<p>The world is your oyster!  Know your options, start using them here and there,
+you'll find what works for you and maybe best accommodate your tools to your
+taste.</p>
+<h3 id="one-properly-savvy-application"><a class="anchor-link" href="#one-properly-savvy-application" aria-label="Anchor link for: one-properly-savvy-application"></a>
+One properly savvy application</h3>
+<p>I'll share here a part of <a rel="external" href="https://github.com/ccjmne/dotfiles2025/blob/master/home/config/git/template/hooks/prepare-commit-msg">my personal <code>prepare-commit-msg</code> Git
+hook</a>,
+which runs every time I commit anything anywhere and prepares the commit
+template to my liking.</p>
+<p>I use the <code>--verbose</code> flag when committing, so that Git shows me:</p>
+<blockquote>
+<p>[...] a unified diff between the HEAD commit and what would be committed at
+the bottom of the commit message template to help the user describe the commit
+by reminding what changes the commit has.</p>
+</blockquote>
+<p>In summary, instead of being presented with:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">git</span><span class="z-string"> commit</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="term-fg38"># Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch <span class="term-fg35">master</span>
+# <span class="term-fg35">Changes to be committed:</span>
+#	<span class="term-fg34">modified</span>:   <span class="term-fg33">test</span>
+#
+# <span class="term-fg35">Changes not staged for commit:</span>
+#	<span class="term-fg34">modified</span>:   <span class="term-fg33">test</span>
+#
+# <span class="term-fg35">Untracked files:</span>
+#	<span class="term-fg33">other</span>
+</pre></code>
+<p>You would instead have:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">git</span><span class="z-string"> commit</span><span class="z-string"> -</span><span class="z-string">-verbose</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="term-fg38"># Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch <span class="term-fg35">master</span>
+# <span class="term-fg35">Changes to be committed:</span>
+#	<span class="term-fg34">modified</span>:   <span class="term-fg33">test</span>
+#
+# <span class="term-fg35">Changes not staged for commit:</span>
+#	<span class="term-fg34">modified</span>:   <span class="term-fg33">test</span>
+#
+# <span class="term-fg35">Untracked files:</span>
+#	<span class="term-fg33">other</span>
+#
+# ------------------------ >8 ------------------------
+# Do not modify or remove the line above.
+# Everything below it will be ignored.</span>
+<span class="term-fg34">diff --git a&#47;test b&#47;test</span>
+<span class="term-fg36">index 84ef876..4c1d036 100644</span>
+<span class="term-fg33">--- a/test</span>
+<span class="term-fg35">+++ b/test</span>
+<span class="term-fg36">@@ -1 +1 @@</span>
+<span class="term-fg31">-Let me show you something</span>
+<span class="term-fg32">+Let me show you something cool</span>
+</pre></code>
+<div class="note">I like having a recap of my changes below the <a rel="external" href="https://git-scm.com/docs/git-mailinfo#Documentation/git-mailinfo.txt---scissors">scissors line</a></div>
+<p>Quite handy, yet too noisy.  My <code>prepare-commit-msg</code> hook prunes the content
+that I find too busy, using <code>sed</code>:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-punctuation z-definition z-comment">#</span><span class="z-comment"> Prune unstaged/untracked content listing and hand-holding guidance</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-string"> -</span><span class="z-string">i.bak</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-variable z-other z-normal z-shell">$</span><span class="z-variable z-other z-normal z-shell">commit_msg_file</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-string"> -</span><span class="z-string">e</span><span class="z-punctuation z-definition z-string"> &#39;</span></span>
+<span class="giallo-l"><span class="z-string">    /^# Please enter the commit message/, /^#$/d                ;</span></span>
+<span class="giallo-l"><span class="z-string">    /^# Do not modify or remove/,         /^[^#]/ { /^[^#]/!d } ;</span></span>
+<span class="giallo-l"><span class="z-string">    /^# Changes not staged/,              /^#$/d                ;</span></span>
+<span class="giallo-l"><span class="z-string">    /^# Untracked files/,                 /^#$/d                ;</span><span class="z-punctuation z-definition z-string">&#39;</span></span></code></pre><div class="note">I use <code>-i.bak</code> to keep a backup of the original file, just in case</div>
+<p>There's some more to unpack in this snippet, but the part I want to go over
+in this article here is the selection of chunks to <strong><code>d</code>elete</strong> using the
+<code>/pattern/,/pattern/</code> address range syntax with <code>sed</code>, leaving me with a much
+cleaner commit message template:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">git</span><span class="z-string"> commit</span><span class="z-string"> -</span><span class="z-string">-verbose</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="term-fg38"># On branch <span class="term-fg35">master</span>
+# <span class="term-fg35">Changes to be committed:</span>
+#	<span class="term-fg34">modified</span>:   <span class="term-fg33">test</span>
+# ------------------------ >8 ------------------------</span>
+<span class="term-fg34">diff --git a&#47;test b&#47;test</span>
+<span class="term-fg36">index 84ef876..4c1d036 100644</span>
+<span class="term-fg33">--- a/test</span>
+<span class="term-fg35">+++ b/test</span>
+<span class="term-fg36">@@ -1 +1 @@</span>
+<span class="term-fg31">-Let me show you something</span>
+<span class="term-fg32">+Let me show you something cool</span>
+</pre></code>
+<div class="note">in reality, I have configured <code>git-commit</code> to always use <code>--verbose</code> and needn't specify it</div>
+<p>Much tidier, isn't it?</p>
+<p>In this article, I only talked about <strong>selecting lines</strong> in <code>sed</code>, but I am
+<strong>barely scratching the surface</strong> of what you can do with the tool altogether,
+and will be sure to post more articles about it in the future.</p>
+<p>Have fun!</p>
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn-from-ed-to-nvim">
+<p>They all were inherited from the traditional <code>ed</code>
+line-oriented editor, and this legacy still lives on to this day, stronger than
+ever, through even the <abbr title="The ubiquitous text editor">Vim</abbr> (and
+Neovim) commands that use precisely these same single-letter verbs.  Oh yeah,
+the <code>CLI</code>-only crew has it all figured out! <a href="#fr-from-ed-to-nvim-1">↩</a></p>
+</li>
+<li id="fn-hash">
+<p>The "hash" or "number sign" (<code>#</code>), is also routinely referred to by the
+Americanisms "octothorpe", or more absurdly "pound sign" <a href="#fr-hash-1">↩</a></p>
+</li>
+</ol>
+</section>
+
+  <h2 id="cited-tools"><a class="anchor-link" href="#cited-tools" aria-label="Anchor link for: cited-tools"></a>
+Referenced tools</h2>
+  <div class="cited-tools">
+    
+<table class="tool mono">
+  <tr><th colspan="2"><strong>sed</strong></th></tr>
+  <tr>
+    
+        <td colspan="2">from <a href="https://archlinux.org/packages/core&#x2F;x86_64&#x2F;sed">core&#x2F;sed</a></td>
+    
+  </tr>
+  <tr>
+    <td><a href="https:&#x2F;&#x2F;www.gnu.org&#x2F;software&#x2F;sed&#x2F;manual&#x2F;">manual</a></td>
+    <td><a href="https:&#x2F;&#x2F;git.savannah.gnu.org&#x2F;git&#x2F;sed.git">repository</a></td>
+  </tr>
+</table>
+
+<table class="tool mono">
+  <tr><th colspan="2"><strong>sd</strong></th></tr>
+  <tr>
+    
+        <td colspan="2">from <a href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;sd">extra&#x2F;sd</a></td>
+    
+  </tr>
+  <tr>
+    <td><a href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;extra&#x2F;sd&#x2F;sd.1.en">manual</a></td>
+    <td><a href="https:&#x2F;&#x2F;github.com&#x2F;chmln&#x2F;sd">repository</a></td>
+  </tr>
+</table>
+
+<table class="tool mono">
+  <tr><th colspan="2"><strong>vim</strong></th></tr>
+  <tr>
+    
+        <td colspan="2">from <a href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;vim">extra&#x2F;vim</a></td>
+    
+  </tr>
+  <tr>
+    <td><a href="https:&#x2F;&#x2F;vimhelp.org&#x2F;">manual</a></td>
+    <td><a href="https:&#x2F;&#x2F;github.com&#x2F;vim&#x2F;vim">repository</a></td>
+  </tr>
+</table>
+
+  </div>
+  
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <span>&lt;<a href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>&gt;</span>
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>

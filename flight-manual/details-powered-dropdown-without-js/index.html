@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-2.woff2" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/work-3.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/fira-2.woff2') format('woff2'); }
+</style><link rel="stylesheet" href="https://ccjmne.sh/blog/base.css">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-light.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-dark.css"  media="(prefers-color-scheme: dark)">
+    
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+>
+      <a href="https://ccjmne.sh/blog">Home</a>
+      <details class="dropdown" max-sm>
+        <summary><strong>Articles</strong></summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual"><strong>Flight manual</strong></a>
+          <a href="https://ccjmne.sh/blog/tags">By tags</a>
+          <a href="https://ccjmne.sh/blog/ramblings">Ramblings</a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual" min-sm><strong>Flight manual</strong></a>
+      <a href="https://ccjmne.sh/blog/tags"          min-sm>By tags</a>
+      <a href="https://ccjmne.sh/blog/ramblings"     min-sm>Ramblings</a>
+      <a href="https://ccjmne.sh/blog/colophon"            >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main><h1><span class="link-title" 
+  style="view-transition-name: view-details-powered-dropdown-without-js"
+>A <code>&lt;details&gt;</code> drop-down without JavaScript</span></h1><ul class="infobar "><li><time>November 14, 2025</time></li><li>10-minute read</li>
+    <li>tagged
+      <a href="https://ccjmne.sh/blog/tags/web">web</a>, <a href="https://ccjmne.sh/blog/tags/css">css</a></li></ul>
+<details class="hi toc">
+  <summary>Table of contents</summary>
+  <ul><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/details-powered-dropdown-without-js/#obligatory-tl-dr">Obligatory TL;DR</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/details-powered-dropdown-without-js/#the-dom-markup-logic">The DOM markup logic</a><ul>
+        
+        <li><a href="https://ccjmne.sh/blog/flight-manual/details-powered-dropdown-without-js/#the-summary-in-the-details">The &lt;summary&gt; in the &lt;details&gt;</a></li>
+        <li><a href="https://ccjmne.sh/blog/flight-manual/details-powered-dropdown-without-js/#the-open-attribute-and-the-name-linking">The [open] attribute and the [name] linking</a></li></ul></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/details-powered-dropdown-without-js/#the-styling-guidebook">The styling guidebook</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/details-powered-dropdown-without-js/#a-practical-drop-down-example">A practical drop-down example</a></li>
+  </ul>
+</details>
+<article><p>The very recent<sup class="footnote-reference" id="fr-very-recent-1"><a href="#fn-very-recent">1</a></sup> <code>&lt;details&gt;</code> tag (and its <code>&lt;summary&gt;</code> companion)
+lets us create collapsible content in plain <code>HTML</code>.  <em>In plain <code>HTML</code>!</em>  Though
+you're likely to want to add some <code>CSS</code> styling to make it look remotely
+palatable, JavaScript may very well be kept at bay entirely.  Let's explore a
+bit and see what can be done with it.</p>
+<!-- (@/ramblings/why-no-javascript). TODO: LINKME -->
+<div class="hi">
+<h2 id="obligatory-tl-dr"><a class="anchor-link" href="#obligatory-tl-dr" aria-label="Anchor link for: obligatory-tl-dr"></a>
+Obligatory <a rel="external" href="https://en.wikipedia.org/wiki/TL;DR">TL;DR</a></h2>
+<div class="user-agent">
+   <div id="actual-menu" style="border: 1px solid var(--colour-accent) !important; display: inline-flex !important;">
+      <details name="menu">
+         <summary>File</summary>
+         <div>
+            <button>Open</button>
+            <button>Save</button>
+            <button>Exit</button>
+         </div>
+      </details>
+      <button>Undo</button>
+      <button>Redo</button>
+      <details name="menu">
+         <summary>Font style</summary>
+         <div>
+            <button>Normal</button>
+            <button style="font-weight: bold !important;">Bold</button>
+            <button style="font-style: italic !important;">Italic</button>
+         </div>
+      </details>
+      <details name="menu" min-sm>
+         <summary>Alignment</summary>
+         <div>
+            <button style="text-align: left !important;">Left</button>
+            <button style="text-align: center !important;;">Center</button>
+            <button style="text-align: right !important;;">Right</button>
+         </div>
+      </details>
+   </div>
+</div>
+<p>A menu bar in ~20 lines of <code>CSS</code>, fully navigable by keyboard, <a rel="external" href="https://en.wikipedia.org/wiki/Web_crawler">Web
+crawlers</a> and <a rel="external" href="https://en.wikipedia.org/wiki/Screen_reader">screen
+readers</a>, without a hint of
+JavaScript in sight.</p>
+</div>
+<p>I'll section this article in three parts, where we'll go over the templating
+aspects, the styling quirks and possibilities, and finally a practical example,
+in that order.</p>
+<h2 id="the-dom-markup-logic"><a class="anchor-link" href="#the-dom-markup-logic" aria-label="Anchor link for: the-dom-markup-logic"></a>
+The <code>DOM</code> markup logic</h2>
+<p>In the relevant <a rel="external" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/details"><code>MDN</code>
+docs</a>,
+the <code>&lt;details&gt;</code> element is introduced as such:</p>
+<blockquote>
+<p>The <code>&lt;details&gt;</code> HTML element creates a disclosure widget in which information
+is visible only when the widget is toggled into an open state. A summary or
+label must be provided using the <code>&lt;summary&gt;</code> element.</p>
+</blockquote>
+<p>Consider the following <code>HTML</code> snippet:</p>
+<pre class="giallo z-code"><code data-lang="html"><span class="giallo-l"><span class="z-punctuation z-definition z-tag">&lt;</span><span class="z-entity z-name z-tag">details</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-text">   This is the collapsible content.  It can include text,</span></span>
+<span class="giallo-l"><span class="z-text">   images—anything you want.</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">details</span><span class="z-punctuation z-definition z-tag">&gt;</span></span></code></pre>
+<p>I do my best to render it below <a rel="external" href="https://www.geeksforgeeks.org/css/what-is-a-user-agent-stylesheet/">as "default" as it
+gets</a>,
+except for some background colour and centring, to keep the article comfortable:</p>
+<div class="lo" style="margin: 0 auto; padding: 0;">
+   <div class="user-agent" style="width: var(--column-width);">
+      <details>
+         This is the collapsible content.  It can include text,
+         images—anything you want.
+      </details>
+   </div>
+</div>
+<p>Yeah, that's pretty bare—but, crucially, <em>functional</em>.  You may click on the
+label to collapse and expand the piece of content it's encapsulating.</p>
+<h3 id="the-summary-in-the-details"><a class="anchor-link" href="#the-summary-in-the-details" aria-label="Anchor link for: the-summary-in-the-details"></a>
+The <code>&lt;summary&gt;</code> in the <code>&lt;details&gt;</code></h3>
+<p>Something's iffy, however: <a rel="external" href="https://en.wikipedia.org/wiki/The_devil_is_in_the_details">just like the
+devil</a>, wasn't the
+<code>&lt;summary&gt;</code> prescribed to belong as well in the <code>&lt;details&gt;</code>?  The <code>MDN</code> quote
+above mentions that <strong>a label must be provided using the <code>&lt;summary&gt;</code> element</strong>,
+yet we didn't include one in the previous snippet.</p>
+<p>To me today, that label reads <em>"Details"</em>.  While being fairly standard across
+Web browsers in an English-language context (as far as I could tell), that value
+still is left to the discretion of the <strong>user agent</strong> (<em>i.e.</em>, the client's Web
+browser).</p>
+<p>I went and tracked down <a rel="external" href="https://html.spec.whatwg.org/multipage/interactive-elements.html#the-details-element">the specification
+documents</a>
+at the <abbr title="Web Hypertext Application Technology Working
+Group"><code>WHATWG</code></abbr> to ascertain either way, and sure enough, it is fairly
+ambiguous, in stating both that the <em>Content Model</em> of <code>&lt;details&gt;</code> shall include:</p>
+<blockquote>
+<p>One <code>&lt;summary&gt;</code> element followed by <em>Flow Content</em>.</p>
+</blockquote>
+<p>Yet also (and conversely), that:</p>
+<blockquote>
+<p>The first <code>&lt;summary&gt;</code> element child of the element, if any, represents the
+summary or legend of the details. If there is no child summary element, the
+user agent should provide its own legend (<em>e.g.</em> "Details").</p>
+</blockquote>
+<p>In any case, there isn't a single example there of a <code>&lt;details&gt;</code> element without
+its <code>&lt;summary&gt;</code> "firstborn" (<code>&gt; summary:first-child</code>), and for what it's worth,
+the <a rel="external" href="https://validator.w3.org/detailed.html"><code>W3C</code>'s Markup Validation Service</a>
+is aligned to the <code>WHATWG</code> specification in disallowing the omission of the
+<code>&lt;summary&gt;</code> child element in <code>&lt;details&gt;</code>.</p>
+<p>I conclude that <strong>we'd do well to always include a <code>&lt;summary&gt;</code> element</strong> as
+the first child of our <code>&lt;details&gt;</code>, to ensure consistent behaviour across user
+agents—we'll likely wish to have some control over the label anyway.</p>
+<p>In summary, you may customise the label of a <code>&lt;details&gt;</code> element by providing it
+with a <code>&lt;summary&gt;</code> child:</p>
+<pre class="giallo z-code"><code data-lang="html"><span class="giallo-l"><span class="z-punctuation z-definition z-tag">&lt;</span><span class="z-entity z-name z-tag">details</span><span class="z-entity z-other z-attribute-name"> name</span><span class="z-punctuation z-separator z-key-value">=</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-string">linked</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">   &lt;</span><span class="z-entity z-name z-tag">summary</span><span class="z-punctuation z-definition z-tag">&gt;</span><span class="z-text">Woof!</span><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">summary</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">   &lt;</span><span class="z-entity z-name z-tag">span</span><span class="z-entity z-other z-attribute-name"> style</span><span class="z-punctuation z-separator z-key-value">=</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-source">font-size: 3em;</span><span class="z-source">&quot;</span><span class="z-punctuation z-definition z-tag">&gt;</span><span class="z-text">🐶</span><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">span</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">details</span><span class="z-punctuation z-definition z-tag">&gt;</span></span></code></pre><br>
+<div class="lo" style="margin: 0 auto; padding: 0;">
+   <div class="user-agent" style="display: flex; gap: 2rem;">
+      <details name="linked">
+         <summary>Woof!</summary>
+         <span style="font-size: 3em !important;">🐶</span>
+      </details>
+   </div>
+</div>
+<h3 id="the-open-attribute-and-the-name-linking"><a class="anchor-link" href="#the-open-attribute-and-the-name-linking" aria-label="Anchor link for: the-open-attribute-and-the-name-linking"></a>
+The <code>[open]</code> attribute and the <code>[name]</code> linking</h3>
+<p>I lingered far too long on the <code>&lt;summary&gt;</code> element, so I'll keep this one
+straight to the point.  There's only a couple more things to know about the
+<code>DOM</code> structure:</p>
+<ul>
+<li>an <strong>expanded</strong> <code>&lt;details&gt;</code> element gets an additional <code>[open]</code> attribute, and</li>
+<li>several distinct <code>&lt;details&gt;</code> sharing the same <code>[name]</code> attribute get their
+expanded/collapsed states linked together, so that opening any forcibly closes
+the others.</li>
+</ul>
+<pre class="giallo z-code"><code data-lang="html"><span class="giallo-l"><span class="z-punctuation z-definition z-tag">&lt;</span><span class="z-entity z-name z-tag">details</span><span class="z-entity z-other z-attribute-name"> name</span><span class="z-punctuation z-separator z-key-value">=</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-string">linked</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-entity z-other z-attribute-name"> open</span><span class="z-punctuation z-definition z-tag">&gt;</span><span class="z-punctuation z-definition z-comment"> &lt;!--</span><span class="z-comment"> note this &lt;details&gt; being [open] </span><span class="z-punctuation z-definition z-comment">--&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">   &lt;</span><span class="z-entity z-name z-tag">summary</span><span class="z-punctuation z-definition z-tag">&gt;</span><span class="z-text">Quack!</span><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">summary</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">   &lt;</span><span class="z-entity z-name z-tag">span</span><span class="z-entity z-other z-attribute-name"> style</span><span class="z-punctuation z-separator z-key-value">=</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-source">font-size: 3em;</span><span class="z-source">&quot;</span><span class="z-punctuation z-definition z-tag">&gt;</span><span class="z-text">🦆</span><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">span</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">details</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">&lt;</span><span class="z-entity z-name z-tag">details</span><span class="z-entity z-other z-attribute-name"> name</span><span class="z-punctuation z-separator z-key-value">=</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-string">linked</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">   &lt;</span><span class="z-entity z-name z-tag">summary</span><span class="z-punctuation z-definition z-tag">&gt;</span><span class="z-text">Moo!</span><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">summary</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">   &lt;</span><span class="z-entity z-name z-tag">span</span><span class="z-entity z-other z-attribute-name"> style</span><span class="z-punctuation z-separator z-key-value">=</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-source">font-size: 3em;</span><span class="z-source">&quot;</span><span class="z-punctuation z-definition z-tag">&gt;</span><span class="z-text">🐮</span><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">span</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">details</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">&lt;</span><span class="z-entity z-name z-tag">details</span><span class="z-entity z-other z-attribute-name"> name</span><span class="z-punctuation z-separator z-key-value">=</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-string">linked</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">   &lt;</span><span class="z-entity z-name z-tag">summary</span><span class="z-punctuation z-definition z-tag">&gt;</span><span class="z-text">Meow!</span><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">summary</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">   &lt;</span><span class="z-entity z-name z-tag">span</span><span class="z-entity z-other z-attribute-name"> style</span><span class="z-punctuation z-separator z-key-value">=</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-source">font-size: 3em;</span><span class="z-source">&quot;</span><span class="z-punctuation z-definition z-tag">&gt;</span><span class="z-text">🐱</span><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">span</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">details</span><span class="z-punctuation z-definition z-tag">&gt;</span></span></code></pre><div class="note">Its <code>[open]</code> attribute makes the 🦆 start out <strong>expanded</strong></div>
+<br>
+<div class="lo" style="margin: 0 auto; padding: 0;">
+   <div class="user-agent" style="display: flex; gap: 2rem;">
+      <details name="linked" open>
+         <summary>Quack!</summary>
+         <span style="font-size: 3em !important;">🦆</span>
+      </details>
+      <details name="linked">
+         <summary>Moo!</summary>
+         <span style="font-size: 3em !important;">🐮</span>
+      </details>
+      <details name="linked">
+         <summary>Meow!</summary>
+         <span style="font-size: 3em !important;">🐱</span>
+      </details>
+   </div>
+</div>
+<p>That's it!  There isn't much more to the <code>&lt;details&gt;</code> from the perspective of its
+mark-up.  Let's get on now with the matter that is becoming most pressing, I'm
+sure: its styling possibilities.</p>
+<h2 id="the-styling-guidebook"><a class="anchor-link" href="#the-styling-guidebook" aria-label="Anchor link for: the-styling-guidebook"></a>
+The styling guidebook</h2>
+<p>First thing first: <strong>you don't need to keep that odd triangle marker that
+the user agent places before the <code>&lt;summary&gt;</code> text</strong>.  You can style it away
+or replace it with something more fitting to your design, by targeting its
+<code>::marker</code> pseudo-element, in either of its two possible states, via the <code>:open</code>
+pseudo-class on the parent <code>&lt;details&gt;</code>:</p>
+<pre class="giallo z-code"><code data-lang="html"><span class="giallo-l"><span class="z-punctuation z-definition z-tag">&lt;</span><span class="z-entity z-name z-tag">style</span><span class="z-entity z-other z-attribute-name"> type</span><span class="z-punctuation z-separator z-key-value">=</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-string">text/css</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">   details</span><span class="z-entity z-name z-tag">      summary</span><span class="z-punctuation">::</span><span class="z-entity z-other z-attribute-name">marker</span><span class="z-punctuation"> {</span><span class="z-support z-type z-property-name z-css"> content</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">😶‍🌫️ </span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation"> }</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">   details</span><span class="z-source">:open </span><span class="z-entity z-name z-tag">summary</span><span class="z-punctuation">::</span><span class="z-entity z-other z-attribute-name">marker</span><span class="z-punctuation"> {</span><span class="z-support z-type z-property-name z-css"> content</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">👻 </span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation"> }</span></span>
+<span class="giallo-l"><span class="z-source">&lt;</span><span class="z-punctuation z-definition z-tag">/</span><span class="z-entity z-name z-tag">style</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">&lt;</span><span class="z-entity z-name z-tag">details</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">   &lt;</span><span class="z-entity z-name z-tag">summary</span><span class="z-punctuation z-definition z-tag">&gt;</span><span class="z-text">Peekaboo?</span><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">summary</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-text">   I see you!</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">details</span><span class="z-punctuation z-definition z-tag">&gt;</span></span></code></pre><br>
+<div class="lo" style="margin: 0 auto; padding: 0;">
+   <div class="user-agent">
+      <style type="text/css">
+         details[name="peekaboo"]       summary::marker { content: '😶‍🌫️ ' }
+         details[name="peekaboo"][open] summary::marker { content: '👻 ' }
+      </style>
+      <details name="peekaboo">
+         <summary>Peekaboo?</summary>
+         I see you!
+      </details>
+   </div>
+</div>
+<p>In practice, support <a rel="external" href="https://caniuse.com/?search=%3Aopen">for the <code>:open</code>
+pseudo-class</a> on the <code>&lt;details&gt;</code> and
+<a rel="external" href="https://caniuse.com/?search=%3Aopen">for the <code>::marker</code> pseudo-element</a> on
+<code>&lt;summary&gt;</code> is not quite universal yet: <em>Safari is the notable bad apple on that
+front</em>—ha!</p>
+<ul>
+<li>
+<p>To circumvent the lacking support for <code>:open</code>, you can simply target the
+<code>[open]</code> attribute on <code>&lt;details&gt;</code> instead, and</p>
+</li>
+<li>
+<p>to play nice with the poor <code>::marker</code> support, the WebKit-based browsers
+(read: <em>Safari</em>) can target it with <code>::-webkit-details-marker</code> instead (which
+will <em>only work with those Browsers</em>).</p>
+<blockquote class="markdown-alert-warning">
+<p>The <code>::-webkit-details-marker</code> selector <a rel="external" href="https://bugs.webkit.org/show_bug.cgi?id=204163">only supports tweaking <em>very
+few</em> properties</a>,
+such as <code>color</code> and <code>font-*</code>, which is regrettably largely inadequate
+for many purposes—notably that of proper internationalisation.
+In short, Safari's support for remotely serious uses of
+the <code>::marker</code> pseudo-selector, for <code>&lt;li&gt;</code> just as for
+<code>&lt;summary&gt;</code> is <em>not there yet</em>.  However, in <a rel="external" href="https://bugs.webkit.org/show_activity.cgi?id=204163">September 2024, the
+<code>GoodFirstBug</code></a> keyword
+was added to the tracker for that issue upstream at WebKit, so you may have
+at it ;)</p>
+</blockquote>
+</li>
+</ul>
+<p>In any case, bending that marker to your specific will would often entail
+<strong>disabling it entirely</strong> and working rather with your own <code>::before</code> and
+<code>::after</code> additions—just as you would with <code>&lt;li&gt;</code> elements in lists:</p>
+<pre class="giallo z-code"><code data-lang="html"><span class="giallo-l"><span class="z-punctuation z-definition z-tag">&lt;</span><span class="z-entity z-name z-tag">style</span><span class="z-entity z-other z-attribute-name"> type</span><span class="z-punctuation z-separator z-key-value">=</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-string">text/css</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">   details</span><span class="z-entity z-name z-tag"> summary</span><span class="z-punctuation"> {</span><span class="z-support z-type z-property-name z-css"> cursor</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-source"> pointer</span><span class="z-punctuation"> }</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">   details</span><span class="z-entity z-name z-tag"> summary</span><span class="z-punctuation">::</span><span class="z-entity z-other z-attribute-name">marker</span><span class="z-punctuation"> {</span><span class="z-support z-type z-property-name z-css"> content</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation"> }</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">   details</span><span class="z-punctuation">::</span><span class="z-entity z-other z-attribute-name">before</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-support z-type z-property-name z-css">      content</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">New</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-support z-type z-property-name z-css">      font-size</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-constant z-numeric"> .8</span><span class="z-keyword">em</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-punctuation">   }</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">   details</span><span class="z-punctuation">:</span><span class="z-entity z-other z-attribute-name z-pseudo-class">not</span><span class="z-punctuation">(</span><span class="z-source">:open</span><span class="z-punctuation">)</span><span class="z-punctuation">::</span><span class="z-entity z-other z-attribute-name">before</span><span class="z-punctuation"> {</span><span class="z-support z-type z-property-name z-css"> color</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-source"> green</span><span class="z-punctuation"> }</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">   details</span><span class="z-source">:open</span><span class="z-punctuation">::</span><span class="z-entity z-other z-attribute-name">before</span><span class="z-punctuation"> {</span><span class="z-support z-type z-property-name z-css"> content</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">Read</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation"> }</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">   details</span><span class="z-source">:open </span><span class="z-entity z-name z-tag">summary</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-support z-type z-property-name z-css">      text-decoration</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-source"> line-through</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-support z-type z-property-name z-css">      color</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-source"> grey</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-punctuation">   }</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">   summary</span><span class="z-keyword z-operator"> +</span><span class="z-entity z-name z-tag"> section</span><span class="z-punctuation"> {</span><span class="z-support z-type z-property-name z-css"> padding-left</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-constant z-numeric"> 1.5</span><span class="z-keyword">em</span><span class="z-punctuation">;</span><span class="z-support z-type z-property-name z-css"> border-left</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-constant z-numeric"> 2</span><span class="z-keyword">px</span><span class="z-source"> solid</span><span class="z-source"> lightgrey</span><span class="z-punctuation">;</span><span class="z-punctuation"> }</span></span>
+<span class="giallo-l"><span class="z-source">&lt;</span><span class="z-punctuation z-definition z-tag">/</span><span class="z-entity z-name z-tag">style</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">&lt;</span><span class="z-entity z-name z-tag">details</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">   &lt;</span><span class="z-entity z-name z-tag">summary</span><span class="z-punctuation z-definition z-tag">&gt;</span><span class="z-text">Subject: 🎉💰 URGENT: You&#39;ve Won $1,000,000 Today! 💰🎉</span><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">summary</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">   &lt;</span><span class="z-entity z-name z-tag">section</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">      &lt;</span><span class="z-entity z-name z-tag">h3</span><span class="z-punctuation z-definition z-tag">&gt;</span><span class="z-text">Congratulations, lucky friend!</span><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">h3</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-text">      Click HERE to claim your prize NOW! 💷💶💵💴</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">   &lt;/</span><span class="z-entity z-name z-tag">section</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">details</span><span class="z-punctuation z-definition z-tag">&gt;</span></span></code></pre><br>
+<div class="lo" style="margin: 0 auto; padding: 0; box-sizing: border-box !important;">
+   <div class="user-agent">
+      <style type="text/css">
+         details[name=mail] summary { cursor: pointer !important; }
+         details[name=mail] summary::marker { content: '' !important; }
+         details[name=mail]::before {
+            content: 'New' !important;
+            font-size: .8em !important;
+         }
+         details[name=mail]:not(:open)::before { color: var(--colour-green) !important; }
+         details[name=mail]:open::before { content: 'Read' !important; }
+         details[name=mail]:open summary {
+            text-decoration: line-through !important;
+            color: var(--colour-overlay2) !important;
+         }
+      </style>
+      <details name="mail">
+         <summary>Subject: 🎉💰 URGENT: You've Won $1,000,000 Today! 💰🎉</summary>
+         <section>
+            <h3>Congratulations, lucky friend!</h3>
+            Click HERE to claim your prize NOW! 💷💶💵💴
+         </section>
+      </details>
+   </div>
+</div>
+<p>In any case, this is still workable, without even forgoing Safari users!
+Without further ado, onto the <abbr title="The chief dish of a meal">pièce de
+résistance</abbr> we go.</p>
+<h2 id="a-practical-drop-down-example"><a class="anchor-link" href="#a-practical-drop-down-example" aria-label="Anchor link for: a-practical-drop-down-example"></a>
+A practical drop-down example</h2>
+<p>Let us, arrive at the crown jewel of this article: <strong>a drop-down menu bar,
+entirely in <code>HTML</code> and <code>CSS</code></strong>:</p>
+<pre class="giallo z-code"><code data-lang="html"><span class="giallo-l"><span class="z-punctuation z-definition z-tag">&lt;</span><span class="z-entity z-name z-tag">style</span><span class="z-entity z-other z-attribute-name"> type</span><span class="z-punctuation z-separator z-key-value">=</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-string">text/css</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation">   #</span><span class="z-entity z-other z-attribute-name">menu</span><span class="z-punctuation">              {</span><span class="z-support z-type z-property-name z-css"> display</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-source"> flex</span><span class="z-punctuation"> }</span></span>
+<span class="giallo-l"><span class="z-punctuation">   #</span><span class="z-entity z-other z-attribute-name">menu</span><span class="z-entity z-name z-tag"> details</span><span class="z-punctuation">      {</span><span class="z-support z-type z-property-name z-css"> position</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-source"> relative</span><span class="z-punctuation"> }</span></span>
+<span class="giallo-l"><span class="z-punctuation">   #</span><span class="z-entity z-other z-attribute-name">menu</span><span class="z-entity z-name z-tag"> button</span><span class="z-punctuation">:</span><span class="z-entity z-other z-attribute-name z-pseudo-class">hover</span><span class="z-punctuation">,</span><span class="z-punctuation">  #</span><span class="z-entity z-other z-attribute-name">menu</span><span class="z-entity z-name z-tag"> details</span><span class="z-entity z-name z-tag"> summary</span><span class="z-punctuation">:</span><span class="z-entity z-other z-attribute-name z-pseudo-class">hover</span><span class="z-punctuation">  {</span><span class="z-support z-type z-property-name z-css"> background-color</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-source"> grey</span><span class="z-punctuation"> }</span></span>
+<span class="giallo-l"><span class="z-punctuation">   #</span><span class="z-entity z-other z-attribute-name">menu</span><span class="z-entity z-name z-tag"> button</span><span class="z-punctuation">:</span><span class="z-entity z-other z-attribute-name z-pseudo-class">active</span><span class="z-punctuation">,</span><span class="z-punctuation"> #</span><span class="z-entity z-other z-attribute-name">menu</span><span class="z-entity z-name z-tag"> details</span><span class="z-entity z-name z-tag"> summary</span><span class="z-punctuation">:</span><span class="z-entity z-other z-attribute-name z-pseudo-class">active</span><span class="z-punctuation"> {</span><span class="z-support z-type z-property-name z-css"> background-color</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-source"> lightgrey</span><span class="z-punctuation"> }</span></span>
+<span class="giallo-l"><span class="z-punctuation">   #</span><span class="z-entity z-other z-attribute-name">menu</span><span class="z-entity z-name z-tag"> button</span><span class="z-punctuation">,</span><span class="z-punctuation">        #</span><span class="z-entity z-other z-attribute-name">menu</span><span class="z-entity z-name z-tag"> details</span><span class="z-entity z-name z-tag"> summary</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-support z-type z-property-name z-css">      padding</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-constant z-numeric"> .5</span><span class="z-keyword">rem</span><span class="z-constant z-numeric"> 1</span><span class="z-keyword">rem</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-support z-type z-property-name z-css">      cursor</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-source">  pointer</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment">      /*</span><span class="z-comment"> Add tweaks to align the style of button and summary </span><span class="z-punctuation z-definition z-comment">*/</span></span>
+<span class="giallo-l"><span class="z-punctuation">   }</span></span>
+<span class="giallo-l"><span class="z-punctuation">   #</span><span class="z-entity z-other z-attribute-name">menu</span><span class="z-entity z-name z-tag"> details</span><span class="z-keyword z-operator"> &gt;</span><span class="z-punctuation"> :</span><span class="z-entity z-other z-attribute-name z-pseudo-class">not</span><span class="z-punctuation">(</span><span class="z-entity z-name z-tag">summary</span><span class="z-punctuation">)</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-support z-type z-property-name z-css">      display</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-source">        flex</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-support z-type z-property-name z-css">      flex-direction</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-source"> column</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-support z-type z-property-name z-css">      position</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-source">       absolute</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-support z-type z-property-name z-css">      min-width</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-constant z-numeric">      100</span><span class="z-keyword z-other z-unit z-percentage z-css">%</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-support z-type z-property-name z-css">      z-index</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-constant z-numeric">        1</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-punctuation">   }</span></span>
+<span class="giallo-l"><span class="z-source">&lt;</span><span class="z-punctuation z-definition z-tag">/</span><span class="z-entity z-name z-tag">style</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">&lt;</span><span class="z-entity z-name z-tag">div</span><span class="z-entity z-other z-attribute-name"> id</span><span class="z-punctuation z-separator z-key-value">=</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-string">menu</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">   &lt;</span><span class="z-entity z-name z-tag">details</span><span class="z-entity z-other z-attribute-name"> name</span><span class="z-punctuation z-separator z-key-value">=</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-string">menu</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">      &lt;</span><span class="z-entity z-name z-tag">summary</span><span class="z-punctuation z-definition z-tag">&gt;</span><span class="z-text">File</span><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">summary</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">      &lt;</span><span class="z-entity z-name z-tag">div</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">         &lt;</span><span class="z-entity z-name z-tag">button</span><span class="z-punctuation z-definition z-tag">&gt;</span><span class="z-text">Open</span><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">button</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">         &lt;</span><span class="z-entity z-name z-tag">button</span><span class="z-punctuation z-definition z-tag">&gt;</span><span class="z-text">Save</span><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">button</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">         &lt;</span><span class="z-entity z-name z-tag">button</span><span class="z-punctuation z-definition z-tag">&gt;</span><span class="z-text">Exit</span><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">button</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">      &lt;/</span><span class="z-entity z-name z-tag">div</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">   &lt;/</span><span class="z-entity z-name z-tag">details</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">   &lt;</span><span class="z-entity z-name z-tag">button</span><span class="z-punctuation z-definition z-tag">&gt;</span><span class="z-text">Undo</span><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">button</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">   &lt;</span><span class="z-entity z-name z-tag">button</span><span class="z-punctuation z-definition z-tag">&gt;</span><span class="z-text">Redo</span><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">button</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">   &lt;</span><span class="z-entity z-name z-tag">details</span><span class="z-entity z-other z-attribute-name"> name</span><span class="z-punctuation z-separator z-key-value">=</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-string">menu</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">      &lt;</span><span class="z-entity z-name z-tag">summary</span><span class="z-punctuation z-definition z-tag">&gt;</span><span class="z-text">Font style</span><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">summary</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">      &lt;</span><span class="z-entity z-name z-tag">div</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">         &lt;</span><span class="z-entity z-name z-tag">button</span><span class="z-punctuation z-definition z-tag">&gt;</span><span class="z-text">Normal</span><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">button</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">         &lt;</span><span class="z-entity z-name z-tag">button</span><span class="z-entity z-other z-attribute-name"> style</span><span class="z-punctuation z-separator z-key-value">=</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-source">font-weight: bold;</span><span class="z-source">&quot;</span><span class="z-punctuation z-definition z-tag">&gt;</span><span class="z-text">Bold</span><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">button</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">         &lt;</span><span class="z-entity z-name z-tag">button</span><span class="z-entity z-other z-attribute-name"> style</span><span class="z-punctuation z-separator z-key-value">=</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-source">font-style: italic;</span><span class="z-source">&quot;</span><span class="z-punctuation z-definition z-tag">&gt;</span><span class="z-text">Italic</span><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">button</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">      &lt;/</span><span class="z-entity z-name z-tag">div</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">   &lt;/</span><span class="z-entity z-name z-tag">details</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">   &lt;</span><span class="z-entity z-name z-tag">details</span><span class="z-entity z-other z-attribute-name"> name</span><span class="z-punctuation z-separator z-key-value">=</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-string">menu</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">      &lt;</span><span class="z-entity z-name z-tag">summary</span><span class="z-punctuation z-definition z-tag">&gt;</span><span class="z-text">Alignment</span><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">summary</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">      &lt;</span><span class="z-entity z-name z-tag">div</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">         &lt;</span><span class="z-entity z-name z-tag">button</span><span class="z-entity z-other z-attribute-name"> style</span><span class="z-punctuation z-separator z-key-value">=</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-source">text-align: left;</span><span class="z-source">&quot;</span><span class="z-punctuation z-definition z-tag">&gt;</span><span class="z-text">Left</span><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">button</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">         &lt;</span><span class="z-entity z-name z-tag">button</span><span class="z-entity z-other z-attribute-name"> style</span><span class="z-punctuation z-separator z-key-value">=</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-source">text-align: center;</span><span class="z-source">&quot;</span><span class="z-punctuation z-definition z-tag">&gt;</span><span class="z-text">Center</span><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">button</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">         &lt;</span><span class="z-entity z-name z-tag">button</span><span class="z-entity z-other z-attribute-name"> style</span><span class="z-punctuation z-separator z-key-value">=</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-source">text-align: right;</span><span class="z-source">&quot;</span><span class="z-punctuation z-definition z-tag">&gt;</span><span class="z-text">Right</span><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">button</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">      &lt;/</span><span class="z-entity z-name z-tag">div</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">   &lt;/</span><span class="z-entity z-name z-tag">details</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">div</span><span class="z-punctuation z-definition z-tag">&gt;</span></span></code></pre>
+<p>Yep, it really is <strong>that simple</strong>.  Some ~20 lines of <code>CSS</code>, and a stunningly
+sane <code>HTML</code> template.  Here's a live rendering of the above—with adjustments
+to the colours to fit this blog's scheme:</p>
+<div class="lo" style="margin: 0 auto; padding: 0; border: 1px solid var(--colour-accent);">
+   <div class="user-agent">
+      <style type="text/css">
+      #actual-menu              { display: flex !important; }
+      #actual-menu details      { position: relative !important; }
+      #actual-menu button:hover,  #actual-menu details summary:hover  { background-color: var(--colour-base) !important; }
+      #actual-menu button:active, #actual-menu details summary:active { background-color: var(--colour-mantle) !important; }
+      #actual-menu button,        #actual-menu details summary {
+         padding:          .5rem 1rem !important;
+         border:           0 !important;
+         border-radius:    0 !important;
+         background-color: var(--colour-lo-bg) !important;
+         color:            var(--colour-text) !important;
+         font-size:        1rem !important;
+         cursor:           pointer !important;
+      }
+      #actual-menu details > :not(summary) {
+         display:        flex !important;
+         flex-direction: column !important;
+         position:       absolute !important;
+         min-width:      calc(100% + 2px) !important;  /* Align own borders    */
+         left:           -1px !important;              /* to that of container */
+         border:         1px solid var(--colour-accent) !important;
+         border-top:     0 !important;
+         z-index:        1 !important;
+      }
+      #actual-menu, #actual-menu * {
+         box-sizing: border-box !important;  /* Assist in aligning borders */
+      }
+      #actual-menu [min-sm] { display: none !important; }
+      @media (min-width: 544px) { #actual-menu [min-sm] { display: initial !important } }
+      </style>
+      <div id="actual-menu" style="margin-inline: -1rem !important;">
+         <details name="menu">
+            <summary>File</summary>
+            <div>
+               <button>Open</button>
+               <button>Save</button>
+               <button>Exit</button>
+            </div>
+         </details>
+         <button>Undo</button>
+         <button>Redo</button>
+         <details name="menu">
+            <summary>Font style</summary>
+            <div>
+               <button>Normal</button>
+               <button style="font-weight: bold !important;">Bold</button>
+               <button style="font-style: italic !important;">Italic</button>
+            </div>
+         </details>
+         <details name="menu" min-sm>
+            <summary>Alignment</summary>
+            <div>
+               <button style="text-align: left !important;">Left</button>
+               <button style="text-align: center !important;;">Center</button>
+               <button style="text-align: right !important;;">Right</button>
+            </div>
+         </details>
+      </div>
+   </div>
+</div>
+<blockquote class="markdown-alert-tip">
+<p>You could consider adding <code>user-select: none</code> to the <code>&lt;summary&gt;</code> elements to
+prevent accidental text selection when the user may be frantically clicking
+around, especially in these sorts demonstrations.</p>
+</blockquote>
+<p>Of course this menu I suggest would rely on buttons that cannot work without
+JavaScript, but you'll note that <strong>I use essentially the same template on this
+very blog to collapse the navigation items on mobile devices</strong>, where space
+comes at a premium.</p>
+<p>Using bare <code>&lt;a&gt;</code> links and <code>CSS</code> media queries, I can have a <strong>fully functional
+navigation menu that works responsively across all devices</strong>, without a single
+line of JavaScript.  And now, so can you!</p>
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn-very-recent">
+<p>Available across browsers <a rel="external" href="https://caniuse.com/details">since
+2020</a>. <a href="#fr-very-recent-1">↩</a></p>
+</li>
+</ol>
+</section>
+
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <span>&lt;<a href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>&gt;</span>
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>

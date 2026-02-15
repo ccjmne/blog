@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-2.woff2" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/work-3.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/fira-2.woff2') format('woff2'); }
+</style><link rel="stylesheet" href="https://ccjmne.sh/blog/base.css">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-light.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-dark.css"  media="(prefers-color-scheme: dark)">
+    
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+>
+      <a href="https://ccjmne.sh/blog">Home</a>
+      <details class="dropdown" max-sm>
+        <summary><strong>Articles</strong></summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual"><strong>Flight manual</strong></a>
+          <a href="https://ccjmne.sh/blog/tags">By tags</a>
+          <a href="https://ccjmne.sh/blog/ramblings">Ramblings</a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual" min-sm><strong>Flight manual</strong></a>
+      <a href="https://ccjmne.sh/blog/tags"          min-sm>By tags</a>
+      <a href="https://ccjmne.sh/blog/ramblings"     min-sm>Ramblings</a>
+      <a href="https://ccjmne.sh/blog/colophon"            >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main><h1 class="title"><span class="link-title" 
+  style="view-transition-name: view-fcitx5"
+>Maybe a new <code>fcitx</code></span></h1><ul class="infobar "><li><time>November 04</time><span class="muted">–</span><time>19, 2025</time></li><li>12-minute read <span class="muted">across</span> 2 articles</li></ul>
+<article><p><code>IBus</code>, standing (vaguely) for <em>"Intelligent Input Bus"</em>, is an <strong>input
+framework</strong> that allows users to, for example, switch between different keyboard
+layouts, which any non-English native speakers reading this blog would certainly
+be familiar with.</p>
+<p>It is notably used by default by <code>GNOME</code>-based desktop environments, making it
+the <em>de facto</em> standard for many Linux users; however, it has been somewhat
+finicky for me (and others) when working with <abbr title="A replacement for the
+X11 window system protocol">Wayland</abbr><sup class="footnote-reference" id="fr-wayland-finicky-1"><a <a href="#fn-wayland-finicky">1</a></sup>—which is where
+<code>fcitx5</code><sup class="footnote-reference" id="fr-fcitx-5-1"><a <a href="#fn-fcitx-5">2</a></sup> comes in.</p>
+<p>But <code>fcitx5</code> <strong>is a lot other than "Wayland's <code>IBus</code>"</strong>: just as vaguely, it
+stands for <em>"Flexible Context-aware Input Tool with eXtension support"</em>, and in
+this series, I mean to delve deeply into the most practical and ubiquitous of
+its built-in modules.</p>
+  
+  <div class="hi"><article class="hero"><span class="ls-hero-counter"></span><h2><a href="https://ccjmne.sh/blog/flight-manual/fcitx5/01-fcitx5-unicode/" class="link-title" 
+  style="view-transition-name: view-01-fcitx5-unicode"
+>Enter Unicode characters with <code>fcitx5</code></a></h2><ul class="infobar "><li><time>November 04, 2025</time></li><li>4-minute read</li>
+    <li>tagged
+      <a href="https://ccjmne.sh/blog/tags/quibblery">quibblery</a></li></ul>
+<div class="summary"><p>Reclaim the em-dash from the <code>LLM</code>s—or spell my name as my parents intended</p>
+</div></article>
+</div><article class="hero"><span class="ls-hero-counter"></span><h2><a href="https://ccjmne.sh/blog/flight-manual/fcitx5/02-fcitx5-clipboard/" class="link-title" 
+  style="view-transition-name: view-02-fcitx5-clipboard"
+>System-wide clipboard history with <code>fcitx5</code></a></h2><ul class="infobar "><li><time>November 19, 2025</time></li><li>8-minute read</li>
+    <li>tagged
+      <a href="https://ccjmne.sh/blog/tags/quibblery">quibblery</a></li></ul>
+<div class="summary"><p>Beyond the obvious, <code>fcitx5</code> also satisfies their sharper users' expectations in handling sensitive data</p>
+</div></article>
+
+  <section class="footnotes" aria-label="Footnotes">
+      <ol class="footnotes-list">
+<li id="fn-wayland-finicky">
+<p>Although "applications being finicky" under Wayland will
+come at no surprise to anyone, I will note that it mostly has to do with running
+a lot of <abbr title="X Window System version 11"><code>X11</code></abbr> applications
+actually <strong>through a compatibility layer</strong>, and <a rel="external" href="https://www.youtube.com/watch?v=MShbP3OpASA"><code>NVIDIA</code> notoriously having
+been an execrable collaborator</a> in
+helping the Linux kernel developers integrate their hardware into the ecosystem. <a href="#fr-wayland-finicky-1">↩</a></p>
+</li>
+<li id="fn-fcitx-5">
+<p><code>fcitx5</code> is a fairly recent project (started around 2019) led by the
+same original author, a <em>complete rewrite</em> of its predecessor, infusing new life
+into <code>fcitx</code> notably in including first-class Wayland support, a vastly more
+modern codebase, greater performance (reportedly), and some unified theming and
+configuration tools. <a href="#fr-fcitx-5-1">↩</a></p>
+</li>
+</ol>
+    </section>
+</article></main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <span>&lt;<a href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>&gt;</span>
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>

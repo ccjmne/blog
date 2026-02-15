@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-2.woff2" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/work-3.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/fira-2.woff2') format('woff2'); }
+</style><link rel="stylesheet" href="https://ccjmne.sh/blog/base.css">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-light.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-dark.css"  media="(prefers-color-scheme: dark)">
+    
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+>
+      <a href="https://ccjmne.sh/blog">Home</a>
+      <details class="dropdown" max-sm>
+        <summary><strong>Articles</strong></summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual"><strong>Flight manual</strong></a>
+          <a href="https://ccjmne.sh/blog/tags">By tags</a>
+          <a href="https://ccjmne.sh/blog/ramblings">Ramblings</a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual" min-sm><strong>Flight manual</strong></a>
+      <a href="https://ccjmne.sh/blog/tags"          min-sm>By tags</a>
+      <a href="https://ccjmne.sh/blog/ramblings"     min-sm>Ramblings</a>
+      <a href="https://ccjmne.sh/blog/colophon"            >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main><h1><span class="link-title" 
+  style="view-transition-name: view-02-column-cut-paste"
+>Getting to know <code>column</code>, <code>cut</code> and <code>paste</code></span></h1><ul class="infobar "><li><time>August 08, 2025</time></li><li>8-minute read</li>
+    <li>Part&nbsp;2&nbsp;of&nbsp;<a href="https:&#x2F;&#x2F;ccjmne.sh&#x2F;blog&#x2F;flight-manual&#x2F;intralinear-partitioning&#x2F;">Intralinear partitioning</a></li><li>tagged
+      <a href="https://ccjmne.sh/blog/tags/cli">cli</a></li></ul>
+<details class="lo summary">
+  <summary>Series introduction</summary>
+  <h2><a href="https://ccjmne.sh/blog/flight-manual/intralinear-partitioning" class="link-title" 
+  style="view-transition-name: view-intralinear-partitioning"
+>Intralinear partitioning</a></h2>
+  <p>Professionally, I put code together. Intimately, I am compelled to make
+it neat: I get closer to that goal by wielding non-printable characters like
+monochrome photography uses light, with <em>purpose</em>.</p>
+<p>The current <em>status quo</em> regarding whitespace, in my line of work, limits our
+stylistic expression:</p>
+<ul>
+<li>vertically to the <strong>linefeed<sup class="footnote-reference" id="fr-esoteric-vertical-whitespace-1"><a <a href="#fn-esoteric-vertical-whitespace">1</a></sup> (coalescing into
+blank lines</strong>), to pack together logical blocks of data or instructions, and</li>
+<li>horizontally <strong>to the beginning of the line (in the form of
+indentation)</strong>, to delineate the hierarchy of our otherwise strictly
+vertically-topologically-laid-out content.</li>
+</ul>
+<p>But here's the thing: the taxonomy of text shouldn't be limited to paragraphs
+and lines.<br>
+Let's go bidimensional!</p>
+</details><details class="hi toc">
+  <summary>Table of contents</summary>
+  <ul><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/intralinear-partitioning/02-column-cut-paste/#using-column">Using column</a><ul>
+        
+        <li><a href="https://ccjmne.sh/blog/flight-manual/intralinear-partitioning/02-column-cut-paste/#the-list-in-a-grid">The list in a grid</a></li>
+        <li><a href="https://ccjmne.sh/blog/flight-manual/intralinear-partitioning/02-column-cut-paste/#the-tabular-data">The tabular data</a></li></ul></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/intralinear-partitioning/02-column-cut-paste/#using-paste">Using paste</a><ul>
+        
+        <li><a href="https://ccjmne.sh/blog/flight-manual/intralinear-partitioning/02-column-cut-paste/#the-adjoined-and-annotated-fragments">The adjoined and annotated fragments</a></li></ul></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/intralinear-partitioning/02-column-cut-paste/#closing-words">Closing words</a></li>
+    <li><a href="#cited-tools">Referenced tools</a></li>
+    
+  </ul>
+</details>
+<article><p>While conducting software archaeology with a colleague some days ago, we ran
+into a 0-byte Java class and figured we'd look for more outliers and report to
+the responsible parties:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">paste</span><span class="z-punctuation z-definition z-string"> &lt;(</span><span class="z-entity z-name z-function">fd</span><span class="z-string"> -</span><span class="z-string">S0b</span><span class="z-punctuation z-definition z-string">)</span><span class="z-constant z-character z-escape">                                             \</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">      &lt;(</span><span class="z-entity z-name z-function">fd</span><span class="z-string"> -</span><span class="z-string">S0b</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> cut</span><span class="z-string"> -</span><span class="z-string">d/</span><span class="z-string"> -</span><span class="z-string">f1</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> -</span><span class="z-string">II</span><span class="z-string"> grep</span><span class="z-string"> I</span><span class="z-string"> CODEOWNERS</span><span class="z-punctuation z-definition z-string">)</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-string">      -</span><span class="z-string">d:</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> column</span><span class="z-string"> -</span><span class="z-string">ts:</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>a/s/m/j/c/a/a/c/LoginController.java               auth-service     @big-brother</span></span>
+<span class="giallo-l"><span>a/s/m/j/c/a/a/d/LoginRequest.java                  auth-service     @big-brother</span></span>
+<span class="giallo-l"><span>a/s/t/j/c/a/a/s/AuthenticationServiceTest.java     auth-service     @big-brother</span></span>
+<span class="giallo-l"><span>b/s/m/j/c/a/b/c/InvoiceController.java             billing-service  @gold-diggers</span></span>
+<span class="giallo-l"><span>c/s/m/j/c/a/c/c/utils/DateUtils.java               core-common      @super-nerds</span></span>
+<span class="giallo-l"><span>c/s/t/j/c/a/c/c/utils/ValidationUtilsTest.java     core-common      @super-nerds</span></span>
+<span class="giallo-l"><span>c/s/t/j/c/a/c/s/services/EmployeeServiceTest.java  core-server      @fast-and-curious</span></span></code></pre><div class="note">all that data was fake even before truncation: <code>src/test/java/com/acme/auth/controllers</code></div>
+<p>From <code>cut</code> to <code>xargs</code>, the entire incantation was met with a mixture of
+incredulity and awe: some simple, composable tools go a long way to articulate
+queries for your shell interpreter.  Here, I'll lay the foundations for your
+horizontal text alignment needs, from the CLI.</p>
+<h2 id="using-column"><a class="anchor-link" href="#using-column" aria-label="Anchor link for: using-column"></a>
+Using <code>column</code></h2>
+<p>In the introductory piece of this article, I proposed a classification for
+the various forms of textual horizontal alignment.  The first three are mundane
+enough to be easily achieved using nothing but a pair of trustworthy tools;
+chief among them is <abbr title="Columnate lists"><code>column</code></abbr>.</p>
+<h3 id="the-list-in-a-grid"><a class="anchor-link" href="#the-list-in-a-grid" aria-label="Anchor link for: the-list-in-a-grid"></a>
+The list in a grid</h3>
+<p>If your items are begging to fit on a single screenful of text, you can lay
+them out in a grid with <code>column</code>:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-support z-function z-builtin">echo</span><span class="z-punctuation z-definition z-variable"> $</span><span class="z-source">PATH</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> tr</span><span class="z-string"> :</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">\n</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> column</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>/home/ccjmne/bin    /usr/local/sbin         /usr/bin/core_perl</span></span>
+<span class="giallo-l"><span>/usr/local/bin      /usr/bin/site_perl      /usr/lib/rustup/bin</span></span>
+<span class="giallo-l"><span>/usr/bin            /usr/bin/vendor_perl    /home/ccjmne/share/pnpm</span></span></code></pre>
+<p>It wants to print out columns of unique width, regardless of their individual
+content.<br>
+By default, it uses tabulations, but you may have it use spaces with the
+<code>--use-spaces</code>/<code>-S</code> flag, which takes the minimum number of whitespaces to
+separate columns by:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">seq</span><span class="z-constant z-numeric"> 100</span><span class="z-constant z-numeric"> 150</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> column</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>100	106	112	118	124	130	136	142	148</span></span>
+<span class="giallo-l"><span>101	107	113	119	125	131	137	143	149</span></span>
+<span class="giallo-l"><span>102	108	114	120	126	132	138	144	150</span></span>
+<span class="giallo-l"><span>103	109	115	121	127	133	139	145</span></span>
+<span class="giallo-l"><span>104	110	116	122	128	134	140	146</span></span>
+<span class="giallo-l"><span>105	111	117	123	129	135	141	147</span></span></code></pre><pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">seq</span><span class="z-constant z-numeric"> 100</span><span class="z-constant z-numeric"> 150</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> column</span><span class="z-string"> -</span><span class="z-string">S2</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">seq</span><span class="z-constant z-numeric"> 100</span><span class="z-constant z-numeric"> 150</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> column</span><span class="z-string"> -</span><span class="z-string">-use-spaces</span><span class="z-constant z-numeric"> 2</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>100  104  108  112  116  120  124  128  132  136  140  144  148</span></span>
+<span class="giallo-l"><span>101  105  109  113  117  121  125  129  133  137  141  145  149</span></span>
+<span class="giallo-l"><span>102  106  110  114  118  122  126  130  134  138  142  146  150</span></span>
+<span class="giallo-l"><span>103  107  111  115  119  123  127  131  135  139  143  147</span></span></code></pre>
+<p>Unless instructed otherwise, it will fill its grid column-first, but you can
+also have it go row by row with <code>--fillrows</code>/<code>-x</code>:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">seq</span><span class="z-constant z-numeric"> 100</span><span class="z-constant z-numeric"> 150</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> column</span><span class="z-string"> -</span><span class="z-string">xS2</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">seq</span><span class="z-constant z-numeric"> 100</span><span class="z-constant z-numeric"> 150</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> column</span><span class="z-string"> -</span><span class="z-string">-fillrows</span><span class="z-string"> -</span><span class="z-string">-use-spaces</span><span class="z-constant z-numeric"> 2</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>100  101  102  103  104  105  106  107  108  109  110  111  112  113  114  115</span></span>
+<span class="giallo-l"><span>116  117  118  119  120  121  122  123  124  125  126  127  128  129  130  131</span></span>
+<span class="giallo-l"><span>132  133  134  135  136  137  138  139  140  141  142  143  144  145  146  147</span></span>
+<span class="giallo-l"><span>148  149  150</span></span></code></pre>
+<p>Avoiding the <code>--fillrows</code> flag yields grids that are generally more evenly
+packed, provided that your display is wide enough to accommodate more of your
+items as you'd need rows to contain them all.  Either case will use exactly as
+many rows as necessary.</p>
+<h3 id="the-tabular-data"><a class="anchor-link" href="#the-tabular-data" aria-label="Anchor link for: the-tabular-data"></a>
+The tabular data</h3>
+<p>If you find yourself wanting to create a proper table, <code>column</code> again has got
+you covered: use its <code>--table</code>/<code>-t</code> flag to have it create or manipulate tabular
+data.<br>
+Consider the case of <abbr title="User account information"><code>/etc/passwd</code></abbr>:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">head</span><span class="z-string"> -</span><span class="z-string">7</span><span class="z-string"> /etc/passwd</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">head</span><span class="z-string"> -</span><span class="z-string">-lines</span><span class="z-constant z-numeric"> 7</span><span class="z-string"> /etc/passwd</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>root:x:0:0::/root:/bin/bash</span></span>
+<span class="giallo-l"><span>bin:x:1:1::/:/usr/bin/nologin</span></span>
+<span class="giallo-l"><span>daemon:x:2:2::/:/usr/bin/nologin</span></span>
+<span class="giallo-l"><span>mail:x:8:12::/var/spool/mail:/usr/bin/nologin</span></span>
+<span class="giallo-l"><span>ftp:x:14:11::/srv/ftp:/usr/bin/nologin</span></span>
+<span class="giallo-l"><span>http:x:33:33::/srv/http:/usr/bin/nologin</span></span>
+<span class="giallo-l"><span>nobody:x:65534:65534:Kernel Overflow User:/:/usr/bin/nologin</span></span></code></pre><div class="note">note the startling absence of a <a href="https://ccjmne.sh/blog/flight-manual/useless-use-of-cat/"><code>UUOC</code></a></div>
+<p>Watch it now blossom into its intended form, fit for human consumption:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">head</span><span class="z-string"> -</span><span class="z-string">7</span><span class="z-string"> /etc/passwd</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> column</span><span class="z-string"> -</span><span class="z-string">ts:</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">head</span><span class="z-string"> -</span><span class="z-string">-lines</span><span class="z-constant z-numeric"> 7</span><span class="z-string"> /etc/passwd</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> column</span><span class="z-string"> -</span><span class="z-string">-table</span><span class="z-string"> -</span><span class="z-string">-separator</span><span class="z-string"> :</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>root    x  0      0                            /root            /bin/bash</span></span>
+<span class="giallo-l"><span>bin     x  1      1                            /                /usr/bin/nologin</span></span>
+<span class="giallo-l"><span>daemon  x  2      2                            /                /usr/bin/nologin</span></span>
+<span class="giallo-l"><span>mail    x  8      12                           /var/spool/mail  /usr/bin/nologin</span></span>
+<span class="giallo-l"><span>ftp     x  14     11                           /srv/ftp         /usr/bin/nologin</span></span>
+<span class="giallo-l"><span>http    x  33     33                           /srv/http        /usr/bin/nologin</span></span>
+<span class="giallo-l"><span>nobody  x  65534  65534  Kernel Overflow User  /                /usr/bin/nologin</span></span></code></pre>
+<p>But that's not all: <code>column</code> really lets you manipulate that data table in
+a myriad of ways.  Name columns, shuffle them around, truncate or wrap their
+content, hide them...  Have at it!</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">column</span><span class="z-string"> -</span><span class="z-string">-table</span><span class="z-constant z-character z-escape">                                                      \</span></span>
+<span class="giallo-l"><span class="z-string">       -</span><span class="z-string">-separator</span><span class="z-string">     :</span><span class="z-constant z-character z-escape">                                            \</span></span>
+<span class="giallo-l"><span class="z-string">       -</span><span class="z-string">-table-columns</span><span class="z-string"> User,Password,UID,GID,Description,Home,Shell</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-string">       -</span><span class="z-string">-table-hide</span><span class="z-string">    Password,GID,Description</span><span class="z-constant z-character z-escape">                     \</span></span>
+<span class="giallo-l"><span class="z-string">       -</span><span class="z-string">-table-right</span><span class="z-string">   UID</span><span class="z-constant z-character z-escape">                                          \</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">       &lt;(</span><span class="z-entity z-name z-function">head</span><span class="z-string"> -</span><span class="z-string">7</span><span class="z-string"> /etc/passwd</span><span class="z-punctuation z-definition z-string">)</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>User      UID  Home             Shell</span></span>
+<span class="giallo-l"><span>root        0  /root            /bin/bash</span></span>
+<span class="giallo-l"><span>bin         1  /                /usr/bin/nologin</span></span>
+<span class="giallo-l"><span>daemon      2  /                /usr/bin/nologin</span></span>
+<span class="giallo-l"><span>mail        8  /var/spool/mail  /usr/bin/nologin</span></span>
+<span class="giallo-l"><span>ftp        14  /srv/ftp         /usr/bin/nologin</span></span>
+<span class="giallo-l"><span>http       33  /srv/http        /usr/bin/nologin</span></span>
+<span class="giallo-l"><span>nobody  65534  /                /usr/bin/nologin</span></span></code></pre>
+<p>However, the above is rather extreme: I generally limit myself
+to the <abbr font="mono" title="--table"><code>-t</code></abbr>, <abbr
+font="mono" title="--separator"><code>-s</code></abbr>, <abbr font="mono"
+title="--output-separator"><code>-o</code></abbr> (and on occasion, <abbr font="mono"
+title="--table-right"><code>-R</code></abbr>) flags, preferably preparing data upstream
+with composable tools that I use often enough to need not browse the trusty
+<code>man</code>ual:</p>
+<!-- [browse the trusty manual](@/flight-manual/read-the-friendly-manual). TODO: LINKME -->
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-punctuation">{</span><span class="z-support z-function z-builtin"> echo</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">User:UID:Home:Shell</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation">;</span><span class="z-entity z-name z-function"> head</span><span class="z-string"> -</span><span class="z-string">7</span><span class="z-string"> /etc/passwd</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> cut</span><span class="z-string"> -</span><span class="z-string">d:</span><span class="z-string"> -</span><span class="z-string">f1,3,6,7</span><span class="z-string"> }</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> column</span><span class="z-string"> -</span><span class="z-string">ts:</span></span></code></pre><div class="note">this command is essentially equivalent to the one above it</div>
+<h4 id="a-note-on-field-selection"><a class="anchor-link" href="#a-note-on-field-selection" aria-label="Anchor link for: a-note-on-field-selection"></a>
+A note on field selection</h4>
+<p>Now probably comes time to touch on touch on <abbr title="Cut out selected
+fields of each line of a file "><code>cut</code></abbr>, which justly sounds like a fated
+partner to <code>paste</code>.</p>
+<p>At its core, <code>cut</code> merely serves to carve out chunks ("fields") from
+your lines.  Specify the delimiter by which to delineate your fields with
+<code>--delimiter</code>/<code>-d</code>, and extract the ones you need with <code>--fields</code>/<code>-f</code>:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">head</span><span class="z-string"> -</span><span class="z-string">7</span><span class="z-string"> /etc/passwd</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> cut</span><span class="z-string"> -</span><span class="z-string">d:</span><span class="z-string"> -</span><span class="z-string">f1,6</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">head</span><span class="z-string"> -</span><span class="z-string">-lines</span><span class="z-constant z-numeric"> 7</span><span class="z-string"> /etc/passwd</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> cut</span><span class="z-string"> -</span><span class="z-string">-delimiter</span><span class="z-string"> :</span><span class="z-string"> -</span><span class="z-string">-fields</span><span class="z-string"> f1,6</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>root:/root</span></span>
+<span class="giallo-l"><span>bin:/</span></span>
+<span class="giallo-l"><span>daemon:/</span></span>
+<span class="giallo-l"><span>mail:/var/spool/mail</span></span>
+<span class="giallo-l"><span>ftp:/srv/ftp</span></span>
+<span class="giallo-l"><span>http:/srv/http</span></span>
+<span class="giallo-l"><span>nobody:/</span></span></code></pre>
+<p>{{ note(msg= select fields 1 and 6  ) }}</p>
+<p>Note that you may identify 1-indexed, comma-separated fields, <em>or ranges</em>,
+possibly open-ended:</p>
+<ul>
+<li><code>1,3,5</code> selects <em>fields 1, 3 and 5</em>,</li>
+<li><code>1-3</code> means <em>1 through 3</em>,</li>
+<li><code>-5</code> is <em>5 and below</em>, and</li>
+<li><code>3-</code> is <em>3 and beyond</em>.</li>
+</ul>
+<p>With <code>column</code>, the various field-selecting flags behave similarly, with some
+notable extensions: you may use the <code>0</code> field alone to denote <em>all fields</em>, or
+use negative indices to target fields from the <em>end</em>.  Thus, <code>-1</code> is the <em>last
+field</em>, <code>-2</code> is the <em>penultimate field</em> and so on.<br>
+This has the consequence of invalidating the range notation that uses an open
+lower bound: where <code>-3</code> would mean <em>1 through 3</em> in <code>cut</code>, it means <em>third field
+from the end</em> in <code>column</code>.</p>
+<h2 id="using-paste"><a class="anchor-link" href="#using-paste" aria-label="Anchor link for: using-paste"></a>
+Using <code>paste</code></h2>
+<p>Here we are, where it gets good, <abbr title="Merge lines of
+files"><code>paste</code></abbr> is what we'd been after all along.  It only gets
+introduced now because it requires cooperation from its friends to get the job
+you likely want done.</p>
+<h3 id="the-adjoined-and-annotated-fragments"><a class="anchor-link" href="#the-adjoined-and-annotated-fragments" aria-label="Anchor link for: the-adjoined-and-annotated-fragments"></a>
+The adjoined and annotated fragments</h3>
+<p>At last, there's data that's not quite tabular enough to be called that...
+yet!  This final section of the article is where you finally get some bang
+for your buck: we'll try our hands at putting chunks of text next to one
+another.<br>
+The <code>paste</code> utility lets you join lines from multiple files:</p>
+<div class="grid-1-3">
+<div>
+<pre class="giallo z-code"><code data-lang="plain" data-name="a.txt"><span class="giallo-l"><span>a</span></span>
+<span class="giallo-l"><span>b</span></span>
+<span class="giallo-l"><span>c</span></span>
+<span class="giallo-l"><span>d</span></span>
+<span class="giallo-l"><span>e</span></span></code></pre></div>
+<div>
+<pre class="giallo z-code"><code data-lang="plain" data-name="b.txt"><span class="giallo-l"><span>1</span></span>
+<span class="giallo-l"><span>2</span></span>
+<span class="giallo-l"><span>3</span></span>
+<span class="giallo-l"><span>4</span></span></code></pre></div>
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">paste</span><span class="z-string"> a.txt</span><span class="z-string"> b.txt</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>a	1</span></span>
+<span class="giallo-l"><span>b	2</span></span>
+<span class="giallo-l"><span>c	3</span></span>
+<span class="giallo-l"><span>d	4</span></span>
+<span class="giallo-l"><span>e</span></span></code></pre><div class="note">these are <em>tabulations</em></div>
+</div>
+</div>
+<p>How often do you need to do that?  Precisely <em>never</em>, were it not for everything
+being a file (descriptor): you can also <code>paste</code> the output of commands together
+(beware the non-<code>POSIX</code> Bashism, however):</p>
+<!-- [everything being a file (descriptor)](@/flight-manual/everything-is-a-file.md). TODO: LINKME -->
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">paste</span><span class="z-punctuation z-definition z-string"> &lt;(</span><span class="z-support z-function z-builtin">printf</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">%s\n</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-string"> {a..e}</span><span class="z-punctuation z-definition z-string">)</span><span class="z-punctuation z-definition z-string"> &lt;(</span><span class="z-entity z-name z-function">seq</span><span class="z-constant z-numeric"> 1</span><span class="z-constant z-numeric"> 4</span><span class="z-punctuation z-definition z-string">)</span><span class="z-punctuation z-definition z-string"> &lt;(</span><span class="z-entity z-name z-function">man</span><span class="z-string"> git</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">/The commit/,/^$/!d</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation z-definition z-string">)</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>a	1	The commit, equivalent to what other systems call a &quot;changeset&quot; or</span></span>
+<span class="giallo-l"><span>b	2	&quot;version&quot;, represents a step in the project’s history, and each parent</span></span>
+<span class="giallo-l"><span>c	3	represents an immediately preceding step. Commits with more than one</span></span>
+<span class="giallo-l"><span>d	4	parent represent merges of independent lines of development.</span></span>
+<span class="giallo-l"><span>e		</span></span></code></pre><div class="note">these are still <em>tabulations</em></div>
+<p>You can just about feel that there's something usable there, but we'll have to
+address some tab-related limitations before unearthing this treasure:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">paste</span><span class="z-punctuation z-definition z-string"> &lt;(</span><span class="z-support z-function z-builtin">echo</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">NAME\nccjmne\nninoshka\nozymandias\nhe-who-must-not-be-named</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation z-definition z-string">)</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">      &lt;(</span><span class="z-support z-function z-builtin">echo</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">JOB\nsoftware engineer\nfaithful companion\ngreek pharaoh\nrogue wizard</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation z-definition z-string">)</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>NAME	JOB</span></span>
+<span class="giallo-l"><span>ccjmne	software engineer</span></span>
+<span class="giallo-l"><span>ninoshka	faithful companion</span></span>
+<span class="giallo-l"><span>ozymandias	greek pharaoh</span></span>
+<span class="giallo-l"><span>he-who-must-not-be-named	rogue wizard</span></span>
+<span class="giallo-l"></span></code></pre><div class="note">data may overflow past the tabulations stops</div>
+<br>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">paste</span><span class="z-punctuation z-definition z-string"> &lt;(</span><span class="z-entity z-name z-function">recall</span><span class="z-string"> 2.days.ago</span><span class="z-punctuation z-definition z-string">)</span><span class="z-punctuation z-definition z-string"> &lt;(</span><span class="z-entity z-name z-function">recall</span><span class="z-string"> yesterday</span><span class="z-punctuation z-definition z-string">)</span><span class="z-punctuation z-definition z-string"> &lt;(</span><span class="z-entity z-name z-function">recall</span><span class="z-string"> today</span><span class="z-punctuation z-definition z-string">)</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>Sat, 17 July	Sun, 18 July	Mon, 19 July</span></span>
+<span class="giallo-l"><span>------------	------------	------------</span></span>
+<span class="giallo-l"><span>#edu 5h48m	#edu 2h09m	#edu 1h32m</span></span>
+<span class="giallo-l"><span>#foss 1h06m	#foss 3h04m	#foss 31m</span></span>
+<span class="giallo-l"><span>	#run 39m	#work 8h12m</span></span>
+<span class="giallo-l"><span>		#commute 49m</span></span></code></pre><div class="note">imbalanced datasets also create problems (the <code>recall</code> command is made up)</div>
+<p>The remedy is the <code>--delimiters</code>/<code>-d</code> flag, which pairs delightfully well
+with <code>column -ts</code> in a real ah-ha moment:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">paste</span><span class="z-punctuation z-definition z-string"> &lt;(</span><span class="z-entity z-name z-function">recall</span><span class="z-string"> 2.days.ago</span><span class="z-punctuation z-definition z-string">)</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">      &lt;(</span><span class="z-entity z-name z-function">recall</span><span class="z-string"> yesterday</span><span class="z-punctuation z-definition z-string">)</span><span class="z-constant z-character z-escape">  \</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">      &lt;(</span><span class="z-entity z-name z-function">recall</span><span class="z-string"> today</span><span class="z-punctuation z-definition z-string">)</span><span class="z-constant z-character z-escape">      \</span></span>
+<span class="giallo-l"><span class="z-string">      -</span><span class="z-string">-delimiters</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">:</span><span class="z-punctuation z-definition z-string">&#39;</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>Sat, 17 July:Sun, 18 July:Mon, 19 July</span></span>
+<span class="giallo-l"><span>------------:------------:------------</span></span>
+<span class="giallo-l"><span>#edu 5h48m:#edu 2h09m:#edu 1h32m</span></span>
+<span class="giallo-l"><span>#foss 1h06m:#foss 3h04m:#foss 31m</span></span>
+<span class="giallo-l"><span>:#run 39m:#work 8h12m</span></span>
+<span class="giallo-l"><span>::#commute 49m</span></span></code></pre><div class="note">circling back to the <code>/etc/passwd</code> format</div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">paste</span><span class="z-punctuation z-definition z-string"> &lt;(</span><span class="z-entity z-name z-function">recall</span><span class="z-string"> 2.days.ago</span><span class="z-punctuation z-definition z-string">)</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">      &lt;(</span><span class="z-entity z-name z-function">recall</span><span class="z-string"> yesterday</span><span class="z-punctuation z-definition z-string">)</span><span class="z-constant z-character z-escape">  \</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">      &lt;(</span><span class="z-entity z-name z-function">recall</span><span class="z-string"> today</span><span class="z-punctuation z-definition z-string">)</span><span class="z-constant z-character z-escape">      \</span></span>
+<span class="giallo-l"><span class="z-string">      -</span><span class="z-string">d:</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> column</span><span class="z-string"> -</span><span class="z-string">ts:</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>Sat, 17 July  Sun, 18 July  Mon, 19 July</span></span>
+<span class="giallo-l"><span>------------  ------------  ------------</span></span>
+<span class="giallo-l"><span>#edu 5h48m    #edu 2h09m    #edu 1h32m</span></span>
+<span class="giallo-l"><span>#foss 1h06m   #foss 3h04m   #foss 31m</span></span>
+<span class="giallo-l"><span>              #run 39m      #work 8h12m</span></span>
+<span class="giallo-l"><span>                            #commute 49m</span></span></code></pre></div>
+</div>
+<p>However, this treatment is only curative if you can identify a symbol that
+your data doesn't contain.  We could almost make it a panacea, were it not for
+what I consider a quirk of <code>paste</code>.<br></p>
+<p>As you'll have noted, the <code>--delimiters</code> flag is <em>plural</em>: it can cycle
+through a list of <abbr title="American Standard Code for Information
+Interchange"><code>ASCII</code></abbr> characters to use instead of tabulations.
+Regardless of the practicality of this feature, its implementation has <code>paste</code>
+consider each <em>byte</em> as a distinct delimiter: committing to an esoteric Unicode
+character that spans several bytes will therefore not do you any good.</p>
+<p>Here are a few examples for illustration, which are most probably best
+consumed with the questions likely raised by the above paragraph still on your
+mind:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">xxd</span><span class="z-keyword z-operator"> &lt;&lt;&lt;</span><span class="z-string"> 🦉</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="z-string">f09f</span> <span class="z-string">a689</span> <span class="z-constant">0a</span>  <span class="z-string">....</span><span class="z-constant">.</span></pre></code>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">yes</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> head</span><span class="z-string"> -</span><span class="z-string">5</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> paste</span><span class="z-string"> -</span><span class="z-string">d🦉</span><span class="z-string"> -</span><span class="z-string"> -</span><span class="z-string"> -</span><span class="z-string"> -</span><span class="z-string"> -</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>yyyyy</span></span></code></pre><pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">yes</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> head</span><span class="z-string"> -</span><span class="z-string">5</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> paste</span><span class="z-string"> -</span><span class="z-string">d🦉</span><span class="z-string"> -</span><span class="z-string"> -</span><span class="z-string"> -</span><span class="z-string"> -</span><span class="z-string"> -</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xxd</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="z-variable">79</span><span class="z-string">f0</span> <span class="z-variable">79</span><span class="z-string">9f</span> <span class="z-variable">79</span><span class="z-string">a6</span> <span class="z-variable">79</span><span class="z-string">89</span> <span class="z-variable">79</span><span class="z-constant">0a</span>  <span class="z-variable">y</span><span class="z-string">.</span><span class="z-variable">y</span><span class="z-string">.</span><span class="z-variable">y</span><span class="z-string">.</span><span class="z-variable">y</span><span class="z-string">.</span><span class="z-variable">y</span><span class="z-constant">.</span></pre></code>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">cat</span><span class="z-string"> /dev/null</span><span class="z-constant z-character z-escape">                              \</span></span>
+<span class="giallo-l"><span class="z-keyword z-operator">    |</span><span class="z-entity z-name z-function"> paste</span><span class="z-string"> -</span><span class="z-string">d🦉</span><span class="z-punctuation z-definition z-string"> &lt;(</span><span class="z-support z-function z-builtin">echo</span><span class="z-string"> [</span><span class="z-punctuation z-definition z-string">)</span><span class="z-string"> -</span><span class="z-string"> -</span><span class="z-string"> -</span><span class="z-punctuation z-definition z-string"> &lt;(</span><span class="z-support z-function z-builtin">echo</span><span class="z-string"> ]</span><span class="z-punctuation z-definition z-string">)</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-keyword z-operator">    |</span><span class="z-entity z-name z-function"> xxd</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="z-variable">5b</span><span class="z-string">f0</span> <span class="z-string">9fa6</span> <span class="z-string">89</span><span class="z-variable">5d</span> <span class="z-constant">0a</span>  <span class="z-variable">[</span><span class="z-string">....</span><span class="z-variable">]</span><span class="z-constant">.</span></pre></code>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">cat</span><span class="z-string"> /dev/null</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-keyword z-operator">    |</span><span class="z-entity z-name z-function"> paste</span><span class="z-string"> -</span><span class="z-string">d🦉</span><span class="z-punctuation z-definition z-string"> &lt;(</span><span class="z-support z-function z-builtin">echo</span><span class="z-string"> [</span><span class="z-punctuation z-definition z-string">)</span><span class="z-string"> -</span><span class="z-string"> -</span><span class="z-string"> -</span><span class="z-punctuation z-definition z-string"> &lt;(</span><span class="z-support z-function z-builtin">echo</span><span class="z-string"> ]</span><span class="z-punctuation z-definition z-string">)</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>[🦉]</span></span></code></pre><div class="note">I'll allow <code>cat</code> here, for <code>- - -</code></div>
+</div>
+</div>
+<p>I did alter <abbr title="Make a hex dump or do the reverse"><code>xxd</code></abbr>'s
+output for simplicity, and attempted to provide reasonably adequate
+highlighting, which I hope to be more helpful than it is confusing.</p>
+<h2 id="closing-words"><a class="anchor-link" href="#closing-words" aria-label="Anchor link for: closing-words"></a>
+Closing words</h2>
+<p>Note that, if you want to add line numbers or timestamps of all kinds,
+you should prefer <code>nl</code> (from <code>coreutils</code>, which I dive into <a href="https://ccjmne.sh/blog/flight-manual/numbering-lines/">another
+article</a>) or <code>ts</code> (from <code>moreutils</code>) to
+<code>paste</code>.</p>
+<p>That's it, this article boils down to: <code>paste &lt;(left) &lt;(right)</code> and <code>column -ts:</code>, with some <code>-d:</code> passed here and there to <code>cut</code> or <code>paste</code> where
+necessary.  Go wild, have fun, don't forget that everything is possible, you
+just need to browse the <code>man</code>ual.</p>
+<p>Throughout this blog, you'll also find (in time), a few short articles
+showcasing Vim's unparalleled agility in doing everything mentioned here and a
+<em>lot</em> more, from the comfort of an exceptional yet ubiquitous text editor.  Have
+fun!</p>
+  <section class="footnotes" aria-label="Footnotes">
+      <ol class="footnotes-list">
+<li id="fn-esoteric-vertical-whitespace">
+<p>Let's not talk of the
+<a rel="external" href="https://www.compart.com/en/unicode/U+000D"><code>CR</code></a>,
+<a rel="external" href="https://www.compart.com/en/unicode/U+000B"><code>VT</code></a> or
+<a rel="external" href="https://www.compart.com/en/unicode/U+000C"><code>FF</code></a> here. <a href="#fr-esoteric-vertical-whitespace-1">↩</a></p>
+</li>
+</ol>
+    </section>
+  <h2 id="cited-tools"><a class="anchor-link" href="#cited-tools" aria-label="Anchor link for: cited-tools"></a>
+Referenced tools</h2>
+  <div class="cited-tools">
+    
+<table class="tool mono">
+  <tr><th colspan="2"><strong>column</strong></th></tr>
+  <tr>
+    
+        <td colspan="2">from <a href="https://archlinux.org/packages/core&#x2F;x86_64&#x2F;util-linux">core&#x2F;util-linux</a></td>
+    
+  </tr>
+  <tr>
+    <td><a href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;column.1.en">manual</a></td>
+    <td><a href="https:&#x2F;&#x2F;github.com&#x2F;util-linux&#x2F;util-linux&#x2F;">repository</a></td>
+  </tr>
+</table>
+
+<table class="tool mono">
+  <tr><th colspan="2"><strong>cut</strong></th></tr>
+  <tr>
+    
+        <td colspan="2">from <a href="https://archlinux.org/packages/core&#x2F;x86_64&#x2F;coreutils">core&#x2F;coreutils</a></td>
+    
+  </tr>
+  <tr>
+    <td><a href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;cut.1.en">manual</a></td>
+    <td><a href="https:&#x2F;&#x2F;github.com&#x2F;coreutils&#x2F;coreutils">repository</a></td>
+  </tr>
+</table>
+
+<table class="tool mono">
+  <tr><th colspan="2"><strong>paste</strong></th></tr>
+  <tr>
+    
+        <td colspan="2">from <a href="https://archlinux.org/packages/core&#x2F;x86_64&#x2F;coreutils">core&#x2F;coreutils</a></td>
+    
+  </tr>
+  <tr>
+    <td><a href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;paste.1.en">manual</a></td>
+    <td><a href="https:&#x2F;&#x2F;github.com&#x2F;coreutils&#x2F;coreutils">repository</a></td>
+  </tr>
+</table>
+
+<table class="tool mono">
+  <tr><th colspan="2"><strong>vim</strong></th></tr>
+  <tr>
+    
+        <td colspan="2">from <a href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;vim">extra&#x2F;vim</a></td>
+    
+  </tr>
+  <tr>
+    <td><a href="https:&#x2F;&#x2F;vimhelp.org&#x2F;">manual</a></td>
+    <td><a href="https:&#x2F;&#x2F;github.com&#x2F;vim&#x2F;vim">repository</a></td>
+  </tr>
+</table>
+
+  </div>
+  
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <span>&lt;<a href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>&gt;</span>
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>

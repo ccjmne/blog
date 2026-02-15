@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-2.woff2" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/work-3.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/fira-2.woff2') format('woff2'); }
+</style><link rel="stylesheet" href="https://ccjmne.sh/blog/base.css">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-light.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-dark.css"  media="(prefers-color-scheme: dark)">
+    
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {--column-width: min(90vw, 600px);}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+>
+      <a href="https://ccjmne.sh/blog">Home</a>
+      <details class="dropdown" max-sm>
+        <summary><strong>Articles</strong></summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual">Flight manual</a>
+          <a href="https://ccjmne.sh/blog/tags">By tags</a>
+          <a href="https://ccjmne.sh/blog/ramblings"><strong>Ramblings</strong></a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual" min-sm>Flight manual</a>
+      <a href="https://ccjmne.sh/blog/tags"          min-sm>By tags</a>
+      <a href="https://ccjmne.sh/blog/ramblings"     min-sm><strong>Ramblings</strong></a>
+      <a href="https://ccjmne.sh/blog/colophon"            >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main>
+<h1><span class="link-title" 
+  style="view-transition-name: view-the-hidden-value-of-the-job-web-done"
+>The hidden value of the job well done</span></h1><ul class="infobar "><li><time>October 02, 2025</time></li><li>4-minute read</li>
+    </ul>
+<article>
+  <p>Once in a while, a project ends up completely off-course.  We end up having to
+fix something that was never part of the original plan, something that appears
+entirely unrelated to the actual problem we're attempting to solution: I
+often have in mind <a rel="external" href="https://www.youtube.com/watch?v=AbSehcT19u0">that one opening to some episode of Malcolm In the
+Middle</a> where the dad meant to
+change the kitchen's light bulb before going to work and ends up spending the
+entire day unravelling the thread of intermediary tasks that sneak themselves in
+the way of his seemingly innocuous goal.</p>
+<p>Somewhere along the line, <strong>we're 3 month in that 2-week project,</strong> everybody's
+getting fed up, and the deadline comes looming: we decide to implement only the
+half that's immediately doable, preserve the work-in-progress somewhere in our
+<abbr title="Version Control System"><code>VCS</code></abbr> of choice (Git, surely), close
+the remaining tasks as "Won't Fix" or discard (erm, <em>"retroactively postpone"</em>,
+I mean) them to the infamous backlog, under the dreadfully omnipresent
+"Technical Debt" label.</p>
+<p>We thought we'd be on top of things and could be surfing the wave
+of due features, but ended up submerged under a rip tide of unknown
+unknowns violently revealing themselves; nobody's happy and we shipped
+a half-baked product that we now tell the stakeholders was a <a rel="external" href="https://en.wikipedia.org/wiki/Perpetual_stew">perpetual
+stew</a> all along.</p>
+<p>At that story's post-mortem retrospective (you do these, right?), we conclude
+that the failure to keep up with prerequisites discovered as we went lies mostly
+on:</p>
+<ul>
+<li>the staggering cost of unplanned cross-team collaboration, and</li>
+<li>the lack of a clear, shared vision of what "done" means, possibly aggravated<!-- by some [well-intended scope creep](@/ramblings/refine-and-do-the-job.md). TODO: LINKME -->
+by some well-intended scope creep.</li>
+</ul>
+<div class="hi">
+<p>In the alternate reality where we'd have aptly assumed the responsibility of
+laying out the foundations for a successful project, we have <strong>spent some time
+upfront to ensure we'd build the right thing at the right time</strong>—when all the
+resources (human and other) would be suitably available and primed, then spent 2
+more weeks actually taking on the 2-week job.</p>
+<p>Of course, this only works if we indeed start <strong>ahead of time</strong>, otherwise this
+planning not only is directly delaying the project and eating into its allotted
+time and resources, but also is doomed to be biased towards expediency as we're
+basically discovering <strong>when would be the right time to begin the activity we're
+currently supposedly working on</strong>.</p>
+<p>Considering the upstream preparations, it'll have taken somewhat more than the
+estimate, but still went smoothly.  Without juxtaposing it to how poorly it
+could have gone, it's nothing to write home about...  So I shall write about it
+here.</p>
+</div>
+<p>If you find yourself in an environment routinely bearing with projects being
+unceremoniously started and just as organically derailed, in-house products that
+have aged into a mere maintenance burden, or teams that are perpetually putting
+out fires, you may want to consider shifting your perspective:</p>
+<p>One simple job substantiated, discussed, scheduled, planned and delivered on
+time is a success story.</p>
+<p>If a team consistently handles these straightforward tasks in that manner,
+don't make <a rel="external" href="https://en.wikipedia.org/wiki/Post_hoc_ergo_propter_hoc">the mistake of assuming they look good because their tasks are
+easy</a>: <strong>their tasks
+are easy because they are that good</strong>.  They're giving you the value they sold
+you on; in many contexts in the software industry, that is quite a great value.</p>
+<p>Celebrate, encourage, analyse and emulate these blueprints for success: this
+is where you can most reliably ensure your department will be more reminiscent
+of an <a rel="external" href="https://en.wikipedia.org/wiki/Icebreaker">icebreaker</a> steadily and
+reliably ploughing its way through the Arctic, rather than a leaky <a rel="external" href="https://en.wikipedia.org/wiki/Oil_tanker">oil
+tanker</a> spilling its noxious entrails
+as it drifts helplessly in the open sea.</p>
+
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <span>&lt;<a href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>&gt;</span>
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>

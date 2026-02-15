@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-2.woff2" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/work-3.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/fira-2.woff2') format('woff2'); }
+</style><link rel="stylesheet" href="https://ccjmne.sh/blog/base.css">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-light.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-dark.css"  media="(prefers-color-scheme: dark)">
+    
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+>
+      <a href="https://ccjmne.sh/blog">Home</a>
+      <details class="dropdown" max-sm>
+        <summary><strong>Articles</strong></summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual"><strong>Flight manual</strong></a>
+          <a href="https://ccjmne.sh/blog/tags">By tags</a>
+          <a href="https://ccjmne.sh/blog/ramblings">Ramblings</a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual" min-sm><strong>Flight manual</strong></a>
+      <a href="https://ccjmne.sh/blog/tags"          min-sm>By tags</a>
+      <a href="https://ccjmne.sh/blog/ramblings"     min-sm>Ramblings</a>
+      <a href="https://ccjmne.sh/blog/colophon"            >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main><h1><span class="link-title" 
+  style="view-transition-name: view-02-fcitx5-clipboard"
+>System-wide clipboard history with <code>fcitx5</code></span></h1><ul class="infobar "><li><time>November 19, 2025</time></li><li>8-minute read</li>
+    <li>Part&nbsp;2&nbsp;of&nbsp;<a href="https:&#x2F;&#x2F;ccjmne.sh&#x2F;blog&#x2F;flight-manual&#x2F;fcitx5&#x2F;">Maybe a new <code>fcitx</code></a></li><li>tagged
+      <a href="https://ccjmne.sh/blog/tags/quibblery">quibblery</a></li></ul>
+<details class="lo summary">
+  <summary>Series introduction</summary>
+  <h2><a href="https://ccjmne.sh/blog/flight-manual/fcitx5" class="link-title" 
+  style="view-transition-name: view-fcitx5"
+>Maybe a new <code>fcitx</code></a></h2>
+  <p><code>IBus</code>, standing (vaguely) for <em>"Intelligent Input Bus"</em>, is an <strong>input
+framework</strong> that allows users to, for example, switch between different keyboard
+layouts, which any non-English native speakers reading this blog would certainly
+be familiar with.</p>
+<p>It is notably used by default by <code>GNOME</code>-based desktop environments, making it
+the <em>de facto</em> standard for many Linux users; however, it has been somewhat
+finicky for me (and others) when working with <abbr title="A replacement for the
+X11 window system protocol">Wayland</abbr><sup class="footnote-reference" id="fr-wayland-finicky-1"><a <a href="#fn-wayland-finicky">1</a></sup>—which is where
+<code>fcitx5</code><sup class="footnote-reference" id="fr-fcitx-5-1"><a <a href="#fn-fcitx-5">2</a></sup> comes in.</p>
+<p>But <code>fcitx5</code> <strong>is a lot other than "Wayland's <code>IBus</code>"</strong>: just as vaguely, it
+stands for <em>"Flexible Context-aware Input Tool with eXtension support"</em>, and in
+this series, I mean to delve deeply into the most practical and ubiquitous of
+its built-in modules.</p>
+</details><details class="hi toc">
+  <summary>Table of contents</summary>
+  <ul><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/fcitx5/02-fcitx5-clipboard/#clipboard-history-with-fcitx5">Clipboard history with fcitx5</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/fcitx5/02-fcitx5-clipboard/#due-discretion-manipulating-passwords">Due discretion manipulating passwords</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/fcitx5/02-fcitx5-clipboard/#anywhere-you-type">Anywhere you type</a></li>
+    <li><a href="#cited-tools">Referenced tools</a></li>
+    
+  </ul>
+</details>
+<article><p>A staple of the frantic user's tool belt, the clipboard history needs no
+introduction.</p>
+<p>I remember the day one of my colleagues excitedly demonstrated their
+newly-acquired copy-paste buffer history plug-in that would work well inside
+the very specific <em>"file editing"</em> view of their <abbr title="convoluted
+abstraction over build tools"><code>IDE</code></abbr>.  I remember it well, because
+it was <strong>last year</strong>—a whopping <strong>half a century</strong> or so after
+<a rel="external" href="https://en.wikipedia.org/wiki/Vi_(text_editor)"><code>vi</code></a> introduced them.</p>
+<p>Ah, and <abbr title="The ubiquitous editor">Vim</abbr> today offers a lofty
+<strong>forty-five</strong> registers, complete with bindings to append, replace, print from
+as plain text, print from as if you were typing it, <em>et cet.</em>; see <a rel="external" href="https://vimdoc.sourceforge.net/htmldoc/usr_10.html"><code>:help registers</code></a>.</p>
+<p><strong>But I digress.</strong></p>
+<p>What Vim doesn't quite do with its many registers is <strong>avail them to other
+applications</strong>.  For that, you've got your syste—</p>
+<p>Ah, I'm being told that neither <em>Windows</em> nor <em>macOS</em> actually
+offers any more than <em>one</em> measly "clipboard", despite <code>X11</code>
+having had, <strong>since the early 1990s</strong> at the latest, a
+<a rel="external" href="https://www.x.org/archive/current/doc/xorg-docs/icccm/icccm.pdf">complete, detailed specification for <strong>no less than three such
+buffers</strong></a>,
+two of which are exceptionally convenient and still <strong>completely
+supported and working across the board (BSD and Linux)</strong>—even many
+<a rel="external" href="https://wayland.freedesktop.org/">Wayland</a> compositors implement that
+compatibility to the <code>X11</code> specification.</p>
+<p><strong>But I digress some more.</strong></p>
+<p>If you're neither in a sensible text editor, nor on a sensible <code>OS</code>, and that
+despite your recurring-payment-contingent system gradually unveiling its <abbr
+title="lacking, pauce">dearthy</abbr> core, its familiar-enough face has you
+keep coming back...  I bid you good luck<sup class="footnote-reference" id="fr-good-luck-1"><a <a href="#fn-good-luck">3</a></sup>; the rest of us shall
+tonight feast on a tidy serving of <code>fcitx5</code> goodness.</p>
+<h2 id="clipboard-history-with-fcitx5"><a class="anchor-link" href="#clipboard-history-with-fcitx5" aria-label="Anchor link for: clipboard-history-with-fcitx5"></a>
+Clipboard history with <code>fcitx5</code></h2>
+<p>A built-in add-on to <code>fcitx5</code>, the <code>clipboard</code> module keeps track of the
+<em>"stuff"</em> you put in your <em>"clipboard"</em>.  Obviously, right?  Well, with two
+little notes:</p>
+<ol>
+<li>The three <code>X11</code> <em>"clipboards"</em> I alluded to earlier are collectively referred
+to as <strong>selections</strong>.  They're the <code>primary</code>, the <code>secondary</code>, and the
+<code>clipboard</code>.  Typically, you write to and paste from the <code>clipboard</code> (well,
+not really<sup class="footnote-reference" id="fr-not-really-not-directly-1"><a <a href="#fn-not-really-not-directly">4</a></sup>) with <code>Ctrl</code>+<code>C</code> and <code>Ctrl</code>+<code>V</code>,
+respectively; any piece of text you <strong>select</strong> (double-click, or click and
+hold</li>
+</ol>
+<!-- [The `X11` clipboard](@/flight-manual/the-x11-clipboard). TODO: LINKME -->
+<ol start="2">
+<li>The <em>"stuff"</em> only is the <strong>plain text</strong> part of the data that you copied.
+Yes, there are indeed <strong>several parts</strong> in there.  <strong>Typed</strong> data.  Lazily
+<strong>streamed on demand</strong>.  Oh yeah, the <code>X11</code> selections function—they're
+a lot more than "some shared data dumps"—they're not even that at
+all<sup class="footnote-reference" id="fr-not-really-not-directly-2"><a <a href="#fn-not-really-not-directly">4</a></sup>, to begin with!</li>
+</ol>
+<p>So, that module grabs the textual content of what goes into your <code>clipboard</code>
+selection, and keep it in its memory, though <strong>not only that last one</strong>!  At any
+time, you can recall the most recent few (how many is configurable), and insert
+them <a href="https://ccjmne.sh/blog/flight-manual/fcitx5/02-fcitx5-clipboard/#anywhere-you-type">anywhere you can type—more on that later</a>.</p>
+<p>To recall your <code>clipboard</code> history, the default key binding is <code>Ctrl</code>+<code>;</code> (the
+semicolon).  You may then fully configure how to go about making your selection:
+paginate results, navigate through entries or pages, confirm with either <code>Enter</code>
+or <code>Space</code>, cancel with <code>Escape</code>, pick a numbered entry right away with <code>1</code>
+through <code>&lt;n&gt;</code> and clear its memory with <code>Backspace</code> or <code>Delete</code>.</p>
+<h2 id="due-discretion-manipulating-passwords"><a class="anchor-link" href="#due-discretion-manipulating-passwords" aria-label="Anchor link for: due-discretion-manipulating-passwords"></a>
+Due discretion manipulating passwords</h2>
+<p>As I mean to go over in a future article, the <code>clipboard</code> isn't just
+(or at all) a <em>"transient data buffer"</em>.  If nothing else, <strong>the data
+it exposes is typed</strong>—I mean by that that there is some <a rel="external" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/MIME_types"><code>MIME</code>
+type</a>
+associated with it.</p>
+<!-- [The `X11` clipboard](@/flight-manual/the-x11-clipboard). TODO: LINKME -->
+<p>One such "type", would be <code>x-kde-passwordManagerHint</code>, the de-facto standard
+(however limited in use) when describing passwords across sensible platforms.</p>
+<blockquote class="markdown-alert-note">
+<p>To be precise, <code>x-kde-passwordManagerHint</code> is technically not quite
+adhering to the <code>MIME</code> specification: it should rather likely be
+<code>application/x-kde-passwordManagerHint</code>.</p>
+<p>Moreover, global, top-level <code>MIME</code> types are typically
+also registered at the <abbr title="Internet Assigned
+Numbers Authority"><code>IANA</code></abbr>, to its <a rel="external" href="https://www.iana.org/assignments/media-types/media-types.xhtml">Media Types
+Registry</a>,
+which this isn't; but then again no "password" type is.</p>
+</blockquote>
+<p>Capable password managers adequately make use of such types when providing
+data through your <strong>selections</strong> (read: <em>"clipboard"</em>).  For illustration,
+here's the reference of how <a rel="external" href="https://keepassxc.org/">KeePassXC</a> goes about this
+implementation:</p>
+<pre class="giallo z-code"><code data-lang="cpp" data-name="Clipboard.cpp"><span class="giallo-l"><span class="z-storage z-type">void</span><span class="z-entity z-name z-scope-resolution z-function z-definition z-cpp"> Clipboard</span><span class="z-punctuation">::</span><span class="z-entity z-name z-function">setText</span><span class="z-punctuation">(</span><span class="z-storage z-modifier">const</span><span class="z-entity z-name z-type"> QString</span><span class="z-storage z-modifier z-reference z-cpp">&amp;</span><span class="z-variable z-parameter"> text</span><span class="z-punctuation">,</span><span class="z-storage z-type"> bool</span><span class="z-variable z-parameter"> clear</span><span class="z-punctuation">)</span></span>
+<span class="giallo-l"><span class="z-punctuation">{</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment">    //</span><span class="z-comment"> ...</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-storage z-type">    auto</span><span class="z-keyword z-operator">*</span><span class="z-source"> mime </span><span class="z-keyword z-operator">=</span><span class="z-keyword z-operator z-new"> new</span><span class="z-source"> QMimeData</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-source">    mime</span><span class="z-punctuation">-&gt;</span><span class="z-entity z-name z-function">setText</span><span class="z-punctuation">(</span><span class="z-source">text</span><span class="z-punctuation">)</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-directive">#</span><span class="z-keyword z-control z-directive">if</span><span class="z-keyword z-control z-directive"> defined</span><span class="z-punctuation">(</span><span class="z-entity z-name z-function">Q_OS_MACOS</span><span class="z-punctuation">)</span></span>
+<span class="giallo-l"><span class="z-source">    mime</span><span class="z-punctuation">-&gt;</span><span class="z-entity z-name z-function">setData</span><span class="z-punctuation">(</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-string">application/x-nspasteboard-concealed-type</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation">,</span><span class="z-source"> text</span><span class="z-punctuation">.</span><span class="z-entity z-name z-function">toUtf8</span><span class="z-punctuation">(</span><span class="z-punctuation">)</span><span class="z-punctuation">)</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-directive">#</span><span class="z-keyword z-control z-directive">elif</span><span class="z-entity z-name z-function"> defined</span><span class="z-punctuation">(</span><span class="z-source">Q_OS_UNIX</span><span class="z-punctuation">)</span></span>
+<span class="giallo-l"><span class="z-source">    mime</span><span class="z-punctuation">-&gt;</span><span class="z-entity z-name z-function">setData</span><span class="z-punctuation">(</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-string">x-kde-passwordManagerHint</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation">,</span><span class="z-entity z-name z-function"> QByteArrayLiteral</span><span class="z-punctuation">(</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-string">secret</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation">)</span><span class="z-punctuation">)</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-directive">#</span><span class="z-keyword z-control z-directive">elif</span><span class="z-entity z-name z-function"> defined</span><span class="z-punctuation">(</span><span class="z-source">Q_OS_WIN</span><span class="z-punctuation">)</span></span>
+<span class="giallo-l"><span class="z-source">    mime</span><span class="z-punctuation">-&gt;</span><span class="z-entity z-name z-function">setData</span><span class="z-punctuation">(</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-string">ExcludeClipboardContentFromMonitorProcessing</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation">,</span><span class="z-entity z-name z-function"> QByteArrayLiteral</span><span class="z-punctuation">(</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-string">1</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation">)</span><span class="z-punctuation">)</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-source">    mime</span><span class="z-punctuation">-&gt;</span><span class="z-entity z-name z-function">setData</span><span class="z-punctuation">(</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-string">CanIncludeInClipboardHistory</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation">,</span><span class="z-source"> {</span><span class="z-constant z-numeric">4</span><span class="z-punctuation">,</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-constant z-character z-escape">\0</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-source">}</span><span class="z-punctuation">)</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-source">    mime</span><span class="z-punctuation">-&gt;</span><span class="z-entity z-name z-function">setData</span><span class="z-punctuation">(</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-string">CanUploadToCloudClipboard </span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation">,</span><span class="z-source"> {</span><span class="z-constant z-numeric">4</span><span class="z-punctuation">,</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-constant z-character z-escape">\0</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-source">}</span><span class="z-punctuation">)</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-directive">#</span><span class="z-keyword z-control z-directive">endif</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment">    //</span><span class="z-comment"> ...</span></span>
+<span class="giallo-l"><span class="z-punctuation">}</span></span></code></pre><div class="note">available <a rel="external" href="https://github.com/keepassxreboot/keepassxc/blob/f484d7f5ed00d77a6cd5f913663f5c437707901a/src/gui/Clipboard.cpp#L55-L65">in their repository on GitHub</a></div>
+<p>Then, courteous <em>"clipboard"</em> inspectors may give you <strong>the privacy you
+deserve in handling that data</strong>.  By default, <code>fcitx5</code>'s <code>clipboard</code> add-on,
+when prompted to display recent entries for reuse, will indicate them with
+<code>•••••••• &lt;Password&gt;</code> instead of disclosing their contents.  The
+actual underlying passwords will still be put in<sup class="footnote-reference" id="fr-input-vs-inputted-1"><a <a href="#fn-input-vs-inputted">5</a></sup> when you so
+choose, they're merely obscured for greater assurances that nobody may lay their
+eyes on them.</p>
+<blockquote class="markdown-alert-note">
+<p>The <code>•••••••• &lt;Password&gt;</code> entry that <code>fcitx5</code> may display
+always uses 8 "bullet" characters (<code>•</code>), <strong>regardless of the actual length
+of the corresponding password</strong>.  There's absolutely no information surfacing
+about the content of the password then; only its nature is revealed.</p>
+</blockquote>
+<p>I wanted to ascertain something and ended up also looking up <code>fcitx5</code>'s
+implementation regarding that password handling mechanism, so I might as well
+leave some interesting excepts here for explanation:</p>
+<pre class="giallo z-code"><code data-lang="cpp" data-name="clipboard.h"><span class="giallo-l"><span class="z-storage z-modifier">constexpr</span><span class="z-storage z-type"> char</span><span class="z-source"> PASSWORD_MIME_TYPE[] </span><span class="z-keyword z-operator">=</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">x-kde-passwordManagerHint</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation">;</span></span></code></pre><div class="note">find it also <a rel="external" href="https://github.com/fcitx/fcitx5/blob/39274f29116681a16c3a0b02b814369c6530df09/src/modules/clipboard/clipboard.h#L45">here on GitHub</a></div>
+<br>
+<pre class="giallo z-code"><code data-lang="cpp" data-name="waylandclipboard.cpp"><span class="giallo-l"><span class="z-storage z-modifier">static</span><span class="z-storage z-modifier"> const</span><span class="z-entity z-name z-scope-resolution z-cpp"> std</span><span class="z-punctuation">::</span><span class="z-source">string passwordHint </span><span class="z-keyword z-operator">=</span><span class="z-source"> PASSWORD_MIME_TYPE</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-keyword">if</span><span class="z-punctuation"> (</span><span class="z-source">mimeTypes_</span><span class="z-punctuation">.</span><span class="z-entity z-name z-function">contains</span><span class="z-punctuation">(</span><span class="z-source">passwordHint</span><span class="z-punctuation">)</span><span class="z-punctuation">)</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">    receiveDataForMime</span><span class="z-punctuation">(</span><span class="z-source">passwordHint</span><span class="z-punctuation">,</span><span class="z-punctuation"> [</span><span class="z-variable z-language z-this">this</span><span class="z-punctuation">,</span><span class="z-variable z-parameter"> callbackWrapper</span><span class="z-punctuation">]</span><span class="z-punctuation">(</span><span class="z-storage z-modifier">const</span><span class="z-entity z-name z-scope-resolution z-parameter z-cpp"> std</span><span class="z-punctuation">::</span><span class="z-entity z-name z-type">vector</span><span class="z-punctuation">&lt;</span><span class="z-storage z-type">char</span><span class="z-punctuation">&gt;</span><span class="z-storage z-modifier z-reference z-cpp"> &amp;</span><span class="z-variable z-parameter">data</span><span class="z-punctuation">)</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-keyword">        if</span><span class="z-punctuation"> (</span><span class="z-source">std</span><span class="z-punctuation">::</span><span class="z-entity z-name z-function">string_view</span><span class="z-punctuation">(</span><span class="z-source">data</span><span class="z-punctuation">.</span><span class="z-entity z-name z-function">data</span><span class="z-punctuation">(</span><span class="z-punctuation">)</span><span class="z-punctuation">,</span><span class="z-source"> data</span><span class="z-punctuation">.</span><span class="z-entity z-name z-function">size</span><span class="z-punctuation">(</span><span class="z-punctuation">)</span><span class="z-punctuation">)</span><span class="z-keyword z-operator"> ==</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">secret</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-keyword z-operator"> &amp;&amp;</span><span class="z-source"> ignorePassword_</span><span class="z-punctuation">)</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">            FCITX_CLIPBOARD_DEBUG</span><span class="z-punctuation">(</span><span class="z-punctuation">)</span><span class="z-keyword z-operator"> &lt;&lt;</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">Wayland clipboard contains password, ignore.</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-keyword">            return</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-punctuation">        }</span></span>
+<span class="giallo-l"><span class="z-source">        isPassword_ </span><span class="z-keyword z-operator">=</span><span class="z-constant z-language z-true"> true</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">        receiveRealData</span><span class="z-punctuation">(</span><span class="z-source">callbackWrapper</span><span class="z-punctuation">)</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-punctuation">    }</span><span class="z-punctuation">)</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-punctuation">}</span><span class="z-keyword"> else</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">    receiveRealData</span><span class="z-punctuation">(</span><span class="z-source">callbackWrapper</span><span class="z-punctuation">)</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-punctuation">}</span></span></code></pre><div class="note">find it also <a rel="external" href="https://github.com/fcitx/fcitx5/blob/39274f29116681a16c3a0b02b814369c6530df09/src/modules/clipboard/waylandclipboard.cpp#L166-L181">here on GitHub</a></div>
+<p>I should note that this behaviour only is the default one, but that <code>fcitx5</code> may
+be configured in several ways, either to ignore these records altogether, denote
+them with the aforementioned bullets, or let them be shown plainly.</p>
+<blockquote class="markdown-alert-tip">
+<p>On the topic of discretion with regards to data shown on screen, competent
+compositors also provide a way to block out some windows from your screen
+sharing activities.  See <a rel="external" href="https://github.com/YaLTeR/niri/wiki/Screencasting#block-out-windows">niri's
+documentation</a>
+for illustration.</p>
+</blockquote>
+<h2 id="anywhere-you-type"><a class="anchor-link" href="#anywhere-you-type" aria-label="Anchor link for: anywhere-you-type"></a>
+Anywhere you type</h2>
+<p>On the topic of passwords, another benefit of using <code>fcitx</code> is that it still
+is an <strong>input method</strong>, rather than a tool that pastes content.  From the
+perspective of the applications that receive your input, you're indeed just
+typing text in.</p>
+<p>Take the example of these utterly misguided—and hopefully
+antiquated—practice<sup class="footnote-reference" id="fr-dont-disallow-pasting-1"><a <a href="#fn-dont-disallow-pasting">6</a></sup>, whereby some <strong>password inputs
+would disallow being pasted into</strong>:</p>
+<pre class="giallo z-code"><code data-lang="html"><span class="giallo-l"><span class="z-punctuation z-definition z-tag">&lt;</span><span class="z-entity z-name z-tag">input</span><span class="z-entity z-other z-attribute-name"> type</span><span class="z-punctuation z-separator z-key-value">=</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-string">password</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-entity z-other z-attribute-name"> onpaste</span><span class="z-punctuation z-separator z-key-value">=</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-keyword">return</span><span class="z-constant z-language z-boolean"> false</span><span class="z-punctuation">;</span><span class="z-source">&quot;</span><span class="z-entity z-other z-attribute-name"> placeholder</span><span class="z-punctuation z-separator z-key-value">=</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-string">Passwords, please!</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation z-definition z-tag">&gt;</span></span></code></pre><!-- can't spread this over several lines, lest it gets wrapped into a <p> -->
+<input type="password" onpaste="return false" placeholder="Passwords, please!" style="display: block; background-color: var(--colour-surface0); border: 1px solid var(--colour-accent); padding: .5rem 1rem; color: var(--colour-text); width: var(--column-width); box-shadow: 0 3px 0 0 var(--colour-crust); margin: 0 auto 3px;">
+<div class="note">you shouldn't be able to <strong>paste</strong> anything in this <code>&lt;input&gt;</code></div>
+
+<p>No pasting allowed.  But if you're running <code>fcitx5</code>, you may just open up
+your trusty global clipboard machine and pour your precious secrets into my
+confidential ear—though if you'd be so kind as to rather mail me them, as I
+don't operate a <a rel="external" href="https://en.wikipedia.org/wiki/Keystroke_logging">keylogger</a>
+here...</p>
+<p>Though pretty neat, this may come "at the cost" to what a more general-purpose
+"clipboard history manager" may give you: <strong><code>fcitx5</code> only handles textual data</strong>
+through its <code>clipboard</code> add-on.  In reality of course, no feature was sacrificed
+for this one: what we have here is is only the corollary to <code>fcitx5</code> still
+being, at its core, an <abbr title="IM" font="mono"><strong>Input Method</strong></abbr>
+provider—a pretty good one.</p>
+  <section class="footnotes" aria-label="Footnotes">
+      <ol class="footnotes-list">
+<li id="fn-wayland-finicky">
+<p>Although "applications being finicky" under Wayland will
+come at no surprise to anyone, I will note that it mostly has to do with running
+a lot of <abbr title="X Window System version 11"><code>X11</code></abbr> applications
+actually <strong>through a compatibility layer</strong>, and <a rel="external" href="https://www.youtube.com/watch?v=MShbP3OpASA"><code>NVIDIA</code> notoriously having
+been an execrable collaborator</a> in
+helping the Linux kernel developers integrate their hardware into the ecosystem. <a href="#fr-wayland-finicky-1">↩</a></p>
+</li>
+<li id="fn-fcitx-5">
+<p><code>fcitx5</code> is a fairly recent project (started around 2019) led by the
+same original author, a <em>complete rewrite</em> of its predecessor, infusing new life
+into <code>fcitx</code> notably in including first-class Wayland support, a vastly more
+modern codebase, greater performance (reportedly), and some unified theming and
+configuration tools. <a href="#fr-fcitx-5-1">↩</a></p>
+</li>
+
+<li id="fn-good-luck">
+<p>I truly mean this in good faith, and you're obviously much welcome
+to stay and join us—I only jest here, I have no qualms against users of any
+platform.  Plus, in all honestly, I have absolutely no doubt that the very same
+capabilities are available on these as well. <a href="#fr-good-luck-1">↩</a></p>
+</li>
+<li id="fn-not-really-not-directly">
+<p>Not really.  Not directly.  In fact, nothing ever
+<em>"writes to it"</em>—the original authors didn't design them for machines with
+32GB or <abbr title="Random Access Memory"><code>RAM</code></abbr> to waste away on such
+frivolities.  There's a lot more to unpack here, but that'll have to be the
+object of another blog post altogether. <a href="#fr-not-really-not-directly-1">↩</a> <a href="#fr-not-really-not-directly-2">↩2</a></p>
+</li>
+<li id="fn-input-vs-inputted">
+<p>I'd use <em>"input"</em> as the past participle of the verb <em>"to
+input"</em>, just like I'd use <em>"(broad)cast"</em> over <em>"(broad)casted"</em>, but the few
+authoritative dictionaries I consult, and <a rel="external" href="https://en.wikipedia.org/wiki/Geoff_Lindsey">the one linguist whose influence is
+greatest</a> on my English nowadays,
+are definitely aligned on the idea that <strong>linguistics is descriptive rather than
+prescriptive</strong>—I went with "put in" to ruffle no feathers. <a href="#fr-input-vs-inputted-1">↩</a></p>
+</li>
+<li id="fn-dont-disallow-pasting">
+<p>Its main achievement is in <strong>ensuring you're using
+passwords you remember</strong>, and that very principle is indeed becoming antiquated
+quite fast.  It's not that keeping your password nowhere but in your head isn't
+safe—that'd be safe alright, even you are subject to losing access—it's that
+this practice encourages <strong>reusing passwords, or perhaps familiar patterns in
+designing them</strong>: the very fact there's a <strong>design</strong> to your passwords is the
+vulnerability.<br>
+Although, come to think of it, <a rel="external" href="https://en.wikipedia.org/wiki/Diceware">diceware
+passphrases</a> are indeed quite a good
+idea, and not too much of a chore to either remember or type.  Maybe the
+obsolescence is obsolete.  What goes around comes around! <a href="#fr-dont-disallow-pasting-1">↩</a></p>
+</li>
+</ol>
+    </section>
+  <h2 id="cited-tools"><a class="anchor-link" href="#cited-tools" aria-label="Anchor link for: cited-tools"></a>
+Referenced tools</h2>
+  <div class="cited-tools">
+    
+<table class="tool mono">
+  <tr><th colspan="2"><strong>fcitx5</strong></th></tr>
+  <tr>
+    
+        <td colspan="2">from <a href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;fcitx5">extra&#x2F;fcitx5</a></td>
+    
+  </tr>
+  <tr>
+    <td><a href="https:&#x2F;&#x2F;fcitx-im.org&#x2F;wiki&#x2F;Fcitx_5">manual</a></td>
+    <td><a href="https:&#x2F;&#x2F;github.com&#x2F;fcitx&#x2F;fcitx5">repository</a></td>
+  </tr>
+</table>
+
+<table class="tool mono">
+  <tr><th colspan="2"><strong>keepassxc</strong></th></tr>
+  <tr>
+    
+        <td colspan="2">from <a href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;keepassxc">extra&#x2F;keepassxc</a></td>
+    
+  </tr>
+  <tr>
+    <td><a href="https:&#x2F;&#x2F;keepassxc.org&#x2F;docs&#x2F;#command-line">manual</a></td>
+    <td><a href="https:&#x2F;&#x2F;github.com&#x2F;keepassxreboot&#x2F;keepassxc">repository</a></td>
+  </tr>
+</table>
+
+  </div>
+  
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <span>&lt;<a href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>&gt;</span>
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>

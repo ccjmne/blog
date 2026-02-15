@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-2.woff2" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/work-3.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/fira-2.woff2') format('woff2'); }
+</style><link rel="stylesheet" href="https://ccjmne.sh/blog/base.css">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-light.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-dark.css"  media="(prefers-color-scheme: dark)">
+    
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+>
+      <a href="https://ccjmne.sh/blog">Home</a>
+      <details class="dropdown" max-sm>
+        <summary><strong>Articles</strong></summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual"><strong>Flight manual</strong></a>
+          <a href="https://ccjmne.sh/blog/tags">By tags</a>
+          <a href="https://ccjmne.sh/blog/ramblings">Ramblings</a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual" min-sm><strong>Flight manual</strong></a>
+      <a href="https://ccjmne.sh/blog/tags"          min-sm>By tags</a>
+      <a href="https://ccjmne.sh/blog/ramblings"     min-sm>Ramblings</a>
+      <a href="https://ccjmne.sh/blog/colophon"            >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main><h1><span class="link-title" 
+  style="view-transition-name: view-docker-dive"
+>Explore Your Docker Images with Dive</span></h1><ul class="infobar "><li><time>December 12, 2025</time></li><li>7-minute read</li>
+    <li>tagged
+      <a href="https://ccjmne.sh/blog/tags/cli">cli</a>, <a href="https://ccjmne.sh/blog/tags/docker">docker</a></li></ul>
+<details class="hi toc">
+  <summary>Table of contents</summary>
+  <ul><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/docker-dive/#back-on-topic">Back to the topic</a><ul>
+        
+        <li><a href="https://ccjmne.sh/blog/flight-manual/docker-dive/#a-quick-overview">A quick overview</a></li>
+        <li><a href="https://ccjmne.sh/blog/flight-manual/docker-dive/#usage-and-configuration">Usage and configuration</a></li></ul></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/docker-dive/#not-great-yet-still-the-best">Not great yet still the best</a></li>
+    <li><a href="#cited-tools">Referenced tools</a></li>
+    
+  </ul>
+</details>
+<article><blockquote class="markdown-alert-note">
+<p><strong>This customary first introductory section is far too long and beside the
+point</strong>.  But you may jump right <a href="https://ccjmne.sh/blog/flight-manual/docker-dive/#back-on-topic">back on topic</a> without
+losing anything of any technical relevance to this article.</p>
+</blockquote>
+<p>Some months ago, I was <strong>refactoring some 20+ years of disparate
+configuration</strong>, put together and gradually defaced by several teams over two
+decades, without any official ownership, documentation, coordination, nor even
+(evidently) communication or a shared vision.</p>
+<p>Ah, and ideally it'd work just as well across several versions of the
+mad, multilayered reverse-proxy/load-balancer/web-server these sprawling
+and several configuration repositories were presuming to pilot: <a rel="external" href="https://httpd.apache.org/">Apache
+<code>HTTPD</code></a>.</p>
+<p>Get this: our development, production and staging environments are not in any
+remote sense of parity, neither by:</p>
+<ul>
+<li>the number of layers of reverse proxies,</li>
+<li>the versions of said proxies,</li>
+<li>their enabled modules,</li>
+<li>their configuration,</li>
+<li>their underlying operating systems...</li>
+</ul>
+<p>Oh and, we can't install the same version across all environments, 'cause some
+of them run <code>OS</code>es so ancient their <code>glibc</code> can't compile anything vaguely
+contemporary, such as a version of <a rel="external" href="https://openssl-library.org/">OpenSSL</a>
+that accepts <code>ssh-rsa</code> keys.  And boy, is the retirement of these servers an
+impenetrably complex endeavour of its own.</p>
+<p>Long story short, it wasn't your run-of-the-mill refactoring job, and certainly
+nothing that can be <code>LLM</code>'d away.  The task was deemed impossible, so when it
+also acquired the <em>essential</em> status, yours truly was let loose.</p>
+<h2 id="back-on-topic"><a class="anchor-link" href="#back-on-topic" aria-label="Anchor link for: back-on-topic"></a>
+Back to the topic</h2>
+<p>Since pretty much all of that Apache <code>HTTPD</code> business pre-dates the idea of
+containerisation (or that of complete and accurate documentation, it seems), at
+some point came the question of where the <em>!@#$</em> are the bits and pieces in each
+of these few third-party <a rel="external" href="https://www.docker.com/">Docker</a> images we had been
+using.</p>
+<p>You could <code>docker exec sh</code> and explore in there, but there's quite a bit of
+places to look into and it's not the ideal way to get a good overview; and you
+could perform some tool-assisted search, but you may not quite be sure what the
+files you'd be looking for would be called exactly.  You could also read through
+the various <code>Dockerfile</code>s, which reference other base images, which in turn
+reference other base images, <em>et cet.</em></p>
+<p>Or you could put on your <abbr title="(dated) A kind of diving
+suit">scaphander</abbr> and interactively explore the contents of each layer of
+your Docker images with <a rel="external" href="https://github.com/wagoodman/dive"><code>dive</code></a>.</p>
+<h3 id="a-quick-overview"><a class="anchor-link" href="#a-quick-overview" aria-label="Anchor link for: a-quick-overview"></a>
+A quick overview</h3>
+<p>Let's take a quick look at its <code>UI</code> that I semi-faithfully re-created below:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">dive</span><span class="z-string"> httpd:2.4</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><strong>│ Layers ├────────────────────────────────────────────</strong> <strong>│ Current Layer Contents ├─────────────</strong>
+Cmp   Size  Command                                    ├── bin → usr/bin
+<span class="term-fg34 term-inv">  </span>   79 MB  FROM blobs                                 ├── boot
+<span class="term-fg34 term-inv">  </span>     0 B  RUN /bin/sh -c mkdir -p "$HTTPD_PREFIX"    ├── dev
+<span class="term-fg34 term-inv">  </span>     0 B  WORKDIR /usr/local/apache2                 <span class="term-fg33">├── etc</span>
+<span class="term-fg32 term-inv">  </span> <span class="term-inv"> 5.6 MB  RUN /bin/sh -c set -eux; apt-get install -</span> │   ├── .pwd.lock
+     32 MB  RUN /bin/sh -c set -eux; savedAptMark="$(a │   ├─⊕ alternatives
+     138 B  COPY httpd-foreground /usr/local/bin/ # bu │   ├─⊕ apt
+                                                       │   ├── bash.bashrc
+                                                       │   ├── bindresvport.blacklist
+<strong>│ Layer Details ├─────────────────────────────────────</strong> │   <span class="term-fg32">├─⊕ ca-certificates</span>
+                                                       │   <span class="term-fg32">├── ca-certificates.conf</span>
+<strong>Tags:</strong>   <strong>(unavailable)</strong>                                  │   ├─⊕ cron.daily
+<strong>Id:</strong>     blobs                                          │   ├── debconf.conf
+<strong>Size:</strong>   5.6 MB                                         │   ├── debian_version
+<strong>Digest:</strong> sha256:5d3f0156053276adafa015f05477b6d5bbd48d3 │   ├─⊕ default
+<strong>Command:</strong>                                               │   ├─⊕ dpkg
+RUN /bin/sh -c set -eux;     apt-get install --update  │   ├── environment
+  ca-certificates         libaprutil1-ldap         lib │   ├── fstab
+                                                       │   ├── gai.conf
+<strong>│ Image Details ├─────────────────────────────────────</strong> │   ├── group
+                                                       │   ├── group-
+<strong>Image name:</strong> <strong>httpd:2.4</strong>                                  │   ├── gshadow
+<strong>Total Image size:</strong> 117 MB                               │   ├── host.conf
+<strong>Potential wasted space:</strong> 4.0 MB                         │   ├── hostname
+<strong>Image efficiency score:</strong> 98 %                           │   ├── issue
+                                                       │   ├── issue.net
+<strong>Count   Total Space  Path</strong>                              │   ├─⊕ kernel
+    2        1.6 MB  /var/cache/debconf/templates.dat  │   <span class="term-fg33">├── ld.so.cache</span>
+<span class="term-inv">▏^C Quit ▏^W Switch view ▏^F Filter ▏^Space Collapse all dir ▏^E Extract File ▏^O Toggle sort </span>
+</code></pre>
+<p>Not too shabby!  You may navigate between successive layers with the arrow
+keys (or Vim-like bindings), and see, with each layer, which files were added,
+modified or deleted with some colour-coding in the right pane.</p>
+<p>As you can see, <strong>it exposes more information here and there</strong>, but the entire
+thing is wobbly enough that I'd rather stick with the purpose it serves: I
+haven't had the occasion to use it for much else and do not believe there's much
+value in describing to you the rest of the mostly inert <code>UI</code>.</p>
+<p>However, <strong>I definitely recommend that you take a look at their main
+<a rel="external" href="https://github.com/wagoodman/dive"><code>README</code></a> page</strong>, which features primarily
+a screen recording of the tool in action, and goes vaguely into some additional
+scenarios where it may come in handy.</p>
+<h3 id="usage-and-configuration"><a class="anchor-link" href="#usage-and-configuration" aria-label="Anchor link for: usage-and-configuration"></a>
+Usage and configuration</h3>
+<p>Glancing at the bottom, you'll find a non-exhaustive <strong>collection of keyboard
+shortcuts to help you navigate the interface and perform some actions</strong>, such as
+extracting a file from a layer to your host system for further processing.<br></p>
+<blockquote class="markdown-alert-tip">
+<p>Well, the file extraction procedure of <code>dive</code> merely <a rel="external" href="https://github.com/wagoodman/dive/issues/620">results in a systematic
+segmentation fault</a>; but hey,
+you can always perform a quick:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">docker</span><span class="z-string"> exec</span><span class="z-punctuation z-definition z-variable"> $</span><span class="z-source">CONTAINER_NAME</span><span class="z-string"> cat</span><span class="z-string"> /path/to/some/file</span><span class="z-keyword z-operator"> &gt;</span><span class="z-string"> extracted-file</span><span class="z-source"> </span></span></code></pre></blockquote>
+<p>It also offers some way of configuration, although that may at times cause more
+headaches than it solves, in notably its key-binding library being stunningly
+incapable, with exceedingly poor documentation and offering the very worst
+failure handling ever conceived: altogether silently disabling bindings it
+doesn't support or understand.</p>
+<p>Nonetheless, here's what I settled on, to make the navigation somewhat more
+Vim-diomatic, and the file tree ever-so-slightly more palatable:</p>
+<pre class="giallo z-code"><code data-lang="yaml" data-name="$XDG_CONFIG_HOME/dive/config.yaml"><span class="giallo-l"><span class="z-entity z-name z-tag z-yaml">k</span><span class="z-entity z-name z-tag z-yaml">eybinding</span><span class="z-punctuation z-separator z-key-value">:</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag z-yaml">  t</span><span class="z-entity z-name z-tag z-yaml">oggle-view</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-string"> c</span><span class="z-string">trl+w</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag z-yaml">f</span><span class="z-entity z-name z-tag z-yaml">iletree</span><span class="z-punctuation z-separator z-key-value">:</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag z-yaml">  c</span><span class="z-entity z-name z-tag z-yaml">ollapse-dir</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-constant z-language z-boolean"> true</span></span></code></pre><h2 id="not-great-yet-still-the-best"><a class="anchor-link" href="#not-great-yet-still-the-best" aria-label="Anchor link for: not-great-yet-still-the-best"></a>
+Not great yet still the best</h2>
+<p>In any case, <code>dive</code> is a simple tool for a simple job.  It doesn't do that job
+too well, but it does it well enough to be of great relief when you need to do
+that one fairly niche task it addresses.</p>
+<p>Unfortunately, <code>dive</code> is somewhat buggy and inelegant at times: you cannot, for
+instance, have an active file filter while still navigating layers, <a rel="external" href="https://github.com/wagoodman/dive/issues/627">or even the
+file tree itself</a>, and it presents
+quite a few other very rough edges are in the way of a great experience.</p>
+<p><a rel="external" href="https://github.com/wagoodman/dive">Its <code>README</code></a> disclaims:</p>
+<blockquote>
+<p><strong>This is beta quality!</strong> Feel free to submit an issue if you want a new
+feature or find a bug :)</p>
+</blockquote>
+<p>To make matters worse, while the <a rel="external" href="https://github.com/wagoodman/dive/issues/568">project is officially not
+abandoned</a>, that doubt is
+routinely and understandably expressed among the community.</p>
+<p>Despite all that, until somebody comes around to rebuild the whole thing into
+a solid and sharp tool, <strong><code>dive</code> is still without a doubt the most interesting
+option to interactively explore your Docker images' layers</strong>.</p>
+<p>Will you need it often?  Probably not.  If you did, you'd know of it already.
+In my opinion, the ultimate punch it can throw to have it be adopted is its
+ability to run <strong>without being installed</strong>:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-storage z-type">alias</span><span class="z-source"> dive</span><span class="z-keyword z-operator">=</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-string">docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock docker.io/wagoodman/dive</span><span class="z-punctuation z-definition z-string">&quot;</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">dive</span><span class="z-keyword z-operator"> &lt;</span><span class="z-string">imag</span><span class="z-source">e</span><span class="z-keyword z-operator">&gt;</span></span></code></pre>
+<p>I say, just add that <code>alias</code>, remember vaguely that it's called "dive", and on
+that one fated day you'll be looking to do one of the things it enables, you
+might be pretty pleased with yourself.</p>
+
+  <h2 id="cited-tools"><a class="anchor-link" href="#cited-tools" aria-label="Anchor link for: cited-tools"></a>
+Referenced tools</h2>
+  <div class="cited-tools">
+    
+<table class="tool mono">
+  <tr><th colspan="2"><strong>dive</strong></th></tr>
+  <tr>
+    
+        <td colspan="2">from <a href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;dive">extra&#x2F;dive</a></td>
+    
+  </tr>
+  <tr>
+    <td><a href="https:&#x2F;&#x2F;github.com&#x2F;wagoodman&#x2F;dive">manual</a></td>
+    <td><a href="https:&#x2F;&#x2F;github.com&#x2F;wagoodman&#x2F;dive">repository</a></td>
+  </tr>
+</table>
+
+<table class="tool mono">
+  <tr><th colspan="2"><strong>docker</strong></th></tr>
+  <tr>
+    
+        <td colspan="2">from <a href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;docker">extra&#x2F;docker</a></td>
+    
+  </tr>
+  <tr>
+    <td><a href="https:&#x2F;&#x2F;docs.docker.com&#x2F;">manual</a></td>
+    <td><a href="https:&#x2F;&#x2F;github.com&#x2F;moby&#x2F;moby">repository</a></td>
+  </tr>
+</table>
+
+  </div>
+  
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <span>&lt;<a href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>&gt;</span>
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-2.woff2" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/work-3.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/fira-2.woff2') format('woff2'); }
+</style><link rel="stylesheet" href="https://ccjmne.sh/blog/base.css">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-light.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-dark.css"  media="(prefers-color-scheme: dark)">
+    
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+>
+      <a href="https://ccjmne.sh/blog">Home</a>
+      <details class="dropdown" max-sm>
+        <summary><strong>Articles</strong></summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual"><strong>Flight manual</strong></a>
+          <a href="https://ccjmne.sh/blog/tags">By tags</a>
+          <a href="https://ccjmne.sh/blog/ramblings">Ramblings</a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual" min-sm><strong>Flight manual</strong></a>
+      <a href="https://ccjmne.sh/blog/tags"          min-sm>By tags</a>
+      <a href="https://ccjmne.sh/blog/ramblings"     min-sm>Ramblings</a>
+      <a href="https://ccjmne.sh/blog/colophon"            >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main><h1><span class="link-title" 
+  style="view-transition-name: view-javascript-generator-function"
+>JavaScript's generator <code>function*</code></span></h1><ul class="infobar "><li><time>September 02, 2025</time></li><li>7-minute read</li>
+    <li>tagged
+      <a href="https://ccjmne.sh/blog/tags/javascript">javascript</a>, <a href="https://ccjmne.sh/blog/tags/es6">es6</a></li></ul>
+<details class="hi toc">
+  <summary>Table of contents</summary>
+  <ul><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/javascript-generator-function/#not-just-multiple-values">Not just multiple values</a><ul>
+        
+        <li><a href="https://ccjmne.sh/blog/flight-manual/javascript-generator-function/#defining-a-generator">Defining a generator</a></li></ul></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/javascript-generator-function/#under-the-hood">Under the hood: an iterable iterator</a><ul>
+        
+        <li><a href="https://ccjmne.sh/blog/flight-manual/javascript-generator-function/#the-iterator-protocol">The iterator protocol</a></li>
+        <li><a href="https://ccjmne.sh/blog/flight-manual/javascript-generator-function/#the-iterable-interface">The iterable interface</a></li></ul></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/javascript-generator-function/#not-just-for-of">Not just for..of</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/javascript-generator-function/#a-practical-example">A practical example</a></li>
+  </ul>
+</details>
+<article><p><a rel="external" href="https://tc39.es/ecma262/">ECMAScript</a> ("JavaScript" for the
+uninitiated)<sup class="footnote-reference" id="fr-ecmascript-1"><a href="#fn-ecmascript">1</a></sup> catches quite a bit of flak for
+numerous reasons online, but it can boast some truly spectacular
+expressiveness, possibly somewhat unmatched when paired with savvy
+<a rel="external" href="https://www.typescriptlang.org/">TypeScript</a> sauce that would make a <abbr
+title="the Rust connoisseurs">Rustacean</abbr> blush.</p>
+<p>You've no doubt come across the destructuring syntax to <em>effectively return
+multiple values</em> from a single function, but we can do even better: we can
+<strong>return multiple times</strong> from the same invocation.</p>
+<p>Possibly mad yet patently beautiful, let's explore the <strong>generator</strong>.</p>
+<span id="continue-reading"></span><h2 id="not-just-multiple-values"><a class="anchor-link" href="#not-just-multiple-values" aria-label="Anchor link for: not-just-multiple-values"></a>
+Not just multiple values</h2>
+<p>Introduced in <a rel="external" href="https://262.ecma-international.org/6.0/">ECMAScript 2015
+(<code>ES6</code>)</a>, the generator <code>function*</code>
+lets you yield values <em>on demand</em>, rather than computing them all at once.
+It works with the introduction of a new keyword, <code>yield</code>, which <strong>pauses and
+resumes the function execution</strong>.  The one practical difference between an
+<a href="https://ccjmne.sh/blog/flight-manual/javascript-generator-function/#under-the-hood"><code>iterator</code> (what the generator constructs)</a> and a regular
+collection (like an <code>Array</code>) is that values are only computed when they're
+requested: you may generate an infinite sequence of values, for instance.</p>
+<h3 id="defining-a-generator"><a class="anchor-link" href="#defining-a-generator" aria-label="Anchor link for: defining-a-generator"></a>
+Defining a generator</h3>
+<p>A generator function is declared using the <code>function*</code> syntax. Inside, the
+<code>yield</code> keyword is used to emit values one at a time:</p>
+<pre class="giallo z-code"><code data-lang="javascript"><span class="giallo-l"><span class="z-storage z-type">function</span><span class="z-keyword">*</span><span class="z-entity z-name z-function"> countToThree</span><span class="z-punctuation">(</span><span class="z-punctuation">)</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-keyword">  yield</span><span class="z-constant z-numeric"> 1</span></span>
+<span class="giallo-l"><span class="z-keyword">  yield</span><span class="z-constant z-numeric"> 2</span></span>
+<span class="giallo-l"><span class="z-keyword">  yield</span><span class="z-constant z-numeric"> 3</span></span>
+<span class="giallo-l"><span class="z-punctuation">}</span></span></code></pre>
+<p>You may also use the <code>function*</code> expression:</p>
+<pre class="giallo z-code"><code data-lang="javascript"><span class="giallo-l"><span class="z-storage z-type">const</span><span class="z-entity z-name z-function"> countToThree</span><span class="z-keyword z-operator"> =</span><span class="z-storage z-type"> function</span><span class="z-keyword">*</span><span class="z-punctuation"> (</span><span class="z-punctuation">)</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-keyword">  yield</span><span class="z-constant z-numeric"> 1</span></span>
+<span class="giallo-l"><span class="z-keyword">  yield</span><span class="z-constant z-numeric"> 2</span></span>
+<span class="giallo-l"><span class="z-keyword">  yield</span><span class="z-constant z-numeric"> 3</span></span>
+<span class="giallo-l"><span class="z-punctuation">}</span></span></code></pre>
+<p>Or even extract its constructor to create such functions dynamically:</p>
+<pre class="giallo z-code"><code data-lang="javascript"><span class="giallo-l"><span class="z-storage z-type">const</span><span class="z-entity z-name z-function"> GeneratorFunction</span><span class="z-keyword z-operator"> =</span><span class="z-storage z-type"> function</span><span class="z-keyword">*</span><span class="z-punctuation"> (</span><span class="z-punctuation">)</span><span class="z-punctuation"> {</span><span class="z-punctuation">}</span><span class="z-punctuation z-accessor">.</span><span class="z-source">constructor</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-storage z-type">const</span><span class="z-variable z-other z-constant z-js"> countToThree</span><span class="z-keyword z-operator"> =</span><span class="z-keyword z-operator z-new"> new</span><span class="z-entity z-name z-function"> GeneratorFunction</span><span class="z-source">(</span><span class="z-punctuation z-definition z-string">`</span></span>
+<span class="giallo-l"><span class="z-string">  yield 1</span></span>
+<span class="giallo-l"><span class="z-string">  yield 2</span></span>
+<span class="giallo-l"><span class="z-string">  yield 3</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">`</span><span class="z-source">)</span></span></code></pre><div class="note">oh yeah, JavaScript has no problem (de)serialising <em>code</em> on the fly: <a rel="external" href="https://en.wikipedia.org/wiki/Quine_(computing)">quine</a> enthusiasts, take note!</div>
+<p>There is however <strong>no equivalent arrow function syntax</strong> for generators.</p>
+<h2 id="under-the-hood"><a class="anchor-link" href="#under-the-hood" aria-label="Anchor link for: under-the-hood"></a>
+Under the hood: an <code>iterable iterator</code></h2>
+<p>Calling a generator function returns an
+<a rel="external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols"><code>iterator</code></a>
+object.  Well, it even is an <em><code>iterable</code></em><code> iterator</code>, like most will be.</p>
+<h3 id="the-iterator-protocol"><a class="anchor-link" href="#the-iterator-protocol" aria-label="Anchor link for: the-iterator-protocol"></a>
+The <code>iterator</code> protocol</h3>
+<p>An <code>iterator</code> is an instance providing a <code>next()</code> method that returns an object
+with two properties:</p>
+<ul>
+<li><code>value</code>, the yielded value, and</li>
+<li><code>done</code>, a boolean indicating whether the generator has completed.</li>
+</ul>
+<p>Technically, both properties are optional: you may very well yield <code>undefined</code>
+at any time, and the omission of <code>done</code> is equivalent to having it be <code>false</code>.</p>
+<p>An <code>iterator</code> is fairly simple to use: call its <code>next()</code> method to get the
+subsequent value; when <code>done</code> is <code>true</code>, the <code>iterator</code> is exhausted.</p>
+<p>In the case of a generator <code>function*</code>, the first call to <code>next()</code> executes the
+function until the first <code>yield</code>.  Subsequent calls to <code>next()</code> will resume
+execution until the next <code>yield</code> instruction, or until the function returns (or
+finishes), at which point it'll systematically reply with <code>done</code> and no further
+values are produced.</p>
+<pre class="giallo z-code"><code data-lang="javascript"><span class="giallo-l"><span class="z-storage z-type">const</span><span class="z-variable z-other z-constant z-js"> counter</span><span class="z-keyword z-operator"> =</span><span class="z-entity z-name z-function"> countToThree</span><span class="z-source">(</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-source">console</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">log</span><span class="z-source">(</span><span class="z-source">counter</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">next</span><span class="z-source">(</span><span class="z-source">)</span><span class="z-source">)</span><span class="z-punctuation z-definition z-comment"> //</span><span class="z-comment"> { value: 1,         done: false }</span></span>
+<span class="giallo-l"><span class="z-source">console</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">log</span><span class="z-source">(</span><span class="z-source">counter</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">next</span><span class="z-source">(</span><span class="z-source">)</span><span class="z-source">)</span><span class="z-punctuation z-definition z-comment"> //</span><span class="z-comment"> { value: 2,         done: false }</span></span>
+<span class="giallo-l"><span class="z-source">console</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">log</span><span class="z-source">(</span><span class="z-source">counter</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">next</span><span class="z-source">(</span><span class="z-source">)</span><span class="z-source">)</span><span class="z-punctuation z-definition z-comment"> //</span><span class="z-comment"> { value: 3,         done: false }</span></span>
+<span class="giallo-l"><span class="z-source">console</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">log</span><span class="z-source">(</span><span class="z-source">counter</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">next</span><span class="z-source">(</span><span class="z-source">)</span><span class="z-source">)</span><span class="z-punctuation z-definition z-comment"> //</span><span class="z-comment"> { value: undefined, done: true }</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment">//</span><span class="z-comment"> You may keep calling next() after completion:</span></span>
+<span class="giallo-l"><span class="z-source">console</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">log</span><span class="z-source">(</span><span class="z-source">counter</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">next</span><span class="z-source">(</span><span class="z-source">)</span><span class="z-source">)</span><span class="z-punctuation z-definition z-comment"> //</span><span class="z-comment"> { value: undefined, done: true }</span></span></code></pre>
+<p>Note that the <code>value</code> after exhaustion is typically <code>undefined</code>, unless you
+explicitly <code>return</code> a value from the generator; however, know that <strong>this final
+value is disregarded entirely by standard API constructs such as <code>for..of</code> loops
+and the spread operator</strong>:</p>
+<pre class="giallo z-code"><code data-lang="javascript"><span class="giallo-l"><span class="z-storage z-type">function</span><span class="z-keyword">*</span><span class="z-entity z-name z-function"> countToThreeAndReturn</span><span class="z-punctuation">(</span><span class="z-punctuation">)</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-keyword">  yield</span><span class="z-constant z-numeric"> 1</span></span>
+<span class="giallo-l"><span class="z-keyword">  yield</span><span class="z-constant z-numeric"> 2</span></span>
+<span class="giallo-l"><span class="z-keyword">  yield</span><span class="z-constant z-numeric"> 3</span></span>
+<span class="giallo-l"><span class="z-keyword">  return</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">tada</span><span class="z-punctuation z-definition z-string">&#39;</span></span>
+<span class="giallo-l"><span class="z-punctuation">}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-storage z-type">const</span><span class="z-variable z-other z-constant z-js"> counter</span><span class="z-keyword z-operator"> =</span><span class="z-entity z-name z-function"> countToThreeAndReturn</span><span class="z-source">(</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-source">console</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">log</span><span class="z-source">(</span><span class="z-source">counter</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">next</span><span class="z-source">(</span><span class="z-source">)</span><span class="z-source">)</span><span class="z-punctuation z-definition z-comment"> //</span><span class="z-comment"> { value: 1,      done: false }</span></span>
+<span class="giallo-l"><span class="z-source">console</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">log</span><span class="z-source">(</span><span class="z-source">counter</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">next</span><span class="z-source">(</span><span class="z-source">)</span><span class="z-source">)</span><span class="z-punctuation z-definition z-comment"> //</span><span class="z-comment"> { value: 2,      done: false }</span></span>
+<span class="giallo-l"><span class="z-source">console</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">log</span><span class="z-source">(</span><span class="z-source">counter</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">next</span><span class="z-source">(</span><span class="z-source">)</span><span class="z-source">)</span><span class="z-punctuation z-definition z-comment"> //</span><span class="z-comment"> { value: 3,      done: false }</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment">//</span><span class="z-comment"> Here, the final &#39;tada&#39; is provided the first time *done* is true:</span></span>
+<span class="giallo-l"><span class="z-source">console</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">log</span><span class="z-source">(</span><span class="z-source">counter</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">next</span><span class="z-source">(</span><span class="z-source">)</span><span class="z-source">)</span><span class="z-punctuation z-definition z-comment"> //</span><span class="z-comment"> { value: &#39;tada&#39;, done: true }</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment">//</span><span class="z-comment"> Subsequent calls yield *undefined*:</span></span>
+<span class="giallo-l"><span class="z-source">console</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">log</span><span class="z-source">(</span><span class="z-source">counter</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">next</span><span class="z-source">(</span><span class="z-source">)</span><span class="z-source">)</span><span class="z-punctuation z-definition z-comment"> //</span><span class="z-comment"> { value: undefined, done: true }</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment">//</span><span class="z-comment"> The final &#39;tada&#39; is *ignored*:</span></span>
+<span class="giallo-l"><span class="z-source">console</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">log</span><span class="z-source">(</span><span class="z-keyword z-operator">...</span><span class="z-entity z-name z-function">countToThreeAndReturn</span><span class="z-source">(</span><span class="z-source">)</span><span class="z-source">)</span><span class="z-punctuation z-definition z-comment"> //</span><span class="z-comment"> 1 2 3</span></span></code></pre><div class="note">the (oft left undefined) final <code>return</code> value is <strong>ignored</strong> by consumers of <code>iterable</code></div>
+<p>... Which makes for a neat segue into the next section.</p>
+<h3 id="the-iterable-interface"><a class="anchor-link" href="#the-iterable-interface" aria-label="Anchor link for: the-iterable-interface"></a>
+The <code>iterable</code> interface</h3>
+<p>An <code>iterable</code> is an instance providing a <code>[Symbol.iterator]()</code><sup class="footnote-reference" id="fr-symbols-1"><a href="#fn-symbols">2</a></sup>
+method that returns an <code>iterator</code>.  This is essentially JavaScript's take on
+composition, a superior alternative to inheritance.</p>
+<p>In practice, the <code>iterator</code> protocol is virtually never implemented without also
+providing an <code>iterable</code> interface, as most (all?) standard syntaxes and <code>API</code>s
+are designed to work with <code>iterable</code>s rather than raw <code>iterator</code>s.</p>
+<p>Generator <code>function*</code>s return values that are <code>iterable</code>.  As such, you can (for
+example) use them in <code>for..of</code> loops:</p>
+<pre class="giallo z-code"><code data-lang="javascript"><span class="giallo-l"><span class="z-keyword">for</span><span class="z-source"> (</span><span class="z-storage z-type">const</span><span class="z-variable z-other z-constant z-js"> num</span><span class="z-keyword z-operator z-expression z-of z-js"> of</span><span class="z-entity z-name z-function"> countToThree</span><span class="z-source">(</span><span class="z-source">)</span><span class="z-source">)</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-source">  console</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">log</span><span class="z-source">(</span><span class="z-variable z-other z-readwrite">num</span><span class="z-source">)</span><span class="z-punctuation z-definition z-comment"> //</span><span class="z-comment"> 1, then 2, then 3</span></span>
+<span class="giallo-l"><span class="z-punctuation">}</span></span></code></pre>
+<p>Note that <code>Array</code>s, <code>String</code>s, <code>Map</code>s, <code>Set</code>s, and possibly other built-in
+types also implement the <code>iterable</code> interface<sup class="footnote-reference" id="fr-object-not-iterable-1"><a href="#fn-object-not-iterable">3</a></sup>.</p>
+<pre class="giallo z-code"><code data-lang="javascript"><span class="giallo-l"><span class="z-keyword">for</span><span class="z-source"> (</span><span class="z-storage z-type">const</span><span class="z-variable z-other z-constant z-js"> num</span><span class="z-keyword z-operator z-expression z-of z-js"> of</span><span class="z-source"> [</span><span class="z-constant z-numeric">1</span><span class="z-punctuation">,</span><span class="z-constant z-numeric"> 2</span><span class="z-punctuation">,</span><span class="z-constant z-numeric"> 3</span><span class="z-source">]</span><span class="z-source">)</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-source">  console</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">log</span><span class="z-source">(</span><span class="z-variable z-other z-readwrite">num</span><span class="z-source">)</span><span class="z-punctuation z-definition z-comment"> //</span><span class="z-comment"> 1, then 2, then 3</span></span>
+<span class="giallo-l"><span class="z-punctuation">}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-keyword">for</span><span class="z-source"> (</span><span class="z-storage z-type">const</span><span class="z-variable z-other z-constant z-js"> char</span><span class="z-keyword z-operator z-expression z-of z-js"> of</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">abc</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-source">)</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-source">  console</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">log</span><span class="z-source">(</span><span class="z-variable z-other z-readwrite">char</span><span class="z-source">)</span><span class="z-punctuation z-definition z-comment"> //</span><span class="z-comment"> &#39;a&#39;, then &#39;b&#39;, then &#39;c&#39;</span></span>
+<span class="giallo-l"><span class="z-punctuation">}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-keyword">for</span><span class="z-source"> (</span><span class="z-storage z-type">const</span><span class="z-variable z-other z-constant z-js"> value</span><span class="z-keyword z-operator z-expression z-of z-js"> of</span><span class="z-keyword z-operator z-new"> new</span><span class="z-entity z-name z-function"> Set</span><span class="z-source">(</span><span class="z-source">[</span><span class="z-constant z-numeric">1</span><span class="z-punctuation">,</span><span class="z-constant z-numeric"> 2</span><span class="z-punctuation">,</span><span class="z-constant z-numeric"> 3</span><span class="z-source">]</span><span class="z-source">)</span><span class="z-source">)</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-source">  console</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">log</span><span class="z-source">(</span><span class="z-variable z-other z-readwrite">value</span><span class="z-source">)</span><span class="z-punctuation z-definition z-comment"> //</span><span class="z-comment"> 1, then 2, then 3</span></span>
+<span class="giallo-l"><span class="z-punctuation">}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-keyword">for</span><span class="z-source"> (</span><span class="z-storage z-type">const</span><span class="z-punctuation"> [</span><span class="z-variable z-other z-constant z-js">key</span><span class="z-punctuation">,</span><span class="z-variable z-other z-constant z-js"> value</span><span class="z-punctuation">]</span><span class="z-keyword z-operator z-expression z-of z-js"> of</span><span class="z-keyword z-operator z-new"> new</span><span class="z-entity z-name z-function"> Map</span><span class="z-source">(</span><span class="z-source">[</span><span class="z-source">[</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">a</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation">,</span><span class="z-constant z-numeric"> 1</span><span class="z-source">]</span><span class="z-punctuation">,</span><span class="z-source"> [</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">b</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation">,</span><span class="z-constant z-numeric"> 2</span><span class="z-source">]</span><span class="z-punctuation">,</span><span class="z-source"> [</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">c</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation">,</span><span class="z-constant z-numeric"> 3</span><span class="z-source">]</span><span class="z-source">]</span><span class="z-source">)</span><span class="z-source">)</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-source">  console</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">log</span><span class="z-source">(</span><span class="z-variable z-other z-readwrite">key</span><span class="z-punctuation">,</span><span class="z-variable z-other z-readwrite"> value</span><span class="z-source">)</span><span class="z-punctuation z-definition z-comment"> //</span><span class="z-comment"> &#39;a&#39; 1, then &#39;b&#39; 2, then &#39;c&#39; 3</span></span>
+<span class="giallo-l"><span class="z-punctuation">}</span></span></code></pre><div class="note">the last one also employs <strong>array destructuring</strong>, a fan-favourite from <code>ES6</code></div>
+<h2 id="not-just-for-of"><a class="anchor-link" href="#not-just-for-of" aria-label="Anchor link for: not-just-for-of"></a>
+Not just <code>for..of</code></h2>
+<p>With <code>ES6</code> also came a slew of new syntaxes and <code>API</code>s designed to work with
+<code>iterable</code>s, including but not limited to:</p>
+<ul>
+<li>
+<p>The <em>spread operator</em> (<code>...</code>), which expands an <code>iterable</code> into individual
+elements.  You can use it to pass values as separate arguments to a <code>function</code>
+or to create an <code>array literal</code> with it:</p>
+<pre class="giallo z-code"><code data-lang="javascript"><span class="giallo-l"><span class="z-storage z-type">const</span><span class="z-variable z-other z-constant z-js"> numbers</span><span class="z-keyword z-operator"> =</span><span class="z-source"> [</span><span class="z-keyword z-operator">...</span><span class="z-entity z-name z-function">countToThree</span><span class="z-source">(</span><span class="z-source">)</span><span class="z-source">]</span><span class="z-punctuation z-definition z-comment"> //</span><span class="z-comment"> [1, 2, 3]</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-source">(</span><span class="z-storage z-type">function</span><span class="z-entity z-name z-function"> sum</span><span class="z-punctuation">(</span><span class="z-variable z-parameter">x</span><span class="z-punctuation">,</span><span class="z-variable z-parameter"> y</span><span class="z-punctuation">,</span><span class="z-variable z-parameter"> z</span><span class="z-punctuation">)</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-keyword">  return</span><span class="z-variable z-other z-readwrite"> x</span><span class="z-keyword z-operator"> +</span><span class="z-variable z-other z-readwrite"> y</span><span class="z-keyword z-operator"> +</span><span class="z-variable z-other z-readwrite"> z</span></span>
+<span class="giallo-l"><span class="z-punctuation">}</span><span class="z-source">)</span><span class="z-source">(</span><span class="z-keyword z-operator">...</span><span class="z-entity z-name z-function">countToThree</span><span class="z-source">(</span><span class="z-source">)</span><span class="z-source">)</span><span class="z-punctuation z-definition z-comment"> //</span><span class="z-comment"> 6</span></span></code></pre></li>
+<li>
+<p>The <em>assignment destructuring</em>, which also may work over <code>iterables</code> to
+declare and initialise multiple values at once:</p>
+<pre class="giallo z-code"><code data-lang="javascript"><span class="giallo-l"><span class="z-punctuation z-definition z-comment">//</span><span class="z-comment"> a = 1, b = 2, c = 3</span></span>
+<span class="giallo-l"><span class="z-storage z-type">const</span><span class="z-punctuation"> [</span><span class="z-variable z-other z-constant z-js">a</span><span class="z-punctuation">,</span><span class="z-variable z-other z-constant z-js"> b</span><span class="z-punctuation">,</span><span class="z-variable z-other z-constant z-js"> c</span><span class="z-punctuation">]</span><span class="z-keyword z-operator"> =</span><span class="z-entity z-name z-function"> countToThree</span><span class="z-source">(</span><span class="z-source">)</span></span></code></pre></li>
+<li>
+<p>The <em>rest parameter</em> syntax, which collects multiple values into an array:</p>
+<pre class="giallo z-code"><code data-lang="javascript"><span class="giallo-l"><span class="z-storage z-type">function</span><span class="z-entity z-name z-function"> print</span><span class="z-punctuation">(</span><span class="z-keyword z-operator">...</span><span class="z-variable z-parameter">args</span><span class="z-punctuation">)</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-source">  console</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">log</span><span class="z-source">(</span><span class="z-variable z-other z-readwrite">args</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-punctuation">}</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">print</span><span class="z-source">(</span><span class="z-constant z-numeric">1</span><span class="z-punctuation">,</span><span class="z-constant z-numeric"> 2</span><span class="z-source">)</span><span class="z-punctuation z-definition z-comment"> //</span><span class="z-comment"> [1, 2]</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">print</span><span class="z-source">(</span><span class="z-keyword z-operator">...</span><span class="z-entity z-name z-function">countToThree</span><span class="z-source">(</span><span class="z-source">)</span><span class="z-source">)</span><span class="z-punctuation z-definition z-comment"> //</span><span class="z-comment"> [1, 2, 3]</span></span></code></pre></li>
+</ul>
+<p>There is still some more brought by <code>ES6</code> with regards to integration with
+<code>iterable</code>s, as well as a <em>lot</em> more general, unrelated goodness that came with
+it, but I should bring this article back on topic and to an end: how about the
+practical use of generator functions in the wild?</p>
+<h2 id="a-practical-example"><a class="anchor-link" href="#a-practical-example" aria-label="Anchor link for: a-practical-example"></a>
+A practical example</h2>
+<p>Because their values are, as their name would heavily suggest, <em>generated</em> on
+demand, you can use generators to create, for instance, infinite <code>iterator</code>s:</p>
+<pre class="giallo z-code"><code data-lang="javascript"><span class="giallo-l"><span class="z-storage z-type">function</span><span class="z-keyword">*</span><span class="z-entity z-name z-function"> infiniteCounter</span><span class="z-punctuation">(</span><span class="z-punctuation">)</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-storage z-type">  let</span><span class="z-variable z-other z-readwrite"> i</span><span class="z-keyword z-operator"> =</span><span class="z-constant z-numeric"> 0</span></span>
+<span class="giallo-l"><span class="z-keyword">  while</span><span class="z-source"> (</span><span class="z-constant z-language z-boolean">true</span><span class="z-source">)</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-keyword">    yield</span><span class="z-variable z-other z-readwrite"> i</span><span class="z-keyword z-operator">++</span></span>
+<span class="giallo-l"><span class="z-punctuation">  }</span></span>
+<span class="giallo-l"><span class="z-punctuation">}</span></span></code></pre>
+<p>Alright, it's good to know, but I was only messing with you: I'm yet to develop
+the need for an infinite sequence that isn't served just as well by a simple
+mutable <code>number</code> counter or some other mechanism entirely.</p>
+<p>There was however still <a rel="external" href="https://github.com/vJechsmayr/JavaScriptAlgorithms/pull/142">one
+time</a> that I
+figured would call for a generator <code>function*</code>.  It wasn't the code that ran the
+fastest, but the most elegant<sup class="footnote-reference" id="fr-elegant-1"><a href="#fn-elegant">4</a></sup> one—though I welcome challenges to that
+claim.</p>
+<p>It was implementing a solution to <a rel="external" href="https://leetcode.com/problems/reshape-the-matrix">Reshape the
+Matrix</a>, <abbr title="Online
+coding challenges platform">LeetCode</abbr>'s challenge <code>#566</code>, despite the typo
+in my PR referring to <code>#556</code>, which reads:</p>
+<blockquote>
+<p>In MATLAB, there is a handy function called <code>reshape</code> which can reshape an <code>m x n</code> matrix into a new one with a different size <code>r x c</code> keeping its original
+data.</p>
+<p>You are given an <code>m x n</code> matrix mat and two integers <code>r</code> and <code>c</code> representing
+the number of rows and the number of columns of the wanted reshaped matrix.</p>
+<p>The reshaped matrix should be filled with all the elements of the original
+matrix in the same row-traversing order as they were.</p>
+<p>If the <code>reshape</code> operation with given parameters is possible and legal, output
+the new reshaped matrix; Otherwise, output the original matrix.</p>
+</blockquote>
+<p>Here's my generator-based solution (revisited for brevity and clarity):</p>
+<pre class="giallo z-code"><code data-lang="typescript"><span class="giallo-l"><span class="z-storage z-type">function</span><span class="z-entity z-name z-function"> reshape</span><span class="z-punctuation">(</span><span class="z-variable z-parameter">matrix</span><span class="z-punctuation">,</span><span class="z-variable z-parameter"> r</span><span class="z-punctuation">,</span><span class="z-variable z-parameter"> c</span><span class="z-punctuation">)</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment">  //</span><span class="z-comment"> bail out of illegal invocations</span></span>
+<span class="giallo-l"><span class="z-keyword">  if</span><span class="z-source"> (</span><span class="z-source">matrix</span><span class="z-punctuation z-accessor">.</span><span class="z-source">length</span><span class="z-keyword z-operator"> *</span><span class="z-variable z-other z-readwrite"> matrix</span><span class="z-source">[</span><span class="z-constant z-numeric">0</span><span class="z-source">]</span><span class="z-punctuation z-accessor">.</span><span class="z-source">length</span><span class="z-keyword z-operator"> !==</span><span class="z-variable z-other z-readwrite"> r</span><span class="z-keyword z-operator"> *</span><span class="z-variable z-other z-readwrite"> c</span><span class="z-source">)</span><span class="z-keyword"> return</span><span class="z-variable z-other z-readwrite"> matrix</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment">  //</span><span class="z-comment"> yield cells in row-major order</span></span>
+<span class="giallo-l"><span class="z-storage z-type">  const</span><span class="z-variable z-other z-constant z-ts"> traversal</span><span class="z-keyword z-operator"> =</span><span class="z-source"> (</span><span class="z-storage z-type">function</span><span class="z-keyword">*</span><span class="z-punctuation">(</span><span class="z-punctuation">)</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-keyword">    for</span><span class="z-source"> (</span><span class="z-storage z-type">const</span><span class="z-variable z-other z-constant z-ts"> row</span><span class="z-keyword z-operator z-expression z-of z-ts"> of</span><span class="z-variable z-other z-readwrite"> matrix</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-keyword">      for</span><span class="z-source"> (</span><span class="z-storage z-type">const</span><span class="z-variable z-other z-constant z-ts"> cell</span><span class="z-keyword z-operator z-expression z-of z-ts"> of</span><span class="z-variable z-other z-readwrite"> row</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-keyword">        yield</span><span class="z-variable z-other z-readwrite"> cell</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-punctuation">  }</span><span class="z-source">)</span><span class="z-source">(</span><span class="z-source">)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment">  //</span><span class="z-comment"> build new matrix with the requested shape</span></span>
+<span class="giallo-l"><span class="z-keyword">  return</span><span class="z-source"> [</span><span class="z-keyword z-operator">...</span><span class="z-entity z-name z-function">Array</span><span class="z-source">(</span><span class="z-variable z-other z-readwrite">r</span><span class="z-source">)</span><span class="z-source">]</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">map</span><span class="z-source">(</span><span class="z-punctuation">(</span><span class="z-punctuation">)</span><span class="z-storage z-type z-function z-arrow z-ts"> =&gt;</span><span class="z-source"> [</span><span class="z-keyword z-operator">...</span><span class="z-entity z-name z-function">Array</span><span class="z-source">(</span><span class="z-variable z-other z-readwrite">c</span><span class="z-source">)</span><span class="z-source">]</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">map</span><span class="z-source">(</span><span class="z-punctuation">(</span><span class="z-punctuation">)</span><span class="z-storage z-type z-function z-arrow z-ts"> =&gt;</span><span class="z-source"> traversal</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">next</span><span class="z-source">(</span><span class="z-source">)</span><span class="z-punctuation z-accessor">.</span><span class="z-variable z-other z-property z-ts">value</span><span class="z-source">)</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-punctuation">}</span></span></code></pre>
+<p>Don't take my word for it: try for yourself to implement this solution;
+chances are it's only then that you'll best appreciate the generator
+<code>function*</code>.<br>
+Though nowadays, for this specific example, I might rather reach for
+<code>Array#flat</code> instead which, contrary to a naive belief, actually performs
+<em>better</em>.</p>
+<p>And don't hesitate to share with me if you ever come across a legitimate use for
+JavaScript's generators: I would love to know what you're tinkering with.</p>
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn-ecmascript">
+<p><a rel="external" href="https://en.wikipedia.org/wiki/ECMAScript">ECMAScript</a> is the
+standard, the specification; JavaScript is the language built on that standard,
+plus some extra features (such as Web <code>API</code>s, like the <abbr title="Document
+Object Model"><code>DOM</code></abbr>), for browsers. <a href="#fr-ecmascript-1">↩</a></p>
+</li>
+<li id="fn-symbols">
+<p><code>Symbol</code>s are special, unique identifiers in JavaScript, also
+introduced in <code>ES6</code>: maybe they deserve an entry of their own sometime. <a href="#fr-symbols-1">↩</a></p>
+</li>
+<li id="fn-object-not-iterable">
+<p>Note that plain <code>Object</code>s do <strong>not</strong> implement
+the <code>iterable</code> interface, and are broken down with <code>Object.entries()</code>,
+<code>Object.keys()</code>, or <code>Object.values()</code> instead. <a href="#fr-object-not-iterable-1">↩</a></p>
+</li>
+<li id="fn-elegant">
+<p>Elegance is subjective, but 3 measly statements with no mutable
+variables has got to beat alternatives!  In reality, these acrobatics could
+otherwise be replaced by <code>Array#flat</code>, though that one only arrived with <code>ES10</code>. <a href="#fr-elegant-1">↩</a></p>
+</li>
+</ol>
+</section>
+
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <span>&lt;<a href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>&gt;</span>
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>

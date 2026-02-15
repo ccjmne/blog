@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-2.woff2" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/work-3.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/fira-2.woff2') format('woff2'); }
+</style><link rel="stylesheet" href="https://ccjmne.sh/blog/base.css">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-light.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-dark.css"  media="(prefers-color-scheme: dark)">
+    
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {--column-width: min(90vw, 600px);}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+>
+      <a href="https://ccjmne.sh/blog">Home</a>
+      <details class="dropdown" max-sm>
+        <summary><strong>Articles</strong></summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual">Flight manual</a>
+          <a href="https://ccjmne.sh/blog/tags">By tags</a>
+          <a href="https://ccjmne.sh/blog/ramblings"><strong>Ramblings</strong></a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual" min-sm>Flight manual</a>
+      <a href="https://ccjmne.sh/blog/tags"          min-sm>By tags</a>
+      <a href="https://ccjmne.sh/blog/ramblings"     min-sm><strong>Ramblings</strong></a>
+      <a href="https://ccjmne.sh/blog/colophon"            >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main>
+<h1><span class="link-title" 
+  style="view-transition-name: view-advent-of-code"
+>The Advent of Code</span></h1><ul class="infobar "><li><time>December 01, 2025</time></li><li>5-minute read</li>
+    </ul>
+<article>
+  <blockquote>
+<p>Deck the [Git] tree with lines of logic, fa-la-la-la-la, la-la-la-la.</p>
+</blockquote>
+<p>There's my rendition of <a rel="external" href="https://en.wikipedia.org/wiki/Deck_the_Halls"><em>Deck the
+Halls</em></a>, for 'tis the season to be
+jolly!</p>
+<p>In some sort of reverse-<a rel="external" href="https://en.wikipedia.org/wiki/Cinderella">Cinderella</a>
+blessing, just as her enchantment vanishes as the clock strikes the twelfth
+hour, some uncharacteristically merry and serene mood washes over me as we ease
+into the twelfth month.</p>
+<p>It's that time of the year again, that comfortable December
+that we've been building towards all the while.  And what
+better celebration than the whimsy-spirited <a rel="external" href="https://adventofcode.com/2025/leaderboard/private"><em>Advent of
+Code</em></a>?</p>
+<p>The <abbr title="Advent of Code"><code>AoC</code></abbr> is a yearly event running from
+December 1st through 25th<sup class="footnote-reference" id="fr-only-12-days-1"><a href="#fn-only-12-days">1</a></sup>, just like contemporary Christian
+<a rel="external" href="https://en.wikipedia.org/wiki/Advent_calendar">Advent calendars</a>.</p>
+<div class="hi">
+<p>So, what is it?  In a few words, it's <strong>a collection of programming exercises,
+lovingly crafted each year</strong> over the course of quite a few months, by a single
+creator, <a rel="external" href="https://was.tl/">Eric Wastl</a>.  But over this fairly standard premise
+come <strong>three!</strong> charming twists:</p>
+<ol>
+<li>
+<p><strong>the challenges get progressively harder as the month goes</strong>, ranging from
+frankly trivial, all the way to requiring truly savvy engineering.</p>
+</li>
+<li>
+<p>each day proposes a first task, <strong>then a second one that merely changes a
+parameter and, innocently, cranks the challenge up</strong> a (possibly quite serious)
+notch.  Your naive algorithm may well work originally, then end up requiring
+more time than what our best estimates suggest is left of Earth subsisting.</p>
+</li>
+<li>
+<p><strong>each and every daily challenge is tied up in a lovely, quirky, pure and
+wholesome scenario involving various fantastical shenanigans</strong> in the wonderful
+and whimsical world of the little Christmas helpers.  Not only that, but they
+all build from one to the next to arrive at a culminating goal of addressing yet
+another logistical nightmare in organising that celebration.</p>
+</li>
+</ol>
+</div>
+<p>But the <em>Advent of Code</em> wouldn't be complete without its rallying quality:
+<strong>the spirit of Christmas, for me and many others, is sublimed by this now
+well-established tradition of working together</strong> towards a common goal of having
+fun honing and sharing our skills, helping one another out, competing (for those
+who want to), claiming virtual achievement stars...</p>
+<p>You can set up private "leader boards", where you don't necessarily have to
+track how fast people got to implement their solution (they do come out at <code>6am</code>
+where I live<sup class="footnote-reference" id="fr-always-midnight-est-1"><a href="#fn-always-midnight-est">2</a></sup>), but it's a nice way to encourage yourself
+to earn more stars by completing the challenges, and maybe a good occasion to
+<strong>have some lengthy coffee break with your friends or colleagues</strong> to work
+through some particular task.</p>
+<p>You can join some of the wonderful communities of <a rel="external" href="https://en.wikipedia.org/wiki/Online_streamer">online
+streamers</a> tackling
+the exercises live.  You can dive into the <a rel="external" href="https://www.reddit.com/r/adventofcode/"><code>r/adventofcode</code>
+subreddit</a> to share your solution and
+explore that of others.  Some people make it as few lines of code as possible,
+compute as fast as possible, use the most esoteric languages ever incepted...</p>
+<p>A favourite of mine are <strong>the masterful visualisations that
+some folks never fail to deliver on</strong>.  Web sites, videos,
+<a rel="external" href="https://en.wikipedia.org/wiki/ASCII_art"><code>ASCII</code> art</a> animations,
+<a rel="external" href="https://en.wikipedia.org/wiki/PICO-8"><code>PICO-8</code></a> implementations, you name it!</p>
+<div class="hi">
+<p>And, even if you mean to fly solo, this shall serve as one of the very best
+excuses to build yet another home-made <code>AoC</code>-solving framework for oneself
+(only to promptly abandon it half-baked before the next December peeks around
+the corner), <strong>try your hands at another language</strong>, simply dip your toes in
+software programming or whet and satiate your appetite for some fun, technical
+challenge.</p>
+<p>Will you join us in figuring out how to best help quantum
+elephants find their way through some 8-dimensional
+<a rel="external" href="https://en.wikipedia.org/wiki/Discworld_(world)">Discworld</a>,
+where <a rel="external" href="https://en.wikipedia.org/wiki/Turtles_all_the_way_down">turtles are currently re-stacking
+themselves</a> in some
+classical <a rel="external" href="https://en.wikipedia.org/wiki/Tower_of_Hanoi">Tower of Hanoi</a>
+scenario?</p>
+</div>
+<p>With its inauguration dating all the way back from 2015, <strong>this charming
+celebration turns 10 years old today</strong>, and I can wholeheartedly say that it has
+been playing a large part in making December my favourite time of the year.</p>
+<p>Thank you, Eric Wastl, and the greater community, for this delightful
+treat that unites programming enthusiasts, resonating even more than the
+<a rel="external" href="https://hacktoberfest.com/">Hacktoberfest</a> in our hearts.</p>
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn-only-12-days">
+<p>Well, starting this year, <strong>it'll "only" run from the 1st
+through the 12th</strong>, for several reasons, chief among them being <a rel="external" href="https://www.youtube.com/watch?v=_oNOTknRTSU">how demanding
+it is to put together</a> each year. <a href="#fr-only-12-days-1">↩</a></p>
+</li>
+<li id="fn-always-midnight-est">
+<p>For logistical reasons, the <em>Advent of Code</em>'s new
+puzzles always systematically come out at a single instant across the world:
+midnight <abbr title="Easter Standard Time, in New York"><code>EST</code></abbr>, or <abbr
+title="Greenwich Mean Time"><code>GMT</code></abbr><code>-5</code>. <a href="#fr-always-midnight-est-1">↩</a></p>
+</li>
+</ol>
+</section>
+
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <span>&lt;<a href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>&gt;</span>
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>

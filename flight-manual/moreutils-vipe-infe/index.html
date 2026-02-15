@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-2.woff2" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/work-3.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/fira-2.woff2') format('woff2'); }
+</style><link rel="stylesheet" href="https://ccjmne.sh/blog/base.css">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-light.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-dark.css"  media="(prefers-color-scheme: dark)">
+    
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+>
+      <a href="https://ccjmne.sh/blog">Home</a>
+      <details class="dropdown" max-sm>
+        <summary><strong>Articles</strong></summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual"><strong>Flight manual</strong></a>
+          <a href="https://ccjmne.sh/blog/tags">By tags</a>
+          <a href="https://ccjmne.sh/blog/ramblings">Ramblings</a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual" min-sm><strong>Flight manual</strong></a>
+      <a href="https://ccjmne.sh/blog/tags"          min-sm>By tags</a>
+      <a href="https://ccjmne.sh/blog/ramblings"     min-sm>Ramblings</a>
+      <a href="https://ccjmne.sh/blog/colophon"            >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main><h1><span class="link-title" 
+  style="view-transition-name: view-moreutils-vipe-infe"
+>Script-friendliest <code>$EDITOR</code> with <code>moreutils</code></span></h1><ul class="infobar "><li><time>July 31, 2025</time></li><li>6-minute read</li>
+    <li>tagged
+      <a href="https://ccjmne.sh/blog/tags/cli">cli</a>, <a href="https://ccjmne.sh/blog/tags/vim">vim</a></li></ul>
+<details class="hi toc">
+  <summary>Table of contents</summary>
+  <ul><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/moreutils-vipe-infe/#the-script-friendly-editor">The script-friendly editor</a><ul>
+        
+        <li><a href="https://ccjmne.sh/blog/flight-manual/moreutils-vipe-infe/#building-a-quaint-example">Building a quaint example</a></li></ul></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/moreutils-vipe-infe/#more-friendliness-with-moreutils">More friendliness with moreutils</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/moreutils-vipe-infe/#compose-your-mastery">Compose your mastery</a></li>
+    <li><a href="#cited-tools">Referenced tools</a></li>
+    
+  </ul>
+</details>
+<article><p>I carry around a (very humble) collection of <abbr title="A command-line fuzzy
+finder"><code>fzf</code></abbr> utilities, where I intend to leverage a tacit promise
+of <abbr title="The ubiquitous text editor">Vim</abbr>: I can edit content,
+right there in the terminal, between two commands, and be done earlier than a
+corporate <abbr title="Integrated Development Environment"><code>IDE</code></abbr> would be
+flashing its splash screen<sup class="footnote-reference" id="fr-cli-editor-1"><a href="#fn-cli-editor">1</a></sup>.</p>
+<p><strong>But let's put aside the speed: I mean to talk about the <em>availability</em> and
+<em>convenience</em>.</strong></p>
+<p>With <abbr title="Aptly and delightfully named companion to coreutils"><code>moreutils</code></abbr>,
+this elevator pitch needs to be challenged: <em>between</em>
+two commands?  Laughable.  The adept <a rel="external" href="https://en.wikipedia.org/wiki/Functional_programming">functional
+programmer</a> in me should
+have sniffed it out some time ago: I can use Vim like I use <abbr title="Stream
+editor for filtering and transforming text "><code>sed</code></abbr>.</p>
+<span id="continue-reading"></span><h2 id="the-script-friendly-editor"><a class="anchor-link" href="#the-script-friendly-editor" aria-label="Anchor link for: the-script-friendly-editor"></a>
+The script-friendly editor</h2>
+<p>Let's start with a quick round of qualifications against the few
+IDEs I've had the occasion to use over the last couple of years: <a rel="external" href="https://code.visualstudio.com/">VS
+Code</a>, <a rel="external" href="https://www.eclipse.org/">Eclipse</a> and
+<a rel="external" href="https://www.jetbrains.com/idea/">IntelliJ</a>.</p>
+<ul>
+<li>all three can be made to accept a file to open as an argument, though only one
+doesn't require prior set-up or extra gymnastics,</li>
+<li>only two can be spawned in <code>--wait</code> mode, blocking progress of the invoking
+script until their interface is closed,</li>
+<li>none of them provide a reasonable way to error out (<code>exit 1</code>).</li>
+</ul>
+<p>These functionalities don't sound like much, but they're part of what I would
+expect from a <em>script-friendly editor</em>.</p>
+<h3 id="building-a-quaint-example"><a class="anchor-link" href="#building-a-quaint-example" aria-label="Anchor link for: building-a-quaint-example"></a>
+Building a quaint example</h3>
+<p>I've prepared for this article a little utility to illustrate how neatly a
+terminal editor can integrate to your scripting.  Let's build a script that
+will:</p>
+<ol>
+<li>let the user select a quote from some collection,</li>
+<li>prepare an e-mail sharing that quote to some unsuspecting recipient,</li>
+<li>let the user customise that e-mail,</li>
+<li>send the e-mail to the unsuspecting recipient.</li>
+</ol>
+<p>Let's start off with steps 1 and 2:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-source">MAIL</span><span class="z-keyword z-operator">=</span><span class="z-punctuation">$(</span><span class="z-entity z-name z-function">mktemp</span><span class="z-string"> -</span><span class="z-string">-suffix</span><span class="z-string"> .eml</span><span class="z-punctuation">)</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">curl</span><span class="z-string"> https://zenquotes.io/api/quotes</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-keyword z-operator">   |</span><span class="z-entity z-name z-function"> jq</span><span class="z-string"> -</span><span class="z-string">r</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">.[] | .a + &quot;@&quot; + .q</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-constant z-character z-escape">     \</span></span>
+<span class="giallo-l"><span class="z-keyword z-operator">   |</span><span class="z-entity z-name z-function"> fzf</span><span class="z-string"> -</span><span class="z-string">-delimiter=@</span><span class="z-constant z-character z-escape">               \</span></span>
+<span class="giallo-l"><span class="z-string">         -</span><span class="z-string">-with-nth=2</span><span class="z-constant z-character z-escape">                \</span></span>
+<span class="giallo-l"><span class="z-string">         -</span><span class="z-string">-bind=</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">enter:become:cat &lt;&lt;-EOF</span></span>
+<span class="giallo-l"><span class="z-string">		Date: $(date --rfc-email)</span></span>
+<span class="giallo-l"><span class="z-string">		From: ccjmne@gmail.com</span></span>
+<span class="giallo-l"><span class="z-string">		To: sherlock.inbox@221b.uk</span></span>
+<span class="giallo-l"><span class="z-string">		Subject: This quote made me think of you</span></span>
+<span class="giallo-l"><span class="z-string">		</span></span>
+<span class="giallo-l"><span class="z-string">		{r2}</span></span>
+<span class="giallo-l"><span class="z-string">		</span></span>
+<span class="giallo-l"><span class="z-string">		    — {r1}</span></span>
+<span class="giallo-l"><span class="z-string">		EOF</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-keyword z-operator">   &gt;</span><span class="z-punctuation z-definition z-variable"> $</span><span class="z-source">MAIL</span></span></code></pre><div class="note">I didn't even put quotation marks around <code>$MAIL</code>: all the variables in the script are expansion-safe!</div>
+<p>We create a temporary<sup class="footnote-reference" id="fr-tmpfs-1"><a href="#fn-tmpfs">2</a></sup> file with <code>mktemp</code>, using a specific <em>file
+extension</em> with the <code>--suffix</code> flag: that'll let our text editor figure out how
+to highlight our document's syntax.</p>
+<p>The <abbr title="World Wide Web, with a capital W">Web</abbr> server at
+<code>https://zenquotes.io/api/quotes</code> will yield 50 randomised quotes (with their
+respective authors' name) as a <a rel="external" href="https://www.json.org/json-en.html">JSON</a> array.
+We'll process them with <abbr title="Command-line JSON processor"><code>jq</code></abbr>
+and pass them along to <code>fzf</code>, offering an interactive interface for the user to
+pick an entry.  The selected quote is finally written to <code>$MAIL</code>, in a format
+suitable for plain-text e-mails:</p>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>Date: Mon, 11 Aug 2025 00:20:43 +0200</span></span>
+<span class="giallo-l"><span>From: ccjmne@gmail.com</span></span>
+<span class="giallo-l"><span>To: sherlock.inbox@221b.uk</span></span>
+<span class="giallo-l"><span>Subject: This quote made me think of you</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>Success is getting what you want, happiness is wanting what you get.</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>    — W.P. Kinsella</span></span></code></pre><div class="note">it'll be highlighted sensibly in your editor</div>
+<p>On with the last two steps: if the user did select a quote, they'll get to edit
+their e-mail in their favourite <code>$EDITOR</code>, with adequate highlighting for the
+e-mail format.  When they're done, if they neither emptied or deleted the file,
+nor emitted an error (<code>:cq</code>), their e-mail is sent off to the unsuspecting
+recipient:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-keyword">if</span><span class="z-punctuation"> [</span><span class="z-keyword z-operator"> -s</span><span class="z-punctuation z-definition z-variable"> $</span><span class="z-source">MAIL</span><span class="z-punctuation"> ]</span><span class="z-punctuation">;</span><span class="z-keyword"> then</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-variable">    $</span><span class="z-source">EDITOR</span><span class="z-punctuation z-definition z-variable"> $</span><span class="z-source">MAIL</span></span>
+<span class="giallo-l"><span class="z-keyword">    if</span><span class="z-punctuation"> [</span><span class="z-punctuation z-definition z-variable"> $</span><span class="z-source">?</span><span class="z-keyword z-operator"> -eq</span><span class="z-constant z-numeric"> 0</span><span class="z-punctuation"> ]</span><span class="z-punctuation"> &amp;&amp;</span><span class="z-punctuation"> [</span><span class="z-keyword z-operator"> -s</span><span class="z-punctuation z-definition z-variable"> $</span><span class="z-source">MAIL</span><span class="z-punctuation"> ]</span><span class="z-punctuation">;</span><span class="z-keyword"> then</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">        msmtp</span><span class="z-string"> sherlock.inbox@221b.uk</span><span class="z-keyword z-operator"> &lt;</span><span class="z-punctuation z-definition z-variable"> $</span><span class="z-source">MAIL</span></span>
+<span class="giallo-l"><span class="z-keyword">    fi</span></span>
+<span class="giallo-l"><span class="z-keyword">fi</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">rm</span><span class="z-punctuation z-definition z-variable"> $</span><span class="z-source">MAIL</span></span></code></pre>
+<p>There you go, all in a few lines of shell scripting, while you're out
+and about surfing the command line.  Spawn it in a <abbr title="Terminal
+multiplexer"><code>tmux</code></abbr> pop-up and start spamming to your heart's content,
+barely interrupting your flow long enough to personalise the e-mail.  Fantastic!</p>
+<p>But it gets better: you can integrate it right inside an outright
+<a rel="external" href="https://en.wikipedia.org/wiki/Pipeline_(Unix)">pipeline</a>.</p>
+<h2 id="more-friendliness-with-moreutils"><a class="anchor-link" href="#more-friendliness-with-moreutils" aria-label="Anchor link for: more-friendliness-with-moreutils"></a>
+More friendliness with <code>moreutils</code></h2>
+<p>Enter <a rel="external" href="https://joeyh.name/code/moreutils/"><code>moreutils</code></a>, a <em>"collection of the
+Unix tools that nobody thought to write long ago when Unix was young"</em>.</p>
+<p>It's got some niceties that do find some fame online, such as <abbr title="Look
+up errno names and descriptions"><code>errno</code></abbr>, <abbr title="Soak up standard
+input and write to a file"><code>sponge</code></abbr> and <abbr title="Timestamp
+input"><code>ts</code></abbr>, but the treats of the day are <code>vipe</code> and <code>ifne</code>.</p>
+<p>With <abbr title="Edit pipe"><code>vipe</code></abbr>, you can edit the standard input
+in your favourite editor, then pipe the result to the next command.  It accepts
+the same<sup class="footnote-reference" id="fr-vipe-suffix-1"><a href="#fn-vipe-suffix">3</a></sup> <code>--suffix</code> argument as <code>mktemp</code> to provide your <code>$EDITOR</code>
+with some context as to the syntax of your content.<br>
+With <abbr title="Run command if the standard input is not
+empty"><code>ifne</code></abbr>, you can guard the execution of a command on the condition
+that the standard input is not empty.<br></p>
+<!-- FIXME: wording -->
+<p>That all sounds like it could replace the entire second half of our script.
+Could it?  Let's try it out:</p>
+<pre class="giallo z-code"><code data-lang="diff"><span class="giallo-l"><span class="z-punctuation">-</span><span class="z-markup z-deleted z-diff">MAIL=$(mktemp --suffix .eml)</span></span>
+<span class="giallo-l"><span class="z-source"> curl https://zenquotes.io/api/quotes \</span></span>
+<span class="giallo-l"><span class="z-source">    | jq -r &#39;.[] | .a + &quot;@&quot; + .q&#39;     \</span></span>
+<span class="giallo-l"><span class="z-source">    | fzf --delimiter=@               \</span></span>
+<span class="giallo-l"><span class="z-source">          --with-nth=2                \</span></span>
+<span class="giallo-l"><span class="z-source">          --bind=&#39;enter:become:cat &lt;&lt;-EOF</span></span>
+<span class="giallo-l"><span class="z-source"> 		...</span></span>
+<span class="giallo-l"><span class="z-source"> 		EOF&#39; \</span></span>
+<span class="giallo-l"><span class="z-punctuation">-</span><span class="z-markup z-deleted z-diff">   &gt; $MAIL</span></span>
+<span class="giallo-l"><span class="z-punctuation">-</span></span>
+<span class="giallo-l"><span class="z-punctuation">-</span><span class="z-markup z-deleted z-diff">if [ -s $MAIL ]; then</span></span>
+<span class="giallo-l"><span class="z-punctuation">-</span><span class="z-markup z-deleted z-diff">    $EDITOR $MAIL</span></span>
+<span class="giallo-l"><span class="z-punctuation">-</span><span class="z-markup z-deleted z-diff">    if [ $? -eq 0 ] &amp;&amp; [ -s $MAIL ]; then</span></span>
+<span class="giallo-l"><span class="z-punctuation">-</span><span class="z-markup z-deleted z-diff">        msmtp sherlock.inbox@221b.uk &lt; $MAIL</span></span>
+<span class="giallo-l"><span class="z-punctuation">-</span><span class="z-markup z-deleted z-diff">    fi</span></span>
+<span class="giallo-l"><span class="z-punctuation">-</span><span class="z-markup z-deleted z-diff">fi</span></span>
+<span class="giallo-l"><span class="z-punctuation">-</span><span class="z-markup z-deleted z-diff">rm $MAIL</span></span>
+<span class="giallo-l"><span class="z-punctuation">+</span><span class="z-markup z-inserted z-diff">   | ifne vipe --suffix eml \</span></span>
+<span class="giallo-l"><span class="z-punctuation">+</span><span class="z-markup z-inserted z-diff">   | msmtp sherlock.inbox@221b.uk</span></span></code></pre><div class="note">these two lines replace the entire second half of the script and forgo toying with a variable in the first</div>
+<p>Well, what do you know: it can.  That tedious business from the earlier
+script?  Gone.  The variable we were passing around?  Gone as well.<br>
+We're left with <em>a single pipeline</em>: <code>curl</code> | <code>jq</code> | <code>fzf</code> | <code>vipe</code>
+| <code>msmtp</code>.  You can pretty much map it one-to-one to the original
+requirements!  And they say that <abbr title="The big OOP(s)">object-oriented
+programming</abbr> is modelling real-world concepts...</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">curl</span><span class="z-string"> https://zenquotes.io/api/quotes</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-keyword z-operator">   |</span><span class="z-entity z-name z-function"> jq</span><span class="z-string"> -</span><span class="z-string">r</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">.[] | .a + &quot;@&quot; + .q</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-constant z-character z-escape">     \</span></span>
+<span class="giallo-l"><span class="z-keyword z-operator">   |</span><span class="z-entity z-name z-function"> fzf</span><span class="z-string"> -</span><span class="z-string">-delimiter=@</span><span class="z-constant z-character z-escape">               \</span></span>
+<span class="giallo-l"><span class="z-string">         -</span><span class="z-string">-with-nth=2</span><span class="z-constant z-character z-escape">                \</span></span>
+<span class="giallo-l"><span class="z-string">         -</span><span class="z-string">-bind=</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">enter:become:cat &lt;&lt;-EOF</span></span>
+<span class="giallo-l"><span class="z-string">		Date: $(date --rfc-email)</span></span>
+<span class="giallo-l"><span class="z-string">		From: ccjmne@gmail.com</span></span>
+<span class="giallo-l"><span class="z-string">		To: sherlock.inbox@221b.uk</span></span>
+<span class="giallo-l"><span class="z-string">		Subject: This quote made me think of you</span></span>
+<span class="giallo-l"><span class="z-string">		</span></span>
+<span class="giallo-l"><span class="z-string">		{r2}</span></span>
+<span class="giallo-l"><span class="z-string">		</span></span>
+<span class="giallo-l"><span class="z-string">		    — {r1}</span></span>
+<span class="giallo-l"><span class="z-string">		EOF</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-keyword z-operator">   |</span><span class="z-entity z-name z-function"> ifne</span><span class="z-string"> vipe</span><span class="z-string"> -</span><span class="z-string">-suffix</span><span class="z-string"> eml</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-keyword z-operator">   |</span><span class="z-entity z-name z-function"> msmtp</span><span class="z-string"> sherlock.inbox@221b.uk</span></span></code></pre><div class="note">here's the full thing: the e-mail template comprises most of it</div>
+<h2 id="compose-your-mastery"><a class="anchor-link" href="#compose-your-mastery" aria-label="Anchor link for: compose-your-mastery"></a>
+Compose your mastery</h2>
+<p>In isolation, this isn't anything earth-shattering, but here's the point: <strong>I
+can now write this up in one go; no fumbling, no hesitation</strong>.</p>
+<p>Wielding <em>simple</em>, generic, <em>composable</em> tools lets you to reify your ideas
+without friction, as if you were merely transposing them more formally.  That
+concept, and its consequences on your ability to explore, play and eventually
+build up mastery of your craft, are indeed of remarkable value.</p>
+<p>Have fun!</p>
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn-cli-editor">
+<p>So we're clear: it's not just about shaving off a few seconds
+here and there: wait until you learn about <code>fc</code>! <a href="#fr-cli-editor-1">↩</a></p>
+</li>
+<li id="fn-tmpfs">
+<p>These files will routinely be cleared (historically, some systems
+would do that on each boot).  On mine, <code>/tmp</code> is a mount-point to some
+<a rel="external" href="https://en.wikipedia.org/wiki/tmpfs">RAM-backed file system</a>: the stuff going
+in there <em>never</em> makes it to an actual storage device. <a href="#fr-tmpfs-1">↩</a></p>
+</li>
+<li id="fn-vipe-suffix">
+<p>Essentially the same as that of <code>mktemp</code>, though with more
+ingenuity: it will assume the implied leading <code>.</code> in your suffix. <a href="#fr-vipe-suffix-1">↩</a></p>
+</li>
+</ol>
+</section>
+
+  <h2 id="cited-tools"><a class="anchor-link" href="#cited-tools" aria-label="Anchor link for: cited-tools"></a>
+Referenced tools</h2>
+  <div class="cited-tools">
+    
+<table class="tool mono">
+  <tr><th colspan="2"><strong>fzf</strong></th></tr>
+  <tr>
+    
+        <td colspan="2">from <a href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;fzf">extra&#x2F;fzf</a></td>
+    
+  </tr>
+  <tr>
+    <td><a href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;extra&#x2F;fzf&#x2F;fzf.1.en">manual</a></td>
+    <td><a href="https:&#x2F;&#x2F;github.com&#x2F;junegunn&#x2F;fzf">repository</a></td>
+  </tr>
+</table>
+
+<table class="tool mono">
+  <tr><th colspan="2"><strong>jq</strong></th></tr>
+  <tr>
+    
+        <td colspan="2">from <a href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;jq">extra&#x2F;jq</a></td>
+    
+  </tr>
+  <tr>
+    <td><a href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;extra&#x2F;jq&#x2F;jq.1.en">manual</a></td>
+    <td><a href="https:&#x2F;&#x2F;gitlab.archlinux.org&#x2F;archlinux&#x2F;packaging&#x2F;packages&#x2F;jq">repository</a></td>
+  </tr>
+</table>
+
+<table class="tool mono">
+  <tr><th colspan="2"><strong>vipe</strong></th></tr>
+  <tr>
+    
+        <td colspan="2">from <a href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;moreutils">extra&#x2F;moreutils</a></td>
+    
+  </tr>
+  <tr>
+    <td><a href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;vipe.1.en">manual</a></td>
+    <td><a href="git:&#x2F;&#x2F;joeyh.name&#x2F;code&#x2F;moreutils&#x2F;">repository</a></td>
+  </tr>
+</table>
+
+<table class="tool mono">
+  <tr><th colspan="2"><strong>ifne</strong></th></tr>
+  <tr>
+    
+        <td colspan="2">from <a href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;moreutils">extra&#x2F;moreutils</a></td>
+    
+  </tr>
+  <tr>
+    <td><a href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;ifne.1.en">manual</a></td>
+    <td><a href="git:&#x2F;&#x2F;git.joeyh.name&#x2F;moreutils">repository</a></td>
+  </tr>
+</table>
+
+  </div>
+  
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <span>&lt;<a href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>&gt;</span>
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>

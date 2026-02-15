@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-2.woff2" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/work-3.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/fira-2.woff2') format('woff2'); }
+</style><link rel="stylesheet" href="https://ccjmne.sh/blog/base.css">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-light.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-dark.css"  media="(prefers-color-scheme: dark)">
+    
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+>
+      <a href="https://ccjmne.sh/blog">Home</a>
+      <details class="dropdown" max-sm>
+        <summary><strong>Articles</strong></summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual"><strong>Flight manual</strong></a>
+          <a href="https://ccjmne.sh/blog/tags">By tags</a>
+          <a href="https://ccjmne.sh/blog/ramblings">Ramblings</a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual" min-sm><strong>Flight manual</strong></a>
+      <a href="https://ccjmne.sh/blog/tags"          min-sm>By tags</a>
+      <a href="https://ccjmne.sh/blog/ramblings"     min-sm>Ramblings</a>
+      <a href="https://ccjmne.sh/blog/colophon"            >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main><h1><span class="link-title" 
+  style="view-transition-name: view-juggle-data-with-sed-hold-space"
+>Juggle context with <code>sed</code>'s pattern and hold spaces</span></h1><ul class="infobar "><li><time>January 08, 2026</time></li><li>9-minute read</li>
+    <li>tagged
+      <a href="https://ccjmne.sh/blog/tags/cli">cli</a>, <a href="https://ccjmne.sh/blog/tags/posix">posix</a>, <a href="https://ccjmne.sh/blog/tags/sed">sed</a></li></ul>
+<details class="hi toc">
+  <summary>Table of contents</summary>
+  <ul><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/juggle-data-with-sed-hold-space/#obligatory-tl-dr">Obligatory TL;DR</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/juggle-data-with-sed-hold-space/#the-processing-cycle">The processing cycle</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/juggle-data-with-sed-hold-space/#some-fantasy-recipes">Some fantasy recipes</a><ul>
+        
+        <li><a href="https://ccjmne.sh/blog/flight-manual/juggle-data-with-sed-hold-space/#reverse-lines">Reverse lines</a></li>
+        <li><a href="https://ccjmne.sh/blog/flight-manual/juggle-data-with-sed-hold-space/#annotate-particularly-long-functions-in-source-code">Annotate particularly long functions in source code</a></li>
+        <li><a href="https://ccjmne.sh/blog/flight-manual/juggle-data-with-sed-hold-space/#better-contextualise-logs">Better contextualise logs</a></li>
+        <li><a href="https://ccjmne.sh/blog/flight-manual/juggle-data-with-sed-hold-space/#collapse-paragraphs-to-single-lines">Collapse paragraphs to single lines</a></li></ul></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/juggle-data-with-sed-hold-space/#practical-use-case-pull-an-entry-to-the-top">Practical use case: pull an entry to the top</a></li>
+    <li><a href="#cited-tools">Referenced tools</a></li>
+    
+  </ul>
+</details>
+<article><p>As <code>sed</code> processes its input line by line, it works primarily with its <strong>pattern
+space</strong>: a buffer that generally holds the current line being processed.
+Generally?  Let's look into it.</p>
+<blockquote class="markdown-alert-important">
+<p>There's virtually no point in getting into this article if <code>sed '2!d'</code>
+leaves you perplexed.  If that is the case, you may find better value
+in a detour through some thorough (or quick, there's a <code>TL;DR</code>)
+introduction to the one core, digestible, unequivocally practical facet
+of <code>sed</code> that you may be lacking, in <a href="https://ccjmne.sh/blog/flight-manual/scope-sed-commands-target-lines/"><em>Scope <code>sed</code> commands to specific
+lines</em></a>.</p>
+</blockquote>
+<div class="hi">
+<h2 id="obligatory-tl-dr"><a class="anchor-link" href="#obligatory-tl-dr" aria-label="Anchor link for: obligatory-tl-dr"></a>
+Obligatory <a rel="external" href="https://en.wikipedia.org/wiki/TL;DR">TL;DR</a></h2>
+<p>Most <code>sed</code> operations are executed against the content in the <strong>pattern space</strong>,
+the current input line.  The <strong>hold</strong> space is a second buffer that is at your
+disposal, and with which you can carry state across lines, compare with previous
+content, or assemble output that spans multiple lines.</p>
+<p>These few commands are the substrate of what using the hold space distils down
+to:</p>
+<ul>
+<li><code>h</code>/<code>H</code> to copy/append <strong>from pattern to hold</strong> space (<code>h</code> for "hold"),</li>
+<li><code>g</code>/<code>G</code> to copy/append <strong>from hold to pattern</strong> space (<code>g</code> possibly for "get"?)<br />
+I feel like <code>g</code> also nicely mirrors and follows <code>h</code> (on a touch-typist's
+QWERTY keyboard and in the alphabet, respectively),</li>
+<li><code>x</code> to <strong>e<code>x</code>change</strong> the contents of hold and pattern spaces.</li>
+</ul>
+<p>Consider the following document:</p>
+<pre class="giallo z-code"><code data-lang="toml" data-name="my-awesome-crate.toml"><span class="giallo-l"><span class="z-punctuation">[</span><span class="z-source">package</span><span class="z-punctuation">]</span></span>
+<span class="giallo-l"><span class="z-source">name</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">my-awesome-crate</span><span class="z-punctuation z-definition z-string">&quot;</span></span>
+<span class="giallo-l"><span class="z-source">version</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">1.2.3-final.rc.99+g55dd287</span><span class="z-punctuation z-definition z-string">&quot;</span></span>
+<span class="giallo-l"><span class="z-source">readme</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">README.md</span><span class="z-punctuation z-definition z-string">&quot;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-punctuation">[</span><span class="z-source">dependencies</span><span class="z-punctuation">]</span></span>
+<span class="giallo-l"><span class="z-source">async-io</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-punctuation"> {</span><span class="z-source"> version</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">2.6.0</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation">,</span><span class="z-source"> optional</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-constant z-language z-boolean"> true</span><span class="z-punctuation"> }</span></span>
+<span class="giallo-l"><span class="z-source">clap</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-punctuation"> {</span><span class="z-source"> workspace</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-constant z-language z-boolean"> true</span><span class="z-punctuation">,</span><span class="z-source"> features</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-punctuation"> [</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-string">string</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation">]</span><span class="z-punctuation"> }</span></span>
+<span class="giallo-l"><span class="z-source">libc</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">0.2.176</span><span class="z-punctuation z-definition z-string">&quot;</span></span></code></pre><div class="note">a semi-legible version number that nonetheless conforms to the <a rel="external" href="https://semver.org/">SemVer</a> specification</div>
+<p>Sprinkle in some impossibly dense, <code>POSIX</code>-compliant <code>sed</code> magic to in-line the
+section names:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">/^\[/ {s/^.\|.$//g;h;d}</span></span>
+<span class="giallo-l"><span class="z-string">     /./   {G;s/\(.*\)\n\(.*\)/\2.\1/}</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> my-awesome-crate.toml</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>package.name = &quot;my-awesome-crate&quot;</span></span>
+<span class="giallo-l"><span>package.version = &quot;1.2.3-final.rc.99+g55dd287&quot;</span></span>
+<span class="giallo-l"><span>package.readme = &quot;README.md&quot;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>dependencies.async-io = { version = &quot;2.6.0&quot;, optional = true }</span></span>
+<span class="giallo-l"><span>dependencies.clap = { workspace = true, features = [&quot;string&quot;] }</span></span>
+<span class="giallo-l"><span>dependencies.libc = &quot;0.2.176&quot;</span></span></code></pre><div class="note">horrifying?  possibly—beauty is in the eye of the beholder; <code>POSIX</code> compliance, however, is indisputable</div>
+</div>
+<p>This example above in the <code>TL;DR</code> doesn't look too pretty (although, it'd
+be nicer with some extended <abbr title='Regular Expressions'>RegExp</abbr>
+syntax).  I would say in general that my articles on <code>sed</code> or <code>vim</code> won't quite
+be for the faint of heart: you have to pace yourself reading it, just like you
+would German literature<sup class="footnote-reference" id="fr-long-german-words-1"><a href="#fn-long-german-words">1</a></sup>, but I assure you: it is so very
+simple to come up with.</p>
+<p>In any case, despite routinely lovingly calling these <em>"write-only"</em>, there's
+something about contorting <code>POSIX</code> tools to get the job done that I find serves
+me well in the long run.</p>
+<h2 id="the-processing-cycle"><a class="anchor-link" href="#the-processing-cycle" aria-label="Anchor link for: the-processing-cycle"></a>
+The processing cycle</h2>
+<p>In brief, <code>sed</code> reads a line (without its trailing linefeed)<sup class="footnote-reference" id="fr-trailing-linefeed-1"><a href="#fn-trailing-linefeed">2</a></sup>
+into what it calls the <strong>pattern space</strong>, applies all commands whose addresses
+match, in order<sup class="footnote-reference" id="fr-may-bail-out-1"><a href="#fn-may-bail-out">3</a></sup>, then prints out the resulting buffer, and
+repeats.  The <strong>hold</strong> space is a companion to that main "work" buffer, which
+persists across cycles and is effectively entirely inert unless you manipulate
+it with <code>h</code>/<code>H</code>, <code>g</code>/<code>G</code>, or <code>x</code>.</p>
+<blockquote class="markdown-alert-note">
+<p>Use addresses to scope where your logic runs: <code>&lt;address&gt;{&lt;commands&gt;}</code>.
+I wrote in great length about <code>sed</code> addresses in <a href="https://ccjmne.sh/blog/flight-manual/scope-sed-commands-target-lines/">this previous
+article</a>, which is likely
+far more approachable and useful than this current one.</p>
+</blockquote>
+<p>So how do you manipulate it?  Frankly, it's simple.  In my opinion, perhaps
+simpler than whichever degree of simplicity would maximise elegance and
+practicality (I would <em>very much</em> like a way to clear the hold, for instance,
+without having to clear the pattern and push that into the hold: <code>s/.*//;x</code>),
+but at least it's simple: I'll give it to you (essentially) straight from the
+scripture, <code>man 1p sed</code>:</p>
+<ul>
+<li><code>g</code> replaces the contents of the pattern space by the contents of the hold
+space,</li>
+<li><code>G</code> appends to the pattern space a linefeed and the contents of the hold
+space,</li>
+<li><code>h</code> replaces the contents of the hold space with the contents of the pattern
+space,</li>
+<li><code>H</code> appends to the hold space a linefeed and the contents of the pattern
+space,</li>
+<li><code>x</code> exchanges the contents of the pattern and hold spaces,</li>
+</ul>
+<blockquote class="markdown-alert-tip">
+<p>Appending with <code>H</code> and <code>G</code> always involves a linefeed: plan your <code>s///</code>
+expressions accordingly.</p>
+</blockquote>
+<h2 id="some-fantasy-recipes"><a class="anchor-link" href="#some-fantasy-recipes" aria-label="Anchor link for: some-fantasy-recipes"></a>
+Some fantasy recipes</h2>
+<p>There really isn't that much to the hold space in <code>sed</code>.  All that's possibly
+quite noteworthy is that many seemingly go on their entire <code>CLI</code> dwelling life
+without using it: do we simply never need anything like that, or is it a case of
+not considering the options that require tools we haven't yet mastered?</p>
+<p>Without much ceremony, here come some examples that are certain to lack
+practicality for your software, but truly do come in handy when the servers are
+on fire and we wouldn't mind somebody navigating the system like they would the
+back of their hand—or, as the French would say, the bottom of their pocket.</p>
+<h3 id="reverse-lines"><a class="anchor-link" href="#reverse-lines" aria-label="Anchor link for: reverse-lines"></a>
+Reverse lines</h3>
+<p>Well, <code>sed</code>'s not built for that, it processes <em>streams</em> of data, and while
+this would indeed be guaranteed to work for files up to 8kb in size<sup class="footnote-reference" id="fr-8kb-1"><a href="#fn-8kb">4</a></sup>,
+<code>tac</code> (<code>cat</code> in reverse!) from <code>GNU</code>'s excellent <code>coreutils</code> is a much more
+appropriate tool for that job.</p>
+<p>In any case, this shall still function as a reasonably adequate way to get
+started.</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">1!G;h;$!d</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> file</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">1!G; h; $!d</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> file</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-punctuation z-definition z-string"> &#39;</span></span>
+<span class="giallo-l"><span class="z-string">  h         # [h]old on to it</span></span>
+<span class="giallo-l"><span class="z-string">  $!d</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> file</span></span></code></pre><div class="note">don't hesitate to format your <code>sed</code> scripts with newlines and comments for readability</div>
+<ul>
+<li><code>1!G</code>, unless at line 1 (the first), append the accumulated hold to the
+pattern;</li>
+<li><code>h</code>, save the aggregate into the hold;</li>
+<li><code>$!d</code>, unless at line <code>$</code> (the last), discard the pattern; <code>sed</code> will
+implicitly print out the only non-discarded pattern, the ultimate one
+coalescing the entire accumulated reversed collection of lines.</li>
+</ul>
+<p>You could do away with specifying <code>1!</code>, in which case the (empty) hold space,
+<strong>as well as an extra linefeed</strong>, would be appended to the end of the output.
+Non-printable characters may very well not be most obvious, but we should strive
+to keep things tight.  Restricting <code>G</code> to <code>1!</code> avoids having to <code>$s/\n$//</code> at
+the end of the script.</p>
+<h3 id="annotate-particularly-long-functions-in-source-code"><a class="anchor-link" href="#annotate-particularly-long-functions-in-source-code" aria-label="Anchor link for: annotate-particularly-long-functions-in-source-code"></a>
+Annotate particularly long functions in source code</h3>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-string"> -</span><span class="z-string">E</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">/^\s*function\b/ h; /^}$/ {G;s@\nfun\w*\s*(\w+)\(.*@ // end \1@}</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> module.ts</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-string"> -</span><span class="z-string">E</span><span class="z-punctuation z-definition z-string"> &#39;</span></span>
+<span class="giallo-l"><span class="z-string">/^\s*function\b/ h                    # on top-level function definition, save in hold</span></span>
+<span class="giallo-l"><span class="z-string">/^}$/ {                               # on lonesome top-level closing bracket,</span></span>
+<span class="giallo-l"><span class="z-string">  G                                   #   get function name from hold</span></span>
+<span class="giallo-l"><span class="z-string">  s@\nfun\w*\s*(\w+)\(.*@ // end \1@  #   append comment to line</span></span>
+<span class="giallo-l"><span class="z-string">}</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> module.ts</span></span></code></pre>
+<p>This above incantation will add a comment to the closing bracket of top-level
+function definitions, which you may find of some utility, when taming some
+particularly rambly procedures now and then:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="javascript"><span class="giallo-l"><span class="z-storage z-type">function</span><span class="z-entity z-name z-function"> preparePages</span><span class="z-punctuation">(</span><span class="z-punctuation">)</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-storage z-type">  const</span><span class="z-variable z-other z-constant z-js"> pages</span><span class="z-keyword z-operator"> =</span><span class="z-entity z-name z-function"> readdirSync</span><span class="z-source">(</span><span class="z-variable z-other z-readwrite">src</span><span class="z-punctuation">,</span><span class="z-punctuation"> {</span><span class="z-source"> withFileTypes</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-constant z-language z-boolean"> true</span><span class="z-punctuation"> }</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-punctuation z-accessor">    .</span><span class="z-entity z-name z-function">filter</span><span class="z-source">(</span><span class="z-punctuation">(</span><span class="z-punctuation">{</span><span class="z-variable z-parameter"> name</span><span class="z-punctuation"> }</span><span class="z-punctuation">)</span><span class="z-storage z-type"> =&gt;</span><span class="z-punctuation z-definition z-string z-begin"> /</span><span class="z-keyword z-control z-anchor z-regexp">^</span><span class="z-constant z-other z-character-class z-regexp">\d</span><span class="z-keyword z-operator z-quantifier z-regexp">+</span><span class="z-constant z-character z-escape">\.</span><span class="z-string">ts</span><span class="z-keyword z-control z-anchor z-regexp">$</span><span class="z-punctuation z-definition z-string z-end">/</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">test</span><span class="z-source">(</span><span class="z-variable z-other z-readwrite">name</span><span class="z-source">)</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-punctuation z-accessor">    .</span><span class="z-entity z-name z-function">map</span><span class="z-source">(</span><span class="z-punctuation">(</span><span class="z-punctuation">{</span><span class="z-variable z-parameter"> name</span><span class="z-punctuation"> }</span><span class="z-punctuation">)</span><span class="z-storage z-type"> =&gt;</span><span class="z-source"> name</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">replace</span><span class="z-source">(</span><span class="z-punctuation z-definition z-string z-begin">/</span><span class="z-constant z-character z-escape">\.</span><span class="z-string">ts</span><span class="z-keyword z-control z-anchor z-regexp">$</span><span class="z-punctuation z-definition z-string z-end">/</span><span class="z-punctuation">,</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-source">)</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-storage z-type">  const</span><span class="z-variable z-other z-constant z-js"> dom</span><span class="z-keyword z-operator"> =</span><span class="z-keyword z-operator z-new"> new</span><span class="z-entity z-name z-function"> JSDOM</span><span class="z-source">(</span><span class="z-entity z-name z-function">readFileSync</span><span class="z-source">(</span><span class="z-entity z-name z-function">resolve</span><span class="z-source">(</span><span class="z-variable z-other z-readwrite">src</span><span class="z-punctuation">,</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">index.html</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-source">)</span><span class="z-source">)</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">toString</span><span class="z-source">(</span><span class="z-source">)</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-storage z-type">  const</span><span class="z-variable z-other z-constant z-js"> doc</span><span class="z-keyword z-operator"> =</span><span class="z-source"> dom</span><span class="z-punctuation z-accessor">.</span><span class="z-source">window</span><span class="z-punctuation z-accessor">.</span><span class="z-variable z-other z-property z-js">document</span></span>
+<span class="giallo-l"><span class="z-source">  doc</span><span class="z-punctuation z-accessor">.</span><span class="z-source">head</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">append</span><span class="z-source">(</span><span class="z-keyword z-operator">...</span><span class="z-variable z-other z-readwrite">Object</span></span>
+<span class="giallo-l"><span class="z-punctuation z-accessor">    .</span><span class="z-entity z-name z-function">entries</span><span class="z-source">(</span><span class="z-punctuation">{</span><span class="z-variable z-other z-readwrite"> author</span><span class="z-punctuation">,</span><span class="z-variable z-other z-readwrite"> description</span><span class="z-punctuation">,</span><span class="z-variable z-other z-readwrite"> homepage</span><span class="z-punctuation">,</span><span class="z-variable z-other z-readwrite"> keywords</span><span class="z-punctuation">,</span><span class="z-variable z-other z-readwrite"> title</span><span class="z-punctuation"> }</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-punctuation z-accessor">    .</span><span class="z-entity z-name z-function">map</span><span class="z-source">(</span><span class="z-punctuation">(</span><span class="z-punctuation">[</span><span class="z-variable z-parameter">k</span><span class="z-punctuation">,</span><span class="z-variable z-parameter"> v</span><span class="z-punctuation">]</span><span class="z-punctuation">)</span><span class="z-storage z-type"> =&gt;</span><span class="z-source"> (</span><span class="z-variable z-parameter">e</span><span class="z-storage z-type"> =&gt;</span><span class="z-source"> (</span><span class="z-source">e</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">setAttribute</span><span class="z-source">(</span><span class="z-variable z-other z-readwrite">k</span><span class="z-punctuation">,</span><span class="z-entity z-name z-function"> String</span><span class="z-source">(</span><span class="z-variable z-other z-readwrite">v</span><span class="z-source">)</span><span class="z-source">)</span><span class="z-punctuation">,</span><span class="z-variable z-other z-readwrite"> e</span><span class="z-source">)</span><span class="z-source">)</span><span class="z-source">(</span><span class="z-source">doc</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">createElement</span><span class="z-source">(</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">meta</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-source">)</span><span class="z-source">)</span><span class="z-source">)</span><span class="z-punctuation">,</span></span>
+<span class="giallo-l"><span class="z-source">  )</span></span>
+<span class="giallo-l"><span class="z-storage z-type">  const</span><span class="z-variable z-other z-constant z-js"> H</span><span class="z-keyword z-operator"> =</span><span class="z-source"> doc</span><span class="z-punctuation z-accessor">.</span><span class="z-variable z-other z-property z-js">head</span></span>
+<span class="giallo-l"><span class="z-keyword">  for</span><span class="z-source"> (</span><span class="z-storage z-type">const</span><span class="z-variable z-other z-constant z-js"> page</span><span class="z-keyword z-operator z-expression z-of z-js"> of</span><span class="z-variable z-other z-readwrite"> pages</span><span class="z-source">)</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-storage z-type">    const</span><span class="z-variable z-other z-constant z-js"> s</span><span class="z-keyword z-operator"> =</span><span class="z-source"> doc</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">createElement</span><span class="z-source">(</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">script</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-source">    s</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">setAttribute</span><span class="z-source">(</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">defer</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation">,</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">defer</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-source">    s</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">setAttribute</span><span class="z-source">(</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">type</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation">,</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">module</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-source">    s</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">setAttribute</span><span class="z-source">(</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">src</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation">,</span><span class="z-punctuation z-definition z-string"> `</span><span class="z-string">/</span><span class="z-punctuation">${</span><span class="z-variable z-other z-readwrite">page</span><span class="z-punctuation">}</span><span class="z-string">.ts</span><span class="z-punctuation z-definition z-string">`</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-storage z-type">    const</span><span class="z-variable z-other z-constant z-js"> h</span><span class="z-keyword z-operator"> =</span><span class="z-variable z-other z-constant"> H</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">cloneNode</span><span class="z-source">(</span><span class="z-constant z-language z-boolean">true</span><span class="z-source">)</span><span class="z-keyword"> as</span><span class="z-entity z-name z-type"> HTMLHeadElement</span></span>
+<span class="giallo-l"><span class="z-source">    h</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">append</span><span class="z-source">(</span><span class="z-variable z-other z-readwrite">s</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-source">    doc</span><span class="z-punctuation z-accessor">.</span><span class="z-source">head</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">replaceWith</span><span class="z-source">(</span><span class="z-variable z-other z-readwrite">h</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">    writeFileSync</span><span class="z-source">(</span><span class="z-entity z-name z-function">resolve</span><span class="z-source">(</span><span class="z-variable z-other z-readwrite">src</span><span class="z-punctuation">,</span><span class="z-punctuation z-definition z-string"> `</span><span class="z-punctuation">${</span><span class="z-variable z-other z-readwrite">page</span><span class="z-punctuation">}</span><span class="z-string">.html</span><span class="z-punctuation z-definition z-string">`</span><span class="z-source">)</span><span class="z-punctuation">,</span><span class="z-source"> dom</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">serialize</span><span class="z-source">(</span><span class="z-source">)</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-punctuation">  }</span></span>
+<span class="giallo-l"><span class="z-keyword">  return</span><span class="z-variable z-other z-readwrite"> pages</span></span>
+<span class="giallo-l"><span class="z-punctuation">}</span></span></code></pre><div class="note">before, some plain TypeScript code</div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="javascript"><span class="giallo-l"><span class="z-storage z-type">function</span><span class="z-entity z-name z-function"> preparePages</span><span class="z-punctuation">(</span><span class="z-punctuation">)</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-storage z-type">  const</span><span class="z-variable z-other z-constant z-js"> pages</span><span class="z-keyword z-operator"> =</span><span class="z-entity z-name z-function"> readdirSync</span><span class="z-source">(</span><span class="z-variable z-other z-readwrite">src</span><span class="z-punctuation">,</span><span class="z-punctuation"> {</span><span class="z-source"> withFileTypes</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-constant z-language z-boolean"> true</span><span class="z-punctuation"> }</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-punctuation z-accessor">    .</span><span class="z-entity z-name z-function">filter</span><span class="z-source">(</span><span class="z-punctuation">(</span><span class="z-punctuation">{</span><span class="z-variable z-parameter"> name</span><span class="z-punctuation"> }</span><span class="z-punctuation">)</span><span class="z-storage z-type"> =&gt;</span><span class="z-punctuation z-definition z-string z-begin"> /</span><span class="z-keyword z-control z-anchor z-regexp">^</span><span class="z-constant z-other z-character-class z-regexp">\d</span><span class="z-keyword z-operator z-quantifier z-regexp">+</span><span class="z-constant z-character z-escape">\.</span><span class="z-string">ts</span><span class="z-keyword z-control z-anchor z-regexp">$</span><span class="z-punctuation z-definition z-string z-end">/</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">test</span><span class="z-source">(</span><span class="z-variable z-other z-readwrite">name</span><span class="z-source">)</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-punctuation z-accessor">    .</span><span class="z-entity z-name z-function">map</span><span class="z-source">(</span><span class="z-punctuation">(</span><span class="z-punctuation">{</span><span class="z-variable z-parameter"> name</span><span class="z-punctuation"> }</span><span class="z-punctuation">)</span><span class="z-storage z-type"> =&gt;</span><span class="z-source"> name</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">replace</span><span class="z-source">(</span><span class="z-punctuation z-definition z-string z-begin">/</span><span class="z-constant z-character z-escape">\.</span><span class="z-string">ts</span><span class="z-keyword z-control z-anchor z-regexp">$</span><span class="z-punctuation z-definition z-string z-end">/</span><span class="z-punctuation">,</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-source">)</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-storage z-type">  const</span><span class="z-variable z-other z-constant z-js"> dom</span><span class="z-keyword z-operator"> =</span><span class="z-keyword z-operator z-new"> new</span><span class="z-entity z-name z-function"> JSDOM</span><span class="z-source">(</span><span class="z-entity z-name z-function">readFileSync</span><span class="z-source">(</span><span class="z-entity z-name z-function">resolve</span><span class="z-source">(</span><span class="z-variable z-other z-readwrite">src</span><span class="z-punctuation">,</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">index.html</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-source">)</span><span class="z-source">)</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">toString</span><span class="z-source">(</span><span class="z-source">)</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-storage z-type">  const</span><span class="z-variable z-other z-constant z-js"> doc</span><span class="z-keyword z-operator"> =</span><span class="z-source"> dom</span><span class="z-punctuation z-accessor">.</span><span class="z-source">window</span><span class="z-punctuation z-accessor">.</span><span class="z-variable z-other z-property z-js">document</span></span>
+<span class="giallo-l"><span class="z-source">  doc</span><span class="z-punctuation z-accessor">.</span><span class="z-source">head</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">append</span><span class="z-source">(</span><span class="z-keyword z-operator">...</span><span class="z-variable z-other z-readwrite">Object</span></span>
+<span class="giallo-l"><span class="z-punctuation z-accessor">    .</span><span class="z-entity z-name z-function">entries</span><span class="z-source">(</span><span class="z-punctuation">{</span><span class="z-variable z-other z-readwrite"> author</span><span class="z-punctuation">,</span><span class="z-variable z-other z-readwrite"> description</span><span class="z-punctuation">,</span><span class="z-variable z-other z-readwrite"> homepage</span><span class="z-punctuation">,</span><span class="z-variable z-other z-readwrite"> keywords</span><span class="z-punctuation">,</span><span class="z-variable z-other z-readwrite"> title</span><span class="z-punctuation"> }</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-punctuation z-accessor">    .</span><span class="z-entity z-name z-function">map</span><span class="z-source">(</span><span class="z-punctuation">(</span><span class="z-punctuation">[</span><span class="z-variable z-parameter">k</span><span class="z-punctuation">,</span><span class="z-variable z-parameter"> v</span><span class="z-punctuation">]</span><span class="z-punctuation">)</span><span class="z-storage z-type"> =&gt;</span><span class="z-source"> (</span><span class="z-variable z-parameter">e</span><span class="z-storage z-type"> =&gt;</span><span class="z-source"> (</span><span class="z-source">e</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">setAttribute</span><span class="z-source">(</span><span class="z-variable z-other z-readwrite">k</span><span class="z-punctuation">,</span><span class="z-entity z-name z-function"> String</span><span class="z-source">(</span><span class="z-variable z-other z-readwrite">v</span><span class="z-source">)</span><span class="z-source">)</span><span class="z-punctuation">,</span><span class="z-variable z-other z-readwrite"> e</span><span class="z-source">)</span><span class="z-source">)</span><span class="z-source">(</span><span class="z-source">doc</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">createElement</span><span class="z-source">(</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">meta</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-source">)</span><span class="z-source">)</span><span class="z-source">)</span><span class="z-punctuation">,</span></span>
+<span class="giallo-l"><span class="z-source">  )</span></span>
+<span class="giallo-l"><span class="z-storage z-type">  const</span><span class="z-variable z-other z-constant z-js"> H</span><span class="z-keyword z-operator"> =</span><span class="z-source"> doc</span><span class="z-punctuation z-accessor">.</span><span class="z-variable z-other z-property z-js">head</span></span>
+<span class="giallo-l"><span class="z-keyword">  for</span><span class="z-source"> (</span><span class="z-storage z-type">const</span><span class="z-variable z-other z-constant z-js"> page</span><span class="z-keyword z-operator z-expression z-of z-js"> of</span><span class="z-variable z-other z-readwrite"> pages</span><span class="z-source">)</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-storage z-type">    const</span><span class="z-variable z-other z-constant z-js"> s</span><span class="z-keyword z-operator"> =</span><span class="z-source"> doc</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">createElement</span><span class="z-source">(</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">script</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-source">    s</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">setAttribute</span><span class="z-source">(</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">defer</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation">,</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">defer</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-source">    s</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">setAttribute</span><span class="z-source">(</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">type</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation">,</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">module</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-source">    s</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">setAttribute</span><span class="z-source">(</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">src</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation">,</span><span class="z-punctuation z-definition z-string"> `</span><span class="z-string">/</span><span class="z-punctuation">${</span><span class="z-variable z-other z-readwrite">page</span><span class="z-punctuation">}</span><span class="z-string">.ts</span><span class="z-punctuation z-definition z-string">`</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-storage z-type">    const</span><span class="z-variable z-other z-constant z-js"> h</span><span class="z-keyword z-operator"> =</span><span class="z-variable z-other z-constant"> H</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">cloneNode</span><span class="z-source">(</span><span class="z-constant z-language z-boolean">true</span><span class="z-source">)</span><span class="z-keyword"> as</span><span class="z-entity z-name z-type"> HTMLHeadElement</span></span>
+<span class="giallo-l"><span class="z-source">    h</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">append</span><span class="z-source">(</span><span class="z-variable z-other z-readwrite">s</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-source">    doc</span><span class="z-punctuation z-accessor">.</span><span class="z-source">head</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">replaceWith</span><span class="z-source">(</span><span class="z-variable z-other z-readwrite">h</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">    writeFileSync</span><span class="z-source">(</span><span class="z-entity z-name z-function">resolve</span><span class="z-source">(</span><span class="z-variable z-other z-readwrite">src</span><span class="z-punctuation">,</span><span class="z-punctuation z-definition z-string"> `</span><span class="z-punctuation">${</span><span class="z-variable z-other z-readwrite">page</span><span class="z-punctuation">}</span><span class="z-string">.html</span><span class="z-punctuation z-definition z-string">`</span><span class="z-source">)</span><span class="z-punctuation">,</span><span class="z-source"> dom</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">serialize</span><span class="z-source">(</span><span class="z-source">)</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-punctuation">  }</span></span>
+<span class="giallo-l"><span class="z-keyword">  return</span><span class="z-variable z-other z-readwrite"> pages</span></span>
+<span class="giallo-l"><span class="z-punctuation">}</span><span class="z-punctuation z-definition z-comment"> //</span><span class="z-comment"> end preparePages</span></span></code></pre><div class="note">after: note the comment on the last line</div>
+</div>
+</div>
+<h3 id="better-contextualise-logs"><a class="anchor-link" href="#better-contextualise-logs" aria-label="Anchor link for: better-contextualise-logs"></a>
+Better contextualise logs</h3>
+<p>We've all been there: some botched batch processing expired with barely more
+than a whimper, and we've got some sort of report that was seemingly never meant
+to be grokked.</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-string"> -</span><span class="z-string">E</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">/completed|skipped/ s/$/\n/</span></span>
+<span class="giallo-l"><span class="z-string">        /processing REQ-/   {s/pro\w+\s*(.*)/\1/;h;s/.*/processing/}</span></span>
+<span class="giallo-l"><span class="z-string">        G;s/(.*)\n(.*)/\2&gt; \1/</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> log.txt</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-string"> -</span><span class="z-string">E</span><span class="z-punctuation z-definition z-string"> &#39;</span></span>
+<span class="giallo-l"><span class="z-string">/completed|skipped/ s/$/\n/  # upon finalising request, add linefeed</span></span>
+<span class="giallo-l"><span class="z-string">/processing REQ-/ {          # upon new request,</span></span>
+<span class="giallo-l"><span class="z-string">  s/pro\w+\s*(.*)/\1/        #   extract ID</span></span>
+<span class="giallo-l"><span class="z-string">  h                          #   hold on to it</span></span>
+<span class="giallo-l"><span class="z-string">  s/.*/processing/           #   change message to &quot;processing&quot;</span></span>
+<span class="giallo-l"><span class="z-string">}</span></span>
+<span class="giallo-l"><span class="z-string">                             # for each line,</span></span>
+<span class="giallo-l"><span class="z-string">G                            #   get current request ID</span></span>
+<span class="giallo-l"><span class="z-string">s/(.*)\n(.*)/\2&gt; \1/         #   format as &quot;ID&gt; message&quot;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> log.txt</span></span></code></pre>
+<p>Heh, it works!  Yet admittedly, that one would be quite neater using <code>awk</code>.</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>processing REQ-841239</span></span>
+<span class="giallo-l"><span>validating</span></span>
+<span class="giallo-l"><span>downloading document</span></span>
+<span class="giallo-l"><span>parsing document</span></span>
+<span class="giallo-l"><span>transforming data</span></span>
+<span class="giallo-l"><span>saving record</span></span>
+<span class="giallo-l"><span>completed</span></span>
+<span class="giallo-l"><span>processing REQ-841240</span></span>
+<span class="giallo-l"><span>validating</span></span>
+<span class="giallo-l"><span>downloading document</span></span>
+<span class="giallo-l"><span>timeout, retrying</span></span>
+<span class="giallo-l"><span>parsing document</span></span>
+<span class="giallo-l"><span>transforming data</span></span>
+<span class="giallo-l"><span>saving record</span></span>
+<span class="giallo-l"><span>completed</span></span>
+<span class="giallo-l"><span>processing REQ-841241</span></span>
+<span class="giallo-l"><span>validating</span></span>
+<span class="giallo-l"><span>invalid payload</span></span>
+<span class="giallo-l"><span>skipped</span></span>
+<span class="giallo-l"><span>processing REQ-841242</span></span>
+<span class="giallo-l"><span>validating</span></span>
+<span class="giallo-l"><span>downloading document</span></span>
+<span class="giallo-l"><span>parsing document</span></span>
+<span class="giallo-l"><span>transforming data</span></span>
+<span class="giallo-l"><span>saving record</span></span>
+<span class="giallo-l"><span>completed</span></span>
+<span class="giallo-l"><span>processing REQ-841243</span></span>
+<span class="giallo-l"><span>validating</span></span>
+<span class="giallo-l"><span>downloading document</span></span>
+<span class="giallo-l"><span>parsing document</span></span>
+<span class="giallo-l"><span>transforming data</span></span>
+<span class="giallo-l"><span>saving record</span></span>
+<span class="giallo-l"><span>completed</span></span></code></pre><div class="note">before; a curiously impenetrable log file</div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>REQ-841239&gt; processing</span></span>
+<span class="giallo-l"><span>REQ-841239&gt; validating</span></span>
+<span class="giallo-l"><span>REQ-841239&gt; downloading document</span></span>
+<span class="giallo-l"><span>REQ-841239&gt; parsing document</span></span>
+<span class="giallo-l"><span>REQ-841239&gt; transforming data</span></span>
+<span class="giallo-l"><span>REQ-841239&gt; saving record</span></span>
+<span class="giallo-l"><span>REQ-841239&gt; completed</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>REQ-841240&gt; processing</span></span>
+<span class="giallo-l"><span>REQ-841240&gt; validating</span></span>
+<span class="giallo-l"><span>REQ-841240&gt; downloading document</span></span>
+<span class="giallo-l"><span>REQ-841240&gt; timeout, retrying</span></span>
+<span class="giallo-l"><span>REQ-841240&gt; parsing document</span></span>
+<span class="giallo-l"><span>REQ-841240&gt; transforming data</span></span>
+<span class="giallo-l"><span>REQ-841240&gt; saving record</span></span>
+<span class="giallo-l"><span>REQ-841240&gt; completed</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>REQ-841241&gt; processing</span></span>
+<span class="giallo-l"><span>REQ-841241&gt; validating</span></span>
+<span class="giallo-l"><span>REQ-841241&gt; invalid payload</span></span>
+<span class="giallo-l"><span>REQ-841241&gt; skipped</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>REQ-841242&gt; processing</span></span>
+<span class="giallo-l"><span>REQ-841242&gt; validating</span></span>
+<span class="giallo-l"><span>REQ-841242&gt; downloading document</span></span>
+<span class="giallo-l"><span>REQ-841242&gt; parsing document</span></span>
+<span class="giallo-l"><span>REQ-841242&gt; transforming data</span></span>
+<span class="giallo-l"><span>REQ-841242&gt; saving record</span></span>
+<span class="giallo-l"><span>REQ-841242&gt; completed</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>REQ-841243&gt; processing</span></span>
+<span class="giallo-l"><span>REQ-841243&gt; validating</span></span>
+<span class="giallo-l"><span>REQ-841243&gt; downloading document</span></span>
+<span class="giallo-l"><span>REQ-841243&gt; parsing document</span></span>
+<span class="giallo-l"><span>REQ-841243&gt; transforming data</span></span>
+<span class="giallo-l"><span>REQ-841243&gt; saving record</span></span>
+<span class="giallo-l"><span>REQ-841243&gt; completed</span></span></code></pre><div class="note">after; contextual information is made accessible throughout each item's life cycle</div>
+</div>
+</div>
+<h3 id="collapse-paragraphs-to-single-lines"><a class="anchor-link" href="#collapse-paragraphs-to-single-lines" aria-label="Anchor link for: collapse-paragraphs-to-single-lines"></a>
+Collapse paragraphs to single lines</h3>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">/./{H;d}; s/.*//;x;s/\n/ /g</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> document.txt</span></span></code></pre>
+<p>When would you ever?  Frankly, that one I don't know.  You could map that to
+something within your <abbr title="Vim, of course">favourite editor</abbr>, but
+it already has <a rel="external" href="https://vimhelp.org/change.txt.html#v_J"><code>J</code></a> for that.  One
+character, just at the tip of most natural finger, in its resting position!  And
+I suppose that if you can distinguish your editor from your shell, you'll likely
+dance the <em>end-delete-down</em> sequence for a while (which is actually quite fun to
+do!), so there may be no case for this specific one ever, ever; oh well.</p>
+<h2 id="practical-use-case-pull-an-entry-to-the-top"><a class="anchor-link" href="#practical-use-case-pull-an-entry-to-the-top" aria-label="Anchor link for: practical-use-case-pull-an-entry-to-the-top"></a>
+Practical use case: pull an entry to the top</h2>
+<p>I store my passwords in <code>KeePassXC</code>, and I often need to copy some attribute
+of an entry, such as the password itself, or the username, or the URL.  I have
+a menu that lists available attributes for a given entry, and would just like
+the convenience of having the password as the first, most accessible option: 42
+bytes of <code>sed</code> <del>gibberish</del> goodness later, and voilà, the password comes first,
+and the rest knows how to best organise itself.</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-string"> -</span><span class="z-string">n</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">/^Password:/{p;b};H;${g;s/\n//p}</span><span class="z-punctuation z-definition z-string">&#39;</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-string"> -</span><span class="z-string">n</span><span class="z-punctuation z-definition z-string"> &#39;</span></span>
+<span class="giallo-l"><span class="z-string">  /^Password:/ {p;b}  # when the &quot;Password&quot; option is shown, print it and &quot;bail&quot; out</span></span>
+<span class="giallo-l"><span class="z-string">  H                   # accumulate other fields</span></span>
+<span class="giallo-l"><span class="z-string">  $ {                 # at the end of the document,</span></span>
+<span class="giallo-l"><span class="z-string">    g                 #   bring hold into pattern</span></span>
+<span class="giallo-l"><span class="z-string">    s/\n//            #   remove opening linefeed (from &quot;H&quot; into an empty hold space)</span></span>
+<span class="giallo-l"><span class="z-string">    p                 #   print the other options in their natural order</span></span>
+<span class="giallo-l"><span class="z-string">  }</span><span class="z-punctuation z-definition z-string">&#39;</span></span></code></pre><div class="note"><code>keepassxc-cli</code> actually displays that attribute as <code>Password: PROTECTED</code>, of course</div>
+<p>For completeness' sake, I could explain that each entry's attributes ranking is
+weighted via some access frecency (frequency + recency) heuristic, but that, for
+these old accounts I haven't accessed in a while (or to start off the system), I
+know that <strong>the password</strong> is most likely the attribute I want available through
+my clipboard for the next 5 seconds.</p>
+<p>It certainly could have been done otherwise, possibly, but I did it like that,
+and therefore I, <strong>and you too now</strong>, have seen it done like that.  I actually
+don't recall having seen it done any other way.</p>
+<p>Cheers!</p>
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn-long-german-words">
+<p>I only jest and am referring here to the famously long
+compound words that German is known for. <a href="#fr-long-german-words-1">↩</a></p>
+</li>
+<li id="fn-trailing-linefeed">
+<p>Some notorious text wranglers, whose ranks I am
+bolstering, define a line of text as ending with a <code>\n</code> character.
+Consequently, there shall be a trailing <code>\n</code> at the end of a file, lest it
+doesn't end with a line, but that constitutes in no way an "empty line", and
+yes, a file containing text without a linefeed contains no line.  Numerous
+tools, such as <code>wc</code> (<code>echo -n 'some text' | wc -l</code>), concur; but let not
+popularity dictate your tastes, consider the elegance of the consequences. <a href="#fr-trailing-linefeed-1">↩</a></p>
+</li>
+<li id="fn-may-bail-out">
+<p>Some commands may cut short the further processing of a loop
+and advance to the next iteration—that is, typically, process the next
+line.  For instance, <code>d</code> <strong><code>d</code>eletes</strong> the pattern space and continues to
+the next cycle. <code>b</code> <strong><code>b</code>ranches</strong> to a <em>label</em>, or the next cycle if no
+label is provided: I intimately call it <em>"bail"</em> and use in such manner.</p>
+<blockquote class="markdown-alert-tip">
+<p>I often come across an alternative to explicitly continuing to the next
+cycle: by default, <code>sed</code> prints the pattern space at the end of each
+cycle.  Some routinely reach for <code>-n</code> to suppress that behaviour, together
+with the <code>p</code> instruction to selectively output only the desired bits.
+<code>POSIX</code> only defines <code>-n</code>, but at least <code>GNU</code>'s implementation also
+synonymously supports <code>--quiet</code> and <code>--silent</code>.</p>
+</blockquote>
+<p>Do note that, without the <code>-n</code> flag, <code>b</code> would <strong>still print out the pattern
+space</strong> before the next loop, whereas <code>d</code> wouldn't.</p>
+<p>There is more to the labelling and branching system, such as the <code>t</code> and <code>T</code>
+operations, but these are quite the head-scratcher and may be better left to
+the discretion of the reader whose resolve is most unwavering, rather than
+to a hand-wavy footnote in any of my already generally hardly digestible
+articles. <a href="#fr-may-bail-out-1">↩</a></p>
+</li>
+<li id="fn-8kb">
+<p>The <code>POSIX</code> specification (<code>man 1p sed</code>) guarantees that both pattern
+and hold spaces can hold at least 8192 bytes.  <code>GNU sed</code> removes practical
+limits for most uses. <a href="#fr-8kb-1">↩</a></p>
+</li>
+</ol>
+</section>
+
+  <h2 id="cited-tools"><a class="anchor-link" href="#cited-tools" aria-label="Anchor link for: cited-tools"></a>
+Referenced tools</h2>
+  <div class="cited-tools">
+    
+<table class="tool mono">
+  <tr><th colspan="2"><strong>sed</strong></th></tr>
+  <tr>
+    
+        <td colspan="2">from <a href="https://archlinux.org/packages/core&#x2F;x86_64&#x2F;sed">core&#x2F;sed</a></td>
+    
+  </tr>
+  <tr>
+    <td><a href="https:&#x2F;&#x2F;www.gnu.org&#x2F;software&#x2F;sed&#x2F;manual&#x2F;">manual</a></td>
+    <td><a href="https:&#x2F;&#x2F;git.savannah.gnu.org&#x2F;git&#x2F;sed.git">repository</a></td>
+  </tr>
+</table>
+
+<table class="tool mono">
+  <tr><th colspan="2"><strong>vim</strong></th></tr>
+  <tr>
+    
+        <td colspan="2">from <a href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;vim">extra&#x2F;vim</a></td>
+    
+  </tr>
+  <tr>
+    <td><a href="https:&#x2F;&#x2F;vimhelp.org&#x2F;">manual</a></td>
+    <td><a href="https:&#x2F;&#x2F;github.com&#x2F;vim&#x2F;vim">repository</a></td>
+  </tr>
+</table>
+
+<table class="tool mono">
+  <tr><th colspan="2"><strong>keepassxc</strong></th></tr>
+  <tr>
+    
+        <td colspan="2">from <a href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;keepassxc">extra&#x2F;keepassxc</a></td>
+    
+  </tr>
+  <tr>
+    <td><a href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;extra&#x2F;keepassxc&#x2F;keepassxc-cli.1.en">manual</a></td>
+    <td><a href="https:&#x2F;&#x2F;github.com&#x2F;keepassxreboot&#x2F;keepassxc">repository</a></td>
+  </tr>
+</table>
+
+  </div>
+  
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <span>&lt;<a href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>&gt;</span>
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>

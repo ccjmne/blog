@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-2.woff2" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/work-3.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/fira-2.woff2') format('woff2'); }
+</style><link rel="stylesheet" href="https://ccjmne.sh/blog/base.css">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-light.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-dark.css"  media="(prefers-color-scheme: dark)">
+    
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+>
+      <a href="https://ccjmne.sh/blog">Home</a>
+      <details class="dropdown" max-sm>
+        <summary><strong>Articles</strong></summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual"><strong>Flight manual</strong></a>
+          <a href="https://ccjmne.sh/blog/tags">By tags</a>
+          <a href="https://ccjmne.sh/blog/ramblings">Ramblings</a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual" min-sm><strong>Flight manual</strong></a>
+      <a href="https://ccjmne.sh/blog/tags"          min-sm>By tags</a>
+      <a href="https://ccjmne.sh/blog/ramblings"     min-sm>Ramblings</a>
+      <a href="https://ccjmne.sh/blog/colophon"            >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main><h1><span class="link-title" 
+  style="view-transition-name: view-01-fcitx5-unicode"
+>Enter Unicode characters with <code>fcitx5</code></span></h1><ul class="infobar "><li><time>November 04, 2025</time></li><li>4-minute read</li>
+    <li>Part&nbsp;1&nbsp;of&nbsp;<a href="https:&#x2F;&#x2F;ccjmne.sh&#x2F;blog&#x2F;flight-manual&#x2F;fcitx5&#x2F;">Maybe a new <code>fcitx</code></a></li><li>tagged
+      <a href="https://ccjmne.sh/blog/tags/quibblery">quibblery</a></li></ul>
+<details class="lo summary">
+  <summary>Series introduction</summary>
+  <h2><a href="https://ccjmne.sh/blog/flight-manual/fcitx5" class="link-title" 
+  style="view-transition-name: view-fcitx5"
+>Maybe a new <code>fcitx</code></a></h2>
+  <p><code>IBus</code>, standing (vaguely) for <em>"Intelligent Input Bus"</em>, is an <strong>input
+framework</strong> that allows users to, for example, switch between different keyboard
+layouts, which any non-English native speakers reading this blog would certainly
+be familiar with.</p>
+<p>It is notably used by default by <code>GNOME</code>-based desktop environments, making it
+the <em>de facto</em> standard for many Linux users; however, it has been somewhat
+finicky for me (and others) when working with <abbr title="A replacement for the
+X11 window system protocol">Wayland</abbr><sup class="footnote-reference" id="fr-wayland-finicky-1"><a <a href="#fn-wayland-finicky">1</a></sup>—which is where
+<code>fcitx5</code><sup class="footnote-reference" id="fr-fcitx-5-1"><a <a href="#fn-fcitx-5">2</a></sup> comes in.</p>
+<p>But <code>fcitx5</code> <strong>is a lot other than "Wayland's <code>IBus</code>"</strong>: just as vaguely, it
+stands for <em>"Flexible Context-aware Input Tool with eXtension support"</em>, and in
+this series, I mean to delve deeply into the most practical and ubiquitous of
+its built-in modules.</p>
+</details><details class="hi toc">
+  <summary>Table of contents</summary>
+  <ul><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/fcitx5/01-fcitx5-unicode/#familiar-code-points-entry">Familiar code points entry</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/fcitx5/01-fcitx5-unicode/#unicode-search">Unicode search</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/fcitx5/01-fcitx5-unicode/#and-even-reverse-search">And even reverse-search</a></li>
+    <li><a href="#cited-tools">Referenced tools</a></li>
+    
+  </ul>
+</details>
+<article><p>The <code>fcitx5</code> functionality I reach for the most, its
+<a rel="external" href="https://home.unicode.org/">Unicode</a> module lets you <strong>access an astronomical
+number of characters</strong>, symbols and glyphs with the expected convenience.
+But beyond the obvious, it also bundles a pearl of ingenuity that lets you
+<strong>identify</strong> these invisible, combining or other peculiarly artful characters
+like a jeweller would delight in examining a rare gem.</p>
+<h2 id="familiar-code-points-entry"><a class="anchor-link" href="#familiar-code-points-entry" aria-label="Anchor link for: familiar-code-points-entry"></a>
+Familiar code points entry</h2>
+<p><code>fcitx5</code> has a <strong>built-in Unicode input method</strong> that allows users to enter any
+Unicode character by its code point.  Just start the daemon, verify that your
+<code>journalctl --user --unit fcitx5</code> shows <code>Loaded addon unicode</code>, and you're all
+set.</p>
+<p>To use it, simply switch to the <code>Unicode</code> input method—by default,
+<code>Ctrl</code>-<code>Shift</code>-<code>U</code>, and type the <strong>hexadecimal code point</strong> of the character you
+want to enter, followed by <code>Enter</code> or <code>Space</code>, cancelling out with <code>Esc</code>.</p>
+<p>I am hugely fond of hyphens, en dashes and em dashes (and I do sorely resent
+the dreadful notion that <a rel="external" href="https://www.nightwater.email/em-dash-ai/">writers that employ them may be of the artificial
+complexion</a>, and you will not catch me
+present a range with anything other than the adequate punctuation mark.</p>
+<ul>
+<li>
+<p><code>Ctrl</code>-<code>Shift</code>-<code>U</code>, then <code>2013</code> and voilà, an <strong>en dash (<code>–</code>)</strong>,
+transforming <strong>subtractions</strong> into <strong>numeric ranges</strong>.</p>
+<p>The first World War didn't <em>"span negative four"</em>, or whatever <em>1914-1918</em>
+may mean; it actually raged on <strong>from 1914 through 1918</strong>, <em>1914–1918</em>.</p>
+</li>
+<li>
+<p><code>Ctrl</code>-<code>Shift</code>-<code>U</code>, then <code>2014</code> and you can wield the <strong>em dash (<code>—</code>)</strong> to
+aptly document your suspicion of unorthodoxy in the rhetoric of your fellow
+comrades:</p>
+<blockquote>
+<p>"Except—" began Winston doubtfully, and then stopped.<br>
+It had been on the tip of his tongue to say "Except the proles," [...]</p>
+</blockquote>
+<div class="quote-attribution"><p>— George Orwell, <em>Nineteen Eighty-Four</em></p>
+</div>
+</li>
+<li>
+<p><code>Ctrl</code>-<code>Shift</code>-<code>U</code>, then <code>300</code> gives you the grave accent (<code>`</code>), which
+unlocks a Frenchman's ability to start a sentence with the preposition "to",
+<code>À</code>.</p>
+</li>
+<li>
+<p><code>301</code>, and you get to put the acute accent on any letter you fancy, possibly
+even spelling my name the way my parents intended, <code>Éric</code>.</p>
+</li>
+<li>
+<p><code>302</code> gives you the circumflex, <code>303</code> the tilde, <code>304</code>
+the macron, <code>305</code> the overline, and so on... <a rel="external" href="https://codepoints.net/combining_diacritical_marks">take your
+pick!</a></p>
+</li>
+</ul>
+<p>But while I find all of these notable examples to be surprisingly
+easy to remember, you do not have to index all of Unicode in your
+head—that valuable space is well known to be <a rel="external" href="https://www.pi-world-ranking-list.com/?page=lists">most suitable to <code>π</code>'s
+digits</a> after all.</p>
+<h2 id="unicode-search"><a class="anchor-link" href="#unicode-search" aria-label="Anchor link for: unicode-search"></a>
+Unicode search</h2>
+<p>What about the characters you won't reach for regularly enough to commit to
+(muscle?) memory their code point?  With <code>Ctrl</code>-<code>Shift</code>-<code>Alt</code>-<code>U</code> (I like to
+call this "<abbr title="relating to the fingers">digital</abbr> mouthful" a
+<em>"handful"</em>), you will be able to <strong>search by description</strong>.</p>
+<ul>
+<li>
+<p>Drawing some <abbr title="Terminal User Interface"><code>TUI</code></abbr>
+menu?  Have enough <a rel="external" href="https://en.wikipedia.org/wiki/Seven_(1995_film)">boxes to make Brad Pitt's head
+spin</a>:</p>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>┌───────────────────┐</span></span>
+<span class="giallo-l"><span>│  ╔═══╗ Some Text  │</span></span>
+<span class="giallo-l"><span>│  ╚═╦═╝ in the box │</span></span>
+<span class="giallo-l"><span>╞═╤══╩══╤═══════════╡</span></span>
+<span class="giallo-l"><span>│ ├──┬──┤           │</span></span>
+<span class="giallo-l"><span>│ └──┴──┘           │</span></span>
+<span class="giallo-l"><span>└───────────────────┘</span></span></code></pre><div class="note">from Wikipedia's article on <a rel="external" href="https://en.wikipedia.org/wiki/Box-drawing_characters">box-drawing characters</a></div>
+</li>
+<li>
+<p>the ideograph for love?  <a rel="external" href="https://en.wikipedia.org/wiki/All_You_Need_Is_Love">戀 is all that you
+need</a>—according to the
+Beatles</p>
+</li>
+<li>
+<p>a healthy serving of spaghetti?  🍝, delivered on a silver platter.</p>
+</li>
+</ul>
+<h2 id="and-even-reverse-search"><a class="anchor-link" href="#and-even-reverse-search" aria-label="Anchor link for: and-even-reverse-search"></a>
+And even reverse-search</h2>
+<p>Lastly, here's the neat trick that originally sold me on better adopting
+that tool: the "digital mouthful" <code>Ctrl</code>-<code>Shift</code>-<code>Alt</code>-<code>U</code> pops up <strong>already
+displaying some elements</strong> before you even start searching: they're <strong>your
+current selection</strong> and the contents of your clipboard, for convenient
+reverse-lookups.</p>
+<p>Will you need that often?  It does have <em>some</em> dubious value in being only able
+to pop up <strong>where you can type</strong>, but I reckon that shouldn't be a problem for
+any serious <code>CLI</code> dwellers.</p>
+<p>And if once in a while you tend to some finesse writing, you might
+very well save yourself some <code>xxd</code> invocations—unless you can
+distinguish a <a rel="external" href="https://unicode-explorer.com/c/00AD">soft-hyphen</a> from a
+<a rel="external" href="https://unicode-explorer.com/c/00A0">non-breaking space</a>, from a <a rel="external" href="https://unicode-explorer.com/c/0020">regular
+space</a>...</p>
+  <section class="footnotes" aria-label="Footnotes">
+      <ol class="footnotes-list">
+<li id="fn-wayland-finicky">
+<p>Although "applications being finicky" under Wayland will
+come at no surprise to anyone, I will note that it mostly has to do with running
+a lot of <abbr title="X Window System version 11"><code>X11</code></abbr> applications
+actually <strong>through a compatibility layer</strong>, and <a rel="external" href="https://www.youtube.com/watch?v=MShbP3OpASA"><code>NVIDIA</code> notoriously having
+been an execrable collaborator</a> in
+helping the Linux kernel developers integrate their hardware into the ecosystem. <a href="#fr-wayland-finicky-1">↩</a></p>
+</li>
+<li id="fn-fcitx-5">
+<p><code>fcitx5</code> is a fairly recent project (started around 2019) led by the
+same original author, a <em>complete rewrite</em> of its predecessor, infusing new life
+into <code>fcitx</code> notably in including first-class Wayland support, a vastly more
+modern codebase, greater performance (reportedly), and some unified theming and
+configuration tools. <a href="#fr-fcitx-5-1">↩</a></p>
+</li>
+</ol>
+    </section>
+  <h2 id="cited-tools"><a class="anchor-link" href="#cited-tools" aria-label="Anchor link for: cited-tools"></a>
+Referenced tools</h2>
+  <div class="cited-tools">
+    
+<table class="tool mono">
+  <tr><th colspan="2"><strong>ibus</strong></th></tr>
+  <tr>
+    
+        <td colspan="2">from <a href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;ibus">extra&#x2F;ibus</a></td>
+    
+  </tr>
+  <tr>
+    <td><a href="https:&#x2F;&#x2F;github.com&#x2F;ibus&#x2F;ibus&#x2F;wiki">manual</a></td>
+    <td><a href="https:&#x2F;&#x2F;github.com&#x2F;ibus&#x2F;ibus">repository</a></td>
+  </tr>
+</table>
+
+<table class="tool mono">
+  <tr><th colspan="2"><strong>fcitx5</strong></th></tr>
+  <tr>
+    
+        <td colspan="2">from <a href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;fcitx5">extra&#x2F;fcitx5</a></td>
+    
+  </tr>
+  <tr>
+    <td><a href="https:&#x2F;&#x2F;fcitx-im.org&#x2F;wiki&#x2F;Fcitx_5">manual</a></td>
+    <td><a href="https:&#x2F;&#x2F;github.com&#x2F;fcitx&#x2F;fcitx5">repository</a></td>
+  </tr>
+</table>
+
+  </div>
+  
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <span>&lt;<a href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>&gt;</span>
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>

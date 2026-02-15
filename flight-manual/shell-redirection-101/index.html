@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-2.woff2" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/work-3.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/fira-2.woff2') format('woff2'); }
+</style><link rel="stylesheet" href="https://ccjmne.sh/blog/base.css">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-light.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-dark.css"  media="(prefers-color-scheme: dark)">
+    
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+>
+      <a href="https://ccjmne.sh/blog">Home</a>
+      <details class="dropdown" max-sm>
+        <summary><strong>Articles</strong></summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual"><strong>Flight manual</strong></a>
+          <a href="https://ccjmne.sh/blog/tags">By tags</a>
+          <a href="https://ccjmne.sh/blog/ramblings">Ramblings</a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual" min-sm><strong>Flight manual</strong></a>
+      <a href="https://ccjmne.sh/blog/tags"          min-sm>By tags</a>
+      <a href="https://ccjmne.sh/blog/ramblings"     min-sm>Ramblings</a>
+      <a href="https://ccjmne.sh/blog/colophon"            >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main><h1><span class="link-title" 
+  style="view-transition-name: view-shell-redirection-101"
+>Redirection 101: the very basics</span></h1><ul class="infobar "><li><time>August 18, 2025</time></li><li>5-minute read</li>
+    <li>tagged
+      <a href="https://ccjmne.sh/blog/tags/cli">cli</a>, <a href="https://ccjmne.sh/blog/tags/posix">posix</a></li></ul>
+<details class="hi toc">
+  <summary>Table of contents</summary>
+  <ul><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/shell-redirection-101/#redirection">Redirection</a><ul>
+        
+        <li><a href="https://ccjmne.sh/blog/flight-manual/shell-redirection-101/#input-redirection">Input redirection: &lt;</a></li>
+        <li><a href="https://ccjmne.sh/blog/flight-manual/shell-redirection-101/#output-redirection">Output redirection: &gt;</a></li>
+        <li><a href="https://ccjmne.sh/blog/flight-manual/shell-redirection-101/#appending-output">Appending output: &gt;&gt;</a></li>
+        <li><a href="https://ccjmne.sh/blog/flight-manual/shell-redirection-101/#here-document">Here Document: &lt;&lt;</a></li>
+        <li><a href="https://ccjmne.sh/blog/flight-manual/shell-redirection-101/#here-string">Here String: &lt;&lt;&lt;</a></li>
+        <li><a href="https://ccjmne.sh/blog/flight-manual/shell-redirection-101/#command-piping">Command piping: |</a></li></ul></li>
+  </ul>
+</details>
+<article><p><em>Disclaimer:</em> this article is tailored to those of us who are taking
+their first steps in the <abbr title="Command Line Interface, where I
+dwell"><code>CLI</code></abbr>.<br>
+A seasoned user is still likely to find some quite interesting information
+in the various notes, but the main focus of the article still is only
+meant to level the playing field in order to approach the <em>everything is a
+file</em> series.</p>
+<!-- [everything being a file (descriptor)](@/flight-manual/everything-is-a-file.md). TODO: LINKME -->
+<span id="continue-reading"></span><h2 id="redirection"><a class="anchor-link" href="#redirection" aria-label="Anchor link for: redirection"></a>
+Redirection</h2>
+<p>Straight from <code>bash</code>'s <code>man</code>ual, we learn that before a command is executed,
+its input and output may be redirected using a special notation interpreted by
+the shell.<br>
+There is a <em>lot</em> to talk about here: redirection allows commands' file handles
+to be duplicated, opened, closed, made to refer to different files, and can
+change the files the command reads from and writes to; but I'll stick here to
+the practical, day-to-day uses of redirection.</p>
+<p>Instead of manually typing up on <code>stdin</code>, you may redirect some other <code>I/O</code>
+stream to <code>sort</code>'s standard input.  Just as well, you may redirect its output
+to an any other file descriptor using one (or more!) of five (or 6, with the
+<code>HERESTRING</code> Bashism) redirection operators:</p>
+<ul>
+<li><code>&lt;</code> redirects <code>stdin</code> from a file descriptor</li>
+<li><code>&gt;</code> redirects <code>stdout</code> to a file descriptor</li>
+<li><code>&gt;&gt;</code> appends <code>stdout</code> to a file descriptor</li>
+<li><code>&lt;&lt;</code> redirects <code>stdin</code> from an in-line document (<code>HEREDOC</code>)</li>
+<li><code>&lt;&lt;&lt;</code> redirects <code>stdin</code> from an in-line string (<code>HERESTRING</code>, non-<code>POSIX</code>!)</li>
+<li><code>|</code> pipes <code>stdout</code> from a command to <code>stdin</code> of another</li>
+</ul>
+<p>Let's explore the few things to know about each.</p>
+<h3 id="input-redirection"><a class="anchor-link" href="#input-redirection" aria-label="Anchor link for: input-redirection"></a>
+Input redirection: <code>&lt;</code></h3>
+<p>The dead simple <code>&lt;</code> operator redirects a file descriptor to <code>FD 0</code>.  Whereas
+<code>sort</code> invoked on its own would have you type your input, you may have it sort
+the files of a file on disk instead:</p>
+<div class="grid-1-2"><div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sort</span><span class="z-keyword z-operator"> &lt;</span><span class="z-string"> unsorted.txt</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>A pricot</span></span>
+<span class="giallo-l"><span>B anana</span></span>
+<span class="giallo-l"><span>C oconut</span></span>
+<span class="giallo-l"><span>D ragonfruit</span></span></code></pre><div class="note">this uses <code>unsorted.txt</code> as standard input</div>
+</div><div>
+<pre class="giallo z-code"><code data-lang="plain" data-name="unsorted.txt"><span class="giallo-l"><span>D ragonfruit</span></span>
+<span class="giallo-l"><span>C oconut</span></span>
+<span class="giallo-l"><span>A pricot</span></span>
+<span class="giallo-l"><span>B anana</span></span></code></pre></div></div>
+<p>It may take a <code>FD</code> number, too, to redirect to a file descriptor other than
+<code>0</code>, the standard input.  For instance, you may redirect <code>FD 3</code>
+to the contents of <code>unsorted.txt</code>:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sort</span><span class="z-constant z-numeric"> 3</span><span class="z-keyword z-operator">&lt;</span><span class="z-string"> unsorted.txt</span></span></code></pre>
+<p>The above is of dubious interest, since <code>sort</code> doesn't do anything with its <code>FD 3</code>.</p>
+<p>nb.: Going forward, I'll invoke <code>sort</code> with a file descriptor as its first
+positional argument, which will have it read from there instead of <code>stdin</code>.</p>
+<h3 id="output-redirection"><a class="anchor-link" href="#output-redirection" aria-label="Anchor link for: output-redirection"></a>
+Output redirection: <code>&gt;</code></h3>
+<p>A counterpart to <code>&lt;</code>, the <code>&gt;</code> operator redirects a file descriptor to <code>FD 1</code>.
+Whereas <code>sort</code> invoked on its own would print its output to the terminal, you
+may have it write the sorted output to a file on disk instead:</p>
+<div class="grid-1-2"><div style="grid-area: 1 / 1 / 2 / 3;">
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sort</span><span class="z-string"> unsorted.txt</span><span class="z-keyword z-operator"> &gt;</span><span class="z-string"> sorted.txt</span></span></code></pre><div class="note">this has no visible output, since <code>stdout</code> was redirected to <code>sorted.txt</code></div>
+</div><div>
+<pre class="giallo z-code"><code data-lang="plain" data-name="unsorted.txt"><span class="giallo-l"><span>D ragonfruit</span></span>
+<span class="giallo-l"><span>C oconut</span></span>
+<span class="giallo-l"><span>A pricot</span></span>
+<span class="giallo-l"><span>B anana</span></span></code></pre></div><div>
+<pre class="giallo z-code"><code data-lang="plain" data-name="sorted.txt"><span class="giallo-l"><span>A pricot</span></span>
+<span class="giallo-l"><span>B anana</span></span>
+<span class="giallo-l"><span>C oconut</span></span>
+<span class="giallo-l"><span>D ragonfruit</span></span></code></pre></div></div>
+<p>Just like <code>&lt;</code>, it may take a <code>FD</code> number, to redirect to to another descriptor.
+A fairly common use case is to redirect <code>FD 2</code>, the standard error output, to a
+file, so that you can inspect it later:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sort</span><span class="z-string"> unsorted.txt</span><span class="z-keyword z-operator"> 2</span><span class="z-keyword z-operator">&gt;</span><span class="z-string"> errors.txt</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>A pricot</span></span>
+<span class="giallo-l"><span>B anana</span></span>
+<span class="giallo-l"><span>C oconut</span></span>
+<span class="giallo-l"><span>D ragonfruit</span></span></code></pre><div class="note"><code>errors.txt</code> would contain any error output</div>
+<p>You may redirect <em>both</em> <code>stdout</code> and <code>stderr</code> at the same time, using the <code>&amp;&gt;</code>
+operator, though it is not <code>POSIX</code>-compliant.</p>
+<h3 id="appending-output"><a class="anchor-link" href="#appending-output" aria-label="Anchor link for: appending-output"></a>
+Appending output: <code>&gt;&gt;</code></h3>
+<p>The <code>&gt;&gt;</code> operator is similar to <code>&gt;</code>, but <em>appends</em> to the file descriptor
+instead of overwriting it.  This is useful when you want to keep the previous
+contents of a file and add new data to it, rather than replacing it.</p>
+<p>It also understands a file descriptor number, like the two operators above.</p>
+<h3 id="here-document"><a class="anchor-link" href="#here-document" aria-label="Anchor link for: here-document"></a>
+Here Document: <code>&lt;&lt;</code></h3>
+<p>The <code>&lt;&lt;</code> operator redirects a <em>here document</em> (often abbreviated <code>HEREDOC</code>)
+to <code>FD 0</code>.  A <em>here document</em> provides input to a command directly within the
+script or command line, rather than from a separate file.  For instance, you can
+use it to sort a list of items without having to create a separate file:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sort</span><span class="z-keyword z-operator"> &lt;&lt;</span><span class="z-punctuation z-definition z-string">EOF</span></span>
+<span class="giallo-l"><span class="z-string">C oconut</span></span>
+<span class="giallo-l"><span class="z-string">D ragonfruit</span></span>
+<span class="giallo-l"><span class="z-string">A pricot</span></span>
+<span class="giallo-l"><span class="z-string">B anana</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">EOF</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>A pricot</span></span>
+<span class="giallo-l"><span>B anana</span></span>
+<span class="giallo-l"><span>C oconut</span></span>
+<span class="giallo-l"><span>D ragonfruit</span></span></code></pre>
+<p>Once again, it may take a file descriptor number, to redirect to a file
+descriptor other than <code>0</code>, the standard input.  There are a few more things
+that make <code>HEREDOC</code> uniquely useful, which I go over in <a href="https://ccjmne.sh/blog/flight-manual/shell-redirection-101/heredoc.md">a complementary
+article</a>.</p>
+<h3 id="here-string"><a class="anchor-link" href="#here-string" aria-label="Anchor link for: here-string"></a>
+Here String: <code>&lt;&lt;&lt;</code></h3>
+<p>Disclaimer: this one is not part of the <code>POSIX</code> standard.</p>
+<p>The <code>&lt;&lt;&lt;</code> operator redirects a <em>here string</em> (often abbreviated <code>HEREDOC</code>)
+to <code>FD 0</code>.  A <em>here string</em> provides a <em>single string</em> as input to a command
+directly within the script or command line.  For example, you can use it some
+input defined as a single multi-line string:</p>
+<div class="grid-1-2"><div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sort</span><span class="z-keyword z-operator"> &lt;&lt;&lt;</span><span class="z-punctuation z-definition z-string"> &#39;</span></span>
+<span class="giallo-l"><span class="z-string">C oconut</span></span>
+<span class="giallo-l"><span class="z-string">D ragonfruit</span></span>
+<span class="giallo-l"><span class="z-string">A pricot</span></span>
+<span class="giallo-l"><span class="z-string">B anana</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">&#39;</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>A pricot</span></span>
+<span class="giallo-l"><span>B anana</span></span>
+<span class="giallo-l"><span>C oconut</span></span>
+<span class="giallo-l"><span>D ragonfruit</span></span></code></pre><div class="note"><code>&lt;&lt;&lt;</code> isn't part of the <code>POSIX</code> specification</div>
+</div><div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sort</span><span class="z-keyword z-operator"> &lt;&lt;&lt;</span><span class="z-punctuation z-definition z-string"> $&#39;</span><span class="z-constant z-character z-escape">\n</span><span class="z-string">C</span><span class="z-string"> oconut</span><span class="z-constant z-character z-escape">\n</span><span class="z-string">D</span><span class="z-string"> ragonfruit</span><span class="z-constant z-character z-escape">\n</span><span class="z-string">A</span><span class="z-string"> pricot</span><span class="z-constant z-character z-escape">\n</span><span class="z-string">B</span><span class="z-string"> anana</span><span class="z-punctuation z-definition z-string">&#39;</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>A pricot</span></span>
+<span class="giallo-l"><span>B anana</span></span>
+<span class="giallo-l"><span>C oconut</span></span>
+<span class="giallo-l"><span>D ragonfruit</span></span></code></pre><div class="note"><code>&lt;&lt;&lt;</code> and <code>$'...'</code> make this <em>doubly</em> non-<code>POSIX</code></div>
+</div></div>
+<p>Since you'll already be using Bashisms if you're there, you may like to know
+that the <code>$'...'</code> (<code>ANSI-C</code> quoting) allows you, in <code>bash</code>, <code>zsh</code> and other
+popular interactive interpreters, to interpret backlash escape sequences much
+like <code>C</code> string literals would.  There, <code>\n</code> is a linefeed, <code>\t</code> a tabulation,
+<code>\x20</code> is a byte with the hexadecimal value <code>20</code> (a whitespace), <code>\u20AC</code> is the
+Unicode character with code point <code>U+20AC</code> (the Euro sign), and so on.</p>
+<p>The usage of the <em>here string</em> by far the most prevalent out there would be that
+which replaces <code>echo something | command</code>, as the resulting pipeline is regarded
+as somewhat more readable:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-support z-function z-builtin">echo</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">some input</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-keyword z-operator"> |</span><span class="z-support z-function z-builtin"> command</span><span class="z-string"> -</span><span class="z-string">-some-flag=value</span><span class="z-punctuation z-definition z-comment">  #</span><span class="z-comment"> POSIX-compliant</span></span>
+<span class="giallo-l"><span class="z-support z-function z-builtin">command</span><span class="z-string"> -</span><span class="z-string">-some-flag=value</span><span class="z-keyword z-operator"> &lt;&lt;&lt;</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">some input</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation z-definition z-comment">     #</span><span class="z-comment"> possibly more readable</span></span></code></pre><h3 id="command-piping"><a class="anchor-link" href="#command-piping" aria-label="Anchor link for: command-piping"></a>
+Command piping: <code>|</code></h3>
+<p>The <code>|</code> operator pipes the standard output (<code>stdout</code>, <code>FD 1</code>) of one command to
+the input (<code>stdin</code>, <code>FD 0</code>) of another.  Simple, obvious, effective; this lets
+you chain commands together, passing the output of one command as input to the
+next.  We talk then of <em>pipeline</em>, as opposed to <em>simple commands</em>; though these
+terms appear more in the literature than in the day-to-day vernacular.</p>
+<p>For example, you can use it to sort a list of items generated by another
+command:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-support z-function z-builtin">printf</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">C\nD\nA\nB</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> sort</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>A</span></span>
+<span class="giallo-l"><span>B</span></span>
+<span class="giallo-l"><span>C</span></span>
+<span class="giallo-l"><span>D</span></span></code></pre><div class="note">the <code>\n</code> are interpreted by <code>printf</code> and therefore <em>aren't non-POSIX</em> constructs here!</div>
+<p>And there we are!  The basics of redirection in the shell; nothing much fancy,
+but one learns to walk before they run and walking, however mundane, does get
+fairly practical once mastered.</p>
+
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <span>&lt;<a href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>&gt;</span>
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>

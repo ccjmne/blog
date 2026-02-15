@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-2.woff2" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/work-3.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/fira-2.woff2') format('woff2'); }
+</style><link rel="stylesheet" href="https://ccjmne.sh/blog/base.css">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-light.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-dark.css"  media="(prefers-color-scheme: dark)">
+    
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {--column-width: min(90vw, 600px);}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+>
+      <a href="https://ccjmne.sh/blog">Home</a>
+      <details class="dropdown" max-sm>
+        <summary><strong>Articles</strong></summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual">Flight manual</a>
+          <a href="https://ccjmne.sh/blog/tags">By tags</a>
+          <a href="https://ccjmne.sh/blog/ramblings"><strong>Ramblings</strong></a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual" min-sm>Flight manual</a>
+      <a href="https://ccjmne.sh/blog/tags"          min-sm>By tags</a>
+      <a href="https://ccjmne.sh/blog/ramblings"     min-sm><strong>Ramblings</strong></a>
+      <a href="https://ccjmne.sh/blog/colophon"            >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main>
+<h1><span class="link-title" 
+  style="view-transition-name: view-the-dry-hoax"
+>The <code>DRY</code> hoax</span></h1><ul class="infobar "><li><time>November 11, 2025</time></li><li>6-minute read</li>
+    </ul>
+<article>
+  <p>Ah, here we are.  The opiate of the eager neophyte, which, like all things, is
+better consumed with moderation.</p>
+<p>Indeed, <abbr title="DRY" font="mono"><strong>Don't Repeat Yourself</strong></abbr>—when
+providing instructions to the machine, that is.  I quite like refactoring
+code, and very much understand that this word originates from the world of
+mathematics, where we can simplify equations by combining <strong>factors</strong>.</p>
+<p>I stand behind the process, the whole ideal in principle: yes, a thousand times
+yes, strive to identify units of work that are one and the same <strong>logically</strong>,
+and make them effectively, <strong>technically</strong> one and the same as well.</p>
+<div class="hi">
+<p>The debilitating disfigurement of an otherwise sound principle starts to show
+as soon as the healthy habit <a rel="external" href="https://en.wikipedia.org/wiki/Moulting">moults</a>
+and sheds its reasoned skin, to change—as sadly quite a few
+do—into a helpless automatism, and further as it insidiously
+transmutes into a <strong>tenet of your newly, tacitly established <a rel="external" href="https://en.wikipedia.org/wiki/Cargo_cult">cargo
+cult</a></strong>.</p>
+<p>Not everything, everybody, every time, everywhere, demands the conception and
+curation of a uniform abstraction.</p>
+<p>Having a few of your purportedly autonomous, vaguely<sup class="footnote-reference" id="fr-manifesto-agile-1"><a href="#fn-manifesto-agile">1</a></sup>
+<a rel="external" href="https://en.wikipedia.org/wiki/Agile_software_development">"Agile"</a> teams
+using containerised services in a similar way, doesn't necessarily call for
+the creation of an internal, bastardised library, framework, infrastructure,
+platform, or whatever else sounds legitimate enough to tout <strong>your proposed
+oblivious commitment to maintaining</strong>, in perpetuity, yet another abstraction
+<strong>in the way of using the tool you need</strong>, as if it were an achievement.</p>
+</div>
+<p>Not even at a smaller scale does every piece of code need have no sibling, twin
+or cousin.</p>
+<p>I won't draw the analogy to the fate of <a rel="external" href="https://en.wikipedia.org/wiki/The_Stranger_(Camus_novel)">Meursault in Camus'
+<em>L'Étranger</em></a> here,
+for <strong>competent software is frugal and cut-throat</strong>, and attachment to fragments
+of code is largely detrimental to moulding it into a sharp, lean performer.
+I'll have you instead consider the real-life example of some well-meaning <em>"Web
+developer's"</em><sup class="footnote-reference" id="fr-are-you-a-web-developer-1"><a href="#fn-are-you-a-web-developer">2</a></sup> stunning implementation of the familiar
+sign-in and sign-up forms:</p>
+<p>You see, in terms of business logic, both forms encapsulate vastly
+different functions.  But in their infinite wisdom, the <code>DRY</code> priest
+(drinking neither wine nor water?) would soon recognise that amidst
+the differences, two input fields (<code>email</code> and <code>password</code>) are notably
+<a rel="external" href="https://www.merriam-webster.com/dictionary/double-dip">double-dipping</a> in the
+blessed halo that is <strong>the sanctimonious, exclusive one-million-lines-of-code
+repository</strong>.  Hell, squint a little, and even the <code>submit</code> button appears to
+bask in undue warmth.</p>
+<p>Duplication!  Duplicitous duplication!  Quick, there's a pagan civilisation in
+need of divine enlightenment and no time to explain (or reason); erect the holy
+temples and subsume their society under ours; the scripture calls for lines of
+code to be universally unique, and:</p>
+<blockquote>
+<p>All problems in computer science can be solved by another level of indirection
+[...]</p>
+</blockquote>
+<div class="hi">
+<p>Here, extract the two <code>&lt;input&gt;</code> in their own template.  There, muster a model
+and its controller, complete with two-way bindings.  Ah, but the password entry
+validation logic must be provided by the consumer component: in one case, it
+must contort to fit to <strong>whatever comprises an acceptable password—I'm sure
+whitespaces will be rejected</strong>, and in the other, it must dynamically correspond
+to the value of a identical "confirmation" twin separated at birth.</p>
+<p>Fret not, for the <code>DRY</code> apostle's propensity for <abbr title='"extreme
+dryness"'>dessication</abbr> comes second only to <a rel="external" href="https://en.wikipedia.org/wiki/Parting_of_the_Red_Sea">Moses parting the Red
+Sea</a>: they are
+well-acquainted to all <a rel="external" href="https://en.wikipedia.org/wiki/SOLID"><code>SOLID</code></a> matters as
+well.  Here the <em>Single Responsibility</em>, there the <em>Dependency Inversion</em>.</p>
+<p>This isn't <em>work</em> any longer.  Provided it still belongs to the realm of the
+mortals, this is <em>art</em>.  In fact, <strong>the application doesn't need to work, it
+needs <em>to scale</em>—to the heavens!</strong>  We have grand plans, and the vertiginous
+heights from which we look down on the naive implementation is reflected in the
+staggering depth of our directory structure.  <strong>Mission justly re-appropriated
+and accomplished.</strong></p>
+<p>But here's my truth: our new sprawling collection of interdependent
+components used to consist of <strong>two lines</strong>, albeit in two places.
+The grand plans I was alluding to?  Grand delusions.  All we've
+accomplished is to make the codebase impenetrable; its only
+<strong>indisputably divine quality is to <a rel="external" href="https://en.wikipedia.org/wiki/God_Moves_in_a_Mysterious_Way">move in just as mysterious a
+way</a></strong>.</p>
+</div>
+<p>I'd be remiss if I failed to end on the corollary continuation to my earlier
+citing of the <a rel="external" href="https://en.wikipedia.org/wiki/Fundamental_theorem_of_software_engineering">fundamental theorem of software
+engineering</a>:</p>
+<blockquote>
+<p>[...] except for the problem of too many layers of indirection.</p>
+</blockquote>
+<div class="quote-attribution"><p>— David Wheeler's <a rel="external" href="https://en.wikipedia.org/wiki/Indirection">aphorism on indirection</a></p>
+</div>
+<!-- (@/ramblings/youre-no-web-developer). TODO: LINKME -->
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn-manifesto-agile">
+<p>I say "vaguely Agile", because, as <a rel="external" href="https://en.wikipedia.org/wiki/Ron_Jeffries">Ron
+Jeffries</a>, a vocal <strong>original
+author of <a rel="external" href="https://agilemanifesto.org/">the one Agile Manifesto</a></strong> explains
+<a rel="external" href="https://ronjeffries.com/articles/018-01ff/abandon-1/">in his rant</a>, the
+collection of principles that should be conductive to nimble, accurate,
+iterative software development has seen its name hijacked and repurposed
+into a corporate buzzword to support instead the <strong>institutionalisation
+of a process-heavy framework</strong> primarily shaped by the <a rel="external" href="https://www.scrumalliance.org/get-certified/scrum-master-track/"><em>Scrum
+Alliance</em>'s thriving business in providing <em>"Certified ScrumMaster"</em>
+trainings</a> and
+certifications. <a href="#fr-manifesto-agile-1">↩</a></p>
+</li>
+<li id="fn-are-you-a-web-developer">
+<p>You're not a <em>Web developer</em> just because you
+cobbled together some barely idiomatic <a rel="external" href="https://react.dev/">React</a> garbage,
+without having familiarised yourself with <em>any</em> the internal workings of
+<a rel="external" href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements">Custom Elements</a>,
+<a rel="external" href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model">the <code>DOM</code></a>,
+<a rel="external" href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM">the Shadow <code>DOM</code></a>,
+<a rel="external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Execution_model">JavaScript's Event Loop</a>,
+<a rel="external" href="https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/Critical_rendering_path">the browser's rendering pipeline</a>,
+<a rel="external" href="https://www.w3.org/WAI/standards-guidelines/wcag/">accessibility <code>API</code>s and practices</a>,
+<a rel="external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl">internationalisation <code>API</code>s and practices</a> (<a rel="external" href="https://developer.mozilla.org/en-US/docs/Glossary/LTR"><code>LTR</code>, anybody?</a>),
+<a rel="external" href="https://owasp.org/www-project-top-ten/">security considerations</a>,
+<a rel="external" href="https://en.wikipedia.org/wiki/Data_governance">data governance</a>,
+<a rel="external" href="https://en.wikipedia.org/wiki/Internet_protocol_suite">network protocols</a>,
+<a rel="external" href="https://en.wikipedia.org/wiki/Streaming_data">streaming (not only for media!)</a>,
+<a rel="external" href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API"><em>WebSockets</em></a>,
+<a rel="external" href="https://developer.mozilla.org/en-US/docs/WebAssembly"><em>WebAssembly</em></a>...</p>
+<p>If you couldn't begin to contemplate how to implement the mechanics of
+an <abbr title="Single Page Application"><code>SPA</code></abbr> yourself, with
+nothing but your hand-rolled <strong>~25 lines of JavaScript</strong> (seriously),
+then <strong>you aren't all that much ahead of the litany of React-kiddies</strong>
+wondering how to <a rel="external" href="https://stackoverflow.com/q/38510640/2427596"><em>"make an <code>HTTP</code> query with my front-end framework of
+choice"</em></a>.</p>
+<p>If you conflate <code>REST</code> with <code>HTTP</code> and cannot describe in what way <code>AJAX</code>
+relates to either and both, <strong>you're not a Web developer</strong>. <a href="#fr-are-you-a-web-developer-1">↩</a></p>
+</li>
+</ol>
+</section>
+
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <span>&lt;<a href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>&gt;</span>
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>

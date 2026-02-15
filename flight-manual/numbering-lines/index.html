@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-2.woff2" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/work-3.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/fira-2.woff2') format('woff2'); }
+</style><link rel="stylesheet" href="https://ccjmne.sh/blog/base.css">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-light.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-dark.css"  media="(prefers-color-scheme: dark)">
+    
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+>
+      <a href="https://ccjmne.sh/blog">Home</a>
+      <details class="dropdown" max-sm>
+        <summary><strong>Articles</strong></summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual"><strong>Flight manual</strong></a>
+          <a href="https://ccjmne.sh/blog/tags">By tags</a>
+          <a href="https://ccjmne.sh/blog/ramblings">Ramblings</a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual" min-sm><strong>Flight manual</strong></a>
+      <a href="https://ccjmne.sh/blog/tags"          min-sm>By tags</a>
+      <a href="https://ccjmne.sh/blog/ramblings"     min-sm>Ramblings</a>
+      <a href="https://ccjmne.sh/blog/colophon"            >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main><h1><span class="link-title" 
+  style="view-transition-name: view-numbering-lines"
+>Number lines with <code>nl</code> from the <code>CLI</code> (read: Vim)</span></h1><ul class="infobar "><li><time>December 25, 2025</time></li><li>12-minute read</li>
+    <li>tagged
+      <a href="https://ccjmne.sh/blog/tags/cli">cli</a>, <a href="https://ccjmne.sh/blog/tags/posix">posix</a>, <a href="https://ccjmne.sh/blog/tags/vim">vim</a></li></ul>
+<details class="hi toc">
+  <summary>Table of contents</summary>
+  <ul><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/numbering-lines/#obligatory-tl-dr">Obligatory TL;DR</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/numbering-lines/#number-lines-with-style">Number lines with style</a><ul>
+        
+        <li><a href="https://ccjmne.sh/blog/flight-manual/numbering-lines/#dealing-with-alignment">Dealing with alignment</a></li></ul></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/numbering-lines/#any-affine-function-discretely-defined-over-n">Any affine function discretely defined over ℕ</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/numbering-lines/#consider-only-the-lines-you-want">Consider only the lines you want</a><ul>
+        
+        <li><a href="https://ccjmne.sh/blog/flight-manual/numbering-lines/#the-concept-of-sections">The concept of sections</a></li>
+        <li><a href="https://ccjmne.sh/blog/flight-manual/numbering-lines/#targeting-lines-to-number">Targeting lines to number</a></li></ul></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/numbering-lines/#a-practical-example">A practical example</a></li>
+    <li><a href="#cited-tools">Referenced tools</a></li>
+    
+  </ul>
+</details>
+<article><p>Sure, there's a tool that numbers lines of text; so what?  The feline
+worshippers among us would even promptly jump on the occasion to mention the
+<code>--number</code>/<code>-n</code> flag of <code>cat</code>.  Although in practice they probably wouldn't,
+because there is no intersection between those that read the manual and <a href="https://ccjmne.sh/blog/flight-manual/useless-use-of-cat/">those
+that use <code>cat</code> all over</a> the place.
+Nonetheless, the idea remains: this doesn't sound like something you need.</p>
+<p>Maybe you don't do enough!  It does come in handy on some occasion, and when
+that need arise, I'm happy to be faster, cheaper and more accurate than your
+tenured corporate developer's solution of having some <code>LLM</code> do it.</p>
+<!-- [adopt skills you don't need yet](@/ramblings/adopt-stkills-you-dont-need-yet.md). TODO: LINKME -->
+<div class="hi">
+<h2 id="obligatory-tl-dr"><a class="anchor-link" href="#obligatory-tl-dr" aria-label="Anchor link for: obligatory-tl-dr"></a>
+Obligatory <a rel="external" href="https://en.wikipedia.org/wiki/TL;DR">TL;DR</a></h2>
+<p>Your first question will likely be: <em>why bother</em>?  To which I shall raise the
+<a href="https://ccjmne.sh/blog/flight-manual/numbering-lines/#a-practical-example">practical example</a> section.  And yeah, it supposes that
+you dwell on the <code>CLI</code>, most specifically in <abbr title="The ubiquitous text
+editor">Vim</abbr>.</p>
+<blockquote class="markdown-alert-warning">
+<p>As far as I can tell, the <code>GNU</code> implementation matches exactly the
+<code>POSIX</code> standard for <code>nl</code>.  However, only the short-form version of the
+flags is described in the <code>POSIX</code> specification: therefore <code>nl -w1</code> is
+<code>POSIX</code>-compliant, <code>nl --number-width=1</code> isn't.</p>
+</blockquote>
+<p>Number non-blank lines from a file or the standard output with <code>nl</code>; number them
+all with the <code>-ba</code> flag:</p>
+<div class="grid-1-3">
+<pre class="giallo z-code"><code data-lang="plain" data-name="fruits.txt"><span class="giallo-l"><span>Apricot</span></span>
+<span class="giallo-l"><span>Apple</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>Banana</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>Cherry</span></span>
+<span class="giallo-l"><span>Carrot?</span></span></code></pre><div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">nl</span><span class="z-string"> fruits.txt</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>1  Apricot</span></span>
+<span class="giallo-l"><span>2  Apple</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>3  Banana</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>4  Cherry</span></span>
+<span class="giallo-l"><span>5  Carrot?</span></span></code></pre></div>
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">nl</span><span class="z-string"> -</span><span class="z-string">ba</span><span class="z-string"> fruits.txt</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>1  Apricot</span></span>
+<span class="giallo-l"><span>2  Apple</span></span>
+<span class="giallo-l"><span>3</span></span>
+<span class="giallo-l"><span>4  Banana</span></span>
+<span class="giallo-l"><span>5</span></span>
+<span class="giallo-l"><span>6  Cherry</span></span>
+<span class="giallo-l"><span>7  Carrot?</span></span></code></pre></div>
+</div>
+<p>Target lines to be numbered with the <code>-bp</code> flag, matching against <a rel="external" href="https://www.gnu.org/software/sed/manual/html_node/BRE-syntax.html">basic regular
+expressions</a>;
+use a specific separator between the numbers and their content lines with <code>-s</code>:</p>
+<div class="grid-1-3">
+<pre class="giallo z-code"><code data-lang="plain" data-name="ingredients.txt"><span class="giallo-l"><span>Fruits:</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>- Apricot</span></span>
+<span class="giallo-l"><span>- Banana</span></span>
+<span class="giallo-l"><span>- Cherry</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>Others:</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>- Milk</span></span>
+<span class="giallo-l"><span>- Egg</span></span></code></pre><div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">nl</span><span class="z-string"> -</span><span class="z-string">bp:</span><span class="z-string"> ingredients.txt</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>1  Fruits:</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>   - Apricot</span></span>
+<span class="giallo-l"><span>   - Banana</span></span>
+<span class="giallo-l"><span>   - Cherry</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>2  Others:</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>   - Milk</span></span>
+<span class="giallo-l"><span>   - Egg</span></span></code></pre></div>
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">nl</span><span class="z-string"> -</span><span class="z-string">bp:</span><span class="z-string"> -</span><span class="z-string">s</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">. </span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> ingredients.txt</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>1. Fruits:</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>   - Apricot</span></span>
+<span class="giallo-l"><span>   - Banana</span></span>
+<span class="giallo-l"><span>   - Cherry</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>2. Others:</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>   - Milk</span></span>
+<span class="giallo-l"><span>   - Egg</span></span></code></pre></div>
+</div>
+<p>Get fancy with it! You can also specify <strong>starting number, increment value,
+alignment, padding</strong>...</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">openssl</span><span class="z-string"> rand</span><span class="z-string"> -</span><span class="z-string">-hex</span><span class="z-constant z-numeric"> 128</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> sed</span><span class="z-string"> -</span><span class="z-string">r</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">s/.{4}/ \0/g;s/.{40}/\0\n/g</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-keyword z-operator">                       |</span><span class="z-entity z-name z-function"> nl</span><span class="z-string"> -</span><span class="z-string">v0</span><span class="z-string"> -</span><span class="z-string">i10</span><span class="z-string"> -</span><span class="z-string">w8</span><span class="z-string"> -</span><span class="z-string">nrz</span><span class="z-string"> -</span><span class="z-string">s:</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>00000000: 18be 2e82 3fc6 a77f da1a 7efa 26bc 1fa7</span></span>
+<span class="giallo-l"><span>00000010: 7e51 c213 d975 957a 1446 1382 a7ca e346</span></span>
+<span class="giallo-l"><span>00000020: 1b5d 3a37 b2cb 4319 ff98 5dae a93b 13e0</span></span>
+<span class="giallo-l"><span>00000030: 6366 34e0 640d 5765 cbe7 51df 0780 d2a4</span></span>
+<span class="giallo-l"><span>00000040: 3b41 2dfe 136a 372d 8278 1cdb cadc b598</span></span>
+<span class="giallo-l"><span>00000050: a288 5621 04ce c6d9 3e9d 4c44 aadb 6c58</span></span>
+<span class="giallo-l"><span>00000060: 39d5 ccf4 90aa e709 63a4 e2db 8ed0 4ea5</span></span>
+<span class="giallo-l"><span>00000070: cdd6 5dd2 e555 24fd c3a8 d95b 38fb f8b6</span></span></code></pre><div class="note">my best effort at a one-line gibberish hex dump output</div>
+<!-- TODO: use CAUTION rather than WARNING, here and everywhere else? -->
+</div>
+<h2 id="number-lines-with-style"><a class="anchor-link" href="#number-lines-with-style" aria-label="Anchor link for: number-lines-with-style"></a>
+Number lines with style</h2>
+<p>Let's start simple.  Just invoke <code>nl</code> with some filename, and it'll output its
+contents, prefixed with some line-by-line numbering:</p>
+<div class="grid-1-2">
+<pre class="giallo z-code"><code data-lang="plain" data-name="dailytasks.txt"><span class="giallo-l"><span>Get up</span></span>
+<span class="giallo-l"><span>Get coffee</span></span>
+<span class="giallo-l"><span>Get to work</span></span>
+<span class="giallo-l"><span>Get good</span></span>
+<span class="giallo-l"><span>Get some sleep</span></span></code></pre><div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">nl</span><span class="z-string"> dailytasks.txt</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>     1	Get up</span></span>
+<span class="giallo-l"><span>     2	Get coffee</span></span>
+<span class="giallo-l"><span>     3	Get to work</span></span>
+<span class="giallo-l"><span>     4	Get good</span></span>
+<span class="giallo-l"><span>     5	Get some sleep</span></span></code></pre></div>
+</div>
+<p>Well, that's a bit awkward.  By default, it uses 6 characters for the line
+number, right-aligned, and separates the rest of the content with a tabulation.</p>
+<p>Less roomy? <code>--number-width</code>/<code>-w</code> allows you to specify the minimum number of
+columns for the number, and <code>--separator</code>/<code>-s</code> allows you to specify the string
+to separate the number from the content:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">nl</span><span class="z-string"> -</span><span class="z-string">-number-width=1</span><span class="z-string"> -</span><span class="z-string">-separator=</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">.  </span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> dailytasks.txt</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">nl</span><span class="z-string"> -</span><span class="z-string">w1</span><span class="z-string"> -</span><span class="z-string">s</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">.  </span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> dailytasks.txt</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>1.  Get up</span></span>
+<span class="giallo-l"><span>2.  Get coffee</span></span>
+<span class="giallo-l"><span>3.  Get to work</span></span>
+<span class="giallo-l"><span>4.  Get good</span></span>
+<span class="giallo-l"><span>5.  Get some sleep</span></span></code></pre><div class="note">would you look at that, a numbered list!</div>
+<blockquote class="markdown-alert-note">
+<p><strong>In no case will <code>nl</code> automatically adjust the width of the number column
+to fit the content</strong>; it will always use at least as many as specified with
+<code>--number-width</code>/<code>-w</code>, but may use more if necessary.</p>
+<p>That limitation isn't a flaw of the tool, but a consequence of its operating
+mode: <strong>it processes streams of data</strong> and cannot apply any hindsight-based
+logic in its output.</p>
+<p>Knowing the minimum width of the number column would require a full pre-scan
+of the complete input, which would in turn break much more important features,
+such as the ability to process long-running tasks—not to mention the
+implications in terms of memory consumption.</p>
+</blockquote>
+<h3 id="dealing-with-alignment"><a class="anchor-link" href="#dealing-with-alignment" aria-label="Anchor link for: dealing-with-alignment"></a>
+Dealing with alignment</h3>
+<p>The section above was the mere gist of it, the 90% of the use cases covered with
+10% of the capabilities.  But since you're here, chances are you wouldn't mind
+knowing the tools at your belt like the back of your hand.</p>
+<p>We're going to want to see how it deals with numbers of varying width; let's try
+with a more comprehensive file:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">nl</span><span class="z-string"> -</span><span class="z-string">-number-width=1</span><span class="z-string"> -</span><span class="z-string">-separator=</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">.  </span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> dailytasks.txt</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">nl</span><span class="z-string"> -</span><span class="z-string">w1</span><span class="z-string"> -</span><span class="z-string">s</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">.  </span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> dailytasks.txt</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>1.  Get up</span></span>
+<span class="giallo-l"><span>2.  Make the bed</span></span>
+<span class="giallo-l"><span>3.  Get coffee</span></span>
+<span class="giallo-l"><span>4.  Make a plan</span></span>
+<span class="giallo-l"><span>5.  Get to work</span></span>
+<span class="giallo-l"><span>6.  Make an entrance</span></span>
+<span class="giallo-l"><span>7.  Get good</span></span>
+<span class="giallo-l"><span>8.  Make things happen</span></span>
+<span class="giallo-l"><span>9.  Get some sleep</span></span>
+<span class="giallo-l"><span>10.  Make ends meet</span></span></code></pre><div class="note">using a single column (<code>-w1</code>) makes <code>10</code> overflow</div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">nl</span><span class="z-string"> -</span><span class="z-string">-number-width=2</span><span class="z-string"> -</span><span class="z-string">-separator=</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">.  </span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> dailytasks.txt</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">nl</span><span class="z-string"> -</span><span class="z-string">w2</span><span class="z-string"> -</span><span class="z-string">s</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">.  </span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> dailytasks.txt</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span> 1.  Get up</span></span>
+<span class="giallo-l"><span> 2.  Make the bed</span></span>
+<span class="giallo-l"><span> 3.  Get coffee</span></span>
+<span class="giallo-l"><span> 4.  Make a plan</span></span>
+<span class="giallo-l"><span> 5.  Get to work</span></span>
+<span class="giallo-l"><span> 6.  Make an entrance</span></span>
+<span class="giallo-l"><span> 7.  Get good</span></span>
+<span class="giallo-l"><span> 8.  Make things happen</span></span>
+<span class="giallo-l"><span> 9.  Get some sleep</span></span>
+<span class="giallo-l"><span>10.  Make ends meet</span></span></code></pre><div class="note">using <code>2</code> columns makes <code>10</code> fit comfortably</div>
+</div>
+</div>
+<p><abbr title='interjection to mean: "look
+here/there"'>Lookit</abbr>, a basic list of platitudes somewhat
+<a rel="external" href="https://en.wikipedia.org/wiki/Oulipo">Oulipo</a>-worthy: however mundane a life I
+lead, surely it isn't quite boring.</p>
+<blockquote class="markdown-alert-important">
+<p>Going forward, I'll be <strong>implicitly</strong> using <code>--separator</code>/<code>-s</code> with two spaces
+(<code>'  '</code>) for better readability, unless otherwise specified.</p>
+</blockquote>
+<p>Having these numbers right-aligned with spaces are mere defaults that you may
+override.  Use <code>--number-format</code>/<code>-n</code> to choose how the numbers are aligned:
+<code>ln</code> for left-aligned, <code>rn</code> for right-aligned (the default), and <code>rz</code> for
+right-aligned <strong>padded with zeroes</strong>.</p>
+<div class="grid-1-3">
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">nl</span><span class="z-string"> -</span><span class="z-string">-number-format=rn</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-string">   -</span><span class="z-string">-number-width=2</span><span class="z-constant z-character z-escape">   \</span></span>
+<span class="giallo-l"><span class="z-string">   dailytasks.txt</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">nl</span><span class="z-string"> -</span><span class="z-string">w2</span><span class="z-string"> dailytasks.txt</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span> 1  Get up</span></span>
+<span class="giallo-l"><span> 2  Make the bed</span></span>
+<span class="giallo-l"><span> 3  Get coffee</span></span>
+<span class="giallo-l"><span> 4  Make a plan</span></span>
+<span class="giallo-l"><span> 5  Get to work</span></span>
+<span class="giallo-l"><span> 6  Make an entrance</span></span>
+<span class="giallo-l"><span> 7  Get good</span></span>
+<span class="giallo-l"><span> 8  Make things happen</span></span>
+<span class="giallo-l"><span> 9  Get some sleep</span></span>
+<span class="giallo-l"><span>10  Make ends meet</span></span></code></pre></div>
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">nl</span><span class="z-string"> -</span><span class="z-string">-number-format=ln</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-string">   -</span><span class="z-string">-number-width=2</span><span class="z-constant z-character z-escape">   \</span></span>
+<span class="giallo-l"><span class="z-string">   dailytasks.txt</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">nl</span><span class="z-string"> -</span><span class="z-string">nln</span><span class="z-string"> -</span><span class="z-string">w2</span><span class="z-string"> dailytasks.txt</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>1   Get up</span></span>
+<span class="giallo-l"><span>2   Make the bed</span></span>
+<span class="giallo-l"><span>3   Get coffee</span></span>
+<span class="giallo-l"><span>4   Make a plan</span></span>
+<span class="giallo-l"><span>5   Get to work</span></span>
+<span class="giallo-l"><span>6   Make an entrance</span></span>
+<span class="giallo-l"><span>7   Get good</span></span>
+<span class="giallo-l"><span>8   Make things happen</span></span>
+<span class="giallo-l"><span>9   Get some sleep</span></span>
+<span class="giallo-l"><span>10  Make ends meet</span></span></code></pre></div>
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">nl</span><span class="z-string"> -</span><span class="z-string">-number-format=rz</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-string">   -</span><span class="z-string">-number-width=4</span><span class="z-constant z-character z-escape">   \</span></span>
+<span class="giallo-l"><span class="z-string">   dailytasks.txt</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">nl</span><span class="z-string"> -</span><span class="z-string">nrz</span><span class="z-string"> -</span><span class="z-string">w4</span><span class="z-string"> dailytasks.txt</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>0001  Get up</span></span>
+<span class="giallo-l"><span>0002  Make the bed</span></span>
+<span class="giallo-l"><span>0003  Get coffee</span></span>
+<span class="giallo-l"><span>0004  Make a plan</span></span>
+<span class="giallo-l"><span>0005  Get to work</span></span>
+<span class="giallo-l"><span>0006  Make an entrance</span></span>
+<span class="giallo-l"><span>0007  Get good</span></span>
+<span class="giallo-l"><span>0008  Make things happen</span></span>
+<span class="giallo-l"><span>0009  Get some sleep</span></span>
+<span class="giallo-l"><span>0010  Make ends meet</span></span></code></pre></div>
+</div>
+<blockquote class="markdown-alert-tip">
+<p>You may experience some awkward wincing when combining left-aligned
+justification with a separator that contains printable characters:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">nl</span><span class="z-string"> -</span><span class="z-string">nln</span><span class="z-string"> -</span><span class="z-string">w2</span><span class="z-string"> -</span><span class="z-string">s</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">.  </span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> numbers.txt</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>...</span></span>
+<span class="giallo-l"><span>8 .  Eight</span></span>
+<span class="giallo-l"><span>9 .  Nine</span></span>
+<span class="giallo-l"><span>10.  Ten</span></span></code></pre>
+<p>I would in general suggest that you <strong>compose your mastery</strong>, and consider
+tools that may be more suitable to the task.  For instance, in that case,
+<code>column</code> would work remarkably well!</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">nl</span><span class="z-string"> -</span><span class="z-string">w1</span><span class="z-string"> -</span><span class="z-string">s</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">.:</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> numbers.txt</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> column</span><span class="z-string"> -</span><span class="z-string">ts:</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>...</span></span>
+<span class="giallo-l"><span>8.   Eight</span></span>
+<span class="giallo-l"><span>9.   Nine</span></span>
+<span class="giallo-l"><span>10.  Ten</span></span></code></pre><div class="note"><a href="https://ccjmne.sh/blog/flight-manual/intralinear-partitioning/02-column-cut-paste/">my article on <code>column</code>, <code>cut</code> and <code>paste</code></a> may help make sense of that incantation, if necessary</div>
+</blockquote>
+<h2 id="any-affine-function-discretely-defined-over-n"><a class="anchor-link" href="#any-affine-function-discretely-defined-over-n" aria-label="Anchor link for: any-affine-function-discretely-defined-over-n"></a>
+Any <a rel="external" href="https://en.wikipedia.org/wiki/Affine_transformation">affine</a> function discretely defined over <a rel="external" href="https://en.wikipedia.org/wiki/Natural_number">ℕ</a></h2>
+<p>Big words here, but the idea is simple: you needn't go from <code>1</code>, to <code>2</code>, to
+<code>3</code>, <em>et cet.</em>, all the way to your last line numbered "naturally".  You may
+begin with any starting number and use any increment, (not strictly) positive or
+negative, so long as they're integers.</p>
+<p>Most typically, in the world of 2-dimensional graphs, we talk of <strong>slope and
+offset</strong>; in the world of software programming, we generally refer to these as
+<strong>start and step</strong>.</p>
+<blockquote class="markdown-alert-important">
+<p>From now on, I'll be <strong>implicitly</strong> using <code>--separator</code>/<code>-s</code> with two spaces
+(<code>' '</code>), and the most adequate <code>--number-width</code>/<code>-w</code> for the output, unless
+otherwise specified.</p>
+</blockquote>
+<p>Use <code>--starting-line-number</code>/<code>-v</code> to specify the starting number, and
+<code>--line-increment</code>/<code>-i</code> to specify the increment (the step):</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-support z-function z-builtin">printf</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">%s\n</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-string"> {a..f}</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> nl</span><span class="z-constant z-character z-escape">  \</span></span>
+<span class="giallo-l"><span class="z-string">  -</span><span class="z-string">-starting-line-number=0</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-string">  -</span><span class="z-string">-line-increment=2</span></span>
+<span class="giallo-l"><span class="z-support z-function z-builtin">printf</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">%s\n</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-string"> {a..f}</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> nl</span><span class="z-string"> -</span><span class="z-string">v0</span><span class="z-string"> -</span><span class="z-string">i2</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span> 0  a</span></span>
+<span class="giallo-l"><span> 2  b</span></span>
+<span class="giallo-l"><span> 4  c</span></span>
+<span class="giallo-l"><span> 6  d</span></span>
+<span class="giallo-l"><span> 8  e</span></span>
+<span class="giallo-l"><span>10  f</span></span></code></pre><div class="note">two by two, starting at <code>0</code>; the even numbers</div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-support z-function z-builtin">printf</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">%s\n</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-string"> {a..f}</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> nl</span><span class="z-constant z-character z-escape">  \</span></span>
+<span class="giallo-l"><span class="z-string">  -</span><span class="z-string">-starting-line-number=3</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-string">  -</span><span class="z-string">-line-increment=-1</span></span>
+<span class="giallo-l"><span class="z-support z-function z-builtin">printf</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">%s\n</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-string"> {a..f}</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> nl</span><span class="z-string"> -</span><span class="z-string">v3</span><span class="z-string"> -</span><span class="z-string">i-1</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span> 3  a</span></span>
+<span class="giallo-l"><span> 2  b</span></span>
+<span class="giallo-l"><span> 1  c</span></span>
+<span class="giallo-l"><span> 0  d</span></span>
+<span class="giallo-l"><span>-1  e</span></span>
+<span class="giallo-l"><span>-2  f</span></span></code></pre><div class="note">why not also decrease?</div>
+</div>
+</div>
+<p>How about getting freaky?  We could make that daily routine from earlier look
+like a proper timetable:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">nl</span><span class="z-string"> -</span><span class="z-string">-starting-line-number=5</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-string">   -</span><span class="z-string">-line-increment=2</span><span class="z-constant z-character z-escape">       \</span></span>
+<span class="giallo-l"><span class="z-string">   -</span><span class="z-string">-number-width=2</span><span class="z-constant z-character z-escape">         \</span></span>
+<span class="giallo-l"><span class="z-string">   -</span><span class="z-string">-number-format=rz</span><span class="z-constant z-character z-escape">       \</span></span>
+<span class="giallo-l"><span class="z-string">   -</span><span class="z-string">-separator=</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">:00 - </span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-constant z-character z-escape">     \</span></span>
+<span class="giallo-l"><span class="z-string">   dailytasks.txt</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">nl</span><span class="z-string"> -</span><span class="z-string">v5</span><span class="z-string"> -</span><span class="z-string">i2</span><span class="z-string"> -</span><span class="z-string">w2</span><span class="z-string"> -</span><span class="z-string">nrz</span><span class="z-string"> -</span><span class="z-string">s</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">:00 - </span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> dailytasks.txt</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>05:00 - Get up</span></span>
+<span class="giallo-l"><span>07:00 - Make the bed</span></span>
+<span class="giallo-l"><span>09:00 - Get coffee</span></span>
+<span class="giallo-l"><span>11:00 - Make a plan</span></span>
+<span class="giallo-l"><span>13:00 - Get to work</span></span>
+<span class="giallo-l"><span>15:00 - Make an entrance</span></span>
+<span class="giallo-l"><span>17:00 - Get good</span></span>
+<span class="giallo-l"><span>19:00 - Make things happen</span></span>
+<span class="giallo-l"><span>21:00 - Get some sleep</span></span>
+<span class="giallo-l"><span>23:00 - Make ends meet</span></span></code></pre>
+<p>Or even have an inscrutable generator of some gibberish <a rel="external" href="https://en.wikipedia.org/wiki/Hex_dump">hex
+dump</a>:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">openssl</span><span class="z-string"> rand</span><span class="z-string"> -</span><span class="z-string">-hex</span><span class="z-constant z-numeric"> 128</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> sed</span><span class="z-string"> -</span><span class="z-string">r</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">s/.{4}/ \0/g s/.{40}/\0\n/g</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-keyword z-operator">                       |</span><span class="z-entity z-name z-function"> nl</span><span class="z-string"> -</span><span class="z-string">v0</span><span class="z-string"> -</span><span class="z-string">i10</span><span class="z-string"> -</span><span class="z-string">w8</span><span class="z-string"> -</span><span class="z-string">nrz</span><span class="z-string"> -</span><span class="z-string">s:</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>00000000: 18be 2e82 3fc6 a77f da1a 7efa 26bc 1fa7</span></span>
+<span class="giallo-l"><span>00000010: 7e51 c213 d975 957a 1446 1382 a7ca e346</span></span>
+<span class="giallo-l"><span>00000020: 1b5d 3a37 b2cb 4319 ff98 5dae a93b 13e0</span></span>
+<span class="giallo-l"><span>00000030: 6366 34e0 640d 5765 cbe7 51df 0780 d2a4</span></span>
+<span class="giallo-l"><span>00000040: 3b41 2dfe 136a 372d 8278 1cdb cadc b598</span></span>
+<span class="giallo-l"><span>00000050: a288 5621 04ce c6d9 3e9d 4c44 aadb 6c58</span></span>
+<span class="giallo-l"><span>00000060: 39d5 ccf4 90aa e709 63a4 e2db 8ed0 4ea5</span></span>
+<span class="giallo-l"><span>00000070: cdd6 5dd2 e555 24fd c3a8 d95b 38fb f8b6</span></span></code></pre><div class="note">look, ma! the <code>sed</code> addict couldn't keep it down for a single article!</div>
+<p>Keep your eyes on the ball, just the one <code>nl</code> call: the line numbering (the
+leftmost block of <code>000000?0:</code>) is computed <em>somewhat soundly</em>—though it won't
+hold up to much scrutiny, comes byte <code>160</code>, for which it'd show <code>00000100</code>
+instead of <code>000000a0</code>.</p>
+<p>Of these options, <abbr font="mono" title="--number-width"><code>-w</code></abbr>,
+<abbr font="mono" title="--separator"><code>-s</code></abbr>, and <abbr font="mono"
+title="--starting-line-number"><code>-v</code></abbr> are definitely quite applicable,
+while <abbr font="mono" title="--line-increment"><code>-i</code></abbr> and <abbr
+font="mono" title="--number-format"><code>-n</code></abbr> see much less frequent use, to
+me.</p>
+<h2 id="consider-only-the-lines-you-want"><a class="anchor-link" href="#consider-only-the-lines-you-want" aria-label="Anchor link for: consider-only-the-lines-you-want"></a>
+Consider only the lines you want</h2>
+<blockquote class="markdown-alert-important">
+<p>I'll continue to <strong>implicitly</strong> use <code>--separator</code>/<code>-s</code> with two spaces (<code>' '</code>), and the most adequate <code>--number-width</code>/<code>-w</code> for the output, unless
+otherwise specified.</p>
+</blockquote>
+<p>There remains one entire class of flags that we haven't touched on yet: which
+lines to number.  By default, <strong><code>nl</code> numbers all non-empty lines</strong>.</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-support z-function z-builtin">printf</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">%s\n</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-string"> {a..f}</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">  hello</span><span class="z-string"> world</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> nl</span><span class="z-string"> -</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>1  a</span></span>
+<span class="giallo-l"><span>2  b</span></span>
+<span class="giallo-l"><span>3  c</span></span>
+<span class="giallo-l"><span>4  d</span></span>
+<span class="giallo-l"><span>5  e</span></span>
+<span class="giallo-l"><span>6  f</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>7  hello</span></span>
+<span class="giallo-l"><span>8  world</span></span></code></pre><div class="note">the empty line (<code>''</code>) isn't numbered and its following <code>hello</code> is only <code>1</code> greater than its preceding <code>f</code></div>
+<h3 id="the-concept-of-sections"><a class="anchor-link" href="#the-concept-of-sections" aria-label="Anchor link for: the-concept-of-sections"></a>
+The concept of sections</h3>
+<p>Just before we get into the options to configure that, I feel compelled to
+mention the <em>section</em> mechanism of <code>nl</code>.  In short, it can distinguish between
+the <strong>header</strong>, <strong>body</strong> and <strong>footer</strong> sections, but I find those somewhat too
+esoteric<sup class="footnote-reference" id="fr-too-esoteric-1"><a href="#fn-too-esoteric">1</a></sup> to be worth more than a mention and quick showcase:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">nl</span><span class="z-string"> -</span><span class="z-string">fp</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">^\w*:$</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-keyword z-operator"> &lt;&lt;</span><span class="z-punctuation z-definition z-string">EOF</span></span>
+<span class="giallo-l"><span class="z-string">\:\:\:</span></span>
+<span class="giallo-l"><span class="z-string">Mr. Austin Waugh                                  Birmingham, Christmas 1884</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-string">           An Accommodating Advertisement and an Awkward Accident</span></span>
+<span class="giallo-l"><span class="z-string">           ------------------------------------------------------</span></span>
+<span class="giallo-l"><span class="z-string">\:\:</span></span>
+<span class="giallo-l"><span class="z-string">Archibald Anderson, an able artist, and an acknowledged authority at all</span></span>
+<span class="giallo-l"><span class="z-string">artistic assemblies after adventuring abroad all about Australia and</span></span>
+<span class="giallo-l"><span class="z-string">America, and acquiring an admirable album artistically arranged, according</span></span>
+<span class="giallo-l"><span class="z-string">as an accomplished artist accounted apt and appropriate, and admired</span></span>
+<span class="giallo-l"><span class="z-string">amazingly among all artists as artistic and amusing, again, alleging as</span></span>
+<span class="giallo-l"><span class="z-string">actuation an assiduous and absorbing activity, and an ambition all athirst</span></span>
+<span class="giallo-l"><span class="z-string">after artistic accomplishments, and aiming at advantageous achievements,</span></span>
+<span class="giallo-l"><span class="z-string">arranged another adventure across Asia, and accordingly appointing an</span></span>
+<span class="giallo-l"><span class="z-string">accommodating and agreeable acquaintance, an affable Anglo-American, as</span></span>
+<span class="giallo-l"><span class="z-string">agent (active agents accurately advised and amptly authorised always</span></span>
+<span class="giallo-l"><span class="z-string">affording advantageous assistance, arranging affairs and adjusting articles,</span></span>
+<span class="giallo-l"><span class="z-string">and anticipating and arresting awkward and adverse annoyances [...]</span></span>
+<span class="giallo-l"><span class="z-string">\:</span></span>
+<span class="giallo-l"><span class="z-string">Reference:</span></span>
+<span class="giallo-l"><span class="z-string">https://en.wikisource.org/wiki/An_Accommodating_Advertisement_and_an_Awkward_Accident</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-string">Context:</span></span>
+<span class="giallo-l"><span class="z-string">Winning entry in Tit-Bits&#39; magazine competition, Christmas 1884</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">EOF</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>    Mr. Austin Waugh                                  Birmingham, Christmas 1884</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>               An Accommodating Advertisement and an Awkward Accident</span></span>
+<span class="giallo-l"><span>               ------------------------------------------------------</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span> 1  Archibald Anderson, an able artist, and an acknowledged authority at all</span></span>
+<span class="giallo-l"><span> 2  artistic assemblies after adventuring abroad all about Australia and</span></span>
+<span class="giallo-l"><span> 3  America, and acquiring an admirable album artistically arranged, according</span></span>
+<span class="giallo-l"><span> 4  as an accomplished artist accounted apt and appropriate, and admired</span></span>
+<span class="giallo-l"><span> 5  amazingly among all artists as artistic and amusing, again, alleging as</span></span>
+<span class="giallo-l"><span> 6  actuation an assiduous and absorbing activity, and an ambition all athirst</span></span>
+<span class="giallo-l"><span> 7  after artistic accomplishments, and aiming at advantageous achievements,</span></span>
+<span class="giallo-l"><span> 8  arranged another adventure across Asia, and accordingly appointing an</span></span>
+<span class="giallo-l"><span> 9  accommodating and agreeable acquaintance, an affable Anglo-American, as</span></span>
+<span class="giallo-l"><span>10  agent (active agents accurately advised and amptly authorised always</span></span>
+<span class="giallo-l"><span>11  affording advantageous assistance, arranging affairs and adjusting articles,</span></span>
+<span class="giallo-l"><span>12  and anticipating and arresting awkward and adverse annoyances [...]</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span> 1  Reference:</span></span>
+<span class="giallo-l"><span>    https://en.wikisource.org/wiki/An_Accommodating_Advertisement_and_an_Awkward_Accident</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span> 2  Context:</span></span>
+<span class="giallo-l"><span>    Winning entry in Tit-Bits&#39; magazine competition, Christmas 1884</span></span></code></pre><div class="note"><strong>don't number the <em>header</em></strong>, number <strong>each line of the <em>body</em></strong> and <strong>each item in the <em>footer</em></strong></div>
+<p>Each section may use its own algorithm to determine <strong>which lines to
+number</strong>, with <abbr font="mono" title="--body-numbering"><code>-b</code></abbr>, <abbr
+font="mono" title="--footer-numbering"><code>-f</code></abbr>, and <abbr font="mono"
+title="--header-numbering"><code>-h</code></abbr>, for the <strong><code>b</code>ody</strong>, <strong><code>f</code>ooter</strong> and
+<strong><code>h</code>eader</strong>, respectively, and you may choose to reset (or not) the numbering
+with each section.</p>
+<h3 id="targeting-lines-to-number"><a class="anchor-link" href="#targeting-lines-to-number" aria-label="Anchor link for: targeting-lines-to-number"></a>
+Targeting lines to number</h3>
+<p>By default, everything<sup class="footnote-reference" id="fr-disable-section-matching-1"><a href="#fn-disable-section-matching">2</a></sup> is considered part of the
+<em>body</em>, thus <code>--body-numbering</code>/<code>-b</code> controls the general selection of lines to
+number, unless you're using sections.</p>
+<p>It, together with its <code>-h</code> and <code>-f</code> siblings, may take one of four forms:</p>
+<ul>
+<li><code>a</code> to number <strong><code>a</code>ll lines</strong></li>
+<li><code>t</code> to number only <strong>non-empty lines</strong> (<code>t</code> for <strong><code>t</code>ext</strong>)</li>
+<li><code>n</code> to number <strong><code>n</code>o lines</strong></li>
+<li><code>pBRE</code> to number only lines matching the provided basic
+regular expression (abbreviated <code>BRE</code>, see <a rel="external" href="https://www.gnu.org/software/sed/manual/html_node/BRE-syntax.html"><code>GNU</code>'s excellent
+reference</a>)</li>
+</ul>
+<p>By default, only the body shall be numbered, and it will use the <code>t</code> selection,
+ignoring blank lines in the count.</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-punctuation">{</span></span>
+<span class="giallo-l"><span class="z-support z-function z-builtin">  echo</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">\:\:\:</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation">;</span><span class="z-entity z-name z-function"> seq</span><span class="z-constant z-numeric"> 1</span><span class="z-constant z-numeric"> 3</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> -</span><span class="z-string">n1</span><span class="z-string"> printf</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">header #%s\n</span><span class="z-punctuation z-definition z-string">&quot;</span></span>
+<span class="giallo-l"><span class="z-support z-function z-builtin">  echo</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">\:\:</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation">;</span><span class="z-entity z-name z-function">   seq</span><span class="z-constant z-numeric"> 1</span><span class="z-constant z-numeric"> 5</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> -</span><span class="z-string">n1</span><span class="z-string"> printf</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">body   #%s\n</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">3s/.*//</span><span class="z-punctuation z-definition z-string">&#39;</span></span>
+<span class="giallo-l"><span class="z-support z-function z-builtin">  echo</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">\:</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation">;</span><span class="z-entity z-name z-function">     seq</span><span class="z-constant z-numeric"> 1</span><span class="z-constant z-numeric"> 3</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> -</span><span class="z-string">n1</span><span class="z-string"> printf</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">footer #%s\n</span><span class="z-punctuation z-definition z-string">&quot;</span></span>
+<span class="giallo-l"><span class="z-punctuation">}</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> nl</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>   header #1</span></span>
+<span class="giallo-l"><span>   header #2</span></span>
+<span class="giallo-l"><span>   header #3</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>1  body   #1</span></span>
+<span class="giallo-l"><span>2  body   #2</span></span>
+<span class="giallo-l"><span>   </span></span>
+<span class="giallo-l"><span>3  body   #4</span></span>
+<span class="giallo-l"><span>4  body   #5</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>   footer #1</span></span>
+<span class="giallo-l"><span>   footer #2</span></span>
+<span class="giallo-l"><span>   footer #3</span></span></code></pre><div class="note">the line #3 of the body was made blank, and is therefore not numbered</div>
+<p>So, let's give these options a spin!</p>
+<div class="grid-1-3">
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">nl</span><span class="z-string"> -</span><span class="z-string">-body-numbering=t</span><span class="z-string"> dailytasks.txt</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">nl</span><span class="z-string"> -</span><span class="z-string">bt</span><span class="z-string"> dailytasks.txt</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">nl</span><span class="z-string"> dailytasks.txt</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span> 1  Get up</span></span>
+<span class="giallo-l"><span> 2  Make the bed</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span> 3  Get coffee</span></span>
+<span class="giallo-l"><span> 4  Make a plan</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span> 5  Get to work</span></span>
+<span class="giallo-l"><span> 6  Make an entrance</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span> 7  Get good</span></span>
+<span class="giallo-l"><span> 8  Make things happen</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span> 9  Get some sleep</span></span>
+<span class="giallo-l"><span>10  Make ends meet</span></span></code></pre><div class="note">number <strong>lines with <code>t</code>ext</strong></div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">nl</span><span class="z-string"> -</span><span class="z-string">-body-numbering=a</span><span class="z-string"> dailytasks.txt</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">nl</span><span class="z-string"> -</span><span class="z-string">ba</span><span class="z-string"> dailytasks.txt</span></span>
+<span class="giallo-l"></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span> 1  Get up</span></span>
+<span class="giallo-l"><span> 2  Make the bed</span></span>
+<span class="giallo-l"><span> 3  </span></span>
+<span class="giallo-l"><span> 4  Get coffee</span></span>
+<span class="giallo-l"><span> 5  Make a plan</span></span>
+<span class="giallo-l"><span> 6  </span></span>
+<span class="giallo-l"><span> 7  Get to work</span></span>
+<span class="giallo-l"><span> 8  Make an entrance</span></span>
+<span class="giallo-l"><span> 9  </span></span>
+<span class="giallo-l"><span>10  Get good</span></span>
+<span class="giallo-l"><span>11  Make things happen</span></span>
+<span class="giallo-l"><span>12  </span></span>
+<span class="giallo-l"><span>13  Get some sleep</span></span>
+<span class="giallo-l"><span>14  Make ends meet</span></span></code></pre><div class="note">number <strong><code>a</code>ll lines</strong></div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">nl</span><span class="z-string"> -</span><span class="z-string">-body-numbering=n</span><span class="z-string"> dailytasks.txt</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">nl</span><span class="z-string"> -</span><span class="z-string">bn</span><span class="z-string"> dailytasks.txt</span></span>
+<span class="giallo-l"></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>   Get up</span></span>
+<span class="giallo-l"><span>   Make the bed</span></span>
+<span class="giallo-l"><span>   </span></span>
+<span class="giallo-l"><span>   Get coffee</span></span>
+<span class="giallo-l"><span>   Make a plan</span></span>
+<span class="giallo-l"><span>   </span></span>
+<span class="giallo-l"><span>   Get to work</span></span>
+<span class="giallo-l"><span>   Make an entrance</span></span>
+<span class="giallo-l"><span>   </span></span>
+<span class="giallo-l"><span>   Get good</span></span>
+<span class="giallo-l"><span>   Make things happen</span></span>
+<span class="giallo-l"><span>   </span></span>
+<span class="giallo-l"><span>   Get some sleep</span></span>
+<span class="giallo-l"><span>   Make ends meet</span></span></code></pre><div class="note">number <strong><code>n</code>o lines</strong></div>
+</div>
+</div>
+<p>Most often, the default is fairly close to what I want.  I don't mind typing the
+extra <code>-w1</code> or <code>-s:</code> here and there and generally further sanitise the output
+interactively, either manually or in a pipeline; but you may choose to, say,
+<code>alias</code> it with the defaults that suit you.</p>
+<p>Now that the frivolities are out of the way, let's get to the final
+piece, the one that actually feels more smooth to apply than some
+combination of <a rel="external" href="https://vimhelp.org/visual.txt.html#v_b_I"><code>&lt;C-V&gt;I</code></a> and
+<a rel="external" href="https://vimhelp.org/change.txt.html#v_g_CTRL-A"><code>g&lt;C-A&gt;</code></a>, or some possibly
+semi-awkward macro recording: discernment in line selection.</p>
+<!-- [vim increment and decrement](@/ramblings/vim-increment-decrement.md). TODO: LINKME -->
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">nl</span><span class="z-string"> -</span><span class="z-string">-body-numbering=p^Get</span><span class="z-string"> -</span><span class="z-string">-separator=</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">. </span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> dailytasks.txt</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">nl</span><span class="z-string"> -</span><span class="z-string">bp^Get</span><span class="z-string"> -</span><span class="z-string">s.</span><span class="z-constant z-character z-escape">\ </span><span class="z-string"> dailytasks.txt</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>1. Get up</span></span>
+<span class="giallo-l"><span>   Make the bed</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>2. Get coffee</span></span>
+<span class="giallo-l"><span>   Make a plan</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>3. Get to work</span></span>
+<span class="giallo-l"><span>   Make an entrance</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>4. Get good</span></span>
+<span class="giallo-l"><span>   Make things happen</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>5. Get some sleep</span></span>
+<span class="giallo-l"><span>   Make ends meet</span></span></code></pre><div class="note">number lines that match the <strong><code>p</code>attern: <code>^Get</code></strong> (starting with <code>Get</code>)</div>
+<p>I'll admit that this doesn't sound like much just yet, but how else would you
+intelligently number your bit and bobs?  Manually doing it isn't so bad, that's
+true.  Installing a plug-in to your <code>IDE</code> certainly is<sup class="footnote-reference" id="fr-why-not-a-plugin-1"><a href="#fn-why-not-a-plugin">3</a></sup>
+however, so why not open up your mind to more options in manipulating your data?
+You have the tool, I say use it.</p>
+<h2 id="a-practical-example"><a class="anchor-link" href="#a-practical-example" aria-label="Anchor link for: a-practical-example"></a>
+A practical example</h2>
+<p>Consider the following bit of text:</p>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>Philosophy -----------------------------------------------------------</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>- I don&#39;t want on my screen information that I don&#39;t need.</span></span>
+<span class="giallo-l"><span>- I don&#39;t want to install more software:</span></span>
+<span class="giallo-l"><span>I&#39;d rather master and compose [6] the underlying tools.</span></span>
+<span class="giallo-l"><span>- Corollary: I don&#39;t want to tweak software to best suit my tastes,</span></span>
+<span class="giallo-l"><span>I&#39;d rather adopt their defaults if they&#39;re sane.</span></span>
+<span class="giallo-l"><span>- I don&#39;t mind symlinks.</span></span>
+<span class="giallo-l"><span>- There&#39;s a difference between newbie-friendly and user-friendly;</span></span>
+<span class="giallo-l"><span>the very best tools are user-friendly.</span></span>
+<span class="giallo-l"><span>- A project that receives (little to) no new issues and commits isn&#39;t</span></span>
+<span class="giallo-l"><span>abandoned, it is *done*.</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>References -----------------------------------------------------------</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>https://en.wikipedia.org/wiki/Less_is_more</span></span>
+<span class="giallo-l"><span>https://git-scm.com/</span></span>
+<span class="giallo-l"><span>https://www.gnu.org/software/stow/</span></span>
+<span class="giallo-l"><span>https://specifications.freedesktop.org/basedir-spec/latest/</span></span>
+<span class="giallo-l"><span>https://wiki.archlinux.org/title/PAM</span></span>
+<span class="giallo-l"><span>https://en.wikipedia.org/wiki/Unix_philosophy</span></span></code></pre>
+<p>I'd like to spruce it up.  Let's start with the <code>References</code> section.  Place
+your cursor anywhere in there, then <code>vip</code>, <code>:norm i[0]: </code>, <code>gvg&lt;C-A&gt;</code>:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>https://en.wikipedia.org/wiki/Less_is_more</span></span>
+<span class="giallo-l"><span>https://git-scm.com/</span></span>
+<span class="giallo-l"><span>https://www.gnu.org/software/stow/</span></span>
+<span class="giallo-l"><span>https://specifications.freedesktop.org/basedir-spec/latest/</span></span>
+<span class="giallo-l"><span>https://wiki.archlinux.org/title/PAM</span></span>
+<span class="giallo-l"><span>https://en.wikipedia.org/wiki/Unix_philosophy</span></span></code></pre><div class="note">4 seconds before</div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>[1]: https://en.wikipedia.org/wiki/Less_is_more</span></span>
+<span class="giallo-l"><span>[2]: https://git-scm.com/</span></span>
+<span class="giallo-l"><span>[3]: https://www.gnu.org/software/stow/</span></span>
+<span class="giallo-l"><span>[4]: https://specifications.freedesktop.org/basedir-spec/latest/</span></span>
+<span class="giallo-l"><span>[5]: https://wiki.archlinux.org/title/PAM</span></span>
+<span class="giallo-l"><span>[6]: https://en.wikipedia.org/wiki/Unix_philosophy</span></span></code></pre><div class="note">after <code>vip:norm i[0]: &lt;CR&gt;gvg&lt;C-A&gt;</code></div>
+</div>
+</div>
+<p>Onto the <code>Philosophy</code> section.  Here, it's a simple matter of <code>!ip</code>, <code>nl -bp^- -w1 -s.\ </code>, then <code>gv:s/- /</code>:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>- I don&#39;t want on my screen information that I don&#39;t need.</span></span>
+<span class="giallo-l"><span>- I don&#39;t want to install more software:</span></span>
+<span class="giallo-l"><span>I&#39;d rather master and compose [6] the underlying tools.</span></span>
+<span class="giallo-l"><span>- Corollary: I don&#39;t want to tweak software to best suit my tastes,</span></span>
+<span class="giallo-l"><span>I&#39;d rather adopt their defaults if they&#39;re sane.</span></span>
+<span class="giallo-l"><span>- I don&#39;t mind symlinks.</span></span>
+<span class="giallo-l"><span>- There&#39;s a difference between newbie-friendly and user-friendly;</span></span>
+<span class="giallo-l"><span>the very best tools are user-friendly.</span></span>
+<span class="giallo-l"><span>- A project that receives (little to) no new issues and commits isn&#39;t</span></span>
+<span class="giallo-l"><span>abandoned, it is *done*.</span></span></code></pre><div class="note">8 seconds before</div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>1. I don&#39;t want on my screen information that I don&#39;t need.</span></span>
+<span class="giallo-l"><span>2. I don&#39;t want to install more software:</span></span>
+<span class="giallo-l"><span>   I&#39;d rather master and compose [6] the underlying tools.</span></span>
+<span class="giallo-l"><span>3. Corollary: I don&#39;t want to tweak software to best suit my tastes,</span></span>
+<span class="giallo-l"><span>   I&#39;d rather adopt their defaults if they&#39;re sane.</span></span>
+<span class="giallo-l"><span>4. I don&#39;t mind symlinks.</span></span>
+<span class="giallo-l"><span>5. There&#39;s a difference between newbie-friendly and user-friendly;</span></span>
+<span class="giallo-l"><span>   the very best tools are user-friendly.</span></span>
+<span class="giallo-l"><span>6. A project that receives (little to) no new issues and commits isn&#39;t</span></span>
+<span class="giallo-l"><span>   abandoned, it is *done*.</span></span></code></pre><div class="note">after <code>!ipnl -bp^- -w1 -s.\ &lt;CR&gt;gv:s/- /</code></div>
+</div>
+</div>
+<p>And for the <a rel="external" href="https://en.wikipedia.org/wiki/Coup_de_gr%C3%A2ce">coup de grâce</a>,
+just strike with a final <code>nl -w2 -nrz -bp---- -s.\ </code> on the entire content,
+<code>!%</code>:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>Philosophy -----------------------------------------------------------</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>1. I don&#39;t want on my screen information that I don&#39;t need.</span></span>
+<span class="giallo-l"><span>2. I don&#39;t want to install more software:</span></span>
+<span class="giallo-l"><span>   I&#39;d rather master and compose [6] the underlying tools.</span></span>
+<span class="giallo-l"><span>3. Corollary: I don&#39;t want to tweak software to best suit my tastes,</span></span>
+<span class="giallo-l"><span>   I&#39;d rather adopt their defaults if they&#39;re sane.</span></span>
+<span class="giallo-l"><span>4. I don&#39;t mind symlinks.</span></span>
+<span class="giallo-l"><span>5. There&#39;s a difference between newbie-friendly and user-friendly;</span></span>
+<span class="giallo-l"><span>   the very best tools are user-friendly.</span></span>
+<span class="giallo-l"><span>6. A project that receives (little to) no new issues and commits isn&#39;t</span></span>
+<span class="giallo-l"><span>   abandoned, it is *done*.</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>References -----------------------------------------------------------</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>[1]: https://en.wikipedia.org/wiki/Less_is_more</span></span>
+<span class="giallo-l"><span>[2]: https://git-scm.com/</span></span>
+<span class="giallo-l"><span>[3]: https://www.gnu.org/software/stow/</span></span>
+<span class="giallo-l"><span>[4]: https://specifications.freedesktop.org/basedir-spec/latest/</span></span>
+<span class="giallo-l"><span>[5]: https://wiki.archlinux.org/title/PAM</span></span>
+<span class="giallo-l"><span>[6]: https://en.wikipedia.org/wiki/Unix_philosophy</span></span></code></pre><div class="note">4 seconds before</div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>01. Philosophy -----------------------------------------------------------</span></span>
+<span class="giallo-l"><span>    </span></span>
+<span class="giallo-l"><span>    1. I don&#39;t want on my screen information that I don&#39;t need.</span></span>
+<span class="giallo-l"><span>    2. I don&#39;t want to install more software:</span></span>
+<span class="giallo-l"><span>       I&#39;d rather master and compose [6] the underlying tools.</span></span>
+<span class="giallo-l"><span>    3. Corollary: I don&#39;t want to tweak software to best suit my tastes,</span></span>
+<span class="giallo-l"><span>       I&#39;d rather adopt their defaults if they&#39;re sane.</span></span>
+<span class="giallo-l"><span>    4. I don&#39;t mind symlinks.</span></span>
+<span class="giallo-l"><span>    5. There&#39;s a difference between newbie-friendly and user-friendly;</span></span>
+<span class="giallo-l"><span>       the very best tools are user-friendly.</span></span>
+<span class="giallo-l"><span>    6. A project that receives (little to) no new issues and commits isn&#39;t</span></span>
+<span class="giallo-l"><span>       abandoned, it is *done*.</span></span>
+<span class="giallo-l"><span>    </span></span>
+<span class="giallo-l"><span>02. References -----------------------------------------------------------</span></span>
+<span class="giallo-l"><span>    </span></span>
+<span class="giallo-l"><span>    [1]: https://en.wikipedia.org/wiki/Less_is_more</span></span>
+<span class="giallo-l"><span>    [2]: https://git-scm.com/</span></span>
+<span class="giallo-l"><span>    [3]: https://www.gnu.org/software/stow/</span></span>
+<span class="giallo-l"><span>    [4]: https://specifications.freedesktop.org/basedir-spec/latest/</span></span>
+<span class="giallo-l"><span>    [5]: https://wiki.archlinux.org/title/PAM</span></span>
+<span class="giallo-l"><span>    [6]: https://en.wikipedia.org/wiki/Unix_philosophy</span></span></code></pre><div class="note">after <code>!%nl -w2 -nrz -bp---- -s.\ </code></div>
+</div>
+</div>
+<p>Not bad for 16 seconds of work that felt more like a delightful mini
+puzzle-solving session!</p>
+<p>If you doubt that's 16 seconds, you should sit closer to your most savvy
+colleagues more often; and if you think this trick was worth writing home about,
+wait until I tell you of <a rel="external" href="http://www.nicemice.net/par/"><code>par</code></a>—in any case,
+good luck, and <strong>have fun</strong>.</p>
+<p>P.S. Merry Christmas!</p>
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn-too-esoteric">
+<p>Sections are a nifty idea, but I find that in practice, I
+massage my documents interactively and would systematically prefer invoking
+tools on fragments of text rather than an entire document fitted into
+arbitrarily sections.<br>
+Moreover, if I were to work like this, I'd still also much rather be able to
+fully control the formatting, starting number, increment value, <em>et cet.</em> of
+each section individually, which <code>nl</code> doesn't quite offer. <a href="#fr-too-esoteric-1">↩</a></p>
+</li>
+<li id="fn-disable-section-matching">
+<p>By default, everything is the <em>body</em>, unless you
+happen to have one line match the arcane sigils denoting a specific section,
+either of <code>\:\:\:</code>, <code>\:\:</code>, or <code>\:</code> (again, by default) on a line of their
+own.  Just to be sure, you may disable section shenanigans altogether by setting
+<code>--section-delimiter</code>/<code>-d</code> to the empty string: <code>-d''</code>, or just <code>-d</code>. <a href="#fr-disable-section-matching-1">↩</a></p>
+</li>
+<li id="fn-why-not-a-plugin">
+<p>Here's why not "just install a plug-in": do you review
+the code of said plug-ins, all of them, when you install them?  Do you at
+least check out their repository, get a sense of the professionalism of its
+maintainer(s) and the scrutiny of its community?  Do you make sure that the
+product you found on that plug-in marketplace is indeed compiled from the
+repository you found of the same name?<br><br>
+I do.  But you see, answering "yes" here doesn't actually mean "yes" to the
+question of whether installing a plug-in to that effect is a good idea: it still
+isn't.  Because the moment of installation isn't the only time a malicious piece
+of code is susceptible to sneak in.  In fact, it's possibly the <em>least</em> likely
+time for that: the incessant upgrades are the worst offenders.  You wouldn't
+have your <code>IDE</code> automagically update the third-party software that runs on your
+precious files, do you?<br><br>
+So, either you can't be confident that the stuff you run isn't harmful, or
+you commit each time to one more project to review, for perpetuity, with each
+upgrade of each plug-in.  As somebody who chose the latter, I can confidently
+tell you that my incentive to not adopt plug-ins I don't need is quite strong! <a href="#fr-why-not-a-plugin-1">↩</a></p>
+</li>
+</ol>
+</section>
+
+  <h2 id="cited-tools"><a class="anchor-link" href="#cited-tools" aria-label="Anchor link for: cited-tools"></a>
+Referenced tools</h2>
+  <div class="cited-tools">
+    
+<table class="tool mono">
+  <tr><th colspan="2"><strong>nl</strong></th></tr>
+  <tr>
+    
+        <td colspan="2">from <a href="https://archlinux.org/packages/core&#x2F;x86_64&#x2F;coreutils">core&#x2F;coreutils</a></td>
+    
+  </tr>
+  <tr>
+    <td><a href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;nl.1.en">manual</a></td>
+    <td><a href="https:&#x2F;&#x2F;github.com&#x2F;coreutils&#x2F;coreutils">repository</a></td>
+  </tr>
+</table>
+
+<table class="tool mono">
+  <tr><th colspan="2"><strong>column</strong></th></tr>
+  <tr>
+    
+        <td colspan="2">from <a href="https://archlinux.org/packages/core&#x2F;x86_64&#x2F;util-linux">core&#x2F;util-linux</a></td>
+    
+  </tr>
+  <tr>
+    <td><a href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;column.1.en">manual</a></td>
+    <td><a href="https:&#x2F;&#x2F;github.com&#x2F;util-linux&#x2F;util-linux&#x2F;">repository</a></td>
+  </tr>
+</table>
+
+<table class="tool mono">
+  <tr><th colspan="2"><strong>vim</strong></th></tr>
+  <tr>
+    
+        <td colspan="2">from <a href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;vim">extra&#x2F;vim</a></td>
+    
+  </tr>
+  <tr>
+    <td><a href="https:&#x2F;&#x2F;vimhelp.org&#x2F;">manual</a></td>
+    <td><a href="https:&#x2F;&#x2F;github.com&#x2F;vim&#x2F;vim">repository</a></td>
+  </tr>
+</table>
+
+  </div>
+  
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <span>&lt;<a href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>&gt;</span>
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>

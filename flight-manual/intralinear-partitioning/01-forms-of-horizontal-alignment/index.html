@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-2.woff2" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/work-3.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/fira-2.woff2') format('woff2'); }
+</style><link rel="stylesheet" href="https://ccjmne.sh/blog/base.css">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-light.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-dark.css"  media="(prefers-color-scheme: dark)">
+    
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+>
+      <a href="https://ccjmne.sh/blog">Home</a>
+      <details class="dropdown" max-sm>
+        <summary><strong>Articles</strong></summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual"><strong>Flight manual</strong></a>
+          <a href="https://ccjmne.sh/blog/tags">By tags</a>
+          <a href="https://ccjmne.sh/blog/ramblings">Ramblings</a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual" min-sm><strong>Flight manual</strong></a>
+      <a href="https://ccjmne.sh/blog/tags"          min-sm>By tags</a>
+      <a href="https://ccjmne.sh/blog/ramblings"     min-sm>Ramblings</a>
+      <a href="https://ccjmne.sh/blog/colophon"            >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main><h1><span class="link-title" 
+  style="view-transition-name: view-01-forms-of-horizontal-alignment"
+>Laying text out horizontally</span></h1><ul class="infobar "><li><time>July 25, 2025</time></li><li>5-minute read</li>
+    <li>Part&nbsp;1&nbsp;of&nbsp;<a href="https:&#x2F;&#x2F;ccjmne.sh&#x2F;blog&#x2F;flight-manual&#x2F;intralinear-partitioning&#x2F;">Intralinear partitioning</a></li><li>tagged
+      <a href="https://ccjmne.sh/blog/tags/quibblery">quibblery</a></li></ul>
+<details class="lo summary">
+  <summary>Series introduction</summary>
+  <h2><a href="https://ccjmne.sh/blog/flight-manual/intralinear-partitioning" class="link-title" 
+  style="view-transition-name: view-intralinear-partitioning"
+>Intralinear partitioning</a></h2>
+  <p>Professionally, I put code together. Intimately, I am compelled to make
+it neat: I get closer to that goal by wielding non-printable characters like
+monochrome photography uses light, with <em>purpose</em>.</p>
+<p>The current <em>status quo</em> regarding whitespace, in my line of work, limits our
+stylistic expression:</p>
+<ul>
+<li>vertically to the <strong>linefeed<sup class="footnote-reference" id="fr-esoteric-vertical-whitespace-1"><a <a href="#fn-esoteric-vertical-whitespace">1</a></sup> (coalescing into
+blank lines</strong>), to pack together logical blocks of data or instructions, and</li>
+<li>horizontally <strong>to the beginning of the line (in the form of
+indentation)</strong>, to delineate the hierarchy of our otherwise strictly
+vertically-topologically-laid-out content.</li>
+</ul>
+<p>But here's the thing: the taxonomy of text shouldn't be limited to paragraphs
+and lines.<br>
+Let's go bidimensional!</p>
+</details><details class="hi toc">
+  <summary>Table of contents</summary>
+  <ul><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/intralinear-partitioning/01-forms-of-horizontal-alignment/#the-list-in-a-grid">The list in a grid</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/intralinear-partitioning/01-forms-of-horizontal-alignment/#the-tabular-data">The tabular data</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/intralinear-partitioning/01-forms-of-horizontal-alignment/#the-adjoined-and-annotated-fragments">The adjoined and annotated fragments</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/intralinear-partitioning/01-forms-of-horizontal-alignment/#the-zealous-documents">The zealous documents</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/intralinear-partitioning/01-forms-of-horizontal-alignment/#what-now">What now?</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/intralinear-partitioning/01-forms-of-horizontal-alignment/#next">Next</a></li>
+    <li><a href="#cited-tools">Referenced tools</a></li>
+    
+  </ul>
+</details>
+<article><p>In the wild, I identified four classes of occurrences itching for what I
+shall refer to as <strong>intralinear partitioning</strong>.  In this article, I propose to
+classify and appreciate them.</p>
+<h3 id="the-list-in-a-grid"><a class="anchor-link" href="#the-list-in-a-grid" aria-label="Anchor link for: the-list-in-a-grid"></a>
+The list in a grid</h3>
+<p>Collections of items are quite happily organised in a grid, unless you're a
+stock exchange ticker tape designer, of course.  As such, so long as you want to
+<strong>present your data rather than have it seemingly scroll forever</strong>, <a rel="external" href="https://en.wikipedia.org/wiki/Neo_(The_Matrix)">the matrix
+is a practical ally, Neo</a>.</p>
+<p>For illustration, here's the output of <abbr title="List directory
+contents"><code>ls</code></abbr>, a specimen I'm sure you've come across before:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">ls</span><span class="z-string"> -</span><span class="z-string">F</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">ls</span><span class="z-string"> -</span><span class="z-string">-classify</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>node_modules/  compose.sh*  eslint.config.mjs  package.json    README.md</span></span>
+<span class="giallo-l"><span>src/           Dockerfile   LICENSE            pnpm-lock.yaml  TODO</span></span></code></pre><div class="note">I use <code>--classify</code> to annotate various file types, like executables and directories</div>
+<h3 id="the-tabular-data"><a class="anchor-link" href="#the-tabular-data" aria-label="Anchor link for: the-tabular-data"></a>
+The tabular data</h3>
+<p>This one needs no introduction, yet the only example that came to mind is
+that of probing <abbr title="Query the Unicode database"><code>uni</code></abbr> for
+whatever fantastical sigil I last came across:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">uni</span><span class="z-string"> i</span><span class="z-string"> ÉÉ🧉</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">uni</span><span class="z-string"> identify</span><span class="z-string"> É</span><span class="z-string"> É</span><span class="z-string"> 🧉</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>             Dec    UTF8        HTML       Name</span></span>
+<span class="giallo-l"><span>&#39;E&#39;  U+0045  69     45          &amp;#x45;     LATIN CAPITAL LETTER E</span></span>
+<span class="giallo-l"><span>&#39;◌́&#39;  U+0301  769    cc 81       &amp;#x301;    COMBINING ACUTE ACCENT</span></span>
+<span class="giallo-l"><span>&#39;É&#39;  U+00C9  201    c3 89       &amp;Eacute;   LATIN CAPITAL LETTER E WITH ACUTE</span></span>
+<span class="giallo-l"><span>&#39;🧉&#39; U+1F9C9 129481 f0 9f a7 89 &amp;#x1f9c9;  MATE DRINK</span></span></code></pre><div class="note">ah, so that's why I appear twice in <abbr title='Summarize &apos;git log&apos; output'><code>git shortlog</code></abbr><code> --summary</code>...</div>
+<h3 id="the-adjoined-and-annotated-fragments"><a class="anchor-link" href="#the-adjoined-and-annotated-fragments" aria-label="Anchor link for: the-adjoined-and-annotated-fragments"></a>
+The adjoined and annotated fragments</h3>
+<p>Serving as our penultimate stop is data that's not quite tabular enough to be
+called that; chunks of text laid out next to one another:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">docker</span><span class="z-string"> compose</span><span class="z-string"> logs</span><span class="z-string"> -</span><span class="z-string">t</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">docker</span><span class="z-string"> compose</span><span class="z-string"> logs</span><span class="z-string"> -</span><span class="z-string">-timestamps</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>postgres_1   2025-08-09 12:34:56 | LOG:  database system was shut down at 2025-08-09 12:30:00 UTC</span></span>
+<span class="giallo-l"><span>postgres_1   2025-08-09 12:34:56 | LOG:  MultiXact member wraparound protections are now enabled</span></span>
+<span class="giallo-l"><span>postgres_1   2025-08-09 12:35:01 | LOG:  autovacuum launcher started</span></span>
+<span class="giallo-l"><span>postgres_1   2025-08-09 12:35:10 | LOG:  connection received: host=172.18.0.5 port=5432</span></span>
+<span class="giallo-l"><span>postgres_1   2025-08-09 12:35:10 | LOG:  connection authorized: user=acme dbname=mydb application_name=psql</span></span>
+<span class="giallo-l"><span>webserver_1  2025-08-09 12:35:11 | Starting myapp web server on http://0.0.0.0:8080</span></span>
+<span class="giallo-l"><span>webserver_1  2025-08-09 12:35:11 | Listening for connections...</span></span>
+<span class="giallo-l"><span>postgres_1   2025-08-09 12:35:12 | ERROR:  relation &quot;employees&quot; does not exist at character 15</span></span>
+<span class="giallo-l"><span>postgres_1   2025-08-09 12:35:15 | STATEMENT:  SELECT * FROM employees;</span></span>
+<span class="giallo-l"><span>postgres_1   2025-08-09 12:35:20 | LOG:  disconnection: session time: 9s user=acme database=mydb host=172.18.0.5 port=5432</span></span>
+<span class="giallo-l"><span>webserver_1  2025-08-09 12:35:05 | GET /api/employees 200 15ms</span></span></code></pre><div class="note">here, <code>docker compose</code> annotates the concatenated logs with their provenance and timestamps</div>
+<p>The juxtaposition of pieces of content also routinely aids in visual comparison:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">diff</span><span class="z-punctuation z-definition z-string"> &lt;(</span><span class="z-entity z-name z-function">seq</span><span class="z-constant z-numeric"> 1</span><span class="z-constant z-numeric"> 5</span><span class="z-punctuation z-definition z-string">)</span><span class="z-punctuation z-definition z-string"> &lt;(</span><span class="z-entity z-name z-function">seq</span><span class="z-constant z-numeric"> 2</span><span class="z-constant z-numeric"> 6</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> sed</span><span class="z-string"> s/3/-/</span><span class="z-punctuation z-definition z-string">)</span><span class="z-string"> -</span><span class="z-string">y</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">diff</span><span class="z-punctuation z-definition z-string"> &lt;(</span><span class="z-entity z-name z-function">seq</span><span class="z-constant z-numeric"> 1</span><span class="z-constant z-numeric"> 5</span><span class="z-punctuation z-definition z-string">)</span><span class="z-punctuation z-definition z-string"> &lt;(</span><span class="z-entity z-name z-function">seq</span><span class="z-constant z-numeric"> 2</span><span class="z-constant z-numeric"> 6</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> sed</span><span class="z-string"> -</span><span class="z-string">e</span><span class="z-string"> s/3/-/</span><span class="z-punctuation z-definition z-string">)</span><span class="z-string"> -</span><span class="z-string">-side-by-side</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>1   &lt;</span></span>
+<span class="giallo-l"><span>2       2</span></span>
+<span class="giallo-l"><span>3   |   -</span></span>
+<span class="giallo-l"><span>4       4</span></span>
+<span class="giallo-l"><span>5       5</span></span>
+<span class="giallo-l"><span>    &gt;   6</span></span></code></pre>
+<p>These may be rather rarely come across naturally, but quite neat to arrive to
+while scripting: this goal will be the culmination of the second article.</p>
+<h3 id="the-zealous-documents"><a class="anchor-link" href="#the-zealous-documents" aria-label="Anchor link for: the-zealous-documents"></a>
+The zealous documents</h3>
+<p>Here we are, the apotheosis of intralinear partitioning (I promise, it's
+the last time I call it that): <strong>organised documents authored with intent
+and finesse</strong>, text laid out in a semantic structure, meant to be <em>read</em> and
+possibly maintained for a while.<br>
+In truth, that sounds a lot like what I and my professional peers do, in
+composing instructions for machines to follow—<em>"writing code"</em>, as we say.</p>
+<p><strong>The horizontal alignment is longing to be ubiquitous</strong>, its natural habitat
+would see it sprawl out in every bit of text that's centred, right-aligned or
+even justified, any padded value, wrapped sentence, indented paragraph...  Have
+a look at the following examples:</p>
+<pre class="giallo z-code"><code data-lang="typescript" data-name="profile.ts"><span class="giallo-l"><span class="z-keyword">export</span><span class="z-storage z-type"> const</span><span class="z-variable z-other z-constant z-ts"> education</span><span class="z-keyword z-operator"> =</span><span class="z-source"> [</span><span class="z-punctuation">{</span></span>
+<span class="giallo-l"><span class="z-source">  degree</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-punctuation z-definition z-string">    `</span><span class="z-string">Engineer&#39;s Degree</span><span class="z-punctuation z-definition z-string">`</span><span class="z-punctuation">,</span></span>
+<span class="giallo-l"><span class="z-source">  field</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-punctuation z-definition z-string">     &#39;</span><span class="z-string">Network Security</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation">,</span></span>
+<span class="giallo-l"><span class="z-source">  dates</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-punctuation z-definition z-string">     &#39;</span><span class="z-string">2010 – 2013</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation">,</span></span>
+<span class="giallo-l"><span class="z-source">  highlight</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">Upskilled in the Java language by [Rémi FORAX](https://github.com/forax), major contributor to its expansion.</span><span class="z-constant z-character z-escape">\n</span><span class="z-string">Awarded with the greatest distinction. Graduated top of class.</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation">,</span></span>
+<span class="giallo-l"><span class="z-punctuation">}</span><span class="z-punctuation">,</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-source">  degree</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-punctuation z-definition z-string">    &#39;</span><span class="z-string">Licentiate Degree</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation">,</span></span>
+<span class="giallo-l"><span class="z-source">  field</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-punctuation z-definition z-string">     &#39;</span><span class="z-string">Computer Science</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation">,</span></span>
+<span class="giallo-l"><span class="z-source">  dates</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-punctuation z-definition z-string">     &#39;</span><span class="z-string">2008 – 2010</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation">,</span></span>
+<span class="giallo-l"><span class="z-source">  highlight</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">Awarded with the greatest dis-tinction. Graduated top of class.</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation">,</span></span>
+<span class="giallo-l"><span class="z-punctuation">}</span><span class="z-punctuation">,</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-source">  degree</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-punctuation z-definition z-string">    &#39;</span><span class="z-string">Baccalaureate</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation">,</span></span>
+<span class="giallo-l"><span class="z-source">  field</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-punctuation z-definition z-string">     &#39;</span><span class="z-string">Applied Physics for Electronics</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation">,</span></span>
+<span class="giallo-l"><span class="z-source">  dates</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-punctuation z-definition z-string">     &#39;</span><span class="z-string">2005 – 2008</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation">,</span></span>
+<span class="giallo-l"><span class="z-source">  highlight</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">Awarded with the greatest dis-tinction. Graduated top of class; top 0.4% nationwide.</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation">,</span></span>
+<span class="giallo-l"><span class="z-punctuation">}</span><span class="z-source">]</span></span></code></pre><br>
+<pre class="giallo z-code"><code data-lang="java" data-name="Adyen.java"><span class="giallo-l"><span class="z-storage z-modifier">private</span><span class="z-storage z-modifier"> static</span><span class="z-storage z-modifier"> final</span><span class="z-storage z-type"> Map</span><span class="z-punctuation">&lt;</span><span class="z-storage z-type">String</span><span class="z-punctuation">,</span><span class="z-storage z-type"> String</span><span class="z-punctuation">&gt;</span><span class="z-source"> PROPS_DEFAULTS</span><span class="z-keyword z-operator"> =</span><span class="z-source"> Collections</span><span class="z-punctuation">.</span><span class="z-entity z-name z-function">singletonMap</span><span class="z-punctuation">(</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-string">environment</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation">,</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">test</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation">)</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-storage z-modifier">private</span><span class="z-storage z-modifier"> static</span><span class="z-storage z-modifier"> final</span><span class="z-storage z-type"> String</span><span class="z-source">              PROPS_FILE</span><span class="z-keyword z-operator">     =</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">creditcard/adyen-x.properties</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-storage z-modifier">private</span><span class="z-storage z-modifier"> static</span><span class="z-storage z-modifier"> final</span><span class="z-storage z-type"> String</span><span class="z-punctuation">[</span><span class="z-punctuation">]</span><span class="z-source">            PROPS_KEYS</span><span class="z-keyword z-operator">     =</span></span>
+<span class="giallo-l"><span class="z-punctuation">    {</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">environment</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation">,</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">expire-after</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation">,</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">api-version</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation">,</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">api-key!</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation">,</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">client-key!</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation">,</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">hmac-key!</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation">,</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">merchant-account!</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation">,</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">theme-id!</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation"> }</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-storage z-modifier">private</span><span class="z-storage z-modifier"> static</span><span class="z-storage z-modifier"> final</span><span class="z-storage z-type"> String</span><span class="z-source">  HMAC_ALGORITHM</span><span class="z-keyword z-operator"> =</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">HmacSHA256</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-storage z-modifier">private</span><span class="z-storage z-modifier"> static</span><span class="z-storage z-modifier"> final</span><span class="z-storage z-type"> Charset</span><span class="z-source"> CHARSET</span><span class="z-keyword z-operator">        =</span><span class="z-source"> StandardCharsets</span><span class="z-punctuation">.</span><span class="z-source">UTF_8</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-storage z-modifier">private</span><span class="z-storage z-modifier"> static</span><span class="z-storage z-modifier"> final</span><span class="z-storage z-type"> ObjectMapper</span><span class="z-source"> JSON</span><span class="z-keyword z-operator"> =</span><span class="z-keyword"> new</span><span class="z-entity z-name z-function"> ObjectMapper</span><span class="z-punctuation">(</span><span class="z-punctuation">)</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-storage z-modifier">private</span><span class="z-storage z-modifier"> static</span><span class="z-storage z-modifier"> final</span><span class="z-storage z-type"> OkHttpClient</span><span class="z-source"> HTTP</span><span class="z-keyword z-operator"> =</span><span class="z-keyword"> new</span><span class="z-entity z-name z-function"> OkHttpClient</span><span class="z-punctuation">(</span><span class="z-punctuation">)</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-storage z-modifier">private</span><span class="z-storage z-modifier"> final</span><span class="z-storage z-type"> GeographicalArea</span><span class="z-source"> shop</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-storage z-modifier">private</span><span class="z-storage z-modifier"> final</span><span class="z-storage z-type"> Props</span><span class="z-source">            props</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-storage z-modifier">public</span><span class="z-entity z-name z-function"> Adyen</span><span class="z-punctuation">(</span><span class="z-storage z-modifier">final</span><span class="z-storage z-type"> GeographicalArea</span><span class="z-source"> shop</span><span class="z-punctuation">)</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-variable z-language z-this">    this</span><span class="z-punctuation">.</span><span class="z-source">shop</span><span class="z-keyword z-operator"> =</span><span class="z-source"> shop</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-variable z-language z-this">    this</span><span class="z-punctuation">.</span><span class="z-source">props</span><span class="z-keyword z-operator"> =</span><span class="z-storage z-type"> Props</span></span>
+<span class="giallo-l"><span class="z-punctuation">        .</span><span class="z-entity z-name z-function">load</span><span class="z-punctuation">(</span><span class="z-source">PROPS_KEYS</span><span class="z-punctuation">)</span></span>
+<span class="giallo-l"><span class="z-punctuation">        .</span><span class="z-entity z-name z-function">withDefaults</span><span class="z-punctuation">(</span><span class="z-source">PROPS_DEFAULTS</span><span class="z-punctuation">)</span></span>
+<span class="giallo-l"><span class="z-punctuation">        .</span><span class="z-entity z-name z-function">withScope</span><span class="z-punctuation">(</span><span class="z-source">shop</span><span class="z-punctuation">.</span><span class="z-entity z-name z-function">name</span><span class="z-punctuation">(</span><span class="z-punctuation">)</span><span class="z-punctuation">)</span></span>
+<span class="giallo-l"><span class="z-punctuation">        .</span><span class="z-entity z-name z-function">from</span><span class="z-punctuation">(</span><span class="z-source">Props</span><span class="z-punctuation">.</span><span class="z-entity z-name z-function">getFrom</span><span class="z-punctuation">(</span><span class="z-source">PROPS_FILE</span><span class="z-punctuation">)</span><span class="z-punctuation">)</span><span class="z-punctuation">;</span></span>
+<span class="giallo-l"><span class="z-punctuation">}</span></span></code></pre><div class="note">bonus points for the serendipitously native alignment of the <code>JSON</code> and <code>HTTP</code> constants declaration</div>
+<br>
+<pre class="giallo z-code"><code data-lang="sql" data-name="queries.sql"><span class="giallo-l"><span class="z-keyword">SELECT</span><span class="z-keyword"> CASE</span><span class="z-source"> airport_code</span></span>
+<span class="giallo-l"><span class="z-keyword">       WHEN</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">CDG</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-keyword"> THEN</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">Paris</span><span class="z-punctuation z-definition z-string">&#39;</span></span>
+<span class="giallo-l"><span class="z-keyword">       WHEN</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">ICN</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-keyword"> THEN</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">Seoul</span><span class="z-punctuation z-definition z-string">&#39;</span></span>
+<span class="giallo-l"><span class="z-keyword">       END</span><span class="z-keyword"> AS</span><span class="z-source"> city</span></span>
+<span class="giallo-l"><span class="z-keyword">  FROM</span><span class="z-source"> flight_schedules</span></span>
+<span class="giallo-l"><span class="z-keyword"> WHERE</span><span class="z-source"> airline </span><span class="z-keyword z-operator">=</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">Air Global</span><span class="z-punctuation z-definition z-string">&#39;</span></span>
+<span class="giallo-l"><span class="z-keyword">   AND</span><span class="z-source"> departure_hour </span><span class="z-keyword">BETWEEN</span><span class="z-constant z-numeric"> 18</span><span class="z-keyword"> AND</span><span class="z-constant z-numeric"> 20</span></span>
+<span class="giallo-l"><span class="z-keyword">   AND</span><span class="z-source"> airport_code </span><span class="z-keyword">IN</span><span class="z-source"> (</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">CDG</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-source">, </span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">ICN</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-source">, </span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">NRT</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-source">, </span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">DXB</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-source">);</span></span></code></pre><br>
+<pre class="giallo z-code"><code data-lang="plain" data-name="delta-reports-exchange.txt"><span class="giallo-l"><span>Status: DRAFT                DelTA Reports Exchange                 Éric NICOLAS</span></span>
+<span class="giallo-l"><span>Revisions: 12                ======================           &lt;ccjmne@gmail.com&gt;</span></span>
+<span class="giallo-l"><span>Latest: 2024-02-14</span></span>
+<span class="giallo-l"><span>                       Retiring file-based communications</span></span>
+<span class="giallo-l"><span>                           for DelTA reports analysis</span></span>
+<span class="giallo-l"><span>                               -----------------</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>    The object of these reports is the discrepancy between expected and actual</span></span>
+<span class="giallo-l"><span>delivery times.  DelTA is an acronym for [DEL]ivery [T]ime [A]nalysis, but is</span></span>
+<span class="giallo-l"><span>also the Greek letter δ or ∆, often used in calculus for differential values:</span></span>
+<span class="giallo-l"><span>How lovely!</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>                                -- CHANGELOG --</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>Revision 12 ......................................................... 2024-02-14</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>    - Address and rectify discrepancy between sections 2.1.1 and 5-C</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>Revision 11 ......................................................... 2024-02-13</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>    - Clarify usages of the &#39;deliverytime&#39; module in section 3</span></span>
+<span class="giallo-l"><span>    - Introduce section 5, Accidental Complexity vs Obsolescence</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>Revision 10 ......................................................... 2024-02-06</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>    - Explain the &quot;crashing&quot; allusion made in article 2.1.7</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>Revision 9 .......................................................... 2024-02-05</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>    - Introduce CHANGELOG</span></span>
+<span class="giallo-l"><span>    - Introduce article 2.3.2, on the reduced testability</span></span>
+<span class="giallo-l"><span>    - Fix a few typographic errors and blurts here and there</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>Revisions 1 through 8 ............................ 2024-01-30 through 2024-02-04</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>    Irrelevant (unpublished) and/or lost to time.</span></span></code></pre><div class="note">don't worry, no trade secrets in here: it's indeed half made up for this exercise.</div>
+<h2 id="what-now"><a class="anchor-link" href="#what-now" aria-label="Anchor link for: what-now"></a>
+What now?</h2>
+<p>I suppose this would be the place for the rhetorical question regarding the
+virtues of this fastidiousness, but I'll only grace you with the broad strokes
+of its answer instead: yes, it is more beautiful, it aids in visual grepping, in
+contextual parsing, and it shows that you care.</p>
+<p>However, as the saying goes: <a rel="external" href="https://en.wikipedia.org/wiki/Ain%27t_Nobody_Got_Time_for_That"><em>"ain't nobody got time for
+that"</em></a> is sure
+to be the most ready retort to my proposition, together with "the auto-formatter
+would thrash it" and "no linting rules would account for that".  I hear you, and
+you're indeed making valid arguments... in disfavour of generic auto-formatters
+and <strong>misguided stylistic linting tools</strong>!</p>
+<p><strong>You have time for this.</strong><br>
+If you're making adept, skilful contributions to meaningful software,
+you're meant to be spending your time investigating and exploring.
+Jotting down semi-legible documents that procure workable instructions
+to the machine, <strong>any fool can do<sup class="footnote-reference" id="fr-even-the-fooliest-1"><a <a href="#fn-even-the-fooliest">2</a></sup>: every fool
+does</strong>.  If you're tasked with authoring code, you're assumed to have
+mastered the putting-text-together aspect of it already: <a rel="external" href="https://blog.codinghorror.com/we-are-typists-first-programmers-second/">we are typists
+first</a>.</p>
+<p><strong>Use tools that help.</strong><br>
+If your tools are either not assisting or outright hindering you in some
+aspects of your goals, <em>do not blame or forsake the goal</em>.  You may simply
+need to (or get to!) use them differently.</p>
+<p>If you find neat documents desirable but the baseline auto-formatter will
+squash your style, it may be time to ask yourself whether you and your team are
+such purposeful pigs that a generic, one-size-fits-all crutch is the preferred
+cure-all elixir to your systematic, inescapable blurts.</p>
+<p>The formatter and linter help, but in no way should dictate prescriptive
+style over the learned tastes of your experienced discernment: do review code.</p>
+<p><strong>You have the go-ahead.</strong><br>
+You do not have to make your code look pretty beyond mere logical structure,
+but <strong>you do have to read it</strong>, every now and again.  This is just an
+encouragement, a call for you to assume your style and not shy away from
+crafting text with as much care as you wish.</p>
+<h2 id="next"><a class="anchor-link" href="#next" aria-label="Anchor link for: next"></a>
+Next</h2>
+<p>Find out how simple tools can help you <a href="https://ccjmne.sh/blog/flight-manual/intralinear-partitioning/02-column-cut-paste/">lay out text with polish in the
+<code>CLI</code></a>, using
+<code>column</code>, <code>cut</code> and <code>paste</code>.</p>
+  <section class="footnotes" aria-label="Footnotes">
+      <ol class="footnotes-list">
+<li id="fn-esoteric-vertical-whitespace">
+<p>Let's not talk of the
+<a rel="external" href="https://www.compart.com/en/unicode/U+000D"><code>CR</code></a>,
+<a rel="external" href="https://www.compart.com/en/unicode/U+000B"><code>VT</code></a> or
+<a rel="external" href="https://www.compart.com/en/unicode/U+000C"><code>FF</code></a> here. <a href="#fr-esoteric-vertical-whitespace-1">↩</a></p>
+</li>
+
+<li id="fn-even-the-fooliest">
+<p>Even the more (most?) foolish among us, the <em>"coding
+agents"</em> <code>LLM</code>s, as of the end of the first quarter of the twenty-first century. <a href="#fr-even-the-fooliest-1">↩</a></p>
+</li>
+</ol>
+    </section>
+  <h2 id="cited-tools"><a class="anchor-link" href="#cited-tools" aria-label="Anchor link for: cited-tools"></a>
+Referenced tools</h2>
+  <div class="cited-tools">
+    
+<table class="tool mono">
+  <tr><th colspan="2"><strong>vim</strong></th></tr>
+  <tr>
+    
+        <td colspan="2">from <a href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;vim">extra&#x2F;vim</a></td>
+    
+  </tr>
+  <tr>
+    <td><a href="https:&#x2F;&#x2F;vimhelp.org&#x2F;">manual</a></td>
+    <td><a href="https:&#x2F;&#x2F;github.com&#x2F;vim&#x2F;vim">repository</a></td>
+  </tr>
+</table>
+
+<table class="tool mono">
+  <tr><th colspan="2"><strong>neovim</strong></th></tr>
+  <tr>
+    
+        <td colspan="2">from <a href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;neovim">extra&#x2F;neovim</a></td>
+    
+  </tr>
+  <tr>
+    <td><a href="https:&#x2F;&#x2F;neovim.io&#x2F;doc&#x2F;user&#x2F;">manual</a></td>
+    <td><a href="https:&#x2F;&#x2F;github.com&#x2F;neovim&#x2F;neovim">repository</a></td>
+  </tr>
+</table>
+
+<table class="tool mono">
+  <tr><th colspan="2"><strong>uni</strong></th></tr>
+  <tr>
+    
+        <td colspan="2">from <a href="https://aur.archlinux.org/packages/uni">aur&#x2F;uni</a></td>
+    
+  </tr>
+  <tr>
+    <td><a href="https:&#x2F;&#x2F;github.com&#x2F;arp242&#x2F;uni&#x2F;#usage">manual</a></td>
+    <td><a href="https:&#x2F;&#x2F;github.com&#x2F;arp242&#x2F;uni">repository</a></td>
+  </tr>
+</table>
+
+  </div>
+  
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <span>&lt;<a href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>&gt;</span>
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>
