@@ -47,10 +47,14 @@ content, or assemble output that spans multiple lines.
 These few commands are the substrate of what using the hold space distils down
 to:
 
-- `h`/`H` to copy/append **from pattern to hold** space (`h` for "hold"),
+- `h`/`H` to copy/append **from pattern to hold** space (`h` for "hold")
 - `g`/`G` to copy/append **from hold to pattern** space (`g` possibly for "get"?)  
-  I feel like `g` also nicely mirrors and follows `h` (on a touch-typist's
-  QWERTY keyboard and in the alphabet, respectively),
+  I feel like `g` nicely mirrors and follows `h` (on a touch-typist's QWERTY
+  keyboard and in the alphabet, respectively); I have used them for connection
+  and disconnection signals in hand-rolled communication protocols, mnemonics
+  for "hello" and "goodbye"; we often use `g` and `h` as companions to `f` in
+  describing functions in mathematics...  Surely they're well-understood to work
+  as a pair, and `g` makes sense to un-`h` something?
 - `x` to **e`x`change** the contents of hold and pattern spaces.
 
 Consider the following document:
@@ -438,19 +442,19 @@ sed -n '/^Password:/{p;b};H;${g;s/\n//p}'
 sed -n '
   /^Password:/ {p;b}  # when the "Password" option is shown, print it and "bail" out
   H                   # accumulate other fields
-  $ {                 # at the end of the document,
-    g                 #   bring hold into pattern
-    s/\n//            #   remove opening linefeed (from "H" into an empty hold space)
+  $ {                 # once at the end of the document,
+    g                 #   bring the hold into pattern
+    s/\n//            #   trim leading linefeed (from first "H" into a then-empty hold space)
     p                 #   print the other options in their natural order
   }'
 ```
 {{ note(msg="`keepassxc-cli` actually displays that attribute as `Password: PROTECTED`, of course") }}
 
-For completeness' sake, I could explain that each entry's attributes ranking is
-weighted via some access frecency (frequency + recency) heuristic, but that, for
-these old accounts I haven't accessed in a while (or to start off the system), I
-know that **the password** is most likely the attribute I want available through
-my clipboard for the next 5 seconds.
+For completeness' sake, I could explain that each entry's attributes ranking
+is weighted via some access _frecency_ (frequency + recency) heuristic, but
+that, for these old accounts I haven't accessed in a while (or to start off
+the system), I know that **the password** is most likely the attribute I want
+available through my clipboard for the next 5 seconds.
 
 It certainly could have been done otherwise, possibly, but I did it like that,
 and therefore I, **and you too now**, have seen it done like that.  I actually
