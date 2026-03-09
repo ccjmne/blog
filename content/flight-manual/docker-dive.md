@@ -156,7 +156,7 @@ filetree:
   collapse-dir: true
 ```
 
-## Not great yet still the best
+## Not perfect, yet still the best
 
 In any case, `dive` is a simple tool for a simple job.  It doesn't do that job
 too well, but it does it well enough to be of great relief when you need to do
@@ -186,7 +186,7 @@ ability to run **without being installed**:
 
 ```sh
 alias dive="docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock docker.io/wagoodman/dive"
-dive <image>
+dive $image
 ```
 
 I say, just add that `alias`, remember vaguely that it's called "dive", and on
