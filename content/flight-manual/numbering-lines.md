@@ -812,6 +812,13 @@ tell you that my incentive to not adopt plug-ins I don't need is quite strong!
 
 ## A practical example {#a-practical-example}
 
+> [!NOTE]
+>
+> In this context, `<C-A>` merely represents `Ctrl`+`A`, that is: holding `Ctrl`
+> and pressing `A`.  Similarly, `<CR>` stands for _Carriage Return_ and means
+> pressing the key know as `Enter` or `Return`—or even `Ctrl`+`M` in some
+> competent software.
+
 Consider the following bit of text:
 
 ```txt
