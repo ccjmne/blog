@@ -15,6 +15,21 @@ taxonomies.tags = ['all', 'quibblery']
    repo    = 'https://github.com/keepassxreboot/keepassxc'
    package = 'extra/x86_64/keepassxc'
    manual  = 'https://keepassxc.org/docs/#command-line'
+[[extra.cited_vimhelp]]
+    page = "change.txt"
+    code = "registers"
+    excerpt  = """
+There are ten types of registers:
+1. The unnamed register, `""`
+2. 10 numbered registers, `"0` to `"9`
+3. The small delete register, `"-`
+4. 26 named registers, `"a` to `"z` or `"A` to `"Z`
+5. Three read-only registers, `":`, `".`, `"%`
+6. Alternate buffer register, `"#`
+7. The expression register, `"=`
+8. The selection registers, `"*` and `"+`
+9. The black hole register, `"_`
+10. Last search pattern register, `"/`"""
 +++
 
 A staple of the frantic user's tool belt, the clipboard history needs no
@@ -30,7 +45,7 @@ it was **last year**—a whopping **half a century** or so after
 Ah, and <abbr title="The ubiquitous editor">Vim</abbr> today offers a lofty
 **forty-five** registers, complete with bindings to append, replace, print from
 as plain text, print from as if you were typing it, _et cet._; see [`:help
-registers`](https://vimdoc.sourceforge.net/htmldoc/usr_10.html).
+registers`](https://vimhelp.org/change.txt.html#registers).
 
 **But I digress.**
 
