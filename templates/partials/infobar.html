@@ -11,9 +11,9 @@
     {%- elif ylo == yhi and mlo == mhi -%}
     <li><time>{{ lo | date(format="%B %d") }}</time><span class="muted">–</span><time>{{ hi | date(format="%d, %Y") }}</time></li>
     {%- elif ylo == yhi -%}
-    <li><time>{{ lo | date(format="%B %d") }}</time><span class="muted"> through </span><time>{{ hi | date(format="%B %d, %Y") }}</time></li>
+    <li><time>{{ lo | date(format="%B %d") }}</time><span class="muted">&nbsp;through&nbsp;</span><time>{{ hi | date(format="%B %d, %Y") }}</time></li>
     {%- else -%}
-    <li><time>{{ lo | date(format="%B %d, %Y") }}</time><span class="muted"> through </span><time>{{ hi | date(format="%B %d, %Y") }}</time></li>
+    <li><time>{{ lo | date(format="%B %d, %Y") }}</time><span class="muted">&nbsp;through&nbsp;</span><time>{{ hi | date(format="%B %d, %Y") }}</time></li>
     {%- endif -%}
 
     {%- set total_reading_time = 0 -%}
