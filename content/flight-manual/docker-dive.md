@@ -15,6 +15,11 @@ taxonomies.tags = ['all', 'cli', 'docker']
    repo    = "https://github.com/moby/moby"
    package = "extra/x86_64/docker"
    manual  = "https://docs.docker.com/"
+[[extra.cited_tools]]
+   name    = "xray"
+   repo    = "https://github.com/h33333333/xray"
+   package = "aur/xray-oci-git"
+   manual  = "https://github.com/h33333333/xray"
 +++
 
 > [!NOTE]
@@ -192,3 +197,12 @@ dive $image
 I say, just add that `alias`, remember vaguely that it's called "dive", and on
 that one fated day you'll be looking to do one of the things it enables, you
 might be pretty pleased with yourself.
+
+> [!IMPORTANT]
+>
+> Update late 2025: [`xray`](https://github.com/h33333333/xray) is a new tool
+> that aims to accomplish the same task just released!  It's somewhat less
+> feature-complete at the time, but that also seems to come with the advantage
+> of featuring fewer bugs: **none**.  You may find it (on the `AUR` only, sadly)
+> at `xray-oci-git`—I'm the maintainer of that package—or install it via
+> `cargo` directly.
