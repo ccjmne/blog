@@ -1,16 +1,27 @@
 {% macro cmd(tool) %}
 <table class="tool mono">
-  <tr><th colspan="2"><strong>{{ tool.name }}</strong></th></tr>
-  <tr>
-    {% if tool.package is starting_with("aur/") %}
-        <td colspan="2">from <a rel="external" href="https://aur.archlinux.org/packages/{{ tool.package | replace(from="aur/", to="") }}">{{ tool.package }}</a></td>
-    {% else %}
-        <td colspan="2">from <a rel="external" href="https://archlinux.org/packages/{{ tool.package }}">{{ tool.package | replace(from="/x86_64/", to="/") }}</a></td>
-    {% endif %}
-  </tr>
-  <tr>
-    <td><a rel="external" href="{{ tool.manual }}">manual</a></td>
-    <td><a rel="external" href="{{ tool.repo }}">repository</a></td>
-  </tr>
+  <thead><tr><th colspan="2"><strong>{{ tool.name }}</strong></th></tr></thead>
+  <tbody>
+    <tr>
+      {% if tool.package is starting_with("aur/") %}
+      <td colspan="2">from <a rel="external" href="https://aur.archlinux.org/packages/{{ tool.package | replace(from="aur/", to="") }}">{{ tool.package }}</a></td>
+      {% else %}
+      <td colspan="2">from <a rel="external" href="https://archlinux.org/packages/{{ tool.package }}">{{ tool.package | replace(from="/x86_64/", to="/") }}</a></td>
+      {% endif %}
+    </tr>
+    <tr>
+      <td><a rel="external" href="{{ tool.manual }}">manual</a></td>
+      <td><a rel="external" href="{{ tool.repo }}">repository</a></td>
+    </tr>
+  </tbody>
+</table>
+{% endmacro %}
+
+{% macro vimhelp(help) %}
+<table class="tool mono">
+  <thead><tr><th colspan="2"><a rel="external" href="https://vimhelp.org/{{ help.page }}.html#{{ help.code }}"><strong>:help {{ help.code }}</strong></a></th></tr></thead>
+  <tbody>
+    <tr><td class="excerpt">{{ help.excerpt | trim | markdown(inline=true) | safe }}</td></tr>
+  </tbody>
 </table>
 {% endmacro %}

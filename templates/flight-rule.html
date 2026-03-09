@@ -32,5 +32,12 @@
     {% for work in page.extra.cited_tools %} {{- tmpl::cmd(tool=work) -}} {% endfor %}
   </div>
   {% endif %}
+
+  {% if page.extra.cited_vimhelp is defined %}
+  <h2 id="cited-vimhelp">{%- set id="cited-vimhelp" -%}{%- include "anchor-link.html" -%}Referenced Vim help</h2>
+  <div class="cited-tools">
+    {% for help in page.extra.cited_vimhelp %} {{- tmpl::vimhelp(help=help) -}} {% endfor %}
+  </div>
+  {% endif %}
 </article>
 {% endblock content %}
