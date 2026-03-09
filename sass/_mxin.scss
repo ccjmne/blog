@@ -27,11 +27,11 @@
 @mixin xl { @include minw(1280px) { @content; } }
 
 [min-sm] { display: none; @include sm { display: initial; } }
-[min-md] { display: none; @include sm { display: initial; } }
-[min-lg] { display: none; @include sm { display: initial; } }
-[min-xl] { display: none; @include sm { display: initial; } }
+[min-md] { display: none; @include md { display: initial; } }
+[min-lg] { display: none; @include lg { display: initial; } }
+[min-xl] { display: none; @include xl { display: initial; } }
 
 [max-sm] { display: initial; @include sm { display: none; } }
-[max-md] { display: initial; @include sm { display: none; } }
-[max-lg] { display: initial; @include sm { display: none; } }
-[max-xl] { display: initial; @include sm { display: none; } }
+[max-md] { display: initial; @include md { display: none; } }
+[max-lg] { display: initial; @include lg { display: none; } }
+[max-xl] { display: initial; @include xl { display: none; } }
