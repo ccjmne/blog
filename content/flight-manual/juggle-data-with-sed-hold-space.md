@@ -20,6 +20,11 @@ taxonomies.tags = ['all', 'cli', 'posix', 'sed']
    repo    = "https://github.com/keepassxreboot/keepassxc"
    package = "extra/x86_64/keepassxc"
    manual  = "https://man.archlinux.org/man/extra/keepassxc/keepassxc-cli.1.en"
+[[extra.cited_tools]]
+   name    = "fzf"
+   repo    = "https://github.com/junegunn/fzf"
+   package = "extra/x86_64/fzf"
+   manual  = "https://man.archlinux.org/man/extra/fzf/fzf.1.en"
 +++
 
 As `sed` processes its input line by line, it works primarily with its **pattern
