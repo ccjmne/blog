@@ -19,7 +19,7 @@
 
 {% macro vimhelp(help) %}
 <table class="tool mono">
-  <thead><tr><th colspan="2"><a rel="external" href="https://vimhelp.org/{{ help.page }}.html#{{ help.code }}"><strong>:help {{ help.code }}</strong></a></th></tr></thead>
+  <thead><tr><th colspan="2"><a rel="external" href="https://vimhelp.org/{{ help.page }}.html#{{ help.code | urlencode }}"><strong>:help {{ help.code }}</strong></a></th></tr></thead>
   <tbody>
     <tr><td class="excerpt">{{ help.excerpt | trim | markdown(inline=true) | safe }}</td></tr>
   </tbody>
