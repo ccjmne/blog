@@ -42,7 +42,7 @@ Generally?  Let's look into it.
 
 <div class="hi">
 
-## Obligatory [TL;DR](https://en.wikipedia.org/wiki/TL;DR)
+## Obligatory [TL;DR](https://en.wikipedia.org/wiki/TL;DR) {#tldr}
 
 Most `sed` operations are executed against the content in the **pattern space**,
 the current input line.  The **hold** space is a second buffer that is at your
@@ -53,16 +53,21 @@ These few commands are the substrate of what using the hold space distils down
 to:
 
 - `h`/`H` to copy/append **from pattern to hold** space (`h` for "hold")
-- `g`/`G` to copy/append **from hold to pattern** space (`g` possibly for "get"?)  
-  I feel like `g` nicely mirrors and follows `h` (on a touch-typist's QWERTY
-  keyboard and in the alphabet, respectively); I have used them for connection
-  and disconnection signals in hand-rolled communication protocols, mnemonics
-  for "hello" and "goodbye"; we often use `g` and `h` as companions to `f` in
-  describing functions in mathematics...  Surely they're well-understood to work
-  as a pair, and `g` makes sense to un-`h` something?
+- `g`/`G` to copy/append **from hold to pattern** space (`g` possibly for
+  "get"?)
 - `x` to **e`x`change** the contents of hold and pattern spaces.
 
-Consider the following document:
+> [!NOTE]
+>
+> I feel like `g` nicely mirrors and follows `h` (on a touch-typist's
+> `QWERTY` keyboard and in the alphabet, respectively); I have used them
+> for connection and disconnection signals in hand-rolled communication
+> protocols, mnemonics for "hello" and "goodbye"; we often use `g`
+> and `h` as companions to `f` in describing functions in [abstract
+> algebra](https://en.wikipedia.org/wiki/Abstract_algebra)...  Surely they're
+> well-understood to work as a pair, and `g` makes sense to un-`h` something?
+
+For example, consider the following document:
 
 ```toml,name=my-awesome-crate.toml
 [package]
@@ -77,11 +82,11 @@ libc = "0.2.176"
 ```
 {{ note(msg="a semi-legible version number that nonetheless conforms to the [SemVer](https://semver.org/) specification") }}
 
-Sprinkle in some impossibly dense, `POSIX`-compliant `sed` magic to in-line the
-section names:
+Sprinkle in some impossibly dense, `POSIX`-compliant `sed` magic to **in-line
+the section names** (which also constitutes valid `toml` syntax):
 
 ```sh
-sed '/^\[/ {s/^.\|.$//g;h;d}
+sed '/^\[/ {s/[][]//g;h;d}
      /./   {G;s/\(.*\)\n\(.*\)/\2.\1/}' my-awesome-crate.toml
 ```
 ```txt
@@ -95,17 +100,18 @@ dependencies.libc = "0.2.176"
 ```
 {{ note(msg="horrifying?  possibly—beauty is in the eye of the beholder; `POSIX` compliance, however, is indisputable") }}
 
+Note the delightfully quirky `BRE` substitution `s/[][]//g` employing the most
+savvy `[][]` character class to match either literal square bracket.  Who says I
+don't know how to have fun?
+
 </div>
 
-This example above in the `TL;DR` doesn't look too pretty (although, it'd
-be nicer with some extended <abbr title='Regular Expressions'>RegExp</abbr>
-syntax).  I would say in general that my articles on `sed` or `vim` won't quite
-be for the faint of heart: you have to pace yourself reading it, just like you
-would German literature[^long-german-words], but I assure you: it is so very
-simple to come up with.
-
-[^long-german-words]: I only jest and am referring here to the famously long
-compound words that German is known for.
+This example above in the `TL;DR` doesn't look too pretty (although, it'd be
+nicer with some extended <abbr title="Regular Expressions">`RegExp`</abbr>
+syntax).  I would say in general that my articles on `sed` or Vim won't quite
+be for the faint of heart: you have to pace yourself reading it, but I assure
+you: **these incantations are so very simple to come up with**, once familiarity
+overcomes the dreadful arcane.
 
 In any case, despite routinely lovingly calling these _"write-only"_, there's
 something about contorting `POSIX` tools to get the job done that I find serves
@@ -181,32 +187,32 @@ space,
 > Appending with `H` and `G` always involves a linefeed: plan your `s///`
 > expressions accordingly.
 
-## Some fantasy recipes
+## Exempli gratia
 
 There really isn't that much to the hold space in `sed`.  All that's possibly
-quite noteworthy is that many seemingly go on their entire `CLI` dwelling life
-without using it: do we simply never need anything like that, or is it a case of
-not considering the options that require tools we haven't yet mastered?
+quite noteworthy is that many seemingly go through their entire `CLI` dwelling
+life without using it: do we simply never need anything like that, or **is
+it a case of not considering the options that require tools we haven't yet
+mastered?**
 
-Without much ceremony, here come some examples that are certain to lack
-practicality for your software, but truly do come in handy when the servers are
-on fire and we wouldn't mind somebody navigating the system like they would the
-back of their hand—or, as the French would say, the bottom of their pocket.
+Without much ceremony, here come some examples that may lack systematic
+practicality, but truly do come in handy when the servers are on fire and we
+wouldn't mind somebody navigating the system like they would the back of their
+hand—or, as the French would say, the bottom of their pocket.
 
 ### Reverse lines
 
-Well, `sed`'s not built for that, it processes _streams_ of data, and while
-this would indeed be guaranteed to work for files up to 8kb in size[^8kb],
-`tac` (`cat` in reverse!) from `GNU`'s excellent `coreutils` is a much more
-appropriate tool for that job.
-
-In any case, this shall still function as a reasonably adequate way to get
-started.
+Let's whet our appetite with some **fantasy recipe**, merely to get the
+_braingine_ going: reversing lines.  Well, `sed`'s not built for that, it
+processes _streams_ of data, and while this would indeed be guaranteed to work
+for files up to 8kb in size[^8kb], `tac` (`cat` in reverse!) from `GNU`'s
+excellent `coreutils` is a much more appropriate tool for that job.
 
 ```sh
 sed '1!G;h;$!d' file
 sed '1!G; h; $!d' file
 sed '
+  1!G
   h         # [h]old on to it
   $!d
 ' file
@@ -217,230 +223,157 @@ sed '
 and hold spaces can hold at least 8192 bytes.  `GNU sed` removes practical
 limits for most uses.
 
-- `1!G`, unless at line 1 (the first), append the accumulated hold to the
+- `1!G`, unless at line `1` (the first), append the accumulated hold to the
   pattern;
 - `h`, save the aggregate into the hold;
 - `$!d`, unless at line `$` (the last), discard the pattern; `sed` will
   implicitly print out the only non-discarded pattern, the ultimate one
   coalescing the entire accumulated reversed collection of lines.
 
-You could do away with specifying `1!`, in which case the (empty) hold space,
-**as well as an extra linefeed**, would be appended to the end of the output.
-Non-printable characters may very well not be most obvious, but we should strive
-to keep things tight.  Restricting `G` to `1!` avoids having to `$s/\n$//` at
-the end of the script.
+You could do away with specifying `1!`, in which case the original (empty) hold
+space, **as well as an extra linefeed**, would be appended to the end of the
+output.  Non-printable characters may very well not be most obvious, but we
+should strive to keep things tight.  Restricting `G` to `1!` avoids having to
+`$s/\n$//` at the end of the script.
 
-### Annotate particularly long functions in source code
+### Practical use case: distribute context
+
+At work, we've got a few teams contributing to a sizeable
+number of modules.  We make use of a [`CODEOWNERS`
+file](https://docs.gitlab.com/user/project/codeowners/reference/) that looks
+something like:
+
+```ini,name=CODEOWNERS
+# --- Legacy Wranglers ---
+[Legacy Wranglers] @team-legacy-wranglers
+monolith/
+cron-scripts/
+soap-adapter/
+ancient-batch-jobs/
+v1-api/
+
+# --- Everything Breaks Here ---
+[Chaos & Incidents] @team-chaos
+pagerduty-hooks/
+incident-simulator/
+fire-drills/
+rollback-scripts/
+midnight-alerts/
+
+# --- Frontend Pain Relief ---
+[Frontend Pain Relief] @team-frontend
+css-specificity-war/
+ie11-polyfills/
+npm-dependency-hell/
+storybook/
+component-library-v2/
+```
+
+When something's looking iffy, I would like to spin up `fzf` to find who the
+responsible team for a particular module is: it'd be neat to have the @team tag
+**on the same line** as the component—this is trivially achieved using `sed`'s
+_hold space_.
+
+> [!TIP]
+>
+> `fzf` is a **command-line fuzzy finder**[^fzf-alternatives]: sift through
+> whatever comes from its standard input in many quite practical ways.  It's a
+> stupendous one at that, especially paired with tools that can catalogue files
+> fast (I mean `fd`), and even more so when you realise quite a few things in
+> your `CLI` life could use some fuzzy goodness.
+
+[^fzf-alternatives]: There are other quite excellent command-line fuzzy
+    finders, such as `fzy` and `skim`.  In comparing the three,
+    any one may boast slightly different matching algorithms,
+    somewhat faster processing speed for gazillions of records,
+    somewhat lighter memory footprint, _et cet_.  **The people being
+    each of these three projects are proper world-class software
+    [whizzes](https://dictionary.cambridge.org/dictionary/english/whiz)** and
+    these **are constantly improving in several of the above directions**, while
+    offering more features (asynchronous data fetching, for example).
+
+    Each and **every one of them is truly and unequivocally orders of
+    magnitude faster than whatever your `IDE` ships to find text—no,
+    _seriously_**.  Pick any, **you can't go wrong**; although as the
+    [Rifleman's Creed](https://en.wikipedia.org/wiki/Rifleman%27s_Creed)
+    goes: _"There are [a few] like it, but this one is mine"_.
 
 ```sh
-sed -E '/^\s*function\b/ h; /^}$/ {G;s@\nfun\w*\s*(\w+)\(.*@ // end \1@}' module.ts
-sed -E '
-/^\s*function\b/ h                    # on top-level function definition, save in hold
-/^}$/ {                               # on lonesome top-level closing bracket,
-  G                                   #   get function name from hold
-  s@\nfun\w*\s*(\w+)\(.*@ // end \1@  #   append comment to line
-}' module.ts
+sed '/^\[/h;/^[a-z]/!d;G;s/\n/\t/' CODEOWNERS | fzf
+sed '
+  /^\[/h         # hold title section: [Team Name] @team-id  
+  /^[a-z]/!d     # drop empty, comment and section lines     
+  G;s/\n/\t/     # join with hold space using a "\t" for separator 
+' CODEOWNERS | fzf
+```
+```txt
+monolith/	[Legacy Wranglers] @team-legacy-wranglers
+cron-scripts/	[Legacy Wranglers] @team-legacy-wranglers
+soap-adapter/	[Legacy Wranglers] @team-legacy-wranglers
+ancient-batch-jobs/	[Legacy Wranglers] @team-legacy-wranglers
+v1-api/	[Legacy Wranglers] @team-legacy-wranglers
+pagerduty-hooks/	[Chaos & Incidents] @team-chaos
+incident-simulator/	[Chaos & Incidents] @team-chaos
+fire-drills/	[Chaos & Incidents] @team-chaos
+rollback-scripts/	[Chaos & Incidents] @team-chaos
+midnight-alerts/	[Chaos & Incidents] @team-chaos
+css-specificity-war/	[Frontend Pain Relief] @team-frontend
+ie11-polyfills/	[Frontend Pain Relief] @team-frontend
+npm-dependency-hell/	[Frontend Pain Relief] @team-frontend
+storybook/	[Frontend Pain Relief] @team-frontend
+component-library-v2/	[Frontend Pain Relief] @team-frontend
 ```
 
-This above incantation will add a comment to the closing bracket of top-level
-function definitions, which you may find of some utility, when taming some
-particularly rambly procedures now and then:
-
-<div class="grid-1-2">
-<div>
-
-```js
-function preparePages() {
-  const pages = readdirSync(src, { withFileTypes: true })
-    .filter(({ name }) => /^\d+\.ts$/.test(name))
-    .map(({ name }) => name.replace(/\.ts$/, ''))
-  const dom = new JSDOM(readFileSync(resolve(src, 'index.html')).toString())
-  const doc = dom.window.document
-  doc.head.append(...Object
-    .entries({ author, description, homepage, keywords, title })
-    .map(([k, v]) => (e => (e.setAttribute(k, String(v)), e))(doc.createElement('meta'))),
-  )
-  const H = doc.head
-  for (const page of pages) {
-    const s = doc.createElement('script')
-    s.setAttribute('defer', 'defer')
-    s.setAttribute('type', 'module')
-    s.setAttribute('src', `/${page}.ts`)
-    const h = H.cloneNode(true) as HTMLHeadElement
-    h.append(s)
-    doc.head.replaceWith(h)
-    writeFileSync(resolve(src, `${page}.html`), dom.serialize())
-  }
-  return pages
-}
-```
-{{ note(msg="before, some plain TypeScript code") }}
-</div>
-<div>
-
-```js
-function preparePages() {
-  const pages = readdirSync(src, { withFileTypes: true })
-    .filter(({ name }) => /^\d+\.ts$/.test(name))
-    .map(({ name }) => name.replace(/\.ts$/, ''))
-  const dom = new JSDOM(readFileSync(resolve(src, 'index.html')).toString())
-  const doc = dom.window.document
-  doc.head.append(...Object
-    .entries({ author, description, homepage, keywords, title })
-    .map(([k, v]) => (e => (e.setAttribute(k, String(v)), e))(doc.createElement('meta'))),
-  )
-  const H = doc.head
-  for (const page of pages) {
-    const s = doc.createElement('script')
-    s.setAttribute('defer', 'defer')
-    s.setAttribute('type', 'module')
-    s.setAttribute('src', `/${page}.ts`)
-    const h = H.cloneNode(true) as HTMLHeadElement
-    h.append(s)
-    doc.head.replaceWith(h)
-    writeFileSync(resolve(src, `${page}.html`), dom.serialize())
-  }
-  return pages
-} // end preparePages
-```
-{{ note(msg="after: note the comment on the last line") }}
-
-</div>
-</div>
-
-### Better contextualise logs
-
-We've all been there: some botched batch processing expired with barely more
-than a whimper, and we've got some sort of report that was seemingly never meant
-to be grokked.
+As a bonus, you can even get the "owner" column neatly aligned,
+trivially, using `column`.  I go in depth into mastering
+`column` and a couple of other tools in the [Intralinear
+Partitioning](@/flight-manual/intralinear-partitioning/_index.md) series, if you
+want to stomach more of my thoughts on that topic.
 
 ```sh
-sed -E '/completed|skipped/ s/$/\n/
-        /processing REQ-/   {s/pro\w+\s*(.*)/\1/;h;s/.*/processing/}
-        G;s/(.*)\n(.*)/\2> \1/' log.txt
-
-sed -E '
-/completed|skipped/ s/$/\n/  # upon finalising request, add linefeed
-/processing REQ-/ {          # upon new request,
-  s/pro\w+\s*(.*)/\1/        #   extract ID
-  h                          #   hold on to it
-  s/.*/processing/           #   change message to "processing"
-}
-                             # for each line,
-G                            #   get current request ID
-s/(.*)\n(.*)/\2> \1/         #   format as "ID> message"
-' log.txt
+sed '/^\[/h;/^[a-z]/!d;G;s/\n/:/' CODEOWNERS | column -ts: | fzf
+sed '
+  /^\[/h        # hold title section: [Team Name] @team-id
+  /^[a-z]/!d    # drop empty, comment and section lines
+  G;s/\n/:/     # join with hold space using a ":" for separator
+' CODEOWNERS | column -ts: | fzf
+```
+```txt
+monolith/              [Legacy Wranglers] @team-legacy-wranglers
+cron-scripts/          [Legacy Wranglers] @team-legacy-wranglers
+soap-adapter/          [Legacy Wranglers] @team-legacy-wranglers
+ancient-batch-jobs/    [Legacy Wranglers] @team-legacy-wranglers
+v1-api/                [Legacy Wranglers] @team-legacy-wranglers
+pagerduty-hooks/       [Chaos & Incidents] @team-chaos
+incident-simulator/    [Chaos & Incidents] @team-chaos
+fire-drills/           [Chaos & Incidents] @team-chaos
+rollback-scripts/      [Chaos & Incidents] @team-chaos
+midnight-alerts/       [Chaos & Incidents] @team-chaos
+css-specificity-war/   [Frontend Pain Relief] @team-frontend
+ie11-polyfills/        [Frontend Pain Relief] @team-frontend
+npm-dependency-hell/   [Frontend Pain Relief] @team-frontend
+storybook/             [Frontend Pain Relief] @team-frontend
+component-library-v2/  [Frontend Pain Relief] @team-frontend
 ```
 
-Heh, it works!  Yet admittedly, that one would be quite neater using `awk`.
-
-<div class="grid-1-2">
-<div>
+Pipe the thing into `fzf`, query for `cron`, be shown _just what the doctor
+ordered_:
 
 ```txt
-processing REQ-841239
-validating
-downloading document
-parsing document
-transforming data
-saving record
-completed
-processing REQ-841240
-validating
-downloading document
-timeout, retrying
-parsing document
-transforming data
-saving record
-completed
-processing REQ-841241
-validating
-invalid payload
-skipped
-processing REQ-841242
-validating
-downloading document
-parsing document
-transforming data
-saving record
-completed
-processing REQ-841243
-validating
-downloading document
-parsing document
-transforming data
-saving record
-completed
+cron-scripts/          [Legacy Wranglers] @team-legacy-wranglers
+> cron█ < 1/15
 ```
-{{ note(msg="before; a curiously impenetrable log file") }}
-</div>
-<div>
+{{ note(msg="our real `CODEOWNERS` is considerably more impenetrable, and my one-line script does come in handy") }}
 
-```txt
-REQ-841239> processing
-REQ-841239> validating
-REQ-841239> downloading document
-REQ-841239> parsing document
-REQ-841239> transforming data
-REQ-841239> saving record
-REQ-841239> completed
+### Practical use case: pull an entry to the top
 
-REQ-841240> processing
-REQ-841240> validating
-REQ-841240> downloading document
-REQ-841240> timeout, retrying
-REQ-841240> parsing document
-REQ-841240> transforming data
-REQ-841240> saving record
-REQ-841240> completed
-
-REQ-841241> processing
-REQ-841241> validating
-REQ-841241> invalid payload
-REQ-841241> skipped
-
-REQ-841242> processing
-REQ-841242> validating
-REQ-841242> downloading document
-REQ-841242> parsing document
-REQ-841242> transforming data
-REQ-841242> saving record
-REQ-841242> completed
-
-REQ-841243> processing
-REQ-841243> validating
-REQ-841243> downloading document
-REQ-841243> parsing document
-REQ-841243> transforming data
-REQ-841243> saving record
-REQ-841243> completed
-```
-{{ note(msg="after; contextual information is made accessible throughout each item's life cycle") }}
-</div>
-</div>
-
-### Collapse paragraphs to single lines
-
-```sh
-sed '/./{H;d}; s/.*//;x;s/\n/ /g' document.txt
-```
-
-When would you ever?  Frankly, that one I don't know.  You could map that to
-something within your <abbr title="Vim, of course">favourite editor</abbr>, but
-it already has [`J`](https://vimhelp.org/change.txt.html#v_J) for that.  One
-character, just at the tip of most natural finger, in its resting position!  And
-I suppose that if you can distinguish your editor from your shell, you'll likely
-dance the _end-delete-down_ sequence for a while (which is actually quite fun to
-do!), so there may be no case for this specific one ever, ever; oh well.
-
-## Practical use case: pull an entry to the top
-
-I store my passwords in `KeePassXC`, and I often need to copy some attribute
-of an entry, such as the password itself, or the username, or the URL.  I have
-a menu that lists available attributes for a given entry, and would just like
-the convenience of having the password as the first, most accessible option: 42
-bytes of `sed` ~gibberish~ goodness later, and voilà, the password comes first,
-and the rest knows how to best organise itself.
+I store my passwords in [`KeePassXC`](https://keepassxc.org/), and I often
+need to copy some attribute of an entry, such as the password itself, or the
+username, or the URL.  I have a menu that lists available attributes for a
+given entry, and would just like the convenience of having the password as the
+first, most accessible option: 32 bytes of `sed` ~gibberish~ goodness later,
+and voilà, the password comes first, and the rest knows how to best organise
+itself.
 
 ```sh
 sed -n '/^Password:/{p;b};H;${g;s/\n//p}'
@@ -455,14 +388,35 @@ sed -n '
 ```
 {{ note(msg="`keepassxc-cli` actually displays that attribute as `Password: PROTECTED`, of course") }}
 
-For completeness' sake, I could explain that each entry's attributes ranking
-is weighted via some access _frecency_ (frequency + recency) heuristic, but
-that, for these old accounts I haven't accessed in a while (or to start off
-the system), I know that **the password** is most likely the attribute I want
-available through my clipboard for the next 5 seconds.
+> [!NOTE]
+>
+> For completeness' sake, I could explain that **each entry's attributes
+> ranking is otherwise weighted through some access <abbr title="frequency +
+> recency">_"frecency"_</abbr> heuristic**, but that, for these old accounts I
+> haven't accessed in a while (or to start off the system), I know that **the
+> password** is most likely the attribute I want available through my clipboard
+> for the next 5 seconds.
 
 It certainly could have been done otherwise, possibly, but I did it like that,
 and therefore I, **and you too now**, have seen it done like that.  I actually
 don't recall having seen it done any other way.
 
-Cheers!
+## Wrapping up
+
+**I like that `sed` is there, in `POSIX`, the standard of standards, and by
+extension in all noteworthy, non-recreational contemporary end-user operating
+systems**, available and behaving in a way not susceptible to unilateral
+`API` changes or anything of the murky sort.  You don't have to use it,
+but you may well acknowledge the following: we're out there _"upgrading
+stuff"_ because some transitive dependency is flagged for some nonsensical
+[`CVE`](https://en.wikipedia.org/wiki/Common_Vulnerabilities_and_Exposures) that
+the maintainer of our intermediary dependency is adamant doesn't affect their
+product, **whereas my entire runtime... is already running on your system**.
+
+The hold space isn't that mystical: the [`TL;DR`](#tldr) section at the top
+actually covers **every command pertaining to it**, and it's just some 3 measly,
+highly mnemonic 1-letter directives.  Now that I've seen its face, I see it
+peering out at me, once in a while along my `CLI` journey; it is my hope that
+this old friend may some day comfort you as well.
+
+Good luck, and have fun.
