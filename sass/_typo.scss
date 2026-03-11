@@ -71,7 +71,7 @@ a {
     color: var(--colour-accent);
   }
 
-  &[href^=git],&[href^=http][rel=external]:not(:has(img)) {
+  &[rel=external] {
     &::after {
       content: " ↗";
       margin-left: -.5ch;
