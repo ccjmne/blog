@@ -165,27 +165,27 @@ popularity dictate your tastes, consider the elegance of the consequences.
 > article](@/flight-manual/scope-sed-commands-target-lines.md), which is likely
 > far more approachable and useful than this current one.
 
-So how do you manipulate it?  Frankly, it's simple.  In my opinion, perhaps
+So how do you manipulate it?  **Frankly, it's simple.**  In my opinion, perhaps
 simpler than whichever degree of simplicity would maximise elegance and
 practicality (I would _very much_ like a way to clear the hold, for instance,
-without having to clear the pattern and push that into the hold: `s/.*//;x`),
+without having to clear the pattern and push _that_ into the hold: `s/.*//;x`),
 but at least it's simple: I'll give it to you (essentially) straight from the
 scripture, `man 1p sed`:
 
-- `g` replaces the contents of the pattern space by the contents of the hold
-space,
-- `G` appends to the pattern space a linefeed and the contents of the hold
-space,
-- `h` replaces the contents of the hold space with the contents of the pattern
-space,
-- `H` appends to the hold space a linefeed and the contents of the pattern
-space,
-- `x` exchanges the contents of the pattern and hold spaces,
+- `g` **replaces** the contents of the **pattern** space with the contents of
+  the hold space,
+- `G` **appends** to the pattern space a linefeed and the contents of the hold
+  space,
+- `h` **replaces** the contents of the **hold** space with the contents of the
+  pattern space,
+- `H` **appends** to the hold space a linefeed and the contents of the pattern
+  space, and
+- `x` **exchanges** the contents of the pattern and hold spaces.
 
 > [!TIP]
 >
-> Appending with `H` and `G` always involves a linefeed: plan your `s///`
-> expressions accordingly.
+> Appending with `H` and `G` always involves a linefeed: plan your substitutions
+> (`s///` commands) accordingly.
 
 ## Exempli gratia
 
@@ -270,17 +270,17 @@ component-library-v2/
 ```
 
 When something's looking iffy, I would like to spin up `fzf` to find who the
-responsible team for a particular module is: it'd be neat to have the @team tag
-**on the same line** as the component—this is trivially achieved using `sed`'s
-_hold space_.
+responsible team for a particular module is: it'd be neat to have the `@team`
+tag **on the same line** as the component—this is trivially achieved using
+`sed`'s _hold space_.
 
 > [!TIP]
 >
 > `fzf` is a **command-line fuzzy finder**[^fzf-alternatives]: sift through
-> whatever comes from its standard input in many quite practical ways.  It's a
-> stupendous one at that, especially paired with tools that can catalogue files
-> fast (I mean `fd`), and even more so when you realise quite a few things in
-> your `CLI` life could use some fuzzy goodness.
+> whatever comes through its standard input in many practical ways.  It's a
+> stupendous one at that, especially when paired with tools that can catalogue
+> files fast (I mean `fd`), and even more so when you realise that quite a few
+> things in your `CLI` life could use some fuzzy goodness.
 
 [^fzf-alternatives]: There are other quite excellent command-line fuzzy
     finders, such as `fzy` and `skim`.  In comparing the three,
@@ -351,8 +351,8 @@ storybook/             [Frontend Pain Relief] @team-frontend
 component-library-v2/  [Frontend Pain Relief] @team-frontend
 ```
 
-Pipe the thing into `fzf`, query for `cron`, be shown _just what the doctor
-ordered_:
+Pipe the whole thing into `fzf`, query for `cron`, and be served _just what the
+doctor ordered_:
 
 ```txt
 cron-scripts/          [Legacy Wranglers] @team-legacy-wranglers
