@@ -332,11 +332,6 @@ want to stomach more of my thoughts on that topic.
 
 ```sh
 sed '/^\[/h;/^[a-z]/!d;G;s/\n/:/' CODEOWNERS | column -ts: | fzf
-sed '
-  /^\[/h        # hold title section: [Team Name] @team-id
-  /^[a-z]/!d    # drop empty, comment and section lines
-  G;s/\n/:/     # join with hold space using a ":" for separator
-' CODEOWNERS | column -ts: | fzf
 ```
 ```txt
 monolith/              [Legacy Wranglers] @team-legacy-wranglers
