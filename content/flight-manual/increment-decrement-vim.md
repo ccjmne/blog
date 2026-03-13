@@ -1,7 +1,7 @@
 +++
 title = 'Incrementing and decrementing with Vim'
 date = 2026-02-23
-description = 'A simple trick, masterfully doubled-down upon for major practical utility.'
+description = 'A simple trick, masterfully doubled-down upon with one of these `g`-twists'
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'cli', 'vim']
 
@@ -704,9 +704,11 @@ EOF
 </div>
 </div>
 
-But hey, in spite of my (learned) distaste for plug-ins in general, a few here
-and there do help a bit.  I'm sure you won't have any trouble finding tools that
-extend Vim's `^A` and `^X`, but I'll bring your attention notably to
+## Expanding further with plug-ins
+
+In spite of my (learned) distaste for plug-ins in general, a few here and
+there do help a bit.  I'm sure you won't have any trouble finding tools
+that extend Vim's `^A` and `^X`, but I'll bring your attention notably to
 [`tpope/vim-speeddating`](https://github.com/tpope/vim-speeddating).  This
 specific plug-in has two major advantages over many alternatives, in:
 
@@ -717,7 +719,7 @@ specific plug-in has two major advantages over many alternatives, in:
   each update of each of your plug-ins: `speeddating.vim` is **done—not
   _unmaintained_!**, which means that updates are few and far between.  What
   do you know, figuring out which date comes after `2026-03-10` is actually a
-  solved problem (weeell[^programming-time])
+  solved problem[^programming-time].
 
 [^programming-time]: Well, anything that has to do with programming time
 manipulation is [certain to be
@@ -725,15 +727,16 @@ problematic](https://infiniteundo.com/post/25509354022/more-falsehoods-programme
 but for your general intents and purposes, we do know what comes after New
 Year's Eve or what lurks right behind Sunday night.
 
-`Speeddating.vim`, as its name playfully suggests, lets you turn `1999-12-31`
-into `2000-01-01` with a single `^A`!  But you can also just bump it down by
-months, or years, rather than days, and it'll do it just right.
+That is indeed what it does: `speeddating.vim`, as its name playfully suggests,
+lets you turn `1999-12-31` into `2000-01-01` with a single `^A`!  But you can
+also just bump it down by months, or years, rather than days, and it'll do it
+just right.
 
-For instance, with your cursor on the **month** segment of `2026-03-31`,
-`^X` will yield `2026-02-28`!  What's 100 days from any arbitrary date?  As
-easy as `100^A`.  Oh and, it understands other formats...  Such as date and
-time in **`RFC 5322` format**, which `GNU`'s `date` utility outputs with the
-`-R`|`--rfc-email` flag.  And, by the way, that `date` utility is most capable:
+For instance, with your cursor on the **month** segment of `2026-03-31`, `^X`
+will yield `2026-02-28`—there are only 28 days in February in 2028.  What's
+100 days from any arbitrary date?  As easy as `100^A`.  Oh and, it understands
+other formats...  Such as date and time in **`RFC 5322` format**, which `GNU`'s
+`date` utility outputs with the `-R`/`--rfc-email` flag.
 
 <div class="grid-1-2">
 <div>
@@ -745,7 +748,7 @@ date -Rd'sat 3pm'
 ```txt
 Sat, 14 Mar 2026 15:00:00 +0100
 ```
-{{ note(msg="by the way, that's [`π` day](https://en.wikipedia.org/wiki/Pi_Day)! `3-14 @1500`") }}
+{{ note(msg="by the way, that's [`π` day](https://en.wikipedia.org/wiki/Pi_Day)! `3-14` at `15`") }}
 </div>
 <div>
 
@@ -756,7 +759,7 @@ date -Is -d'sat 3pm'
 ```txt
 2026-03-14T15:00:00+01:00
 ```
-{{ note(msg="works just as well with the `ISO 8601` format") }}
+{{ note(msg="works just as well with the `ISO 8601` formats") }}
 </div>
 </div>
 
@@ -773,9 +776,11 @@ Tue, 14 Mar 2028 15:00:00 +0100
 <div>
 
 ```txt
-2028-03-14T15:00:00+01:00
+2028-03-14 15:00
+2028-03-14
+March 14th, 2028
 ```
-{{ note(msg="works just as well with the `ISO 8601` format") }}
+{{ note(msg="and also these formats") }}
 </div>
 </div>
 
@@ -793,9 +798,11 @@ Mon, 14 Feb 2028 15:00:00 +0100
 <div>
 
 ```txt
-2028-02-14T15:00:00+01:00
+14-Feb-2028
+2028 Feb 14
+Feb 14, 2028
 ```
-{{ note(msg="works just as well with the `ISO 8601` format") }}
+{{ note(msg="and also these") }}
 </div>
 </div>
 
@@ -813,12 +820,28 @@ Sat, 19 Feb 2028 22:00:00 +0100
 <div>
 
 ```txt
-2028-02-19T22:00:00+01:00
+22:00:00AM
+22:00AM
+22AM
 ```
-{{ note(msg="works just as well with the `ISO 8601` format") }}
+{{ note(msg="and even more, such as `MMXXVIII`") }}
 </div>
 </div>
 
-As it turns out, we can still wrangle text faster than the `LLM`s, and more
-precisely!  Get familiar with your tools, master your craft, and as always, have
-fun.  Cheers!
+> [!NOTE]
+>
+> To clarify, `speeddating.vim` supports a whopping **22 date and time formats
+> of various sorts, built-in**, and lets you further define your own.  And quite
+> many more ingenuous plug-ins are out there also building upon Vim's `^A` and
+> `^X`'s semantics.  I go in depth and cover (about) everything pertaining
+> to the Vim core incrementation prowess, but intend to do nothing more than
+> scratch the surface of what exists out there.
+
+I'd like to take this time to mention again: **extreme proficiency with the
+"basic" tools routinely trumps familiarity with more extravagant, well-meaning,
+specialised toys**; either way, it turns out we can still wrangle text faster
+than the `LLM`s, and more precisely!
+
+The main limiting factor is how dedicated you'll be to master your craft.  My
+more certain advice to you goes as follows: whatever philosophies you'll dabble
+in or embrace, make sure to **keep doing what you find to be fun**.  Cheers!
