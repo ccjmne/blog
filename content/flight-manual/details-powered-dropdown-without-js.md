@@ -321,7 +321,7 @@ résistance</abbr> we go.
 
 ## A practical drop-down example
 
-Let us, arrive at the crown jewel of this article: **a drop-down menu bar,
+Let us arrive at the crown jewel of this article: **a drop-down menu bar,
 entirely in `HTML` and `CSS`**:
 
 ```html
@@ -445,7 +445,7 @@ to the colours to fit this blog's scheme:
 >
 > You could consider adding `user-select: none` to the `<summary>` elements to
 > prevent accidental text selection when the user may be frantically clicking
-> around, especially in these sorts demonstrations.
+> around, especially in these sorts of demonstrations.
 
 Of course this menu I suggest would rely on buttons that cannot work without
 JavaScript, but you'll note that **I use essentially the same template on this
