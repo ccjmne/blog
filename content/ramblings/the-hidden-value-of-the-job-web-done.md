@@ -8,8 +8,8 @@ taxonomies.tags = ['all']
 Once in a while, a project ends up completely off-course.  We end up having to
 fix something that was never part of the original plan, something that appears
 entirely unrelated to the actual problem we're attempting to solution: I
-often have in mind [that one opening to some episode of Malcolm In the
-Middle](https://www.youtube.com/watch?v=AbSehcT19u0) where the dad meant to
+often have in mind [that one opening to some episode of _Malcolm In the
+Middle_](https://www.youtube.com/watch?v=AbSehcT19u0) where the dad meant to
 change the kitchen's light bulb before going to work and ends up spending the
 entire day unravelling the thread of intermediary tasks that sneak themselves in
 the way of his seemingly innocuous goal.
@@ -48,11 +48,11 @@ more weeks actually taking on the 2-week job.
 Of course, this only works if we indeed start **ahead of time**, otherwise this
 planning not only is directly delaying the project and eating into its allotted
 time and resources, but also is doomed to be biased towards expediency as we're
-basically discovering **when would be the right time to begin the activity we're
+basically discovering **when would the right time be to begin the activity we're
 currently supposedly working on**.
 
 Considering the upstream preparations, it'll have taken somewhat more than the
-estimate, but still went smoothly.  Without juxtaposing it to how poorly it
+estimate, but still have gone smoothly.  Without juxtaposing it to how poorly it
 could have gone, it's nothing to write home about...  So I shall write about it
 here.
 
