@@ -759,10 +759,13 @@ interactively, either manually or in a pipeline; but you may choose to, say,
 Now that the frivolities are out of the way, let's get to the final
 piece, the one that actually feels more smooth to apply than some
 combination of [`<C-V>I`](https://vimhelp.org/visual.txt.html#v_b_I) and
-[`g<C-A>`](https://vimhelp.org/change.txt.html#v_g_CTRL-A), or some possibly
-semi-awkward macro recording: discernment in line selection.
+[`g<C-A>`](https://vimhelp.org/change.txt.html#v_g_CTRL-A) (which are covered
+in [that other article](@/flight-manual/increment-decrement-vim.md)), or some
+possibly semi-awkward macro recording: **discernment in line selection**.
 
-<!-- [vim increment and decrement](@/ramblings/vim-increment-decrement.md). TODO: LINKME -->
+Using `p` for any line selection algorithm (generally the `b`ody's) allows us to
+specify some regular expression against which lines must match in order to be
+counted:
 
 ```sh
 nl --body-numbering=p^Get --separator='. ' dailytasks.txt
@@ -817,7 +820,9 @@ tell you that my incentive to not adopt plug-ins I don't need is quite strong!
 > In this context, `<C-A>` merely represents `Ctrl`+`A`, that is: holding `Ctrl`
 > and pressing `A`.  Similarly, `<CR>` stands for _Carriage Return_ and means
 > pressing the key know as `Enter` or `Return`—or even `Ctrl`+`M` in some
-> competent software.
+> competent software.  
+> You can learn **all there is** to `<C-A>` in [that article dedicated to
+> incrementing in Vim](@/flight-manual/increment-decrement-vim.md).
 
 Consider the following bit of text:
 
