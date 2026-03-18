@@ -1,10 +1,9 @@
 @use 'mxin' as *;
 
-// TODO: consider using wrapping flexbox
 [class^="grid-"] {
   display: grid;
   grid-gap: 1em;
-  width: calc(var(--column-width) + 2rem) !important;
+  max-width: min(100%, calc(var(--column-width) + 2rem));
   grid-template-rows: 1fr;
   grid-template-columns: 1fr;
 }

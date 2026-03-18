@@ -51,6 +51,9 @@ footer {
 
 main > :not(article), main > article > :not(%hilo) {
   @include centred();
+  &:is([class^="grid-"]) {
+    width: 100%;
+  }
 }
 
 %hilo {
