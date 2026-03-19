@@ -4,17 +4,8 @@ date = 2025-11-19
 description = "Beyond the obvious, `fcitx5` also satisfies their sharper users' expectations in handling sensitive data"
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'quibblery']
+extra.cited_tools = ["fcitx5", "keepassxc"]
 
-[[extra.cited_tools]]
-   name    = 'fcitx5'
-   repo    = 'https://github.com/fcitx/fcitx5'
-   package = 'extra/x86_64/fcitx5'
-   manual  = 'https://fcitx-im.org/wiki/Fcitx_5'
-[[extra.cited_tools]]
-   name    = 'keepassxc'
-   repo    = 'https://github.com/keepassxreboot/keepassxc'
-   package = 'extra/x86_64/keepassxc'
-   manual  = 'https://keepassxc.org/docs/#command-line'
 [[extra.cited_vimhelp]]
     page = "change.txt"
     code = "registers"

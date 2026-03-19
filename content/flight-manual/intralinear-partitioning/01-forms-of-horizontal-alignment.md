@@ -4,22 +4,7 @@ date = 2025-07-25
 description = 'Why and when to put chunks of text side by side'
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'quibblery']
-
-[[extra.cited_tools]]
-   name    = "vim"
-   repo    = "https://github.com/vim/vim"
-   package = "extra/x86_64/vim"
-   manual  = "https://vimhelp.org/"
-[[extra.cited_tools]]
-   name    = "neovim"
-   repo    = "https://github.com/neovim/neovim"
-   package = "extra/x86_64/neovim"
-   manual  = "https://neovim.io/doc/user/"
-[[extra.cited_tools]]
-   name    = "uni"
-   repo    = "https://github.com/arp242/uni"
-   package = "aur/uni"
-   manual  = "https://github.com/arp242/uni/#usage"
+extra.cited_tools = ["neovim", "uni", "vim"]
 +++
 
    In the wild, I identified four classes of occurrences itching for what I

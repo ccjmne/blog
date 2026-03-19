@@ -4,27 +4,7 @@ date = 2025-07-31
 description = "Adoping moreutils's `vipe` and `ifne` for friendlier scripting"
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'cli', 'vim']
-
-[[extra.cited_tools]]
-   name    = "fzf"
-   repo    = "https://github.com/junegunn/fzf"
-   package = "extra/x86_64/fzf"
-   manual  = "https://man.archlinux.org/man/extra/fzf/fzf.1.en"
-[[extra.cited_tools]]
-   name    = "jq"
-   repo    = "https://gitlab.archlinux.org/archlinux/packaging/packages/jq"
-   package = "extra/x86_64/jq"
-   manual  = "https://man.archlinux.org/man/extra/jq/jq.1.en"
-[[extra.cited_tools]]
-   name    = "vipe"
-   repo    = "git://joeyh.name/code/moreutils/"
-   package = "extra/x86_64/moreutils"
-   manual  = "https://man.archlinux.org/man/vipe.1.en"
-[[extra.cited_tools]]
-   name    = "ifne"
-   repo    = "git://git.joeyh.name/moreutils"
-   package = "extra/x86_64/moreutils"
-   manual  = "https://man.archlinux.org/man/ifne.1.en"
+extra.cited_tools = ["fzf", "ifne", "jq", "vipe"]
 +++
 
 I carry around a (very humble) collection of <abbr title="A command-line fuzzy

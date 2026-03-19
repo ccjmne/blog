@@ -4,18 +4,7 @@ date = 2025-11-04
 description = 'Reclaim the em-dash from the `LLM`s—or spell my name as my parents intended'
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'quibblery']
-
-[[extra.cited_tools]]
-   name    = "ibus"
-   repo    = "https://github.com/ibus/ibus"
-   package = "extra/x86_64/ibus"
-   manual  = "https://github.com/ibus/ibus/wiki"
-
-[[extra.cited_tools]]
-   name    = "fcitx5"
-   repo    = "https://github.com/fcitx/fcitx5"
-   package = "extra/x86_64/fcitx5"
-   manual  = "https://fcitx-im.org/wiki/Fcitx_5"
+extra.cited_tools = ["fcitx5", "ibus"]
 +++
 
 The `fcitx5` functionality I reach for the most, its

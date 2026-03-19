@@ -20,6 +20,30 @@ light_theme = "catppuccin-latte"
 dark_theme  = "catppuccin-frappe"
 style       = "class"
 
+[extra.tools.cat]
+name    = "cat"
+repo    = "https://github.com/coreutils/coreutils"
+package = "core/x86_64/coreutils"
+manual  = "https://man.archlinux.org/man/cat.1.en"
+
+[extra.tools.column]
+name    = "column"
+repo    = "https://github.com/util-linux/util-linux/"
+package = "core/x86_64/util-linux"
+manual  = "https://man.archlinux.org/man/column.1.en"
+
+[extra.tools.cut]
+name    = "cut"
+repo    = "https://github.com/coreutils/coreutils"
+package = "core/x86_64/coreutils"
+manual  = "https://man.archlinux.org/man/cut.1.en"
+
+[extra.tools.date]
+name    = "date"
+repo    = "https://github.com/coreutils/coreutils"
+package = "core/x86_64/coreutils"
+manual  = "https://man.archlinux.org/man/date.1.en"
+
 [extra.tools.dive]
 name    = "dive"
 repo    = "https://github.com/wagoodman/dive"
@@ -31,6 +55,120 @@ name    = "docker"
 repo    = "https://github.com/moby/moby"
 package = "extra/x86_64/docker"
 manual  = "https://docs.docker.com/"
+
+[extra.tools.fcitx5]
+name    = "fcitx5"
+repo    = "https://github.com/fcitx/fcitx5"
+package = "extra/x86_64/fcitx5"
+manual  = "https://fcitx-im.org/wiki/Fcitx_5"
+
+[extra.tools.fd]
+name    = "fd"
+repo    = "https://github.com/sharkdp/fd"
+package = "extra/x86_64/fd"
+manual  = "https://man.archlinux.org/man/fd.1.en"
+
+[extra.tools.find]
+name    = "find"
+repo    = "https://www.gnu.org/software/findutils/"
+package = "core/x86_64/findutils"
+manual  = "https://man.archlinux.org/man/core/findutils/find.1.en"
+
+[extra.tools.fzf]
+name    = "fzf"
+repo    = "https://github.com/junegunn/fzf"
+package = "extra/x86_64/fzf"
+manual  = "https://man.archlinux.org/man/extra/fzf/fzf.1.en"
+
+[extra.tools.grep]
+name    = "grep"
+repo    = "https://cgit.git.savannah.gnu.org/cgit/grep.git/"
+package = "core/x86_64/grep"
+manual  = "https://man.archlinux.org/man/grep.1.en"
+
+[extra.tools.ibus]
+name    = "ibus"
+repo    = "https://github.com/ibus/ibus"
+package = "extra/x86_64/ibus"
+manual  = "https://github.com/ibus/ibus/wiki"
+
+[extra.tools.ifne]
+name    = "ifne"
+repo    = "git://git.joeyh.name/moreutils"
+package = "extra/x86_64/moreutils"
+manual  = "https://man.archlinux.org/man/ifne.1.en"
+
+[extra.tools.jq]
+name    = "jq"
+repo    = "https://gitlab.archlinux.org/archlinux/packaginglpackages/jq"
+package = "extra/x86_64/jq"
+manual  = "https://man.archlinux.org/man/extra/jq/jq.1.en"
+
+[extra.tools.keepassxc]
+name    = "keepassxc"
+repo    = "https://github.com/keepassxreboot/keepassxc"
+package = "extra/x86_64/keepassxc"
+manual  = "https://man.archlinux.org/man/extra/keepassxc/keepassxc-cli.1.en"
+
+[extra.tools.less]
+name    = "less"
+repo    = "https://github.com/gwsw/less"
+package = "core/x86_64/less"
+manual  = "https://man.archlinux.org/man/less.1.en"
+
+[extra.tools.neovim]
+name    = "neovim"
+repo    = "https://github.com/neovim/neovim"
+package = "extra/x86_64/neovim"
+manual  = "https://neovim.io/doc/user/"
+
+[extra.tools.nl]
+name    = "nl"
+repo    = "https://github.com/coreutils/coreutils"
+package = "core/x86_64/coreutils"
+manual  = "https://man.archlinux.org/man/nl.1.en"
+
+[extra.tools.paste]
+name    = "paste"
+repo    = "https://github.com/coreutils/coreutils"
+package = "core/x86_64/coreutils"
+manual  = "https://man.archlinux.org/man/paste.1.en"
+
+[extra.tools.sd]
+name    = "sd"
+repo    = "https://github.com/chmln/sd"
+package = "extra/x86_64/sd"
+manual  = "https://man.archlinux.org/man/extra/sd/sd.1.en"
+
+[extra.tools.sed]
+name    = "sed"
+repo    = "https://git.savannah.gnu.org/git/sed.git"
+package = "core/x86_64/sed"
+manual  = "https://www.gnu.org/software/sed/manual/"
+
+[extra.tools.uni]
+name    = "uni"
+repo    = "https://github.com/arp242/uni"
+package = "aur/uni"
+manual  = "https://github.com/arp242/uni/#usage"
+
+[extra.tools.vim]
+name    = "vim"
+repo    = "https://github.com/vim/vim"
+package = "extra/x86_64/vim"
+manual  = "https://vimhelp.org/"
+
+[extra.tools.vipe]
+name    = "vipe"
+repo    = "git://joeyh.name/code/moreutils/"
+package = "extra/x86_64/moreutils"
+manual  = "https://man.archlinux.org/man/vipe.1.en"
+
+[extra.tools.xargs]
+name    = "xargs"
+repo    = "https://www.gnu.org/software/findutils/"
+package = "core/x86_64/findutils"
+manual  = "https://man.archlinux.org/man/core/findutils/xargs.1.en"
 
 [extra.tools.xray]
 name    = "xray"

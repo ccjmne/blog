@@ -4,17 +4,7 @@ date = 2026-02-23
 description = 'A simple trick, masterfully doubled-down upon with one of these `g`-twists'
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'cli', 'vim']
-
-[[extra.cited_tools]]
-name    = "vim"
-repo    = "https://github.com/vim/vim"
-package = "extra/x86_64/vim"
-manual  = "https://vimhelp.org/"
-[[extra.cited_tools]]
-name    = "date"
-repo    = "https://github.com/coreutils/coreutils"
-package = "core/x86_64/coreutils"
-manual  = "https://man.archlinux.org/man/date.1.en"
+extra.cited_tools = ["date", "vim"]
 
 [[extra.cited_vimhelp]]
 code    = "'nrformats'"

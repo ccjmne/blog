@@ -4,22 +4,7 @@ date = 2026-03-13
 description = "Just enough to get the ball rolling for most of your `CLI` wizardry needs"
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'cli', 'posix']
-
-[[extra.cited_tools]]
-name    = "xargs"
-repo    = "https://www.gnu.org/software/findutils/"
-package = "core/x86_64/findutils"
-manual  = "https://man.archlinux.org/man/core/findutils/xargs.1.en"
-[[extra.cited_tools]]
-name    = "find"
-repo    = "https://www.gnu.org/software/findutils/"
-package = "core/x86_64/findutils"
-manual  = "https://man.archlinux.org/man/core/findutils/find.1.en"
-[[extra.cited_tools]]
-name    = "fd"
-repo    = "https://github.com/sharkdp/fd"
-package = "extra/x86_64/fd"
-manual  = "https://man.archlinux.org/man/fd.1.en"
+extra.cited_tools = ["fd", "find", "xargs"]
 +++
 
 The shell's pipe operator, `|`, is a marvellous thing: it connects the _standard

@@ -4,22 +4,7 @@ date = 2025-10-06
 description = 'Use `sed` addresses to target **chunks of text** between two patterns, and more'
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'cli', 'posix', 'sed']
-
-[[extra.cited_tools]]
-   name    = "sed"
-   repo    = "https://git.savannah.gnu.org/git/sed.git"
-   package = "core/x86_64/sed"
-   manual  = "https://www.gnu.org/software/sed/manual/"
-[[extra.cited_tools]]
-   name    = "sd"
-   repo    = "https://github.com/chmln/sd"
-   package = "extra/x86_64/sd"
-   manual  = "https://man.archlinux.org/man/extra/sd/sd.1.en"
-[[extra.cited_tools]]
-   name    = "vim"
-   repo    = "https://github.com/vim/vim"
-   package = "extra/x86_64/vim"
-   manual  = "https://vimhelp.org/"
+extra.cited_tools = ["sd", "sed", "vim"]
 +++
 
 I really like `sed`.  If you merely use it sporadically to search and replace

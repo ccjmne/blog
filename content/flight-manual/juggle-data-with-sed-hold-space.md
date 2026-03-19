@@ -4,27 +4,7 @@ date = 2026-01-08
 description = "Master the use of `sed`'s secondary buffer to carry some state across lines"
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'cli', 'posix', 'sed']
-
-[[extra.cited_tools]]
-   name    = "sed"
-   repo    = "https://git.savannah.gnu.org/git/sed.git"
-   package = "core/x86_64/sed"
-   manual  = "https://www.gnu.org/software/sed/manual/"
-[[extra.cited_tools]]
-   name    = "vim"
-   repo    = "https://github.com/vim/vim"
-   package = "extra/x86_64/vim"
-   manual  = "https://vimhelp.org/"
-[[extra.cited_tools]]
-   name    = "keepassxc"
-   repo    = "https://github.com/keepassxreboot/keepassxc"
-   package = "extra/x86_64/keepassxc"
-   manual  = "https://man.archlinux.org/man/extra/keepassxc/keepassxc-cli.1.en"
-[[extra.cited_tools]]
-   name    = "fzf"
-   repo    = "https://github.com/junegunn/fzf"
-   package = "extra/x86_64/fzf"
-   manual  = "https://man.archlinux.org/man/extra/fzf/fzf.1.en"
+extra.cited_tools = ["fzf", "keepassxc", "sed", "vim"]
 +++
 
 As `sed` processes its input line by line, it works primarily with its **pattern

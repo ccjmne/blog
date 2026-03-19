@@ -4,24 +4,7 @@ date = 2025-08-16
 description = 'The signature of the shell-illiterate'
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'cli', 'posix', 'quibblery']
-
-[[extra.cited_tools]]
-name    = "cat"
-repo    = "https://github.com/coreutils/coreutils"
-package = "core/x86_64/coreutils"
-manual  = "https://man.archlinux.org/man/cat.1.en"
-
-[[extra.cited_tools]]
-name    = "grep"
-repo    = "https://cgit.git.savannah.gnu.org/cgit/grep.git/"
-package = "core/x86_64/grep"
-manual  = "https://man.archlinux.org/man/grep.1.en"
-
-[[extra.cited_tools]]
-name    = "less"
-repo    = "https://github.com/gwsw/less"
-package = "core/x86_64/less"
-manual  = "https://man.archlinux.org/man/less.1.en"
+extra.cited_tools = ["cat", "grep", "less"]
 +++
 
 Short for con`cat`enate, `cat` takes multiple files and prints them together

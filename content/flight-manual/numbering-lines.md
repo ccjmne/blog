@@ -4,22 +4,7 @@ date = 2025-12-25
 description = "Of seemingly little use, `coreutils`'s `nl` handles tasks that, however mundane, are indeed quite frequent"
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'cli', 'posix', 'vim']
-
-[[extra.cited_tools]]
-   name    = "nl"
-   repo    = "https://github.com/coreutils/coreutils"
-   package = "core/x86_64/coreutils"
-   manual  = "https://man.archlinux.org/man/nl.1.en"
-[[extra.cited_tools]]
-   name    = "column"
-   repo    = "https://github.com/util-linux/util-linux/"
-   package = "core/x86_64/util-linux"
-   manual  = "https://man.archlinux.org/man/column.1.en"
-[[extra.cited_tools]]
-   name    = "vim"
-   repo    = "https://github.com/vim/vim"
-   package = "extra/x86_64/vim"
-   manual  = "https://vimhelp.org/"
+extra.cited_tools = ["column", "nl", "vim"]
 +++
 
 Sure, there's a tool that numbers lines of text; so what?  The feline
