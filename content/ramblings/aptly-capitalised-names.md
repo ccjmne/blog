@@ -46,6 +46,9 @@ we can still strive to get it right.  Let's jump right in, alphabetically:
 
 - It's [**braille**](https://www.brailleauthority.org/capitalization/capitalization.html)
 
+  Named after [Louis Braille](https://en.wikipedia.org/wiki/Louis_Braille), yet
+  nonetheless unequivocally spelled all lower-case.
+
 - It's [**ccjmne**](https://github.com/ccjmne)
 
 - It's [**ECMAScript**](https://en.wikipedia.org/wiki/ECMAScript)
@@ -134,7 +137,7 @@ we can still strive to get it right.  Let's jump right in, alphabetically:
   That may not be what we wish, but that is undoubtedly _"what we get"_.
 
   It stands for _"Web Hypertext Application Technology
-  Working Group"_, and is [apparently pronounced whatever you
+  Working Group"_, and is [apparently pronounced however you
   want](https://whatwg.org/faq#spell-and-pronounce), so long as the first part
   is read as "what".
 
