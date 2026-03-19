@@ -1,7 +1,7 @@
 +++
-title = 'Explore Your Docker Images with Dive'
+title = 'Explore your Docker images with `dive`'
 date = 2025-12-12
-description = 'Put on your scaphander and get a sense for what goes in the depths of your Docker images.'
+description = 'Put on your scaphander and get a sense for what goes in the depths of your Docker images'
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'cli', 'docker']
 extra.cited_tools = ["dive", "docker", "xray"]

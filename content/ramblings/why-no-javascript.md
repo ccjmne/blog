@@ -1,7 +1,7 @@
 +++
 title = 'Why have no JavaScript'
 date = 2025-11-16
-description = "The reasons why, without distate for nor lack of competence in JavaScript, numerous Web sites forgo it altogether"
+description = 'The reasons why, without distaste for nor lack of competence in JavaScript, numerous Web sites forgo it altogether'
 taxonomies.section = ['ramblings']
 taxonomies.tags = ['all', 'web', 'javascript']
 draft = true
