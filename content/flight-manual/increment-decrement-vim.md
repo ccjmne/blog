@@ -1,6 +1,6 @@
 +++
 title = 'Incrementing and decrementing with Vim'
-date = 2026-02-23
+date = 2026-01-23
 description = 'A simple trick, masterfully doubled-down upon with one of these `g`-twists'
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'cli', 'vim']
