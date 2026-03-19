@@ -4,22 +4,7 @@ date = 2025-12-12
 description = 'Put on your scaphander and get a sense for what goes in the depths of your Docker images.'
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'cli', 'docker']
-
-[[extra.cited_tools]]
-   name    = "dive"
-   repo    = "https://github.com/wagoodman/dive"
-   package = "extra/x86_64/dive"
-   manual  = "https://github.com/wagoodman/dive"
-[[extra.cited_tools]]
-   name    = "docker"
-   repo    = "https://github.com/moby/moby"
-   package = "extra/x86_64/docker"
-   manual  = "https://docs.docker.com/"
-[[extra.cited_tools]]
-   name    = "xray"
-   repo    = "https://github.com/h33333333/xray"
-   package = "aur/xray-oci-git"
-   manual  = "https://github.com/h33333333/xray"
+extra.cited_tools = ["dive", "docker", "xray"]
 +++
 
 > [!NOTE]

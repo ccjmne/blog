@@ -29,7 +29,13 @@
   {% if page.extra.cited_tools is defined %}
   <h2 id="cited-tools">{%- set id="cited-tools" -%}{%- include "anchor-link.html" -%}Referenced tools</h2>
   <div class="cited-tools">
-    {% for work in page.extra.cited_tools %} {{- tmpl::cmd(tool=work) -}} {% endfor %}
+    {%- for work in page.extra.cited_tools -%}
+    {%- if work is string -%}
+    {{- tmpl::cmd(tool=config.extra.tools[work]) -}}
+    {%- else -%}
+    {{- tmpl::cmd(tool=work) -}}
+    {%- endif -%}
+    {%- endfor -%}
   </div>
   {% endif %}
 
