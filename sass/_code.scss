@@ -25,7 +25,7 @@ pre {
     --bg: var(--colour-crust);
     --filename-bg: var(--colour-core);
   }
-  @at-root .lo & {
+  @at-root .lo &, .footnotes & {
     --bg: var(--colour-base);
     --filename-bg: var(--colour-crust);
   }
