@@ -49,9 +49,37 @@ we can still strive to get it right.  Let's jump right in, alphabetically:
   Named after [Louis Braille](https://en.wikipedia.org/wiki/Louis_Braille), yet
   nonetheless unequivocally spelled all lower-case.
 
+- It's [**curl**](https://github.com/ccjmne)
+
+  That one could make your head spin: until quite recently, [the project itself used to be
+  _cURL_](https://web.archive.org/web/20240427092301/https://curl.se/docs/faq.html#what-is-curl),
+  for _"client URL"_, which would encompass _libcurl_ and **curl**, the famous
+  command-line utility you most often mean to be talking of.
+
+  That very same [FAQ has since been
+  adjusted](https://curl.se/docs/faq.html#what-is-curl) and instructs us that
+  the name of the project now is also _curl_, plain and simple.  I could trace
+  the change back to [this commit from November
+  2025](https://github.com/curl/curl/commit/4841e4290dfca768328401522f319225e819824c)
+  that replaced all mentions of _cURL_ in their documentation and went so far as
+  to remove it from their spell-checking exceptions.
+
+  By the way, quite recently, the _curl_ community had a lovely gathering
+  celebrating [it turning 10,000 days old on August 5,
+  2025](https://github.com/curl/curl/discussions/17930).
+
 - It's [**ccjmne**](https://github.com/ccjmne)
 
 - It's [**ECMAScript**](https://en.wikipedia.org/wiki/ECMAScript)
+
+  _ECMAScript_ is the formal specification that defines how a scripting language
+  should behave.  It is designed by the _TC39 committee_, which has been opened
+  itself to the community entirely since 2016.  Join [the conversation on
+  GitHub](https://github.com/tc39/proposals)!
+
+  _JavaScript_ is the real-world implementation of _ECMAScript_.  Its
+  _runtimes_, implement the standard, plus often extra features, such as
+  `window` in Web browsers.
 
 - It's [**FFmpeg**](https://ffmpeg.org/)
 
@@ -89,6 +117,13 @@ we can still strive to get it right.  Let's jump right in, alphabetically:
 
 - It's an [**iPhone**](https://www.apple.com/iphone/), an **iPad**, an **iMac**
 
+  All running [_iOS_](https://www.apple.com/os/ios/), of course.
+
+- It's [**jQuery**](https://jquery.com/)
+
+  Part of the _"camelCase"_ craze of mid-2000s JavaScript libraries; jQuery_ and
+  its naming scheme are both better left behind.
+
 - It's [**LaTeX**](https://www.latex-project.org/)
 
   Not the rubbery material, and certainly not pronounced like it either.
@@ -105,6 +140,14 @@ we can still strive to get it right.  Let's jump right in, alphabetically:
 - It's [**NVIDIA**](https://www.nvidia.com/)
 
   But the solution, in 2025, is [AMD](https://www.amd.com/en/support/download/drivers.html).
+
+- It's [**PostgreSQL**](https://www.postgresql.org/)
+
+  Originally _POSTGRES_, justly named in its quality of successor to
+  [_Ingres_](https://en.wikipedia.org/wiki/Ingres_(database)) from the
+  University of California.  Nowadays, **Postgres** is also widely accepted
+  colloquially, and even acknowledged by [the project's very informative
+  FAQ](https://wiki.postgresql.org/wiki/FAQ#What_is_PostgreSQL?_How_is_it_pronounced?_What_is_Postgres?).
 
 - It's [**Sass**](https://sass-lang.com/), but it's [**SCSS**](https://sass-lang.com/documentation/syntax/#scss)
 
