@@ -72,7 +72,7 @@ main > :not(article), main > article > :not(%hilo) {
   --bg: var(--colour-mantle);
   @extend %hilo;
 }
-.lo, .footnotes {
+.lo {
   --bg: var(--colour-lo-bg);
   @extend %hilo;
 }
