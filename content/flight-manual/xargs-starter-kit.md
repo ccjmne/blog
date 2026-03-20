@@ -332,24 +332,24 @@ The following two commands are functionally equivalent—`find -exec ... +`
 batches arguments much like `xargs` does:
 
 ```sh
-find . -name '*.tmp' -exec rm {} +          # built-in approach
-find . -name '*.tmp' -print0 | xargs -0 rm  # pipeline approach
+find -name '*.tmp' -exec rm {} +          # built-in approach
+find -name '*.tmp'         | xargs    rm  # pipeline approach
+find -name '*.tmp' -print0 | xargs -0 rm  # most robust, will justify later
 ```
 {{ note(msg="my heart aches knowing full well that `-print0` and `-0` aren't quite `POSIX`") }}
 
-There's also the option to use **command substitution**, but that is is subject
-to word-splitting (or "arguments parsing") concerns, and doesn't quite let you
-consider batching and parallelism whatsoever:
+There's also the option to use **command substitution**, but that is **subject
+to word-splitting (or _"arguments parsing"_) concerns**, and doesn't quite let
+you consider batching and parallelism whatsoever:
 
 ```sh
-rm $(find . -name '*.tmp')                  # subshell approach
+rm $(find -name '*.tmp')                  # subshell approach, brittle in the face of spaces
 ```
 {{ note(msg="command substitution is expressive, but doesn't quite fill the same niche as `xargs` generally") }}
 
-
 For simple cases like deleting files, `-exec` or `-delete` is more
-elegant[^idiomaticity], but when you need to filter `find`'s output through
-other commands, `xargs` is customary:
+elegant[^idiomaticity], but **when you need to filter `find`'s output through
+other commands, `xargs` is inevitable**:
 
 [^idiomaticity]: I really insist, the most elegant way to use a tool is with the
 great proficiency that only comes from knowing it inside out.  Think of it this
@@ -362,17 +362,37 @@ that'd be preposterous.
 <!-- [make ample use of discernment](@/ramblings/make-ample-use-of-discernment.md) TODO: LINKME -->
 
 ```sh
-# nonsense! the pipe is *not* part of the "exec" arguments
-find . -name '*.log' -exec grep -zv archive {} | xargs -0 gzip +  # nonsense!
-find . -name '*.log' -print0 | grep -zv archive | xargs -0 gzip   # works well
+find -name '*.log' -exec grep -v trace {} | xargs zip archive.zip +     # nonsense
+find -name '*.log'         | grep  -v trace | xargs    zip archive.zip  # works
+find -name '*.log' -print0 | grep -zv trace | xargs -0 zip archive.zip  # works best, non-POSIX
 ```
+{{ note(msg="the first line is nonsensical: the pipe, `|`, **cannot be part of the `-exec` arguments** ") }}
 
-There's no one-size-fits-all here, though it may be tempting to make `xargs`
-that.  After all, **idiomaticity and elegance are
-subjective**[^subjectiveness-of-idiomaticity]: the latter
-for its vague, personal and artistic virtues, the former for the rarefying
-occasions that corporate software developers find themselves in where they'd
-peruse scripts authored by—or directly work with—some sharp `CLI` user.
+> [!NOTE]
+>
+> It's actually several layers of nonsense: **`grep` cannot receive its input
+> content to filter as a list of arguments**.  For the purpose of the example,
+> let's pretend that `grep -v archive {}` would work, but know that it doesn't
+> actually.
+
+<!-- REALLY NEED TO TALK OF -Z -0 -NULL -PRINT0 RIGHT HERE IN PARTICULAR!!! -->
+<!-- [-0-null-print0-z](@/ramblings/-0-null-print0-z.md) TODO: LINKME -->
+
+You may be tempted to go for the following, but `find` actually expects
+`{}` to stand **on its own** as an operand; it won't serve as some sort of
+_"placeholder"_ within any arbitrary argument;
+
+```sh
+find -name '*.log' -exec sh -c 'grep -v archive {} | xargs -0 gzip' +  # nice try; won't work
+```
+{{ note(msg="attempting to `sh -c '...'` in `-exec` won't quite work either: `{}` won't be interpreted there") }}
+
+There's no one-size-fits-all here, though it may be tempting to
+make `xargs` for that.  After all, **idiomaticity and elegance are
+subjective**[^subjectiveness-of-idiomaticity]: the latter for its vague,
+personal and artistic virtues, the former for the rarefying occasions that
+corporate software developers find themselves in where they'd peruse scripts
+authored by—or directly work with—some sharp `CLI` user.
 
 [^subjectiveness-of-idiomaticity]: However subjective these may be, let's
     put it this way: if you don't immediately understand the benefits of
