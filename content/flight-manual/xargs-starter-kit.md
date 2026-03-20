@@ -605,8 +605,8 @@ to figure out what arguments they hold**:
 > characters and non-`<newline>` characters can be quoted by enclosing them in
 > `<apostrophe>` characters. Any unquoted character can be escaped by preceding
 > it with a `<backslash>`.
-
-{% attribution() %} — Excerpt from `man 1p xargs` {% end %}
+>
+> {% attribution() %} from `man 1p xargs` {% end %}
 
 Eh, **you don't have to read it; you pretty much can already surmise it**.  In
 any case, I'll give you here some example that I hope will be complete enough;

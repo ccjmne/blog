@@ -116,8 +116,8 @@ citing of the [fundamental theorem of software
 engineering](https://en.wikipedia.org/wiki/Fundamental_theorem_of_software_engineering):
 
 > [...] except for the problem of too many layers of indirection.
-
-{% attribution() %} — David Wheeler's [aphorism on indirection](https://en.wikipedia.org/wiki/Indirection) {% end %}
+>
+> {% attribution() %} David Wheeler's [aphorism on indirection](https://en.wikipedia.org/wiki/Indirection) {% end %}
 
 <!-- (@/ramblings/youre-no-web-developer). TODO: LINKME -->
 

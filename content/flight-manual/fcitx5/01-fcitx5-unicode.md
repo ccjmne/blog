@@ -40,10 +40,10 @@ transforming **subtractions** into **numeric ranges**.
 aptly document your suspicion of unorthodoxy in the rhetoric of your fellow
 comrades:
 
-   > "Except—" began Winston doubtfully, and then stopped.<br>
-   > It had been on the tip of his tongue to say "Except the proles," [...]
-
-   {% attribution() %} — George Orwell, _Nineteen Eighty-Four_ {% end %}
+   > "Except—" began Winston doubtfully, and then stopped.<br> It had been on
+   > the tip of his tongue to say "Except the proles," [...]
+   >
+   > {% attribution() %} George Orwell, _Nineteen Eighty-Four_ {% end %}
 
 - `Ctrl`-`Shift`-`U`, then `300` gives you the grave accent (`` ` ``), which
 unlocks a Frenchman's ability to start a sentence with the preposition "to",

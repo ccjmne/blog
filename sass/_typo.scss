@@ -188,10 +188,12 @@ blockquote {
     > * { font-style: italic; }
   }
 
-  + .quote-attribution {
+  > .quote-attribution {
     margin-top: -.75rem;
     text-align: end;
+    font-style: initial;
     color: var(--colour-subtext0);
+    &::before { content: '— '; }
   }
 }
 
