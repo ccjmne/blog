@@ -73,8 +73,8 @@ on your file system, I'm sure.
 
 ### Aren't they just usable commits under the hood?
 
-"Jein" ("yes and no"), as my German colleagues would say; you could always `git
-show stash@{0}` and see it in all its splendour to find out:
+_"Jein"_ ("yes and no"), as my German colleagues would say; you could always
+`git show stash@{0}` and see it in all its splendour to find out:
 
 ```sh
 cd $(mktemp --directory)
@@ -114,7 +114,7 @@ mode 100644,100644,000000..100644
 ### One stash, several commits
 
 Let's not go today over how precisely to decipher the content of an _"octopus
-commit[^octopus]"_, when a picture may well be worth a thousand words:
+commit"_[^octopus], when a picture may well be worth a thousand words:
 
 [^octopus]: I call an _"octopus commit"_ that, because it has many
 arms!  Sometimes I call them _"hydra"_, with greater reverence, when they

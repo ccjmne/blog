@@ -37,22 +37,10 @@ touch a b c
 `xargs` has several ways to go from input lines to effective arguments, as well
 as how many arguments to be used for each call.
 
-- `-n <max-args>` dictates how many arguments shall the utility receive at most:
+- `-n <max-args>` dictates how **many arguments shall the utility receive at
+  most**:
 
     <div class="grid-1-3">
-    <div>
-
-    ```sh
-    xargs echo <<EOF
-    a b c
-    d e f
-    g h i
-    EOF
-    ```
-    ```txt
-    a b c d e f g h i
-    ```
-    </div>
     <div>
 
     ```sh
@@ -91,10 +79,24 @@ as how many arguments to be used for each call.
     i
     ```
     </div>
+    <div>
+
+    ```sh
+    xargs echo <<EOF
+    a b c
+    d e f
+    g h i
+    EOF
+    ```
+    ```txt
+    a b c d e f g h i
+    ```
+    {{ note(msg="without `-n`") }}
+    </div>
     </div>
 
-- `-L <max-lines>` dictates how many input lines at most are to result in a
-  single utility call:
+- `-L <max-lines>` dictates **how many input lines at most are to result in a
+  single utility call**:
 
   <div class="grid-1-2">
   <div>
@@ -128,9 +130,9 @@ as how many arguments to be used for each call.
   </div>
   </div>
 
-- `-I <placeholder>` is a specialisation of `-L1` that considers each line to be
-  **a single argument** and lets you choose **where to put it on the resulting
-command line:
+- `-I <placeholder>` is a specialisation of `-L1` that considers **each line to
+  be a single argument** and lets you choose **where to put it on the resulting
+  command line**:
 
   <div class="grid-1-2">
   <div>
@@ -169,7 +171,7 @@ command line:
 
 > [!NOTE]
 >
-> The `-I`, `-L`, and `-n` options are, by specification, **mutually
+> **The `-I`, `-L`, and `-n` options are, by specification, mutually
 > exclusive**.  Some implementations use the last one specified if more than one
 > is given on a command line; other implementations treat combinations of the
 > options in different ways.
@@ -278,10 +280,10 @@ earlier than with the last argument, which pairs well with `xargs`:
 find -type f -executable | xargs mv -t ~/bin
 # mv -t ~/bin FILE_1 FILE_2 FILE_3
 
-find -type f -executable | xargs -n1 -- ln -s -t ~/bin
-# ln -s -t ~/bin FILE_1
-# ln -s -t ~/bin FILE_2
-# ln -s -t ~/bin FILE_3
+find -type f -executable | xargs -n1 -- ln -st ~/bin
+# ln -st ~/bin FILE_1
+# ln -st ~/bin FILE_2
+# ln -st ~/bin FILE_3
 ```
 {{ note(msg="use the (non-`POSIX`) `-t` flag found across several `GNU` utilities to interface more elegantly with `xargs`") }}
 
@@ -995,12 +997,12 @@ true "d'Artagnan"                true '$HOME sweet '\''home'\'''  true '$HOME sw
 true '$HOME sweet '\''home'\'''  true '$(date)'                   true '$(date)'
 true '$(date)'
 ```
-{{ note(msg="the process substitution `<(...)` and **redirection `2>&1` within the command** are non-`POSIX` Bashisms") }}
+{{ note(msg="the process substitution `<(...)` and **redirection `2>&1` within a command** are non-`POSIX` Bashisms") }}
 
 > [!NOTE]
 >
-> I am quite prone to laying out text with purpose across the horizontal
-> axis and write in great detail about that in [my Intralinear Partitioning
+> I am quite prone to laying out text with purpose across the horizontal axis
+> and write in great detail about that in [my _Intralinear Partitioning_
 > series](@/flight-manual/intralinear-partitioning/_index.md), the second
 > article of which may serve as a practical guideline to using `column`, `cut`
 > and `paste` to great effect.
@@ -1026,7 +1028,7 @@ present some notable differences that may be summarised as follows:
   ```
   {{ note(msg="a [traditional proclamation](https://en.wikipedia.org/wiki/The_king_is_dead,_long_live_the_king!) following the accession of a new monarch to the throne") }}
 
-## The escalation mechanism
+## The definite escalation mechanism
 
 To conclude, let's agree together on what the shades from _grimace-_ to
 _nod-of-approval_-worthy would be:

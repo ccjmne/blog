@@ -41,7 +41,7 @@ again, your preference for reduced motion.
 Links like [this one](#) point to other places on this very blog; external
 references such as [that
 one](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel#external)
-are annotated with an arrow pointing to the up and right.
+are annotated with an arrow pointing up and to the right.
 
 <!-- TODO: Document flight manual vs ramblings distinction w.r.t. their icons -->
 <!-- TODO: Document RSS feeds and their auto-discovery -->

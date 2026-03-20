@@ -25,6 +25,7 @@ $bgs:
     --focus: #{nth($bgs, 1)};
   }
 
+  .term-fg1  { font-weight: bold; }
   .term-fg31 { --fg: var(--colour-red); }
   .term-fg32 { --fg: var(--colour-green); }
   .term-fg33 { --fg: var(--colour-yellow); }

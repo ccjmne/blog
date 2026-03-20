@@ -32,6 +32,12 @@ incredulity and awe: some simple, composable tools go a long way to articulate
 queries for your shell interpreter.  Here, I'll lay the foundations for your
 horizontal text alignment needs, from the CLI.
 
+> [!NOTE]
+>
+> I also propose a fairly comprehensive introduction to [the `xargs`
+> fundamentals in this article](@/flight-manual/xargs/_index.md), which you may
+> be interested in.
+
 ## Using `column`
 
    In the introductory piece of this article, I proposed a classification for
