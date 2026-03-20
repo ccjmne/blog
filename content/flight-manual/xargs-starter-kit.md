@@ -285,7 +285,7 @@ find -type f -executable | xargs -n1 -- ln -st ~/bin
 # ln -st ~/bin FILE_2
 # ln -st ~/bin FILE_3
 ```
-{{ note(msg="use the (non-`POSIX`) `-t` flag found across several `GNU` utilities to interface more elegantly with `xargs`") }}
+{{ note(msg="use the (non-`POSIX`) `-t` flag found across several `GNU` utilities to work more elegantly with `xargs`") }}
 
 ## Just because you have a hammer...
 

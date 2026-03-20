@@ -109,7 +109,7 @@ mode 100644,100644,000000..100644
 <span class="term-fg36">@@@@ -1,0 -1,1 -1,0 +1,2 @@@@</span>
 <span class="term-fg32">+ +Line 1</span>
 <span class="term-fg32">+++Line 2</span></pre></code>
-{{ note(msg='the `diff --cc` will show the "combined diff", when a commit has several parents (a "merge commit")') }}
+{{ note(msg='`diff --cc` will show the **combined diff**, when a commit has several parents (a _"merge commit"_)') }}
 
 ### One stash, several commits
 
@@ -240,7 +240,7 @@ git log --oneline --decorate --graph stash@{1}
 <span class="term-fg31">|</span> * <span class="term-fg33">aa4fa9e</span> index on master: d4d8585 Create file
 <span class="term-fg31">|&#47;</span>
 * <span class="term-fg33">d4d8585 (</span><span class="term-fg36 term-fg1">HEAD</span><span class="term-fg33"> -&gt; </span><span class="term-fg32 term-fg1">master</span><span class="term-fg33">)</span> Create file</pre></code>
-{{ note(msg="the earlier stash, `a196b1a`, is now the second entry on the stack, `stash@{1}`, but no more `refs/stash`") }}
+{{ note(msg="the earlier stash, `a196b1a`, is now second on the stack, `stash@{1}`, but not `refs/stash` any more") }}
 
 The new model for stashes allows us to **refer to our entire stash stack
 directly**, since they'll be parents of one another, provided that you want this

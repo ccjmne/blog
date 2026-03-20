@@ -28,6 +28,12 @@ excerpt = """
     Go to `O`ther end of highlighted text: The current cursor position becomes
     the start of the highlighted text and the cursor is moved to the other end
     of the highlighted text.  The highlighted area remains the same."""
+[[extra.cited_vimhelp]]
+code    = "gv"
+page    = "visual.txt"
+excerpt = """
+    Start Visual mode with the same area as the previous area and the same mode.
+    In Visual mode the current and the previous Visual area are exchanged."""
 +++
 
 Vim has a delightful built-in feature, whereby it can increment—or
@@ -291,7 +297,7 @@ flags = 0b0101  ; flags 1 and 4
 ascii = 0x61    ; the letter 'a'
 flags = 0b0001  ; flag 1 only
 ```
-{{ note(msg="use `32^A` on the first line, then `4^X` on the second") }}
+{{ note(msg="use `32^A` on the first line, `4^X` on the second") }}
 </div>
 </div>
 
@@ -444,7 +450,7 @@ to start off (or punctuate with) a complementary `^X`.
 4
 5
 ```
-{{ note(msg="after `gv` (reselect last) and `^X`") }}
+{{ note(msg="after `gv` ([`:help gv`](https://vimhelp.org/visual.txt.html#gv)) and `^X`") }}
 </div>
 </div>
 

@@ -78,7 +78,7 @@ dependencies.async-io = { version = "2.6.0", optional = true }
 dependencies.clap = { workspace = true, features = ["string"] }
 dependencies.libc = "0.2.176"
 ```
-{{ note(msg="horrifying?  possibly—beauty is in the eye of the beholder; `POSIX` compliance, however, is indisputable") }}
+{{ note(msg="foul?  possibly—beauty is in the eye of the beholder; `POSIX` compliance, however, is indisputable") }}
 
 Note the delightfully quirky `BRE` substitution `s/[][]//g` employing the most
 savvy `[][]` character class to match either literal square bracket.  Who says I
@@ -338,7 +338,7 @@ doctor ordered_:
 cron-scripts/          [Legacy Wranglers] @team-legacy-wranglers
 > cron█ < 1/15
 ```
-{{ note(msg="our real `CODEOWNERS` is considerably more impenetrable, and my one-line script does come in handy") }}
+{{ note(msg="our real `CODEOWNERS` is considerably more impenetrable, and my script does come in handy") }}
 
 ### Practical use case: pull an entry to the top
 

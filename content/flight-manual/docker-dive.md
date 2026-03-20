@@ -68,7 +68,7 @@ Let's take a quick look at its `UI` that I semi-faithfully re-created below:
 ```sh
 dive httpd:2.4
 ```
-<pre class="giallo z-code"><code data-lang="plain"><strong>│ Layers ├────────────────────────────────────────────</strong> <strong>│ Current Layer Contents ├─────────────</strong>
+<pre class="giallo z-code"><code data-lang="plain"><strong>│ Layers ├────────────────────────────────────────</strong> <strong>│ Current Layer Contents ├─────────────</strong>
 Cmp   Size  Command                                    ├── bin → usr/bin
 <span class="term-fg34 term-inv">  </span>   79 MB  FROM blobs                                 ├── boot
 <span class="term-fg34 term-inv">  </span>     0 B  RUN /bin/sh -c mkdir -p "$HTTPD_PREFIX"    ├── dev
@@ -97,7 +97,7 @@ RUN /bin/sh -c set -eux;     apt-get install --update  │   ├── environme
                                                        │   ├── issue.net
 <strong>Count   Total Space  Path</strong>                              │   ├─⊕ kernel
     2        1.6 MB  /var/cache/debconf/templates.dat  │   <span class="term-fg33">├── ld.so.cache</span>
-<span class="term-inv">▏^C Quit ▏^W Switch view ▏^F Filter ▏^Space Collapse all dir ▏^E Extract File ▏^O Toggle sort </span>
+<span class="term-inv">▏^C Quit ▏^W Switch view ▏^F Filter ▏^Space Collapse all ▏^E Extract File ▏^O Toggle sort </span>
 </code></pre>
 
 Not too shabby!  You may navigate between successive layers with the arrow
