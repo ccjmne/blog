@@ -46,65 +46,25 @@
   }
 }
 
-// TODO: consider moving to tags-specific stylesheet
-.tags-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  padding: 0;
-  list-style: none;
-}
-a.tag, a.tag:visited {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--colour-subtext1);
-  color: var(--colour-accent);
-  text-decoration: none;
-  &.tag-low {
-    border-color: var(--colour-overlay1);
-    color: var(--colour-text);
-  }
-  &.tag-high::before {
-    @include icon(ruby, (top: 2px, left: -2px));
-  }
-  &:hover {
-    color:             var(--colour-accent);
-    border-color:      var(--colour-accent);
-    background-color:  var(--focus);
-    .tag-name { color: var(--colour-accent); }
-  }
-  h2.tag-name {
-    display: inline;
-    padding: 0;
-    font-size: 1.1em;
-    color: var(--colour-text);
-  }
+.user-agent * {
+  all:         revert    !important;
+  font-family: system-ui !important;
 }
 
-.alternating-list-marker {
-  $code-padding: 1rem; // Should match that in _code.scss
-  display: none;
-  + ul {
-    padding: 0;
-    list-style: none;
-    li {
-      &:nth-child(odd) {
-        margin-inline: -$code-padding;
-        padding: 0.1px $code-padding;
-        background-color: var(--colour-mantle);
-      }
-      p:not(:first-child) {
-        padding-inline: $code-padding;
-        color: var(--colour-subtext0);
-        @include md {
-          padding-inline: $code-padding * 2;
-        }
+[class^=grid-] {
+  display: grid;
+  grid-gap: 1em;
+  width: min(100%, var(--column-width)) !important;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+}
+@for $r from 1 through 3 {
+  @for $c from 1 through 3 {
+    .grid-#{$r}-#{$c} {
+      @include md {
+        grid-template-rows: repeat(#{$r}, minmax(0, 1fr));
+        grid-template-columns: repeat(#{$c}, minmax(0, 1fr));
       }
     }
   }
-}
-
-.user-agent * {
-  all:          revert     !important;
-  font-family:  system-ui  !important;
 }

@@ -1,4 +1,4 @@
-@forward 'view';
+@forward 'vwtn';
 @forward 'thme';
 @forward 'hilo';
 @forward 'typo';
@@ -6,11 +6,12 @@
 @forward 'head';
 @forward 'code';
 @forward 'misc';
-@forward 'hlpr';
 @forward 'ftnt';
 
 @forward 'partials/article-hero';
 @forward 'partials/details';
 @forward 'partials/infobar';
 @forward 'partials/ls';
+@forward 'partials/tags-list';
 @forward 'shortcodes/note';
+@forward 'shortcodes/hr';

@@ -196,8 +196,3 @@ blockquote {
     &::before { content: '— '; }
   }
 }
-
-.paragraph-separator {
-  + p { text-indent: 2em; }
-  &:is(hr) { display: none; }
-}

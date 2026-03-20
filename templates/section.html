@@ -6,7 +6,7 @@
 {%- include "partials/infobar.html" -%}
 {%- endif -%}
 <article>
-  {%- set footnotes = hlpr::extract(content=section.content,   which="footnotes") -%}
+  {%- set footnotes = hlpr::extract(content=section.content, which="footnotes") -%}
   {{ hlpr::extract(content=section.content, which="main") }}
   {% set pages = section.pages %}
   {% include "partials/ls-hero.html" %}
