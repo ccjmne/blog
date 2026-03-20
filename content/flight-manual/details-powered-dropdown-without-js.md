@@ -389,7 +389,7 @@ to the colours to fit this blog's scheme:
          padding:          .5rem 1rem !important;
          border:           0 !important;
          border-radius:    0 !important;
-         background-color: var(--colour-lo-bg) !important;
+         background-color: var(--focus) !important;
          color:            var(--colour-text) !important;
          font-size:        1rem !important;
          cursor:           pointer !important;

@@ -1,9 +1,9 @@
 @use 'mxin' as *;
 
-[class^="grid-"] {
+[class^=grid-] {
   display: grid;
   grid-gap: 1em;
-  max-width: min(100%, calc(var(--column-width) + 2rem));
+  width: min(100%, calc(var(--column-width) + 2rem)) !important;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr;
 }

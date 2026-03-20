@@ -70,7 +70,7 @@ a.tag, a.tag:visited {
   &:hover {
     color:             var(--colour-accent);
     border-color:      var(--colour-accent);
-    background-color:  var(--colour-lo-bg);
+    background-color:  var(--focus);
     .tag-name { color: var(--colour-accent); }
   }
   h2.tag-name {

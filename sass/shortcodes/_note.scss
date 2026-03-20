@@ -1,7 +1,5 @@
 .note {
-  background: var(--colour-crust);
-  @at-root .hi & { background: var(--colour-core); }
-  @at-root .lo & { background: var(--colour-mantle); }
+  background: var(--bg-3);
   color: var(--colour-subtext0);
   padding: 0 1rem;
   font-size: .95em;

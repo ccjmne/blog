@@ -19,16 +19,7 @@ pre {
   margin: 0;
   padding: $code-padding;
   overflow: auto;
-  --bg: var(--colour-mantle);
-  --filename-bg: var(--colour-crust);
-  @at-root .hi & {
-    --bg: var(--colour-crust);
-    --filename-bg: var(--colour-core);
-  }
-  @at-root .lo & {
-    --bg: var(--colour-base);
-    --filename-bg: var(--colour-crust);
-  }
+  --bg: var(--bg-2); // term-inv works off --bg
 
   &:not(:has(> [data-name])) {
     background-color: var(--bg);
@@ -38,7 +29,7 @@ pre {
     background: linear-gradient(
       to bottom,
       transparent 0,
-      transparent 1lh,
+      transparent 1lh, // lh is "line-height"
       var(--bg) 1lh,
       var(--bg) 100%
     );
@@ -47,7 +38,7 @@ pre {
       position: absolute;
       top: 0;
       inset-inline-start: 0;
-      background-color: var(--filename-bg);
+      background-color: var(--bg-3);
       padding: 2px $code-padding;
       color: var(--colour-accent);
     }

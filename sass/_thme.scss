@@ -1,16 +1,28 @@
+@use 'sass:list' as *;
 @use 'catppuccin';
+
+$bgs:
+  var(--colour-surface0),
+  var(--colour-base),
+  var(--colour-mantle),
+  var(--colour-crust), // geologically, it should go core, mantle, crust; oops
+  var(--colour-core);
 
 :root {
   --colour-accent: var(--colour-maroon);
+  --bg-1: #{nth($bgs, 2)};
+  --bg-2: #{nth($bgs, 3)};
+  --bg-3: #{nth($bgs, 4)};
+  --bg:   var(--bg-1);
 
   @each $name, $value in map-get(catppuccin.$palette, "latte") { --colour-#{$name}: #{$value}; }
   --colour-core: color-mix(in srgb, var(--colour-crust) 95%, black);
-  --colour-lo-bg: var(--colour-crust);
+  --focus: #{nth($bgs, 4)};
 
   @media (prefers-color-scheme: dark) {
     @each $name, $value in map-get(catppuccin.$palette, "frappe") { --colour-#{$name}: #{$value}; }
     --colour-core: color-mix(in srgb, var(--colour-crust) 75%, black);
-    --colour-lo-bg: var(--colour-surface0);
+    --focus: #{nth($bgs, 1)};
   }
 
   .term-fg31 { --fg: var(--colour-red); }

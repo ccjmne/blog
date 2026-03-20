@@ -21,7 +21,7 @@
 
 {%- macro footnotes(items) -%}
   {%- if items | trim != "" -%}
-    <section class="footnotes lo" aria-label="Footnotes">
+    <section class="footnotes" aria-label="Footnotes">
       <ol class="footnotes-list">{{- items | safe -}}</ol>
     </section>
   {%- endif -%}

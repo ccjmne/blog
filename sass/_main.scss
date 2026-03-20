@@ -9,7 +9,6 @@ html, html > body {
 }
 
 html {
-  --bg: var(--colour-base);
   background-color: var(--bg);
 }
 
@@ -41,38 +40,4 @@ footer {
   gap: 1em;
   font-size: 0.875rem;
   color: var(--colour-subtext1);
-}
-
-@mixin centred() {
-  width: var(--column-width);
-  margin-left: auto;
-  margin-right: auto;
-}
-
-main > :not(article), main > article > :not(%hilo) {
-  @include centred();
-  &:is([class^="grid-"]) {
-    width: 100%;
-  }
-}
-
-%hilo {
-  width: 100vw;
-  background-color: var(--bg);
-  @at-root main &:not(details) {
-    padding: 1.75rem 0;
-    margin: 1.75rem 0;
-    > :first-child { margin-top: 0; }
-    > :last-child:not(.footnotes-list) { &, li:last-of-type p { margin-bottom: 0; } }
-  }
-  > * { @include centred(); }
-}
-
-.hi {
-  --bg: var(--colour-mantle);
-  @extend %hilo;
-}
-.lo {
-  --bg: var(--colour-lo-bg);
-  @extend %hilo;
 }
