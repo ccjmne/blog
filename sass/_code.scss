@@ -19,6 +19,7 @@ pre {
   margin: 0;
   padding: $code-padding;
   overflow: auto;
+  box-sizing: border-box;
   --bg: var(--bg-2); // term-inv works off --bg
 
   &:not(:has(> [data-name])) {
