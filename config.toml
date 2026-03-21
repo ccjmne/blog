@@ -25,6 +25,7 @@ name    = "cat"
 repo    = "https://github.com/coreutils/coreutils"
 package = "core/x86_64/coreutils"
 manual  = "https://man.archlinux.org/man/cat.1.en"
+posix   = "https://man.archlinux.org/man/cat.1p.en"
 
 [extra.tools.column]
 name    = "column"
@@ -37,12 +38,14 @@ name    = "cut"
 repo    = "https://github.com/coreutils/coreutils"
 package = "core/x86_64/coreutils"
 manual  = "https://man.archlinux.org/man/cut.1.en"
+posix   = "https://man.archlinux.org/man/cut.1p.en"
 
 [extra.tools.date]
 name    = "date"
 repo    = "https://github.com/coreutils/coreutils"
 package = "core/x86_64/coreutils"
 manual  = "https://man.archlinux.org/man/date.1.en"
+posix   = "https://man.archlinux.org/man/date.1p.en"
 
 [extra.tools.dive]
 name    = "dive"
@@ -70,9 +73,10 @@ manual  = "https://man.archlinux.org/man/fd.1.en"
 
 [extra.tools.find]
 name    = "find"
-repo    = "https://www.gnu.org/software/findutils/"
+repo    = "https://git.savannah.gnu.org/cgit/findutils.git/"
 package = "core/x86_64/findutils"
 manual  = "https://man.archlinux.org/man/core/findutils/find.1.en"
+posix   = "https://man.archlinux.org/man/core/findutils/find.1p.en"
 
 [extra.tools.fzf]
 name    = "fzf"
@@ -82,9 +86,10 @@ manual  = "https://man.archlinux.org/man/extra/fzf/fzf.1.en"
 
 [extra.tools.grep]
 name    = "grep"
-repo    = "https://cgit.git.savannah.gnu.org/cgit/grep.git/"
+repo    = "https://git.savannah.gnu.org/cgit/grep.git/"
 package = "core/x86_64/grep"
 manual  = "https://man.archlinux.org/man/grep.1.en"
+posix   = "https://man.archlinux.org/man/grep.1p.en"
 
 [extra.tools.ibus]
 name    = "ibus"
@@ -127,12 +132,14 @@ name    = "nl"
 repo    = "https://github.com/coreutils/coreutils"
 package = "core/x86_64/coreutils"
 manual  = "https://man.archlinux.org/man/nl.1.en"
+posix   = "https://man.archlinux.org/man/nl.1p.en"
 
 [extra.tools.paste]
 name    = "paste"
 repo    = "https://github.com/coreutils/coreutils"
 package = "core/x86_64/coreutils"
 manual  = "https://man.archlinux.org/man/paste.1.en"
+posix   = "https://man.archlinux.org/man/paste.1p.en"
 
 [extra.tools.sd]
 name    = "sd"
@@ -142,9 +149,10 @@ manual  = "https://man.archlinux.org/man/extra/sd/sd.1.en"
 
 [extra.tools.sed]
 name    = "sed"
-repo    = "https://git.savannah.gnu.org/git/sed.git"
+repo    = "https://git.savannah.gnu.org/cgit/sed.git"
 package = "core/x86_64/sed"
-manual  = "https://www.gnu.org/software/sed/manual/"
+manual  = "https://man.archlinux.org/man/sed.1.en"
+posix   = "https://man.archlinux.org/man/sed.1p.en"
 
 [extra.tools.uni]
 name    = "uni"
@@ -166,12 +174,13 @@ manual  = "https://man.archlinux.org/man/vipe.1.en"
 
 [extra.tools.xargs]
 name    = "xargs"
-repo    = "https://www.gnu.org/software/findutils/"
+repo    = "https://git.savannah.gnu.org/cgit/findutils.git/"
 package = "core/x86_64/findutils"
 manual  = "https://man.archlinux.org/man/core/findutils/xargs.1.en"
+posix   = "https://man.archlinux.org/man/core/findutils/xargs.1p.en"
 
 [extra.tools.xray]
 name    = "xray"
 repo    = "https://github.com/h33333333/xray"
 package = "aur/xray-oci-git"
-manual  = "https://github.com/h33333333/xray"
+manual  = "https://github.com/h33333333/xray#usage"
