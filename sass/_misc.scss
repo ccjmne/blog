@@ -61,6 +61,9 @@
 @for $r from 1 through 3 {
   @for $c from 1 through 3 {
     .grid-#{$r}-#{$c} {
+      > * {
+        min-width: 0; // allow shrinking on mobile
+      }
       @include md {
         grid-template-rows: repeat(#{$r}, minmax(0, 1fr));
         grid-template-columns: repeat(#{$c}, minmax(0, 1fr));
