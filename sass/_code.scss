@@ -8,6 +8,7 @@ pre, code, abbr[font=mono]::after, .mono {
   font-variant-ligatures: none;
   font-size: .92em;
 }
+.mono code { font-size: unset; }
 
 code:not(pre > code), abbr[font=mono]::after {
   color: var(--colour-accent);

@@ -1,27 +1,29 @@
 {% macro cmd(tool) %}
-<table class="tool mono">
-  <thead><tr><th colspan="2"><strong>{{ tool.name }}</strong></th></tr></thead>
-  <tbody>
-    <tr>
-      {% if tool.package is starting_with("aur/") %}
-      <td colspan="2">from <a rel="external" href="https://aur.archlinux.org/packages/{{ tool.package | replace(from="aur/", to="") }}">{{ tool.package }}</a></td>
-      {% else %}
-      <td colspan="2">from <a rel="external" href="https://archlinux.org/packages/{{ tool.package }}">{{ tool.package | replace(from="/x86_64/", to="/") }}</a></td>
-      {% endif %}
-    </tr>
-    <tr>
-      <td><a rel="external" href="{{ tool.manual }}">manual</a></td>
-      <td><a rel="external" href="{{ tool.repo }}">repository</a></td>
-    </tr>
-  </tbody>
-</table>
+<div class="ref tool mono">
+  <strong>{{ tool.name }}</strong>
+  <div>
+    {%- if tool.package is starting_with("aur/") -%}
+    <span class="muted">from</span>&nbsp;<a rel="external" href="https://aur.archlinux.org/packages/{{ tool.package | replace(from="aur/", to="") }}">{{ tool.package }}</a>
+    {%- else -%}
+    <span class="muted">from</span>&nbsp;<a rel="external" href="https://archlinux.org/packages/{{ tool.package }}">{{ tool.package | replace(from="/x86_64/", to="/") }}</a>
+    {%- endif -%}
+  </div>
+  <div>
+    {%- if tool.posix is defined -%}
+    <a rel="external" href="{{ tool.manual }}">man</a>
+    <a rel="external" href="{{ tool.repo }}">src</a>
+    <a rel="external" href="{{ tool.posix }}">posix</a>
+    {%- else -%}
+    <a rel="external" href="{{ tool.manual }}">manual</a>
+    <a rel="external" href="{{ tool.repo }}">source</a>
+    {%- endif -%}
+  </div>
+</div>
 {% endmacro %}
 
 {% macro vimhelp(help) %}
-<table class="tool mono">
-  <thead><tr><th colspan="2"><a rel="external" href="https://vimhelp.org/{{ help.page }}.html#{{ help.code | urlencode }}"><strong>:help {{ help.code }}</strong></a></th></tr></thead>
-  <tbody>
-    <tr><td class="excerpt">{{ help.excerpt | trim | markdown(inline=true) | safe }}</td></tr>
-  </tbody>
-</table>
+<div class="ref vimhelp mono">
+  <a rel="external" href="https://vimhelp.org/{{ help.page }}.html#{{ help.code | urlencode }}"><strong>:help {{ help.code }}</strong></a>
+  <span class="excerpt">{{ help.excerpt | trim | markdown(inline=true) | safe }}</span>
+</div>
 {% endmacro %}

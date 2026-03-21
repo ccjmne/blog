@@ -1,0 +1,45 @@
+@use 'sass:list' as *;
+@use '../mxin' as *;
+@use '../thme' as *;
+
+$bg: #{nth($bgs, 1)};
+$gap: 1rem;
+
+.refs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $gap;
+}
+
+.ref {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $bg;
+  box-sizing: border-box;
+
+  > :first-child {
+    background-color: $bg;
+    text-align: center;
+  }
+
+  > :nth-child(n + 2) { margin-inline: $gap; }
+  > :nth-child(2)     { margin-top:    $gap / 2; }
+  > :last-child       { margin-bottom: $gap / 2; }
+
+  &.tool > :last-child {
+    display: flex;
+    gap: $gap;
+  }
+
+  &.vimhelp {
+    width: var(--column-width);
+    @include md { width: calc((var(--column-width) - $gap) / 2); }
+  }
+
+  a { text-decoration: none; }
+  .muted { color: var(--colour-overlay1); } // TODO: consider moving to typo.scss?
+  .excerpt {
+    font-size: 92%;
+    white-space: collapse;
+  }
+}

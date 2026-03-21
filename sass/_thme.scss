@@ -2,6 +2,7 @@
 @use 'catppuccin';
 
 $bgs:
+  var(--colour-surface1),
   var(--colour-surface0),
   var(--colour-base),
   var(--colour-mantle),
@@ -10,19 +11,19 @@ $bgs:
 
 :root {
   --colour-accent: var(--colour-maroon);
-  --bg-1: #{nth($bgs, 2)};
-  --bg-2: #{nth($bgs, 3)};
-  --bg-3: #{nth($bgs, 4)};
+  --bg-1: #{nth($bgs, 3)};
+  --bg-2: #{nth($bgs, 4)};
+  --bg-3: #{nth($bgs, 5)};
   --bg:   var(--bg-1);
 
   @each $name, $value in map-get(catppuccin.$palette, "latte") { --colour-#{$name}: #{$value}; }
   --colour-core: color-mix(in srgb, var(--colour-crust) 95%, black);
-  --focus: #{nth($bgs, 4)};
+  --focus: #{nth($bgs, 5)};
 
   @media (prefers-color-scheme: dark) {
     @each $name, $value in map-get(catppuccin.$palette, "frappe") { --colour-#{$name}: #{$value}; }
     --colour-core: color-mix(in srgb, var(--colour-crust) 75%, black);
-    --focus: #{nth($bgs, 1)};
+    --focus: #{nth($bgs, 2)};
   }
 
   .term-fg1  { font-weight: bold; }

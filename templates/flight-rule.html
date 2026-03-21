@@ -28,7 +28,7 @@
 
   {% if page.extra.cited_tools is defined %}
   <h2 id="cited-tools">{%- set id="cited-tools" -%}{%- include "anchor-link.html" -%}Referenced tools</h2>
-  <div class="cited-tools">
+  <div class="refs">
     {%- for work in page.extra.cited_tools -%}
     {{- tmpl::cmd(tool=config.extra.tools[work]) -}}
     {%- endfor -%}
@@ -37,7 +37,7 @@
 
   {% if page.extra.cited_vimhelp is defined %}
   <h2 id="cited-vimhelp">{%- set id="cited-vimhelp" -%}{%- include "anchor-link.html" -%}Referenced Vim help</h2>
-  <div class="cited-tools">
+  <div class="refs">
     {% for help in page.extra.cited_vimhelp %} {{- tmpl::vimhelp(help=help) -}} {% endfor %}
   </div>
   {% endif %}

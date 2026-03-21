@@ -15,37 +15,6 @@
   &:hover { background-color: var(--colour-overlay2); }
 }
 
-.cited-tools {
-  $tool-bg: var(--colour-surface1);
-  $gap: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: $gap;
-  .tool {
-    border: 1px solid $tool-bg;
-    border-collapse: collapse;
-    thead tr { background-color: $tool-bg; }
-    td, th {
-      &:nth-child(1) { padding-left: 1em; }
-      &:nth-child(2) { padding: 0 1em; text-align: end; }
-      &:only-child { padding: 0 1em; }
-      &.excerpt {
-        font-family: "Work Sans", serif;
-        white-space: collapse;
-      }
-    }
-    tbody {
-      tr:first-child > td { padding-top: .5em; }
-      tr:last-child  > td { padding-bottom: .5em; }
-    }
-    th { text-align: center; }
-    a { text-decoration: none; }
-    @include md {
-      max-width: calc((var(--column-width) - $gap) / 2);
-    }
-  }
-}
-
 .user-agent * {
   all:         revert    !important;
   font-family: system-ui !important;
