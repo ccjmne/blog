@@ -1,43 +1,43 @@
 +++
-title = 'The complete `POSIX` `xargs` starter kit'
-date = 2026-03-13
-description = "Just enough to get the ball rolling for most of your `CLI` wizardry needs"
+title = 'The pragmatic `POSIX` `xargs` starter kit'
+date = 2026-03-22
+description = 'Concentrating most of the `POSIX`-specified `xargs` prowess in a tidy 3 flags'
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'cli', 'posix']
-extra.cited_tools = ["fd", "find", "xargs"]
+extra.cited_tools = ["find", "wc", "xargs"]
 +++
 
-The shell's pipe operator, `|`, is a marvellous thing: it connects the _standard
-output_ of one command to the _standard input_ of another, letting you chain
-utilities together into elegant pipelines.  But quite a few times, it's the
-very **flags or arguments** of some subsequent invocation that you want to be
-determined by the **output** of a previous one.
+In this second article of my series on `xargs`, I intend to focus on **the
+practical subset of the `POSIX` specification** of that tool that you'll benefit
+from wielding on the day-to-day.  How much could this represent?  Well, I
+wouldn't bore you with the picturesque particulars of poor pertinence, of
+course: **I mean only three flags**.
 
-Enter `xargs`: the adapter that bridges this gap, transforming `stdin` into
-arguments for commands that won't read from it otherwise.  I intend here to
-focus on a mere subset of only the `POSIX` specification of that tool, which
-shall already be quite plenty once duly internalised.
+Do not scoff at their <abbr title='smallness of number,
+"fewness"'>paucity</abbr>, however: they should already be plenty to assimilate,
+and plenty rewarding to have duty internalised.
 
 <!-- more -->
+
+> [!NOTE]
+>
+> This article can stand alone, but will build somewhat upon some
+> information that is only shared in my [introductory `xargs`
+> guidance](@/flight-manual/xargs/01-introductory-xargs-guidance.md).  I may
+> clarity some of that knowledge when I come to rely on it, but will generally
+> assume it assimilated.
+
+<!-- link at "picturesque particulars of poor pertinence", or in a [!NOTE] -->
+<!-- [assonances-and-alliterations](@/ramblings/assonances-and-alliterations.md) TODO: LINKME -->
 
 <div class="hi">
 
 ## Obligatory [TL;DR](https://en.wikipedia.org/wiki/TL;DR)
 
-`xargs` is a `POSIX` tool that lets you build and execute command lines from
-standard input:
+There are several ways in which `xargs` may go **from input lines to effective
+arguments**, as well as how many arguments to be used for each call:
 
-```sh
-echo a b c | xargs touch
-touch $(echo a b c)
-touch a b c
-```
-{{ note(msg="these are all functionally equivalent") }}
-
-`xargs` has several ways to go from input lines to effective arguments, as well
-as how many arguments to be used for each call.
-
-- `-n <max-args>` dictates how **many arguments shall the utility receive at
+- `-n <max-args>` dictates **how many arguments shall the utility receive at
   most**:
 
     <div class="grid-1-3">
@@ -186,14 +186,8 @@ EOF
 ```
 {{ note(msg="this will invoke `rm .zshrc` and `rm .env`") }}
 
-Lastly, **know of `-t`, for _"trace"_, and `-p`, for _"prompt"_**, which allow
-you to output to `stderr` the commands to be invoked, and, in the case of
-`-p`, to await explicit affirmative answer before proceeding with each.  In
-the case of `GNU`'s implementation, **any answer starting with `y` or `Y` is
-affirmative**.
-
-After having read this study, the difference between `xargs -n1 wc` and `xargs
-wc` should be no surprise:
+At the end of this here study study, the goal is to have the difference between
+`xargs -n1 wc` and `xargs wc` be of no surprise:
 
 <div class="grid-1-2">
 <div>
@@ -224,204 +218,17 @@ find -name '*.h' | xargs -L1 wc
 </div>
 </div>
 
-There's a bit more to all of this—which I go into with great care in this
-article, and then some more that I find essential to have mastered (despite not
-being part of the `POSIX` specification) which will be the object of a follow-up
-write-up.
-
+<!-- NEXT ARTICLE TODO: LINKME -->
 <!-- [-0-null-print0-z](@/ramblings/-0-null-print0-z.md) TODO: LINKME -->
 
 </div>
 
-## A few goodies before we get started
-
-I'll assume you already have a vague idea what `xargs` does; I'll go straight to
-a couple of tips that will come up later and should therefore be introduced at
-some point.
-
-The `-t` flag, for _"trace"_, will have `xargs` output to its _standard error_
-output each command that it will execute, which is quite useful for debugging or
-general logging.
-
-The `-p` flag, for _"prompt"_, builds upon that mechanism and will stop before
-each invocation, asking interactively for confirmation before executing any
-command.
-
-> [!NOTE]
->
-> `GNU`'s implementation offers the `--verbose` and `--interactive` long-form
-> alternatives to `-t` and `-p`, respectively.  Also, while the `POSIX`
-> specification doesn't quite describe what constitutes an "affirmative answer"
-> in _prompt_ mode, `GNU`'s implementation interprets any answer starting with a
-> `y` or `Y` as such.
-
-The full syntax for `xargs` is `xargs [options] [command [initial-arguments]]`:
-
-- omitting the `command` will have `xargs` invoke `echo`;
-- you may specify some `initial-arguments` in addition to the utility to invoke;
-- I like to use, for perennial scripts that shall be read and operated by many
-  (or for myself, too, sometimes!), the `--` convention (also part of [the
-  `POSIX` guidelines](https://pubs.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap12.html)!)
-  whereby we may separate `xargs`'s "operands" (the command line to build up)
-  from its options.  Consider for example:
-
-  ```sh
-  find -type f -executable | xargs -n1 ln -s -t ~/bin
-  find -type f -executable | xargs -n1 -- ln -s -t ~/bin
-  ```
-  {{ note(msg="I find the second version more easily parsed") }}
-
-Do take note that some utilities, such as `mv`, `cp`, `ln`, _et cet._, who
-usually interpret their arguments as `mv SOURCE... DESTINATION`, can make use
-of the (non-`POSIX`) `-t`/`--target-directory` flag to accept the `DESTINATION`
-earlier than with the last argument, which pairs well with `xargs`:
-
-```sh
-find -type f -executable | xargs mv -t ~/bin
-# mv -t ~/bin FILE_1 FILE_2 FILE_3
-
-find -type f -executable | xargs -n1 -- ln -st ~/bin
-# ln -st ~/bin FILE_1
-# ln -st ~/bin FILE_2
-# ln -st ~/bin FILE_3
-```
-{{ note(msg="use the (non-`POSIX`) `-t` flag found across several `GNU` utilities to work more elegantly with `xargs`") }}
-
-## Just because you have a hammer...
-
-I'd like to start with a disclaimer: `xargs` is a fine tool, adding it to your
-arsenal and being confident in its usage will get you far: you may still want
-to use alternatives possibly **built into your original tool**, for several
-reasons, ranging from mere convenience to possible hiccup prevention.
-
-The unequivocally most obvious "offender" occurs with file-finding utilities,
-most prominently `find` and its `fd`[^find-vs-fd] cousin: their authors know
-you'll want to do things with these files, they have the _"pipe into `xargs`"_
-functionally built-in, in the form of `-exec`.
-
-[^find-vs-fd]: Both tools let you search for files in your system. **`find` is
-    part of the `POSIX` specification, is older, more complex, more powerful and
-    complete; `fd` is (largely) more modern in its interface, its implementation
-    generally is stunningly faster at working with large collections of files,
-    defaults to considering various <abbr title="Version Control System, such
-    as Git">VCS</abbr>'s "ignore lists", and favours Regular Expressions rather
-    than _globbing_.**  I'd naturally not advocate for `fd`, since it is a mere,
-    far smaller subset of `find`, but the convenience in handling the mundane
-    tasks, which comprise the overwhelming majority of tasks I met, makes, in my
-    opinion, a **strong enough case to justify dual-wielding both tools**.
-
-    > [!TIP]
-    >
-    > `TL;DR`: **`find` will forever be more powerful**, by philosophy, in
-    > offering more savvy integration with the file system.  For example, it
-    > allows querying for files' **accessed** at certain times, recognise hard
-    > links, filter according to permission flags, possibly avoid crossing
-    > _mounted filesystems_, etc.
-    >
-    > On the other hand, **`fd` is more obvious and natural to pilots, as well
-    > as being ignificantly faster**, in part because it embraces "sane modern
-    > defaults" and has the luxury of positioning itself as a tool of much
-    > humbler scope.
-    >
-    > **Both are excellent**, the overlap in the solutions they offer is large,
-    > but each presents unique qualities of enough value to warrant being
-    > advocated for here.
-
-    Know that you won't have it available as soon as you jump into any server or
-    any colleague's machine, however.
-
-The following two commands are functionally equivalent—`find -exec ... +`
-batches arguments much like `xargs` does:
-
-```sh
-find -name '*.tmp' -exec rm {} +          # built-in approach
-find -name '*.tmp'         | xargs    rm  # pipeline approach
-find -name '*.tmp' -print0 | xargs -0 rm  # most robust, will justify later
-```
-{{ note(msg="my heart aches knowing full well that `-print0` and `-0` aren't quite `POSIX`") }}
-
-There's also the option to use **command substitution**, but that is **subject
-to word-splitting (or _"arguments parsing"_) concerns**, and doesn't quite let
-you consider batching and parallelism whatsoever:
-
-```sh
-rm $(find -name '*.tmp')                  # subshell approach, brittle in the face of spaces
-```
-{{ note(msg="command substitution is expressive, but doesn't quite fill the same niche as `xargs` generally") }}
-
-For simple cases like deleting files, `-exec` or `-delete` is more
-elegant[^idiomaticity], but **when you need to filter `find`'s output through
-other commands, `xargs` is inevitable**:
-
-[^idiomaticity]: I really insist, the most elegant way to use a tool is with the
-great proficiency that only comes from knowing it inside out.  Think of it this
-way: **if you're reading a book, you'll use your eyes anyway; would you reach
-for your smart phone to digitalise its pages through its camera, and watch that
-live feed on its screen?**  In some cases (when you'd get the added benefit of
-live software-enabled translation, for example), it's the way to go; typically,
-that'd be preposterous.
-
-<!-- [make ample use of discernment](@/ramblings/make-ample-use-of-discernment.md) TODO: LINKME -->
-
-```sh
-find -name '*.log' -exec grep -v trace {} | xargs zip archive.zip +     # nonsense
-find -name '*.log'         | grep  -v trace | xargs    zip archive.zip  # works
-find -name '*.log' -print0 | grep -zv trace | xargs -0 zip archive.zip  # works best, non-POSIX
-```
-{{ note(msg="the first line is nonsensical: the pipe, `|`, **cannot be part of the `-exec` arguments** ") }}
-
-> [!NOTE]
->
-> It's actually several layers of nonsense: **`grep` cannot receive its input
-> content to filter as a list of arguments**.  For the purpose of the example,
-> let's pretend that `grep -v archive {}` would work, but know that it doesn't
-> actually.
-
-<!-- REALLY NEED TO TALK OF -Z -0 -NULL -PRINT0 RIGHT HERE IN PARTICULAR!!! -->
-<!-- [-0-null-print0-z](@/ramblings/-0-null-print0-z.md) TODO: LINKME -->
-
-You may be tempted to go for the following, but `find` actually expects
-`{}` to stand **on its own** as an operand; it won't serve as some sort of
-_"placeholder"_ within any arbitrary argument;
-
-```sh
-find -name '*.log' -exec sh -c 'grep -v archive {} | xargs -0 gzip' +  # nice try; won't work
-```
-{{ note(msg="attempting to `sh -c '...'` in `-exec` won't quite work either: `{}` won't be interpreted there") }}
-
-There's no one-size-fits-all here, though it may be tempting to
-make `xargs` for that.  After all, **idiomaticity and elegance are
-subjective**[^subjectiveness-of-idiomaticity]: the latter for its vague,
-personal and artistic virtues, the former for the rarefying occasions that
-corporate software developers find themselves in where they'd peruse scripts
-authored by—or directly work with—some sharp `CLI` user.
-
-[^subjectiveness-of-idiomaticity]: However subjective these may be, let's
-    put it this way: if you don't immediately understand the benefits of
-    [`sponge`](https://man.archlinux.org/man/extra/moreutils/sponge.1.en),
-    have never ended up using [`stdbuf`](https://linux.die.net/man/1/stdbuf),
-    nor have a clear and precise idea of the scheduling each process of your
-    pipeline is spawned in accordance with, you may not take offence to the
-    constant and systematic interjection of many such useless processes; but
-    **have [`top`](https://linux.die.net/man/1/top) running in your head while
-    you type in the terminal, and your perspective may shift somewhat**.
-
-    > [!NOTE]
-    >
-    > Of these futile processes or practices, I wrote a while ago about the most
-    > venerable [useless use of `cat`](@/flight-manual/useless-use-of-cat.md):
-    > it's a far more digestible article hearkening back to my less disabused
-    > days.  What's that, it was just last year?  Oh my.
-
-In any case, **what you're most comfortable with still shall ultimately be the
-better choice**.  If you happen however to essentially find yourself in a tie,
-you get to make use of discernment and parsimony!
-
 ## The fundamentals
 
 Here's where `xargs` becomes indispensable: you have some command generating
-output (not `find`—not something blessed with `-exec`), and you need to pass
-that output as arguments to another command.
+output (not `find`; not anything blessed with `-exec`—see [introductory
+`xargs` guidance](@/flight-manual/xargs/01-introductory-xargs-guidance.md)), and
+you need to pass that output as arguments to another command.
 
 Perhaps you're processing the output of `git ls-files`, or `grep
 -l`/`--files-with-matches`, or filtering arbitrary lists:
@@ -495,10 +302,12 @@ additional pragmatism.
 
 ## Three indispensable flags
 
-Within the `POSIX` specification, there only remain three flags that you'll
-certainly reach for.  Well, the second is here mostly to scratch a _"shouldn't
-that corollary also exist?"_ itch, and the third is mostly a specialisation of
-the first...  But still, let's talk of all three!
+**Within the `POSIX` specification, there only remain three flags that I
+deem of the utmost pragmatism.**  Well, the second is here mostly to scratch
+a _"shouldn't that corollary also exist?"_ itch, and the third is mostly a
+specialisation of the first...  I would wager you could get much of the way
+towards `xargs` fluency using nothing but that one; but still, its little
+colleagues are more than some mere pretty faces.
 
 ### Max arguments: `-n`
 
@@ -578,7 +387,7 @@ wc win.h
 Before moving any further, we should take a detour to understand how `xargs`
 determines what constitutes _"an argument"_.
 
-### Detour from input lines to arguments {#input-to-arguments}
+### From input lines to arguments {#input-to-arguments}
 
 > [!IMPORTANT]
 >
@@ -873,10 +682,10 @@ with `-L` being passed different values, you can derive it from knowing that it
 is parallel to that of `-n` and still adheres to the input "parsing" done by
 `xargs`.
 
-In my experience, you'll not often be using `-L` with a value slightly greater than
-`1` (where you generally actually semantically may be meaning `-n`—although,
-only you would know).  Instead, something I find myself routinely reaching for
-is `-I`, which builds upon `-L1`.
+In my experience, you'll not often be using `-L` with a value slightly
+greater than `1` (where you generally actually semantically may be meaning
+`-n`—although only you would know).  Instead, something I find myself
+routinely reaching for is `-I`, which builds upon `-L1`.
 
 ### Placeholder mode: `-I`
 
@@ -937,6 +746,8 @@ received: an eviction notice, how lovely!
 > else that has since been deleted; asserting that none of them are still a
 > valid **optional dependency** for anything I am actively using, before I can
 > safely purge them.
+
+## A summarising overview
 
 One last time, let's consider the now familiar `my-args` file:
 
@@ -1042,13 +853,22 @@ find . -name '*.tmp' -exec rm {} +          # also robust, still fairly self-con
 find . -name '*.tmp' -delete                # purpose-built, definite best
 ```
 
-The last four are defensible choices; the first two are certainly not robust,
-but may work well so long as your files are named sensibly.
+**The last four are defensible choices**; the first two are certainly not
+robust, but may work well so long as your files are named sensibly.
 
 There's not so much more to the current `POSIX` specification of `xargs`—not
 much more that's certain to be of general use, at least; but the implementations
-from `GNU` and others, such as some `BSD`, prevent some further remakable
-details that are well worth talking about.  I will make sure to write some
-follow-up _"one of these days"_.  Until then, have fun!
+from `GNU` and others, such as some `BSD`, prevent some further remarkable
+details that are well worth talking about.
+
+## Going forward
+
+There shall be a bit more to the still basic, extraordinarily practical bits of
+`xargs` insight.  I've been alluding to `-0` and co. throughout this article,
+and only excuse its omission from any serious `xargs` guide by its distinct
+absence from the proper `POSIX` specification.  Nevertheless, that negligence
+here shall be addressed in the next and final article of this series.
 
 <!-- [-0-null-print0-z](@/ramblings/-0-null-print0-z.md) TODO: LINKME -->
+
+Until then, have fun!
