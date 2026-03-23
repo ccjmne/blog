@@ -263,13 +263,26 @@ git ls-files '*.[c,h]' | xargs wc
   5504  18483 133221 total
 ```
 
-Here, we instructed `xargs` to invoke `wc` using the list of source (`*.c`) and header (`*.h`) files tracked by
-Git as arguments.  These are functionally equivalent:
+Here, we instructed `xargs` to invoke `wc` using the list of source (`*.c`) and
+header (`*.h`) files tracked by Git as arguments.  These two are functionally
+equivalent:
+
+<div class="grid-1-2">
+<div>
 
 ```sh
 git ls-files '*.[c,h]' | xargs wc
+```
+{{ note(msg="via the pipeline") }}
+</div>
+<div>
+
+```sh
 wc $(git ls-files '*.[c,h]')
 ```
+{{ note(msg="via a sub-shell") }}
+</div>
+</div>
 
 > [!TIP]
 >
@@ -278,7 +291,7 @@ wc $(git ls-files '*.[c,h]')
 > `xargs` additionally offers the `--verbose` long-form equivalent to the
 > `POSIX`-defined `-t`.  We can use it here to see precisely what ended up being
 > invoked:
-> 
+>
 > ```sh
 > git ls-files '*.[c,h]' | xargs -t wc
 > ```
@@ -465,6 +478,32 @@ true '$(date)'
 ```
 {{ note(msg="I use `-n1` here to have each single argument result in a dedicated call to `true`") }}
 
+> [!TIP]
+>
+> While **that isn't part of the `POSIX` standard**, `GNU`'s implementation uses
+> `-a`/`--arg-file` to read from a file rather than the standard input.  The two
+> following options are functionally equivalent:
+>
+> <div class="grid-1-2">
+> <div>
+>
+> ```sh
+> cat my-args | xargs echo
+> ```
+> {{ note(msg="the `POSIX` version") }}
+> </div>
+> <div>
+>
+> ```sh
+> xargs -a my-args echo
+> ```
+> {{ note(msg="a non-standard flag in `GNU`'s implementation") }}
+> </div>
+> </div>
+>
+> As such, the pattern I employ here of `cat <x> | xargs <y>` isn't quite
+> definitely [useless](@/flight-manual/useless-use-of-cat.md).
+
 Would you look at that!  A few things are worth noting here:
 
 1. empty lines are ignored (what else could reasonably happen?);
@@ -510,29 +549,6 @@ Would you look at that!  A few things are worth noting here:
     > operated by some less savoury entity...  **Don't run anything, unless
     > you have at least given it a look, or you have staunch confidence in its
     > authors and maintainers.**
-
-> [!TIP]
->
-> While **that isn't part of the `POSIX` standard**, `GNU`'s implementation uses
-> `-a`/`--arg-file` to read from a file rather than the standard input.  The two
-> following options are functionally equivalent:
->
-> <div class="grid-1-2">
-> <div>
->
-> ```sh
-> cat my-args | xargs echo
-> ```
-> {{ note(msg="the `POSIX` version") }}
-> </div>
-> <div>
->
-> ```sh
-> xargs -a my-args echo
-> ```
-> {{ note(msg="a non-standard flag in `GNU`'s implementation") }}
-> </div>
-> </div>
 
 In the `POSIX` specification, there's only one way to bypass this interpretation
 (`-I`, we'll get to it in a moment), but several implementations (such as the
@@ -724,10 +740,10 @@ received: an eviction notice, how lovely!
 
 > [!TIP]
 >
-> As a note, despite `{}` being the well-established, universally recognised
-> "placeholder" definition with `xargs` (and other tools), **I discovered that
-> a quick `-II` is quite satisfying**: it simply uses `I` instead of `{}` as
-> placeholder.
+> As a note, despite `{}` being the well-established, universally
+> recognised "placeholder" definition with `xargs` (and other tools, like
+> [`fzf`](https://github.com/junegunn/fzf)), **I discovered that a quick `-II`
+> is quite satisfying**: it simply uses `I` instead of `{}` as placeholder.
 >
 > It's more likely to be troublesome in general, under the hypothesis that a
 > stray `I` is more common than a `{}` pair, but it's not yet bitten me in
@@ -737,13 +753,13 @@ received: an eviction notice, how lovely!
 > `II`**:
 >
 > ```sh
-> pacman -Qdtq | xargs -II sh -c 'pacman -Qi I | rg -i "optional.for"'
+> pacman -Qdtq | xargs -II sh -c 'pacman -Qi I | grep -i optional.for'
 > ```
 > {{ note(msg="using `-II` comes in quite handy when invoking a **pipeline** through `sh -c` via `xargs`") }}
 >
 > Here it is in action, straight from my recent shell history, going over all
 > the packages that were originally installed as **dependencies** to something
-> else that has since been deleted; asserting that none of them are still a
+> else that has since been removed; asserting that none of them are still a
 > valid **optional dependency** for anything I am actively using, before I can
 > safely purge them.
 
@@ -767,7 +783,7 @@ $(date)
 ```
 {{ note(msg="this is again the file used in the [previous](#max-lines) [sections](#input-to-arguments)") }}
 
-Giving it the `xargs`-`true` treatment shows yet another somewhat sublte
+Giving it the `xargs`–`true` treatment shows yet another somewhat sublte
 difference from its `-n` and `-L` cousins:
 
 ```sh
