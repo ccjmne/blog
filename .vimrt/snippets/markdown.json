@@ -1,0 +1,44 @@
+{
+  "note": {
+    "prefix": "note",
+    "body": [
+      "{{ note(msg=\"$1\") }}"
+    ]
+  },
+  "grid-1-2": {
+    "prefix": "grid",
+    "body": [
+      "<div class=\"grid-1-2\">",
+      "<div>",
+      "$1",
+      "</div>",
+      "<div>",
+      "$2",
+      "</div>",
+      "</div>"
+    ]
+  },
+  "shell+txt": {
+    "prefix": "sh",
+    "body": [
+      "```sh",
+      "$1",
+      "```",
+      "```txt",
+      "$2",
+      "```"
+    ]
+  },
+  "tldr": {
+    "prefix": "tldr",
+    "body": [
+      "<div class=\"hi\">",
+      "",
+      "## Obligatory [TL;DR](https://en.wikipedia.org/wiki/TL;DR)",
+      "",
+      "$1",
+      "",
+      "</div>"
+    ]
+  }
+}
