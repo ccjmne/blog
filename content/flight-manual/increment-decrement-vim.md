@@ -588,7 +588,7 @@ animations {
     }
 }
 ```
-{{ note(msg="before you even really know what you want to do") }}
+{{ note(msg="before you even really know what you want") }}
 </div>
 <div>
 
@@ -611,7 +611,7 @@ animations {
     }
 }
 ```
-{{ note(msg="by the time you've figured out what you want to do") }}
+{{ note(msg="by the time you've figured out what you want") }}
 </div>
 </div>
 
@@ -674,7 +674,7 @@ seq 1 3 25
 22
 25
 ```
-{{ note(msg="`seq` is worth a mention for sequence generation") }}
+{{ note(msg="`seq` is worth a mention for sequence creation") }}
 </div>
 <div>
 
@@ -696,7 +696,7 @@ EOF
 5. Sleep it off
 6. Repeat
 ```
-{{ note(msg="You can just `!nl` in visual mode; `!ipnl` numbers your current paragraph, `:%!nl` your entire file") }}
+{{ note(msg="You could use `!nl` visually; or in normal mode use `!ipnl` to number your current paragraph, or even `:%!nl` to cover your entire file") }}
 </div>
 </div>
 
@@ -789,7 +789,7 @@ Then `B`-shimmy your way to `Mar` and let your partner believe you meant
 ```txt
 Mon, 14 Feb 2028 15:00:00 +0100
 ```
-{{ note(msg="the weekday changed this time from `Tue` to `Mon`") }}
+{{ note(msg="the weekday changed again, from `Tue` to `Mon`") }}
 </div>
 <div>
 
@@ -811,7 +811,7 @@ done:
 ```txt
 Sat, 19 Feb 2028 22:00:00 +0100
 ```
-{{ note(msg="by the same science, you could cram some 600-hour university course in precisely 25 days") }}
+{{ note(msg="going by that science, you should be able cram some 600-hour university course in precisely 25 days") }}
 </div>
 <div>
 
