@@ -17,8 +17,8 @@ flashing its splash screen[^cli-editor].
 [^cli-editor]: So we're clear: it's not just about shaving off a few seconds
 here and there: wait until you learn about `fc`!
 
-**But let's put aside the speed: I mean to talk about the *availability* and
-*convenience*.**
+**But let's put aside the speed: I mean to talk about the _availability_ and
+_convenience_.**
 
 With <abbr title="Aptly and delightfully named companion to coreutils">`moreutils`</abbr>,
 this elevator pitch needs to be challenged: _between_
@@ -32,15 +32,25 @@ editor for filtering and transforming text ">`sed`</abbr>.
 ## The script-friendly editor
 
 Let's start with a quick round of qualifications against the few
-IDEs I've had the occasion to use over the last couple of years: [VS
+`IDE`s I've had the occasion to use over the last couple of years: [VS
 Code](https://code.visualstudio.com/), [Eclipse](https://www.eclipse.org/) and
 [IntelliJ](https://www.jetbrains.com/idea/).
 
-- all three can be made to accept a file to open as an argument, though only one
-  doesn't require prior set-up or extra gymnastics,
-- only two can be spawned in `--wait` mode, blocking progress of the invoking
-  script until their interface is closed,
-- none of them provide a reasonable way to error out (`exit 1`).
+- **all three** can be made to accept a file to open as an argument, though only
+  one doesn't require prior set-up or extra gymnastics,
+- **only two** can be spawned in `--wait` mode, blocking progress of the
+  invoking script until their interface is closed,
+- **none of them** provide a reasonable way to error out (`exit 1`).
+
+Why would you want to deliberately error out?  Vim's manual gives you a glimpse
+of the possibilities that this opens up:
+
+> Useful when Vim is called from another program: e.g., a compiler will not
+> compile the same file again, `git commit` will abort the committing process,
+> `fc` (built-in for shells like bash and zsh) will not execute the command,
+> etc.
+>
+> {% attribution() %} Vim [`:help :cq`](https://vimhelp.org/quickfix.txt.html#%3Acq) {% end %}
 
 These functionalities don't sound like much, but they're part of what I would
 expect from a _script-friendly editor_.
@@ -56,7 +66,7 @@ will:
 3. let the user customise that e-mail,
 4. send the e-mail to the unsuspecting recipient.
 
-Let's start off with steps 1 and 2:
+Let's start off with steps `i` and `ii`:
 
 ```sh
 MAIL=$(mktemp --suffix .eml)
@@ -95,17 +105,17 @@ and pass them along to `fzf`, offering an interactive interface for the user to
 pick an entry.  The selected quote is finally written to `$MAIL`, in a format
 suitable for plain-text e-mails:
 
-```eml
-Date: Mon, 11 Aug 2025 00:20:43 +0200
-From: ccjmne@gmail.com
-To: sherlock.inbox@221b.uk
-Subject: This quote made me think of you
+<pre class="giallo z-code">
+<span class="term-fg33">Date</span>: <span class="term-fg36">Mon, 11 Aug 2025 00:20:43 +0200</span>
+<span class="term-fg33">From</span>: <span class="term-fg36">ccjmne@gmail.com</span>
+<span class="term-fg33">To</span>: <span class="term-fg36">sherlock.inbox@221b.uk</span>
+<span class="term-fg33">Subject</span>: <span class="term-fg36">This quote made me think of you</span>
 
 Success is getting what you want, happiness is wanting what you get.
 
-    — W.P. Kinsella
-```
-{{ note(msg="it'll be highlighted sensibly in your editor") }}
+    — Steve Maraboli
+</pre>
+{{ note(msg="a capable editor will recognise and adequately highlight `eml` content") }}
 
 On with the last two steps: if the user did select a quote, they'll get to edit
 their e-mail in their favourite `$EDITOR`, with adequate highlighting for the
@@ -177,7 +187,7 @@ Could it?  Let's try it out:
 +   | ifne vipe --suffix eml \
 +   | msmtp sherlock.inbox@221b.uk
 ```
-{{ note(msg="these two lines replace the entire second half of the script and forgo toying with a variable in the first") }}
+{{ note(msg="**two lines** replace the entire second half of the script and forgo toying with a variable in the first") }}
 
    Well, what do you know: it can.  That tedious business from the earlier
 script?  Gone.  The variable we were passing around?  Gone as well.<br>
