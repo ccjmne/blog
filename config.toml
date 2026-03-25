@@ -76,7 +76,7 @@ name    = "find"
 repo    = "https://git.savannah.gnu.org/cgit/findutils.git/"
 package = "core/x86_64/findutils"
 manual  = "https://man.archlinux.org/man/core/findutils/find.1.en"
-posix   = "https://man.archlinux.org/man/core/findutils/find.1p.en"
+posix   = "https://man.archlinux.org/man/find.1p.en"
 
 [extra.tools.fzf]
 name    = "fzf"
@@ -184,7 +184,7 @@ name    = "xargs"
 repo    = "https://git.savannah.gnu.org/cgit/findutils.git/"
 package = "core/x86_64/findutils"
 manual  = "https://man.archlinux.org/man/core/findutils/xargs.1.en"
-posix   = "https://man.archlinux.org/man/core/findutils/xargs.1p.en"
+posix   = "https://man.archlinux.org/man/xargs.1p.en"
 
 [extra.tools.xray]
 name    = "xray"
