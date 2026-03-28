@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-2.woff2" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/work-3.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/fira-2.woff2') format('woff2'); }
+</style><link rel="stylesheet" href="https://ccjmne.sh/blog/base.css">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-light.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-dark.css"  media="(prefers-color-scheme: dark)">
+    
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+>
+      <a href="https://ccjmne.sh/blog">Home</a>
+      <details class="dropdown" max-sm>
+        <summary><strong>Articles</strong></summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual"><strong>Flight manual</strong></a>
+          <a href="https://ccjmne.sh/blog/tags">By tags</a>
+          <a href="https://ccjmne.sh/blog/ramblings">Ramblings</a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual" min-sm><strong>Flight manual</strong></a>
+      <a href="https://ccjmne.sh/blog/tags"          min-sm>By tags</a>
+      <a href="https://ccjmne.sh/blog/ramblings"     min-sm>Ramblings</a>
+      <a href="https://ccjmne.sh/blog/colophon"            >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main><h1><span class="link-title" 
+  style="view-transition-name: view-01-introductory-xargs-guidance"
+>Some introductory <code>xargs</code> guidance</span></h1><ul class="infobar "><li><time>March 13, 2026</time></li><li>10-minute read</li>
+    <li>Part&nbsp;1&nbsp;of&nbsp;<a href="https:&#x2F;&#x2F;ccjmne.sh&#x2F;blog&#x2F;flight-manual&#x2F;xargs&#x2F;">The complete <code>xargs</code> rulebook</a></li><li>tagged
+      <a href="https://ccjmne.sh/blog/tags/cli">cli</a>, <a href="https://ccjmne.sh/blog/tags/posix">posix</a></li></ul>
+<details class="lo summary">
+  <summary>Series introduction</summary>
+  <h2><a href="https://ccjmne.sh/blog/flight-manual/xargs" class="link-title" 
+  style="view-transition-name: view-xargs"
+>The complete <code>xargs</code> rulebook</a></h2>
+  <p>The shell's pipe operator, <code>|</code>, is a marvellous thing: it connects the <em>standard
+output</em> of one command to the <em>standard input</em> of another, letting you chain
+utilities together into elegant pipelines.  But quite a few times, it's the
+very <strong>flags or arguments</strong> of some subsequent invocation that you want to be
+determined by the <strong>output</strong> of a previous one.</p>
+<p>Enter <code>xargs</code>: the adapter that bridges this gap, transforming <code>stdin</code> into
+arguments for commands that won't read from it otherwise.</p>
+<p>This series presumes to put together a <strong>quite comprehensive guide on all
+pragmatic <code>xargs</code> things</strong>.  That does suggest that not quite everything will be
+covered, but will give you all that you need to go about your <code>CLI</code> life with
+much fluency, some bravado, and perhaps even a touch of grace.</p>
+</details><details class="hi toc">
+  <summary>Table of contents</summary>
+  <ul><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/xargs/01-introductory-xargs-guidance/#obligatory-tl-dr">Obligatory TL;DR</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/xargs/01-introductory-xargs-guidance/#some-goodies-to-get-started">Some goodies to get started</a><ul>
+        
+        <li><a href="https://ccjmne.sh/blog/flight-manual/xargs/01-introductory-xargs-guidance/#make-the-most-of-initial-arguments">Make the most of initial arguments</a></li></ul></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/xargs/01-introductory-xargs-guidance/#beware-maslow-s-hammer">Beware Maslow&#x27;s hammer</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/xargs/01-introductory-xargs-guidance/#going-forward">Going forward</a></li>
+    <li><a href="#cited-tools">Referenced tools</a></li>
+    
+    
+  </ul>
+</details>
+<article><p>An either well-established or soon-to-be staple of your <abbr title="Command
+Line Interface, where I dwell"><code>CLI</code></abbr> vocabulary, <code>xargs</code> lets you
+fluently bridge the gap left by simple Unix pipes, <code>|</code>, in the unidirectional,
+fleeting <abbr title="Inter-Process Communication"><code>IPC</code></abbr> protocol their
+provide: with it, you can <strong>transform output data into flags and arguments for
+other utilities</strong>.  Before we get to the power-user's notes, however, a few
+introductory hints are <abbr title="prescribed by etiquette">de rigueur</abbr>.</p>
+<div class="hi">
+<h2 id="obligatory-tl-dr"><a class="anchor-link" href="#obligatory-tl-dr" aria-label="Anchor link for: obligatory-tl-dr"></a>
+Obligatory <a rel="external" href="https://en.wikipedia.org/wiki/TL;DR">TL;DR</a></h2>
+<p><code>xargs</code> is a <code>POSIX</code> tool that lets you build and execute command lines from
+standard input:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">touch</span><span class="z-string"> a</span><span class="z-string"> b</span><span class="z-string"> c</span><span class="z-punctuation z-definition z-comment">               #</span><span class="z-comment"> natural approach</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">touch</span><span class="z-punctuation"> $(</span><span class="z-support z-function z-builtin">echo</span><span class="z-string"> a</span><span class="z-string"> b</span><span class="z-string"> c</span><span class="z-punctuation">)</span><span class="z-punctuation z-definition z-comment">       #</span><span class="z-comment"> subshell approach</span></span>
+<span class="giallo-l"><span class="z-support z-function z-builtin">echo</span><span class="z-string"> a</span><span class="z-string"> b</span><span class="z-string"> c</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> touch</span><span class="z-punctuation z-definition z-comment">  #</span><span class="z-comment"> pipeline approach</span></span></code></pre><div class="note">these are all functionally equivalent</div>
+<p>You will find <code>xargs</code> to be quite handy in a couple of occasions:</p>
+<ul>
+<li>the <em>"natural approach"</em> only works when you know in advance the arguments
+you'll want to use.  I presume it obvious, but it is the only commendable way
+to approach invoking some utility; let's move on;</li>
+<li>the <em>"subshell"</em> approach runs a command in a sub-shell, then uses its
+output to pass arguments to another tool.  Note that the two are run
+<strong>sequentially</strong>, and this approach prevents you to <strong>start getting some
+responses</strong> from the second utility until the first one has completed its
+task;</li>
+<li>the <em>"pipeline"</em> approach, relying on <code>xargs</code>, for some tasks that may take a
+while, such as, typically, finding and listing files to run some operations
+on, you really may <strong>draw benefits from a more parallel approach</strong> where both
+utilities are working together <a rel="external" href="https://adamdrake.com/command-line-tools-can-be-235x-faster-than-your-hadoop-cluster.html">as the
+finest systems folks intended</a>.</li>
+</ul>
+<p>There are yet other alternatives, however, among which the most glaring would
+be <strong><code>find</code>'s courtly (albeit somewhat limited) <code>-exec</code> mechanism</strong>—and its
+"operative siblings", like <code>-execdir</code>, <code>-delete</code>, <code>-ok</code> (as well as further
+non-<code>POSIX</code> <a rel="external" href="https://en.wikipedia.org/wiki/Sibling-in-law"><em>"in-laws"</em></a>,
+<code>-link</code>, <code>-copy</code>, <code>-rename</code>...).<br>
+Whenever possible, I argue that <strong>using the capacity built in your primary
+tool would be most fluid and elegant<sup class="footnote-reference" id="fr-elegance-1"><a <a href="#fn-elegance">1</a></sup></strong>.</p>
+<p>Lastly, <strong>know of <code>-t</code>, for <em>"trace"</em>, and <code>-p</code>, for <em>"prompt"</em></strong>, which allow
+you to output to <abbr title="The standard error output"><code>stderr</code></abbr> the
+commands to be invoked, and, with respect to <code>-p</code>, to await explicit affirmative
+answer before proceeding with each.  In the case of <code>GNU</code>'s implementation,
+<strong>any answer starting with <code>y</code> or <code>Y</code> is affirmative</strong>.</p>
+</div>
+<h2 id="some-goodies-to-get-started"><a class="anchor-link" href="#some-goodies-to-get-started" aria-label="Anchor link for: some-goodies-to-get-started"></a>
+Some goodies to get started</h2>
+<p>I'll assume you already have a vague idea what <code>xargs</code> does; I'll go straight to
+a couple of tips that will come up later and should therefore be introduced at
+some point.</p>
+<p>The <code>-t</code> flag, for <em>"trace"</em>, will have <code>xargs</code> output to its <em>standard error</em>
+output each command that it will execute, which is quite useful for debugging or
+general logging:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">git</span><span class="z-string"> ls-files</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">*.[c,h]</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> -</span><span class="z-string">t</span><span class="z-string"> wc</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>wc arg.h config.def.h st.c st.h win.h x.c</span></span>
+<span class="giallo-l"><span>    50    145   1036 arg.h</span></span>
+<span class="giallo-l"><span>   474   2548  20850 config.def.h</span></span>
+<span class="giallo-l"><span>  2705   8808  58906 st.c</span></span>
+<span class="giallo-l"><span>   126    452   2923 st.h</span></span>
+<span class="giallo-l"><span>    41    163   1163 win.h</span></span>
+<span class="giallo-l"><span>  2108   6367  48343 x.c</span></span>
+<span class="giallo-l"><span>  5504  18483 133221 total</span></span></code></pre><div class="note">with <code>-t</code>, we can see that <code>xargs</code> here called: <code>wc arg.h config.def.h st.c st.h win.h x.c</code></div>
+<p>The <code>-p</code> flag, for <em>"prompt"</em>, builds upon that mechanism and will stop before
+each invocation, asking interactively for confirmation before executing any
+command:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="plain" data-name="files-to-delete.txt"><span class="giallo-l"><span>./data/export/users.csv</span></span>
+<span class="giallo-l"><span>./build/output/main.js.map</span></span>
+<span class="giallo-l"><span>-rf /</span></span></code></pre><div class="note">some curious file name you've got there</div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">cat</span><span class="z-string"> files-to-delete.txt</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> -</span><span class="z-string">p</span><span class="z-string"> rm</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">xargs</span><span class="z-string"> -</span><span class="z-string">p</span><span class="z-string"> rm</span><span class="z-keyword z-operator"> &lt;</span><span class="z-string"> files-to-delete.txt</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>rm ./data/export/users.csv?...y</span></span>
+<span class="giallo-l"><span>rm ./build/output/main.js.map?...y</span></span>
+<span class="giallo-l"><span>rm -rf /?...n</span></span></code></pre><div class="note"><code>-p</code> here let us avoid a disaster</div>
+</div>
+</div>
+<blockquote class="markdown-alert-note">
+<p>This <code>cat &lt;x&gt; | xargs &lt;y&gt;</code> isn't the most egregious an <a href="https://ccjmne.sh/blog/flight-manual/useless-use-of-cat/">useless use of
+<code>cat</code></a>, since <code>-a</code>/<code>--arg-file</code>, the
+<code>GNU</code> flag that would let <code>xargs</code> consume its input from a file descriptor
+directly, isn't part of the <code>POSIX</code> specification.</p>
+</blockquote>
+<p>Be careful however, for being repeatedly prompted for confirmation tends to have
+you mechanically agree before you actually do the <em>"wait wha—"</em> double-take...</p>
+<blockquote class="markdown-alert-tip">
+<p><code>GNU</code>'s implementation offers the <code>--verbose</code> and <code>--interactive</code> long-form
+alternatives to <code>-t</code> and <code>-p</code>, respectively.  Also, while <strong>the <code>POSIX</code>
+specification doesn't quite describe what constitutes an <em>"affirmative
+answer"</em></strong> in <em>prompt</em> mode, <code>GNU</code>'s implementation interprets any answer
+starting with a <code>y</code> or <code>Y</code> as such.</p>
+</blockquote>
+<h3 id="make-the-most-of-initial-arguments"><a class="anchor-link" href="#make-the-most-of-initial-arguments" aria-label="Anchor link for: make-the-most-of-initial-arguments"></a>
+Make the most of initial arguments</h3>
+<p>The full syntax for <code>xargs</code> is as follows:</p>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>xargs [options] [command [initial-arguments]]</span></span></code></pre><div class="note">well, the <code>POSIX</code> one is more comprehensive, but this shall do for our purpose</div>
+<p>As such, a few things are worthy of mention:</p>
+<ol>
+<li>
+<p>omitting the <code>command</code> will have <code>xargs</code> invoke <code>echo</code>;</p>
+</li>
+<li>
+<p>you may specify some <code>initial-arguments</code> in addition to the utility to
+invoke;</p>
+</li>
+<li>
+<p>I like to use, for perennial scripts that shall be read and operated by many
+(or for myself, too, sometimes), the <code>--</code> convention, also part of <a rel="external" href="https://pubs.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap12.html">the
+<code>POSIX</code> guidelines</a>,
+whereby we may separate <code>xargs</code>'s <em>operands</em> (the command line to build up)
+from its <em>options</em>.  Consider for example:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">find</span><span class="z-string"> -</span><span class="z-string">type</span><span class="z-string"> f</span><span class="z-string"> -</span><span class="z-string">executable</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> -</span><span class="z-string">n1</span><span class="z-string"> ln</span><span class="z-string"> -</span><span class="z-string">s</span><span class="z-string"> -</span><span class="z-string">t</span><span class="z-string"> ~/bin</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">find</span><span class="z-string"> -</span><span class="z-string">type</span><span class="z-string"> f</span><span class="z-string"> -</span><span class="z-string">executable</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> -</span><span class="z-string">n1</span><span class="z-string"> -</span><span class="z-string">-</span><span class="z-string"> ln</span><span class="z-string"> -</span><span class="z-string">s</span><span class="z-string"> -</span><span class="z-string">t</span><span class="z-string"> ~/bin</span></span></code></pre><div class="note">I find the second version to be more easily parsed</div>
+</li>
+</ol>
+<p>Do take note that some utilities, such as <code>mv</code>, <code>cp</code>, <code>ln</code>, <em>et cet.</em>, who
+usually interpret their arguments as <code>command [source...] destination</code>, can
+<strong>make use of the (non-<code>POSIX</code>) <code>-t</code>/<code>--target-directory</code> flag to accept the
+<code>DESTINATION</code> earlier</strong> than with the last argument, which pairs well with
+<code>xargs</code>:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">find</span><span class="z-string"> -</span><span class="z-string">type</span><span class="z-string"> f</span><span class="z-string"> -</span><span class="z-string">executable</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-keyword z-operator">    |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> -</span><span class="z-string">t</span><span class="z-string"> -</span><span class="z-string">-</span><span class="z-string"> mv</span><span class="z-string"> -</span><span class="z-string">t</span><span class="z-string"> ~/bin</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>mv -t ~/bin FILE_1 FILE_2 FILE_3</span></span></code></pre><div class="note"><code>mv -t [dest] [src...]</code> is <code>xargs</code>-savvy</div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">find</span><span class="z-string"> -</span><span class="z-string">type</span><span class="z-string"> f</span><span class="z-string"> -</span><span class="z-string">executable</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-keyword z-operator">    |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> -</span><span class="z-string">tn1</span><span class="z-string"> -</span><span class="z-string">-</span><span class="z-string"> ln</span><span class="z-string"> -</span><span class="z-string">st</span><span class="z-string"> ~/bin</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>ln -st ~/bin FILE_1</span></span>
+<span class="giallo-l"><span>ln -st ~/bin FILE_2</span></span>
+<span class="giallo-l"><span>ln -st ~/bin FILE_3</span></span></code></pre><div class="note"><code>mv</code> isn't the sole recipient of this <code>-t</code> blessing</div>
+</div>
+</div>
+<blockquote class="markdown-alert-note">
+<p>Note that I used two <code>-t</code> flags here: the first one for <code>xargs</code>, as a
+shorthand for <code>--trace</code>, and later, the one standing for <code>--target-directory</code>,
+to be passed to <code>ln</code>.  Both are <code>GNU</code> additions on top of the strictly <code>POSIX</code>
+specification.<br>
+Keep in mind the <code>--</code> demarcation that assists in keeping things
+intelligible:  I suspect you might grow fond of it as well.</p>
+</blockquote>
+<h2 id="beware-maslow-s-hammer"><a class="anchor-link" href="#beware-maslow-s-hammer" aria-label="Anchor link for: beware-maslow-s-hammer"></a>
+Beware <a rel="external" href="https://en.wikipedia.org/wiki/Law_of_the_instrument">Maslow's hammer</a></h2>
+<p>I'd like to start with a disclaimer: <code>xargs</code> is a fine tool, adding it to your
+arsenal and being confident in its usage will get you far: you may still want
+to <strong>use alternatives possibly built into your original tool</strong>, for several
+reasons, ranging from mere convenience to possible hiccup prevention.</p>
+<p>The unequivocally most obvious "offender" occurs with file-finding utilities,
+most prominently <code>find</code> and its <code>fd</code><sup class="footnote-reference" id="fr-find-vs-fd-1"><a <a href="#fn-find-vs-fd">2</a></sup> cousin: their authors know
+you'll want to do things with these files, they have the <em>"pipe into <code>xargs</code>"</em>
+functionally built-in, in the form of <code>-exec</code>.</p>
+<p>The following two commands are functionally equivalent—<code>find -exec ... +</code>
+batches arguments much like <code>xargs</code> does:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">find</span><span class="z-string"> -</span><span class="z-string">name</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">*.tmp</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> -</span><span class="z-string">exec</span><span class="z-string"> rm</span><span class="z-string"> {}</span><span class="z-string"> +</span><span class="z-punctuation z-definition z-comment">          #</span><span class="z-comment"> built-in approach</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">find</span><span class="z-string"> -</span><span class="z-string">name</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">*.tmp</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-keyword z-operator">         |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string">    rm</span><span class="z-punctuation z-definition z-comment">  #</span><span class="z-comment"> pipeline approach</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">find</span><span class="z-string"> -</span><span class="z-string">name</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">*.tmp</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> -</span><span class="z-string">print0</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> -</span><span class="z-string">0</span><span class="z-string"> rm</span><span class="z-punctuation z-definition z-comment">  #</span><span class="z-comment"> most robust, will justify later</span></span></code></pre><div class="note">my heart aches knowing full well that <code>-print0</code> and <code>-0</code> aren't quite <code>POSIX</code></div>
+<p>There's also the option to use <strong>command substitution</strong>, but that is <strong>subject
+to word-splitting (or <em>"arguments parsing"</em>) concerns</strong>, and doesn't quite let
+you consider batching and parallelism whatsoever:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">rm</span><span class="z-punctuation"> $(</span><span class="z-entity z-name z-function">find</span><span class="z-string"> -</span><span class="z-string">name</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">*.tmp</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation">)</span><span class="z-punctuation z-definition z-comment">  #</span><span class="z-comment"> subshell approach, brittle in the face of white-spaces</span></span></code></pre><div class="note">command substitution is expressive, but doesn't quite fill the same niche as <code>xargs</code> generally</div>
+<p>For simple cases like deleting files, <code>-exec</code> or <code>-delete</code> is more
+elegant<sup class="footnote-reference" id="fr-elegance-2"><a <a href="#fn-elegance">1</a></sup>, but <strong>when you need to filter <code>find</code>'s output through other
+commands, <code>xargs</code> is inevitable</strong>:</p>
+<!-- [make ample use of discernment](@/ramblings/make-ample-use-of-discernment.md) TODO: LINKME -->
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">find</span><span class="z-string"> -</span><span class="z-string">name</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">*.log</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> -</span><span class="z-string">exec</span><span class="z-string"> grep</span><span class="z-string"> -</span><span class="z-string">v</span><span class="z-string"> trace</span><span class="z-string"> {}</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> zip</span><span class="z-string"> archive.zip</span><span class="z-string"> +</span><span class="z-punctuation z-definition z-comment">     #</span><span class="z-comment"> nonsense</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">find</span><span class="z-string"> -</span><span class="z-string">name</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">*.log</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-keyword z-operator">         |</span><span class="z-entity z-name z-function"> grep</span><span class="z-string">  -</span><span class="z-string">v</span><span class="z-string"> trace</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string">    zip</span><span class="z-string"> archive.zip</span><span class="z-punctuation z-definition z-comment">  #</span><span class="z-comment"> works</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">find</span><span class="z-string"> -</span><span class="z-string">name</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">*.log</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> -</span><span class="z-string">print0</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> grep</span><span class="z-string"> -</span><span class="z-string">zv</span><span class="z-string"> trace</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> -</span><span class="z-string">0</span><span class="z-string"> zip</span><span class="z-string"> archive.zip</span><span class="z-punctuation z-definition z-comment">  #</span><span class="z-comment"> best, but non-POSIX</span></span></code></pre><div class="note">the first line is nonsensical: the pipe, <code>|</code>, <strong>cannot be part of the <code>-exec</code> arguments</strong></div>
+<blockquote class="markdown-alert-note">
+<p>It's actually several layers of nonsense: <strong><code>grep</code> cannot receive its input
+content to filter as a list of arguments</strong>.  For the purpose of the example,
+let's pretend that <code>grep -v archive {}</code> would work, but know that it doesn't
+actually.</p>
+</blockquote>
+<!-- REALLY NEED TO TALK OF -Z -0 -NULL -PRINT0 RIGHT HERE IN PARTICULAR!!! -->
+<!-- [-0-null-print0-z](@/ramblings/-0-null-print0-z.md) TODO: LINKME -->
+<p>You may be tempted to go for the following, but <code>find</code> actually expects
+<code>{}</code> to stand <strong>on its own</strong> as an operand; it won't serve as some sort of
+<em>"placeholder"</em> within any arbitrary argument;</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">find</span><span class="z-string"> -</span><span class="z-string">name</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">*.log</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> -</span><span class="z-string">exec</span><span class="z-string"> sh</span><span class="z-string"> -</span><span class="z-string">c</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">grep -v archive {} | xargs -0 gzip</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> +</span><span class="z-punctuation z-definition z-comment">  #</span><span class="z-comment"> nice try; won&#39;t work</span></span></code></pre><div class="note">attempting to <code>sh -c '...'</code> in <code>-exec</code> won't quite work either: <code>{}</code> won't be interpreted there</div>
+<p>There's no one-size-fits-all here, though it may be tempting to
+make <code>xargs</code> for that.  After all, <strong>idiomaticity and elegance are
+subjective</strong><sup class="footnote-reference" id="fr-subjectiveness-of-idiomaticity-1"><a <a href="#fn-subjectiveness-of-idiomaticity">3</a></sup>: the latter for its vague,
+personal and artistic virtues, the former for the rarefying occasions that
+corporate software developers find themselves in where they'd peruse scripts
+authored by—or directly work with—some sharp <code>CLI</code> user.</p>
+<h2 id="going-forward"><a class="anchor-link" href="#going-forward" aria-label="Anchor link for: going-forward"></a>
+Going forward</h2>
+<p>In any case, <strong>what you're most comfortable with still shall ultimately be the
+better choice</strong>.  If you happen however to essentially find yourself in a tie,
+you get to make use of discernment and parsimony!</p>
+<p>Now that we've got the pleasantries out of the way, I invite
+you to dive into the more proper and <a href="https://ccjmne.sh/blog/flight-manual/xargs/02-posix-xargs-fundamentals/">practical <code>xargs</code>
+fundamentals</a> in the next
+article of this series.</p>
+  <section class="footnotes" aria-label="Footnotes">
+      <ol class="footnotes-list">
+<li id="fn-elegance">
+<p>I really insist, the most elegant way to use a tool is with the
+great proficiency that only comes from knowing it inside out.  Think of it this
+way: <strong>if you're reading a book, you will hold it open</strong>, and you'll bounce
+light off its pages and into your eyes; <strong>would you rather hold something that
+holds the book</strong>, and reach for your smart phone to digitalise its pages through
+its camera, only to watch <em>that</em> live feed on its screen?  In some cases (when
+you'd get the added benefit of live software-enabled translation, for example),
+it's the way to go; <strong>typically, that'd be preposterous</strong>. <a href="#fr-elegance-1">↩</a> <a href="#fr-elegance-2">↩2</a></p>
+</li>
+<li id="fn-find-vs-fd">
+<p>Both tools let you search for files in your system. <strong><code>find</code> is
+part of the <code>POSIX</code> specification, is older, more complex, more powerful and
+complete; <code>fd</code> is (largely) more modern in its interface, its implementation
+generally is stunningly faster at working with large collections of files,
+defaults to considering various <abbr title="Version Control System, such
+as Git">VCS</abbr>'s "ignore lists", and favours Regular Expressions rather
+than <em>globbing</em>.</strong>  I'd naturally not advocate for <code>fd</code>, since it is a mere,
+far smaller subset of <code>find</code>, but the convenience in handling the mundane
+tasks, which comprise the overwhelming majority of tasks I met, makes, in my
+opinion, a <strong>strong enough case to justify dual-wielding both tools</strong>.</p>
+<blockquote class="markdown-alert-tip">
+<p><code>TL;DR</code>: <strong><code>find</code> will forever be more powerful</strong>, by philosophy, in
+offering more savvy integration with the file system.  For example, it
+allows querying for files' <strong>accessed</strong> at certain times, recognise hard
+links, filter according to permission flags, possibly avoid crossing
+<em>mounted filesystems</em>, etc.</p>
+<p>On the other hand, <strong><code>fd</code> is more obvious and natural to pilots, as well
+as being ignificantly faster</strong>, in part because it embraces "sane modern
+defaults" and has the luxury of positioning itself as a tool of much
+humbler scope.</p>
+<p><strong>Both are excellent</strong>, the overlap in the solutions they offer is large,
+but each presents unique qualities of enough value to warrant being
+advocated for here.</p>
+</blockquote>
+<p>Know that you won't have it available as soon as you jump into any server or
+any colleague's machine, however. <a href="#fr-find-vs-fd-1">↩</a></p>
+</li>
+<li id="fn-subjectiveness-of-idiomaticity">
+<p>However subjective these may be, let's
+put it this way: if you don't immediately understand the benefits of
+<a rel="external" href="https://man.archlinux.org/man/extra/moreutils/sponge.1.en"><code>sponge</code></a>,
+have never ended up using <a rel="external" href="https://linux.die.net/man/1/stdbuf"><code>stdbuf</code></a>,
+nor have a clear and precise idea of the scheduling each process of your
+pipeline is spawned in accordance with, you may not take offence to the
+constant and systematic interjection of many such useless processes; but
+<strong>have <a rel="external" href="https://linux.die.net/man/1/top"><code>top</code></a> running in your head while
+you type in the terminal, and your perspective may shift somewhat</strong>.</p>
+<blockquote class="markdown-alert-note">
+<p>Of these futile processes or practices, I wrote a while ago about the most
+venerable <a href="https://ccjmne.sh/blog/flight-manual/useless-use-of-cat/">useless use of <code>cat</code></a>:
+it's a far more digestible article hearkening back to my less disabused
+days.  What's that, it was just last year?  Oh my.</p>
+</blockquote>
+ <a href="#fr-subjectiveness-of-idiomaticity-1">↩</a></li>
+</ol>
+    </section>
+  <h2 id="cited-tools"><a class="anchor-link" href="#cited-tools" aria-label="Anchor link for: cited-tools"></a>
+Referenced tools</h2>
+  <div class="refs">
+<div class="ref tool mono">
+  <strong>fd</strong>
+  <div><span class="muted">from</span>&nbsp;<a rel="external" href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;fd">extra&#x2F;fd</a></div>
+  <div><a rel="external" href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;fd.1.en">manual</a>
+    <a rel="external" href="https:&#x2F;&#x2F;github.com&#x2F;sharkdp&#x2F;fd">source</a></div>
+</div>
+
+<div class="ref tool mono">
+  <strong>find</strong>
+  <div><span class="muted">from</span>&nbsp;<a rel="external" href="https://archlinux.org/packages/core&#x2F;x86_64&#x2F;findutils">core&#x2F;findutils</a></div>
+  <div><a rel="external" href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;core&#x2F;findutils&#x2F;find.1.en">man</a>
+    <a rel="external" href="https:&#x2F;&#x2F;git.savannah.gnu.org&#x2F;cgit&#x2F;findutils.git&#x2F;">src</a>
+    <a rel="external" href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;find.1p.en">posix</a></div>
+</div>
+
+<div class="ref tool mono">
+  <strong>xargs</strong>
+  <div><span class="muted">from</span>&nbsp;<a rel="external" href="https://archlinux.org/packages/core&#x2F;x86_64&#x2F;findutils">core&#x2F;findutils</a></div>
+  <div><a rel="external" href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;core&#x2F;findutils&#x2F;xargs.1.en">man</a>
+    <a rel="external" href="https:&#x2F;&#x2F;git.savannah.gnu.org&#x2F;cgit&#x2F;findutils.git&#x2F;">src</a>
+    <a rel="external" href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;xargs.1p.en">posix</a></div>
+</div>
+</div>
+  
+
+  
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a rel="external" href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <a rel="external" href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>
+        <a rel="external" href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>

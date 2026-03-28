@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-2.woff2" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/work-3.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/fira-2.woff2') format('woff2'); }
+</style><link rel="stylesheet" href="https://ccjmne.sh/blog/base.css">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-light.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-dark.css"  media="(prefers-color-scheme: dark)">
+    
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+>
+      <a href="https://ccjmne.sh/blog">Home</a>
+      <details class="dropdown" max-sm>
+        <summary><strong>Articles</strong></summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual"><strong>Flight manual</strong></a>
+          <a href="https://ccjmne.sh/blog/tags">By tags</a>
+          <a href="https://ccjmne.sh/blog/ramblings">Ramblings</a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual" min-sm><strong>Flight manual</strong></a>
+      <a href="https://ccjmne.sh/blog/tags"          min-sm>By tags</a>
+      <a href="https://ccjmne.sh/blog/ramblings"     min-sm>Ramblings</a>
+      <a href="https://ccjmne.sh/blog/colophon"            >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main><h1 class="title"><span class="link-title" 
+  style="view-transition-name: view-xargs"
+>The complete <code>xargs</code> rulebook</span></h1><ul class="infobar "><li><time>March 13</time><span class="muted">–</span><time>22, 2026</time></li><li>25-minute read <span class="muted">across</span> 2 articles</li></ul>
+<article><p>The shell's pipe operator, <code>|</code>, is a marvellous thing: it connects the <em>standard
+output</em> of one command to the <em>standard input</em> of another, letting you chain
+utilities together into elegant pipelines.  But quite a few times, it's the
+very <strong>flags or arguments</strong> of some subsequent invocation that you want to be
+determined by the <strong>output</strong> of a previous one.</p>
+<p>Enter <code>xargs</code>: the adapter that bridges this gap, transforming <code>stdin</code> into
+arguments for commands that won't read from it otherwise.</p>
+<p>This series presumes to put together a <strong>quite comprehensive guide on all
+pragmatic <code>xargs</code> things</strong>.  That does suggest that not quite everything will be
+covered, but will give you all that you need to go about your <code>CLI</code> life with
+much fluency, some bravado, and perhaps even a touch of grace.</p>
+  
+  <div class="hi"><article class="hero"><span class="ls-hero-counter"></span><h2><a href="https://ccjmne.sh/blog/flight-manual/xargs/01-introductory-xargs-guidance/" class="link-title" 
+  style="view-transition-name: view-01-introductory-xargs-guidance"
+>Some introductory <code>xargs</code> guidance</a></h2><ul class="infobar "><li><time>March 13, 2026</time></li><li>10-minute read</li>
+    <li>tagged
+      <a href="https://ccjmne.sh/blog/tags/cli">cli</a>, <a href="https://ccjmne.sh/blog/tags/posix">posix</a></li></ul>
+<div class="summary"><p>Just enough to get the ball rolling for most of your <code>CLI</code> wizardry needs</p>
+</div></article>
+</div><article class="hero"><span class="ls-hero-counter"></span><h2><a href="https://ccjmne.sh/blog/flight-manual/xargs/02-posix-xargs-fundamentals/" class="link-title" 
+  style="view-transition-name: view-02-posix-xargs-fundamentals"
+>The pragmatic <code>POSIX</code> <code>xargs</code> starter kit</a></h2><ul class="infobar "><li><time>March 22, 2026</time></li><li>15-minute read</li>
+    <li>tagged
+      <a href="https://ccjmne.sh/blog/tags/cli">cli</a>, <a href="https://ccjmne.sh/blog/tags/posix">posix</a></li></ul>
+<div class="summary"><p>In this second article of my series on <code>xargs</code>, I intend to focus on <strong>the
+practical subset of the <code>POSIX</code> specification</strong> of that tool that you'll benefit
+from wielding on the day-to-day.  How much could this represent?  Well, I
+wouldn't bore you with the picturesque particulars of poor pertinence, of
+course: <strong>I mean only three flags</strong>.</p>
+<p>Do not scoff at their <abbr title='smallness of number,
+"fewness"'>paucity</abbr>, however: they should already be plenty to assimilate,
+and plenty rewarding to have duty internalised.</p></div>
+  <a href="https:&#x2F;&#x2F;ccjmne.sh&#x2F;blog&#x2F;flight-manual&#x2F;xargs&#x2F;02-posix-xargs-fundamentals&#x2F;#continue-reading">Continue reading →</a></article>
+
+  
+</article></main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a rel="external" href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <a rel="external" href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>
+        <a rel="external" href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>

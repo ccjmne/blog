@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-2.woff2" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/work-3.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/fira-2.woff2') format('woff2'); }
+</style><link rel="stylesheet" href="https://ccjmne.sh/blog/base.css">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-light.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-dark.css"  media="(prefers-color-scheme: dark)">
+    
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+>
+      <a href="https://ccjmne.sh/blog">Home</a>
+      <details class="dropdown" max-sm>
+        <summary><strong>Articles</strong></summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual"><strong>Flight manual</strong></a>
+          <a href="https://ccjmne.sh/blog/tags">By tags</a>
+          <a href="https://ccjmne.sh/blog/ramblings">Ramblings</a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual" min-sm><strong>Flight manual</strong></a>
+      <a href="https://ccjmne.sh/blog/tags"          min-sm>By tags</a>
+      <a href="https://ccjmne.sh/blog/ramblings"     min-sm>Ramblings</a>
+      <a href="https://ccjmne.sh/blog/colophon"            >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main><h1><span class="link-title" 
+  style="view-transition-name: view-02-posix-xargs-fundamentals"
+>The pragmatic <code>POSIX</code> <code>xargs</code> starter kit</span></h1><ul class="infobar "><li><time>March 22, 2026</time></li><li>15-minute read</li>
+    <li>Part&nbsp;2&nbsp;of&nbsp;<a href="https:&#x2F;&#x2F;ccjmne.sh&#x2F;blog&#x2F;flight-manual&#x2F;xargs&#x2F;">The complete <code>xargs</code> rulebook</a></li><li>tagged
+      <a href="https://ccjmne.sh/blog/tags/cli">cli</a>, <a href="https://ccjmne.sh/blog/tags/posix">posix</a></li></ul>
+<details class="lo summary">
+  <summary>Series introduction</summary>
+  <h2><a href="https://ccjmne.sh/blog/flight-manual/xargs" class="link-title" 
+  style="view-transition-name: view-xargs"
+>The complete <code>xargs</code> rulebook</a></h2>
+  <p>The shell's pipe operator, <code>|</code>, is a marvellous thing: it connects the <em>standard
+output</em> of one command to the <em>standard input</em> of another, letting you chain
+utilities together into elegant pipelines.  But quite a few times, it's the
+very <strong>flags or arguments</strong> of some subsequent invocation that you want to be
+determined by the <strong>output</strong> of a previous one.</p>
+<p>Enter <code>xargs</code>: the adapter that bridges this gap, transforming <code>stdin</code> into
+arguments for commands that won't read from it otherwise.</p>
+<p>This series presumes to put together a <strong>quite comprehensive guide on all
+pragmatic <code>xargs</code> things</strong>.  That does suggest that not quite everything will be
+covered, but will give you all that you need to go about your <code>CLI</code> life with
+much fluency, some bravado, and perhaps even a touch of grace.</p>
+</details><details class="hi toc">
+  <summary>Table of contents</summary>
+  <ul><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/xargs/02-posix-xargs-fundamentals/#obligatory-tl-dr">Obligatory TL;DR</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/xargs/02-posix-xargs-fundamentals/#the-fundamentals">The fundamentals</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/xargs/02-posix-xargs-fundamentals/#three-indispensable-flags">Three indispensable flags</a><ul>
+        
+        <li><a href="https://ccjmne.sh/blog/flight-manual/xargs/02-posix-xargs-fundamentals/#max-arguments-n">Max arguments: -n</a></li>
+        <li><a href="https://ccjmne.sh/blog/flight-manual/xargs/02-posix-xargs-fundamentals/#input-to-arguments">From input lines to arguments</a></li>
+        <li><a href="https://ccjmne.sh/blog/flight-manual/xargs/02-posix-xargs-fundamentals/#max-lines">Max input lines: -L</a></li>
+        <li><a href="https://ccjmne.sh/blog/flight-manual/xargs/02-posix-xargs-fundamentals/#placeholder-mode-i">Placeholder mode: -I</a></li></ul></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/xargs/02-posix-xargs-fundamentals/#a-summarising-overview">A summarising overview</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/xargs/02-posix-xargs-fundamentals/#the-definite-escalation-mechanism">The definite escalation mechanism</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/xargs/02-posix-xargs-fundamentals/#going-forward">Going forward</a></li>
+    <li><a href="#cited-tools">Referenced tools</a></li>
+    
+    
+  </ul>
+</details>
+<article><p>In this second article of my series on <code>xargs</code>, I intend to focus on <strong>the
+practical subset of the <code>POSIX</code> specification</strong> of that tool that you'll benefit
+from wielding on the day-to-day.  How much could this represent?  Well, I
+wouldn't bore you with the picturesque particulars of poor pertinence, of
+course: <strong>I mean only three flags</strong>.</p>
+<p>Do not scoff at their <abbr title='smallness of number,
+"fewness"'>paucity</abbr>, however: they should already be plenty to assimilate,
+and plenty rewarding to have duty internalised.</p>
+<span id="continue-reading"></span>
+<blockquote class="markdown-alert-note">
+<p>This article can stand alone, but will build somewhat upon some
+information that is only shared in my <a href="https://ccjmne.sh/blog/flight-manual/xargs/01-introductory-xargs-guidance/">introductory <code>xargs</code>
+guidance</a>.  I may
+clarity some of that knowledge when I come to rely on it, but will generally
+assume it assimilated.</p>
+</blockquote>
+<!-- link at "picturesque particulars of poor pertinence", or in a [!NOTE] -->
+<!-- [assonances-and-alliterations](@/ramblings/assonances-and-alliterations.md) TODO: LINKME -->
+<div class="hi">
+<h2 id="obligatory-tl-dr"><a class="anchor-link" href="#obligatory-tl-dr" aria-label="Anchor link for: obligatory-tl-dr"></a>
+Obligatory <a rel="external" href="https://en.wikipedia.org/wiki/TL;DR">TL;DR</a></h2>
+<p>There are several ways in which <code>xargs</code> may go <strong>from input lines to effective
+arguments</strong>, as well as how many arguments to be used for each call:</p>
+<ul>
+<li>
+<p><code>-n &lt;max-args&gt;</code> dictates <strong>how many arguments shall the utility receive at
+most</strong>:</p>
+  <div class="grid-1-3">
+  <div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">xargs</span><span class="z-string"> -</span><span class="z-string">n1</span><span class="z-string"> echo</span><span class="z-keyword z-operator"> &lt;&lt;</span><span class="z-punctuation z-definition z-string">EOF</span></span>
+<span class="giallo-l"><span class="z-string">a b c</span></span>
+<span class="giallo-l"><span class="z-string">d e f</span></span>
+<span class="giallo-l"><span class="z-string">g h i</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">EOF</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>a</span></span>
+<span class="giallo-l"><span>b</span></span>
+<span class="giallo-l"><span>c</span></span>
+<span class="giallo-l"><span>d</span></span>
+<span class="giallo-l"><span>e</span></span>
+<span class="giallo-l"><span>f</span></span>
+<span class="giallo-l"><span>g</span></span>
+<span class="giallo-l"><span>h</span></span>
+<span class="giallo-l"><span>i</span></span></code></pre>  </div>
+  <div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">xargs</span><span class="z-string"> -</span><span class="z-string">n2</span><span class="z-string"> echo</span><span class="z-keyword z-operator"> &lt;&lt;</span><span class="z-punctuation z-definition z-string">EOF</span></span>
+<span class="giallo-l"><span class="z-string">a b c</span></span>
+<span class="giallo-l"><span class="z-string">d e f</span></span>
+<span class="giallo-l"><span class="z-string">g h i</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">EOF</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>a b</span></span>
+<span class="giallo-l"><span>c d</span></span>
+<span class="giallo-l"><span>e f</span></span>
+<span class="giallo-l"><span>g h</span></span>
+<span class="giallo-l"><span>i</span></span></code></pre>  </div>
+  <div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">xargs</span><span class="z-string"> echo</span><span class="z-keyword z-operator"> &lt;&lt;</span><span class="z-punctuation z-definition z-string">EOF</span></span>
+<span class="giallo-l"><span class="z-string">a b c</span></span>
+<span class="giallo-l"><span class="z-string">d e f</span></span>
+<span class="giallo-l"><span class="z-string">g h i</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">EOF</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>a b c d e f g h i</span></span></code></pre><div class="note">without <code>-n</code></div>
+  </div>
+  </div>
+</li>
+<li>
+<p><code>-L &lt;max-lines&gt;</code> dictates <strong>how many input lines at most are to result in a
+single utility call</strong>:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">xargs</span><span class="z-string"> -</span><span class="z-string">L1</span><span class="z-string"> echo</span><span class="z-keyword z-operator"> &lt;&lt;</span><span class="z-punctuation z-definition z-string">EOF</span></span>
+<span class="giallo-l"><span class="z-string">a b c</span></span>
+<span class="giallo-l"><span class="z-string">d e f</span></span>
+<span class="giallo-l"><span class="z-string">g h i</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">EOF</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>a b c</span></span>
+<span class="giallo-l"><span>d e f</span></span>
+<span class="giallo-l"><span>g h i</span></span></code></pre></div>
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">xargs</span><span class="z-string"> -</span><span class="z-string">L2</span><span class="z-string"> echo</span><span class="z-keyword z-operator"> &lt;&lt;</span><span class="z-punctuation z-definition z-string">EOF</span></span>
+<span class="giallo-l"><span class="z-string">a b c</span></span>
+<span class="giallo-l"><span class="z-string">d e f</span></span>
+<span class="giallo-l"><span class="z-string">g h i</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">EOF</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>a b c d e f</span></span>
+<span class="giallo-l"><span>g h i</span></span></code></pre></div>
+</div>
+</li>
+<li>
+<p><code>-I &lt;placeholder&gt;</code> is a specialisation of <code>-L1</code> that considers <strong>each line to
+be a single argument</strong> and lets you choose <strong>where to put it on the resulting
+command line</strong>:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">xargs</span><span class="z-string"> -</span><span class="z-string">I</span><span class="z-string"> {}</span><span class="z-string"> echo</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">You said: &quot;{}&quot;.</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-keyword z-operator"> &lt;&lt;</span><span class="z-punctuation z-definition z-string">EOF</span></span>
+<span class="giallo-l"><span class="z-string">a b c</span></span>
+<span class="giallo-l"><span class="z-string">d e f</span></span>
+<span class="giallo-l"><span class="z-string">g h i</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">EOF</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>You said: &quot;a b c&quot;.</span></span>
+<span class="giallo-l"><span>You said: &quot;d e f&quot;.</span></span>
+<span class="giallo-l"><span>You said: &quot;g h i&quot;.</span></span></code></pre><div class="note">using <code>{}</code> is the de-facto standard placeholder across many applications</div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">xargs</span><span class="z-string"> -</span><span class="z-string">II</span><span class="z-string"> echo</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">You said: &quot;I&quot;.</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-keyword z-operator"> &lt;&lt;</span><span class="z-punctuation z-definition z-string">EOF</span></span>
+<span class="giallo-l"><span class="z-string">a b c</span></span>
+<span class="giallo-l"><span class="z-string">d e f</span></span>
+<span class="giallo-l"><span class="z-string">g h i</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">EOF</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>You said: &quot;a b c&quot;.</span></span>
+<span class="giallo-l"><span>You said: &quot;d e f&quot;.</span></span>
+<span class="giallo-l"><span>You said: &quot;g h i&quot;.</span></span></code></pre><div class="note">I quite like the quaint and practical <code>-II</code></div>
+</div>
+</div>
+</li>
+</ul>
+<blockquote class="markdown-alert-note">
+<p><strong>The <code>-I</code>, <code>-L</code>, and <code>-n</code> options are, by specification, mutually
+exclusive</strong>.  Some implementations use the last one specified if more than one
+is given on a command line; other implementations treat combinations of the
+options in different ways.</p>
+</blockquote>
+<p>Note that <code>-I</code> can let you invoke a pipeline:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">xargs</span><span class="z-string"> -</span><span class="z-string">II</span><span class="z-string"> sh</span><span class="z-string"> -</span><span class="z-string">c</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">rm $(echo I | sed &quot;s/^dot-/./&quot;)</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-keyword z-operator"> &lt;&lt;</span><span class="z-punctuation z-definition z-string">EOF</span></span>
+<span class="giallo-l"><span class="z-string">dot-zshrc</span></span>
+<span class="giallo-l"><span class="z-string">dot-env</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">EOF</span></span></code></pre><div class="note">this will invoke <code>rm .zshrc</code> and <code>rm .env</code></div>
+<p>At the end of this here study study, the goal is to have the difference between
+<code>xargs -n1 wc</code> and <code>xargs wc</code> be of no surprise:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">find</span><span class="z-string"> -</span><span class="z-string">name</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">*.h</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> wc</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>  474  2548 20850 ./config.def.h</span></span>
+<span class="giallo-l"><span>   41   163  1163 ./win.h</span></span>
+<span class="giallo-l"><span>   50   145  1036 ./arg.h</span></span>
+<span class="giallo-l"><span>  126   452  2923 ./st.h</span></span>
+<span class="giallo-l"><span>  691  3308 25972 total</span></span></code></pre></div>
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">find</span><span class="z-string"> -</span><span class="z-string">name</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">*.h</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> -</span><span class="z-string">L1</span><span class="z-string"> wc</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span> 474  2548 20850 ./config.def.h</span></span>
+<span class="giallo-l"><span>  41   163  1163 ./win.h</span></span>
+<span class="giallo-l"><span>  50   145  1036 ./arg.h</span></span>
+<span class="giallo-l"><span> 126   452  2923 ./st.h</span></span></code></pre><div class="note">no <code>total</code> there, uh?</div>
+</div>
+</div>
+<!-- NEXT ARTICLE TODO: LINKME -->
+<!-- [-0-null-print0-z](@/ramblings/-0-null-print0-z.md) TODO: LINKME -->
+</div>
+<h2 id="the-fundamentals"><a class="anchor-link" href="#the-fundamentals" aria-label="Anchor link for: the-fundamentals"></a>
+The fundamentals</h2>
+<p>Here's where <code>xargs</code> becomes indispensable: you have some command generating
+output (not <code>find</code>; not anything blessed with <code>-exec</code>—see <a href="https://ccjmne.sh/blog/flight-manual/xargs/01-introductory-xargs-guidance/">introductory
+<code>xargs</code> guidance</a>), and
+you need to pass that output as arguments to another command.</p>
+<p>Perhaps you're processing the output of <code>git ls-files</code>, or <code>grep -l</code>/<code>--files-with-matches</code>, or filtering arbitrary lists:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">git</span><span class="z-string"> ls-files</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">*.[c,h]</span><span class="z-punctuation z-definition z-string">&#39;</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>arg.h</span></span>
+<span class="giallo-l"><span>config.def.h</span></span>
+<span class="giallo-l"><span>st.c</span></span>
+<span class="giallo-l"><span>st.h</span></span>
+<span class="giallo-l"><span>win.h</span></span>
+<span class="giallo-l"><span>x.c</span></span></code></pre><div class="note">running against the codebase of <a rel="external" href="https://suckless.org/">suckless.org</a>' stupendous <a rel="external" href="https://st.suckless.org/"><em>simple terminal</em>, <code>st</code></a></div>
+<p>Say that you want to tally the number of lines that these files comprise: you
+can't use <code>git ls-files -exec</code> (it doesn't exist), you need to transform that
+stream into arguments:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">git</span><span class="z-string"> ls-files</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">*.[c,h]</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> wc</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>    50    145   1036 arg.h</span></span>
+<span class="giallo-l"><span>   474   2548  20850 config.def.h</span></span>
+<span class="giallo-l"><span>  2705   8808  58906 st.c</span></span>
+<span class="giallo-l"><span>   126    452   2923 st.h</span></span>
+<span class="giallo-l"><span>    41    163   1163 win.h</span></span>
+<span class="giallo-l"><span>  2108   6367  48343 x.c</span></span>
+<span class="giallo-l"><span>  5504  18483 133221 total</span></span></code></pre>
+<p>Here, we instructed <code>xargs</code> to invoke <code>wc</code> using the list of source (<code>*.c</code>) and
+header (<code>*.h</code>) files tracked by Git as arguments.  These two are functionally
+equivalent:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">git</span><span class="z-string"> ls-files</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">*.[c,h]</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> wc</span></span></code></pre><div class="note">via the pipeline</div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">wc</span><span class="z-punctuation"> $(</span><span class="z-entity z-name z-function">git</span><span class="z-string"> ls-files</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">*.[c,h]</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation">)</span></span></code></pre><div class="note">via a sub-shell</div>
+</div>
+</div>
+<blockquote class="markdown-alert-tip">
+<p>The <code>-t</code> flag enables <em>"trace"</em> mode, where each generated command
+line shall be written to standard error.  The <code>GNU</code> implementation of
+<code>xargs</code> additionally offers the <code>--verbose</code> long-form equivalent to the
+<code>POSIX</code>-defined <code>-t</code>.  We can use it here to see precisely what ended up being
+invoked:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">git</span><span class="z-string"> ls-files</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">*.[c,h]</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> -</span><span class="z-string">t</span><span class="z-string"> wc</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>wc arg.h config.def.h st.c st.h win.h x.c</span></span>
+<span class="giallo-l"><span>    50    145   1036 arg.h</span></span>
+<span class="giallo-l"><span>   474   2548  20850 config.def.h</span></span>
+<span class="giallo-l"><span>  2705   8808  58906 st.c</span></span>
+<span class="giallo-l"><span>   126    452   2923 st.h</span></span>
+<span class="giallo-l"><span>    41    163   1163 win.h</span></span>
+<span class="giallo-l"><span>  2108   6367  48343 x.c</span></span>
+<span class="giallo-l"><span>  5504  18483 133221 total</span></span></code></pre><div class="note">with <code>-t</code>, we can see that <code>xargs</code> here called: <code>wc arg.h config.def.h st.c st.h win.h x.c</code></div>
+</blockquote>
+<p>However, you can squeeze more power out of this tool: I'll keep it simple and
+<code>POSIX</code>-centric, and be sure to follow this article up with another for some
+additional pragmatism.</p>
+<!-- [-0-null-print0-z](@/ramblings/-0-null-print0-z.md) TODO: LINKME -->
+<h2 id="three-indispensable-flags"><a class="anchor-link" href="#three-indispensable-flags" aria-label="Anchor link for: three-indispensable-flags"></a>
+Three indispensable flags</h2>
+<p><strong>Within the <code>POSIX</code> specification, there only remain three flags that I
+deem of the utmost pragmatism.</strong>  Well, the second is here mostly to scratch
+a <em>"shouldn't that corollary also exist?"</em> itch, and the third is mostly a
+specialisation of the first...  I would wager you could get much of the way
+towards <code>xargs</code> fluency using nothing but that one; but still, its little
+colleagues are more than some mere pretty faces.</p>
+<h3 id="max-arguments-n"><a class="anchor-link" href="#max-arguments-n" aria-label="Anchor link for: max-arguments-n"></a>
+Max arguments: <code>-n</code></h3>
+<p>The <code>-n &lt;max-args&gt;</code> flag lets you instruct <code>xargs</code> to use at most <code>max-args</code>
+arguments per command line.  The <code>GNU</code> implementation additionally offers the
+long-form <code>--max-args &lt;max-args&gt;</code> equivalent.</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">git</span><span class="z-string"> ls-files</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">*.h</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> -</span><span class="z-string">tn1</span><span class="z-string"> wc</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">git</span><span class="z-string"> ls-files</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">*.h</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> -</span><span class="z-string">-verbose</span><span class="z-string"> -</span><span class="z-string">-max-args</span><span class="z-constant z-numeric"> 1</span><span class="z-string"> wc</span><span class="z-punctuation z-definition z-comment">  #</span><span class="z-comment"> GNU only</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>wc arg.h</span></span>
+<span class="giallo-l"><span>  50  145 1036 arg.h</span></span>
+<span class="giallo-l"><span>wc config.def.h</span></span>
+<span class="giallo-l"><span>  474  2548 20850 config.def.h</span></span>
+<span class="giallo-l"><span>wc st.h</span></span>
+<span class="giallo-l"><span> 126  452 2923 st.h</span></span>
+<span class="giallo-l"><span>wc win.h</span></span>
+<span class="giallo-l"><span>  41  163 1163 win.h</span></span></code></pre><div class="note">with <code>-n1</code>, each invocation of <code>wc</code> shall receive no more than <code>1</code> argument</div>
+<p>Specifying <code>1</code> arguments at most will result in just as many <code>wc</code> invocations as
+we have items to be processed by <code>xargs</code>.  In our current case, <code>4</code> header files
+result in <code>4</code> individual calls to <code>wc</code>.</p>
+<p>Most generally, you'll find yourself indeed wanting to set that max-args to <code>1</code>,
+but any other number would work just fine:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">git</span><span class="z-string"> ls-files</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">*.h</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> -</span><span class="z-string">tn2</span><span class="z-string"> wc</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>wc arg.h config.def.h</span></span>
+<span class="giallo-l"><span>   50   145  1036 arg.h</span></span>
+<span class="giallo-l"><span>  474  2548 20850 config.def.h</span></span>
+<span class="giallo-l"><span>  524  2693 21886 total</span></span>
+<span class="giallo-l"><span>wc st.h win.h</span></span>
+<span class="giallo-l"><span> 126  452 2923 st.h</span></span>
+<span class="giallo-l"><span>  41  163 1163 win.h</span></span>
+<span class="giallo-l"><span> 167  615 4086 total</span></span></code></pre></div>
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">git</span><span class="z-string"> ls-files</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">*.h</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> -</span><span class="z-string">tn3</span><span class="z-string"> wc</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>wc arg.h config.def.h st.h</span></span>
+<span class="giallo-l"><span>   50   145  1036 arg.h</span></span>
+<span class="giallo-l"><span>  474  2548 20850 config.def.h</span></span>
+<span class="giallo-l"><span>  126   452  2923 st.h</span></span>
+<span class="giallo-l"><span>  650  3145 24809 total</span></span>
+<span class="giallo-l"><span>wc win.h</span></span>
+<span class="giallo-l"><span>  41  163 1163 win.h</span></span></code></pre><div class="note">the second invocation only uses <code>1</code> single remaining argument</div>
+</div>
+</div>
+<blockquote class="markdown-alert-note">
+<p>In theory, when dealing with many entries together with utilities that
+may receive many arguments (such as <code>cp</code>, <code>mv</code>, <code>zip</code>...), we could use
+<code>-n</code> to <strong>batch them to a certain size</strong> and effectively get a substantial
+processing speed improvement.  There's also the possibility of <strong>hitting
+actual ceilings</strong> in terms of command line length, maximum number of arguments
+that the shell or any given tool can sustain...  In practice, both of these
+cases are rare enough that I couldn't come up with a practical scenario in a
+couple of sentences.</p>
+</blockquote>
+<p>Before moving any further, we should take a detour to understand how <code>xargs</code>
+determines what constitutes <em>"an argument"</em>.</p>
+<h3 id="input-to-arguments"><a class="anchor-link" href="#input-to-arguments" aria-label="Anchor link for: input-to-arguments"></a>
+From input lines to arguments</h3>
+<blockquote class="markdown-alert-important">
+<p><strong>This mechanism is fairly central to everything <code>xargs</code> does</strong>, despite
+usually constituting nothing more than some vague allusion in the footnotes
+of various online "tutorials", and being generally only mentioned, quite
+formally, in the <code>DESCRIPTION</code> section of the <code>man</code>ual pages—which is seldom
+read.</p>
+</blockquote>
+<p>The <strong>lines</strong> in your input don't necessarily have a one-to-one correspondence
+to <strong>arguments</strong> as <code>xargs</code> would use them for downstream invocation of the
+specified tool.</p>
+<!-- [-0-null-print0-z](@/ramblings/-0-null-print0-z.md) TODO: LINKME -->
+<p>Unless using <code>-I</code>, or some non-<code>POSIX</code> (albeit wonderful) <code>-0</code> or <code>-d</code>
+trickery), <code>xargs</code> will <strong>parse your input lines using <em>"standard shell rules"</em>
+to figure out what arguments they hold</strong>:</p>
+<blockquote>
+<p>The application shall ensure that arguments in the standard input are
+separated by unquoted <code>&lt;blank&gt;</code> characters, unescaped <code>&lt;blank&gt;</code> characters,
+or <code>&lt;newline&gt;</code> characters. A string of zero or more non-double-quote (<code>'"'</code>)
+characters and non-<code>&lt;newline&gt;</code> characters can be quoted by enclosing them
+in double-quotes. A string of zero or more non-<code>&lt;apostrophe&gt;</code> (<code>'\''</code>)
+characters and non-<code>&lt;newline&gt;</code> characters can be quoted by enclosing them in
+<code>&lt;apostrophe&gt;</code> characters. Any unquoted character can be escaped by preceding
+it with a <code>&lt;backslash&gt;</code>.</p>
+<div class="quote-attribution">from <code>man 1p xargs</code></div>
+</blockquote>
+<p>Eh, <strong>you don't have to read it; you pretty much can already surmise it</strong>.  In
+any case, I'll give you here some example that I hope will be complete enough;
+consider this file, <code>my-args</code>:</p>
+<pre class="giallo z-code"><code data-lang="plain" data-name="my-args"><span class="giallo-l"><span>Confucius</span></span>
+<span class="giallo-l"><span>Mark Twain</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>&quot;Ninoshka&quot;</span></span>
+<span class="giallo-l"><span>&#39;Chuck Berry&#39;</span></span>
+<span class="giallo-l"><span>René\ Descartes</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>$USER</span></span>
+<span class="giallo-l"><span>&quot;d&#39;Artagnan&quot;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>&quot;$HOME sweet &#39;home&#39;&quot;</span></span>
+<span class="giallo-l"><span>$(date)</span></span></code></pre><div class="note">I put here a bit of everything, I suspect it already gives you a hint as to what is to come</div>
+<p>Through <code>xargs</code>, I'll use <a rel="external" href="https://linux.die.net/man/1/true"><code>true</code></a>, which, as
+aptly described by its <code>man</code>ual page, <strong>does nothing, successfully</strong>.  Combined
+with <code>-t</code>, we'll get a fine understanding of what goes on under the hood:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">cat</span><span class="z-string"> my-args</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> -</span><span class="z-string">t</span><span class="z-constant z-language z-true"> true</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>true Confucius Mark Twain Ninoshka &#39;Chuck Berry&#39; &#39;René Descartes&#39; &#39;$USER&#39; &quot;d&#39;Artagnan&quot; &#39;$HOME sweet &#39;\&#39;&#39;home&#39;\&#39;&#39;&#39; &#39;$(date)&#39;</span></span></code></pre><pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">cat</span><span class="z-string"> my-args</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> -</span><span class="z-string">tn1</span><span class="z-constant z-language z-true"> true</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>true Confucius</span></span>
+<span class="giallo-l"><span>true Mark</span></span>
+<span class="giallo-l"><span>true Twain</span></span>
+<span class="giallo-l"><span>true Ninoshka</span></span>
+<span class="giallo-l"><span>true &#39;Chuck Berry&#39;</span></span>
+<span class="giallo-l"><span>true &#39;René Descartes&#39;</span></span>
+<span class="giallo-l"><span>true &#39;$USER&#39;</span></span>
+<span class="giallo-l"><span>true &quot;d&#39;Artagnan&quot;</span></span>
+<span class="giallo-l"><span>true &#39;$HOME sweet &#39;\&#39;&#39;home&#39;\&#39;&#39;&#39;</span></span>
+<span class="giallo-l"><span>true &#39;$(date)&#39;</span></span></code></pre><div class="note">I use <code>-n1</code> here to have each single argument result in a dedicated call to <code>true</code></div>
+<blockquote class="markdown-alert-tip">
+<p>While <strong>that isn't part of the <code>POSIX</code> standard</strong>, <code>GNU</code>'s implementation uses
+<code>-a</code>/<code>--arg-file</code> to read from a file rather than the standard input.  The two
+following options are functionally equivalent:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">cat</span><span class="z-string"> my-args</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> echo</span></span></code></pre><div class="note">the <code>POSIX</code> version</div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">xargs</span><span class="z-string"> -</span><span class="z-string">a</span><span class="z-string"> my-args</span><span class="z-string"> echo</span></span></code></pre><div class="note">a non-standard flag in <code>GNU</code>'s implementation</div>
+</div>
+</div>
+<p>As such, the pattern I employ here of <code>cat &lt;x&gt; | xargs &lt;y&gt;</code> isn't quite
+definitely <a href="https://ccjmne.sh/blog/flight-manual/useless-use-of-cat/">useless</a>.</p>
+</blockquote>
+<p>Would you look at that!  A few things are worth noting here:</p>
+<ol>
+<li>empty lines are ignored (what else could reasonably happen?);</li>
+<li><code>Confucius</code> is an argument, but <code>Mark Twain</code> becomes <strong>two</strong>;</li>
+<li><code>"Ninoshka"</code>, <code>'Chuck Berry'</code> and <code>René\ Descartes</code> are all normalised to
+using single quotes (<code>'</code>) <strong>if and only if necessary</strong>—that is: not for
+single words, such as <code>Ninoshka</code>;</li>
+<li><code>$USER</code> is passed <strong>literally</strong>, within single-quotes (<em>"apostrophes"</em> in the
+formal literature): it <strong>won't</strong> be interpreted by the shell;</li>
+<li><code>"d'Artagnan"</code> does uniquely force the interpreter to use double quotes for
+escaping the single quote that is <strong>part of the value</strong>, but:</li>
+<li>the program <strong>cannot be fooled</strong> and will bend over backwards to <strong>avoid ever
+making anything be sneakily interpreted</strong><sup class="footnote-reference" id="fr-worse-than-rimraf-1"><a <a href="#fn-worse-than-rimraf">1</a></sup>.</li>
+</ol>
+<p>In the <code>POSIX</code> specification, there's only one way to bypass this interpretation
+(<code>-I</code>, we'll get to it in a moment), but several implementations (such as the
+<code>GNU</code> one I'm most familiar with) do come with additional niceties, which I'll
+keep for a follow-up article.</p>
+<!-- [-0-null-print0-z](@/ramblings/-0-null-print0-z.md) TODO: LINKME -->
+<h3 id="max-lines"><a class="anchor-link" href="#max-lines" aria-label="Anchor link for: max-lines"></a>
+Max input lines: <code>-L</code></h3>
+<p>A sibling to <code>-n</code> is <code>-L</code>.  With <code>-L &lt;max-lines&gt;</code>, you may instruct <code>xargs</code> to use at most
+<code>max-lines</code> non-blank input lines per resulting command line.  If we continue
+with our original example (<code>st</code>'s source code), we'd essentially find <code>-L</code> and
+<code>-n</code> to behave indistinguishably:</p>
+<blockquote class="markdown-alert-note">
+<p><strong>Note that <code>-L</code> is upper-case</strong>: <code>-l</code>, together with <code>-i</code>, did use to be
+specified but were removed from the standard in 2004—well over 2 decades
+ago.</p>
+<p>The <code>GNU</code> implementation of <code>xargs</code> doesn't offer a long-form variant
+of that flag; there is <code>--max-lines</code>, which maps to <code>-l</code>, but deviates
+ever-so-slightly from the <code>POSIX</code>-defined <code>-L</code> (in making its argument
+optional and specifying a sane default of <code>1</code>).  These are noted to be
+<strong>deprecated in favour of the <code>POSIX</code>-aligned <code>-L</code></strong>.</p>
+</blockquote>
+<div class="grid-1-3">
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">git</span><span class="z-string"> ls-files</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">*.h</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-keyword z-operator">    |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> -</span><span class="z-string">tL1</span><span class="z-string"> wc</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>wc arg.h</span></span>
+<span class="giallo-l"><span>  50  145 1036 arg.h</span></span>
+<span class="giallo-l"><span>wc config.def.h</span></span>
+<span class="giallo-l"><span>  474  2548 20850 config.def.h</span></span>
+<span class="giallo-l"><span>wc st.h</span></span>
+<span class="giallo-l"><span> 126  452 2923 st.h</span></span>
+<span class="giallo-l"><span>wc win.h</span></span>
+<span class="giallo-l"><span>  41  163 1163 win.h</span></span></code></pre><div class="note"><code>1</code> by <code>1</code> with <code>-L1</code></div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">git</span><span class="z-string"> ls-files</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">*.h</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-keyword z-operator">    |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> -</span><span class="z-string">tL2</span><span class="z-string"> wc</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>wc arg.h config.def.h</span></span>
+<span class="giallo-l"><span>   50   145  1036 arg.h</span></span>
+<span class="giallo-l"><span>  474  2548 20850 config.def.h</span></span>
+<span class="giallo-l"><span>  524  2693 21886 total</span></span>
+<span class="giallo-l"><span>wc st.h win.h</span></span>
+<span class="giallo-l"><span> 126  452 2923 st.h</span></span>
+<span class="giallo-l"><span>  41  163 1163 win.h</span></span>
+<span class="giallo-l"><span> 167  615 4086 total</span></span></code></pre><div class="note"><code>2</code> by <code>2</code> with <code>-L2</code></div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">git</span><span class="z-string"> ls-files</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">*.h</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-keyword z-operator">    |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> -</span><span class="z-string">tL3</span><span class="z-string"> wc</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>wc arg.h config.def.h st.h</span></span>
+<span class="giallo-l"><span>   50   145  1036 arg.h</span></span>
+<span class="giallo-l"><span>  474  2548 20850 config.def.h</span></span>
+<span class="giallo-l"><span>  126   452  2923 st.h</span></span>
+<span class="giallo-l"><span>  650  3145 24809 total</span></span>
+<span class="giallo-l"><span>wc win.h</span></span>
+<span class="giallo-l"><span>  41  163 1163 win.h</span></span></code></pre><div class="note"><code>3</code> by <code>3</code> with <code>-L3</code></div>
+</div>
+</div>
+<p>That's only because in that example, we have precisely <strong>one argument per input
+line</strong>.  Let's return to consuming the more <em>"treacherous"</em> <code>my-args</code> file:</p>
+<pre class="giallo z-code"><code data-lang="plain" data-name="my-args"><span class="giallo-l"><span>Confucius</span></span>
+<span class="giallo-l"><span>Mark Twain</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>&quot;Ninoshka&quot;</span></span>
+<span class="giallo-l"><span>&#39;Chuck Berry&#39;</span></span>
+<span class="giallo-l"><span>René\ Descartes</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>$USER</span></span>
+<span class="giallo-l"><span>&quot;d&#39;Artagnan&quot;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>&quot;$HOME sweet &#39;home&#39;&quot;</span></span>
+<span class="giallo-l"><span>$(date)</span></span></code></pre><div class="note">this is the file used in the <a href="#input-to-arguments">previous section</a>, which you'll want to have assimilated</div>
+<p>I think a most adequate way to present the difference between <code>-L</code> and <code>-n</code>
+would be to simply juxtapose them:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">cat</span><span class="z-string"> my-args</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> -</span><span class="z-string">tn1</span><span class="z-constant z-language z-true"> true</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>true Confucius</span></span>
+<span class="giallo-l"><span>true Mark</span></span>
+<span class="giallo-l"><span>true Twain</span></span>
+<span class="giallo-l"><span>true Ninoshka</span></span>
+<span class="giallo-l"><span>true &#39;Chuck Berry&#39;</span></span>
+<span class="giallo-l"><span>true &#39;René Descartes&#39;</span></span>
+<span class="giallo-l"><span>true &#39;$USER&#39;</span></span>
+<span class="giallo-l"><span>true &quot;d&#39;Artagnan&quot;</span></span>
+<span class="giallo-l"><span>true &#39;$HOME sweet &#39;\&#39;&#39;home&#39;\&#39;&#39;&#39;</span></span>
+<span class="giallo-l"><span>true &#39;$(date)&#39;</span></span></code></pre></div>
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">cat</span><span class="z-string"> my-args</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> -</span><span class="z-string">tL1</span><span class="z-constant z-language z-true"> true</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>true Confucius</span></span>
+<span class="giallo-l"><span>true Mark Twain</span></span>
+<span class="giallo-l"><span>true Ninoshka</span></span>
+<span class="giallo-l"><span>true &#39;Chuck Berry&#39;</span></span>
+<span class="giallo-l"><span>true &#39;René Descartes&#39;</span></span>
+<span class="giallo-l"><span>true &#39;$USER&#39;</span></span>
+<span class="giallo-l"><span>true &quot;d&#39;Artagnan&quot;</span></span>
+<span class="giallo-l"><span>true &#39;$HOME sweet &#39;\&#39;&#39;home&#39;\&#39;&#39;&#39;</span></span>
+<span class="giallo-l"><span>true &#39;$(date)&#39;</span></span></code></pre><div class="note">this time, <code>Mark Twain</code> still did get split into two arguments, but <strong>both were used in a single call to <code>true</code></strong></div>
+</div>
+</div>
+<p>I don't believe there's much of a need to demonstrate the behaviour of <code>xargs</code>
+with <code>-L</code> being passed different values, you can derive it from knowing that it
+is parallel to that of <code>-n</code> and still adheres to the input "parsing" done by
+<code>xargs</code>.</p>
+<p>In my experience, you'll not often be using <code>-L</code> with a value slightly
+greater than <code>1</code> (where you generally actually semantically may be meaning
+<code>-n</code>—although only you would know).  Instead, something I find myself
+routinely reaching for is <code>-I</code>, which builds upon <code>-L1</code>.</p>
+<h3 id="placeholder-mode-i"><a class="anchor-link" href="#placeholder-mode-i" aria-label="Anchor link for: placeholder-mode-i"></a>
+Placeholder mode: <code>-I</code></h3>
+<p>We finally arrive at the flag of <code>xargs</code> I use by far the most: the <em>placeholder
+mode</em>, introduced by <code>-I &lt;placeholder&gt;</code>.  Its <code>POSIX</code> manual entry is more or
+less inscrutable, but its gist is fairly intuitive:</p>
+<ul>
+<li>it instructs <code>xargs</code> to <strong>replace occurrences of <code>&lt;placeholder&gt;</code> in the
+<code>&lt;initial-arguments&gt;</code></strong> with values read from standard input;</li>
+<li>in addition to that, <strong>it behaves as if <code>-L</code> was set to <code>1</code></strong>: each
+(non-blank) line of input shall result in a dedicated invocation of the
+utility;</li>
+<li>lastly, and perhaps curiously, it will <strong>entirely bypass any (well,
+most<sup class="footnote-reference" id="fr-not-quite-zero-shenanigans-1"><a <a href="#fn-not-quite-zero-shenanigans">2</a></sup>) input-to-arguments parsing shenanigans</strong>.</li>
+</ul>
+<p>In short, each (non-blank) line of input becomes a single "item" that <strong>you
+choose</strong> where to place on the invoked utility's arguments list:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">xargs</span><span class="z-string"> -</span><span class="z-string">I</span><span class="z-string"> {}</span><span class="z-string"> echo</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">received: {}, how lovely!</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-keyword z-operator"> &lt;&lt;-</span><span class="z-punctuation z-definition z-string">EOF</span></span>
+<span class="giallo-l"><span class="z-string">    a kiss on the cheek</span></span>
+<span class="giallo-l"><span class="z-string">    a detailed bug report</span></span>
+<span class="giallo-l"><span class="z-string">    an eviction notice</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">EOF</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>received: a kiss on the cheek, how lovely!</span></span>
+<span class="giallo-l"><span>received: a detailed bug report, how lovely!</span></span>
+<span class="giallo-l"><span>received: an eviction notice, how lovely!</span></span></code></pre><div class="note">using <code>{}</code> as the placeholder with <code>-I</code> is <strong>very much idiomatic</strong></div>
+<blockquote class="markdown-alert-tip">
+<p>As a note, despite <code>{}</code> being the well-established, universally
+recognised "placeholder" definition with <code>xargs</code> (and other tools, like
+<a rel="external" href="https://github.com/junegunn/fzf"><code>fzf</code></a>), <strong>I discovered that a quick <code>-II</code>
+is quite satisfying</strong>: it simply uses <code>I</code> instead of <code>{}</code> as placeholder.</p>
+<p>It's more likely to be troublesome in general, under the hypothesis that a
+stray <code>I</code> is more common than a <code>{}</code> pair, but it's not yet bitten me in
+the rear, and <strong>the mere <code>I</code> comes faster out of these old hands than <code>{}</code>
+ever did</strong>—even more so while I'm already typing it for <code>-I</code>.  Plus, you
+can't really ignore the cool factor: <strong>it looks like the Roman numeral for 2,
+<code>II</code></strong>:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">pacman</span><span class="z-string"> -</span><span class="z-string">Qdtq</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> -</span><span class="z-string">II</span><span class="z-string"> sh</span><span class="z-string"> -</span><span class="z-string">c</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">pacman -Qi I | grep -i optional.for</span><span class="z-punctuation z-definition z-string">&#39;</span></span></code></pre><div class="note">using <code>-II</code> comes in quite handy when invoking a <strong>pipeline</strong> through <code>sh -c</code> via <code>xargs</code></div>
+<p>Here it is in action, straight from my recent shell history, going over all
+the packages that were originally installed as <strong>dependencies</strong> to something
+else that has since been removed; asserting that none of them are still a
+valid <strong>optional dependency</strong> for anything I am actively using, before I can
+safely purge them.</p>
+</blockquote>
+<h2 id="a-summarising-overview"><a class="anchor-link" href="#a-summarising-overview" aria-label="Anchor link for: a-summarising-overview"></a>
+A summarising overview</h2>
+<p>One last time, let's consider the now familiar <code>my-args</code> file:</p>
+<pre class="giallo z-code"><code data-lang="plain" data-name="my-args"><span class="giallo-l"><span>Confucius</span></span>
+<span class="giallo-l"><span>Mark Twain</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>&quot;Ninoshka&quot;</span></span>
+<span class="giallo-l"><span>&#39;Chuck Berry&#39;</span></span>
+<span class="giallo-l"><span>René\ Descartes</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>$USER</span></span>
+<span class="giallo-l"><span>&quot;d&#39;Artagnan&quot;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>&quot;$HOME sweet &#39;home&#39;&quot;</span></span>
+<span class="giallo-l"><span>$(date)</span></span></code></pre><div class="note">this is again the file used in the <a href="#max-lines">previous</a> <a href="#input-to-arguments">sections</a></div>
+<p>Giving it the <code>xargs</code>–<code>true</code> treatment shows yet another somewhat sublte
+difference from its <code>-n</code> and <code>-L</code> cousins:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">cat</span><span class="z-string"> my-args</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> -</span><span class="z-string">t</span><span class="z-string"> -</span><span class="z-string">I</span><span class="z-string"> {}</span><span class="z-constant z-language z-true"> true</span><span class="z-string"> {}</span><span class="z-punctuation z-definition z-comment">  #</span><span class="z-comment"> how the rest of the world expects it</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">cat</span><span class="z-string"> my-args</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> -</span><span class="z-string">tII</span><span class="z-constant z-language z-true"> true</span><span class="z-string"> I</span><span class="z-punctuation z-definition z-comment">       #</span><span class="z-comment"> how I would usually put it</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>true Confucius</span></span>
+<span class="giallo-l"><span>true &#39;Mark Twain&#39;</span></span>
+<span class="giallo-l"><span>true Ninoshka</span></span>
+<span class="giallo-l"><span>true &#39;Chuck Berry&#39;</span></span>
+<span class="giallo-l"><span>true &#39;René Descartes&#39;</span></span>
+<span class="giallo-l"><span>true &#39;$USER&#39;</span></span>
+<span class="giallo-l"><span>true &quot;d&#39;Artagnan&quot;</span></span>
+<span class="giallo-l"><span>true &#39;$HOME sweet &#39;\&#39;&#39;home&#39;\&#39;&#39;&#39;</span></span>
+<span class="giallo-l"><span>true &#39;$(date)&#39;</span></span></code></pre><div class="note">with <code>-I</code>, you'll notice that <strong><code>Mark Twain</code> is now passed as a single argument</strong></div>
+<p>For a closing statement, let's compare our little <a rel="external" href="https://en.wikipedia.org/wiki/Huey,_Dewey,_and_Louie">Huey, Dewey and
+Louie</a> in action:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">paste</span><span class="z-string"> -</span><span class="z-string">d:</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">    &lt;(</span><span class="z-entity z-name z-function">cat</span><span class="z-string"> my-args</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-keyword z-operator"> 2</span><span class="z-keyword z-operator">&gt;&amp;1</span><span class="z-string"> -</span><span class="z-string">tn1</span><span class="z-constant z-language z-true"> true</span><span class="z-punctuation z-definition z-string">)</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">    &lt;(</span><span class="z-entity z-name z-function">cat</span><span class="z-string"> my-args</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-keyword z-operator"> 2</span><span class="z-keyword z-operator">&gt;&amp;1</span><span class="z-string"> -</span><span class="z-string">tL1</span><span class="z-constant z-language z-true"> true</span><span class="z-punctuation z-definition z-string">)</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">    &lt;(</span><span class="z-entity z-name z-function">cat</span><span class="z-string"> my-args</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-keyword z-operator"> 2</span><span class="z-keyword z-operator">&gt;&amp;1</span><span class="z-string"> -</span><span class="z-string">tII</span><span class="z-constant z-language z-true"> true</span><span class="z-string"> I</span><span class="z-punctuation z-definition z-string">)</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> column</span><span class="z-string"> -</span><span class="z-string">ts:</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>true Confucius                   true Confucius                   true Confucius</span></span>
+<span class="giallo-l"><span>true Mark                        true Mark Twain                  true &#39;Mark Twain&#39;</span></span>
+<span class="giallo-l"><span>true Twain                       true Ninoshka                    true Ninoshka</span></span>
+<span class="giallo-l"><span>true Ninoshka                    true &#39;Chuck Berry&#39;               true &#39;Chuck Berry&#39;</span></span>
+<span class="giallo-l"><span>true &#39;Chuck Berry&#39;               true &#39;René Descartes&#39;            true &#39;René Descartes&#39;</span></span>
+<span class="giallo-l"><span>true &#39;René Descartes&#39;            true &#39;$USER&#39;                     true &#39;$USER&#39;</span></span>
+<span class="giallo-l"><span>true &#39;$USER&#39;                     true &quot;d&#39;Artagnan&quot;                true &quot;d&#39;Artagnan&quot;</span></span>
+<span class="giallo-l"><span>true &quot;d&#39;Artagnan&quot;                true &#39;$HOME sweet &#39;\&#39;&#39;home&#39;\&#39;&#39;&#39;  true &#39;$HOME sweet &#39;\&#39;&#39;home&#39;\&#39;&#39;&#39;</span></span>
+<span class="giallo-l"><span>true &#39;$HOME sweet &#39;\&#39;&#39;home&#39;\&#39;&#39;&#39;  true &#39;$(date)&#39;                   true &#39;$(date)&#39;</span></span>
+<span class="giallo-l"><span>true &#39;$(date)&#39;</span></span></code></pre><div class="note">the process substitution <code>&lt;(...)</code> and <strong>redirection <code>2&gt;&amp;1</code> within a command</strong> are non-<code>POSIX</code> Bashisms</div>
+<blockquote class="markdown-alert-note">
+<p>I am quite prone to laying out text with purpose across the horizontal axis
+and write in great detail about that in <a href="https://ccjmne.sh/blog/flight-manual/intralinear-partitioning/">my <em>Intralinear Partitioning</em>
+series</a>, the second
+article of which may serve as a practical guideline to using <code>column</code>, <code>cut</code>
+and <code>paste</code> to great effect.</p>
+</blockquote>
+<p>We can note here that while each of <code>-n</code>, <code>-L</code> and <code>-I</code> does strive to map <code>1</code>
+<em>"something"</em> to one utility call (when used with the value <code>1</code>, that is), they
+present some notable differences that may be summarised as follows:</p>
+<ul>
+<li>
+<p><code>-n &lt;max-args&gt;</code> will make <code>1</code> call for each <code>&lt;max-args&gt;</code> <strong>arguments</strong>,
+possibly consuming more or fewer (non-empty) input lines;</p>
+</li>
+<li>
+<p><code>-L &lt;max-lines&gt;</code> will make <code>1</code> call for each <code>&lt;max-lines&gt;</code> (non-empty) input
+lines, possibly with several arguments;</p>
+</li>
+<li>
+<p><code>-I</code> will make <code>1</code> call per input line (as if <code>-L1</code>), and will pass the input
+line <strong>as-is</strong>, without any<sup class="footnote-reference" id="fr-not-quite-zero-shenanigans-2"><a <a href="#fn-not-quite-zero-shenanigans">2</a></sup> <em>"arguments parsing"</em>
+on the input, and it'll additionally let you specify <strong>where exactly</strong> that
+argument should go on the command line, possibly even several times:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">xargs</span><span class="z-string"> -</span><span class="z-string">I</span><span class="z-string"> {}</span><span class="z-string"> echo</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">{} is dead; long live {}!</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-keyword z-operator"> &lt;&lt;&lt;</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">the King</span><span class="z-punctuation z-definition z-string">&#39;</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>the King is dead; long live the King!</span></span></code></pre><div class="note">a <a rel="external" href="https://en.wikipedia.org/wiki/The_king_is_dead,_long_live_the_king!">traditional proclamation</a> following the accession of a new monarch to the throne</div>
+</li>
+</ul>
+<h2 id="the-definite-escalation-mechanism"><a class="anchor-link" href="#the-definite-escalation-mechanism" aria-label="Anchor link for: the-definite-escalation-mechanism"></a>
+The definite escalation mechanism</h2>
+<p>To conclude, let's agree together on what the shades from <em>grimace-</em> to
+<em>nod-of-approval</em>-worthy would be:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">rm</span><span class="z-punctuation"> $(</span><span class="z-entity z-name z-function">find</span><span class="z-string"> .</span><span class="z-string"> -</span><span class="z-string">name</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">*.tmp</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation">)</span><span class="z-punctuation z-definition z-comment">                  #</span><span class="z-comment"> simple, naive, breaks with spaces</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">find</span><span class="z-string"> .</span><span class="z-string"> -</span><span class="z-string">name</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">*.tmp</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> rm</span><span class="z-punctuation z-definition z-comment">             #</span><span class="z-comment"> allows batch-processing, breaks with spaces in file paths</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">find</span><span class="z-string"> .</span><span class="z-string"> -</span><span class="z-string">name</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">*.tmp</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> -</span><span class="z-string">II</span><span class="z-string"> rm</span><span class="z-string"> I</span><span class="z-punctuation z-definition z-comment">       #</span><span class="z-comment"> handles spaces in file paths, disables batch-processing</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">find</span><span class="z-string"> .</span><span class="z-string"> -</span><span class="z-string">name</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">*.tmp</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> -</span><span class="z-string">print0</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> xargs</span><span class="z-string"> -</span><span class="z-string">0</span><span class="z-string"> rm</span><span class="z-punctuation z-definition z-comment">  #</span><span class="z-comment"> robust, but non-POSIX</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">find</span><span class="z-string"> .</span><span class="z-string"> -</span><span class="z-string">name</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">*.tmp</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> -</span><span class="z-string">exec</span><span class="z-string"> rm</span><span class="z-string"> {}</span><span class="z-string"> +</span><span class="z-punctuation z-definition z-comment">          #</span><span class="z-comment"> also robust, still fairly self-contained</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">find</span><span class="z-string"> .</span><span class="z-string"> -</span><span class="z-string">name</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">*.tmp</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> -</span><span class="z-string">delete</span><span class="z-punctuation z-definition z-comment">                #</span><span class="z-comment"> purpose-built, definite best</span></span></code></pre>
+<p><strong>The last four are defensible choices</strong>; the first two are certainly not
+robust, but may work well so long as your files are named sensibly.</p>
+<p>There's not so much more to the current <code>POSIX</code> specification of <code>xargs</code>—not
+much more that's certain to be of general use, at least; but the implementations
+from <code>GNU</code> and others, such as some <code>BSD</code>, prevent some further remarkable
+details that are well worth talking about.</p>
+<h2 id="going-forward"><a class="anchor-link" href="#going-forward" aria-label="Anchor link for: going-forward"></a>
+Going forward</h2>
+<p>There shall be a bit more to the still basic, extraordinarily practical bits of
+<code>xargs</code> insight.  I've been alluding to <code>-0</code> and co. throughout this article,
+and only excuse its omission from any serious <code>xargs</code> guide by its distinct
+absence from the proper <code>POSIX</code> specification.  Nevertheless, that negligence
+here shall be addressed in the next and final article of this series.</p>
+<!-- [-0-null-print0-z](@/ramblings/-0-null-print0-z.md) TODO: LINKME -->
+<p>Until then, have fun!</p>
+  <section class="footnotes" aria-label="Footnotes">
+      <ol class="footnotes-list">
+<li id="fn-worse-than-rimraf">
+<p><strong>Preventing anything from being sneakily interpreted</strong> is
+actually quite an important feature, so that you may process data, without
+fear that it may contain <code>$(sudo rm -rf /)</code> or anything more malicious.
+Oh yeah, there is far worse and inconspicuous, even not requiring <code>sudo</code>;
+imagine for example:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">tar</span><span class="z-string"> czf</span><span class="z-string"> -</span><span class="z-string"> ~/.gnupg</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> curl</span><span class="z-string"> -</span><span class="z-string">-data-binary</span><span class="z-string"> @-</span><span class="z-string"> https://gimme-your-g.pg/keys</span></span></code></pre><div class="note">this would ship the keys to your digital house off to some Web site of dubious intentions</div>
+<!-- [bash-curl-install](@/ramblings/bash-curl-install.md) TODO: LINKME -->
+<blockquote class="markdown-alert-caution">
+<p><strong>Do not run that command above, even <em>"just to see"</em></strong>.</p>
+<p>Surely you wouldn't, but I nonetheless feel compelled to add this
+admonition for some additional reassurance.  In fact, do <strong>not</strong> run
+commands you haven't taken the time to vaguely ascertain does anything
+remotely close to what it's supposed to.</p>
+<p>And oh yeah, any piece of (public) software that installs via some
+atrocity like <code>bash &lt;(curl https://trust-me-b.ro/install)</code> should be
+condemnable.  No need even for any man-in-the-middle scenario, just
+imagine that <code>npmjs.org</code> rebrands to <code>npm.org</code>, but that some old
+documentation (or obscure blog) online still refers to <code>npm.org</code>, which
+has long been released by the actual <code>npm</code> folks and is now owned and
+operated by some less savoury entity...  <strong>Don't run anything, unless
+you have at least given it a look, or you have staunch confidence in its
+authors and maintainers.</strong></p>
+</blockquote>
+ <a href="#fr-worse-than-rimraf-1">↩</a></li>
+<li id="fn-not-quite-zero-shenanigans">
+<p><code>-I</code> doesn't quite blankly transform each whole
+line into an argument without further considerations: the input lines are still
+<strong>trimmed</strong> before being processed. <a href="#fr-not-quite-zero-shenanigans-1">↩</a> <a href="#fr-not-quite-zero-shenanigans-2">↩2</a></p>
+</li>
+</ol>
+    </section>
+  <h2 id="cited-tools"><a class="anchor-link" href="#cited-tools" aria-label="Anchor link for: cited-tools"></a>
+Referenced tools</h2>
+  <div class="refs">
+<div class="ref tool mono">
+  <strong>find</strong>
+  <div><span class="muted">from</span>&nbsp;<a rel="external" href="https://archlinux.org/packages/core&#x2F;x86_64&#x2F;findutils">core&#x2F;findutils</a></div>
+  <div><a rel="external" href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;core&#x2F;findutils&#x2F;find.1.en">man</a>
+    <a rel="external" href="https:&#x2F;&#x2F;git.savannah.gnu.org&#x2F;cgit&#x2F;findutils.git&#x2F;">src</a>
+    <a rel="external" href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;find.1p.en">posix</a></div>
+</div>
+
+<div class="ref tool mono">
+  <strong>wc</strong>
+  <div><span class="muted">from</span>&nbsp;<a rel="external" href="https://archlinux.org/packages/core&#x2F;x86_64&#x2F;coreutils">core&#x2F;coreutils</a></div>
+  <div><a rel="external" href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;wc.1.en">man</a>
+    <a rel="external" href="https:&#x2F;&#x2F;github.com&#x2F;coreutils&#x2F;coreutils">src</a>
+    <a rel="external" href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;wc.1p.en">posix</a></div>
+</div>
+
+<div class="ref tool mono">
+  <strong>xargs</strong>
+  <div><span class="muted">from</span>&nbsp;<a rel="external" href="https://archlinux.org/packages/core&#x2F;x86_64&#x2F;findutils">core&#x2F;findutils</a></div>
+  <div><a rel="external" href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;core&#x2F;findutils&#x2F;xargs.1.en">man</a>
+    <a rel="external" href="https:&#x2F;&#x2F;git.savannah.gnu.org&#x2F;cgit&#x2F;findutils.git&#x2F;">src</a>
+    <a rel="external" href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;xargs.1p.en">posix</a></div>
+</div>
+</div>
+  
+
+  
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a rel="external" href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <a rel="external" href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>
+        <a rel="external" href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>
