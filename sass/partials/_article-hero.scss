@@ -1,5 +1,6 @@
 @use '../mxin' as *;
 
+article:not(.hero) { padding-top: 1.75rem; }
 article.hero {
   display: flex;
   flex-direction: column;
