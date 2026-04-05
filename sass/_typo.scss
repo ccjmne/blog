@@ -21,9 +21,9 @@ h1, h2, h3, h4, h5, h6 {
 h1 { margin: 4rem 0; }
 h2, h3 { margin: 3rem 0 1.75rem; }
 
-h1:has(+ .subtitle) { margin-bottom: .2rem; }
+h1:has(+ .subtitle) { margin-bottom: .5rem; }
 .subtitle {
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
   color: var(--colour-subtext0);
 }
 
