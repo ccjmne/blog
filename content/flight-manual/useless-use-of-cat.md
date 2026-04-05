@@ -22,7 +22,9 @@ cat mentions.txt | wc -l
 cat catalina.out | tail
 cat server.cfg | sed 's/127.0.0.1/localhost/' > server.cfg
 ```
-{{ note(msg="the ailment (the last one doesn't even work)") }}
+{{ note(msg="the ailment (the last one doesn't even work without [`sponge`](https://man.archlinux.org/man/sponge.1.en))") }}
+
+<!-- [moreutils' sponge](@/flight-manual/moreutils-sponge). TODO: LINKME -->
 
 Is there a cure?  Yes, the one that shall be obvious in retrospect: **tell your
 tool itself what data to use**.
@@ -34,7 +36,7 @@ wc -l mentions.txt
 tail catalina.out 
 sed -i 's/127.0.0.1/localhost/' server.cfg
 ```
-{{ note(msg="the remedy") }}
+{{ note(msg="the remedy, nice and easy") }}
 
 ## Files all the way down
 

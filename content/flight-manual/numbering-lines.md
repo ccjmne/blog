@@ -1,7 +1,7 @@
 +++
 title = 'Number lines with `nl` from the `CLI` (read: Vim)'
 date = 2025-12-25
-description = "Of seemingly little use, `coreutils`'s `nl` handles tasks that, however mundane, are indeed quite frequent"
+description = "However mundane, your numbering tasks may well be served by `coreutils`'s `nl`"
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'cli', 'posix', 'vim']
 extra.cited_tools = ["column", "nl", "vim"]
