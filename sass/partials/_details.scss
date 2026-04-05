@@ -30,3 +30,7 @@ details.dropdown {
     background-color: var(--colour-mantle);
   }
 }
+
+details + article {
+  padding-top: 1.75rem;
+}
