@@ -7,7 +7,7 @@
 {# {% endblock atom %} #}
 
 {%- block content -%}
-<h1>Flight manual for <span class="link-title accent" {{ hlpr::vtn(name=term.slug) -}}>{{ term.name }}</span></h1>
+<h1><code>Man</code>ual on <span class="link-title accent" {{ hlpr::vtn(name=term.slug) -}}>{{ term.name }}</span></h1>
 {% set pages = term.pages %}
 {% include "partials/ls-hero.html" %}
 {%- endblock content -%}

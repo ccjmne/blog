@@ -3,7 +3,7 @@
 {# TODO: preload ruby icon #}
 
 {% block content %}
-<h1 class="title">Flight manuals</h1>
+<h1 class="title"><code>Man</code>ual sections</h1>
 <ul class="tags-list">
   {# filter out the "all" tag #}
   {%- set tags = [] -%}
@@ -34,4 +34,11 @@
   </li>
   {%- endfor -%}
 </ul>
+<!-- [RTFM](@/flight-manual/rtfm-the-friendly-manual). TODO: LINKME -->
+{# <div class="lo"> #}
+{#   <p> #}
+{#     Each <code>man</code>ual page has a short description available within it;  <a rel="external" href="https://man.archlinux.org/man/apropos.1.en"><code>apropos</code></a> searches the #}
+{#     descriptions for instances of keywords. #}
+{#   </p> #}
+{# </div> #}
 {% endblock content %}
