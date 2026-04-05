@@ -1,0 +1,10 @@
+{%- extends "base.html" -%}
+
+{%- block cssvars -%}
+--column-width: min(90vw, 480px);
+{%- endblock cssvars -%}
+
+{%- block content -%}
+<h1 id="flashcards">{{- section.title -}}</h1>
+{%- include "partials/ls.html" -%}
+{%- endblock content -%}

@@ -128,7 +128,7 @@ ftp:x:14:11::/srv/ftp:/usr/bin/nologin
 http:x:33:33::/srv/http:/usr/bin/nologin
 nobody:x:65534:65534:Kernel Overflow User:/:/usr/bin/nologin
 ```
-{{ note(msg="note the startling absence of a [`UUOC`](@/flight-manual/useless-use-of-cat.md)") }}
+{{ note(msg="note the startling absence of a [`UUOC`](@/flashcards/useless-use-of-cat.md)") }}
 
 Watch it now blossom into its intended form, fit for human consumption:
 

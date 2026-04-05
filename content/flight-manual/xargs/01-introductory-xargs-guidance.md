@@ -126,8 +126,8 @@ rm -rf /?...n
 
 > [!NOTE]
 >
-> This `cat <x> | xargs <y>` isn't the most egregious an [useless use of
-> `cat`](@/flight-manual/useless-use-of-cat.md), since `-a`/`--arg-file`, the
+> This `cat <file> | xargs <cmdline>` isn't the most egregious an [useless use
+> of `cat`](@/flashcards/useless-use-of-cat.md), since `-a`/`--arg-file`, the
 > `GNU` flag that would let `xargs` consume its input from a file descriptor
 > directly, isn't part of the `POSIX` specification.
 
@@ -326,9 +326,9 @@ authored by—or directly work with—some sharp `CLI` user.
     > [!NOTE]
     >
     > Of these futile processes or practices, I wrote a while ago about the most
-    > venerable [useless use of `cat`](@/flight-manual/useless-use-of-cat.md):
-    > it's a far more digestible article hearkening back to my less disabused
-    > days.  What's that, it was just last year?  Oh my.
+    > venerable [useless use of `cat`](@/flashcards/useless-use-of-cat.md): it's
+    > a far more digestible article hearkening back to my less disabused days.
+    > What's that, it was just last year?  Oh my.
 
 ## Going forward
 

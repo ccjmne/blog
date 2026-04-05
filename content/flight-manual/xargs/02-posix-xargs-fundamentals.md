@@ -502,7 +502,7 @@ true '$(date)'
 > </div>
 >
 > As such, the pattern I employ here of `cat <x> | xargs <y>` isn't quite
-> definitely [useless](@/flight-manual/useless-use-of-cat.md).
+> definitely [useless](@/flashcards/useless-use-of-cat.md).
 
 Would you look at that!  A few things are worth noting here:
 

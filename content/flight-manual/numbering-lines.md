@@ -11,7 +11,7 @@ Sure, there's a tool that numbers lines of text; so what?  The feline
 worshippers among us would even promptly jump on the occasion to mention the
 `--number`/`-n` flag of `cat`.  Although in practice they probably wouldn't,
 because there is no intersection between those that read the manual and [those
-that use `cat` all over](@/flight-manual/useless-use-of-cat.md) the place.
+that use `cat` all over](@/flashcards/useless-use-of-cat.md) the place.
 Nonetheless, the idea remains: this doesn't sound like something you need.
 
 Maybe you don't do enough!  It does come in handy on some occasion, and when

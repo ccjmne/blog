@@ -57,7 +57,7 @@ utilities and other systems you'll want to weave together into a skilful web.
   alternate between _start clicking_ and _stop clicking_ every other
   time you invoke it?  Time to whip out `flock`, but I don't suppose
   you'll come up with `exec 9<> /tmp/click.lock` if you're of the
-  [`UUOC`](@/flight-manual/useless-use-of-cat.md) transgressors that have hardly
+  [`UUOC`](@/flashcards/useless-use-of-cat.md) transgressors that have hardly
   even encountered `<` in the first place.
 - Bringing together some script that sets up a bidirectional `TCP` tunnel with
   `aws ssm`, and opens your graphical database management tool using the right
