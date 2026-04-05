@@ -22,22 +22,22 @@
     </style>
   </head>
   <body>
-    <header {{ hlpr::vtn(name="header", static=true) -}}>
-      <a href="{{ get_url(path="/") }}">             {%- if current_path == "/" -%}                             <strong>Home</strong>          {%- else -%} Home          {%- endif -%} </a>
+    <header {{ hlpr::vtn(name="header", static=true) -}} data-path="{{ current_path }}">
+      <a href="{{ get_url(path="/") }}" data-target="home">Home</a>
       <details class="dropdown" max-md>
-        <summary>{%- if current_path != "/" and current_path != "/colophon/" -%} <strong>Articles</strong> {%- else -%} Articles {%- endif -%}</summary>
+        <summary data-target="articles">Articles</summary>
         <nav>
-          <a href="{{ get_url(path="/flight-manual") }}">{%- if current_path is starting_with("/flight-manual") -%} <strong>Flight rules</strong> {%- else -%} Flight rules {%- endif -%} </a>
-          <a href="{{ get_url(path="/ramblings") }}">    {%- if current_path is starting_with("/ramblings") -%}     <strong>Ramblings</strong>    {%- else -%} Ramblings    {%- endif -%} </a>
-          <a href="{{ get_url(path="/flashcards") }}">   {%- if current_path is starting_with("/flashcards") -%}    <strong>Flashcards</strong>   {%- else -%} Flashcards   {%- endif -%} </a>
-          <a href="{{ get_url(path="/tags") }}" max-sm>  {%- if current_path is starting_with("/tags") -%}          <strong>Ontologies</strong>   {%- else -%} Ontologies   {%- endif -%} </a>
+          <a href="{{ get_url(path="/flight-manual") }}">Flight rules</a>
+          <a href="{{ get_url(path="/ramblings") }}"    >Ramblings</a>
+          <a href="{{ get_url(path="/flashcards") }}"   >Flashcards</a>
+          <a href="{{ get_url(path="/tags") }}"   max-sm>Ontologies</a>
         </nav>
       </details>
-      <a href="{{ get_url(path="/flight-manual") }}" min-md>{%- if current_path is starting_with("/flight-manual") -%} <strong>Flight rules</strong> {%- else -%} Flight rules {%- endif -%} </a>
-      <a href="{{ get_url(path="/ramblings") }}"     min-md>{%- if current_path is starting_with("/ramblings") -%}     <strong>Ramblings</strong>    {%- else -%} Ramblings    {%- endif -%} </a>
-      <a href="{{ get_url(path="/flashcards") }}"    min-md>{%- if current_path is starting_with("/flashcards") -%}    <strong>Flashcards</strong>   {%- else -%} Flashcards   {%- endif -%} </a>
-      <a href="{{ get_url(path="/tags") }}"          min-sm>{%- if current_path is starting_with("/tags") -%}          <strong>Ontologies</strong>   {%- else -%} Ontologies   {%- endif -%} </a>
-      <a href="{{ get_url(path="/colophon") }}"            >{%- if current_path is starting_with("/colophon") -%}      <strong>Colophon</strong>     {%- else -%} Colophon     {%- endif -%} </a>
+      <a href="{{ get_url(path="/flight-manual") }}" min-md>Flight rules</a>
+      <a href="{{ get_url(path="/ramblings") }}"     min-md>Ramblings</a>
+      <a href="{{ get_url(path="/flashcards") }}"    min-md>Flashcards</a>
+      <a href="{{ get_url(path="/tags") }}"          min-sm>Ontologies</a>
+      <a href="{{ get_url(path="/colophon") }}"            >Colophon</a>
       <span style="flex-grow: 1"></span>
       <a href="{{ get_url(path="/atom.xml", trailing_slash=false) }}">RSS</a>
     </header>

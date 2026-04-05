@@ -1,3 +1,5 @@
+@use 'mxin' as *;
+
 $hedpadx: 2rem;
 $btnpadx: .75rem;
 
@@ -12,6 +14,24 @@ header {
     color: inherit;
     text-decoration: none;
     padding: 1rem $btnpadx;
+  }
+}
+
+[data-path='/']               [data-target='home'],
+[data-path^='/tags']          [href$='/tags'],
+[data-path^='/flight-manual'] [href$='/flight-manual'],
+[data-path^='/flashcards']    [href$='/flashcards'],
+[data-path^='/ramblings']     [href$='/ramblings'],
+[data-path^='/colophon']      [href$='/colophon'] {
+  font-weight: bold;
+}
+
+[data-target='articles'] {
+  @at-root [data-path^='/flight-manual'] &, [data-path^='/flashcards'] &, [data-path^='/ramblings'] &, [data-path^='/tags'] & {
+    font-weight: bold;
+  }
+  @include sm {
+    @at-root [data-path^='/tags'] & { font-weight: initial; }
   }
 }
 
