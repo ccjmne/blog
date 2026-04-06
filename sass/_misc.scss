@@ -26,6 +26,7 @@
   width: min(100%, var(--column-width)) !important;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr;
+  margin-block: 1rem;
 }
 @for $r from 1 through 3 {
   @for $c from 1 through 3 {
