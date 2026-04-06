@@ -191,3 +191,9 @@ name    = "xray"
 repo    = "https://github.com/h33333333/xray"
 package = "aur/xray-oci-git"
 manual  = "https://github.com/h33333333/xray#usage"
+
+[extra.tools.zsh]
+name    = "zsh"
+repo    = "https://sourceforge.net/p/zsh/code/ci/master/tree/"
+package = "extra/x86_64/zsh"
+manual  = "https://man.archlinux.org/man/extra/zsh/zshall.1.en"
