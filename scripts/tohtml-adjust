@@ -1,0 +1,9 @@
+#! /bin/sh
+
+sed '
+	s/class="Function"/class="term-fg34"/g
+	s/class="String"/class="term-fg32"/g
+	s/class="-variable-parameter-bash"/class="term-fg32"/g
+	s/class="-function-builtin-bash"/class="term-fg31"/g
+	s# █#<span class="term-fg0">&</span>#g
+'
