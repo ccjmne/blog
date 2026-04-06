@@ -4,7 +4,7 @@ date = 2025-08-16
 description = 'The signature of the shell-illiterate'
 taxonomies.section = ['flashcards']
 taxonomies.tags = ['all', 'cli', 'posix', 'quibblery']
-extra.cited_tools = ["cat", "grep", "less"]
+extra.cited_tools = ['cat', 'grep', 'less']
 +++
 
 Short for con`cat`enate, `cat` takes multiple files and prints them together

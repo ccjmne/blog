@@ -4,7 +4,7 @@ date = 2025-11-19
 description = "Beyond the obvious, `fcitx5` also satisfies their sharper users' expectations in handling sensitive data"
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'quibblery']
-extra.cited_tools = ["fcitx5", "keepassxc"]
+extra.cited_tools = ['fcitx5', 'keepassxc']
 
 [[extra.cited_vimhelp]]
     page = "change.txt"

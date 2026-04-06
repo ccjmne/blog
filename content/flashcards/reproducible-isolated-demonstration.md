@@ -4,7 +4,7 @@ date = 2025-08-10
 description = 'Create reproducible, isolated demonstration environments with containers'
 taxonomies.section = ['flashcards']
 taxonomies.tags = ['all', 'cli', 'docker']
-extra.cited_tools = ["docker", "vim"]
+extra.cited_tools = ['docker', 'vim']
 +++
 
 Earlier this week, I put together installation instructions for a syntax support

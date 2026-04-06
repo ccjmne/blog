@@ -4,7 +4,7 @@ date = 2025-11-04
 description = 'Reclaim the em-dash from the `LLM`s—or spell my name as my parents intended'
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'quibblery']
-extra.cited_tools = ["fcitx5", "ibus"]
+extra.cited_tools = ['fcitx5', 'ibus']
 +++
 
 The `fcitx5` functionality I reach for the most, its

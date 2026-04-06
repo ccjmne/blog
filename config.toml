@@ -175,7 +175,7 @@ manual  = "https://vimhelp.org/"
 
 [extra.tools.vipe]
 name    = "vipe"
-repo    = "git://joeyh.name/code/moreutils/"
+repo    = "git://git.joeyh.name/moreutils"
 package = "extra/x86_64/moreutils"
 manual  = "https://man.archlinux.org/man/vipe.1.en"
 

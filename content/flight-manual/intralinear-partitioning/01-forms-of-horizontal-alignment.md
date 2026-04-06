@@ -4,7 +4,7 @@ date = 2025-07-25
 description = 'Why and when to put chunks of text side by side'
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'quibblery']
-extra.cited_tools = ["neovim", "uni", "vim"]
+extra.cited_tools = ['neovim', 'uni', 'vim']
 +++
 
    In the wild, I identified four classes of occurrences itching for what I

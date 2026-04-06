@@ -4,7 +4,7 @@ date = 2026-03-22
 description = 'Concentrating most of the `POSIX`-specified `xargs` prowess in a tidy 3 flags'
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'cli', 'posix']
-extra.cited_tools = ["find", "wc", "xargs"]
+extra.cited_tools = ['find', 'wc', 'xargs']
 +++
 
 In this second article of my series on `xargs`, I intend to focus on **the

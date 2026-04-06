@@ -4,7 +4,7 @@ date = 2025-07-31
 description = "Adoping moreutils's `vipe` and `ifne` for friendlier scripting"
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'cli', 'vim']
-extra.cited_tools = ["fzf", "ifne", "jq", "vipe"]
+extra.cited_tools = ['fzf', 'ifne', 'jq', 'vipe']
 +++
 
 I carry around a (very humble) collection of <abbr title="A command-line fuzzy

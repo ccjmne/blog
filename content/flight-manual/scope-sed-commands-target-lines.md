@@ -4,7 +4,7 @@ date = 2025-10-06
 description = 'Use `sed` addresses to target **chunks of text** between two patterns, and more'
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'cli', 'posix', 'sed']
-extra.cited_tools = ["sd", "sed", "vim"]
+extra.cited_tools = ['sd', 'sed', 'vim']
 +++
 
 I really like `sed`.  If you merely use it sporadically to search and replace

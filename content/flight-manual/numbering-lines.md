@@ -4,7 +4,7 @@ date = 2025-12-25
 description = "However mundane, your numbering tasks may well be served by `coreutils`'s `nl`"
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'cli', 'posix', 'vim']
-extra.cited_tools = ["column", "nl", "vim"]
+extra.cited_tools = ['column', 'nl', 'vim']
 +++
 
 Sure, there's a tool that numbers lines of text; so what?  The feline

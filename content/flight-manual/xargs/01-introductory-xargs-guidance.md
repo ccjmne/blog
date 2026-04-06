@@ -4,7 +4,7 @@ date = 2026-03-13
 description = 'Just enough to get the ball rolling for most of your `CLI` wizardry needs'
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'cli', 'posix']
-extra.cited_tools = ["fd", "find", "xargs"]
+extra.cited_tools = ['fd', 'find', 'xargs']
 +++
 
 An either well-established or soon-to-be staple of your <abbr title="Command

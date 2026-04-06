@@ -4,7 +4,7 @@ date = 2025-08-08
 description = 'Grids, lists, and other horizontally split what-have-yous, from the `CLI`'
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'cli']
-extra.cited_tools = ["column", "cut", "paste", "vim"]
+extra.cited_tools = ['column', 'cut', 'paste', 'vim']
 +++
 
    While conducting software archaeology with a colleague some days ago, we ran

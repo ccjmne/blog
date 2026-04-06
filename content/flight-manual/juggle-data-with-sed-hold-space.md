@@ -4,7 +4,7 @@ date = 2026-01-08
 description = "Master the use of `sed`'s secondary buffer to carry some state across lines"
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'cli', 'posix', 'sed']
-extra.cited_tools = ["fzf", "keepassxc", "sed", "vim"]
+extra.cited_tools = ['fzf', 'keepassxc', 'sed', 'vim']
 +++
 
 As `sed` processes its input line by line, it works primarily with its **pattern
