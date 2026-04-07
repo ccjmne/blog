@@ -55,10 +55,13 @@ inevitable trilogy](https://en.wikipedia.org/wiki/The_Lord_of_the_Rings)
 [J. R. R. Tolkien](https://en.wikipedia.org/wiki/J._R._R._Tolkien).  Its English
 translation originally goes:
 
-    > One ring to rule them all,<br>
-    > &nbsp;&nbsp;&nbsp;&nbsp;one ring to find them,<br>
-    > One ring to bring them all<br>
-    > &nbsp;&nbsp;&nbsp;&nbsp;and in the darkness bind them.
+    > One ring to rule them all,&nbsp;&nbsp;&nbsp;&nbsp;one ring to find them,<br>
+    > One ring to bring them all&nbsp;&nbsp;&nbsp;&nbsp;and in the darkness bind them.
+
+    Note that it's translated from [_Black
+    Speech_](https://en.wikipedia.org/wiki/Black_Speech), which looks quite a
+    lot more poignant in Tengwar, which my preferred font system for this blog
+    sadly doesn't have glyphs for.
 
 ```sh
 zmodload zsh/complist
@@ -125,7 +128,7 @@ bindkey '^I' zle-expand-omni
 <pre class="giallo z-code">
 <code><span class="term-fg34"><span class="term-fg31">cd</span></span> <span class="term-fg32">home/█</span>
 <span class="term-inv">home/</span><span class="term-fg0"> scripts/</span>
-</code></pre>{{ note(msg="`3.` press `<Tab>` again") }}
+</code></pre>{{ note(msg="`3.` press `<Tab>` again for the interactive menu") }}
 </div>
 <div>
 <pre class="giallo z-code">
@@ -141,11 +144,11 @@ bindkey '^I' zle-expand-omni
 > selection mode.  You can go up, down, left, right, and even enter a practical
 > dynamic search, all "for free", in your base _Zsh_ shell.
 >
-> I went with Vim-like bindings, `h`-`j`-`k`-`l`, while holding
-> the `<Meta>` button—that's `Alt` on a keyboard labelled for
-> [Windows](https://www.microsoft.com/en-us/windows).  I enjoy the
-> same bindings across several 2-dimensional interfaces; such as Vim's
-> [quickfix](https://vimhelp.org/quickfix.txt.html#quickfix)-lists
+> I went with <abbr title="The ubiquitous text editor">Vim</abbr>-like bindings,
+> `h`-`j`-`k`-`l`, while holding the `<Meta>` button—that's `Alt` on a
+> keyboard labelled for [Windows](https://www.microsoft.com/en-us/windows).
+> I enjoy the same bindings across several 2-dimensional interfaces; such
+> as Vim's [quickfix](https://vimhelp.org/quickfix.txt.html#quickfix)-lists
 > stack[^quickfix-2d], `fzf`'s search results interface[^fzf-2d], `tmux`'s pane
 > resizing, _et cet_.
 >
@@ -284,7 +287,7 @@ tools/update_packages.sh tools/reindex.sh utils/migrate_files.sh utils/cleanup_o
 <pre class="giallo z-code">
 <code><span class="term-fg34">mv</span> <span class="term-fg32">-t scripts/</span> <span class="term-fg32">bin/startup.sh bin/check_env.sh bin/restart_services.sh bin/update_configs.sh utils/migrate_files.sh
 utils/cleanup_old.sh utils/check_integrity.sh</span>
-</code></pre>{{ note(msg=`much better`) }}
+</code></pre>{{ note(msg="that's more like it! though I had no idea of these other forsaken piles... future-me can sort it out") }}
 
 > [!NOTE]
 >
