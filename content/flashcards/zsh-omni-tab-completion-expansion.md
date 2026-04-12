@@ -69,7 +69,7 @@ autoload -U compinit && compinit
 autoload -U _generic
 zle -C zle-expand-omni expand-or-complete _generic
 
-zstyle ':completion:zle-expand-omni:*' completer _expand_alias _complete _ignored
+zstyle ':completion:zle-expand-omni:*' completer _expand_alias _complete _approximate
 zstyle ':completion:*' menu select
 
 bindkey '^I' zle-expand-omni
