@@ -307,4 +307,7 @@ make for a complete unit of information**, small and focused enough to be
 digestible—though maybe stopping to explain what each does would be of some
 benefit, too.
 
+In the meantime, you might be surprise to see how easy it is to [start providing
+completions for the _Z Shell_](@/flashcards/provide-zsh-completions.md)!
+
 Good luck, and have fun!

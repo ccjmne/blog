@@ -123,4 +123,8 @@ There's a lot more to _everything-completion_, but I share it here in the hopes
 that this surface-level introduction put a sparkle in your eye: be unafraid, go
 and build things, if only for yourself.
 
+If you want just another little pearl of fun, you want
+want to look into what I dubbed the [omni-`<Tab>` Zsh
+widget](@/flashcards/zsh-omni-tab-completion-expansion.md).
+
 Good luck, and have fun!
