@@ -1,7 +1,7 @@
 +++
 title = 'Pre-compile your Zsh completions'
 date = 2026-04-12
-description = "`-5ms` there, `-10ms` here, and eventually you won't go back to the prehistoric times of waiting ~200ms for your session to become interactive"
+description = 'Shave off `-10ms` here and there, and soon you may arrive at responsive shell experience'
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'cli', 'zsh']
 extra.cited_tools = ['zsh']
@@ -34,19 +34,20 @@ of indulgence, typically for religious reasons.  According to Wikipedia,
 
     I embrace the paradox and consider myself an **ascetic aesthete**.
 
-As a result, I use _Zsh_, without any shred of [_Oh My
-Zsh_](https://ohmyz.sh/)—though this shouldn't be taken as an indictment: it
-is a great project, one I've simply "outgrown".  I'm not alone in this, but we
-are few; this article is for those of us that get intimate with their tools (and
-perhaps even <abbr title="Read The F... riendly Manual">`RTFM`</abbr>), and for
-those of you who look forward to doing just that.
+   **The most competent of us already built some most competent tools**, it
+is now up to the most punctilious of us to <abbr title="Read The F... riendly
+Manual">`RTFM`</abbr> justify having _Zsh_ in our toolbox with arguments more
+elaborate than _"idk, i liked the colours"_.<br>
+   This article is for those of us that dwell on the `CLI` with enough agility
+to perceive—and be bothered by—the machine stuttering when asked to be ready
+to bend over backwards for our most acrobatic antics.
 
 <!-- [RTFM](@/flight-manual/read-the-friendly-manual). TODO: LINKME -->
 
 ## Loading completions modules
 
 We use quite a few tools.  We master them, of course; but on the way to such
-master (and on the recurring occasions you feel like `<Tab>`-ing away the rest
+mastery (and on the recurring occasions you feel like `<Tab>`-ing away the rest
 of your word), having access to the completion system integrated to _Zsh_ is
 quite nifty.
 
@@ -78,7 +79,6 @@ However, some others are less well-packaged, and I've been increasingly coming a
 instructions comparable to that one:
 
 ```sh
-package() {
 source <(niri completions zsh)
 ```
 {{ note(msg="now the most excellent [`niri`](https://github.com/niri-wm/niri) suggests to load completion for its `CLI`") }}
@@ -89,7 +89,7 @@ of these, and **you're looking at `100ms` simply for the completions**; and
 just like that, you can actually _feel_ the little bit of delay when you
 go about your most acrobatic <abbr title="Command Line Interface, where I
 dwell">`CLI`</abbr>life, such as binding, say, some `tmux` binding that opens
-a new interactive shell, starts typing up some command, and switches to `vim`
+a new interactive shell, starts typing up some command, and switches to `vi`
 mode to put your cursor where you want it, right bang in the middle of said
 _"template"_.
 
@@ -215,18 +215,44 @@ Let's go over what it does, in an order that makes sense to me:
     admit...  But it's actually **the standard dual-mode pattern for modern CLI
     tools that generate Zsh completion**.
 
-    Case `A`: When this script is found on your `$fpath` and loaded via
-    `compinit` (the normal `#compdef` path): when _Zsh_ first needs to call
-    _gerp, it sources the file in the context of the function call.  Inside that
-    sourcing, `funcstack[1]` is exactly `_gerp`, we pass the test and enter
-    the positive branch, invoking: `_gerp "$@"`, which simply **executes the
+    - Case `A`: When this script is found on your `$fpath` and loaded via
+    `compinit` (the normal `#compdef` path), **none of this script is
+    executed**, that file is merely scanned for its first line, which is
+    interpreted and wired for later use.
+
+    - Case `B`: When you `source` the file directory, using the lovely `source
+    <(gerp completions)` Bashism[^process-substitution], **`funcstack[1]` is not
+    `_gerp` and we fall to the branch that merely runs `compdef _gerp gerp`**.
+    It's manually doing the equivalent to the auto-discovery mechanism that
+    placing `_gerp` file in the right place with its _"magic comment"_ would.
+
+    In both cases, the end goal of the "first pass" is merely to hook in `_gerp`
+    as the provider for completions to the `gerp` utility.
+
+    At a later time, whenever you request completions for `gerp`, _Zsh_ will
+    either:
+
+    - following the case `A`, end up sourcing `_gerp` **in the context of an
+    internal function we don't see that's also called `_gerp`**, `funcstack[1]`
+    is exactly `_gerp`, we pass the test and enter the positive branch,
+    invoking: `_gerp "$@"`.
+
+    - or, following the case `B`, directly invoke the `_gerp` function we
+    defined and _"manually"_ targeted with `compdef _gerp gerp`.
+
+    In both cases, it's that final "inner" `_gerp` function that **executes the
     completion logic**.
 
-    Case `B`: When you `source` the file directory, (the lovely Bashism `source
-    <(gerp completions)`[^process-substitution]), `funcstack[1]` is not `_gerp`
-    and we fall to the branch that merely runs `compdef _gerp gerp`.  The
-    function `_gerp` has already been defined earlier in the file, so this
-    registers it with the completion system.
+    > [!NOTE]
+    >
+    > It seems (and possibly is) quite complicated, but if you disregard
+    > going through the mental gymnastics of how the sausage is made, and
+    > consider that **we're here attempting to support two completely different
+    > set-ups**, these very short final `if`-block really isn't too bad.
+    >
+    > I still admit that its main quality is likely that of being well
+    > established and recognisable: you needn't think too much to know what it
+    > does, when you expect it where you find it.
 
 [^process-substitution]: The lovely Bashism `source <(gerp completions)` could
     be changed into the `POSIX`-compliant equivalent `eval "$(gerp
@@ -256,8 +282,9 @@ Let's go over what it does, in an order that makes sense to me:
 So, really, this simple file not only could serve as some fairly basic
 [Tamagotchi](https://en.wikipedia.org/wiki/Tamagotchi), but it also serves up
 instructions to be most conveniently served to you dynamically through your
-completion system?!  And you can either asynchronously or lazily load them?
-_Yes sirree_, that's what ~15 lines of shell script do to you.
+completion system?!  And you can either pre-compile and auto-discover, or
+manually and punctually source them?!  **_Yes sirree_, that's what ~15 lines of
+shell script do for you.**
 
 ```sh,name=gerp
 #! /bin/sh
@@ -280,7 +307,7 @@ EOF
 ```
 
 Save this file somewhere on your `$PATH`, make it executable (`chmod u+x
-gerp`), and enter a new, fresh `Zsh` session unburdened by whatever your
+gerp`), and enter a new, fresh _Zsh_ session unburdened by whatever your
 `.zshrc` usually contains (I do love a [reproducible, minimal, isolated
 demonstration](@/flashcards/reproducible-isolated-demonstration.md)):
 
@@ -355,9 +382,10 @@ source <(opencode completion)
 >
 > This looks just like my `gerp completion`, but functions quite differently
 > by at least one metric: **IT TAKES 1.2 SECONDS!!** to yield the completion
-> configuration.  And yep, their completion system is hardly more comprehensive
-> than that of `gerp`.  **Only ONE THOUSAND TIMES slower!**  Ah, the advent of
-> `LLM`-driven programming.
+> configuration.  And no, their completion system isn't meaningfully more
+> complex than this: they simply spin up an abominable machinery to yield the
+> most mundane of output. than that of `gerp`.  **Only ONE THOUSAND TIMES
+> slower**.  Ah, the advent of `LLM`-driven programming.
 >
 > The punctilious among us do notice a difference.
 
@@ -372,25 +400,25 @@ Anyhow, I digress.  From here, we have four options:
    vibe-code your way to 10k GitHub stars (but none from my side), or
 4. pre-compile their completion system asynchronously and live your best life.
 
-**I'll only consider option `4` in this article**, although I'm also known to
-have put `2` in practice.
+**I'll only consider option `#4` in this article**, although I'm also known to
+have put `#2` in practice.
 
 > [!NOTE]
 >
-> I was wildly exaggerating by suggesting than every competent tool
-> maintainer is to be most comfortable with the less-obvious features
-> of the several environments their utility will integrate with.
-> Moreover, how do you suppose those that did acquire such refinement
-> arrived there?  Help out, contribute; this is [the way of the
+> I was wildly exaggerating by suggesting than every competent tool maintainer
+> is to be most comfortable with the _less-than-obvious features_ of the several
+> environments their utility will integrate with.  Moreover, how do we suppose
+> those that did acquire such refinement arrived there?  It wasn't innate,
+> I can tell you that much.  Help out, contribute; this is [the way of the
 > bazaar](https://en.wikipedia.org/wiki/The_Cathedral_and_the_Bazaar).
 >
-> In fact, while writing this article, I paused to submit a Pull Request to
-> kong-completion to implement support for the precompiled/dual-mode pattern we
-> went over just before.
+> In fact, while writing this article, I paused to submit a [Pull Request to
+> `kong-completion`](https://github.com/jotaen/kong-completion/pull/15) to
+> implement support for the _"pre-compiled"_/_"dual-mode"_ pattern we went over
+> just before.
 
-TODO  TODO  TODO  TODO  TODO  TODO  TODO kong-completion PR
-
-So, here we go, the proof is in the pudding, isn't it?
+So, here we go, the proof is in the pudding, isn't it?  You can follow along and
+try out that auto-discovery set-up mechanism on your end as well:
 
 ```sh
 mv gerp $HOME/bin/                  # install gerp
