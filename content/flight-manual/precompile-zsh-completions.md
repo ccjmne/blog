@@ -3,7 +3,7 @@ title = 'Pre-compile your Zsh completions'
 date = 2026-04-12
 description = 'Shave off `-10ms` here and there, and soon you may arrive at responsive shell experience'
 taxonomies.section = ['flight-manual']
-taxonomies.tags = ['all', 'cli', 'zsh']
+taxonomies.tags = ['all', 'cli', 'quibblery', 'zsh']
 extra.cited_tools = ['zsh']
 +++
 
@@ -106,8 +106,8 @@ you need **at the time you use the corresponding commands**!  It just needs to
 know that such completions are available, and where to find them.
 
 Let's conjure up `gerp` (`grep` + <abbr title="A foolish or ignorant
-person">derp</abbr>!), a lovely virtual companion that never fails to greet you
-enthusiastically:
+person">_derp_</abbr>!), a lovely virtual companion that never fails to greet
+you enthusiastically:
 
 ```sh,name=gerp
 #! /bin/sh
@@ -197,7 +197,7 @@ Let's go over what it does, in an order that makes sense to me:
     ```sh
     _values 'commands'              \
             'hello[greet the user]' \
-            'completion[generate shell completions]'
+            'completions[generate shell completions]'
     ```
 
     It can work asynchronously, of course...  Oh yeah, I saw that sparkle in
@@ -334,7 +334,7 @@ gerp completions
 ```txt
 #compdef gerp
 _gerp() {
-    _values 'commands' 'hello[greet the user]' 'completion[generate shell completions]'
+    _values 'commands' hello completions
 }
 if [[ "$funcstack[1]" = "_gerp" ]]; then
     _gerp "$@"
@@ -352,7 +352,7 @@ source <(gerp completions)
 gerp   # press <Tab> here to request completion items
 ```
 ```txt
-completion hello
+completions hello
 ```
 {{ note(msg="it's **that simple**") }}
 
@@ -380,7 +380,7 @@ source <(opencode completion)
 
 > [!CAUTION]
 >
-> This looks just like my `gerp completion`, but functions quite differently
+> This looks just like my `gerp completions`, but functions quite differently
 > by at least one metric: **IT TAKES 1.2 SECONDS!!** to yield the completion
 > configuration.  And no, their completion system isn't meaningfully more
 > complex than this: they simply spin up an abominable machinery to yield the
@@ -465,7 +465,7 @@ compinit -i
 </div>
 </div>
 
-And... voila, just like that, _Zsh_ will be able to help you pilot `gerp`!
+And... voilà, just like that, _Zsh_ will be able to help you pilot `gerp`!
 
 But we can get faster yet...  By quite a margin.
 

@@ -82,7 +82,7 @@ arguments, they _evidently_ do.
    But what if one didn't?  After rounding up the usual suspects, I can
 attest to the stunning rarity of common utilities not playing by this tacit
 rule.  Let's conjure up `gerp` (`grep` + <abbr title="A foolish or ignorant
-person">derp</abbr>!), an abominable degradation of `grep` that only knows of
+person">_derp_</abbr>!), an abominable degradation of `grep` that only knows of
 <abbr title="The standard input">`stdin`</abbr>.<br>
    **You can then use input redirection** (`<`) to funnel the data from
 whichever file descriptor you get over your file, to `FD 0` (the standard
