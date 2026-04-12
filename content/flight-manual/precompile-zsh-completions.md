@@ -42,6 +42,12 @@ elaborate than _"idk, i liked the colours"_.<br>
 to perceive—and be bothered by—the machine stuttering when asked to be ready
 to bend over backwards for our most acrobatic antics.
 
+> [!NOTE]
+>
+> A vastly more digestible [introduction to providing completions for the _Z
+> Shell_](@/flashcards/provide-zsh-completions.md) is available, would you need
+> to whet your appetite for this exercise.
+
 <!-- [RTFM](@/flight-manual/read-the-friendly-manual). TODO: LINKME -->
 
 ## Loading completions modules

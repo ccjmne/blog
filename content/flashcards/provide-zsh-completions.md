@@ -1,5 +1,5 @@
 +++
-title = 'Whetting your appetite for providing Zsh completions'
+title = 'Whet your appetite for providing Zsh completions'
 date = 2026-04-13
 description = "What if I told you it's not that hard—nay, what if I proved to you it's outright easy?"
 taxonomies.section = ['flashcards']
