@@ -139,7 +139,7 @@ In summary, you may customise the label of a `<details>` element by providing it
 with a `<summary>` child:
 
 ```html
-<details name="linked">
+<details>
    <summary>Woof!</summary>
    <span style="font-size: 3em;">🐶</span>
 </details>
@@ -147,7 +147,7 @@ with a `<summary>` child:
 <br>
 <div class="lo" style="margin: 0 auto; padding: 0;">
    <div class="user-agent" style="display: flex; gap: 2rem;">
-      <details name="linked">
+      <details>
          <summary>Woof!</summary>
          <span style="font-size: 3em !important;">🐶</span>
       </details>
