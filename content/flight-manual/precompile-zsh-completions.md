@@ -1,7 +1,7 @@
 +++
 title = 'Pre-compile your Zsh completions'
 date = 2026-04-12
-description = 'Shave off `-10ms` here and there, and soon you may arrive at responsive shell experience'
+description = 'Shave off `10ms` here and there, and you will soon arrive at a responsive shell experience'
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'cli', 'quibblery', 'zsh']
 extra.cited_tools = ['zsh']
