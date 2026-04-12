@@ -125,9 +125,10 @@ abbr {
     top: -2rem;
     transform: translateX(-50%);
     padding: 0 .5rem;
-    background-color: var(--colour-base);
+    background-color: var(--bg-3);
     border: 1px solid var(--colour-overlay0);
     pointer-events: none;
+    font-weight: initial;
     visibility: hidden;
   }
 
