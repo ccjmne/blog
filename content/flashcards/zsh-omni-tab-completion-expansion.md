@@ -7,13 +7,13 @@ taxonomies.tags = ['all', 'cli', 'zsh']
 extra.cited_tools = ['zsh']
 +++
 
-I use the **[Z shell, _Zsh_](https://www.zsh.org/)**.  Before using it,
-I'd acquired some reasonable familiarity with the <abbr title="Portable
-Operating System Interface">`POSIX`</abbr> shell specification, and the
-**Bourne-Again Shell, _Bash_**.  By that, I mean that it's been a couple
-of years since I last pair-programmed extensively with a colleague that
-wasn't wooed by the "tricks" I have up my sleeve.  Yet, certainly not due to
-more, newer or better tools—you and I do wield (though perhaps not quite
+I use the **[Z shell, _Zsh_](https://www.zsh.org/)**.  Before using it, I'd
+acquired some reasonable familiarity with the <abbr title="Portable Operating
+System Interface">`POSIX`</abbr> shell specification, and the **Bourne-Again
+Shell, _Bash_**.  It’s been years since I last pair-programmed extensively
+with someone who wasn't surprised that many of these agile _"tricks"_ are built
+right into the plain (albeit _Bourne-Again_) shell.  Yet, certainly not due
+to more, newer or better tools—you and I do wield (though perhaps not quite
 _use_) the same ones after all—**my best wizardry is mostly the product
 of a unique balance of <abbr title="self-discipline">asceticism</abbr> and
 aestheticism**[^ascetic-and-aesthetic].
@@ -210,13 +210,13 @@ Note that it is quite intelligent in understanding your intent:
 <pre class="giallo z-code">
 <code><span class="term-fg33">ll█</span>
 <span class="term-fg34">ls</span> <span class="term-fg32">-l --almost-all --human-readable</span> █
-</code></pre>{{ note(msg="**expand `alias`es** with your cursor adjacent") }}
+</code></pre>{{ note(msg="**expand `alias`es** with your cursor **adjacent**") }}
 </div>
 <div>
 <pre class="giallo z-code">
 <code><span class="term-fg33">ll</span> █
 LICENSE README home/ scripts/
-</code></pre>{{ note(msg="**complete commands** with a cursor disjoined") }}
+</code></pre>{{ note(msg="**complete commands** with a cursor **disjoined**") }}
 </div>
 </div>
 

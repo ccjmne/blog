@@ -7,13 +7,13 @@ taxonomies.tags = ['all', 'cli', 'quibblery', 'zsh']
 extra.cited_tools = ['zsh']
 +++
 
-I use the **[Z shell, _Zsh_](https://www.zsh.org/)**.  Before using it,
-I'd acquired some reasonable familiarity with the <abbr title="Portable
-Operating System Interface">`POSIX`</abbr> shell specification, and the
-**Bourne-Again Shell, _Bash_**.  By that, I mean that it's been a couple
-of years since I last pair-programmed extensively with a colleague that
-wasn't wooed by the "tricks" I have up my sleeve.  Yet, certainly not due to
-more, newer or better tools—you and I do wield (though perhaps not quite
+I use the **[Z shell, _Zsh_](https://www.zsh.org/)**.  Before using it, I'd
+acquired some reasonable familiarity with the <abbr title="Portable Operating
+System Interface">`POSIX`</abbr> shell specification, and the **Bourne-Again
+Shell, _Bash_**.  It’s been years since I last pair-programmed extensively
+with someone who wasn't surprised that many of these agile _"tricks"_ are built
+right into the plain (albeit _Bourne-Again_) shell.  Yet, certainly not due
+to more, newer or better tools—you and I do wield (though perhaps not quite
 _use_) the same ones after all—**my best wizardry is mostly the product
 of a unique balance of <abbr title="self-discipline">asceticism</abbr> and
 aestheticism**[^ascetic-and-aesthetic].
@@ -39,8 +39,8 @@ is now up to the most punctilious of us to <abbr title="Read The F... riendly
 Manual">`RTFM`</abbr> justify having _Zsh_ in our toolbox with arguments more
 elaborate than _"idk, i liked the colours"_.<br>
    This article is for those of us that dwell on the `CLI` with enough agility
-to perceive—and be bothered by—the machine stuttering when asked to be ready
-to bend over backwards for our most acrobatic antics.
+to perceive—and be bothered by—the machine stuttering when readying to bend
+over backwards for our most acrobatic antics.
 
 > [!NOTE]
 >
