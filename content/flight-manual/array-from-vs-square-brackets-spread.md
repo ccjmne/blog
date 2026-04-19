@@ -2,7 +2,7 @@
 title = "You're wrong about `Array.from` vs `[...arr]`"
 date = 2026-04-19
 description = 'Decrying the Gospel of pseudo-punctilious optimisation in software'
-taxonomies.section = ['flashcards']
+taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'javascript', 'es6', 'quibblery']
 extra.cited_tools = ['eslint', 'hyperfine', 'node']
 +++
