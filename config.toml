@@ -59,6 +59,12 @@ repo    = "https://github.com/moby/moby"
 package = "extra/x86_64/docker"
 manual  = "https://docs.docker.com/"
 
+[extra.tools.eslint]
+name    = "eslint"
+repo    = "https://github.com/eslint/eslint"
+package = "extra/x86_64/eslint"
+manual  = "https://eslint.org/docs/"
+
 [extra.tools.fcitx5]
 name    = "fcitx5"
 repo    = "https://github.com/fcitx/fcitx5"
@@ -90,6 +96,12 @@ repo    = "https://git.savannah.gnu.org/cgit/grep.git/"
 package = "core/x86_64/grep"
 manual  = "https://man.archlinux.org/man/grep.1.en"
 posix   = "https://man.archlinux.org/man/grep.1p.en"
+
+[extra.tools.hyperfine]
+name    = "hyperfine"
+repo    = "https://github.com/sharkdp/hyperfine"
+package = "extra/x86_64/hyperfine"
+manual  = "https://man.archlinux.org/man/extra/hyperfine/hyperfine.1.en"
 
 [extra.tools.ibus]
 name    = "ibus"
@@ -133,6 +145,12 @@ repo    = "https://github.com/coreutils/coreutils"
 package = "core/x86_64/coreutils"
 manual  = "https://man.archlinux.org/man/nl.1.en"
 posix   = "https://man.archlinux.org/man/nl.1p.en"
+
+[extra.tools.node]
+name    = "node"
+repo    = "https://github.com/nodejs/node"
+package = "extra/x86_64/nodejs"
+manual  = "https://man.archlinux.org/man/extra/nodejs/node.1.en"
 
 [extra.tools.paste]
 name    = "paste"
