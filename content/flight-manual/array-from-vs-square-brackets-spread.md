@@ -1,7 +1,7 @@
 +++
 title = "You're wrong about `Array.from` vs `[...arr]`"
 date = 2026-04-19
-description = 'Decrying the Gospel of pseudo-punctilious optimisation in software'
+description = 'The science behind the non-functional ways—if any— where `Array.from(arr, fn)` is preferrable to its alternatives'
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'javascript', 'es6', 'quibblery']
 extra.cited_tools = ['eslint', 'hyperfine', 'node']
@@ -82,8 +82,9 @@ the resulting operations executed by your processor.  This here, the <abbr
 title="Just-In-Time">`JIT`</abbr>[^jit-compiler-crash-course] compilation, is
 but _one_ of these, and already it subverts all sorts of expectations.
 
-[^jit-compiler-crash-course]: You may want to go over this short introduction of
-what the Just-In-Time compilation is about, from this ["crash course" on Mozilla
+[^jit-compiler-crash-course]: You may want to go over this short introduction
+of what the _Just-In-Time_ compilation is about, from this [_"crash course"_ on
+Mozilla
 Hacks](https://hacks.mozilla.org/2017/02/a-crash-course-in-just-in-time-jit-compilers/).
 
 I would go so far as to claim that generally, short of altering your high-level
@@ -648,21 +649,23 @@ performed about:
 
 - `2.97` times faster than `arra.map(fn)`,
 - `3.72` times faster than `[...arr].map(fn)`, and
-- `8.05` times faster than `Array.from(arr, fn)`.
+- `8.05` times faster than `Array.from(arr, fn)`.  **EIGHT!!**
 
-So, the next time your linter screams at you at the `ERROR` level that this is
-somehow inadequate:
+So, the next time your [linter](https://en.wikipedia.org/wiki/Lint_(software))
+screams at you at the `ERROR` level that this is somehow inadequate:
 
 ```js
-const boxes = [...document.querySelectorAll('[grid-area=headline]')]
+const boxes = [...document.querySelectorAll('.box')]
     .map(e => e.getBoundingClientRect())
 ```
 {{ note(msg="this excerpt triggers the revolting `e18e/prefer-array-from-map` rule") }}
 
+... **Know that it is rubbish.**
+
 ### Is that really what you need?
 
-**Know that it is rubbish.**  Know that <abbr title="Just-In-Time">`JIT`</abbr>
-compilation is tricky, and so is measuring performance.
+Know that <abbr title="Just-In-Time">`JIT`</abbr> compilation is tricky, and so
+is measuring performance.
 
 But mostly: know that **it matters not here**.  Know that more time elapses from
 from `hover` to `click` on your buttons (provided a mammalian brain is operating
@@ -673,13 +676,13 @@ And that's before [Fitt's law](https://en.wikipedia.org/wiki/Fitts%27s_law)
 comes into play.  And that's before [Hick's
 law](https://en.wikipedia.org/wiki/Hick%27s_law) also kicks off.
 
-And that's all **assuming you DO have more than your usual pitiful 4 items** in a
-list!
+And that's all **assuming you DO have more than your usual pitiful 4 items** in
+a list!
 
 ## Going forward
 
-**Make ample use of discernment**, don't presume that the cool new kids
-online know any better, keep track of what actually matters and be capable of
+**Make ample use of discernment**, don't presume that the cool new kids online
+know any better, keep track of what actually matters, and be capable of
 extracting a ballpark estimation yourself.
 
 But most importantly: **don't make me change my perfectly serviceable code**
