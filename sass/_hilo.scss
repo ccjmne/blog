@@ -2,14 +2,13 @@
 @use 'mxin' as *;
 @use 'thme' as *;
 
-%hi, %lo { @extend %hilo }
-
 %hi {
   --bg-1: #{nth($bgs, 4)};
   --bg-2: #{nth($bgs, 5)};
   --bg-3: #{nth($bgs, 6)};
   --bg:   var(--bg-1);
 }
+
 %lo {
   --bg-1: var(--focus);
   --bg-2: #{nth($bgs, 3)};
@@ -34,5 +33,8 @@ main %hilo > * {
   @include centred();
 }
 
-.hi             { @extend %hi }
-.lo, .footnotes { @extend %lo }
+.hi             { @extend %hi; @extend %hilo; }
+.lo, .footnotes { @extend %lo; @extend %hilo; }
+
+details.code:not([open]) + .note { @extend %lo }
+details.code summary             { @extend %hi }

@@ -1,3 +1,5 @@
+@use '../_mxin' as *;
+
 details:not(.dropdown) {
   padding: 0;
   margin: 1rem 0 0;
@@ -29,6 +31,20 @@ details.dropdown {
     position: absolute;
     background-color: var(--colour-mantle);
   }
+}
+
+details.code {
+  summary {
+    &::marker { content: ''; }
+    padding-block: 0;
+    ~ *:last-child { margin-bottom: 0; }
+  }
+  + .note {
+    display: block;
+    text-align: center;
+    &::before { @include icon(chevron-down); }
+  }
+  &[open] + .note::before { @include icon(chevron-up); }
 }
 
 details + article {
