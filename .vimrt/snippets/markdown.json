@@ -1,4 +1,10 @@
 {
+  "attribution": {
+    "prefix": "attribution",
+    "body": [
+      "{% attribution() %} $1 {% end %}"
+    ]
+  },
   "note": {
     "prefix": "note",
     "body": [
