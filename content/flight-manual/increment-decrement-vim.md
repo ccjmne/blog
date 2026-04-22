@@ -188,8 +188,8 @@ glorious splendour.
 ### Also with `count`
 
 Like most Vim commands, you can prefix with a `count` ([`:help
-count`](https://vimdoc.sourceforge.net/htmldoc/intro.html#count)), and these
-bindings will behave as you'd expect.  Consider the following line:
+count`](https://vimhelp.org/intro.txt.html#count)), and these bindings will
+behave as you'd expect.  Consider the following line:
 
 ```txt
 HTTP 200
@@ -225,17 +225,17 @@ after all; let's say that `400`-something might be about right.
 Jump to the `--memory 128M` line with `/mem`, then apply one savvy `32^A`
 to have `256` turn into `288` (that's `32` more: I don't know that, I
 just applied this very procedure I'm describing).  Press `.` ([`:help
-.`](https://vimdoc.sourceforge.net/htmldoc/repeat.html#single-repeat)) and it
-goes `320`; once more and you get `352`, then `384`, and `416`.  Too far?  Just
-`u`ndo ([`:help u`](https://vimhelp.org/undo.txt.html#undo)) back and forth!
+.`](https://vimhelp.org/repeat.txt.html#single-repeat)) and it goes `320`; once
+more and you get `352`, then `384`, and `416`.  Too far?  Just `u`ndo ([`:help
+u`](https://vimhelp.org/undo.txt.html#undo)) back and forth!
 
 ## Choose what and how to increment
 
 By default, Vim recognizes different number formats
 controlled by the `nrformats` option ([`:help
-'nrformats'`](https://vimdoc.sourceforge.net/htmldoc/options.html#'nrformats')).
-This can lead to _surprising_ behaviour if you're not aware of it; thankfully,
-there are plenty of remedies, all baked into the system.
+'nrformats'`](https://vimhelp.org/options.txt.html#%27nrformats%27)).  This can
+lead to _surprising_ behaviour if you're not aware of it; thankfully, there are
+plenty of remedies, all baked into the system.
 
 ### The octal trap
 
@@ -478,7 +478,7 @@ line...
 4
 5
 ```
-{{ note(msg="after `vip`, `oj` ([`:help v_o`](https://vimdoc.sourceforge.net/htmldoc/visual.html#v_o)) and `g^A`") }}
+{{ note(msg="after `vip`, `oj` ([`:help v_o`](https://vimhelp.org/visual.txt.html#v_o)) and `g^A`") }}
 </div>
 </div>
 
