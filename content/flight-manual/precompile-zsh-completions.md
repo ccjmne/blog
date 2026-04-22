@@ -7,6 +7,74 @@ taxonomies.tags = ['all', 'cli', 'quibblery', 'zsh']
 extra.cited_tools = ['zsh']
 +++
 
+I live in the terminal, and I'm quite a fine of my multiplexer of choice,
+`tmux`.  As a result, I spawn _Zsh_ sessions, both interactive and
+non-interactive, a great many times per day: I want to **request a shell and
+start typing in the same breath**, before my puny <abbr title="the human element
+of my set-up">mammalian system</abbr> has even had time to confirm the system is
+ready.
+
+If my session is interactive, I want access to all my tools, with all the
+bells and whistles, with the comprehensive completion system for every single
+tool I use—and then some; with all my custom bindings and what-have-yous.
+**And I shall tolerate no perceptible hiccup or hesitation from the machine
+that does my bidding: `32ms` is its budget** to be fully responsive,
+including having a prompt showing me the current status of my gigantic Git
+[monorepo](https://en.wikipedia.org/wiki/Monorepo) that takes well over 10 times
+that long to report on its status.
+
+Is that remotely realistic?  It sure is!  Let's look into loading up absolutely
+all the completions that are available, **in less than 16ms**, to satisfy even
+those of us that dwell on the `CLI` with enough agility to perceive—and be
+bothered by—the machine stuttering when readying to bend over backwards for
+our most acrobatic antics.
+
+> [!NOTE]
+>
+> A vastly more digestible [introduction to providing completions for the _Z
+> Shell_](@/flashcards/provide-zsh-completions.md) is available, would you need
+> to whet your appetite for this exercise.
+
+<div class="hi">
+
+## Obligatory [TL;DR](https://en.wikipedia.org/wiki/TL;DR)
+
+Run the following asynchronously, once in a while, and/or when you install new
+software:
+
+```sh
+#! /usr/bin/env zsh
+
+readonly dumpfile=$ZDOTDIR/.zcompdump
+readonly compdir=${XDG_DATA_HOME}/zsh/site-functions
+mkdir -p "$compdir"
+
+niri completions zsh    > "$compdir/_niri"
+opencode completion zsh > "$compdir/_opencode"  # have even that one, if you want!
+
+fpath+=("$compdir")
+[ -f "$dumpfile" ] && rm "$dumpfile"
+autoload -U compinit && compinit -d "$dumpfile"
+```
+{{ note(msg="I automatically run this script once a day, with a `systemd` timer") }}
+
+Retain only this in your in your `.zshrc`.
+
+```sh
+typeset -U fpath
+fpath+=${XDG_DATA_HOME}/zsh/site-functions
+autoload -U compinit && compinit -C
+```
+{{ note(msg="`typeset -U` ensures that there may be no duplicate in your `$fpath`") }}
+
+With the above set-up, you'll get a new interactive _Zsh_ session, **with all
+the completions available for all your tools**, ready, willing and able to
+serve, **well within `16ms` of having requested it**.
+
+</div>
+
+<div style="display: none"> <!-- TODO: make into series introduction? -->
+
 I use the **[Z shell, _Zsh_](https://www.zsh.org/)**.  Before using it, I'd
 acquired some reasonable familiarity with the <abbr title="Portable Operating
 System Interface">`POSIX`</abbr> shell specification, and the **Bourne-Again
@@ -34,21 +102,13 @@ of indulgence, typically for religious reasons.  According to Wikipedia,
 
     I embrace the paradox and consider myself an **ascetic aesthete**.
 
-   **The most competent of us already built some most competent tools**, it
-is now up to the most punctilious of us to <abbr title="Read The F... riendly
+**The most competent of us already built some most competent tools**, it is
+now up to the most punctilious of us to <abbr title="Read The F... riendly
 Manual">`RTFM`</abbr> justify having _Zsh_ in our toolbox with arguments more
 elaborate than _"idk, i liked the colours"_.<br>
-   This article is for those of us that dwell on the `CLI` with enough agility
-to perceive—and be bothered by—the machine stuttering when readying to bend
-over backwards for our most acrobatic antics.
-
-> [!NOTE]
->
-> A vastly more digestible [introduction to providing completions for the _Z
-> Shell_](@/flashcards/provide-zsh-completions.md) is available, would you need
-> to whet your appetite for this exercise.
 
 <!-- [RTFM](@/flight-manual/read-the-friendly-manual). TODO: LINKME -->
+</div>
 
 ## Loading completions modules
 
@@ -65,8 +125,8 @@ packagers are less articulate (that is, generally anything on the infamous
 > [!TIP]
 >
 > The _"adequate places"_ would likely be `/usr/share/zsh/site-functions`, but
-> you'll be best served by `man zshmodules`, specifically its _`THE ZSH/NEWUSER
-> MODULE`_ section, for a most accurate and exhaustive description.
+> you'll be best served by `man zshmodules`, specifically its _`THE ZSH`/`NEWUSER
+> MODULE`_ section, for a most accurate, comprehensive and up-to-date description.
 >
 > For example, the packagers of `yazi-git` on the `AUR`
 >
@@ -89,18 +149,17 @@ source <(niri completions zsh)
 ```
 {{ note(msg="now the most excellent [`niri`](https://github.com/niri-wm/niri) suggests to load completion for its `CLI`") }}
 
-That'll work!  But it'll make your shell (in the case of `niri`'s) _an
-extra `~10` millisecond slower_ to become interactive.  Add a couple more
-of these, and **you're looking at `100ms` simply for the completions**; and
-just like that, you can actually _feel_ the little bit of delay when you
-go about your most acrobatic <abbr title="Command Line Interface, where I
-dwell">`CLI`</abbr>life, such as binding, say, some `tmux` binding that opens
-a new interactive shell, starts typing up some command, and switches to `vi`
-mode to put your cursor where you want it, right bang in the middle of said
-_"template"_.
+That'll work!  But it'll make your shell (in the case of `niri`'s) _an extra
+`~10` millisecond slower_ to become interactive.  Add a couple more of these,
+and **you're looking at `100ms` simply for the completions**; and just like
+that, you can actually _feel_ the little bit of delay when you go about your
+most acrobatic <abbr title="Command Line Interface, where I dwell">`CLI`</abbr>
+life, such as binding, say, some `tmux` binding that opens a new interactive
+shell, starts typing up some command, and switches to `vi` mode to put your
+cursor where you want it, right bang in the middle of the said "template".
 
-Yes, I do do that; and yes, seeing the whole shebang stutter for `~200ms` would
-be quite unnerving.
+Yes, I do do that—and then some; and yes, seeing the whole shebang stutter for
+`~150ms` did use to be quite unnerving.
 
 Especially when you know that you could have your cake and eat it too: **loading
 completions doesn't have to take that long.**
@@ -546,7 +605,7 @@ feel it responsive**.
 
 To those that may think that this is one hell of a subjective metric, _while I
 agree_, I would like to mention that I have a particular framework by which I
-just responsiveness!
+just responsiveness.
 
 I base it off a fairly credible
 publication[^system-latency-guidelines-then-and-now]: [_System
@@ -570,12 +629,15 @@ of this article, we can distil the information down to the following substrate:
 > lower boundary of `100ms` as mentioned in several design guidelines appears
 > outdated.
 
-There you have it, a number.  My personal observation had been that if you type
-some 100 words per minute, I'd guesstimate that your key presses occur at the
-approximate rate of one per `100ms`.  **I want to be able to spawn a new shell
-and start typing away, without being able to suffer from the stutter**, and
-what I type then it sometimes quite mechanical and comes out with far greater
-alacrity than prose would, think `cd ~/git/this-years-project`.
+There you have it, a basic number.  My personal observation had been that if
+you type some 100 words per minute, I'd guesstimate that your key presses occur
+at the approximate rate of one per `100ms`—when writing prose.  I consider
+that the more mechanical `CLI` habits that made themselves at home in you muscle
+memory (think `git status` or `cd ~/the-ultimate-monorepo`) are certain to come
+out with a significantly greater alacrity: **I want to be able to spawn a new
+shell and start typing away, without having to suffer from any stutter**.
+
+In summary, here's the whole solution:
 
 ```sh
 #! /usr/bin/env zsh
@@ -593,8 +655,8 @@ autoload -U compinit && compinit -d "$dumpfile"
 ```
 {{ note(msg="I automatically run this script once a day, with a `systemd` timer") }}
 
-Run the above asynchronously, once in a while, and/or when you install new
-software; keep the below in your `.zshrc`.
+Run the above asynchronously, once in a while (perhaps on a `systemd` timer?),
+and/or when you install new software; retain only the below in your `.zshrc`.
 
 ```sh
 typeset -U fpath
@@ -603,9 +665,9 @@ autoload -U compinit && compinit -C
 ```
 {{ note(msg="`typeset -U` ensures that there may be no duplicate in your `$fpath`") }}
 
-I get a new interactive _Zsh_ session, complete with all the bells and whistles
-one could dream of, ready, willing and able to serve, within `32ms` of having
-requested it.
+In my current entire set-up, I get a new interactive _Zsh_ session, complete
+with all the bells and whistles one could dream of **well within `32ms` of
+having requested it**—where about half that time is allotted to `compinit -C`.
 
 I could do without, but I don't, because I don't want to.  If you're in the same
 boat, have fun; if you aren't: have fun as well—cheers!
