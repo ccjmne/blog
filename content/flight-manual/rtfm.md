@@ -4,7 +4,7 @@ date = 2025-08-16
 description = ''
 draft = true
 taxonomies.section = ['flight-manual']
-taxonomies.tags = ['all', 'cli']
+taxonomies.tags = ['all', 'cli', 'craftsmanship']
 +++
 
 

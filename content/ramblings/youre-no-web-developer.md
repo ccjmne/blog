@@ -1,7 +1,7 @@
 +++
 date = 2025-11-11
-taxonomies.tags = ['all']
-taxonomies.kind = ['ramblings']
+taxonomies.tags = ['all', 'craftsmanship', 'javascript', 'web']
+taxonomies.section = ['ramblings']
 draft = true
 +++
 

@@ -3,7 +3,7 @@ title = 'The Advent of Code'
 date = 2025-12-01
 description = 'Deck the [Git] tree with lines of logic, fa-la-la-la-la, la-la-la-la'
 taxonomies.section = ['ramblings']
-taxonomies.tags = ['all']
+taxonomies.tags = ['all', 'craftsmanship']
 +++
 
 > Deck the [Git] tree with lines of logic, fa-la-la-la-la, la-la-la-la.

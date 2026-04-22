@@ -3,7 +3,7 @@ title = 'Reproducible, isolated demonstrations'
 date = 2025-08-10
 description = 'Create reproducible, isolated demonstration environments with containers'
 taxonomies.section = ['flashcards']
-taxonomies.tags = ['all', 'cli', 'docker']
+taxonomies.tags = ['all', 'cli', 'craftsmanship', 'docker']
 extra.cited_tools = ['docker', 'vim']
 +++
 

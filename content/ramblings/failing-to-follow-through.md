@@ -2,7 +2,7 @@
 title = 'A systemic failure to follow through'
 date = 2025-09-25
 taxonomies.section = ['ramblings']
-taxonomies.tags = ['all']
+taxonomies.tags = ['all', 'architecture', 'craftsmanship', 'management']
 +++
 
 > [!NOTE]

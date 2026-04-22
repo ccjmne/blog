@@ -3,7 +3,7 @@ title = 'Beware false prophets: `[...arr]` is not harmful'
 date = 2026-04-19
 description = 'Decrying the Gospel of pseudo-punctilious optimisation in software'
 taxonomies.section = ['flashcards']
-taxonomies.tags = ['all', 'javascript', 'es6', 'quibblery']
+taxonomies.tags = ['all', 'es6', 'javascript', 'quibblery']
 extra.cited_tools = ['eslint', 'node']
 +++
 

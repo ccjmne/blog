@@ -3,7 +3,7 @@ title = 'The `DRY` hoax'
 date = 2025-11-11
 description = 'Prefer duplication over the wrong abstraction'
 taxonomies.section = ['ramblings']
-taxonomies.tags = ['all']
+taxonomies.tags = ['all', 'architecture', 'craftsmanship']
 +++
 
 Ah, here we are.  The opiate of the eager neophyte, which, like all things, is

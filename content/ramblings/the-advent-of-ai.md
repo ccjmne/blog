@@ -2,7 +2,7 @@
 title = 'The advent of `AI`'
 date = 2025-10-14
 taxonomies.section = ['ramblings']
-taxonomies.tags = ['all']
+taxonomies.tags = ['all', 'craftsmanship']
 +++
 
 We've pretty much always had _"artificial intelligence"_ in our lives: the
