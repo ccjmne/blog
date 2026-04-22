@@ -14,5 +14,5 @@ nmap <Leader>l !ippar 80p2dh
 vmap <Leader>j :'<,'>!par 80
 vmap <Leader>k :'<,'>!par 80d
 vmap <Leader>l :'<,'>!par 80p2dh
-nmap <Leader>help :let @+ = 'https://vimhelp.org/' . expand('%:t') . '.html#' . UrlEncode('')
+nmap <Leader>help :let @+ = 'https://vimhelp.org/' . expand('%:t') . '.html#' . UrlEncode(expand('<cWORD>'))
 echo 'Ready to go.'
