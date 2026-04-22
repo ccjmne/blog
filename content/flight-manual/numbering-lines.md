@@ -254,7 +254,7 @@ nl -w1 -s'.  ' dailytasks.txt
 9.  Get some sleep
 10.  Make ends meet
 ```
-{{ note(msg="using a single column (`-w1`) makes `10` overflow") }}
+{{ note(msg="using `-w1` has `10` overflow the single column") }}
 </div>
 <div>
 

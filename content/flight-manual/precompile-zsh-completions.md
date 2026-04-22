@@ -46,15 +46,17 @@ software:
 #! /usr/bin/env zsh
 
 readonly dumpfile=$ZDOTDIR/.zcompdump
-readonly compdir=${XDG_DATA_HOME}/zsh/site-functions
-mkdir -p "$compdir"
+readonly compdir=$XDG_DATA_HOME/zsh/site-functions
 
-niri completions zsh    > "$compdir/_niri"
-opencode completion zsh > "$compdir/_opencode"  # have even that one, if you want!
+mkdir -p $compdir
+rm -- $compdir/*
 
-fpath+=("$compdir")
-[ -f "$dumpfile" ] && rm "$dumpfile"
-autoload -U compinit && compinit -d "$dumpfile"
+niri completions zsh    > $compdir/_niri
+opencode completion zsh > $compdir/_opencode  # have even that one, if you want!
+
+fpath+=($compdir)
+[ -f $dumpfile ] && rm -- $dumpfile
+autoload -U compinit && compinit -d $dumpfile
 ```
 {{ note(msg="I automatically run this script once a day, with a `systemd` timer") }}
 
@@ -62,10 +64,21 @@ Retain only this in your in your `.zshrc`.
 
 ```sh
 typeset -U fpath
-fpath+=${XDG_DATA_HOME}/zsh/site-functions
+fpath+=($XDG_DATA_HOME/zsh/site-functions)
 autoload -U compinit && compinit -C
 ```
 {{ note(msg="`typeset -U` ensures that there may be no duplicate in your `$fpath`") }}
+
+> [!IMPORTANT]
+>
+> I assume here that you've set `ZDOTDIR` and `XDG_DATA_HOME` explicitly and
+> aptly—that is, in your `.zshenv` or _"earlier"_.  Not having provided
+> fall-backs here isn't for any lack of skill or consideration on my end; the
+> same observation goes for the absence of double-quotes surrounding expanding
+> bits.
+>
+> Consider this: be deliberate, vigilant and sure of yourself, and you get to
+> write `rm -- $compdir/*` instead of the poorer `rm "$compdir"/*`.
 
 With the above set-up, you'll get a new interactive _Zsh_ session, **with all
 the completions available for all your tools**, ready, willing and able to
@@ -590,16 +603,16 @@ anyway?  Here's what `man zshcompsys` has to say on the matter:
 > is easiest to delete the dump file by hand** so that `compinit` will re-create
 > it the next time it is run.
 
-Ah-ha!  We were supposed to have been doing that all along?  Oops.
-It goes on to instruct us further:
+   Ah-ha!  We were supposed to have been doing that all along?  Oops.<br>
+   It goes on to instruct us further:
 
 > The check performed to see if there are new functions can be omitted by giving
 > the option `-C`.  In this case the dump file will only be created if there
 > isn't one already.
 
-Well, there you go.  The final piece of that puzzle on the quest to setting up
-your shell choke full of tricks and gadgets, while having it load **fast enough to
-feel it responsive**.
+Ah, there it is.  The final piece of that puzzle on the quest to setting up your
+shell choke-full of tricks and gadgets, while having it load **fast enough to
+feel responsive**.
 
 ### Fast enough to feel responsive
 
@@ -643,15 +656,17 @@ In summary, here's the whole solution:
 #! /usr/bin/env zsh
 
 readonly dumpfile=$ZDOTDIR/.zcompdump
-readonly compdir=${XDG_DATA_HOME}/zsh/site-functions
-mkdir -p "$compdir"
+readonly compdir=$XDG_DATA_HOME/zsh/site-functions
 
-niri completions zsh    > "$compdir/_niri"
-opencode completion zsh > "$compdir/_opencode"  # have even that one, if you want!
+mkdir -p $compdir
+rm -- $compdir/*
 
-fpath+=("$compdir")
-[ -f "$dumpfile" ] && rm "$dumpfile"
-autoload -U compinit && compinit -d "$dumpfile"
+niri completions zsh    > $compdir/_niri
+opencode completion zsh > $compdir/_opencode  # have even that one, if you want!
+
+fpath+=($compdir)
+[ -f $dumpfile ] && rm -- $dumpfile
+autoload -U compinit && compinit -d $dumpfile
 ```
 {{ note(msg="I automatically run this script once a day, with a `systemd` timer") }}
 
@@ -660,10 +675,21 @@ and/or when you install new software; retain only the below in your `.zshrc`.
 
 ```sh
 typeset -U fpath
-fpath+=${XDG_DATA_HOME}/zsh/site-functions
+fpath+=($XDG_DATA_HOME/zsh/site-functions)
 autoload -U compinit && compinit -C
 ```
 {{ note(msg="`typeset -U` ensures that there may be no duplicate in your `$fpath`") }}
+
+> [!IMPORTANT]
+>
+> I assume here that you've set `ZDOTDIR` and `XDG_DATA_HOME` explicitly and
+> aptly—that is, in your `.zshenv` or _"earlier"_.  Not having provided
+> fall-backs here isn't for any lack of skill or consideration on my end; the
+> same observation goes for the absence of double-quotes surrounding expanding
+> bits.
+>
+> Consider this: be deliberate, vigilant and sure of yourself, and you get to
+> write `rm -- $compdir/*` instead of the poorer `rm "$compdir"/*`.
 
 In my current entire set-up, I get a new interactive _Zsh_ session, complete
 with all the bells and whistles one could dream of **well within `32ms` of

@@ -32,26 +32,26 @@ echo a b c | xargs touch  # pipeline approach
 You will find `xargs` to be quite handy in a couple of occasions:
 
 - the _"natural approach"_ only works when you know in advance the arguments
-  you'll want to use.  I presume it obvious, but it is the only commendable way
-  to approach invoking some utility; let's move on;
+  you'll want to use.  I presume it obvious, but whenever applicable, it is the
+  only commendable way to approach invoking some utility—let's move on;
 - the _"subshell"_ approach runs a command in a sub-shell, then uses its
   output to pass arguments to another tool.  Note that the two are run
   **sequentially**, and this approach prevents you to **start getting some
   responses** from the second utility until the first one has completed its
   task;
-- the _"pipeline"_ approach, relying on `xargs`, for some tasks that may take a
-  while, such as, typically, finding and listing files to run some operations
-  on, you really may **draw benefits from a more parallel approach** where both
-  utilities are working together [as the
+- the _"pipeline"_ approach, relying on `xargs`, is most qualified some tasks
+  that may take a while, such as, typically, finding and listing files to run
+  some operations on, you really may **draw benefits from a more parallel
+  approach** where both utilities are working together [as the
   finest systems folks intended](https://adamdrake.com/command-line-tools-can-be-235x-faster-than-your-hadoop-cluster.html).
 
  There are yet other alternatives, however, among which the most glaring would
 be **`find`'s courtly (albeit somewhat limited) `-exec` mechanism**—and its
-"operative siblings", like `-execdir`, `-delete`, `-ok` (as well as further
+_"operative siblings"_, like `-execdir`, `-delete`, `-ok` (as well as further
 non-`POSIX` [_"in-laws"_](https://en.wikipedia.org/wiki/Sibling-in-law),
-`-link`, `-copy`, `-rename`...).<br>
-  Whenever possible, I argue that **using the capacity built in your primary
-tool would be most fluid and elegant[^elegance]**.
+`-link`, `-copy`, `-rename`...).<br> Whenever possible, I argue that
+**using the capacity built in your primary tool would be most fluid and
+elegant[^elegance]**.
 
 [^elegance]: I really insist, the most elegant way to use a tool is with the
 great proficiency that only comes from knowing it inside out.  Think of it this
@@ -62,7 +62,7 @@ its camera, only to watch _that_ live feed on its screen?  In some cases (when
 you'd get the added benefit of live software-enabled translation, for example),
 it's the way to go; **typically, that'd be preposterous**.
 
-Lastly, **know of `-t`, for _"trace"_, and `-p`, for _"prompt"_**, which allow
+Lastly, **know of `-t`, for _trace_, and `-p`, for _prompt_**, which allow
 you to output to <abbr title="The standard error output">`stderr`</abbr> the
 commands to be invoked, and, with respect to `-p`, to await explicit affirmative
 answer before proceeding with each.  In the case of `GNU`'s implementation,
@@ -120,7 +120,7 @@ rm ./data/export/users.csv?...y
 rm ./build/output/main.js.map?...y
 rm -rf /?...n
 ```
-{{ note(msg="`-p` here let us avoid a disaster") }}
+{{ note(msg="`-p` here gives us a chance to dodge a bullet") }}
 </div>
 </div>
 
