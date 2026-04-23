@@ -18,11 +18,11 @@ header {
 }
 
 [data-path='/']               [data-target='home'],
-[data-path^='/tags']          [href$='/tags'],
-[data-path^='/flight-manual'] [href$='/flight-manual'],
-[data-path^='/flashcards']    [href$='/flashcards'],
-[data-path^='/ramblings']     [href$='/ramblings'],
-[data-path^='/colophon']      [href$='/colophon'] {
+[data-path^='/tags']          [href$='/tags/'],
+[data-path^='/flight-manual'] [href$='/flight-manual/'],
+[data-path^='/flashcards']    [href$='/flashcards/'],
+[data-path^='/ramblings']     [href$='/ramblings/'],
+[data-path^='/colophon']      [href$='/colophon/'] {
   font-weight: bold;
 }
 

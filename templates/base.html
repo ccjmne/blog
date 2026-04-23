@@ -27,17 +27,17 @@
       <details class="dropdown" max-md>
         <summary data-target="articles">Articles</summary>
         <nav>
-          <a href="{{ get_url(path="/flight-manual") }}">Flight rules</a>
-          <a href="{{ get_url(path="/ramblings") }}"    >Ramblings</a>
-          <a href="{{ get_url(path="/flashcards") }}"   >Flashcards</a>
-          <a href="{{ get_url(path="/tags") }}"   max-sm>Sections</a>
+          <a href="{{ get_url(path="/flight-manual", trailing_slash=true) }}"       >Flight rules</a>
+          <a href="{{ get_url(path="/ramblings",     trailing_slash=true) }}"       >Ramblings</a>
+          <a href="{{ get_url(path="/flashcards",    trailing_slash=true) }}"       >Flashcards</a>
+          <a href="{{ get_url(path="/tags",          trailing_slash=true) }}" max-sm>Sections</a>
         </nav>
       </details>
-      <a href="{{ get_url(path="/flight-manual") }}" min-md>Flight rules</a>
-      <a href="{{ get_url(path="/ramblings") }}"     min-md>Ramblings</a>
-      <a href="{{ get_url(path="/flashcards") }}"    min-md>Flashcards</a>
-      <a href="{{ get_url(path="/tags") }}"          min-sm>Sections</a>
-      <a href="{{ get_url(path="/colophon") }}"            >Colophon</a>
+      <a href="{{ get_url(path="/flight-manual", trailing_slash=true) }}" min-md>Flight rules</a>
+      <a href="{{ get_url(path="/ramblings",     trailing_slash=true) }}" min-md>Ramblings</a>
+      <a href="{{ get_url(path="/flashcards",    trailing_slash=true) }}" min-md>Flashcards</a>
+      <a href="{{ get_url(path="/tags",          trailing_slash=true) }}" min-sm>Sections</a>
+      <a href="{{ get_url(path="/colophon",      trailing_slash=true) }}"       >Colophon</a>
       <span style="flex-grow: 1"></span>
       <a href="{{ get_url(path="/atom.xml", trailing_slash=false) }}">RSS</a>
     </header>
