@@ -455,14 +455,14 @@ aptly described by its `man`ual page, **does nothing, successfully**.  Combined
 with `-t`, we'll get a fine understanding of what goes on under the hood:
 
 ```sh
-cat my-args | xargs -t true
+xargs -t true < my-args
 ```
 ```txt
 true Confucius Mark Twain Ninoshka 'Chuck Berry' 'René Descartes' '$USER' "d'Artagnan" '$HOME sweet '\''home'\''' '$(date)'
 ```
 
 ```sh
-cat my-args | xargs -tn1 true
+xargs -tn1 true < my-args
 ```
 ```txt
 true Confucius
@@ -488,7 +488,7 @@ true '$(date)'
 > <div>
 >
 > ```sh
-> cat my-args | xargs echo
+> xargs echo < my-args
 > ```
 > {{ note(msg="the `POSIX` version") }}
 > </div>
@@ -501,8 +501,31 @@ true '$(date)'
 > </div>
 > </div>
 >
-> As such, the pattern I employ here of `cat <x> | xargs <y>` isn't quite
-> definitely [useless](@/flashcards/useless-use-of-cat.md).
+> Well, there also is `cat my-args | xargs -t true`, which while it wouldn't
+> be most egregious this time, still certainly would constitute a exemplary,
+> lovingly dubbed [useless use of `cat`](@/flashcards/useless-use-of-cat.md):
+>
+> <div class="grid-1-2">
+> <div>
+>
+> ```sh
+> xargs echo < my-args
+> xargs < my-args echo
+> ```
+> {{ note(msg="either of these would be splendid") }}
+> </div>
+> <div>
+>
+> ```sh
+> xargs -a my-args echo
+> cat my-args | xargs echo
+> ```
+> {{ note(msg="both of those are slightly less dignified") }}
+> </div>
+> </div>
+>
+> We shall largely prefer `xargs < <file> <cmdline>` to the feline preamble.
+> Note that `xargs <cmdline> < <file>` works, too!
 
 Would you look at that!  A few things are worth noting here:
 

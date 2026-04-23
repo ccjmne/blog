@@ -126,12 +126,12 @@ rm -rf /?...n
 
 > [!NOTE]
 >
-> This `cat <file> | xargs <cmdline>` isn't the most egregious an [useless use
-> of `cat`](@/flashcards/useless-use-of-cat.md), since `-a`/`--arg-file`, the
-> `GNU` flag that would let `xargs` consume its input from a file descriptor
-> directly, isn't part of the `POSIX` specification, but we shall still largely
-> prefer `xargs < <file> <cmdline>` to the feline preamble.  Note that `xargs
-> <cmdline> < <file>` works, too!
+> This `cat <file> | xargs <cmdline>` isn't the most egregious [useless use of
+> `cat`](@/flashcards/useless-use-of-cat.md), since `-a`/`--arg-file`, the `GNU`
+> flag that would let `xargs` consume its input from a file descriptor directly,
+> isn't part of the `POSIX` specification, but we shall still largely prefer
+> `xargs < <file> <cmdline>` to the feline preamble.  Note that `xargs <cmdline>
+> < <file>` works, too!
 
 Be careful however, for being repeatedly prompted for confirmation tends
 to have you mechanically agree before you actually do [the _"wait wha—"_
