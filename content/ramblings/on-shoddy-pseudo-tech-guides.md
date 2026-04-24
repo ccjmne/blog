@@ -24,8 +24,8 @@ about some _how-else_ and, when it is customary for herds of run-of-the-mill,
 corporate developers to bring about as much acumen and incisiveness as would
 the <abbr title="Large Language Models">`LLM`s</abbr>[^llm-acumen]; then the
 resources with the unique dreams and the unique abilities to implement those
-dreams simply cannot be emulated nor replaced (within the _"talent"_ these
-corporations can acquire, retain or foster, that is).
+dreams simply cannot be emulated nor replaced—within the _talent_ these
+corporations can acquire, retain or foster, that is.
 
 [^decent-worker-euphemism]: That's a euphemism.  My current employer (at the
 time of this writing), just like my previous ones, is elated to have me on
@@ -45,42 +45,50 @@ design**.
 <div class="hi">
 
 But here's the thing: while the `man`ual's sagacity is nigh infinite, oftentimes
-**extracting all of it requires profound, personal experience**, with not only
-the topic at hand, but also with the plethora of its accomplices, the great many
-utilities and other systems you'll want to weave together into a skilful web.
+**extracting all of it requires profound, personal experience**, with not
+only the topic at hand, but also with the plethora of its accomplices, the
+great many utilities and other systems we'll want to weave together into a
+skilful web of competences.
 
 - A `tmux` pop-up that invokes a script putting something
-  into your clipboard?  Not a chance you get it right
+  into our clipboard?  Not a chance we get it right
   without `nohup`, nor understanding how the [X clipboard
   works](https://www.x.org/archive/current/doc/xorg-docs/icccm/icccm.pdf).
-- A [Cookie Clicker](https://cookieclicker.com/) helper, that will
-  alternate between _start clicking_ and _stop clicking_ every other
-  time you invoke it?  Time to whip out `flock`, but I don't suppose
-  you'll come up with `exec 9<> /tmp/click.lock` if you're of the
+- An interactive daemon, spawning in the background at the mercurial
+  demand of our users, that will alternate between _start_ and _stop_
+  every other time we invoke it?  Time to whip out `flock`, but I don't
+  suppose we'll come up with `exec 9<> /tmp/click.lock` if we're of the
   [`UUOC`](@/flashcards/useless-use-of-cat.md) transgressors that have hardly
   even encountered `<` in the first place.
 - Bringing together some script that sets up a bidirectional `TCP` tunnel with
-  `aws ssm`, and opens your graphical database management tool using the right
-  parameters, then kills off the former when you exit the latter?  All you need
-  is `mkfifo`, `&`, and `kill -- -$$`—possibly with a splash of `stdbuf`;
-  but without already holding onto the ravishing mastery of this constellation
-  of simple tools, chances are you'll make-do with running both things in the
+  `aws ssm`, and opens our graphical database management tool using the right
+  parameters, then kills off the former when we exit the latter?  All we need
+  is `mkfifo`, `&`, and `kill -- -$$`—possibly with a splash of `stdbuf`; but
+  without already holding onto the ravishing mastery of this constellation of
+  simple tools, **chances are we'll make-do** with running both things in the
   foreground of two separate windows and close them both off manually.<br>
-  Sure, you'll forget often about the tunnel and ram yourself right into a
-  _"port already in use"_ on the regular, but **what else could we expect?**
+  Sure, with the manual way, we'll routinely forget about the tunnel and ram
+  ourselves right into a _port already in use_ on the regular, but _"what else
+  could we expect?"_—as the ceremonial shrug-off would go.
 
-Without some understanding of the systems you're presuming to pilot,
-**you will not achieve any of the above** with any semblance of
+Well, we could expect better.  Some people expect better—albeit possibly
+not from us, possibly justifiably: if you're cramming all sorts of [`MCP`
+providers](https://en.wikipedia.org/wiki/Model_Context_Protocol) into your `AI`
+agent to squeeze more capabilities out of it, can you justify no doing the same
+for yourself?
+
+Without some understanding of the systems we're presuming to pilot, **none
+of the above is within our reach**, certainly not with any semblance of
 elegance[^minus-points-for-python].  And without having spent much time actually
-handling all these tasks, you won't develop much of that understanding...  And
-there you have it, **a mutual dependency**, always a riot.  Indeed, how are you
-then to build something competent, make yourself apt?
+handling all these tasks, we won't develop much of that understanding...  And
+there we have it, **a mutual dependency**, always a riot.  Indeed, how are we
+then to build something competent, make ourselves apt?
 
 [^minus-points-for-python]:  In this case, my measurement for _"elegance"_ would
 be how stark a contrast would the juxtaposition of the task's brief next to its
 implementation.  Ah, and that solution's evaluation is capped at _"vile"_ on the
-elegance measuring stick, if you manage to get Python to sink its foul fangs
-even into this.
+elegance measuring stick, if we manage to get Python to sink its foul fangs even
+into this.
 
 </div>
 
