@@ -6,5 +6,12 @@
 
 {%- block content -%}
 <h1 id="ramblings">{{- section.title -}}</h1>
+{%- set txnm = get_taxonomy_term(kind="section", term="ramblings") -%}
+{%- set most_recent = txnm.pages | first -%}
+<div class="hi">
+  {%- set page = most_recent -%}
+  {%- set oneline=true -%}
+  {%- include "partials/article-hero.html" -%}
+</div>
 {%- include "partials/ls.html" -%}
 {%- endblock content -%}
