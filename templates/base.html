@@ -9,22 +9,8 @@
     <link rel="stylesheet" href="{{- get_url(path="/base.css", cachebust=true) -}}">
     <title>~ccjmne</title>
     {%- include "partials/fonts.html" -%}
-    <link
-      rel="preload"
-      as="style"
-      href="{{- get_url(path="/giallo-light.css", cachebust=true) -}}"
-      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-      onload="this.onload=null;this.rel='stylesheet'">
-    <link
-      rel="preload"
-      as="style"
-      href="{{- get_url(path="/giallo-dark.css", cachebust=true) -}}" 
-      media="(prefers-color-scheme: dark)"
-      onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-      <link rel="stylesheet" href="{{- get_url(path="/giallo-light.css", cachebust=true) -}}" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
-      <link rel="stylesheet" href="{{- get_url(path="/giallo-dark.css",  cachebust=true) -}}" media="(prefers-color-scheme: dark)">
-    </noscript>
+    <link rel="stylesheet" href="{{- get_url(path="/giallo-light.css", cachebust=true) -}}" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+    <link rel="stylesheet" href="{{- get_url(path="/giallo-dark.css",  cachebust=true) -}}" media="(prefers-color-scheme: dark)">
     <link rel="expect" blocking="render" href="#render-ready">
     <link rel="alternate" type="application/atom+xml" title="rss" href="{{ get_url(path="/atom.xml", trailing_slash=false) }}">
     <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
