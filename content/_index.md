@@ -38,7 +38,7 @@ will animate, in a non-nauseating manner, various anchor points as you peruse
 the site. This functionality may be disabled by indicating, through your browser
 again, your preference for reduced motion.
 
-Links like [this one](/404.html) point to other places on this very blog;
+Links like [this one](@/404.md) point to other places on this very blog;
 external references such as [that
 one](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel#external)
 are annotated with an arrow pointing up and to the right.
