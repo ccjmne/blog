@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/base.css?h=5eaf59dc2d88083c5a9c">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2?h=b3c74e2fab27de35d142" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2?h=b1481b19a684088ca0aa" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2?h=d503244afc2437c96ade" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2?h=5c8eb42ff6f2e2934413" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2?h=a264b0cbe8b649d2258c" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-2.woff2?h=e7f9c933e970ed62349b" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-1.woff2?h=b3c74e2fab27de35d142') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2?h=b1481b19a684088ca0aa') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2?h=d503244afc2437c96ade') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/work-3.woff2?h=5c8eb42ff6f2e2934413') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2?h=a264b0cbe8b649d2258c') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/fira-2.woff2?h=e7f9c933e970ed62349b') format('woff2'); }
+</style>
+<link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-light.css?h=280afa93e1c6dfec22ed" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-dark.css?h=8efc0ee965d80c5835b7" media="(prefers-color-scheme: dark)">
+    
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+data-path="&#x2F;flight-manual&#x2F;array-from-vs-square-brackets-spread&#x2F;">
+      <a href="https://ccjmne.sh/blog" data-target="home">Home</a>
+      <details class="dropdown" max-md>
+        <summary data-target="articles">Articles</summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual/"       >Flight rules</a>
+          <a href="https://ccjmne.sh/blog/ramblings/"       >Ramblings</a>
+          <a href="https://ccjmne.sh/blog/flashcards/"       >Flashcards</a>
+          <a href="https://ccjmne.sh/blog/tags/" max-sm>Sections</a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual/" min-md>Flight rules</a>
+      <a href="https://ccjmne.sh/blog/ramblings/" min-md>Ramblings</a>
+      <a href="https://ccjmne.sh/blog/flashcards/" min-md>Flashcards</a>
+      <a href="https://ccjmne.sh/blog/tags/" min-sm>Sections</a>
+      <a href="https://ccjmne.sh/blog/colophon/"       >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main><h1><span class="link-title" 
+  style="view-transition-name: view-array-from-vs-square-brackets-spread"
+>You're wrong about <code>Array.from</code> vs <code>[...arr]</code></span></h1><ul class="infobar "><li><time>April 19, 2026</time></li><li>25-minute read</li>
+    <li>tagged
+      <a href="https://ccjmne.sh/blog/tags/craftsmanship/">craftsmanship</a>, <a href="https://ccjmne.sh/blog/tags/es6/">es6</a>, <a href="https://ccjmne.sh/blog/tags/javascript/">javascript</a>, <a href="https://ccjmne.sh/blog/tags/quibblery/">quibblery</a></li></ul>
+<details class="hi toc">
+  <summary>Table of contents</summary>
+  <ul><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/array-from-vs-square-brackets-spread/#a-long-standing-pet-peeve-of-mine">A long-standing pet peeve of mine</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/array-from-vs-square-brackets-spread/#array-from-arr-fn-vs-arr-map-fn">Array.from(arr, fn) vs [...arr].map(fn)</a><ul>
+        
+        <li><a href="https://ccjmne.sh/blog/flight-manual/array-from-vs-square-brackets-spread/#memory-consumption">Memory consumption</a></li>
+        <li><a href="https://ccjmne.sh/blog/flight-manual/array-from-vs-square-brackets-spread/#speed-performance">Speed performance</a></li></ul></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/array-from-vs-square-brackets-spread/#technical-and-broader-takeaways">Technical and broader takeaways</a><ul>
+        
+        <li><a href="https://ccjmne.sh/blog/flight-manual/array-from-vs-square-brackets-spread/#the-two-operations-in-question">The two operations in question</a></li>
+        <li><a href="https://ccjmne.sh/blog/flight-manual/array-from-vs-square-brackets-spread/#isolating-arr-vs-mere-arr">Isolating [...arr] vs mere arr</a></li>
+        <li><a href="https://ccjmne.sh/blog/flight-manual/array-from-vs-square-brackets-spread/#and-for-loop-trumps-all-others">And for-loop trumps all others</a></li>
+        <li><a href="https://ccjmne.sh/blog/flight-manual/array-from-vs-square-brackets-spread/#is-that-really-what-you-need">Is that really what you need?</a></li></ul></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/array-from-vs-square-brackets-spread/#going-forward">Going forward</a></li>
+    <li><a href="#cited-tools">Referenced tools</a></li>
+    
+    
+  </ul>
+</details>
+<article><blockquote class="markdown-alert-important">
+<p>Buckle up, this one's actually quite the rant, followed by some quite dense
+and less didactic than it the custom on this blog.  Basically yelling at
+clouds, although these are cries of desolation laced with somewhat studied
+insight.</p>
+</blockquote>
+<p>Today, in upgrading tooling dependencies, I pulled in yet another atrocious,
+well-intended yet simply damaging addition to the presumed-savvy developer's
+tool belt. <code>@e18e/eslint-plugin</code><sup class="footnote-reference" id="fr-e18e-eslint-1"><a href="#fn-e18e-eslint">1</a></sup>—<code>e18e</code> who?  I hear
+you—introduced their abominable <code>prefer-array-from-map</code> rule:</p>
+<blockquote>
+<p>Prefer <code>Array.from(iterable, mapper)</code> over <code>[...iterable].map(mapper)</code> to
+avoid intermediate array allocation.</p>
+<div class="quote-attribution">Ecosystem Performance (<code>e18e</code>), <code>prefer-array-from-map</code></div>
+</blockquote>
+<p><strong>It's aggravatingly misguided at best.</strong>  And for a newly founded, well-funded
+initiative that calls itself <em>"official"</em>, is empowered by fairly popular
+individuals in the Web development community, and receives the financial backing
+of some sizeable institutions <strong>before having even proven its worth</strong>; we may be
+looking down the barrel of yet another piece of forever-unavoidable mixed bag of
+possibly sweet nuts coated in agonising tar: just what the doctor ordered.</p>
+<h2 id="a-long-standing-pet-peeve-of-mine"><a class="anchor-link" href="#a-long-standing-pet-peeve-of-mine" aria-label="Anchor link for: a-long-standing-pet-peeve-of-mine"></a>
+A long-standing <a rel="external" href="https://en.wikipedia.org/wiki/Pet_peeve">pet peeve</a> of mine</h2>
+<p>I brushed up against that topic before, and my findings then were ravishing
+enough that nearly a decade later, through some routine maintenance procedure, I
+did a little <a rel="external" href="https://en.wikipedia.org/wiki/Double-take_(comedy)">double-take</a>
+that sowed the seed of doubt in spite of even the standing of the authors of
+that already lauded <code>e18e</code> enterprise.</p>
+<p>At 4 in the morning, I turn in my sleep: the doubt has morphed into anguish, and
+the only way to quell it would be for it to be wrong, and for me to have proven
+as much.  Unfortunately, as you'll soon find out, I shall have no respite, for
+the just-nascent yet already-engulfing scepticism was on point...  Again.</p>
+<p>Just a whiff of validation from my past self, and we're off to the
+races: I wrote about a very similar problem <em>(ages ago, in 2018!)</em> on
+<a rel="external" href="https://stackoverflow.com/a/52820058/2427596">StackOverflow</a>.  Its <code>TL;DR</code>
+would likely be:</p>
+<blockquote>
+<p>Contrary to what you'd think and read pretty much everywhere,
+<strong><code>[].slice.call(...)</code> does NOT instantiate a new, empty <code>Array</code> just to
+access its <code>slice</code> property!</strong>.</p>
+<p>Nowadays (it has been so <strong>for 5+ years</strong>—as of late 2018), the <a rel="external" href="https://hacks.mozilla.org/2017/02/a-crash-course-in-just-in-time-jit-compilers/"><code>JIT</code>
+compilation</a> is included everywhere you run JavaScript (unless you're still
+browsing the Web with <code>IE8</code> or lower).<br></p>
+<p>This mechanism allows the JavaScript engine to resolve <code>[].slice</code> directly,
+and statically, as direct <code>Array.prototype</code> reference in one shot, and just
+one configurable property access: <code>forEach</code>.</p>
+<p>[On the other hand, <code>Array.prototoype.slice</code> results in] a lookup for the
+whole scope for an <code>Array</code> reference until all scopes are walked 'till the
+global one... Because you can name a variable <code>Array</code> any time you want.<br>
+Once the global scope is reached, and the native found, the engine accesses
+its proottype [sic] and after that its method:</p>
+<p><code>O(N)</code> scope resolution + 2 properties access (<code>.prototype</code> and <code>.forEach</code>).</p>
+<div class="quote-attribution">A younger me, and <a rel="external" href="https://twitter.com/WebReflection">Andrea Giammarchi</a>, <a rel="external" href="https://stackoverflow.com/a/52820058/2427596"><code>[].slice</code> vs <code>Array.prototoype.slice</code></a></div>
+</blockquote>
+<p>Fascinating!  There are indeed many layers between the high-level abstraction
+that you juggle through the semantics of your programming language, and
+the resulting operations executed by your processor.  This here, the <abbr
+title="Just-In-Time"><code>JIT</code></abbr><sup class="footnote-reference" id="fr-jit-compiler-crash-course-1"><a href="#fn-jit-compiler-crash-course">2</a></sup> compilation, is
+but <em>one</em> of these, and already it subverts all sorts of expectations.</p>
+<p>I would go so far as to claim that generally, short of altering your high-level
+algorithm or data structure substantially, <strong>performance optimisation is a
+tricky beast</strong>—assuming you are vaguely capable of understanding what goes
+into implementing a reasonable benchmark in the first place.  Amusingly enough,
+it's yet another case where the more clueless you are, the easier a time you'll
+have with the topic.</p>
+<p>The eminent <a rel="external" href="https://en.wikipedia.org/wiki/Donald_Knuth">Donald Knuth</a> would
+go even further, in judging <strong>premature optimisation to be the <em>"root of all
+evil"</em></strong><sup class="footnote-reference" id="fr-premature-optimisation-knuth-1"><a href="#fn-premature-optimisation-knuth">3</a></sup>, especially when practised by what those
+he calls <em>"pennywise-and-pound-foolish programmers"</em>.</p>
+<h2 id="array-from-arr-fn-vs-arr-map-fn"><a class="anchor-link" href="#array-from-arr-fn-vs-arr-map-fn" aria-label="Anchor link for: array-from-arr-fn-vs-arr-map-fn"></a>
+<code>Array.from(arr, fn)</code> vs <code>[...arr].map(fn)</code></h2>
+<p>Back to the topic at hand: let's <strong>actually</strong> figure out whether ordaining
+<code>Array.from(arr, fn)</code> is helping out with regards to performance.</p>
+<p>Before we go forward, a note on my methodology: the benchmarks will run on my
+personal computer, which will be somewhat otherwise busy, and will be using <em>the
+latest consumer release</em> of <strong>the engine by far the most prominent, Google's
+<code>V8</code><sup class="footnote-reference" id="fr-most-prominent-engine-1"><a href="#fn-most-prominent-engine">4</a></sup></strong>; that is:</p>
+<ul>
+<li><em>Node.js</em><sup class="footnote-reference" id="fr-node-dot-js-1"><a href="#fn-node-dot-js">5</a></sup> version <code>25.9.0</code>, released 4 days ago, which bundles:</li>
+<li><code>V8</code> engine version <code>14.1.146.11-node.25</code>.</li>
+</ul>
+<p>My 16 <code>CPU</code> cores shall be mostly idle, and well over <code>16 GB</code> of <code>RAM</code> will be
+made available.</p>
+<blockquote class="markdown-alert-tip">
+<p>When some JavaScript is executed using <em>Node.js</em>, it actually runs against
+<a rel="external" href="https://v8.dev/">Google's <code>V8</code> JavaScript engine</a>: that is the interpreter
+upon which <em>Node.js</em> builds by adding numerous things, such as <code>HTTP</code>
+libraries, file system libraries, <code>OS</code> libraries (<code>process</code>, environment
+variables...), integration with the <code>npm</code> ecosystem, <em>et cet</em>.</p>
+<p>In the end, <strong>in the case of <em>Node.js</em> as well as all Chromium-derivative Web
+browsers</strong>, it's <code>V8</code> that you'll find under the hood.  In serious JavaScript
+performance profiling matters, the distinction needs to be made.</p>
+</blockquote>
+<h3 id="memory-consumption"><a class="anchor-link" href="#memory-consumption" aria-label="Anchor link for: memory-consumption"></a>
+Memory consumption</h3>
+<p>Let's start with what may possibly have been meant, or be the most obvious
+implication of avoiding <em>"intermediate array allocation"</em>, as I remind you that
+such is the rhetoric for this fresh new rule to help you build better software:</p>
+<blockquote>
+<p>Prefer <code>Array.from(iterable, mapper)</code> over <code>[...iterable].map(mapper)</code> to
+avoid intermediate array allocation.</p>
+<div class="quote-attribution">Ecosystem Performance (<code>e18e</code>), <code>prefer-array-from-map</code></div>
+</blockquote>
+<p>Just how much heap is either option consuming?  Trivially answered: start <code>node</code>
+with the <abbr title="Garbage Collection"><code>--expose-gc</code></abbr> flag, and its
+inner workings are made available.  Let's create a simple script monitoring the
+<code>heapUsed</code>:</p>
+<pre class="giallo z-code"><code data-lang="javascript" data-name="mem.js"><span class="giallo-l"><span class="z-storage z-type">const</span><span class="z-punctuation"> [</span><span class="z-variable z-other z-constant z-js">size</span><span class="z-keyword z-operator"> =</span><span class="z-constant z-numeric"> 100_000</span><span class="z-punctuation">,</span><span class="z-variable z-other z-constant z-js"> iterations</span><span class="z-keyword z-operator"> =</span><span class="z-constant z-numeric"> 10</span><span class="z-punctuation">]</span><span class="z-keyword z-operator"> =</span><span class="z-source"> process</span><span class="z-punctuation z-accessor">.</span><span class="z-source">argv</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">slice</span><span class="z-source">(</span><span class="z-constant z-numeric">1</span><span class="z-source">)</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">map</span><span class="z-source">(</span><span class="z-variable z-other z-readwrite">Number</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-storage z-type">const</span><span class="z-variable z-other z-constant z-js"> arr</span><span class="z-keyword z-operator"> =</span><span class="z-source"> Array</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">from</span><span class="z-source">(</span><span class="z-punctuation">{</span><span class="z-source"> length</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-variable z-other z-readwrite"> size</span><span class="z-punctuation"> }</span><span class="z-punctuation">,</span><span class="z-punctuation"> (</span><span class="z-variable z-parameter">_</span><span class="z-punctuation">,</span><span class="z-variable z-parameter"> i</span><span class="z-punctuation">)</span><span class="z-storage z-type"> =&gt;</span><span class="z-variable z-other z-readwrite"> i</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-storage z-type">function</span><span class="z-entity z-name z-function"> touch</span><span class="z-punctuation">(</span><span class="z-variable z-parameter">arr</span><span class="z-punctuation">)</span><span class="z-punctuation"> {</span><span class="z-keyword"> return</span><span class="z-source"> arr</span><span class="z-punctuation z-accessor">.</span><span class="z-source">length</span><span class="z-keyword z-operator"> +</span><span class="z-source"> (</span><span class="z-variable z-other z-readwrite">arr</span><span class="z-source">[</span><span class="z-constant z-numeric">0</span><span class="z-source">]</span><span class="z-keyword z-operator"> ??</span><span class="z-constant z-numeric"> 0</span><span class="z-source">)</span><span class="z-keyword z-operator"> +</span><span class="z-source"> (</span><span class="z-variable z-other z-readwrite">arr</span><span class="z-source">[</span><span class="z-source">arr</span><span class="z-punctuation z-accessor">.</span><span class="z-source">length</span><span class="z-keyword z-operator"> -</span><span class="z-constant z-numeric"> 1</span><span class="z-source">]</span><span class="z-keyword z-operator"> ??</span><span class="z-constant z-numeric"> 0</span><span class="z-source">)</span><span class="z-punctuation"> }</span></span>
+<span class="giallo-l"><span class="z-storage z-type">function</span><span class="z-entity z-name z-function"> measure</span><span class="z-punctuation">(</span><span class="z-variable z-parameter">name</span><span class="z-punctuation">,</span><span class="z-variable z-parameter"> fn</span><span class="z-punctuation">)</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-storage z-type">    const</span><span class="z-variable z-other z-constant z-js"> before</span><span class="z-keyword z-operator"> =</span><span class="z-source"> (</span><span class="z-source">global</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">gc</span><span class="z-source">(</span><span class="z-source">)</span><span class="z-punctuation">,</span><span class="z-source"> process</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">memoryUsage</span><span class="z-source">(</span><span class="z-source">)</span><span class="z-punctuation z-accessor">.</span><span class="z-variable z-other z-property z-js">heapUsed</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-storage z-type">    let</span><span class="z-variable z-other z-readwrite"> sum</span><span class="z-keyword z-operator"> =</span><span class="z-constant z-numeric"> 0</span><span class="z-punctuation">;</span><span class="z-keyword"> for</span><span class="z-source"> (</span><span class="z-storage z-type">let</span><span class="z-variable z-other z-readwrite"> i</span><span class="z-keyword z-operator"> =</span><span class="z-constant z-numeric"> 0</span><span class="z-punctuation">;</span><span class="z-variable z-other z-readwrite"> i</span><span class="z-keyword z-operator"> &lt;</span><span class="z-variable z-other z-readwrite"> iterations</span><span class="z-punctuation">;</span><span class="z-variable z-other z-readwrite"> i</span><span class="z-keyword z-operator">++</span><span class="z-source">)</span><span class="z-variable z-other z-readwrite"> sum</span><span class="z-keyword z-operator"> +=</span><span class="z-entity z-name z-function"> touch</span><span class="z-source">(</span><span class="z-entity z-name z-function">fn</span><span class="z-source">(</span><span class="z-source">)</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-storage z-type">    const</span><span class="z-variable z-other z-constant z-js"> after</span><span class="z-keyword z-operator"> =</span><span class="z-source">  (</span><span class="z-source">global</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">gc</span><span class="z-source">(</span><span class="z-source">)</span><span class="z-punctuation">,</span><span class="z-source"> process</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">memoryUsage</span><span class="z-source">(</span><span class="z-source">)</span><span class="z-punctuation z-accessor">.</span><span class="z-variable z-other z-property z-js">heapUsed</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-source">    console</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">log</span><span class="z-source">(</span><span class="z-source">name</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">padEnd</span><span class="z-source">(</span><span class="z-constant z-numeric">21</span><span class="z-source">)</span><span class="z-keyword z-operator"> +</span><span class="z-punctuation z-definition z-string"> `</span><span class="z-string">extra heap: </span><span class="z-punctuation">${</span><span class="z-string">(</span><span class="z-string">(</span><span class="z-variable z-other z-readwrite">after</span><span class="z-keyword z-operator"> -</span><span class="z-variable z-other z-readwrite"> before</span><span class="z-string">)</span><span class="z-keyword z-operator">/</span><span class="z-constant z-numeric"> 2</span><span class="z-keyword z-operator"> *</span><span class="z-keyword z-operator">*</span><span class="z-constant z-numeric"> 20</span><span class="z-string">)</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">toFixed</span><span class="z-string">(</span><span class="z-constant z-numeric">2</span><span class="z-string">)</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">padStart</span><span class="z-string">(</span><span class="z-constant z-numeric">5</span><span class="z-string">)</span><span class="z-punctuation">}</span><span class="z-string"> MB</span><span class="z-punctuation z-definition z-string">`</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">padStart</span><span class="z-source">(</span><span class="z-constant z-numeric">21</span><span class="z-source">)</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-punctuation">}</span></span></code></pre><div class="note">always <code>touch</code> the result to prevent optimising away the entire computation</div>
+<p>Here's how you use it:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-source">base</span><span class="z-keyword z-operator">=</span><span class="z-punctuation">$(</span><span class="z-entity z-name z-function">cat</span><span class="z-string"> mem.js</span><span class="z-punctuation">)</span></span>
+<span class="giallo-l"><span class="z-keyword">while</span><span class="z-source"> IFS</span><span class="z-keyword z-operator">=</span><span class="z-support z-function z-builtin"> read</span><span class="z-string"> -</span><span class="z-string">r</span><span class="z-string"> script</span><span class="z-punctuation">;</span><span class="z-keyword"> do</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">	node</span><span class="z-string"> -</span><span class="z-string">-expose-gc</span><span class="z-string"> -</span><span class="z-string">e</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-variable z-other z-normal z-shell">$</span><span class="z-variable z-other z-normal z-shell">base</span><span class="z-string">; </span><span class="z-variable z-other z-normal z-shell">$</span><span class="z-variable z-other z-normal z-shell">script</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-string"> -</span><span class="z-string">-</span><span class="z-constant z-numeric"> 100000</span><span class="z-constant z-numeric"> 10</span></span>
+<span class="giallo-l"><span class="z-keyword">done</span><span class="z-keyword z-operator"> &lt;&lt;-</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation z-definition z-string">EOF</span><span class="z-punctuation z-definition z-string">&#39;</span></span>
+<span class="giallo-l"><span class="z-string">	measure(&#39;for (...)&#39;,           () =&gt; { const r = new Array(arr.length); for (let i = 0; i &lt; arr.length; i++) r[i] = arr[i] + 1; return r })</span></span>
+<span class="giallo-l"><span class="z-string">	measure(&#39;arr.map(fn)&#39;,         () =&gt; arr.map(x =&gt; x + 1))</span></span>
+<span class="giallo-l"><span class="z-string">	measure(&#39;[...arr].map(fn)&#39;,    () =&gt; [...arr].map(x =&gt; x + 1))</span></span>
+<span class="giallo-l"><span class="z-string">	measure(&#39;Array.from(arr, fn)&#39;, () =&gt; Array.from(arr, x =&gt; x + 1))</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">EOF</span></span></code></pre><div class="note">no time to explain—if you don't get it, you should consider hanging out in this blog some more</div>
+<p>Each test will run in its own <em>Node.js</em> process so as to avoid having any
+sort of unfair benefit from any engine optimisation, which <strong>did occasionally
+happen</strong> in some earlier iteration.</p>
+<p>Starting with a modest 10 iterations over <code>100,000</code>-item-long arrays:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>iterations: 10               size: 100,000</span></span>
+<span class="giallo-l"><span>------------------------------------------</span></span>
+<span class="giallo-l"><span>for (...)             extra heap:  0.77 MB</span></span>
+<span class="giallo-l"><span>arr.map(fn)           extra heap:  0.76 MB</span></span>
+<span class="giallo-l"><span>[...arr].map(fn)      extra heap:  0.76 MB</span></span>
+<span class="giallo-l"><span>Array.from(arr, fn)   extra heap:  0.97 MB</span></span></code></pre><div class="note">this baseline already seems quite revealing...</div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>iterations: 10               size: 100,000</span></span>
+<span class="giallo-l"><span>------------------------------------------</span></span>
+<span class="giallo-l"><span>Array.from(arr, fn)   extra heap:  0.97 MB</span></span>
+<span class="giallo-l"><span>[...arr].map(fn)      extra heap:  0.76 MB</span></span>
+<span class="giallo-l"><span>arr.map(fn)           extra heap:  0.76 MB</span></span>
+<span class="giallo-l"><span>for (...)             extra heap:  0.77 MB</span></span></code></pre><div class="note">the order matters not</div>
+</div>
+</div>
+<p>Let's explore with larger arrays of <code>1,000,000</code> elements:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>iterations: 1              size: 1,000,000</span></span>
+<span class="giallo-l"><span>------------------------------------------</span></span>
+<span class="giallo-l"><span>for (...)             extra heap:  7.63 MB</span></span>
+<span class="giallo-l"><span>arr.map(fn)           extra heap:  7.63 MB</span></span>
+<span class="giallo-l"><span>[...arr].map(fn)      extra heap:  7.63 MB</span></span>
+<span class="giallo-l"><span>Array.from(arr, fn)   extra heap: 11.09 MB</span></span></code></pre><div class="note">the number of iterations matters (almost) not</div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>iterations: 100            size: 1,000,000</span></span>
+<span class="giallo-l"><span>------------------------------------------</span></span>
+<span class="giallo-l"><span>for (...)             extra heap:  7.64 MB</span></span>
+<span class="giallo-l"><span>arr.map(fn)           extra heap:  7.64 MB</span></span>
+<span class="giallo-l"><span>[...arr].map(fn)      extra heap:  7.64 MB</span></span>
+<span class="giallo-l"><span>Array.from(arr, fn)   extra heap: 10.22 MB</span></span></code></pre><div class="note">notice a curious bump <strong>down</strong> for <code>Array#from</code></div>
+</div>
+</div>
+<p>And even larger, <code>10,000,000</code> elements:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>iterations: 1             size: 10,000,000</span></span>
+<span class="giallo-l"><span>------------------------------------------</span></span>
+<span class="giallo-l"><span>for (...)             extra heap: 76.30 MB</span></span>
+<span class="giallo-l"><span>arr.map(fn)           extra heap: 76.29 MB</span></span>
+<span class="giallo-l"><span>[...arr].map(fn)      extra heap: 76.29 MB</span></span>
+<span class="giallo-l"><span>Array.from(arr, fn)   extra heap: 84.27 MB</span></span></code></pre><div class="note">absolutely no surprise there</div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>iterations: 10            size: 10,000,000</span></span>
+<span class="giallo-l"><span>------------------------------------------</span></span>
+<span class="giallo-l"><span>for (...)             extra heap: 76.30 MB</span></span>
+<span class="giallo-l"><span>arr.map(fn)           extra heap: 76.30 MB</span></span>
+<span class="giallo-l"><span>[...arr].map(fn)      extra heap: 76.30 MB</span></span>
+<span class="giallo-l"><span>Array.from(arr, fn)   extra heap: 84.27 MB</span></span></code></pre><div class="note">nor any here either</div>
+</div>
+</div>
+<p>And crank the iterations yet higher:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>iterations: 100           size: 10,000,000</span></span>
+<span class="giallo-l"><span>------------------------------------------</span></span>
+<span class="giallo-l"><span>for (...)             extra heap: 75.42 MB</span></span>
+<span class="giallo-l"><span>arr.map(fn)           extra heap: 75.42 MB</span></span>
+<span class="giallo-l"><span>[...arr].map(fn)      extra heap: 75.42 MB</span></span>
+<span class="giallo-l"><span>Array.from(arr, fn)   extra heap: 83.38 MB</span></span></code></pre><div class="note">another marginal yet curious decrease</div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>iterations: 1000          size: 10,000,000</span></span>
+<span class="giallo-l"><span>------------------------------------------</span></span>
+<span class="giallo-l"><span>for (...)             extra heap: 75.42 MB</span></span>
+<span class="giallo-l"><span>arr.map(fn)           extra heap: 75.42 MB</span></span>
+<span class="giallo-l"><span>[...arr].map(fn)      extra heap: 75.42 MB</span></span>
+<span class="giallo-l"><span>Array.from(arr, fn)   extra heap: 83.39 MB</span></span></code></pre><div class="note">this one ran for <strong>7m 57s</strong></div>
+</div>
+</div>
+<p>Throughout the entire test suite, the results were actually <strong>extremely
+consistent</strong>.  That is, <em>the results were entirely reproducible with the exact
+same values every time</em>; the bump from <code>7.63 MB</code> to <code>7.64 MB</code> across three
+methods when going from 1 to 100 iterations is <strong>not accidental</strong>, neither is
+the bump <strong>down some ~7.8%</strong> (from <code>11.09</code> to <code>10.22 MB</code>) for the <code>Array#from</code>:
+both <em>"would-be oddities"</em> could be reproduced again and again, always the same.
+These numbers are <strong>exact and absolutely not subject to flakiness</strong>, not in the
+current set-up.</p>
+<blockquote class="markdown-alert-note">
+<p>I attribute the bump <strong>down</strong> at 100 iterations and above to the higher
+pressure put on the garbage collector by the accumulating data beyond a
+certain threshold.  Then, then engine's heuristics change <em>"just-in-time"</em> and
+it starts more aggressively pruning the heap as a result.</p>
+</blockquote>
+<p>In any case, what transpires: <code>Array.from(arr, fn)</code> generally
+is in the order of <strong>~30% more demanding on the heap usage</strong>,
+tapering down to being a mere ~10% worse at its best, with some
+occasional ~45% worse heap consumption in the reverse-<a rel="external" href="https://en.wikipedia.org/wiki/Goldilocks_and_the_Three_Bears">Goldilocks
+zone</a>.  It is
+systematically worse than all counterparts; all others of which, always, perform
+essentially identically.</p>
+<h3 id="speed-performance"><a class="anchor-link" href="#speed-performance" aria-label="Anchor link for: speed-performance"></a>
+Speed performance</h3>
+<p>This one always fluctuates somewhat.  I'll be using
+<a rel="external" href="https://github.com/sharkdp/hyperfine"><code>hyperfine</code></a> to help me run some simple
+benchmarks and tally up some basic analysis.</p>
+<pre class="giallo z-code"><code data-lang="javascript" data-name="spd.js"><span class="giallo-l"><span class="z-storage z-type">const</span><span class="z-punctuation"> [</span><span class="z-variable z-other z-constant z-js">size</span><span class="z-keyword z-operator"> =</span><span class="z-constant z-numeric"> 100_000</span><span class="z-punctuation">,</span><span class="z-variable z-other z-constant z-js"> iterations</span><span class="z-keyword z-operator"> =</span><span class="z-constant z-numeric"> 10</span><span class="z-punctuation">]</span><span class="z-keyword z-operator"> =</span><span class="z-source"> process</span><span class="z-punctuation z-accessor">.</span><span class="z-source">argv</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">slice</span><span class="z-source">(</span><span class="z-constant z-numeric">1</span><span class="z-source">)</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">map</span><span class="z-source">(</span><span class="z-variable z-other z-readwrite">Number</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-storage z-type">const</span><span class="z-variable z-other z-constant z-js"> arr</span><span class="z-keyword z-operator"> =</span><span class="z-source"> Array</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">from</span><span class="z-source">(</span><span class="z-punctuation">{</span><span class="z-source"> length</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-variable z-other z-readwrite"> size</span><span class="z-punctuation"> }</span><span class="z-punctuation">,</span><span class="z-punctuation"> (</span><span class="z-variable z-parameter">_</span><span class="z-punctuation">,</span><span class="z-variable z-parameter"> i</span><span class="z-punctuation">)</span><span class="z-storage z-type"> =&gt;</span><span class="z-variable z-other z-readwrite"> i</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-storage z-type">function</span><span class="z-entity z-name z-function"> touch</span><span class="z-punctuation">(</span><span class="z-variable z-parameter">arr</span><span class="z-punctuation">)</span><span class="z-punctuation"> {</span><span class="z-keyword"> return</span><span class="z-source"> arr</span><span class="z-punctuation z-accessor">.</span><span class="z-source">length</span><span class="z-keyword z-operator"> +</span><span class="z-source"> (</span><span class="z-variable z-other z-readwrite">arr</span><span class="z-source">[</span><span class="z-constant z-numeric">0</span><span class="z-source">]</span><span class="z-keyword z-operator"> ??</span><span class="z-constant z-numeric"> 0</span><span class="z-source">)</span><span class="z-keyword z-operator"> +</span><span class="z-source"> (</span><span class="z-variable z-other z-readwrite">arr</span><span class="z-source">[</span><span class="z-source">arr</span><span class="z-punctuation z-accessor">.</span><span class="z-source">length</span><span class="z-keyword z-operator"> -</span><span class="z-constant z-numeric"> 1</span><span class="z-source">]</span><span class="z-keyword z-operator"> ??</span><span class="z-constant z-numeric"> 0</span><span class="z-source">)</span><span class="z-punctuation"> }</span></span>
+<span class="giallo-l"><span class="z-storage z-type">function</span><span class="z-entity z-name z-function"> measure</span><span class="z-punctuation">(</span><span class="z-variable z-parameter">fn</span><span class="z-punctuation">)</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-storage z-type">    let</span><span class="z-variable z-other z-readwrite"> sum</span><span class="z-keyword z-operator"> =</span><span class="z-constant z-numeric"> 0</span><span class="z-punctuation">;</span><span class="z-keyword"> for</span><span class="z-source"> (</span><span class="z-storage z-type">let</span><span class="z-variable z-other z-readwrite"> i</span><span class="z-keyword z-operator"> =</span><span class="z-constant z-numeric"> 0</span><span class="z-punctuation">;</span><span class="z-variable z-other z-readwrite"> i</span><span class="z-keyword z-operator"> &lt;</span><span class="z-variable z-other z-readwrite"> iterations</span><span class="z-punctuation">;</span><span class="z-variable z-other z-readwrite"> i</span><span class="z-keyword z-operator">++</span><span class="z-source">)</span><span class="z-variable z-other z-readwrite"> sum</span><span class="z-keyword z-operator"> +=</span><span class="z-entity z-name z-function"> touch</span><span class="z-source">(</span><span class="z-entity z-name z-function">fn</span><span class="z-source">(</span><span class="z-source">)</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-punctuation">}</span></span></code></pre><div class="note">the same as <code>mem.js</code>, only stripped from the explicit garbage collection triggers and logging</div>
+<p>Let's run <strong>the very same code</strong>, take 20 sample each time and just let the
+system warm up before hand with 5 trial runs prior to the proper ones:</p>
+<pre class="giallo z-code"><code data-lang="shellscript" data-name="spd.sh"><span class="giallo-l"><span class="z-source">base</span><span class="z-keyword z-operator">=</span><span class="z-punctuation">$(</span><span class="z-entity z-name z-function">cat</span><span class="z-string"> spd.js</span><span class="z-punctuation">)</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">hyperfine</span><span class="z-constant z-character z-escape">      \</span></span>
+<span class="giallo-l"><span class="z-string">    -</span><span class="z-string">-warmup</span><span class="z-constant z-numeric"> 5</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-string">    -</span><span class="z-string">-runs</span><span class="z-constant z-numeric">  20</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-string">    -</span><span class="z-string">-style=color</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-string">    -</span><span class="z-string">-command-name=</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">for (...)</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-constant z-character z-escape">           \</span></span>
+<span class="giallo-l"><span class="z-string">    -</span><span class="z-string">-command-name=</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">arr.map(fn)</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-constant z-character z-escape">         \</span></span>
+<span class="giallo-l"><span class="z-string">    -</span><span class="z-string">-command-name=</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">[...arr].map(fn)</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-constant z-character z-escape">    \</span></span>
+<span class="giallo-l"><span class="z-string">    -</span><span class="z-string">-command-name=</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">Array.from(arr, fn)</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">    &quot;</span><span class="z-string">node -e &#39;</span><span class="z-variable z-other z-normal z-shell">$</span><span class="z-variable z-other z-normal z-shell">base</span><span class="z-string">; measure(() =&gt; { const r = new Array(arr.length); for (let i = 0; i &lt; arr.length; i++) r[i] = arr[i] + 1; return r })&#39; -- </span><span class="z-variable">$</span><span class="z-variable">*</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">    &quot;</span><span class="z-string">node -e &#39;</span><span class="z-variable z-other z-normal z-shell">$</span><span class="z-variable z-other z-normal z-shell">base</span><span class="z-string">; measure(() =&gt; arr.map(x =&gt; x + 1))&#39;         -- </span><span class="z-variable">$</span><span class="z-variable">*</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">    &quot;</span><span class="z-string">node -e &#39;</span><span class="z-variable z-other z-normal z-shell">$</span><span class="z-variable z-other z-normal z-shell">base</span><span class="z-string">; measure(() =&gt; [...arr].map(x =&gt; x + 1))&#39;    -- </span><span class="z-variable">$</span><span class="z-variable">*</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">    &quot;</span><span class="z-string">node -e &#39;</span><span class="z-variable z-other z-normal z-shell">$</span><span class="z-variable z-other z-normal z-shell">base</span><span class="z-string">; measure(() =&gt; Array.from(arr, x =&gt; x + 1))&#39; -- </span><span class="z-variable">$</span><span class="z-variable">*</span><span class="z-punctuation z-definition z-string">&quot;</span></span></code></pre><div class="note">this time I'll use an extra layer of scripting goodness for ease of use</div>
+<p>Let's get started!  How about <code>100</code> iterations over arrays with <code>10,000</code> items?</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sh</span><span class="z-string"> spd.sh</span><span class="z-constant z-numeric"> 10000</span><span class="z-constant z-numeric"> 100</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="term-fg1">Benchmark 1</span>: for (...)
+  Time (<span class="term-fg32 term-fg1">mean</span> ± <span class="term-fg32">σ</span>):     <span class="term-fg32 term-fg1"> 25.8 ms</span> ± <span class="term-fg32">  1.8 ms</span>    [User: <span class="term-fg34">21.4 ms</span>, System: <span class="term-fg34">6.7 ms</span>]
+  Range (<span class="term-fg36">min</span> … <span class="term-fg35">max</span>):   <span class="term-fg36"> 22.8 ms</span> … <span class="term-fg35"> 29.4 ms</span>    <span class="term-fg2">20 runs</span>
+&nbsp;
+<span class="term-fg1">Benchmark 2</span>: arr.map(fn)
+  Time (<span class="term-fg32 term-fg1">mean</span> ± <span class="term-fg32">σ</span>):     <span class="term-fg32 term-fg1"> 30.7 ms</span> ± <span class="term-fg32">  1.7 ms</span>    [User: <span class="term-fg34">25.3 ms</span>, System: <span class="term-fg34">6.7 ms</span>]
+  Range (<span class="term-fg36">min</span> … <span class="term-fg35">max</span>):   <span class="term-fg36"> 27.6 ms</span> … <span class="term-fg35"> 34.2 ms</span>    <span class="term-fg2">20 runs</span>
+&nbsp;
+<span class="term-fg1">Benchmark 3</span>: [...arr].map(fn)
+  Time (<span class="term-fg32 term-fg1">mean</span> ± <span class="term-fg32">σ</span>):     <span class="term-fg32 term-fg1"> 32.9 ms</span> ± <span class="term-fg32">  2.3 ms</span>    [User: <span class="term-fg34">26.6 ms</span>, System: <span class="term-fg34">7.4 ms</span>]
+  Range (<span class="term-fg36">min</span> … <span class="term-fg35">max</span>):   <span class="term-fg36"> 30.5 ms</span> … <span class="term-fg35"> 38.2 ms</span>    <span class="term-fg2">20 runs</span>
+&nbsp;
+<span class="term-fg1">Benchmark 4</span>: Array.from(arr, fn)
+  Time (<span class="term-fg32 term-fg1">mean</span> ± <span class="term-fg32">σ</span>):     <span class="term-fg32 term-fg1"> 46.2 ms</span> ± <span class="term-fg32">  2.2 ms</span>    [User: <span class="term-fg34">37.2 ms</span>, System: <span class="term-fg34">10.2 ms</span>]
+  Range (<span class="term-fg36">min</span> … <span class="term-fg35">max</span>):   <span class="term-fg36"> 43.6 ms</span> … <span class="term-fg35"> 51.7 ms</span>    <span class="term-fg2">20 runs</span>
+&nbsp;
+<span class="term-fg1">Summary</span>
+  <span class="term-fg36">for (...)</span> ran
+<span class="term-fg32 term-fg1">    1.19</span> ± <span class="term-fg32">0.11</span> times faster than <span class="term-fg35">arr.map(fn)</span>
+<span class="term-fg32 term-fg1">    1.28</span> ± <span class="term-fg32">0.13</span> times faster than <span class="term-fg35">[...arr].map(fn)</span>
+<span class="term-fg32 term-fg1">    1.79</span> ± <span class="term-fg32">0.15</span> times faster than <span class="term-fg35">Array.from(arr, fn)</span></code></pre>
+<div class="note">oh yeah, <code>hyperfine</code>'s got some fancy output and I'm getting better at honouring these</div>
+<p>Note that we we already have a bit of variance.  These aren't all quite
+identical under the hood...  Let's keep going.</p>
+<blockquote class="markdown-alert-tip">
+<p>So as to not bore you to death, I'll use collapsible elements (<a href="https://ccjmne.sh/blog/colophon/">without
+JavaScript, by the way</a>): click (or <code>&lt;Tab&gt;</code>-navigate and
+<code>&lt;Space&gt;</code>/<code>&lt;Enter&gt;</code>, this Web site is keyboard-friendly) on their summaries to
+access their details.</p>
+</blockquote>
+<p><code>100,000</code> items, <code>100</code> iterations:</p>
+<details class="code">
+<summary>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sh</span><span class="z-string"> spd.sh</span><span class="z-constant z-numeric"> 100000</span><span class="z-constant z-numeric"> 100</span></span></code></pre><pre class="giallo z-code">
+<code data-lang="plain"><span class="term-fg1">Summary</span>
+  <span class="term-fg36">for (...)</span> ran
+<span class="term-fg32 term-fg1">    2.19</span> ± <span class="term-fg32">0.18</span> times faster than <span class="term-fg35">arr.map(fn)</span>
+<span class="term-fg32 term-fg1">    2.61</span> ± <span class="term-fg32">0.24</span> times faster than <span class="term-fg35">[...arr].map(fn)</span>
+<span class="term-fg32 term-fg1">    5.41</span> ± <span class="term-fg32">0.36</span> times faster than <span class="term-fg35">Array.from(arr, fn)</span></code></pre>
+</summary>
+<pre class="giallo z-code"><code data-lang="plain"><span class="term-fg1">Benchmark 1</span>: for (...)
+  Time (<span class="term-fg32 term-fg1">mean</span> ± <span class="term-fg32">σ</span>):     <span class="term-fg32 term-fg1"> 69.8 ms</span> ± <span class="term-fg32">  3.1 ms</span>    [User: <span class="term-fg34">46.0 ms</span>, System: <span class="term-fg34">29.6 ms</span>]
+  Range (<span class="term-fg36">min</span> … <span class="term-fg35">max</span>):   <span class="term-fg36"> 66.0 ms</span> … <span class="term-fg35"> 77.6 ms</span>    <span class="term-fg2">20 runs</span>
+&nbsp;
+<span class="term-fg1">Benchmark 2</span>: arr.map(fn)
+  Time (<span class="term-fg32 term-fg1">mean</span> ± <span class="term-fg32">σ</span>):     <span class="term-fg32 term-fg1">152.9 ms</span> ± <span class="term-fg32"> 10.4 ms</span>    [User: <span class="term-fg34">127.1 ms</span>, System: <span class="term-fg34">29.9 ms</span>]
+  Range (<span class="term-fg36">min</span> … <span class="term-fg35">max</span>):   <span class="term-fg36">140.4 ms</span> … <span class="term-fg35">174.0 ms</span>    <span class="term-fg2">20 runs</span>
+&nbsp;
+<span class="term-fg1">Benchmark 3</span>: [...arr].map(fn)
+  Time (<span class="term-fg32 term-fg1">mean</span> ± <span class="term-fg32">σ</span>):     <span class="term-fg32 term-fg1">181.9 ms</span> ± <span class="term-fg32"> 14.5 ms</span>    [User: <span class="term-fg34">130.0 ms</span>, System: <span class="term-fg34">56.4 ms</span>]
+  Range (<span class="term-fg36">min</span> … <span class="term-fg35">max</span>):   <span class="term-fg36">167.0 ms</span> … <span class="term-fg35">216.4 ms</span>    <span class="term-fg2">20 runs</span>
+&nbsp;
+<span class="term-fg1">Benchmark 4</span>: Array.from(arr, fn)
+  Time (<span class="term-fg32 term-fg1">mean</span> ± <span class="term-fg32">σ</span>):     <span class="term-fg32 term-fg1">377.3 ms</span> ± <span class="term-fg32"> 18.4 ms</span>    [User: <span class="term-fg34">265.5 ms</span>, System: <span class="term-fg34">117.8 ms</span>]
+  Range (<span class="term-fg36">min</span> … <span class="term-fg35">max</span>):   <span class="term-fg36">342.2 ms</span> … <span class="term-fg35">412.7 ms</span>    <span class="term-fg2">20 runs</span>
+</code></pre>
+</details>
+<div class="note"></div>
+
+<p><code>10,000</code> items, <code>1,000</code> iterations:</p>
+<details class="code">
+<summary>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sh</span><span class="z-string"> spd.sh</span><span class="z-constant z-numeric"> 10000</span><span class="z-constant z-numeric"> 1000</span></span></code></pre><pre class="giallo z-code">
+<code data-lang="plain"><span class="term-fg1">Summary</span>
+  <span class="term-fg36">for (...)</span> ran
+<span class="term-fg32 term-fg1">    2.71</span> ± <span class="term-fg32">0.26</span> times faster than <span class="term-fg35">arr.map(fn)</span>
+<span class="term-fg32 term-fg1">    2.90</span> ± <span class="term-fg32">0.28</span> times faster than <span class="term-fg35">[...arr].map(fn)</span>
+<span class="term-fg32 term-fg1">    6.12</span> ± <span class="term-fg32">0.64</span> times faster than <span class="term-fg35">Array.from(arr, fn)</span></code></pre>
+</summary>
+<pre class="giallo z-code"><code data-lang="plain"><span class="term-fg1">Benchmark 1</span>: for (...)
+  Time (<span class="term-fg32 term-fg1">mean</span> ± <span class="term-fg32">σ</span>):     <span class="term-fg32 term-fg1"> 42.4 ms</span> ± <span class="term-fg32">  3.6 ms</span>    [User: <span class="term-fg34">35.2 ms</span>, System: <span class="term-fg34">11.8 ms</span>]
+  Range (<span class="term-fg36">min</span> … <span class="term-fg35">max</span>):   <span class="term-fg36"> 38.5 ms</span> … <span class="term-fg35"> 52.7 ms</span>    <span class="term-fg2">20 runs</span>
+&nbsp;
+<span class="term-fg1">Benchmark 2</span>: arr.map(fn)
+  Time (<span class="term-fg32 term-fg1">mean</span> ± <span class="term-fg32">σ</span>):     <span class="term-fg32 term-fg1">114.7 ms</span> ± <span class="term-fg32">  5.7 ms</span>    [User: <span class="term-fg34">106.1 ms</span>, System: <span class="term-fg34">12.0 ms</span>]
+  Range (<span class="term-fg36">min</span> … <span class="term-fg35">max</span>):   <span class="term-fg36">105.6 ms</span> … <span class="term-fg35">127.0 ms</span>    <span class="term-fg2">20 runs</span>
+&nbsp;
+<span class="term-fg1">Benchmark 3</span>: [...arr].map(fn)
+  Time (<span class="term-fg32 term-fg1">mean</span> ± <span class="term-fg32">σ</span>):     <span class="term-fg32 term-fg1">122.9 ms</span> ± <span class="term-fg32">  5.8 ms</span>    [User: <span class="term-fg34">111.3 ms</span>, System: <span class="term-fg34">14.2 ms</span>]
+  Range (<span class="term-fg36">min</span> … <span class="term-fg35">max</span>):   <span class="term-fg36">115.1 ms</span> … <span class="term-fg35">132.3 ms</span>    <span class="term-fg2">20 runs</span>
+&nbsp;
+<span class="term-fg1">Benchmark 4</span>: Array.from(arr, fn)
+  Time (<span class="term-fg32 term-fg1">mean</span> ± <span class="term-fg32">σ</span>):     <span class="term-fg32 term-fg1">259.3 ms</span> ± <span class="term-fg32"> 15.8 ms</span>    [User: <span class="term-fg34">246.0 ms</span>, System: <span class="term-fg34">15.1 ms</span>]
+  Range (<span class="term-fg36">min</span> … <span class="term-fg35">max</span>):   <span class="term-fg36">227.0 ms</span> … <span class="term-fg35">283.6 ms</span>    <span class="term-fg2">20 runs</span>
+</code></pre>
+</details>
+<div class="note"></div>
+
+<p><code>100,000</code> items, <code>1,000</code> iterations:</p>
+<details class="code">
+<summary>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sh</span><span class="z-string"> spd.sh</span><span class="z-constant z-numeric"> 100000</span><span class="z-constant z-numeric"> 1000</span></span></code></pre><pre class="giallo z-code">
+<code data-lang="plain"><span class="term-fg1">Summary</span>
+  <span class="term-fg36">for (...)</span> ran
+<span class="term-fg32 term-fg1">    2.97</span> ± <span class="term-fg32">0.14</span> times faster than <span class="term-fg35">arr.map(fn)</span>
+<span class="term-fg32 term-fg1">    3.72</span> ± <span class="term-fg32">0.20</span> times faster than <span class="term-fg35">[...arr].map(fn)</span>
+<span class="term-fg32 term-fg1">    8.05</span> ± <span class="term-fg32">0.32</span> times faster than <span class="term-fg35">Array.from(arr, fn)</span></code></pre>
+</summary>
+<pre class="giallo z-code"><code data-lang="plain"><span class="term-fg1">Benchmark 1</span>: for (...)
+  Time (<span class="term-fg32 term-fg1">mean</span> ± <span class="term-fg32">σ</span>):     <span class="term-fg32 term-fg1">406.1 ms</span> ± <span class="term-fg32">  6.1 ms</span>    [User: <span class="term-fg34">173.8 ms</span>, System: <span class="term-fg34">241.2 ms</span>]
+  Range (<span class="term-fg36">min</span> … <span class="term-fg35">max</span>):   <span class="term-fg36">397.0 ms</span> … <span class="term-fg35">419.2 ms</span>    <span class="term-fg2">20 runs</span>
+&nbsp;
+<span class="term-fg1">Benchmark 2</span>: arr.map(fn)
+  Time (<span class="term-fg32 term-fg1">mean</span> ± <span class="term-fg32">σ</span>):     <span class="term-fg32 term-fg1"> 1.204 s</span> ± <span class="term-fg32"> 0.056 s</span>    [User: <span class="term-fg34">0.968 s</span>, System: <span class="term-fg34">0.230 s</span>]
+  Range (<span class="term-fg36">min</span> … <span class="term-fg35">max</span>):   <span class="term-fg36"> 1.117 s</span> … <span class="term-fg35"> 1.283 s</span>    <span class="term-fg2">20 runs</span>
+&nbsp;
+<span class="term-fg1">Benchmark 3</span>: [...arr].map(fn)
+  Time (<span class="term-fg32 term-fg1">mean</span> ± <span class="term-fg32">σ</span>):     <span class="term-fg32 term-fg1"> 1.512 s</span> ± <span class="term-fg32"> 0.078 s</span>    [User: <span class="term-fg34">1.002 s</span>, System: <span class="term-fg34">0.505 s</span>]
+  Range (<span class="term-fg36">min</span> … <span class="term-fg35">max</span>):   <span class="term-fg36"> 1.415 s</span> … <span class="term-fg35"> 1.740 s</span>    <span class="term-fg2">20 runs</span>
+&nbsp;
+<span class="term-fg1">Benchmark 4</span>: Array.from(arr, fn)
+  Time (<span class="term-fg32 term-fg1">mean</span> ± <span class="term-fg32">σ</span>):     <span class="term-fg32 term-fg1"> 3.269 s</span> ± <span class="term-fg32"> 0.121 s</span>    [User: <span class="term-fg34">2.243 s</span>, System: <span class="term-fg34">1.000 s</span>]
+  Range (<span class="term-fg36">min</span> … <span class="term-fg35">max</span>):   <span class="term-fg36"> 3.097 s</span> … <span class="term-fg35"> 3.478 s</span>    <span class="term-fg2">20 runs</span>
+</code></pre>
+</details>
+<div class="note"></div>
+
+<p>So, there you have it.</p>
+<p>Under the most recent iteration of the most ubiquitous JavaScript engine,
+<code>Array.from(arr, mapper)</code> is <strong>always</strong>, <strong>significantly</strong>, <strong>SLOWER</strong> than
+<code>[...arr].map(mapper)</code>.</p>
+<h2 id="technical-and-broader-takeaways"><a class="anchor-link" href="#technical-and-broader-takeaways" aria-label="Anchor link for: technical-and-broader-takeaways"></a>
+Technical and broader takeaways</h2>
+<p>I compared <strong>three versions of creating a new array that maps each element
+through some transformer</strong>.  One of them even goes so far as to perform a
+(sometimes redundant) shallow copy of the original array before performing the
+mapping: this is the object of that <em>well-intended-yet-obscenely-misguided
+<strong>"performance optimisation"</strong> rule</em> of the recently founded <code>e18e</code> organisation
+presuming to further and/or democratise the <strong>performance of JavaScript
+packages</strong>:</p>
+<blockquote>
+<p>Prefer <code>Array.from(iterable, mapper)</code> over <code>[...iterable].map(mapper)</code> to
+avoid intermediate array allocation.</p>
+<div class="quote-attribution">Ecosystem Performance (<code>e18e</code>), <code>prefer-array-from-map</code></div>
+</blockquote>
+<p>The <strong>memory consumption</strong> is <strong>strictly</strong> and <strong>always</strong> worse (<code>~10</code> to <code>~45%</code>
+worse)when using <code>Array.from(arr, mapper)</code> than with every single other method,
+all of which are otherwise essentially identical.</p>
+<p>However, that isn't the most interesting metric for us here, and the deviation
+isn't all that significant, next to, say, the size of the items themselves.</p>
+<p>The more interesting point would likely be that of its <em>"speed"</em>: how much
+faster would either method go?</p>
+<p><strong>Across the board, <code>Array.from(arr, fn)</code> is, systematically and enormously
+slower.</strong></p>
+<h3 id="the-two-operations-in-question"><a class="anchor-link" href="#the-two-operations-in-question" aria-label="Anchor link for: the-two-operations-in-question"></a>
+The two operations in question</h3>
+<p>First, comparing to <code>[...arr].map(fn)</code> in isolation:</p>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>                       A - B           A - B</span></span>
+<span class="giallo-l"><span>                   =============   =============</span></span>
+<span class="giallo-l"><span>  100 iterations   32.9  -  46.2   181.9 - 377.3</span></span>
+<span class="giallo-l"><span>1,000 iterations   122.9 - 259.3   1512  -  3269</span></span>
+<span class="giallo-l"><span>                   -------------   -------------</span></span>
+<span class="giallo-l"><span>                   10,000  items   100,000 items</span></span></code></pre><div class="note">the durations are in milliseconds, <strong><code>A</code> is <code>[...arr].map(fn)</code>, and <code>B</code> is <code>Array.from(arr, fn)</code></strong></div>
+<ol>
+<li>
+<p><strong>fewer</strong> items, <strong>fewer</strong> iterations:</p>
+<p><strong><code>Array.from(arr, fn)</code> is 49.42% slower than <code>[...arr].map(fn)</code></strong></p>
+</li>
+<li>
+<p><strong>more</strong> items, <strong>fewer</strong> iterations:</p>
+<p><strong><code>Array.from(arr, fn)</code> is 107.42% slower than <code>[...arr].map(fn)</code></strong></p>
+</li>
+<li>
+<p><strong>fewer</strong> items, <strong>more</strong> iterations:</p>
+<p><strong><code>Array.from(arr, fn)</code> is 110.98% slower than <code>[...arr].map(fn)</code></strong></p>
+</li>
+<li>
+<p><strong>more</strong> items, <strong>more</strong> iterations:</p>
+<p><strong><code>Array.from(arr, fn)</code> is 116.20% slower than <code>[...arr].map(fn)</code></strong></p>
+</li>
+</ol>
+<blockquote class="markdown-alert-important">
+<p><code>Array.from(arr, fn)</code> appears to somewhat stabilise at taking <strong>over twice
+as long</strong> to perform the task!  The difference grows as we go further across
+either dimension.</p>
+<p>There is <strong>no</strong> performance reason to preferring <code>Array.from(arr, fn)</code> over
+<code>[...arr].map(fn)</code>: the <strong>opposite</strong> is unequivocally accurate.</p>
+</blockquote>
+<h3 id="isolating-arr-vs-mere-arr"><a class="anchor-link" href="#isolating-arr-vs-mere-arr" aria-label="Anchor link for: isolating-arr-vs-mere-arr"></a>
+Isolating <code>[...arr]</code> vs mere <code>arr</code></h3>
+<p>Secondly, comparing the cost of the <em>"intermediate array allocation"</em>:</p>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>                       A - C           A - C</span></span>
+<span class="giallo-l"><span>                   =============   =============</span></span>
+<span class="giallo-l"><span>  100 iterations   32.9  -  30.7   181.9 - 152.9</span></span>
+<span class="giallo-l"><span>1,000 iterations   122.9 - 114.7   1512  -  1204</span></span>
+<span class="giallo-l"><span>                   -------------   -------------</span></span>
+<span class="giallo-l"><span>                   10,000  items   100,000 items</span></span></code></pre><div class="note">the durations are in milliseconds, <strong><code>A</code> remains <code>[...arr].map(fn)</code>, and <code>C</code> is <code>arr.map(fn)</code></strong></div>
+<blockquote class="markdown-alert-important">
+<p>We observe an increase in cost ranging from <code>~7.1%</code> to <code>~25.6%</code> when
+introducing <code>[...arr]</code> instead of merely using <code>arr</code>.  The difference grows as
+we go further across either dimension.  It's not insignificant, but much less
+so than using <code>Array.from(arr, fn)</code> is.</p>
+</blockquote>
+<h3 id="and-for-loop-trumps-all-others"><a class="anchor-link" href="#and-for-loop-trumps-all-others" aria-label="Anchor link for: and-for-loop-trumps-all-others"></a>
+And <code>for</code>-loop trumps all others</h3>
+<p>Really, here's the takeaway, for those that really require some specific array
+mapping transformation to go fast and often:</p>
+<p>Use a <code>for</code>-loop: it's systematically significantly faster.  In the most
+stressing case, using <code>100,000</code> items and <code>1,000</code> iterations, for <code>for</code>-loop
+performed about:</p>
+<ul>
+<li><code>2.97</code> times faster than <code>arra.map(fn)</code>,</li>
+<li><code>3.72</code> times faster than <code>[...arr].map(fn)</code>, and</li>
+<li><code>8.05</code> times faster than <code>Array.from(arr, fn)</code>.  <strong>EIGHT!!</strong></li>
+</ul>
+<p>So, the next time your <a rel="external" href="https://en.wikipedia.org/wiki/Lint_(software)">linter</a>
+screams at you at the <code>ERROR</code> level that this is somehow inadequate:</p>
+<pre class="giallo z-code"><code data-lang="javascript"><span class="giallo-l"><span class="z-storage z-type">const</span><span class="z-variable z-other z-constant z-js"> boxes</span><span class="z-keyword z-operator"> =</span><span class="z-source"> [</span><span class="z-keyword z-operator">...</span><span class="z-source">document</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">querySelectorAll</span><span class="z-source">(</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">.box</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-source">)</span><span class="z-source">]</span></span>
+<span class="giallo-l"><span class="z-punctuation z-accessor">    .</span><span class="z-entity z-name z-function">map</span><span class="z-source">(</span><span class="z-variable z-parameter">e</span><span class="z-storage z-type"> =&gt;</span><span class="z-source"> e</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">getBoundingClientRect</span><span class="z-source">(</span><span class="z-source">)</span><span class="z-source">)</span></span></code></pre><div class="note">this excerpt triggers the revolting <code>e18e/prefer-array-from-map</code> rule</div>
+<p>... <strong>Know that it is rubbish.</strong></p>
+<h3 id="is-that-really-what-you-need"><a class="anchor-link" href="#is-that-really-what-you-need" aria-label="Anchor link for: is-that-really-what-you-need"></a>
+Is that really what you need?</h3>
+<p>Know that <abbr title="Just-In-Time"><code>JIT</code></abbr> compilation is tricky, and so
+is measuring performance.</p>
+<p>But mostly: know that <strong>it matters not here</strong>.  Know that more time elapses from
+from <code>hover</code> to <code>click</code> on your buttons (provided a mammalian brain is operating
+the cursor), than it takes modern hardware to mess around with your bits of
+data.</p>
+<p>And that's before <a rel="external" href="https://en.wikipedia.org/wiki/Fitts%27s_law">Fitt's law</a>
+comes into play.  And that's before <a rel="external" href="https://en.wikipedia.org/wiki/Hick%27s_law">Hick's
+law</a> also kicks off.</p>
+<p>And that's all <strong>assuming you DO have more than your usual pitiful 4 items</strong> in
+a list!</p>
+<h2 id="going-forward"><a class="anchor-link" href="#going-forward" aria-label="Anchor link for: going-forward"></a>
+Going forward</h2>
+<p><strong>Make ample use of discernment</strong>, don't presume that the cool new kids online
+know any better, keep track of what actually matters, and be capable of
+extracting a ballpark estimation yourself.</p>
+<p>But most importantly: <strong>don't make me change my perfectly serviceable code</strong>
+because of some second-hand Gospel from the <em>pennywise-and-pound-foolish</em>
+missionaries you've assumed is the end-all-be-all of performance improvement.</p>
+<p>There is hardly any room for improvement, until you've measured that there is a
+need for it; and when the time will come, be certain that some one-stop-shop,
+low-hanging <em>"panacea"</em> may be <strong>more of a red herring than a <a rel="external" href="https://en.wikipedia.org/wiki/Captain_Ahab">white
+whale</a></strong><sup class="footnote-reference" id="fr-red-herring-1"><a href="#fn-red-herring">6</a></sup>.</p>
+<p>This right here is almost <strong>splitting hairs</strong> compared to the vastness and
+complexity of the topic of performance optimisation, but I'll acknowledge that
+in some instance, maybe making <em>"it"</em> faster at <em>that</em> level as well isn't a bad
+idea.  In this case, <strong>measure</strong> the options with your <strong>real data and usage
+patterns</strong>, or perhaps revert to writing code that your compiler best translates
+into the ideal instructions for your <code>CPU</code>: in this case, just spell out the
+whole <code>for</code>-loop yields unmistakably better output.</p>
+<p>Until then, good luck out there, have fun!</p>
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn-e18e-eslint">
+<p>That repository is the <em>"official"</em> <code>e18e</code>
+<a rel="external" href="https://eslint.org/">ESLint</a> plug-in for <em>"code modernization and performance
+best practices"</em>; the <code>e18e</code> itself is a very recent initiative whose goal is
+that of <em>"Ecosystem Performance"</em>: that is what their name stands for. <a href="#fr-e18e-eslint-1">↩</a></p>
+</li>
+<li id="fn-jit-compiler-crash-course">
+<p>You may want to go over this short introduction
+of what the <em>Just-In-Time</em> compilation is about, from this <a rel="external" href="https://hacks.mozilla.org/2017/02/a-crash-course-in-just-in-time-jit-compilers/"><em>"crash course"</em> on
+Mozilla
+Hacks</a>. <a href="#fr-jit-compiler-crash-course-1">↩</a></p>
+</li>
+<li id="fn-premature-optimisation-knuth">
+<p>Donald Knuth's distinguished publication is
+most ubiquitously reduced to an aphorism that I feel is best shared here in its
+context, and with its mitigating follow-up:</p>
+<blockquote>
+<p>There is no doubt that the grail of efficiency leads to abuse.
+Programmers waste enormous amounts of time thinking about, or worrying
+about, the speed of non-critical parts of their programs, and these
+attempts at efficiency actually have a strong negative impact when
+debugging and maintenance are considered.  We should forget about small
+efficiencies, say about 97% of the time: <strong>premature optimization is the
+root of all evil</strong>.</p>
+<p>Yet we should not pass up our opportunities in that critical 3 %. A good
+programmer will not be lulled into complacency by such reasoning, he will
+be wise to look carefully at the critical code; but only after that code
+has been identified.  It is often a mistake to make <em>a priori</em> judgements
+about what parts of a program are really critical, since the universal
+experience of programmers who have been using measurement tools has been
+that their intuitive guesses fail.</p>
+<div class="quote-attribution">Donald Knuth, <a rel="external" href="https://pic.plover.com/knuth-GOTO.pdf">Structured Programming with <code>goto</code> Statements</a></div>
+</blockquote>
+ <a href="#fr-premature-optimisation-knuth-1">↩</a></li>
+<li id="fn-most-prominent-engine">
+<p><code>V8</code> is by far the most prominent of the many
+JavaScript environments, which count:</p>
+<ul>
+<li>the Web Browsers, of which there are quite a few: <em>Firefox</em>, <em>Safari</em>,
+<em>Chrome</em>, <em>Edge</em>, <em>et cet</em>...</li>
+<li>those for server-side computation, like <em>Node.js</em>, <em>Deno</em> and <em>Bun</em>,</li>
+<li>A myriad others for another myriad of applications, such as for the
+<code>GNOME</code> ecosystem, for the <abbr title="Internet of Things"><code>IoT</code></abbr>
+or even smart devices, such as <em>Amazon Echo</em>.</li>
+</ul>
+<p>In the end, most of these end up relying on one of three major JavaScript
+engines (though <em>QuickJS</em> and <em>Hermes</em> may be worth a mention in the
+<code>IoT</code>/embedded/mobile device space):</p>
+<ul>
+<li><em>SpiderMonkey</em> serves <em>Firefox</em> and <em>GNOME JavaScript</em>,</li>
+<li><em>JavaScriptCore</em> serves <em>Safari</em> and other <em>iOS</em> browsers, as well as
+<em>Bun</em>,</li>
+<li><code>V8</code> serves <em>Node.js</em> and all Chromium derivatives (<em>Brave</em>, <em>Edge</em>, <em>et
+cet</em>)</li>
+</ul>
+<p>Of those, Google's <code>V8</code> is indisputably the most ubiquitous,
+by an enormous margin: <a rel="external" href="https://gs.statcounter.com/browser-market-share">some ~75% of all Web browsers run
+it</a>, and that's
+not even the segment it fares best at: the "server-side" JavaScript
+is largely more dominated by <em>Node.js</em> today: <strong>over 90% of the
+11,141 respondents</strong> to the <a rel="external" href="https://2025.stateofjs.com/en-US/other-tools/">latest edition of the State of JS
+survey</a> declared using that
+runtime. <a href="#fr-most-prominent-engine-1">↩</a></p>
+</li>
+<li id="fn-node-dot-js">
+<p>Yep, <a href="https://ccjmne.sh/blog/ramblings/aptly-capitalised-names/">capitalised <code>Node</code>, dot,
+<code>js</code></a>; that's how it's spelled. <a href="#fr-node-dot-js-1">↩</a></p>
+</li>
+<li id="fn-red-herring">
+<p><em>"More of a red herring than a white whale"</em>... Ah, I'm really
+quite proud of that one! <a href="#fr-red-herring-1">↩</a></p>
+</li>
+</ol>
+</section>
+
+  <h2 id="cited-tools"><a class="anchor-link" href="#cited-tools" aria-label="Anchor link for: cited-tools"></a>
+Referenced tools</h2>
+  <div class="refs">
+<div class="ref tool mono">
+  <strong>eslint</strong>
+  <div><span class="muted">from</span>&nbsp;<a rel="external" href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;eslint">extra&#x2F;eslint</a></div>
+  <div><a rel="external" href="https:&#x2F;&#x2F;eslint.org&#x2F;docs&#x2F;">manual</a>
+    <a rel="external" href="https:&#x2F;&#x2F;github.com&#x2F;eslint&#x2F;eslint">source</a></div>
+</div>
+
+<div class="ref tool mono">
+  <strong>hyperfine</strong>
+  <div><span class="muted">from</span>&nbsp;<a rel="external" href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;hyperfine">extra&#x2F;hyperfine</a></div>
+  <div><a rel="external" href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;extra&#x2F;hyperfine&#x2F;hyperfine.1.en">manual</a>
+    <a rel="external" href="https:&#x2F;&#x2F;github.com&#x2F;sharkdp&#x2F;hyperfine">source</a></div>
+</div>
+
+<div class="ref tool mono">
+  <strong>node</strong>
+  <div><span class="muted">from</span>&nbsp;<a rel="external" href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;nodejs">extra&#x2F;nodejs</a></div>
+  <div><a rel="external" href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;extra&#x2F;nodejs&#x2F;node.1.en">manual</a>
+    <a rel="external" href="https:&#x2F;&#x2F;github.com&#x2F;nodejs&#x2F;node">source</a></div>
+</div>
+</div>
+  
+
+  
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a rel="external" href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <a rel="external" href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>
+        <a rel="external" href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>

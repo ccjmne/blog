@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/base.css?h=5eaf59dc2d88083c5a9c">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2?h=b3c74e2fab27de35d142" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2?h=b1481b19a684088ca0aa" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2?h=d503244afc2437c96ade" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2?h=5c8eb42ff6f2e2934413" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2?h=a264b0cbe8b649d2258c" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-2.woff2?h=e7f9c933e970ed62349b" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-1.woff2?h=b3c74e2fab27de35d142') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2?h=b1481b19a684088ca0aa') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2?h=d503244afc2437c96ade') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/work-3.woff2?h=5c8eb42ff6f2e2934413') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2?h=a264b0cbe8b649d2258c') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/fira-2.woff2?h=e7f9c933e970ed62349b') format('woff2'); }
+</style>
+<link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-light.css?h=280afa93e1c6dfec22ed" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-dark.css?h=8efc0ee965d80c5835b7" media="(prefers-color-scheme: dark)">
+    
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+data-path="&#x2F;flight-manual&#x2F;juggle-data-with-sed-hold-space&#x2F;">
+      <a href="https://ccjmne.sh/blog" data-target="home">Home</a>
+      <details class="dropdown" max-md>
+        <summary data-target="articles">Articles</summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual/"       >Flight rules</a>
+          <a href="https://ccjmne.sh/blog/ramblings/"       >Ramblings</a>
+          <a href="https://ccjmne.sh/blog/flashcards/"       >Flashcards</a>
+          <a href="https://ccjmne.sh/blog/tags/" max-sm>Sections</a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual/" min-md>Flight rules</a>
+      <a href="https://ccjmne.sh/blog/ramblings/" min-md>Ramblings</a>
+      <a href="https://ccjmne.sh/blog/flashcards/" min-md>Flashcards</a>
+      <a href="https://ccjmne.sh/blog/tags/" min-sm>Sections</a>
+      <a href="https://ccjmne.sh/blog/colophon/"       >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main><h1><span class="link-title" 
+  style="view-transition-name: view-juggle-data-with-sed-hold-space"
+>Juggle context with <code>sed</code>'s pattern and hold spaces</span></h1><ul class="infobar "><li><time>January 08, 2026</time></li><li>11-minute read</li>
+    <li>tagged
+      <a href="https://ccjmne.sh/blog/tags/cli/">cli</a>, <a href="https://ccjmne.sh/blog/tags/posix/">posix</a>, <a href="https://ccjmne.sh/blog/tags/sed/">sed</a></li></ul>
+<details class="hi toc">
+  <summary>Table of contents</summary>
+  <ul><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/juggle-data-with-sed-hold-space/#tldr">Obligatory TL;DR</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/juggle-data-with-sed-hold-space/#the-processing-cycle">The processing cycle</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/juggle-data-with-sed-hold-space/#exempli-gratia">Exempli gratia</a><ul>
+        
+        <li><a href="https://ccjmne.sh/blog/flight-manual/juggle-data-with-sed-hold-space/#reverse-lines">Reverse lines</a></li>
+        <li><a href="https://ccjmne.sh/blog/flight-manual/juggle-data-with-sed-hold-space/#practical-use-case-distribute-context">Practical use case: distribute context</a></li>
+        <li><a href="https://ccjmne.sh/blog/flight-manual/juggle-data-with-sed-hold-space/#practical-use-case-pull-an-entry-to-the-top">Practical use case: pull an entry to the top</a></li></ul></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/juggle-data-with-sed-hold-space/#wrapping-up">Wrapping up</a></li>
+    <li><a href="#cited-tools">Referenced tools</a></li>
+    
+    
+  </ul>
+</details>
+<article><p>As <code>sed</code> processes its input line by line, it works primarily with its <strong>pattern
+space</strong>: a buffer that generally holds the current line being processed.
+Generally?  Let's look into it.</p>
+<blockquote class="markdown-alert-important">
+<p>There's virtually no point in getting into this article if <code>sed '2!d'</code>
+leaves you perplexed.  If that is the case, you may find better value
+in a detour through some thorough (or quick, there's a <code>TL;DR</code>)
+introduction to the one core, digestible, unequivocally practical facet
+of <code>sed</code> that you may be lacking, in <a href="https://ccjmne.sh/blog/flight-manual/scope-sed-commands-target-lines/"><em>Scope <code>sed</code> commands to specific
+lines</em></a>.</p>
+</blockquote>
+<div class="hi">
+<h2 id="tldr"><a class="anchor-link" href="#tldr" aria-label="Anchor link for: tldr"></a>
+Obligatory <a rel="external" href="https://en.wikipedia.org/wiki/TL;DR">TL;DR</a></h2>
+<p>Most <code>sed</code> operations are executed against the content in the <strong>pattern space</strong>,
+the current input line.  The <strong>hold</strong> space is a second buffer that is at your
+disposal, and with which you can carry state across lines, compare with previous
+content, or assemble output that spans multiple lines.</p>
+<p>These few commands are the substrate of what using the hold space distils down
+to:</p>
+<ul>
+<li><code>h</code>/<code>H</code> to copy/append <strong>from pattern to hold</strong> space (<code>h</code> for "hold")</li>
+<li><code>g</code>/<code>G</code> to copy/append <strong>from hold to pattern</strong> space (<code>g</code> possibly for
+"get"?)</li>
+<li><code>x</code> to <strong>e<code>x</code>change</strong> the contents of hold and pattern spaces.</li>
+</ul>
+<blockquote class="markdown-alert-note">
+<p>I feel like <code>g</code> nicely mirrors and follows <code>h</code> (on a touch-typist's
+<code>QWERTY</code> keyboard and in the alphabet, respectively); I have used them
+for connection and disconnection signals in hand-rolled communication
+protocols, mnemonics for "hello" and "goodbye"; we often use <code>g</code>
+and <code>h</code> as companions to <code>f</code> in describing functions in <a rel="external" href="https://en.wikipedia.org/wiki/Abstract_algebra">abstract
+algebra</a>...  Surely they're
+well-understood to work as a pair, and <code>g</code> makes sense to un-<code>h</code> something?</p>
+</blockquote>
+<p>For example, consider the following document:</p>
+<pre class="giallo z-code"><code data-lang="toml" data-name="my-awesome-crate.toml"><span class="giallo-l"><span class="z-punctuation">[</span><span class="z-source">package</span><span class="z-punctuation">]</span></span>
+<span class="giallo-l"><span class="z-source">name</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">my-awesome-crate</span><span class="z-punctuation z-definition z-string">&quot;</span></span>
+<span class="giallo-l"><span class="z-source">version</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">1.2.3-final.rc.99+g55dd287</span><span class="z-punctuation z-definition z-string">&quot;</span></span>
+<span class="giallo-l"><span class="z-source">readme</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">README.md</span><span class="z-punctuation z-definition z-string">&quot;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-punctuation">[</span><span class="z-source">dependencies</span><span class="z-punctuation">]</span></span>
+<span class="giallo-l"><span class="z-source">async-io</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-punctuation"> {</span><span class="z-source"> version</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">2.6.0</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation">,</span><span class="z-source"> optional</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-constant z-language z-boolean"> true</span><span class="z-punctuation"> }</span></span>
+<span class="giallo-l"><span class="z-source">clap</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-punctuation"> {</span><span class="z-source"> workspace</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-constant z-language z-boolean"> true</span><span class="z-punctuation">,</span><span class="z-source"> features</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-punctuation"> [</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-string">string</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation">]</span><span class="z-punctuation"> }</span></span>
+<span class="giallo-l"><span class="z-source">libc</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">0.2.176</span><span class="z-punctuation z-definition z-string">&quot;</span></span></code></pre><div class="note">a semi-legible version number that nonetheless conforms to the <a rel="external" href="https://semver.org/">SemVer</a> specification</div>
+<p>Sprinkle in some impossibly dense, <code>POSIX</code>-compliant <code>sed</code> magic to <strong>in-line
+the section names</strong> (which also constitutes valid <code>toml</code> syntax):</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">/^\[/ {s/[][]//g;h;d}</span></span>
+<span class="giallo-l"><span class="z-string">     /./   {G;s/\(.*\)\n\(.*\)/\2.\1/}</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> my-awesome-crate.toml</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>package.name = &quot;my-awesome-crate&quot;</span></span>
+<span class="giallo-l"><span>package.version = &quot;1.2.3-final.rc.99+g55dd287&quot;</span></span>
+<span class="giallo-l"><span>package.readme = &quot;README.md&quot;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>dependencies.async-io = { version = &quot;2.6.0&quot;, optional = true }</span></span>
+<span class="giallo-l"><span>dependencies.clap = { workspace = true, features = [&quot;string&quot;] }</span></span>
+<span class="giallo-l"><span>dependencies.libc = &quot;0.2.176&quot;</span></span></code></pre><div class="note">foul?  possibly—beauty is in the eye of the beholder; <code>POSIX</code> compliance, however, is indisputable</div>
+<p>Note the delightfully quirky <code>BRE</code> substitution <code>s/[][]//g</code> employing the most
+savvy <code>[][]</code> character class to match either literal square bracket.  Who says I
+don't know how to have fun?</p>
+</div>
+<p>This example above in the <code>TL;DR</code> doesn't look too pretty (although, it'd be
+nicer with some extended <abbr title="Regular Expressions"><code>RegExp</code></abbr>
+syntax).  I would say in general that my articles on <code>sed</code> or Vim won't quite
+be for the faint of heart: you have to pace yourself reading it, but I assure
+you: <strong>these incantations are so very simple to come up with</strong>, once familiarity
+overcomes the dreadful arcane.</p>
+<p>In any case, despite routinely lovingly calling these <em>"write-only"</em>, there's
+something about contorting <code>POSIX</code> tools to get the job done that I find serves
+me well in the long run.</p>
+<h2 id="the-processing-cycle"><a class="anchor-link" href="#the-processing-cycle" aria-label="Anchor link for: the-processing-cycle"></a>
+The processing cycle</h2>
+<p>In brief, <code>sed</code> reads a line (without its trailing linefeed)<sup class="footnote-reference" id="fr-trailing-linefeed-1"><a href="#fn-trailing-linefeed">1</a></sup>
+into what it calls the <strong>pattern space</strong>, applies all commands whose addresses
+match, in order<sup class="footnote-reference" id="fr-may-bail-out-1"><a href="#fn-may-bail-out">2</a></sup>, then prints out the resulting buffer, and
+repeats.  The <strong>hold</strong> space is a companion to that main "work" buffer, which
+persists across cycles and is effectively entirely inert unless you manipulate
+it with <code>h</code>/<code>H</code>, <code>g</code>/<code>G</code>, or <code>x</code>.</p>
+<blockquote class="markdown-alert-note">
+<p>Use addresses to scope where your logic runs: <code>&lt;address&gt;{&lt;commands&gt;}</code>.
+I wrote in great length about <code>sed</code> addresses in <a href="https://ccjmne.sh/blog/flight-manual/scope-sed-commands-target-lines/">this previous
+article</a>, which is likely
+far more approachable and useful than this current one.</p>
+</blockquote>
+<p>So how do you manipulate it?  <strong>Frankly, it's simple.</strong>  In my opinion, perhaps
+simpler than whichever degree of simplicity would maximise elegance and
+practicality (I would <em>very much</em> like a way to clear the hold, for instance,
+without having to clear the pattern and push <em>that</em> into the hold: <code>s/.*//;x</code>),
+but at least it's simple: I'll give it to you (essentially) straight from the
+scripture, <code>man 1p sed</code>:</p>
+<ul>
+<li><code>g</code> <strong>replaces</strong> the contents of the <strong>pattern</strong> space with the contents of
+the hold space,</li>
+<li><code>G</code> <strong>appends</strong> to the pattern space a linefeed and the contents of the hold
+space,</li>
+<li><code>h</code> <strong>replaces</strong> the contents of the <strong>hold</strong> space with the contents of the
+pattern space,</li>
+<li><code>H</code> <strong>appends</strong> to the hold space a linefeed and the contents of the pattern
+space, and</li>
+<li><code>x</code> <strong>exchanges</strong> the contents of the pattern and hold spaces.</li>
+</ul>
+<blockquote class="markdown-alert-tip">
+<p>Appending with <code>H</code> and <code>G</code> always involves a linefeed: plan your substitutions
+(<code>s///</code> commands) accordingly.</p>
+</blockquote>
+<h2 id="exempli-gratia"><a class="anchor-link" href="#exempli-gratia" aria-label="Anchor link for: exempli-gratia"></a>
+Exempli gratia</h2>
+<p>There really isn't that much to the hold space in <code>sed</code>.  All that's possibly
+quite noteworthy is that many seemingly go through their entire <code>CLI</code> dwelling
+life without using it: do we simply never need anything like that, or <strong>is
+it a case of not considering the options that require tools we haven't yet
+mastered?</strong></p>
+<p>Without much ceremony, here come some examples that may lack systematic
+practicality, but truly do come in handy when the servers are on fire and we
+wouldn't mind somebody navigating the system like they would the back of their
+hand—or, as the French would say, the bottom of their pocket.</p>
+<h3 id="reverse-lines"><a class="anchor-link" href="#reverse-lines" aria-label="Anchor link for: reverse-lines"></a>
+Reverse lines</h3>
+<p>Let's whet our appetite with some <strong>fantasy recipe</strong>, merely to get the
+<em>braingine</em> going: reversing lines.  Well, <code>sed</code>'s not built for that, it
+processes <em>streams</em> of data, and while this would indeed be guaranteed to work
+for files up to 8kb in size<sup class="footnote-reference" id="fr-8kb-1"><a href="#fn-8kb">3</a></sup>, <code>tac</code> (<code>cat</code> in reverse!) from <code>GNU</code>'s
+excellent <code>coreutils</code> is a much more appropriate tool for that job.</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">1!G;h;$!d</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> file</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">1!G; h; $!d</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> file</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-punctuation z-definition z-string"> &#39;</span></span>
+<span class="giallo-l"><span class="z-string">  1!G</span></span>
+<span class="giallo-l"><span class="z-string">  h         # [h]old on to it</span></span>
+<span class="giallo-l"><span class="z-string">  $!d</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> file</span></span></code></pre><div class="note">don't hesitate to format your <code>sed</code> scripts with newlines and comments for readability</div>
+<ul>
+<li><code>1!G</code>, unless at line <code>1</code> (the first), append the accumulated hold to the
+pattern;</li>
+<li><code>h</code>, save the aggregate into the hold;</li>
+<li><code>$!d</code>, unless at line <code>$</code> (the last), discard the pattern; <code>sed</code> will
+implicitly print out the only non-discarded pattern, the ultimate one
+coalescing the entire accumulated reversed collection of lines.</li>
+</ul>
+<p>You could do away with specifying <code>1!</code>, in which case the original (empty) hold
+space, <strong>as well as an extra linefeed</strong>, would be appended to the end of the
+output.  Non-printable characters may very well not be most obvious, but we
+should strive to keep things tight.  Restricting <code>G</code> to <code>1!</code> avoids having to
+<code>$s/\n$//</code> at the end of the script.</p>
+<h3 id="practical-use-case-distribute-context"><a class="anchor-link" href="#practical-use-case-distribute-context" aria-label="Anchor link for: practical-use-case-distribute-context"></a>
+Practical use case: distribute context</h3>
+<p>At work, we've got a few teams contributing to a sizeable
+number of modules.  We make use of a <a rel="external" href="https://docs.gitlab.com/user/project/codeowners/reference/"><code>CODEOWNERS</code>
+file</a> that looks
+something like:</p>
+<pre class="giallo z-code"><code data-lang="ini" data-name="CODEOWNERS"><span class="giallo-l"><span class="z-punctuation z-definition z-comment">#</span><span class="z-comment"> --- Legacy Wranglers ---</span></span>
+<span class="giallo-l"><span class="z-punctuation">[</span><span class="z-entity z-name z-section z-group-title z-ini">Legacy Wranglers</span><span class="z-punctuation">]</span><span class="z-source"> @team-legacy-wranglers</span></span>
+<span class="giallo-l"><span class="z-source">monolith/</span></span>
+<span class="giallo-l"><span class="z-source">cron-scripts/</span></span>
+<span class="giallo-l"><span class="z-source">soap-adapter/</span></span>
+<span class="giallo-l"><span class="z-source">ancient-batch-jobs/</span></span>
+<span class="giallo-l"><span class="z-source">v1-api/</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment">#</span><span class="z-comment"> --- Everything Breaks Here ---</span></span>
+<span class="giallo-l"><span class="z-punctuation">[</span><span class="z-entity z-name z-section z-group-title z-ini">Chaos &amp; Incidents</span><span class="z-punctuation">]</span><span class="z-source"> @team-chaos</span></span>
+<span class="giallo-l"><span class="z-source">pagerduty-hooks/</span></span>
+<span class="giallo-l"><span class="z-source">incident-simulator/</span></span>
+<span class="giallo-l"><span class="z-source">fire-drills/</span></span>
+<span class="giallo-l"><span class="z-source">rollback-scripts/</span></span>
+<span class="giallo-l"><span class="z-source">midnight-alerts/</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment">#</span><span class="z-comment"> --- Frontend Pain Relief ---</span></span>
+<span class="giallo-l"><span class="z-punctuation">[</span><span class="z-entity z-name z-section z-group-title z-ini">Frontend Pain Relief</span><span class="z-punctuation">]</span><span class="z-source"> @team-frontend</span></span>
+<span class="giallo-l"><span class="z-source">css-specificity-war/</span></span>
+<span class="giallo-l"><span class="z-source">ie11-polyfills/</span></span>
+<span class="giallo-l"><span class="z-source">npm-dependency-hell/</span></span>
+<span class="giallo-l"><span class="z-source">storybook/</span></span>
+<span class="giallo-l"><span class="z-source">component-library-v2/</span></span></code></pre>
+<p>When something's looking iffy, I would like to spin up <code>fzf</code> to find who the
+responsible team for a particular module is: it'd be neat to have the <code>@team</code>
+tag <strong>on the same line</strong> as the component—this is trivially achieved using
+<code>sed</code>'s <em>hold space</em>.</p>
+<blockquote class="markdown-alert-tip">
+<p><code>fzf</code> is a <strong>command-line fuzzy finder</strong><sup class="footnote-reference" id="fr-fzf-alternatives-1"><a href="#fn-fzf-alternatives">4</a></sup>: sift through
+whatever comes through its standard input in many practical ways.  It's a
+stupendous one at that, especially when paired with tools that can catalogue
+files fast (I mean <code>fd</code>), and even more so when you realise that quite a few
+things in your <code>CLI</code> life could use some fuzzy goodness.</p>
+</blockquote>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">/^\[/h;/^[a-z]/!d;G;s/\n/\t/</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> CODEOWNERS</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> fzf</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-punctuation z-definition z-string"> &#39;</span></span>
+<span class="giallo-l"><span class="z-string">  /^\[/h         # hold title section: [Team Name] @team-id  </span></span>
+<span class="giallo-l"><span class="z-string">  /^[a-z]/!d     # drop empty, comment and section lines     </span></span>
+<span class="giallo-l"><span class="z-string">  G;s/\n/\t/     # join with hold space using a &quot;\t&quot; for separator </span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> CODEOWNERS</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> fzf</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>monolith/	[Legacy Wranglers] @team-legacy-wranglers</span></span>
+<span class="giallo-l"><span>cron-scripts/	[Legacy Wranglers] @team-legacy-wranglers</span></span>
+<span class="giallo-l"><span>soap-adapter/	[Legacy Wranglers] @team-legacy-wranglers</span></span>
+<span class="giallo-l"><span>ancient-batch-jobs/	[Legacy Wranglers] @team-legacy-wranglers</span></span>
+<span class="giallo-l"><span>v1-api/	[Legacy Wranglers] @team-legacy-wranglers</span></span>
+<span class="giallo-l"><span>pagerduty-hooks/	[Chaos &amp; Incidents] @team-chaos</span></span>
+<span class="giallo-l"><span>incident-simulator/	[Chaos &amp; Incidents] @team-chaos</span></span>
+<span class="giallo-l"><span>fire-drills/	[Chaos &amp; Incidents] @team-chaos</span></span>
+<span class="giallo-l"><span>rollback-scripts/	[Chaos &amp; Incidents] @team-chaos</span></span>
+<span class="giallo-l"><span>midnight-alerts/	[Chaos &amp; Incidents] @team-chaos</span></span>
+<span class="giallo-l"><span>css-specificity-war/	[Frontend Pain Relief] @team-frontend</span></span>
+<span class="giallo-l"><span>ie11-polyfills/	[Frontend Pain Relief] @team-frontend</span></span>
+<span class="giallo-l"><span>npm-dependency-hell/	[Frontend Pain Relief] @team-frontend</span></span>
+<span class="giallo-l"><span>storybook/	[Frontend Pain Relief] @team-frontend</span></span>
+<span class="giallo-l"><span>component-library-v2/	[Frontend Pain Relief] @team-frontend</span></span></code></pre>
+<p>As a bonus, you can even get the "owner" column neatly aligned,
+trivially, using <code>column</code>.  I go in depth into mastering
+<code>column</code> and a couple of other tools in the <a href="https://ccjmne.sh/blog/flight-manual/intralinear-partitioning/">Intralinear
+Partitioning</a> series, if you
+want to stomach more of my thoughts on that topic.</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">/^\[/h;/^[a-z]/!d;G;s/\n/:/</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> CODEOWNERS</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> column</span><span class="z-string"> -</span><span class="z-string">ts:</span><span class="z-keyword z-operator"> |</span><span class="z-entity z-name z-function"> fzf</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>monolith/              [Legacy Wranglers] @team-legacy-wranglers</span></span>
+<span class="giallo-l"><span>cron-scripts/          [Legacy Wranglers] @team-legacy-wranglers</span></span>
+<span class="giallo-l"><span>soap-adapter/          [Legacy Wranglers] @team-legacy-wranglers</span></span>
+<span class="giallo-l"><span>ancient-batch-jobs/    [Legacy Wranglers] @team-legacy-wranglers</span></span>
+<span class="giallo-l"><span>v1-api/                [Legacy Wranglers] @team-legacy-wranglers</span></span>
+<span class="giallo-l"><span>pagerduty-hooks/       [Chaos &amp; Incidents] @team-chaos</span></span>
+<span class="giallo-l"><span>incident-simulator/    [Chaos &amp; Incidents] @team-chaos</span></span>
+<span class="giallo-l"><span>fire-drills/           [Chaos &amp; Incidents] @team-chaos</span></span>
+<span class="giallo-l"><span>rollback-scripts/      [Chaos &amp; Incidents] @team-chaos</span></span>
+<span class="giallo-l"><span>midnight-alerts/       [Chaos &amp; Incidents] @team-chaos</span></span>
+<span class="giallo-l"><span>css-specificity-war/   [Frontend Pain Relief] @team-frontend</span></span>
+<span class="giallo-l"><span>ie11-polyfills/        [Frontend Pain Relief] @team-frontend</span></span>
+<span class="giallo-l"><span>npm-dependency-hell/   [Frontend Pain Relief] @team-frontend</span></span>
+<span class="giallo-l"><span>storybook/             [Frontend Pain Relief] @team-frontend</span></span>
+<span class="giallo-l"><span>component-library-v2/  [Frontend Pain Relief] @team-frontend</span></span></code></pre>
+<p>Pipe the whole thing into <code>fzf</code>, query for <code>cron</code>, and be served <em>just what the
+doctor ordered</em>:</p>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>cron-scripts/          [Legacy Wranglers] @team-legacy-wranglers</span></span>
+<span class="giallo-l"><span>&gt; cron█ &lt; 1/15</span></span></code></pre><div class="note">our real <code>CODEOWNERS</code> is considerably more impenetrable, and my script does come in handy</div>
+<h3 id="practical-use-case-pull-an-entry-to-the-top"><a class="anchor-link" href="#practical-use-case-pull-an-entry-to-the-top" aria-label="Anchor link for: practical-use-case-pull-an-entry-to-the-top"></a>
+Practical use case: pull an entry to the top</h3>
+<p>I store my passwords in <a rel="external" href="https://keepassxc.org/"><code>KeePassXC</code></a>, and I often
+need to copy some attribute of an entry, such as the password itself, or the
+username, or the URL.  I have a menu that lists available attributes for a
+given entry, and would just like the convenience of having the password as the
+first, most accessible option: 32 bytes of <code>sed</code> <del>gibberish</del> goodness later,
+and voilà, the password comes first, and the rest knows how to best organise
+itself.</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-string"> -</span><span class="z-string">n</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">/^Password:/{p;b};H;${g;s/\n//p}</span><span class="z-punctuation z-definition z-string">&#39;</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">sed</span><span class="z-string"> -</span><span class="z-string">n</span><span class="z-punctuation z-definition z-string"> &#39;</span></span>
+<span class="giallo-l"><span class="z-string">  /^Password:/ {p;b}  # when the &quot;Password&quot; option is shown, print it and &quot;bail&quot; out</span></span>
+<span class="giallo-l"><span class="z-string">  H                   # accumulate other fields</span></span>
+<span class="giallo-l"><span class="z-string">  $ {                 # once at the end of the document,</span></span>
+<span class="giallo-l"><span class="z-string">    g                 #   bring the hold into pattern</span></span>
+<span class="giallo-l"><span class="z-string">    s/\n//            #   trim leading linefeed (from first &quot;H&quot; into a then-empty hold space)</span></span>
+<span class="giallo-l"><span class="z-string">    p                 #   print the other options in their natural order</span></span>
+<span class="giallo-l"><span class="z-string">  }</span><span class="z-punctuation z-definition z-string">&#39;</span></span></code></pre><div class="note"><code>keepassxc-cli</code> actually displays that attribute as <code>Password: PROTECTED</code>, of course</div>
+<blockquote class="markdown-alert-note">
+<p>For completeness' sake, I could explain that <strong>each entry's attributes
+ranking is otherwise weighted through some access <abbr title="frequency +
+recency"><em>"frecency"</em></abbr> heuristic</strong>, but that, for these old accounts I
+haven't accessed in a while (or to start off the system), I know that <strong>the
+password</strong> is most likely the attribute I want available through my clipboard
+for the next 5 seconds.</p>
+</blockquote>
+<p>It certainly could have been done otherwise, possibly, but I did it like that,
+and therefore I, <strong>and you too now</strong>, have seen it done like that.  I actually
+don't recall having seen it done any other way.</p>
+<h2 id="wrapping-up"><a class="anchor-link" href="#wrapping-up" aria-label="Anchor link for: wrapping-up"></a>
+Wrapping up</h2>
+<p><strong>I like that <code>sed</code> is there, in <code>POSIX</code>, the standard of standards, and by
+extension in all noteworthy, non-recreational contemporary end-user operating
+systems</strong>, available and behaving in a way not susceptible to unilateral
+<code>API</code> changes or anything of the murky sort.  You don't have to use it,
+but you may well acknowledge the following: we're out there <em>"upgrading
+stuff"</em> because some transitive dependency is flagged for some nonsensical
+<a rel="external" href="https://en.wikipedia.org/wiki/Common_Vulnerabilities_and_Exposures"><code>CVE</code></a> that
+the maintainer of our intermediary dependency is adamant doesn't affect their
+product, <strong>whereas my entire runtime... is already running on your system</strong>.</p>
+<p>The hold space isn't that mystical: the <a href="https://ccjmne.sh/blog/flight-manual/juggle-data-with-sed-hold-space/#tldr"><code>TL;DR</code></a> section at the top
+actually covers <strong>every command pertaining to it</strong>, and it's just some 3 measly,
+highly mnemonic 1-letter directives.  Now that I've seen its face, I see it
+peering out at me, once in a while along my <code>CLI</code> journey; it is my hope that
+this old friend may some day comfort you as well.</p>
+<p>Good luck, and have fun.</p>
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn-trailing-linefeed">
+<p>Some notorious text wranglers, whose ranks I am
+bolstering, define a line of text as ending with a <code>\n</code> character.
+Consequently, there shall be a trailing <code>\n</code> at the end of a file, lest it
+doesn't end with a line, but that constitutes in no way an "empty line", and
+yes, a file containing text without a linefeed contains no line.  Numerous
+tools, such as <code>wc</code> (<code>echo -n 'some text' | wc -l</code>), concur; but let not
+popularity dictate your tastes, consider the elegance of the consequences. <a href="#fr-trailing-linefeed-1">↩</a></p>
+</li>
+<li id="fn-may-bail-out">
+<p>Some commands may cut short the further processing of a loop
+and advance to the next iteration—that is, typically, process the next
+line.  For instance, <code>d</code> <strong><code>d</code>eletes</strong> the pattern space and continues to
+the next cycle. <code>b</code> <strong><code>b</code>ranches</strong> to a <em>label</em>, or the next cycle if no
+label is provided: I intimately call it <em>"bail"</em> and use in such manner.</p>
+<blockquote class="markdown-alert-tip">
+<p>I often come across an alternative to explicitly continuing to the next
+cycle: by default, <code>sed</code> prints the pattern space at the end of each
+cycle.  Some routinely reach for <code>-n</code> to suppress that behaviour, together
+with the <code>p</code> instruction to selectively output only the desired bits.
+<code>POSIX</code> only defines <code>-n</code>, but at least <code>GNU</code>'s implementation also
+synonymously supports <code>--quiet</code> and <code>--silent</code>.</p>
+</blockquote>
+<p>Do note that, without the <code>-n</code> flag, <code>b</code> would <strong>still print out the pattern
+space</strong> before the next loop, whereas <code>d</code> wouldn't.</p>
+<p>There is more to the labelling and branching system, such as the <code>t</code> and <code>T</code>
+operations, but these are quite the head-scratcher and may be better left to
+the discretion of the reader whose resolve is most unwavering, rather than
+to a hand-wavy footnote in any of my already generally hardly digestible
+articles. <a href="#fr-may-bail-out-1">↩</a></p>
+</li>
+<li id="fn-8kb">
+<p>The <code>POSIX</code> specification (<code>man 1p sed</code>) guarantees that both pattern
+and hold spaces can hold at least 8192 bytes.  <code>GNU sed</code> removes practical
+limits for most uses. <a href="#fr-8kb-1">↩</a></p>
+</li>
+<li id="fn-fzf-alternatives">
+<p>There are other quite excellent command-line fuzzy
+finders, such as <code>fzy</code> and <code>skim</code>.  In comparing the three,
+any one may boast slightly different matching algorithms,
+somewhat faster processing speed for gazillions of records,
+somewhat lighter memory footprint, <em>et cet</em>.  <strong>The people being
+each of these three projects are proper world-class software
+<a rel="external" href="https://dictionary.cambridge.org/dictionary/english/whiz">whizzes</a></strong> and
+these <strong>are constantly improving in several of the above directions</strong>, while
+offering more features (asynchronous data fetching, for example).</p>
+<p>Each and <strong>every one of them is truly and unequivocally orders of
+magnitude faster than whatever your <code>IDE</code> ships to find text—no,
+<em>seriously</em></strong>.  Pick any, <strong>you can't go wrong</strong>; although as the
+<a rel="external" href="https://en.wikipedia.org/wiki/Rifleman%27s_Creed">Rifleman's Creed</a>
+goes: <em>"There are [a few] like it, but this one is mine"</em>. <a href="#fr-fzf-alternatives-1">↩</a></p>
+</li>
+</ol>
+</section>
+
+  <h2 id="cited-tools"><a class="anchor-link" href="#cited-tools" aria-label="Anchor link for: cited-tools"></a>
+Referenced tools</h2>
+  <div class="refs">
+<div class="ref tool mono">
+  <strong>fzf</strong>
+  <div><span class="muted">from</span>&nbsp;<a rel="external" href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;fzf">extra&#x2F;fzf</a></div>
+  <div><a rel="external" href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;extra&#x2F;fzf&#x2F;fzf.1.en">manual</a>
+    <a rel="external" href="https:&#x2F;&#x2F;github.com&#x2F;junegunn&#x2F;fzf">source</a></div>
+</div>
+
+<div class="ref tool mono">
+  <strong>keepassxc</strong>
+  <div><span class="muted">from</span>&nbsp;<a rel="external" href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;keepassxc">extra&#x2F;keepassxc</a></div>
+  <div><a rel="external" href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;extra&#x2F;keepassxc&#x2F;keepassxc-cli.1.en">manual</a>
+    <a rel="external" href="https:&#x2F;&#x2F;github.com&#x2F;keepassxreboot&#x2F;keepassxc">source</a></div>
+</div>
+
+<div class="ref tool mono">
+  <strong>sed</strong>
+  <div><span class="muted">from</span>&nbsp;<a rel="external" href="https://archlinux.org/packages/core&#x2F;x86_64&#x2F;sed">core&#x2F;sed</a></div>
+  <div><a rel="external" href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;sed.1.en">man</a>
+    <a rel="external" href="https:&#x2F;&#x2F;git.savannah.gnu.org&#x2F;cgit&#x2F;sed.git">src</a>
+    <a rel="external" href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;sed.1p.en">posix</a></div>
+</div>
+
+<div class="ref tool mono">
+  <strong>vim</strong>
+  <div><span class="muted">from</span>&nbsp;<a rel="external" href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;vim">extra&#x2F;vim</a></div>
+  <div><a rel="external" href="https:&#x2F;&#x2F;vimhelp.org&#x2F;">manual</a>
+    <a rel="external" href="https:&#x2F;&#x2F;github.com&#x2F;vim&#x2F;vim">source</a></div>
+</div>
+</div>
+  
+
+  
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a rel="external" href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <a rel="external" href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>
+        <a rel="external" href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/base.css?h=5eaf59dc2d88083c5a9c">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2?h=b3c74e2fab27de35d142" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2?h=b1481b19a684088ca0aa" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2?h=d503244afc2437c96ade" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2?h=5c8eb42ff6f2e2934413" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2?h=a264b0cbe8b649d2258c" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-2.woff2?h=e7f9c933e970ed62349b" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-1.woff2?h=b3c74e2fab27de35d142') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2?h=b1481b19a684088ca0aa') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2?h=d503244afc2437c96ade') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/work-3.woff2?h=5c8eb42ff6f2e2934413') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2?h=a264b0cbe8b649d2258c') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/fira-2.woff2?h=e7f9c933e970ed62349b') format('woff2'); }
+</style>
+<link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-light.css?h=280afa93e1c6dfec22ed" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-dark.css?h=8efc0ee965d80c5835b7" media="(prefers-color-scheme: dark)">
+    
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+data-path="&#x2F;flashcards&#x2F;provide-zsh-completions&#x2F;">
+      <a href="https://ccjmne.sh/blog" data-target="home">Home</a>
+      <details class="dropdown" max-md>
+        <summary data-target="articles">Articles</summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual/"       >Flight rules</a>
+          <a href="https://ccjmne.sh/blog/ramblings/"       >Ramblings</a>
+          <a href="https://ccjmne.sh/blog/flashcards/"       >Flashcards</a>
+          <a href="https://ccjmne.sh/blog/tags/" max-sm>Sections</a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual/" min-md>Flight rules</a>
+      <a href="https://ccjmne.sh/blog/ramblings/" min-md>Ramblings</a>
+      <a href="https://ccjmne.sh/blog/flashcards/" min-md>Flashcards</a>
+      <a href="https://ccjmne.sh/blog/tags/" min-sm>Sections</a>
+      <a href="https://ccjmne.sh/blog/colophon/"       >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main><h1><span class="link-title" 
+  style="view-transition-name: view-provide-zsh-completions"
+>Whet your appetite for providing Zsh completions</span></h1><ul class="infobar "><li><time>April 13, 2026</time></li><li>3-minute read</li>
+    <li>tagged
+      <a href="https://ccjmne.sh/blog/tags/cli/">cli</a>, <a href="https://ccjmne.sh/blog/tags/zsh/">zsh</a></li></ul>
+<article><p>While putting together <a href="https://ccjmne.sh/blog/flight-manual/precompile-zsh-completions/">Pre-compile your <em>Zsh</em>
+completions</a>, I came up with
+<code>gerp</code> (<code>grep</code> + <abbr title="A foolish or ignorant person"><em>derp</em></abbr>!), a
+lovely virtual companion that never fails to greet you enthusiastically—well,
+I like naming my <em>"foo"</em>-like utilities that, I don't reserve that name for this
+one.</p>
+<p>Nevertheless, <strong>here's the topical <code>gerp</code>-of the day</strong>, in all its
+splendour<sup class="footnote-reference" id="fr-a-longer-version-1"><a href="#fn-a-longer-version">1</a></sup>:</p>
+<pre class="giallo z-code"><code data-lang="shellscript" data-name="gerp"><span class="giallo-l"><span class="z-punctuation z-definition z-comment z-shebang z-shell">#!</span><span class="z-meta z-shebang z-shell"> /bin/sh</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-keyword">case</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-variable z-parameter">$</span><span class="z-variable z-parameter">1</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-keyword"> in</span></span>
+<span class="giallo-l"><span class="z-string">    h</span><span class="z-string">e</span><span class="z-string">l</span><span class="z-string">l</span><span class="z-string">o</span><span class="z-keyword z-operator">)</span><span class="z-support z-function z-builtin">       echo</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">Henlo, fren!</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation"> ;;</span></span>
+<span class="giallo-l"><span class="z-string">    c</span><span class="z-string">o</span><span class="z-string">m</span><span class="z-string">p</span><span class="z-string">l</span><span class="z-string">e</span><span class="z-string">t</span><span class="z-string">i</span><span class="z-string">o</span><span class="z-string">n</span><span class="z-string">s</span><span class="z-keyword z-operator">)</span><span class="z-entity z-name z-function"> cat</span><span class="z-punctuation">                 ;;</span></span>
+<span class="giallo-l"><span class="z-keyword z-operator">    *)</span><span class="z-support z-function z-builtin">           echo</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">?</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation">            ;;</span></span>
+<span class="giallo-l"><span class="z-keyword">esac</span><span class="z-keyword z-operator"> &lt;&lt;</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation z-definition z-string">EOF</span><span class="z-punctuation z-definition z-string">&#39;</span></span>
+<span class="giallo-l"><span class="z-string">_gerp() {</span></span>
+<span class="giallo-l"><span class="z-string">    _values &#39;commands&#39;              \</span></span>
+<span class="giallo-l"><span class="z-string">            &#39;hello[greet the user]&#39; \</span></span>
+<span class="giallo-l"><span class="z-string">            &#39;completions[generate shell completions]&#39;</span></span>
+<span class="giallo-l"><span class="z-string">}</span></span>
+<span class="giallo-l"><span class="z-string">compdef _gerp gerp</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">EOF</span></span></code></pre>
+<p><code>gerp</code> it a piece of shell script that will reply to you when you invoke it as
+such:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">gerp</span><span class="z-string"> hello</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>Henlo, fren!</span></span></code></pre>
+<p>But the nifty thing about is it that it can instruct <em>Zsh</em> as to how its
+commands can be completed!</p>
+<p>Its <code>completions</code> subcommand will have it yield some instructions for you
+<em>Z Shell</em> <code>compsys</code> (short for <em>"completion system"</em>) to know what may come
+after <code>gerp</code> on your command line: have at it, simply execute the following
+Bashism<sup class="footnote-reference" id="fr-process-substitution-1"><a href="#fn-process-substitution">2</a></sup>:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-support z-function z-builtin">source</span><span class="z-punctuation z-definition z-string"> &lt;(</span><span class="z-entity z-name z-function">gerp</span><span class="z-string"> completions</span><span class="z-punctuation z-definition z-string">)</span></span></code></pre><div class="note">this assumes that you're already also doing somewhere <code>compinit</code> in some form or another</div>
+<p>And voilà, an <code>API</code> that's <strong>discoverable</strong>, without jumping through all the
+<a rel="external" href="https://en.wikipedia.org/wiki/HATEOAS"><code>HATEOAS</code></a> loops:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code">
+<code><span class="term-fg34"><span class="term-fg31">gerp</span></span> █
+</code></pre><div class="note"><code>1.</code> begin entering a <code>gerp</code> command</div>
+
+</div>
+<div>
+<pre class="giallo z-code">
+<code><span class="term-fg34"><span class="term-fg31">gerp</span></span> █
+<span class="term-0">completions  -- generate shell completions</span>
+<span class="term-0">hello        -- greet the user</span>
+</code></pre><div class="note"><code>2.</code> press <code>&lt;Tab&gt;</code> once for the completion menu</div>
+
+</div>
+</div>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code">
+<code><span class="term-fg34"><span class="term-fg31">gerp</span></span> hel█
+<span class="term-0">completions  -- generate shell completions</span>
+<span class="term-0">hello        -- greet the user</span>
+</code></pre><div class="note"><code>3.</code> start typing away, here <code>hel</code></div>
+
+</div>
+<div>
+<pre class="giallo z-code">
+<code><span class="term-fg34"><span class="term-fg31">gerp</span></span> hello █
+<span class="term-0">completions  -- generate shell completions</span>
+<span class="term-0">hello        -- greet the user</span>
+</code></pre><div class="note"><code>4.</code> press <code>&lt;Tab&gt;</code> again to complete</div>
+
+</div>
+</div>
+<p>There's a lot more to <em>everything-completion</em>, but I share it here in the hopes
+that this surface-level introduction put a sparkle in your eye: be unafraid, go
+and build things, if only for yourself.</p>
+<p>If you want just another little pearl of fun, you want
+want to look into what I dubbed the <a href="https://ccjmne.sh/blog/flashcards/zsh-omni-tab-completion-expansion/">omni-<code>&lt;Tab&gt;</code> Zsh
+widget</a>.</p>
+<p>Good luck, and have fun!</p>
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn-a-longer-version">
+<p>Well, I came up with slightly more comprehensive one, since
+the object of that other article is a lot more intricate, but the gist remains
+the same. <a href="#fr-a-longer-version-1">↩</a></p>
+</li>
+<li id="fn-process-substitution">
+<p>The lovely Bashism <code>source &lt;(gerp completions)</code> could
+be changed into the <code>POSIX</code>-compliant equivalent <code>eval "$(gerp completions)"</code>.  In short, these three are functionally equivalent, the
+first one is most portable, the last one is most elegant: be sure to read
+the following tip to help you decide for the case in point!</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-support z-function z-builtin">eval</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-punctuation">$(</span><span class="z-entity z-name z-function">gerp</span><span class="z-string"> completions</span><span class="z-punctuation">)</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation z-definition z-comment">    #</span><span class="z-comment"> full POSIX</span></span>
+<span class="giallo-l"><span class="z-support z-function z-builtin">.</span><span class="z-punctuation z-definition z-string"> &lt;(</span><span class="z-entity z-name z-function">gerp</span><span class="z-string"> completions</span><span class="z-punctuation z-definition z-string">)</span><span class="z-punctuation z-definition z-comment">         #</span><span class="z-comment"> &lt;(...) is a Bashism</span></span>
+<span class="giallo-l"><span class="z-support z-function z-builtin">source</span><span class="z-punctuation z-definition z-string"> &lt;(</span><span class="z-entity z-name z-function">gerp</span><span class="z-string"> completions</span><span class="z-punctuation z-definition z-string">)</span><span class="z-punctuation z-definition z-comment">    #</span><span class="z-comment"> &lt;(...) and source are Bashisms</span></span></code></pre><div class="note">note that <code>.</code> is the only <code>POSIX</code>-defined <code>source</code>-ing mechanism!</div>
+<blockquote class="markdown-alert-tip">
+<p>I generally maximise <code>POSIX</code> compliance where it matters, and sometimes
+even where it doesn't; but <strong>in the context of loading completions for
+your <em>Z Shell</em> specifically</strong>, then it makes absolutely no sense to be
+wary of how portable that procedure would be: <strong>it only needs to work for
+<em>Zsh</em></strong>.</p>
+</blockquote>
+<p>Embrace the process substitution! <a href="#fr-process-substitution-1">↩</a></p>
+</li>
+</ol>
+</section>
+
+  <h2 id="cited-tools"><a class="anchor-link" href="#cited-tools" aria-label="Anchor link for: cited-tools"></a>
+Referenced tools</h2>
+  <div class="refs">
+<div class="ref tool mono">
+  <strong>zsh</strong>
+  <div><span class="muted">from</span>&nbsp;<a rel="external" href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;zsh">extra&#x2F;zsh</a></div>
+  <div><a rel="external" href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;extra&#x2F;zsh&#x2F;zshall.1.en">manual</a>
+    <a rel="external" href="https:&#x2F;&#x2F;sourceforge.net&#x2F;p&#x2F;zsh&#x2F;code&#x2F;ci&#x2F;master&#x2F;tree&#x2F;">source</a></div>
+</div>
+</div>
+  
+
+  
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a rel="external" href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <a rel="external" href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>
+        <a rel="external" href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>

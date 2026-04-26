@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/base.css?h=5eaf59dc2d88083c5a9c">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2?h=b3c74e2fab27de35d142" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2?h=b1481b19a684088ca0aa" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2?h=d503244afc2437c96ade" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2?h=5c8eb42ff6f2e2934413" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2?h=a264b0cbe8b649d2258c" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-2.woff2?h=e7f9c933e970ed62349b" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-1.woff2?h=b3c74e2fab27de35d142') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2?h=b1481b19a684088ca0aa') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2?h=d503244afc2437c96ade') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/work-3.woff2?h=5c8eb42ff6f2e2934413') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2?h=a264b0cbe8b649d2258c') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/fira-2.woff2?h=e7f9c933e970ed62349b') format('woff2'); }
+</style>
+<link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-light.css?h=280afa93e1c6dfec22ed" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-dark.css?h=8efc0ee965d80c5835b7" media="(prefers-color-scheme: dark)">
+    
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+data-path="&#x2F;flight-manual&#x2F;precompile-zsh-completions&#x2F;">
+      <a href="https://ccjmne.sh/blog" data-target="home">Home</a>
+      <details class="dropdown" max-md>
+        <summary data-target="articles">Articles</summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual/"       >Flight rules</a>
+          <a href="https://ccjmne.sh/blog/ramblings/"       >Ramblings</a>
+          <a href="https://ccjmne.sh/blog/flashcards/"       >Flashcards</a>
+          <a href="https://ccjmne.sh/blog/tags/" max-sm>Sections</a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual/" min-md>Flight rules</a>
+      <a href="https://ccjmne.sh/blog/ramblings/" min-md>Ramblings</a>
+      <a href="https://ccjmne.sh/blog/flashcards/" min-md>Flashcards</a>
+      <a href="https://ccjmne.sh/blog/tags/" min-sm>Sections</a>
+      <a href="https://ccjmne.sh/blog/colophon/"       >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main><h1><span class="link-title" 
+  style="view-transition-name: view-precompile-zsh-completions"
+>Pre-compile your Zsh completions</span></h1><ul class="infobar "><li><time>April 12, 2026</time></li><li>18-minute read</li>
+    <li>tagged
+      <a href="https://ccjmne.sh/blog/tags/cli/">cli</a>, <a href="https://ccjmne.sh/blog/tags/quibblery/">quibblery</a>, <a href="https://ccjmne.sh/blog/tags/zsh/">zsh</a></li></ul>
+<details class="hi toc">
+  <summary>Table of contents</summary>
+  <ul><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/precompile-zsh-completions/#obligatory-tl-dr">Obligatory TL;DR</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/precompile-zsh-completions/#loading-completions-modules">Loading completions modules</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/precompile-zsh-completions/#the-anatomy-of-a-compdef-file">The anatomy of a compdef file</a><ul>
+        
+        <li><a href="https://ccjmne.sh/blog/flight-manual/precompile-zsh-completions/#and-exhaustive-walk-through">And exhaustive walk-through</a></li></ul></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/precompile-zsh-completions/#see-for-yourself">See for yourself</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/precompile-zsh-completions/#pre-compile-all-the-things">Pre-compile all the things</a><ul>
+        
+        <li><a href="https://ccjmne.sh/blog/flight-manual/precompile-zsh-completions/#pre-compile-the-pre-compilation">Pre-compile the pre-compilation</a></li>
+        <li><a href="https://ccjmne.sh/blog/flight-manual/precompile-zsh-completions/#fast-enough-to-feel-responsive">Fast enough to feel responsive</a></li></ul></li>
+    <li><a href="#cited-tools">Referenced tools</a></li>
+    
+    
+  </ul>
+</details>
+<article><p>I live in the terminal, and I'm quite a fine of my multiplexer of choice,
+<code>tmux</code>.  As a result, I spawn <em>Zsh</em> sessions, both interactive and
+non-interactive, a great many times per day: I want to <strong>request a shell and
+start typing in the same breath</strong>, before my puny <abbr title="the human element
+of my set-up">mammalian system</abbr> has even had time to confirm the system is
+ready.</p>
+<p>If my session is interactive, I want access to all my tools, with all the
+bells and whistles, with the comprehensive completion system for every single
+tool I use—and then some; with all my custom bindings and what-have-yous.
+<strong>And I shall tolerate no perceptible hiccup or hesitation from the machine
+that does my bidding: <code>32ms</code> is its budget</strong> to be fully responsive,
+including having a prompt showing me the current status of my gigantic Git
+<a rel="external" href="https://en.wikipedia.org/wiki/Monorepo">monorepo</a> that takes well over 10 times
+that long to report on its status.</p>
+<p>Is that remotely realistic?  It sure is!  Let's look into loading up absolutely
+all the completions that are available, <strong>in less than 16ms</strong>, to satisfy even
+those of us that dwell on the <code>CLI</code> with enough agility to perceive—and be
+bothered by—the machine stuttering when readying to bend over backwards for
+our most acrobatic antics.</p>
+<blockquote class="markdown-alert-note">
+<p>A vastly more digestible <a href="https://ccjmne.sh/blog/flashcards/provide-zsh-completions/">introduction to providing completions for the <em>Z
+Shell</em></a> is available, would you need
+to whet your appetite for this exercise.</p>
+</blockquote>
+<div class="hi">
+<h2 id="obligatory-tl-dr"><a class="anchor-link" href="#obligatory-tl-dr" aria-label="Anchor link for: obligatory-tl-dr"></a>
+Obligatory <a rel="external" href="https://en.wikipedia.org/wiki/TL;DR">TL;DR</a></h2>
+<p>Run the following asynchronously, once in a while, and/or when you install new
+software:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-punctuation z-definition z-comment z-shebang z-shell">#!</span><span class="z-meta z-shebang z-shell"> /usr/bin/env zsh</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-storage z-modifier">readonly</span><span class="z-source"> dumpfile</span><span class="z-keyword z-operator">=</span><span class="z-punctuation z-definition z-variable">$</span><span class="z-source">ZDOTDIR</span><span class="z-source">/.</span><span class="z-source">zcompdump</span></span>
+<span class="giallo-l"><span class="z-storage z-modifier">readonly</span><span class="z-source"> compdir</span><span class="z-keyword z-operator">=</span><span class="z-punctuation z-definition z-variable">$</span><span class="z-source">XDG_DATA_HOME</span><span class="z-source">/</span><span class="z-source">zsh</span><span class="z-source">/</span><span class="z-source">site-functions</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">mkdir</span><span class="z-string"> -</span><span class="z-string">p</span><span class="z-punctuation z-definition z-variable"> $</span><span class="z-source">compdir</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">rm</span><span class="z-string"> -</span><span class="z-string">-</span><span class="z-punctuation z-definition z-variable"> $</span><span class="z-source">compdir</span><span class="z-string">/</span><span class="z-variable">*</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">niri</span><span class="z-string"> completions</span><span class="z-string"> zsh</span><span class="z-keyword z-operator">    &gt;</span><span class="z-punctuation z-definition z-variable"> $</span><span class="z-source">compdir</span><span class="z-string">/_niri</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">opencode</span><span class="z-string"> completion</span><span class="z-string"> zsh</span><span class="z-keyword z-operator"> &gt;</span><span class="z-punctuation z-definition z-variable"> $</span><span class="z-source">compdir</span><span class="z-string">/_opencode</span><span class="z-punctuation z-definition z-comment">  #</span><span class="z-comment"> have even that one, if you want!</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-source">fpath</span><span class="z-keyword z-operator">+=</span><span class="z-punctuation">(</span><span class="z-punctuation z-definition z-variable">$</span><span class="z-source">compdir</span><span class="z-punctuation">)</span></span>
+<span class="giallo-l"><span class="z-punctuation">[</span><span class="z-keyword z-operator"> -f</span><span class="z-punctuation z-definition z-variable"> $</span><span class="z-source">dumpfile</span><span class="z-punctuation"> ]</span><span class="z-punctuation"> &amp;&amp;</span><span class="z-entity z-name z-function"> rm</span><span class="z-string"> -</span><span class="z-string">-</span><span class="z-punctuation z-definition z-variable"> $</span><span class="z-source">dumpfile</span></span>
+<span class="giallo-l"><span class="z-support z-function z-builtin">autoload</span><span class="z-string"> -</span><span class="z-string">U</span><span class="z-string"> compinit</span><span class="z-punctuation"> &amp;&amp;</span><span class="z-entity z-name z-function"> compinit</span><span class="z-string"> -</span><span class="z-string">d</span><span class="z-punctuation z-definition z-variable"> $</span><span class="z-source">dumpfile</span></span></code></pre><div class="note">I automatically run this script once a day, with a <code>systemd</code> timer</div>
+<p>Retain only this in your in your <code>.zshrc</code>.</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-storage z-modifier">typeset</span><span class="z-string"> -U</span><span class="z-source"> fpath</span></span>
+<span class="giallo-l"><span class="z-source">fpath</span><span class="z-keyword z-operator">+=</span><span class="z-punctuation">(</span><span class="z-punctuation z-definition z-variable">$</span><span class="z-source">XDG_DATA_HOME</span><span class="z-string">/</span><span class="z-string">z</span><span class="z-string">s</span><span class="z-string">h</span><span class="z-string">/</span><span class="z-string">s</span><span class="z-string">i</span><span class="z-string">t</span><span class="z-string">e</span><span class="z-string">-</span><span class="z-string">f</span><span class="z-string">u</span><span class="z-string">n</span><span class="z-string">c</span><span class="z-string">t</span><span class="z-string">i</span><span class="z-string">o</span><span class="z-string">n</span><span class="z-string">s</span><span class="z-punctuation">)</span></span>
+<span class="giallo-l"><span class="z-support z-function z-builtin">autoload</span><span class="z-string"> -</span><span class="z-string">U</span><span class="z-string"> compinit</span><span class="z-punctuation"> &amp;&amp;</span><span class="z-entity z-name z-function"> compinit</span><span class="z-string"> -</span><span class="z-string">C</span></span></code></pre><div class="note"><code>typeset -U</code> ensures that there may be no duplicate in your <code>$fpath</code></div>
+<blockquote class="markdown-alert-important">
+<p>I assume here that you've set <code>ZDOTDIR</code> and <code>XDG_DATA_HOME</code> explicitly and
+aptly—that is, in your <code>.zshenv</code> or <em>"earlier"</em>.  Not having provided
+fall-backs here isn't for any lack of skill or consideration on my end; the
+same observation goes for the absence of double-quotes surrounding expanding
+bits.</p>
+<p>Consider this: be deliberate, vigilant and sure of yourself, and you get to
+write <code>rm -- $compdir/*</code> instead of the poorer <code>rm "$compdir"/*</code>.</p>
+</blockquote>
+<p>With the above set-up, you'll get a new interactive <em>Zsh</em> session, <strong>with all
+the completions available for all your tools</strong>, ready, willing and able to
+serve, <strong>well within <code>16ms</code> of having requested it</strong>.</p>
+</div>
+<div style="display: none"> <!-- TODO: make into series introduction? -->
+<p>I use the <strong><a rel="external" href="https://www.zsh.org/">Z shell, <em>Zsh</em></a></strong>.  Before using it, I'd
+acquired some reasonable familiarity with the <abbr title="Portable Operating
+System Interface"><code>POSIX</code></abbr> shell specification, and the <strong>Bourne-Again
+Shell, <em>Bash</em></strong>.  It’s been years since I last pair-programmed extensively
+with someone who wasn't surprised that many of these agile <em>"tricks"</em> are built
+right into the plain (albeit <em>Bourne-Again</em>) shell.  Yet, certainly not due
+to more, newer or better tools—you and I do wield (though perhaps not quite
+<em>use</em>) the same ones after all—<strong>my best wizardry is mostly the product
+of a unique balance of <abbr title="self-discipline">asceticism</abbr> and
+aestheticism</strong><sup class="footnote-reference" id="fr-ascetic-and-aesthetic-1"><a href="#fn-ascetic-and-aesthetic">1</a></sup>.</p>
+<!-- [bash history expansion](@/flight-manual/bash-history-expansion). TODO: LINKME -->
+<!-- [ascetic-and-aesthetic](@/flight-manual/ascetic-and-aesthetic). TODO: LINKME -->
+<p><strong>The most competent of us already built some most competent tools</strong>, it is
+now up to the most punctilious of us to <abbr title="Read The F... riendly
+Manual"><code>RTFM</code></abbr> justify having <em>Zsh</em> in our toolbox with arguments more
+elaborate than <em>"idk, i liked the colours"</em>.<br></p>
+<!-- [RTFM](@/flight-manual/read-the-friendly-manual). TODO: LINKME -->
+</div>
+<h2 id="loading-completions-modules"><a class="anchor-link" href="#loading-completions-modules" aria-label="Anchor link for: loading-completions-modules"></a>
+Loading completions modules</h2>
+<p>We use quite a few tools.  We master them, of course; but on the way to such
+mastery (and on the recurring occasions you feel like <code>&lt;Tab&gt;</code>-ing away the rest
+of your word), having access to the completion system integrated to <em>Zsh</em> is
+quite nifty.</p>
+<p>The tools best bundled for your operating system would likely drop <strong>the
+adequate configuration in all the adequate places</strong>, but those whose
+packagers are less articulate (that is, generally anything on the infamous
+<a rel="external" href="https://aur.archlinux.org/"><code>AUR</code></a>, and then some!)</p>
+<blockquote class="markdown-alert-tip">
+<p>The <em>"adequate places"</em> would likely be <code>/usr/share/zsh/site-functions</code>, but
+you'll be best served by <code>man zshmodules</code>, specifically its <em><code>THE ZSH</code>/<code>NEWUSER MODULE</code></em> section, for a most accurate, comprehensive and up-to-date description.</p>
+<p>For example, the packagers of <code>yazi-git</code> on the <code>AUR</code></p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">package</span><span class="z-punctuation">(</span><span class="z-punctuation">)</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment">  #</span><span class="z-comment"> ...</span></span>
+<span class="giallo-l"><span class="z-support z-function z-builtin">  cd</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-variable z-other z-normal z-shell">$</span><span class="z-variable z-other z-normal z-shell">srcdir</span><span class="z-string">/</span><span class="z-variable z-other z-normal z-shell">$</span><span class="z-variable z-other z-normal z-shell">_pkgsrc</span><span class="z-string">/yazi-cli/completions</span><span class="z-punctuation z-definition z-string">&quot;</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">  install</span><span class="z-string"> -</span><span class="z-string">Dm644</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">ya.bash</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation z-definition z-string">    &quot;</span><span class="z-variable z-other z-normal z-shell">$</span><span class="z-variable z-other z-normal z-shell">pkgdir</span><span class="z-string">/usr/share/bash-completion/completions/ya</span><span class="z-punctuation z-definition z-string">&quot;</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">  install</span><span class="z-string"> -</span><span class="z-string">Dm644</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">ya.fish</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-string"> -</span><span class="z-string">t</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-variable z-other z-normal z-shell">$</span><span class="z-variable z-other z-normal z-shell">pkgdir</span><span class="z-string">/usr/share/fish/vendor_completions.d/</span><span class="z-punctuation z-definition z-string">&quot;</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">  install</span><span class="z-string"> -</span><span class="z-string">Dm644</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">_ya</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-string">     -</span><span class="z-string">t</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-variable z-other z-normal z-shell">$</span><span class="z-variable z-other z-normal z-shell">pkgdir</span><span class="z-string">/usr/share/zsh/site-functions/</span><span class="z-punctuation z-definition z-string">&quot;</span></span>
+<span class="giallo-l"><span class="z-punctuation">}</span></span></code></pre><div class="note">an excerpt from <code>yazi-git</code>'s <a rel="external" href="https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=yazi-git"><code>PKGBUILD</code></a>, installing completion functions for <code>Bash</code>, <code>Fish</code> and <code>Zsh</code></div>
+</blockquote>
+<p>However, some others are less well-packaged, and I've been increasingly coming across
+instructions comparable to that one:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-support z-function z-builtin">source</span><span class="z-punctuation z-definition z-string"> &lt;(</span><span class="z-entity z-name z-function">niri</span><span class="z-string"> completions</span><span class="z-string"> zsh</span><span class="z-punctuation z-definition z-string">)</span></span></code></pre><div class="note">now the most excellent <a rel="external" href="https://github.com/niri-wm/niri"><code>niri</code></a> suggests to load completion for its <code>CLI</code></div>
+<p>That'll work!  But it'll make your shell (in the case of <code>niri</code>'s) <em>an extra
+<code>~10</code> millisecond slower</em> to become interactive.  Add a couple more of these,
+and <strong>you're looking at <code>100ms</code> simply for the completions</strong>; and just like
+that, you can actually <em>feel</em> the little bit of delay when you go about your
+most acrobatic <abbr title="Command Line Interface, where I dwell"><code>CLI</code></abbr>
+life, such as binding, say, some <code>tmux</code> binding that opens a new interactive
+shell, starts typing up some command, and switches to <code>vi</code> mode to put your
+cursor where you want it, right bang in the middle of the said "template".</p>
+<p>Yes, I do do that—and then some; and yes, seeing the whole shebang stutter for
+<code>~150ms</code> did use to be quite unnerving.</p>
+<p>Especially when you know that you could have your cake and eat it too: <strong>loading
+completions doesn't have to take that long.</strong></p>
+<h2 id="the-anatomy-of-a-compdef-file"><a class="anchor-link" href="#the-anatomy-of-a-compdef-file" aria-label="Anchor link for: the-anatomy-of-a-compdef-file"></a>
+The anatomy of a <code>compdef</code> file</h2>
+<p>To put it in a nutshell, <em>Zsh</em> is entirely capable of invoking the completions
+you need <strong>at the time you use the corresponding commands</strong>!  It just needs to
+know that such completions are available, and where to find them.</p>
+<p>Let's conjure up <code>gerp</code> (<code>grep</code> + <abbr title="A foolish or ignorant
+person"><em>derp</em></abbr>!), a lovely virtual companion that never fails to greet
+you enthusiastically:</p>
+<pre class="giallo z-code"><code data-lang="shellscript" data-name="gerp"><span class="giallo-l"><span class="z-punctuation z-definition z-comment z-shebang z-shell">#!</span><span class="z-meta z-shebang z-shell"> /bin/sh</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-keyword">case</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-variable z-parameter">$</span><span class="z-variable z-parameter">1</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-keyword"> in</span></span>
+<span class="giallo-l"><span class="z-string">	h</span><span class="z-string">e</span><span class="z-string">l</span><span class="z-string">l</span><span class="z-string">o</span><span class="z-keyword z-operator">)</span><span class="z-support z-function z-builtin">       echo</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">Henlo, fren!</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation"> ;;</span></span>
+<span class="giallo-l"><span class="z-string">	c</span><span class="z-string">o</span><span class="z-string">m</span><span class="z-string">p</span><span class="z-string">l</span><span class="z-string">e</span><span class="z-string">t</span><span class="z-string">i</span><span class="z-string">o</span><span class="z-string">n</span><span class="z-string">s</span><span class="z-keyword z-operator">)</span><span class="z-entity z-name z-function"> cat</span><span class="z-punctuation">                 ;;</span></span>
+<span class="giallo-l"><span class="z-keyword z-operator">	*)</span><span class="z-support z-function z-builtin">           echo</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">?</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation">            ;;</span></span>
+<span class="giallo-l"><span class="z-keyword">esac</span><span class="z-keyword z-operator"> &lt;&lt;</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation z-definition z-string">EOF</span><span class="z-punctuation z-definition z-string">&#39;</span></span>
+<span class="giallo-l"><span class="z-string">#compdef gerp</span></span>
+<span class="giallo-l"><span class="z-string">_gerp() {</span></span>
+<span class="giallo-l"><span class="z-string">    _values &#39;commands&#39; hello completions</span></span>
+<span class="giallo-l"><span class="z-string">}</span></span>
+<span class="giallo-l"><span class="z-string">if [[ &quot;$funcstack[1]&quot; = &quot;_gerp&quot; ]]; then</span></span>
+<span class="giallo-l"><span class="z-string">    _gerp &quot;$@&quot;</span></span>
+<span class="giallo-l"><span class="z-string">else</span></span>
+<span class="giallo-l"><span class="z-string">    compdef _gerp gerp</span></span>
+<span class="giallo-l"><span class="z-string">fi</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">EOF</span></span></code></pre>
+<blockquote class="markdown-alert-tip">
+<p>If you want to follow along, just put that script on your <code>$PATH</code> (or, in a
+more <em>Zsh</em>-literate way, your <code>$path</code>), and <code>chmod u+x</code> it.</p>
+</blockquote>
+<p>It exposes two commands: <code>gerp hello</code> will echo <code>Henlo, fren!</code>, and <code>gerp completions</code> will output a completion script suitable for <em>Zsh</em>.</p>
+<p>Here's its precise output, duly highlighted for our convenience:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-punctuation z-definition z-comment">#</span><span class="z-comment">compdef gerp</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">_gerp</span><span class="z-punctuation">(</span><span class="z-punctuation">)</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">    _values</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">commands</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> hello</span><span class="z-string"> completions</span></span>
+<span class="giallo-l"><span class="z-punctuation">}</span></span>
+<span class="giallo-l"><span class="z-keyword">if</span><span class="z-punctuation"> [[</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-variable z-other z-normal z-shell">$</span><span class="z-variable z-other z-normal z-shell">funcstack</span><span class="z-string">[1]</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-keyword z-operator"> =</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">_gerp</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation"> ]]</span><span class="z-punctuation">;</span><span class="z-keyword"> then</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">    _gerp</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-variable z-parameter">$</span><span class="z-variable z-parameter">@</span><span class="z-punctuation z-definition z-string">&quot;</span></span>
+<span class="giallo-l"><span class="z-keyword">else</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">    compdef</span><span class="z-string"> _gerp</span><span class="z-string"> gerp</span></span>
+<span class="giallo-l"><span class="z-keyword">fi</span></span></code></pre><h3 id="and-exhaustive-walk-through"><a class="anchor-link" href="#and-exhaustive-walk-through" aria-label="Anchor link for: and-exhaustive-walk-through"></a>
+And exhaustive walk-through</h3>
+<p>Let's go over what it does, in an order that makes sense to me:</p>
+<ol>
+<li><pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">compdef</span><span class="z-string"> _gerp</span><span class="z-string"> gerp</span><span class="z-punctuation z-definition z-evaluation z-backticks z-shell">`</span></span></code></pre>
+<p><code>compdef</code> is a registration function built into <em>Zsh</em>'s completion system,
+oft abbreviated <code>compsys</code>—on that note, you might find its manual at
+<code>zshcompsys</code> to be quite handy!  Here, we're merely instructing the system
+to call the Zsh function named <code>_gerp</code> to generate completion arguments
+whenever the user is requesting them (typically, by pressing <code>&lt;Tab&gt;</code> in a
+<code>gerp</code> command).</p>
+</li>
+<li><pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-punctuation z-definition z-comment">#</span><span class="z-comment">compdef gerp`</span></span></code></pre>
+<p>This <em>"magic comment"</em> at the top essentially some flag that the <code>compsys</code>
+will, when found at the beginning of a script, interpret as: <em>"use this here
+script to get completion arguments for the <code>gerp</code> utility"</em>.</p>
+<p>In essence, when you run <code>compinit</code> to kick-start the completion system
+(which you likely already do in <code>.zshrc</code> or through some plug-ins, like <em>Oh
+My Zsh</em>), the <code>compsys</code> scans every file in your <code>$fpath</code> directories and
+looks specifically for this marker.</p>
+<p>Virtually, it's a way to organise your files in such a way to automatically
+wire all sorts of <code>compdef _gerp gerp</code>!</p>
+</li>
+<li><pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">_gerp</span><span class="z-punctuation">(</span><span class="z-punctuation">)</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">    _values</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">commands</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> hello</span><span class="z-string"> completions</span></span>
+<span class="giallo-l"><span class="z-punctuation">}</span></span></code></pre>
+<p>This function is invoked when you ask for completions, and needs to be
+wired by the <code>compsys</code> so as to reply when <code>gerp</code> completions are required.
+Here is the absolute simplest usage of it, but know that you can <strong>group
+entries</strong>, document them, <em>et cet</em>.  For instance, here's how to add some
+some description of what each subcommand does:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">_values</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">commands</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-constant z-character z-escape">              \</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">        &#39;</span><span class="z-string">hello[greet the user]</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">        &#39;</span><span class="z-string">completions[generate shell completions]</span><span class="z-punctuation z-definition z-string">&#39;</span></span></code></pre>
+<p>It can work asynchronously, of course...  Oh yeah, I saw that sparkle in
+your eyes: yep, it is <strong>that simple</strong> and yep, the world is your oyster!</p>
+</li>
+<li><pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-keyword">if</span><span class="z-punctuation"> [[</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-variable z-other z-normal z-shell">$</span><span class="z-variable z-other z-normal z-shell">funcstack</span><span class="z-string">[1]</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-keyword z-operator"> =</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">_gerp</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation"> ]]</span><span class="z-punctuation">;</span><span class="z-keyword"> then</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">    _gerp</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-variable z-parameter">$</span><span class="z-variable z-parameter">@</span><span class="z-punctuation z-definition z-string">&quot;</span></span>
+<span class="giallo-l"><span class="z-keyword">else</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">    compdef</span><span class="z-string"> _gerp</span><span class="z-string"> gerp</span></span>
+<span class="giallo-l"><span class="z-keyword">fi</span></span></code></pre>
+<p>And to tie it all up, the final bit.  That one looks quite shifty, I have to
+admit...  But it's actually <strong>the standard dual-mode pattern for modern CLI
+tools that generate Zsh completion</strong>.</p>
+<ul>
+<li>
+<p>Case <code>A</code>: When this script is found on your <code>$fpath</code> and loaded via
+<code>compinit</code> (the normal <code>#compdef</code> path), <strong>none of this script is
+executed</strong>, that file is merely scanned for its first line, which is
+interpreted and wired for later use.</p>
+</li>
+<li>
+<p>Case <code>B</code>: When you <code>source</code> the file directory, using the lovely <code>source &lt;(gerp completions)</code> Bashism<sup class="footnote-reference" id="fr-process-substitution-1"><a href="#fn-process-substitution">2</a></sup>, <strong><code>funcstack[1]</code> is not
+<code>_gerp</code> and we fall to the branch that merely runs <code>compdef _gerp gerp</code></strong>.
+It's manually doing the equivalent to the auto-discovery mechanism that
+placing <code>_gerp</code> file in the right place with its <em>"magic comment"</em> would.</p>
+</li>
+</ul>
+<p>In both cases, the end goal of the "first pass" is merely to hook in <code>_gerp</code>
+as the provider for completions to the <code>gerp</code> utility.</p>
+<p>At a later time, whenever you request completions for <code>gerp</code>, <em>Zsh</em> will
+either:</p>
+<ul>
+<li>
+<p>following the case <code>A</code>, end up sourcing <code>_gerp</code> <strong>in the context of an
+internal function we don't see that's also called <code>_gerp</code></strong>, <code>funcstack[1]</code>
+is exactly <code>_gerp</code>, we pass the test and enter the positive branch,
+invoking: <code>_gerp "$@"</code>.</p>
+</li>
+<li>
+<p>or, following the case <code>B</code>, directly invoke the <code>_gerp</code> function we
+defined and <em>"manually"</em> targeted with <code>compdef _gerp gerp</code>.</p>
+</li>
+</ul>
+<p>In both cases, it's that final "inner" <code>_gerp</code> function that <strong>executes the
+completion logic</strong>.</p>
+<blockquote class="markdown-alert-note">
+<p>It seems (and possibly is) quite complicated, but if you disregard
+going through the mental gymnastics of how the sausage is made, and
+consider that <strong>we're here attempting to support two completely different
+set-ups</strong>, these very short final <code>if</code>-block really isn't too bad.</p>
+<p>I still admit that its main quality is likely that of being well
+established and recognisable: you needn't think too much to know what it
+does, when you expect it where you find it.</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="see-for-yourself"><a class="anchor-link" href="#see-for-yourself" aria-label="Anchor link for: see-for-yourself"></a>
+See for yourself</h2>
+<p>So, really, this simple file not only could serve as some fairly basic
+<a rel="external" href="https://en.wikipedia.org/wiki/Tamagotchi">Tamagotchi</a>, but it also serves up
+instructions to be most conveniently served to you dynamically through your
+completion system?!  And you can either pre-compile and auto-discover, or
+manually and punctually source them?!  <strong><em>Yes sirree</em>, that's what ~15 lines of
+shell script do for you.</strong></p>
+<pre class="giallo z-code"><code data-lang="shellscript" data-name="gerp"><span class="giallo-l"><span class="z-punctuation z-definition z-comment z-shebang z-shell">#!</span><span class="z-meta z-shebang z-shell"> /bin/sh</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-keyword">case</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-variable z-parameter">$</span><span class="z-variable z-parameter">1</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-keyword"> in</span></span>
+<span class="giallo-l"><span class="z-string">	h</span><span class="z-string">e</span><span class="z-string">l</span><span class="z-string">l</span><span class="z-string">o</span><span class="z-keyword z-operator">)</span><span class="z-support z-function z-builtin">       echo</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">Henlo, fren!</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation"> ;;</span></span>
+<span class="giallo-l"><span class="z-string">	c</span><span class="z-string">o</span><span class="z-string">m</span><span class="z-string">p</span><span class="z-string">l</span><span class="z-string">e</span><span class="z-string">t</span><span class="z-string">i</span><span class="z-string">o</span><span class="z-string">n</span><span class="z-string">s</span><span class="z-keyword z-operator">)</span><span class="z-entity z-name z-function"> cat</span><span class="z-punctuation">                 ;;</span></span>
+<span class="giallo-l"><span class="z-keyword z-operator">	*)</span><span class="z-support z-function z-builtin">           echo</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">?</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation">            ;;</span></span>
+<span class="giallo-l"><span class="z-keyword">esac</span><span class="z-keyword z-operator"> &lt;&lt;</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation z-definition z-string">EOF</span><span class="z-punctuation z-definition z-string">&#39;</span></span>
+<span class="giallo-l"><span class="z-string">#compdef gerp</span></span>
+<span class="giallo-l"><span class="z-string">_gerp() {</span></span>
+<span class="giallo-l"><span class="z-string">    _values &#39;commands&#39; hello completions</span></span>
+<span class="giallo-l"><span class="z-string">}</span></span>
+<span class="giallo-l"><span class="z-string">if [[ &quot;$funcstack[1]&quot; = &quot;_gerp&quot; ]]; then</span></span>
+<span class="giallo-l"><span class="z-string">    _gerp &quot;$@&quot;</span></span>
+<span class="giallo-l"><span class="z-string">else</span></span>
+<span class="giallo-l"><span class="z-string">    compdef _gerp gerp</span></span>
+<span class="giallo-l"><span class="z-string">fi</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">EOF</span></span></code></pre>
+<p>Save this file somewhere on your <code>$PATH</code>, make it executable (<code>chmod u+x gerp</code>), and enter a new, fresh <em>Zsh</em> session unburdened by whatever your
+<code>.zshrc</code> usually contains (I do love a <a href="https://ccjmne.sh/blog/flashcards/reproducible-isolated-demonstration/">reproducible, minimal, isolated
+demonstration</a>):</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">mkdir</span><span class="z-string"> -</span><span class="z-string">p</span><span class="z-punctuation z-definition z-variable">  $</span><span class="z-source">HOME</span><span class="z-string">/bin/</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">mv</span><span class="z-string"> gerp</span><span class="z-punctuation z-definition z-variable">   $</span><span class="z-source">HOME</span><span class="z-string">/bin/</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">chmod</span><span class="z-string"> u+x</span><span class="z-punctuation z-definition z-variable"> $</span><span class="z-source">HOME</span><span class="z-string">/bin/gerp</span></span></code></pre><div class="note">install <code>gerp</code></div>
+<p>In the above, I assume that you have somehow created <code>gerp</code> in your <abbr
+title="Current Work Directory"><code>CWD</code></abbr>.</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-source">path</span><span class="z-keyword z-operator">+=</span><span class="z-punctuation">(</span><span class="z-punctuation z-definition z-variable">$</span><span class="z-source">HOME</span><span class="z-string">/</span><span class="z-string">b</span><span class="z-string">i</span><span class="z-string">n</span><span class="z-string">/</span><span class="z-punctuation">)</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">gerp</span><span class="z-string"> hello</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>Henlo, fren!</span></span></code></pre><pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">gerp</span><span class="z-string"> completions</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>#compdef gerp</span></span>
+<span class="giallo-l"><span>_gerp() {</span></span>
+<span class="giallo-l"><span>    _values &#39;commands&#39; hello completions</span></span>
+<span class="giallo-l"><span>}</span></span>
+<span class="giallo-l"><span>if [[ &quot;$funcstack[1]&quot; = &quot;_gerp&quot; ]]; then</span></span>
+<span class="giallo-l"><span>    _gerp &quot;$@&quot;</span></span>
+<span class="giallo-l"><span>else</span></span>
+<span class="giallo-l"><span>    compdef _gerp gerp</span></span>
+<span class="giallo-l"><span>fi</span></span>
+<span class="giallo-l"></span></code></pre><div class="note">for an isolated, reproducible configurations, run this inside <code>zsh -f</code></div>
+<p>Alright, that's step one: the tool does work.  How about completions?</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-support z-function z-builtin">source</span><span class="z-punctuation z-definition z-string"> &lt;(</span><span class="z-entity z-name z-function">gerp</span><span class="z-string"> completions</span><span class="z-punctuation z-definition z-string">)</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">gerp</span><span class="z-punctuation z-definition z-comment">   #</span><span class="z-comment"> press &lt;Tab&gt; here to request completion items</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>completions hello</span></span></code></pre><div class="note">it's <strong>that simple</strong></div>
+<p>Well, I'll be damned, looks like we're done!  Except that, in principle,
+invoking <code>gerp completions</code> every time you open up any shell is somewhat
+wasteful.</p>
+<h2 id="pre-compile-all-the-things"><a class="anchor-link" href="#pre-compile-all-the-things" aria-label="Anchor link for: pre-compile-all-the-things"></a>
+Pre-compile all the things</h2>
+<p>The <em>"problem"</em> with <code>source &lt;(gerp completions)</code> is that it takes a while.
+Well, it doesn't take that much of a while, but still, it takes somewhat of a
+while.  In reality, more complex tools (I believe they exist) may even take
+longer to finish yielding that completion configuration.</p>
+<p>In my experience, we're talking ~6 to 10 milliseconds per utility, which isn't
+that all bad; but we can do away with essentially <strong>all of it</strong>, which may
+somewhat add up.</p>
+<p>Oh, and also, there are abhorrent monstrosities, such as:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-support z-function z-builtin">source</span><span class="z-punctuation z-definition z-string"> &lt;(</span><span class="z-entity z-name z-function">opencode</span><span class="z-string"> completion</span><span class="z-punctuation z-definition z-string">)</span></span></code></pre><div class="note">looks quite innocuous, doesn't it?  avert your eyes, ye faint of heart, for we're about to run it</div>
+<blockquote class="markdown-alert-caution">
+<p>This looks just like my <code>gerp completions</code>, but functions quite differently
+by at least one metric: <strong>IT TAKES 1.2 SECONDS!!</strong> to yield the completion
+configuration.  And no, their completion system isn't meaningfully more
+complex than this: they simply spin up an abominable machinery to yield the
+most mundane of output. than that of <code>gerp</code>.  <strong>Only ONE THOUSAND TIMES
+slower</strong>.  Ah, the advent of <code>LLM</code>-driven programming.</p>
+<p>The punctilious among us do notice a difference.</p>
+</blockquote>
+<p>Anyhow, I digress.  From here, we have four options:</p>
+<ol>
+<li>stop using software built by people of questionable scrutiny and excellence,
+or</li>
+<li>fix their software for them, or</li>
+<li>just suffer through it, or give in and stop building and
+using software altogether; maximise <a rel="external" href="https://en.wikipedia.org/wiki/Enshittification"><em>platform decay</em> (a.k.a.
+<em>"enshittification"</em>)</a> and
+vibe-code your way to 10k GitHub stars (but none from my side), or</li>
+<li>pre-compile their completion system asynchronously and live your best life.</li>
+</ol>
+<p><strong>I'll only consider option <code>#4</code> in this article</strong>, although I'm also known to
+have put <code>#2</code> in practice.</p>
+<blockquote class="markdown-alert-note">
+<p>I was wildly exaggerating by suggesting than every competent tool maintainer
+is to be most comfortable with the <em>less-than-obvious features</em> of the several
+environments their utility will integrate with.  Moreover, how do we suppose
+those that did acquire such refinement arrived there?  It wasn't innate,
+I can tell you that much.  Help out, contribute; this is <a rel="external" href="https://en.wikipedia.org/wiki/The_Cathedral_and_the_Bazaar">the way of the
+bazaar</a>.</p>
+<p>In fact, while writing this article, I paused to submit a <a rel="external" href="https://github.com/jotaen/kong-completion/pull/15">Pull Request to
+<code>kong-completion</code></a> to
+implement support for the <em>"pre-compiled"</em>/<em>"dual-mode"</em> pattern we went over
+just before.</p>
+</blockquote>
+<p>So, here we go, the proof is in the pudding, isn't it?  You can follow along and
+try out that auto-discovery set-up mechanism on your end as well:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">mv</span><span class="z-string"> gerp</span><span class="z-punctuation z-definition z-variable"> $</span><span class="z-source">HOME</span><span class="z-string">/bin/</span><span class="z-punctuation z-definition z-comment">                  #</span><span class="z-comment"> install gerp</span></span>
+<span class="giallo-l"><span class="z-source">path</span><span class="z-keyword z-operator">+=</span><span class="z-punctuation">(</span><span class="z-punctuation z-definition z-variable">$</span><span class="z-source">HOME</span><span class="z-string">/</span><span class="z-string">b</span><span class="z-string">i</span><span class="z-string">n</span><span class="z-string">/</span><span class="z-punctuation">)</span><span class="z-punctuation z-definition z-comment">                  #</span><span class="z-comment"> make gerp discoverable</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">gerp</span><span class="z-string"> completions</span><span class="z-keyword z-operator"> &gt;</span><span class="z-punctuation z-definition z-variable"> $</span><span class="z-source">HOME</span><span class="z-string">/bin/_gerp</span><span class="z-punctuation z-definition z-comment">  #</span><span class="z-comment"> pre-compile completions for gerp</span></span>
+<span class="giallo-l"><span class="z-source">fpath</span><span class="z-keyword z-operator">+=</span><span class="z-punctuation">(</span><span class="z-punctuation z-definition z-variable">$</span><span class="z-source">HOME</span><span class="z-string">/</span><span class="z-string">b</span><span class="z-string">i</span><span class="z-string">n</span><span class="z-string">/</span><span class="z-punctuation">)</span><span class="z-punctuation z-definition z-comment">                 #</span><span class="z-comment"> make gerp completions discoverable</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-support z-function z-builtin">autoload</span><span class="z-string"> -</span><span class="z-string">U</span><span class="z-string"> compinit</span><span class="z-punctuation z-definition z-comment">                #</span><span class="z-comment"> make the compsys system available</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">compinit</span><span class="z-string"> -</span><span class="z-string">i</span><span class="z-punctuation z-definition z-comment">                         #</span><span class="z-comment"> and kick it off</span></span></code></pre><div class="note">just like before, for an isolated, reproducible configuration, run this inside <code>zsh -f</code></div>
+<p>Note that you may want to use the <code>-i</code> flag if you picked a dubious directory or
+did anything else somewhat curious with that file we just generated.</p>
+<blockquote>
+<p>For security reasons, <code>compinit</code> also checks if the completion system would
+use files not owned by root or by the current user, or files in directories
+that are world- or group-writable or that are not owned by <code>root</code> or by the
+current user. [...] ignore all insecure files and directories use the option
+<code>-i</code>.</p>
+<div class="quote-attribution"><code>man zshcompsys</code>, <em>Use of compinit</em></div>
+</blockquote>
+<p>The point would be to actually do this in two separate steps:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">gerp</span><span class="z-string"> completions</span><span class="z-keyword z-operator"> &gt;</span><span class="z-punctuation z-definition z-variable"> $</span><span class="z-source">HOME</span><span class="z-string">/bin/_gerp</span></span>
+<span class="giallo-l"><span class="z-source">fpath</span><span class="z-keyword z-operator">+=</span><span class="z-punctuation">(</span><span class="z-punctuation z-definition z-variable">$</span><span class="z-source">HOME</span><span class="z-string">/</span><span class="z-string">b</span><span class="z-string">i</span><span class="z-string">n</span><span class="z-string">/</span><span class="z-punctuation">)</span></span></code></pre><div class="note">generate your completions <strong>once</strong> (or once in a while)</div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-source">fpath</span><span class="z-keyword z-operator">+=</span><span class="z-punctuation">(</span><span class="z-punctuation z-definition z-variable">$</span><span class="z-source">HOME</span><span class="z-string">/</span><span class="z-string">b</span><span class="z-string">i</span><span class="z-string">n</span><span class="z-string">/</span><span class="z-punctuation">)</span></span>
+<span class="giallo-l"><span class="z-support z-function z-builtin">autoload</span><span class="z-string"> -</span><span class="z-string">U</span><span class="z-string"> compinit</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">compinit</span><span class="z-string"> -</span><span class="z-string">i</span></span></code></pre><div class="note">load the pre-compiled completion definitions in your interactive sessions!</div>
+</div>
+</div>
+<p>And... voilà, just like that, <em>Zsh</em> will be able to help you pilot <code>gerp</code>!</p>
+<p>But we can get faster yet...  By quite a margin.</p>
+<h3 id="pre-compile-the-pre-compilation"><a class="anchor-link" href="#pre-compile-the-pre-compilation" aria-label="Anchor link for: pre-compile-the-pre-compilation"></a>
+Pre-compile the pre-compilation</h3>
+<p>So now, we're only scanning a bunch of directories, and looking at the first
+line of a bunch of files every time we do <code>compinit</code>.  Well, <strong>we were doing
+that all along</strong>, but now we're still doing it.  Doesn't that seem like it could
+be somewhat streamlined?</p>
+<p>It turns out that you can do just that!  By default, <code>compinit</code> will use a
+<code>.zcompdump</code> <em>"cache"</em> of <strong>where to find the completions for what</strong>.  It
+goes into your <code>$ZDOTDIR</code>, which is likely your <code>$HOME</code> if you haven't set it
+otherwise.</p>
+<p>Among a few other things it sets up, the simplest one that we can wrap our minds
+around is a simple mapping of utility to completion providers:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-source">_comps</span><span class="z-keyword z-operator">=</span><span class="z-punctuation">(</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">-</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">_precommand</span><span class="z-punctuation z-definition z-string">&#39;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">.</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">_source</span><span class="z-punctuation z-definition z-string">&#39;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">5g</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">_go</span><span class="z-punctuation z-definition z-string">&#39;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">5l</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">_go</span><span class="z-punctuation z-definition z-string">&#39;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">6g</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">_go</span><span class="z-punctuation z-definition z-string">&#39;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">6l</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">_go</span><span class="z-punctuation z-definition z-string">&#39;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">8g</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">_go</span><span class="z-punctuation z-definition z-string">&#39;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">8l</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">_go</span><span class="z-punctuation z-definition z-string">&#39;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">a2ps</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">_a2ps</span><span class="z-punctuation z-definition z-string">&#39;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">aaaa</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">_hosts</span><span class="z-punctuation z-definition z-string">&#39;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">aac2mp4</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">_bento4</span><span class="z-punctuation z-definition z-string">&#39;</span></span>
+<span class="giallo-l"><span class="z-string">/</span><span class="z-string">/</span><span class="z-string">.</span><span class="z-string">.</span><span class="z-string">.</span></span>
+<span class="giallo-l"><span class="z-punctuation">)</span></span></code></pre><div class="note">there's more that goes into this file, I choose to focus only on the gift of the topic of the day</div>
+<p>If I were to <code>rm</code> it, my computer takes just shy of <code>200ms</code> doing all that needs
+to be done in order to arrive to that <em>"completion dump"</em> (<code>compdump</code>) the next
+time I would invoke <code>compinit</code>.  In general, subsequent <code>compinit</code> runs will
+use it, of course, but they will also <strong>scour your <code>$fpath</code> for possible new
+completion modules</strong>: if you install new software that provides completions,
+they will be taken into account.</p>
+<p>Hm...  Makes you wonder... How much is that, then?  On my machine it's about
+<code>15ms</code>.  Again, nothing to write home about, but:</p>
+<blockquote>
+<p>Drop by drop is the water pot filled.</p>
+<div class="quote-attribution">Buddha, <em>the Dhammapada</em></div>
+</blockquote>
+<p>Besides, won't you want to possibly effect a full rebuild once in a while
+anyway?  Here's what <code>man zshcompsys</code> has to say on the matter:</p>
+<blockquote>
+<p>If the number of completion files changes, <code>compinit</code> will recognise this and
+produce a new dump file.  However, if the name of a function or the arguments
+in the first line of a <code>#compdef</code> function (as described below) change, <strong>it
+is easiest to delete the dump file by hand</strong> so that <code>compinit</code> will re-create
+it the next time it is run.</p>
+</blockquote>
+<p>Ah-ha!  We were supposed to have been doing that all along?  Oops.<br>
+It goes on to instruct us further:</p>
+<blockquote>
+<p>The check performed to see if there are new functions can be omitted by giving
+the option <code>-C</code>.  In this case the dump file will only be created if there
+isn't one already.</p>
+</blockquote>
+<p>Ah, there it is.  The final piece of that puzzle on the quest to setting up your
+shell choke-full of tricks and gadgets, while having it load <strong>fast enough to
+feel responsive</strong>.</p>
+<h3 id="fast-enough-to-feel-responsive"><a class="anchor-link" href="#fast-enough-to-feel-responsive" aria-label="Anchor link for: fast-enough-to-feel-responsive"></a>
+Fast enough to feel responsive</h3>
+<p>To those that may think that this is one hell of a subjective metric, <em>while I
+agree</em>, I would like to mention that I have a particular framework by which I
+just responsiveness.</p>
+<p>I base it off a fairly credible
+publication<sup class="footnote-reference" id="fr-system-latency-guidelines-then-and-now-1"><a href="#fn-system-latency-guidelines-then-and-now">3</a></sup>: <a rel="external" href="https://www.researchgate.net/publication/317801643"><em>System
+latency guidelines then and now—Is zero latency really considered
+necessary?</em></a></p>
+<p>Although I heartily recommend poring over the table on page 7, for the purpose
+of this article, we can distil the information down to the following substrate:</p>
+<blockquote>
+<p>[...] performance in zero-order and more demanding second-order <strong>tasks
+already gets impaired by latencies between <code>16</code>-<code>60ms</code></strong>.  Therefore, the
+lower boundary of <code>100ms</code> as mentioned in several design guidelines appears
+outdated.</p>
+</blockquote>
+<p>There you have it, a basic number.  My personal observation had been that if
+you type some 100 words per minute, I'd guesstimate that your key presses occur
+at the approximate rate of one per <code>100ms</code>—when writing prose.  I consider
+that the more mechanical <code>CLI</code> habits that made themselves at home in you muscle
+memory (think <code>git status</code> or <code>cd ~/the-ultimate-monorepo</code>) are certain to come
+out with a significantly greater alacrity: <strong>I want to be able to spawn a new
+shell and start typing away, without having to suffer from any stutter</strong>.</p>
+<p>In summary, here's the whole solution:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-punctuation z-definition z-comment z-shebang z-shell">#!</span><span class="z-meta z-shebang z-shell"> /usr/bin/env zsh</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-storage z-modifier">readonly</span><span class="z-source"> dumpfile</span><span class="z-keyword z-operator">=</span><span class="z-punctuation z-definition z-variable">$</span><span class="z-source">ZDOTDIR</span><span class="z-source">/.</span><span class="z-source">zcompdump</span></span>
+<span class="giallo-l"><span class="z-storage z-modifier">readonly</span><span class="z-source"> compdir</span><span class="z-keyword z-operator">=</span><span class="z-punctuation z-definition z-variable">$</span><span class="z-source">XDG_DATA_HOME</span><span class="z-source">/</span><span class="z-source">zsh</span><span class="z-source">/</span><span class="z-source">site-functions</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">mkdir</span><span class="z-string"> -</span><span class="z-string">p</span><span class="z-punctuation z-definition z-variable"> $</span><span class="z-source">compdir</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">rm</span><span class="z-string"> -</span><span class="z-string">-</span><span class="z-punctuation z-definition z-variable"> $</span><span class="z-source">compdir</span><span class="z-string">/</span><span class="z-variable">*</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">niri</span><span class="z-string"> completions</span><span class="z-string"> zsh</span><span class="z-keyword z-operator">    &gt;</span><span class="z-punctuation z-definition z-variable"> $</span><span class="z-source">compdir</span><span class="z-string">/_niri</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">opencode</span><span class="z-string"> completion</span><span class="z-string"> zsh</span><span class="z-keyword z-operator"> &gt;</span><span class="z-punctuation z-definition z-variable"> $</span><span class="z-source">compdir</span><span class="z-string">/_opencode</span><span class="z-punctuation z-definition z-comment">  #</span><span class="z-comment"> have even that one, if you want!</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-source">fpath</span><span class="z-keyword z-operator">+=</span><span class="z-punctuation">(</span><span class="z-punctuation z-definition z-variable">$</span><span class="z-source">compdir</span><span class="z-punctuation">)</span></span>
+<span class="giallo-l"><span class="z-punctuation">[</span><span class="z-keyword z-operator"> -f</span><span class="z-punctuation z-definition z-variable"> $</span><span class="z-source">dumpfile</span><span class="z-punctuation"> ]</span><span class="z-punctuation"> &amp;&amp;</span><span class="z-entity z-name z-function"> rm</span><span class="z-string"> -</span><span class="z-string">-</span><span class="z-punctuation z-definition z-variable"> $</span><span class="z-source">dumpfile</span></span>
+<span class="giallo-l"><span class="z-support z-function z-builtin">autoload</span><span class="z-string"> -</span><span class="z-string">U</span><span class="z-string"> compinit</span><span class="z-punctuation"> &amp;&amp;</span><span class="z-entity z-name z-function"> compinit</span><span class="z-string"> -</span><span class="z-string">d</span><span class="z-punctuation z-definition z-variable"> $</span><span class="z-source">dumpfile</span></span></code></pre><div class="note">I automatically run this script once a day, with a <code>systemd</code> timer</div>
+<p>Run the above asynchronously, once in a while (perhaps on a <code>systemd</code> timer?),
+and/or when you install new software; retain only the below in your <code>.zshrc</code>.</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-storage z-modifier">typeset</span><span class="z-string"> -U</span><span class="z-source"> fpath</span></span>
+<span class="giallo-l"><span class="z-source">fpath</span><span class="z-keyword z-operator">+=</span><span class="z-punctuation">(</span><span class="z-punctuation z-definition z-variable">$</span><span class="z-source">XDG_DATA_HOME</span><span class="z-string">/</span><span class="z-string">z</span><span class="z-string">s</span><span class="z-string">h</span><span class="z-string">/</span><span class="z-string">s</span><span class="z-string">i</span><span class="z-string">t</span><span class="z-string">e</span><span class="z-string">-</span><span class="z-string">f</span><span class="z-string">u</span><span class="z-string">n</span><span class="z-string">c</span><span class="z-string">t</span><span class="z-string">i</span><span class="z-string">o</span><span class="z-string">n</span><span class="z-string">s</span><span class="z-punctuation">)</span></span>
+<span class="giallo-l"><span class="z-support z-function z-builtin">autoload</span><span class="z-string"> -</span><span class="z-string">U</span><span class="z-string"> compinit</span><span class="z-punctuation"> &amp;&amp;</span><span class="z-entity z-name z-function"> compinit</span><span class="z-string"> -</span><span class="z-string">C</span></span></code></pre><div class="note"><code>typeset -U</code> ensures that there may be no duplicate in your <code>$fpath</code></div>
+<blockquote class="markdown-alert-important">
+<p>I assume here that you've set <code>ZDOTDIR</code> and <code>XDG_DATA_HOME</code> explicitly and
+aptly—that is, in your <code>.zshenv</code> or <em>"earlier"</em>.  Not having provided
+fall-backs here isn't for any lack of skill or consideration on my end; the
+same observation goes for the absence of double-quotes surrounding expanding
+bits.</p>
+<p>Consider this: be deliberate, vigilant and sure of yourself, and you get to
+write <code>rm -- $compdir/*</code> instead of the poorer <code>rm "$compdir"/*</code>.</p>
+</blockquote>
+<p>In my current entire set-up, I get a new interactive <em>Zsh</em> session, complete
+with all the bells and whistles one could dream of <strong>well within <code>32ms</code> of
+having requested it</strong>—where about half that time is allotted to <code>compinit -C</code>.</p>
+<p>I could do without, but I don't, because I don't want to.  If you're in the same
+boat, have fun; if you aren't: have fun as well—cheers!</p>
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn-ascetic-and-aesthetic">
+<p><strong>Asceticism</strong> is the self-discipline and avoidance
+of indulgence, typically for religious reasons.  According to Wikipedia,</p>
+<blockquote>
+<p>Ascetics maintain that self-imposed constraints bring them greater freedom
+in various areas of their lives, such as increased clarity of thought and
+the ability to resist potentially destructive temptations.</p>
+</blockquote>
+<p><strong>Aestheticism</strong>, on the other hand, I would best distil in the creed:
+<em>"L'Art pour l'Art"</em>, which translates from French to <em>"Art for art's
+sake"</em>.</p>
+<p>I embrace the paradox and consider myself an <strong>ascetic aesthete</strong>. <a href="#fr-ascetic-and-aesthetic-1">↩</a></p>
+</li>
+<li id="fn-process-substitution">
+<p>The lovely Bashism <code>source &lt;(gerp completions)</code> could
+be changed into the <code>POSIX</code>-compliant equivalent <code>eval "$(gerp completions)"</code>.  In short, these three are functionally equivalent, the
+first one is most portable, the last one is most elegant: be sure to read
+the following tip to help you decide for the case in point!</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-support z-function z-builtin">eval</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-punctuation">$(</span><span class="z-entity z-name z-function">gerp</span><span class="z-string"> completions</span><span class="z-punctuation">)</span><span class="z-punctuation z-definition z-string">&quot;</span><span class="z-punctuation z-definition z-comment">    #</span><span class="z-comment"> full POSIX</span></span>
+<span class="giallo-l"><span class="z-support z-function z-builtin">.</span><span class="z-punctuation z-definition z-string"> &lt;(</span><span class="z-entity z-name z-function">gerp</span><span class="z-string"> completions</span><span class="z-punctuation z-definition z-string">)</span><span class="z-punctuation z-definition z-comment">         #</span><span class="z-comment"> &lt;(...) is a Bashism</span></span>
+<span class="giallo-l"><span class="z-support z-function z-builtin">source</span><span class="z-punctuation z-definition z-string"> &lt;(</span><span class="z-entity z-name z-function">gerp</span><span class="z-string"> completions</span><span class="z-punctuation z-definition z-string">)</span><span class="z-punctuation z-definition z-comment">    #</span><span class="z-comment"> &lt;(...) and source are Bashisms</span></span></code></pre><div class="note">note that <code>.</code> is the only <code>POSIX</code>-defined <code>source</code>-ing mechanism!</div>
+<blockquote class="markdown-alert-tip">
+<p>I generally maximise <code>POSIX</code> compliance where it matters, and sometimes
+even where it doesn't; but <strong>in the context of loading completions for
+your <em>Z Shell</em> specifically</strong>, then it makes absolutely no sense to be
+wary of how portable that procedure would be: <strong>it only needs to work for
+<em>Zsh</em></strong>.</p>
+</blockquote>
+<p>Embrace the process substitution! <a href="#fr-process-substitution-1">↩</a></p>
+</li>
+<li id="fn-system-latency-guidelines-then-and-now">
+<p>Attig, C.,  Rauh, N.,  Franke,
+T., &amp; Krems, J.  F.  (2017). System latency guidelines then and now
+– Is zero latency really considered necessary?  In D. Harris (Ed.),
+Engineering Psychology and Cognitive Ergonomics 2017, Part II, LNAI 10276
+(pp. 2-14). Cham, Switzerland:  Springer International Publishing AG.
+doi:10.1007/978-3-319-58475-1_1</p>
+<p>Available at <a rel="external" href="https://www.researchgate.net/publication/317801643">https://www.researchgate.net/publication/317801643</a> <a href="#fr-system-latency-guidelines-then-and-now-1">↩</a></p>
+</li>
+</ol>
+</section>
+
+  <h2 id="cited-tools"><a class="anchor-link" href="#cited-tools" aria-label="Anchor link for: cited-tools"></a>
+Referenced tools</h2>
+  <div class="refs">
+<div class="ref tool mono">
+  <strong>zsh</strong>
+  <div><span class="muted">from</span>&nbsp;<a rel="external" href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;zsh">extra&#x2F;zsh</a></div>
+  <div><a rel="external" href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;extra&#x2F;zsh&#x2F;zshall.1.en">manual</a>
+    <a rel="external" href="https:&#x2F;&#x2F;sourceforge.net&#x2F;p&#x2F;zsh&#x2F;code&#x2F;ci&#x2F;master&#x2F;tree&#x2F;">source</a></div>
+</div>
+</div>
+  
+
+  
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a rel="external" href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <a rel="external" href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>
+        <a rel="external" href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>

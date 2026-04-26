@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/base.css?h=5eaf59dc2d88083c5a9c">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2?h=b3c74e2fab27de35d142" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2?h=b1481b19a684088ca0aa" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2?h=d503244afc2437c96ade" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2?h=5c8eb42ff6f2e2934413" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2?h=a264b0cbe8b649d2258c" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-2.woff2?h=e7f9c933e970ed62349b" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-1.woff2?h=b3c74e2fab27de35d142') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2?h=b1481b19a684088ca0aa') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2?h=d503244afc2437c96ade') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/work-3.woff2?h=5c8eb42ff6f2e2934413') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2?h=a264b0cbe8b649d2258c') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/fira-2.woff2?h=e7f9c933e970ed62349b') format('woff2'); }
+</style>
+<link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-light.css?h=280afa93e1c6dfec22ed" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-dark.css?h=8efc0ee965d80c5835b7" media="(prefers-color-scheme: dark)">
+    
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+data-path="&#x2F;flashcards&#x2F;zsh-omni-tab-completion-expansion&#x2F;">
+      <a href="https://ccjmne.sh/blog" data-target="home">Home</a>
+      <details class="dropdown" max-md>
+        <summary data-target="articles">Articles</summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual/"       >Flight rules</a>
+          <a href="https://ccjmne.sh/blog/ramblings/"       >Ramblings</a>
+          <a href="https://ccjmne.sh/blog/flashcards/"       >Flashcards</a>
+          <a href="https://ccjmne.sh/blog/tags/" max-sm>Sections</a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual/" min-md>Flight rules</a>
+      <a href="https://ccjmne.sh/blog/ramblings/" min-md>Ramblings</a>
+      <a href="https://ccjmne.sh/blog/flashcards/" min-md>Flashcards</a>
+      <a href="https://ccjmne.sh/blog/tags/" min-sm>Sections</a>
+      <a href="https://ccjmne.sh/blog/colophon/"       >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main><h1><span class="link-title" 
+  style="view-transition-name: view-zsh-omni-tab-completion-expansion"
+>The ultimate omni-<code>&lt;Tab&gt;</code> Zsh widget</span></h1><ul class="infobar "><li><time>April 06, 2026</time></li><li>10-minute read</li>
+    <li>tagged
+      <a href="https://ccjmne.sh/blog/tags/cli/">cli</a>, <a href="https://ccjmne.sh/blog/tags/zsh/">zsh</a></li></ul>
+<details class="hi toc">
+  <summary>Table of contents</summary>
+  <ul><li>
+      <a href="https://ccjmne.sh/blog/flashcards/zsh-omni-tab-completion-expansion/#complete-and-expand-all-the-things">Complete and expand all the things</a><ul>
+        
+        <li><a href="https://ccjmne.sh/blog/flashcards/zsh-omni-tab-completion-expansion/#use-the-familiar-completion-system">Use the familiar completion system</a></li>
+        <li><a href="https://ccjmne.sh/blog/flashcards/zsh-omni-tab-completion-expansion/#interact-with-the-menu-selection">Interact with the menu selection</a></li>
+        <li><a href="https://ccjmne.sh/blog/flashcards/zsh-omni-tab-completion-expansion/#expand-glob-patterns">Expand glob patterns</a></li>
+        <li><a href="https://ccjmne.sh/blog/flashcards/zsh-omni-tab-completion-expansion/#expand-your-aliases">Expand your aliases</a></li></ul></li><li>
+      <a href="https://ccjmne.sh/blog/flashcards/zsh-omni-tab-completion-expansion/#some-extra-niceties-for-the-journey">Some extra niceties for the journey</a><ul>
+        
+        <li><a href="https://ccjmne.sh/blog/flashcards/zsh-omni-tab-completion-expansion/#you-can-even-take-it-back">You can even &quot;take it back&quot;</a></li>
+        <li><a href="https://ccjmne.sh/blog/flashcards/zsh-omni-tab-completion-expansion/#going-forward">Going forward</a></li></ul></li>
+    <li><a href="#cited-tools">Referenced tools</a></li>
+    
+    
+  </ul>
+</details>
+<article><p>I use the <strong><a rel="external" href="https://www.zsh.org/">Z shell, <em>Zsh</em></a></strong>.  Before using it, I'd
+acquired some reasonable familiarity with the <abbr title="Portable Operating
+System Interface"><code>POSIX</code></abbr> shell specification, and the <strong>Bourne-Again
+Shell, <em>Bash</em></strong>.  It’s been years since I last pair-programmed extensively
+with someone who wasn't surprised that many of these agile <em>"tricks"</em> are built
+right into the plain (albeit <em>Bourne-Again</em>) shell.  Yet, certainly not due
+to more, newer or better tools—you and I do wield (though perhaps not quite
+<em>use</em>) the same ones after all—<strong>my best wizardry is mostly the product
+of a unique balance of <abbr title="self-discipline">asceticism</abbr> and
+aestheticism</strong><sup class="footnote-reference" id="fr-ascetic-and-aesthetic-1"><a href="#fn-ascetic-and-aesthetic">1</a></sup>.</p>
+<!-- [bash history expansion](@/flight-manual/bash-history-expansion). TODO: LINKME -->
+<!-- [ascetic-and-aesthetic](@/flight-manual/ascetic-and-aesthetic). TODO: LINKME -->
+<p>As a result, I use <em>Zsh</em>, without any shred of <a rel="external" href="https://ohmyz.sh/"><em>Oh My
+Zsh</em></a>—though this shouldn't be taken as an indictment: it
+is a great project, one I've simply "outgrown".  I'm not alone in this, but we
+are few; this article is for those of us that get intimate with their tools (and
+perhaps even <abbr title="Read The F... riendly Manual"><code>RTFM</code></abbr>), and for
+those of you who look forward to doing just that.</p>
+<!-- [RTFM](@/flight-manual/read-the-friendly-manual). TODO: LINKME -->
+<h2 id="complete-and-expand-all-the-things"><a class="anchor-link" href="#complete-and-expand-all-the-things" aria-label="Anchor link for: complete-and-expand-all-the-things"></a>
+Complete and expand all the things</h2>
+<p>I found it.  The Grail, the <strong>one key to bring them all and in the completion
+system bind them</strong><sup class="footnote-reference" id="fr-one-ring-1"><a href="#fn-one-ring">2</a></sup>.  I present to you the <strong>omni-<code>&lt;Tab&gt;</code></strong>!</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">zmodload</span><span class="z-string"> zsh/complist</span></span>
+<span class="giallo-l"><span class="z-support z-function z-builtin">autoload</span><span class="z-string"> -</span><span class="z-string">U</span><span class="z-string"> compinit</span><span class="z-punctuation"> &amp;&amp;</span><span class="z-entity z-name z-function"> compinit</span></span>
+<span class="giallo-l"><span class="z-support z-function z-builtin">autoload</span><span class="z-string"> -</span><span class="z-string">U</span><span class="z-string"> _generic</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">zle</span><span class="z-string"> -</span><span class="z-string">C</span><span class="z-string"> zle-expand-omni</span><span class="z-string"> expand-or-complete</span><span class="z-string"> _generic</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">zstyle</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">:completion:zle-expand-omni:*</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> completer</span><span class="z-string"> _expand_alias</span><span class="z-string"> _complete</span><span class="z-string"> _approximate</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">zstyle</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">:completion:*</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> menu</span><span class="z-string"> select</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-support z-function z-builtin">bindkey</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">^I</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string"> zle-expand-omni</span></span></code></pre><div class="note">so little, to get you so far already</div>
+<h3 id="use-the-familiar-completion-system"><a class="anchor-link" href="#use-the-familiar-completion-system" aria-label="Anchor link for: use-the-familiar-completion-system"></a>
+Use the familiar completion system</h3>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code">
+<code><span class="term-fg34"><span class="term-fg31">cd</span></span> █
+</code></pre><div class="note"><code>1.</code> begin entering a <code>cd</code> command</div>
+
+</div>
+<div>
+<pre class="giallo z-code">
+<code><span class="term-fg34"><span class="term-fg31">cd</span></span> █
+<span class="term-0">home/ scripts/</span>
+</code></pre><div class="note"><code>2.</code> press <code>&lt;Tab&gt;</code> once for the completion menu</div>
+
+</div>
+</div>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code">
+<code><span class="term-fg34"><span class="term-fg31">cd</span></span> scr█
+<span class="term-0">home/ scripts/</span>
+</code></pre><div class="note"><code>3.</code> start typing away, here <code>scr</code></div>
+
+</div>
+<div>
+<pre class="giallo z-code">
+<code><span class="term-fg34"><span class="term-fg31">cd</span></span> scripts/█
+<span class="term-0">home/ scripts/</span>
+</code></pre><div class="note"><code>4.</code> press <code>&lt;Tab&gt;</code> again to complete</div>
+
+</div>
+</div>
+<h3 id="interact-with-the-menu-selection"><a class="anchor-link" href="#interact-with-the-menu-selection" aria-label="Anchor link for: interact-with-the-menu-selection"></a>
+Interact with the menu selection</h3>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code">
+<code><span class="term-fg34"><span class="term-fg31">cd</span></span> █
+</code></pre><div class="note"><code>1.</code> begin entering a <code>cd</code> command</div>
+
+</div>
+<div>
+<pre class="giallo z-code">
+<code><span class="term-fg34"><span class="term-fg31">cd</span></span> █
+<span class="term-0">home/ scripts/</span>
+</code></pre><div class="note"><code>2.</code> press <code>&lt;Tab&gt;</code> once for the completion menu</div>
+
+</div>
+</div>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code">
+<code><span class="term-fg34"><span class="term-fg31">cd</span></span> <span class="term-fg32">home/█</span>
+<span class="term-inv">home/</span><span class="term-fg0"> scripts/</span>
+</code></pre><div class="note"><code>3.</code> press <code>&lt;Tab&gt;</code> again for the interactive menu</div>
+
+</div>
+<div>
+<pre class="giallo z-code">
+<code><span class="term-fg34"><span class="term-fg31">cd</span></span> <span class="term-fg32">scripts/█</span>
+<span class="term-fg0">home/</span> <span class="term-inv">scripts/</span>
+</code></pre><div class="note"><code>4.</code> navigate the menu—using other bindings</div>
+
+</div>
+</div>
+<blockquote class="markdown-alert-tip">
+<p>You'll want to set some bindings to most comfortably navigate the menu in
+selection mode.  You can go up, down, left, right, and even enter a practical
+dynamic search, all "for free", in your base <em>Zsh</em> shell.</p>
+<p>I went with <abbr title="The ubiquitous text editor">Vim</abbr>-like bindings,
+<code>h</code>-<code>j</code>-<code>k</code>-<code>l</code>, while holding the <code>&lt;Meta&gt;</code> button—that's <code>Alt</code> on a
+keyboard labelled for <a rel="external" href="https://www.microsoft.com/en-us/windows">Windows</a>.
+I enjoy the same bindings across several 2-dimensional interfaces; such
+as Vim's <a rel="external" href="https://vimhelp.org/quickfix.txt.html#quickfix">quickfix</a>-lists
+stack<sup class="footnote-reference" id="fr-quickfix-2d-1"><a href="#fn-quickfix-2d">3</a></sup>, <code>fzf</code>'s search results interface<sup class="footnote-reference" id="fr-fzf-2d-1"><a href="#fn-fzf-2d">4</a></sup>, <code>tmux</code>'s pane
+resizing, <em>et cet</em>.</p>
+<p>I'll be sure to put together some more quick-yet-insightful articles to help
+you making you feel most at home; until then, <code>man zshzle</code> is a good and
+plentiful resource.</p>
+</blockquote>
+<h3 id="expand-glob-patterns"><a class="anchor-link" href="#expand-glob-patterns" aria-label="Anchor link for: expand-glob-patterns"></a>
+Expand <a rel="external" href="https://en.wikipedia.org/wiki/Glob_(programming)">glob patterns</a></h3>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code">
+<code><span class="term-fg34">ls</span> <span class="term-fg33">*█</span>
+</code></pre><div class="note"><code>1.</code> begin entering an <code>ls</code> command</div>
+
+</div>
+<div>
+<pre class="giallo z-code">
+<code><span class="term-fg34">ls</span> <span class="term-fg32">LICENSE README home/ scripts/</span> █
+</code></pre><div class="note"><code>2.</code> press <code>&lt;Tab&gt;</code> to expand the matching items</div>
+
+</div>
+</div>
+<h3 id="expand-your-aliases"><a class="anchor-link" href="#expand-your-aliases" aria-label="Anchor link for: expand-your-aliases"></a>
+Expand your <code>alias</code>es</h3>
+<div class="grid-1-3">
+<div>
+<pre class="giallo z-code">
+<code><span class="term-fg31">alias</span> <span class="term-fg33">git</span>=<span class="term-fg32">'noglob git'</span>
+</code></pre><div class="note"><code>1.</code> set up some <code>alias</code></div>
+
+</div>
+<div>
+<pre class="giallo z-code">
+<span class="term-fg33">git█</span>
+</code></pre><div class="note"><code>2.</code> prepare to use it</div>
+
+</div>
+<div>
+<pre class="giallo z-code">
+<span class="term-fg34">noglob git</span> █
+</code></pre><div class="note"><code>3.</code> press <code>&lt;Tab&gt;</code> to expand it</div>
+
+</div>
+</div>
+<p>Fairly neat!  I figure it's about universal, hence my dubbing it the
+<strong>omni-<code>&lt;Tab&gt;</code></strong>.  But there is more.</p>
+<h2 id="some-extra-niceties-for-the-journey"><a class="anchor-link" href="#some-extra-niceties-for-the-journey" aria-label="Anchor link for: some-extra-niceties-for-the-journey"></a>
+Some extra niceties for the journey</h2>
+<p>Note that it is quite intelligent in understanding your intent:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code">
+<code><span class="term-fg33">ll█</span>
+<span class="term-fg34">ls</span> <span class="term-fg32">-l --almost-all --human-readable</span> █
+</code></pre><div class="note"><strong>expand <code>alias</code>es</strong> with your cursor <strong>adjacent</strong></div>
+
+</div>
+<div>
+<pre class="giallo z-code">
+<code><span class="term-fg33">ll</span> █
+LICENSE README home/ scripts/
+</code></pre><div class="note"><strong>complete commands</strong> with a cursor <strong>disjoined</strong></div>
+
+</div>
+</div>
+<p>You may also complete the <strong>beginning of an <code>alias</code></strong> to its full name, then
+<strong>expand it</strong>, then <strong>complete its arguments</strong> if you so choose.  Unexpanded
+<code>alias</code>es still get the correct completion options, by the way; how I love this
+entire system.</p>
+<h3 id="you-can-even-take-it-back"><a class="anchor-link" href="#you-can-even-take-it-back" aria-label="Anchor link for: you-can-even-take-it-back"></a>
+You can even "take it back"</h3>
+<p>If you started typing <code>mv -t new-destination **/*.sh</code> and expanded it, only to
+find that it put an ungodly amount of entries in your command line, you can
+still <em>"oops"</em> right out of here without losing your hard-earned pre-expansion
+command:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-support z-function z-builtin">bindkey</span><span class="z-string"> ^_</span><span class="z-string"> undo</span></span></code></pre><div class="note">this is <code>Ctrl-/</code>, I believe I adopted that one from the <em>Zsh-grandmaster</em> <a rel="external" href="https://github.com/romkatv">Roman Perepelitsa</a> himself</div>
+<blockquote class="markdown-alert-tip">
+<p>Can't tell that <code>^_</code> is <code>Ctrl</code>+<code>/</code>, or that <code>^[[Z</code>
+means <code>Shift</code>+<code>Tab</code>?  You may find out what <a rel="external" href="https://en.wikipedia.org/wiki/Escape_sequence">escape
+sequence</a> your key combination
+triggers in a simple interactive <code>cat</code>!</p>
+<p>Just run <code>cat</code>, and type away, quit with <code>Ctrl</code>+<code>C</code> or <code>Ctrl</code>+<code>D</code>.  It
+won't handle every case, such a <code>Tab</code>, <code>Ctrl</code>+<code>D</code>, backspace...  But at
+least it's handy, available, and not too hard to remember: a ubiquitous
+utility<sup class="footnote-reference" id="fr-useless-use-of-cat-1"><a href="#fn-useless-use-of-cat">5</a></sup>, no arguments.</p>
+</blockquote>
+<p>That is it: <code>bindkey &lt;mapping&gt; undo</code>.  Let's see it in action:</p>
+<pre class="giallo z-code">
+<code><span class="term-fg34">mv</span> <span class="term-fg32">-t scripts/</span> <span class="term-fg33">**</span>/<span class="term-fg33">*</span>.sh</span>█
+</code></pre><div class="note">preparing to move your scripts to the <code>scripts/</code> directory</div>
+
+<p>Press <code>&lt;Tab&gt;</code> before executing it, just to be sure...</p>
+<pre class="giallo z-code">
+<code><span class="term-fg34">mv</span> <span class="term-fg32">-t scripts/</span> <span class="term-fg32">bin/startup.sh bin/check_env.sh bin/deploy.sh bin/cleanup.sh bin/update.sh bin/monitor.sh
+bin/restart_services.sh tools/sysinfo.sh tools/network_check.sh tools/randomizer.sh tools/service_restart.sh
+tools/optimize.sh tools/package.sh tools/install_dependencies.sh tools/benchmark.sh utils/parse_logs.sh
+utils/backup_files.sh utils/monitor.sh utils/send_alert.sh utils/archive_data.sh utils/rotate_logs.sh
+utils/sync_files.sh utils/cleanup_temp.sh tools/analyze_performance.sh tools/check_disk.sh bin/health_check.sh
+bin/cache_clear.sh bin/update_configs.sh utils/email_report.sh utils/generate_report.sh tools/security_scan.sh
+tools/update_packages.sh tools/reindex.sh utils/migrate_files.sh utils/cleanup_old.sh utils/check_integrity.sh</span>
+</code></pre><div class="note">oh, no, good grief, <strong>ABORT!</strong> is there one such button?</div>
+
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code">
+<code><span class="term-fg34">mv</span> <span class="term-fg32">-t scripts/</span> <span class="term-fg33">**</span>/<span class="term-fg33">*</span>.sh</span>█
+</code></pre><div class="note">roll it back with the binding of your choice</div>
+
+</div>
+<div>
+<pre class="giallo z-code">
+<code><span class="term-fg34">mv</span> <span class="term-fg32">-t scripts/</span> <span class="term-fg33">{utils,bin}</span>/<span class="term-fg33">*</span>.sh</span>█
+</code></pre><div class="note">adjust and correct your command</div>
+
+</div>
+</div>
+<pre class="giallo z-code">
+<code><span class="term-fg34">mv</span> <span class="term-fg32">-t scripts/</span> <span class="term-fg32">bin/startup.sh bin/check_env.sh bin/restart_services.sh bin/update_configs.sh utils/migrate_files.sh
+utils/cleanup_old.sh utils/check_integrity.sh</span>
+</code></pre><div class="note">that's more like it! though I had no idea of these other forsaken piles... future-me can sort it out</div>
+
+<blockquote class="markdown-alert-note">
+<p>This approach is arguably not the most appropriate if your only intention was
+to "peek" as what the glob would expand to, but hey, when you have it, and it
+works for "everything", and it can always be undone at the press of a button,
+why not!  I will circle back on that in another article that I hope to put out
+soon.</p>
+</blockquote>
+<!-- [](@/flight-manual/bash-history-expansion). TODO: LINKME -->
+<h3 id="going-forward"><a class="anchor-link" href="#going-forward" aria-label="Anchor link for: going-forward"></a>
+Going forward</h3>
+<p>I am barely scratching the surface of what a neat <em>Zsh</em> set-up can bring, but I
+believe that, in isolation, <strong>these few lines putting together an omni-<code>&lt;Tab&gt;</code>
+make for a complete unit of information</strong>, small and focused enough to be
+digestible—though maybe stopping to explain what each does would be of some
+benefit, too.</p>
+<p>In the meantime, you might be surprise to see how easy it is to <a href="https://ccjmne.sh/blog/flashcards/provide-zsh-completions/">start providing
+completions for the <em>Z Shell</em></a>!</p>
+<p>Good luck, and have fun!</p>
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn-ascetic-and-aesthetic">
+<p><strong>Asceticism</strong> is the self-discipline and avoidance
+of indulgence, typically for religious reasons.  According to Wikipedia,</p>
+<blockquote>
+<p>Ascetics maintain that self-imposed constraints bring them greater freedom
+in various areas of their lives, such as increased clarity of thought and
+the ability to resist potentially destructive temptations.</p>
+</blockquote>
+<p><strong>Aestheticism</strong>, on the other hand, I would best distil in the creed:
+<em>"L'Art pour l'Art"</em>, which translates from French to <em>"Art for art's
+sake"</em>.</p>
+<p>I embrace the paradox and consider myself an <strong>ascetic aesthete</strong>. <a href="#fr-ascetic-and-aesthetic-1">↩</a></p>
+</li>
+<li id="fn-one-ring">
+<p>It's a reference to the <a rel="external" href="https://en.wikipedia.org/wiki/One_Ring">One
+Ring</a>, from the (somewhat) <a rel="external" href="https://en.wikipedia.org/wiki/The_Lord_of_the_Rings">eponymous,
+inevitable trilogy</a>
+(it's not really a <em>trilogy</em>) from the venerable
+<a rel="external" href="https://en.wikipedia.org/wiki/J._R._R._Tolkien">J. R. R. Tolkien</a>.  Its English
+translation originally goes:</p>
+<blockquote>
+<p>One ring to rule them all,    one ring to find them,<br>
+One ring to bring them all    and in the darkness bind them.</p>
+</blockquote>
+<p>Note that it's translated from <a rel="external" href="https://en.wikipedia.org/wiki/Black_Speech"><em>Black
+Speech</em></a>, which looks quite a
+lot more poignant in Tengwar, which my preferred font system for this blog
+sadly doesn't have glyphs for. <a href="#fr-one-ring-1">↩</a></p>
+</li>
+<li id="fn-quickfix-2d">
+<p>A Vim <code>quickfix</code> list is one-dimensional, but <strong>such lists are
+organised in stacks</strong>! <code>:cold</code>, <code>:cnew</code>, <code>:cprev</code>, <code>:cnext</code>, four cardinal
+directions, <code>hjkl</code>. <a href="#fr-quickfix-2d-1">↩</a></p>
+</li>
+<li id="fn-fzf-2d">
+<p>The same goes for <code>fzf</code>: with <code>--multi</code>, the <strong>selected state
+constitutes the second dimension</strong> <a href="#fr-fzf-2d-1">↩</a></p>
+</li>
+<li id="fn-useless-use-of-cat">
+<p>Is <code>cat</code> even perhaps <em>too ubiquitous</em>?  I
+talk in some other article of the now infamous <a href="https://ccjmne.sh/blog/flashcards/useless-use-of-cat/">useless use of
+<code>cat</code></a>, which you may enjoy going over. <a href="#fr-useless-use-of-cat-1">↩</a></p>
+</li>
+</ol>
+</section>
+
+  <h2 id="cited-tools"><a class="anchor-link" href="#cited-tools" aria-label="Anchor link for: cited-tools"></a>
+Referenced tools</h2>
+  <div class="refs">
+<div class="ref tool mono">
+  <strong>zsh</strong>
+  <div><span class="muted">from</span>&nbsp;<a rel="external" href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;zsh">extra&#x2F;zsh</a></div>
+  <div><a rel="external" href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;extra&#x2F;zsh&#x2F;zshall.1.en">manual</a>
+    <a rel="external" href="https:&#x2F;&#x2F;sourceforge.net&#x2F;p&#x2F;zsh&#x2F;code&#x2F;ci&#x2F;master&#x2F;tree&#x2F;">source</a></div>
+</div>
+</div>
+  
+
+  
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a rel="external" href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <a rel="external" href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>
+        <a rel="external" href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>
