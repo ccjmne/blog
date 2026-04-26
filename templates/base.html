@@ -22,7 +22,7 @@
     </style>
   </head>
   <body>
-    <header {{ hlpr::vtn(name="header", static=true) -}} data-path="{{ current_path }}">
+    <header {{ hlpr::vtn(name="header", static=true) -}} data-path="{{ current_path | default(value="/") }}">
       <a href="{{ get_url(path="/") }}" data-target="home">Home</a>
       <details class="dropdown" max-md>
         <summary data-target="articles">Articles</summary>

@@ -1,0 +1,20 @@
+{%- extends "base.html" -%}
+
+{%- block cssvars -%}
+--column-width: min(90vw, 480px);
+{%- endblock cssvars -%}
+
+{%- block content -%}
+<h1><a rel="external" href="https://en.wikipedia.org/wiki/Our_princess_is_in_another_castle!">Our princess is in another castle!</a></h1>
+<div class="subtitle">Error 404: Not Found</div>
+<article class="narrower">
+  <div class="hi">
+    <p style="font-style: italic">
+      Not all those who wander are lost;<br>
+      Still it seems you could use a signpost :-)
+    </p>
+    <div class="quote-attribution">Going off <a rel="external" href="https://en.wikipedia.org/wiki/All_that_glitters_is_not_gold#Tolkien">J. R. R. Tolkien's <em>The Riddle of Strider</em></a></div>
+  </div>
+  <p>Find your way <a href="{{ get_url(path="/") }}">home</a>.</p>
+</article>
+{%- endblock content -%}
