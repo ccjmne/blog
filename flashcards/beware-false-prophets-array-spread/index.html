@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/base.css?h=5eaf59dc2d88083c5a9c">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2?h=b3c74e2fab27de35d142" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2?h=b1481b19a684088ca0aa" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2?h=d503244afc2437c96ade" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2?h=5c8eb42ff6f2e2934413" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2?h=a264b0cbe8b649d2258c" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-2.woff2?h=e7f9c933e970ed62349b" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-1.woff2?h=b3c74e2fab27de35d142') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2?h=b1481b19a684088ca0aa') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2?h=d503244afc2437c96ade') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/work-3.woff2?h=5c8eb42ff6f2e2934413') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2?h=a264b0cbe8b649d2258c') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/fira-2.woff2?h=e7f9c933e970ed62349b') format('woff2'); }
+</style>
+<link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-light.css?h=280afa93e1c6dfec22ed" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-dark.css?h=8efc0ee965d80c5835b7" media="(prefers-color-scheme: dark)">
+    
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+data-path="&#x2F;flashcards&#x2F;beware-false-prophets-array-spread&#x2F;">
+      <a href="https://ccjmne.sh/blog" data-target="home">Home</a>
+      <details class="dropdown" max-md>
+        <summary data-target="articles">Articles</summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual/"       >Flight rules</a>
+          <a href="https://ccjmne.sh/blog/ramblings/"       >Ramblings</a>
+          <a href="https://ccjmne.sh/blog/flashcards/"       >Flashcards</a>
+          <a href="https://ccjmne.sh/blog/tags/" max-sm>Sections</a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual/" min-md>Flight rules</a>
+      <a href="https://ccjmne.sh/blog/ramblings/" min-md>Ramblings</a>
+      <a href="https://ccjmne.sh/blog/flashcards/" min-md>Flashcards</a>
+      <a href="https://ccjmne.sh/blog/tags/" min-sm>Sections</a>
+      <a href="https://ccjmne.sh/blog/colophon/"       >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main><h1><span class="link-title" 
+  style="view-transition-name: view-beware-false-prophets-array-spread"
+>Beware false prophets: <code>[...arr]</code> is not harmful</span></h1><ul class="infobar "><li><time>April 19, 2026</time></li><li>6-minute read</li>
+    <li>tagged
+      <a href="https://ccjmne.sh/blog/tags/es6/">es6</a>, <a href="https://ccjmne.sh/blog/tags/javascript/">javascript</a>, <a href="https://ccjmne.sh/blog/tags/quibblery/">quibblery</a></li></ul>
+<details class="hi toc">
+  <summary>Table of contents</summary>
+  <ul><li>
+      <a href="https://ccjmne.sh/blog/flashcards/beware-false-prophets-array-spread/#the-gist-of-jit">The gist of JIT</a></li><li>
+      <a href="https://ccjmne.sh/blog/flashcards/beware-false-prophets-array-spread/#array-from-arr-fn-vs-arr-map-fn">Array.from(arr, fn) vs [...arr].map(fn)</a></li><li>
+      <a href="https://ccjmne.sh/blog/flashcards/beware-false-prophets-array-spread/#missing-the-forest-for-the-trees">Missing the forest for the trees</a></li>
+    <li><a href="#cited-tools">Referenced tools</a></li>
+    
+    
+  </ul>
+</details>
+<article><blockquote class="markdown-alert-note">
+<p>This is essentially a quick <code>TL;DR</code> of <a href="https://ccjmne.sh/blog/flight-manual/array-from-vs-square-brackets-spread/">You're wrong about <code>Array.from</code> vs
+<code>[...arr]</code></a>, a more
+comprehensible and far less digestible piece that goes in depth over the
+pitfalls of blanket, low-hanging <em>"performance fruits"</em>.</p>
+</blockquote>
+<p>Most recently, a new <a rel="external" href="https://en.wikipedia.org/wiki/Lint_(software)">linting</a>
+rule has been adopted by popular JavaScript and TypeScript set-up:  I have
+the great displeasure of introducing you to <code>e18e</code><sup class="footnote-reference" id="fr-e18e-1"><a href="#fn-e18e">1</a></sup>'s abominable
+<code>prefer-array-from-map</code> rule:</p>
+<blockquote>
+<p>Prefer <code>Array.from(iterable, mapper)</code> over <code>[...iterable].map(mapper)</code> to
+avoid intermediate array allocation.</p>
+<div class="quote-attribution">Ecosystem Performance (<code>e18e</code>), <code>prefer-array-from-map</code></div>
+</blockquote>
+<p>As soon as that machinery spat out prescriptivist nonsense regarding my
+beautiful tapestry of practical software, I remembered that one curious
+adventure I'd been on nearly a decade ago, touching on some considerations
+regarding what was at the time quite the usual pattern:<br>
+How preferable is <code>Array.prototype.slice.call(x)</code> to <code>[].slice.call(x)</code>?</p>
+<p>As I go over in <a rel="external" href="https://stackoverflow.com/a/52820058/2427596">this answer on
+StackOverflow</a>, the factual,
+learned, insightful answer is: <strong>not one bit</strong>—if anything, <code>[].slice</code> is
+preferable in all sorts of ways, and primarily that of <em>"performance"</em>, despite
+the contrary having been decried by its clueless detractors.</p>
+<h2 id="the-gist-of-jit"><a class="anchor-link" href="#the-gist-of-jit" aria-label="Anchor link for: the-gist-of-jit"></a>
+The gist of <code>JIT</code></h2>
+<p>An eminent tool in the great variety of mechanism that you brutalise whenever
+you shovel your pointless React or Python monstrosities is <strong>the <abbr
+title="Just-In-Time"><code>JIT</code></abbr> compilation</strong>.</p>
+<p>The <code>JIT</code> is a runtime optimisation strategy, whereby code is initially
+interpreted or compiled to an intermediate form, then <strong>selectively compiled
+into native machine code during execution</strong>, based on <strong>actual usage patterns</strong>.
+In short, "hot" code paths—those executed frequently—are identified via
+profiling, aggressively optimised in various ways (generally, for instance,
+stripping away the edge-case handling bits), and <strong>cached as native code</strong>,
+allowing subsequent executions to run at near-compiled speed while still
+retaining the flexibility of dynamic languages and runtime adaptability.</p>
+<p>You may want to go over this short introduction of what the <em>Just-In-Time</em>
+compilation is about, from this <a rel="external" href="https://hacks.mozilla.org/2017/02/a-crash-course-in-just-in-time-jit-compilers/"><em>"crash course"</em> on Mozilla
+Hacks</a>.</p>
+<p>I would go so far as to claim that generally, short of altering your high-level
+algorithm or data structure substantially, <strong>performance optimisation is a
+tricky beast</strong>.  <a rel="external" href="https://en.wikipedia.org/wiki/Donald_Knuth">Donald Knuth</a>
+would go even further, in judging <strong>premature optimisation to be the
+<em>"root of all evil"</em></strong>, especially when practised by what those he calls
+<em>"pennywise-and-pound-foolish programmers"</em>.</p>
+<h2 id="array-from-arr-fn-vs-arr-map-fn"><a class="anchor-link" href="#array-from-arr-fn-vs-arr-map-fn" aria-label="Anchor link for: array-from-arr-fn-vs-arr-map-fn"></a>
+<code>Array.from(arr, fn)</code> vs <code>[...arr].map(fn)</code></h2>
+<p>Back to the topic at hand: let's <strong>actually</strong> figure out whether ordaining
+<code>Array.from(arr, fn)</code> is helping out with regards to performance.</p>
+<p>In terms of memory consumption, a somewhat rigorous test
+(the details of which are outlined only in <a href="https://ccjmne.sh/blog/flight-manual/array-from-vs-square-brackets-spread/">the complete
+article</a>) yields the
+following results:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>iterations: 1             size: 10,000,000</span></span>
+<span class="giallo-l"><span>------------------------------------------</span></span>
+<span class="giallo-l"><span>[...arr].map(fn)      extra heap: 76.29 MB</span></span>
+<span class="giallo-l"><span>Array.from(arr, fn)   extra heap: 84.27 MB</span></span></code></pre></div>
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>iterations: 10            size: 10,000,000</span></span>
+<span class="giallo-l"><span>------------------------------------------</span></span>
+<span class="giallo-l"><span>[...arr].map(fn)      extra heap: 76.30 MB</span></span>
+<span class="giallo-l"><span>Array.from(arr, fn)   extra heap: 84.27 MB</span></span></code></pre></div>
+</div>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>iterations: 100           size: 10,000,000</span></span>
+<span class="giallo-l"><span>------------------------------------------</span></span>
+<span class="giallo-l"><span>[...arr].map(fn)      extra heap: 75.42 MB</span></span>
+<span class="giallo-l"><span>Array.from(arr, fn)   extra heap: 83.38 MB</span></span></code></pre></div>
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>iterations: 1000          size: 10,000,000</span></span>
+<span class="giallo-l"><span>------------------------------------------</span></span>
+<span class="giallo-l"><span>[...arr].map(fn)      extra heap: 75.42 MB</span></span>
+<span class="giallo-l"><span>Array.from(arr, fn)   extra heap: 83.39 MB</span></span></code></pre></div>
+</div>
+<p>It transpires that <code>Array.from(arr, fn)</code> is generally in the order
+of <code>~10%</code> worse overhead in terms of memory for immense arrays.
+It is systematically worse than its counterpart in question, as
+well as all others that I didn't mention here but <a href="https://ccjmne.sh/blog/flight-manual/array-from-vs-square-brackets-spread/">did consider
+there</a>.</p>
+<p>But the more interesting point would likely be that of its <em>"speed"</em>: how much
+faster would either method go?</p>
+<pre class="giallo z-code"><code data-lang="plain"><span class="term-fg1">Benchmark 1</span>: [...arr].map(fn)
+  Time (<span class="term-fg32 term-fg1">mean</span> ± <span class="term-fg32">σ</span>):     <span class="term-fg32 term-fg1"> 1.538 s</span> ± <span class="term-fg32"> 0.099 s</span>    [User: <span class="term-fg34">1.015 s</span>, System: <span class="term-fg34">0.517 s</span>]
+  Range (<span class="term-fg36">min</span> … <span class="term-fg35">max</span>):   <span class="term-fg36"> 1.404 s</span> … <span class="term-fg35"> 1.754 s</span>    <span class="term-fg2">20 runs</span>
+&nbsp;
+<span class="term-fg1">Benchmark 2</span>: Array.from(arr, fn)
+  Time (<span class="term-fg32 term-fg1">mean</span> ± <span class="term-fg32">σ</span>):     <span class="term-fg32 term-fg1"> 3.351 s</span> ± <span class="term-fg32"> 0.148 s</span>    [User: <span class="term-fg34">2.281 s</span>, System: <span class="term-fg34">1.027 s</span>]
+  Range (<span class="term-fg36">min</span> … <span class="term-fg35">max</span>):   <span class="term-fg36"> 3.122 s</span> … <span class="term-fg35"> 3.617 s</span>    <span class="term-fg2">20 runs</span>
+&nbsp;
+<span class="term-fg1">Summary</span>
+  <span class="term-fg36">[...arr].map(fn)</span> ran
+<span class="term-fg32 term-fg1">    2.18</span> ± <span class="term-fg32">0.17</span> times faster than <span class="term-fg35">Array.from(arr, fn)</span></code></pre>
+<p>Under the most recent iteration of the most ubiquitous JavaScript engine<sup class="footnote-reference" id="fr-v8-1"><a href="#fn-v8">2</a></sup>,
+<code>Array.from(arr, mapper)</code> is <strong>always</strong>, <strong>significantly</strong>, <strong>SLOWER</strong> than
+<code>[...arr].map(mapper)</code>.  Are we then to rewrite everything?</p>
+<h2 id="missing-the-forest-for-the-trees"><a class="anchor-link" href="#missing-the-forest-for-the-trees" aria-label="Anchor link for: missing-the-forest-for-the-trees"></a>
+<a rel="external" href="https://dictionary.cambridge.org/dictionary/english/not-see-the-forest-for-the-trees">Missing the forest for the trees</a></h2>
+<p>We're splitting hairs to no avail.  For one, if you wanted to optimise for
+performance, the unequivocal, vastly superior solution still remains that of
+<strong>using a <code>for</code>-loop: it's systematically significantly faster</strong> and goes:</p>
+<ul>
+<li><code>3.72</code> times faster than <code>[...arr].map(fn)</code>, and</li>
+<li><code>8.05</code> times faster than <code>Array.from(arr, fn)</code>.  <strong>EIGHT!!</strong></li>
+</ul>
+<p>So, the next time your <a rel="external" href="https://en.wikipedia.org/wiki/Lint_(software)">linter</a>
+screams at you at the <code>ERROR</code> level that this is somehow inadequate:</p>
+<pre class="giallo z-code"><code data-lang="javascript"><span class="giallo-l"><span class="z-storage z-type">const</span><span class="z-variable z-other z-constant z-js"> boxes</span><span class="z-keyword z-operator"> =</span><span class="z-source"> [</span><span class="z-keyword z-operator">...</span><span class="z-source">document</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">querySelectorAll</span><span class="z-source">(</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">.box</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-source">)</span><span class="z-source">]</span></span>
+<span class="giallo-l"><span class="z-punctuation z-accessor">    .</span><span class="z-entity z-name z-function">map</span><span class="z-source">(</span><span class="z-variable z-parameter">e</span><span class="z-storage z-type"> =&gt;</span><span class="z-source"> e</span><span class="z-punctuation z-accessor">.</span><span class="z-entity z-name z-function">getBoundingClientRect</span><span class="z-source">(</span><span class="z-source">)</span><span class="z-source">)</span></span></code></pre><div class="note">this excerpt triggers the revolting <code>e18e/prefer-array-from-map</code> rule</div>
+<p>... <strong>Know that it is rubbish.</strong></p>
+<p>There is hardly any room for improvement, until you've measured that there is a
+need for it; and when the time will come, be certain that some one-stop-shop,
+low-hanging <em>"panacea"</em> may be <strong>more of a red herring than a <a rel="external" href="https://en.wikipedia.org/wiki/Captain_Ahab">white
+whale</a></strong><sup class="footnote-reference" id="fr-red-herring-1"><a href="#fn-red-herring">3</a></sup>.</p>
+<p>Until then, good luck out there, have fun!</p>
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn-e18e">
+<p>the <code>e18e</code> itself is a very recent initiative whose goal is that of
+<em>"Ecosystem Performance"</em>: that is what their name stands for.  They started
+offering a collection of <em>"official"</em> JavaScript <a rel="external" href="https://eslint.org/">ESLint</a>
+plug-in for <em>"code modernization and performance best practices"</em> linting rules
+at <code>@e18e/eslint-plugin</code>. <a href="#fr-e18e-1">↩</a></p>
+</li>
+<li id="fn-v8">
+<p>The most ubiquitous JavaScript engine, by very far, is
+<a rel="external" href="https://v8.dev/"><code>V8</code></a>.</p>
+<blockquote class="markdown-alert-tip">
+<p>When some JavaScript is executed using <em>Node.js</em>, it actually runs against
+<a rel="external" href="https://v8.dev/">Google's <code>V8</code> JavaScript engine</a>: that is the interpreter
+upon which <em>Node.js</em> builds by adding numerous things, such as <code>HTTP</code>
+libraries, file system libraries, <code>OS</code> libraries (<code>process</code>, environment
+variables...), integration with the <code>npm</code> ecosystem, <em>et cet</em>.</p>
+<p>In the end, <strong>in the case of <em>Node.js</em> as well as all Chromium-derivative Web
+browsers</strong>, it's <code>V8</code> that you'll find under the hood.  In serious JavaScript
+performance profiling matters, the distinction needs to be made.</p>
+</blockquote>
+ <a href="#fr-v8-1">↩</a></li>
+<li id="fn-red-herring">
+<p><em>"More of a red herring than a white whale"</em>... Ah, I'm really
+quite proud of that one! <a href="#fr-red-herring-1">↩</a></p>
+</li>
+</ol>
+</section>
+
+  <h2 id="cited-tools"><a class="anchor-link" href="#cited-tools" aria-label="Anchor link for: cited-tools"></a>
+Referenced tools</h2>
+  <div class="refs">
+<div class="ref tool mono">
+  <strong>eslint</strong>
+  <div><span class="muted">from</span>&nbsp;<a rel="external" href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;eslint">extra&#x2F;eslint</a></div>
+  <div><a rel="external" href="https:&#x2F;&#x2F;eslint.org&#x2F;docs&#x2F;">manual</a>
+    <a rel="external" href="https:&#x2F;&#x2F;github.com&#x2F;eslint&#x2F;eslint">source</a></div>
+</div>
+
+<div class="ref tool mono">
+  <strong>node</strong>
+  <div><span class="muted">from</span>&nbsp;<a rel="external" href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;nodejs">extra&#x2F;nodejs</a></div>
+  <div><a rel="external" href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;extra&#x2F;nodejs&#x2F;node.1.en">manual</a>
+    <a rel="external" href="https:&#x2F;&#x2F;github.com&#x2F;nodejs&#x2F;node">source</a></div>
+</div>
+</div>
+  
+
+  
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a rel="external" href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <a rel="external" href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>
+        <a rel="external" href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>

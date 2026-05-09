@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/base.css?h=5eaf59dc2d88083c5a9c">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2?h=b3c74e2fab27de35d142" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2?h=b1481b19a684088ca0aa" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2?h=d503244afc2437c96ade" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2?h=5c8eb42ff6f2e2934413" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2?h=a264b0cbe8b649d2258c" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-2.woff2?h=e7f9c933e970ed62349b" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-1.woff2?h=b3c74e2fab27de35d142') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2?h=b1481b19a684088ca0aa') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2?h=d503244afc2437c96ade') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/work-3.woff2?h=5c8eb42ff6f2e2934413') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2?h=a264b0cbe8b649d2258c') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/fira-2.woff2?h=e7f9c933e970ed62349b') format('woff2'); }
+</style>
+<link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-light.css?h=280afa93e1c6dfec22ed" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-dark.css?h=8efc0ee965d80c5835b7" media="(prefers-color-scheme: dark)">
+    
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+data-path="&#x2F;flight-manual&#x2F;increment-decrement-vim&#x2F;">
+      <a href="https://ccjmne.sh/blog" data-target="home">Home</a>
+      <details class="dropdown" max-md>
+        <summary data-target="articles">Articles</summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual/"       >Flight rules</a>
+          <a href="https://ccjmne.sh/blog/ramblings/"       >Ramblings</a>
+          <a href="https://ccjmne.sh/blog/flashcards/"       >Flashcards</a>
+          <a href="https://ccjmne.sh/blog/tags/" max-sm>Sections</a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual/" min-md>Flight rules</a>
+      <a href="https://ccjmne.sh/blog/ramblings/" min-md>Ramblings</a>
+      <a href="https://ccjmne.sh/blog/flashcards/" min-md>Flashcards</a>
+      <a href="https://ccjmne.sh/blog/tags/" min-sm>Sections</a>
+      <a href="https://ccjmne.sh/blog/colophon/"       >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main><h1><span class="link-title" 
+  style="view-transition-name: view-increment-decrement-vim"
+>Incrementing and decrementing with Vim</span></h1><ul class="infobar "><li><time>January 23, 2026</time></li><li>15-minute read</li>
+    <li>tagged
+      <a href="https://ccjmne.sh/blog/tags/cli/">cli</a>, <a href="https://ccjmne.sh/blog/tags/vim/">vim</a></li></ul>
+<details class="hi toc">
+  <summary>Table of contents</summary>
+  <ul><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/increment-decrement-vim/#obligatory-tl-dr">Obligatory TL;DR</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/increment-decrement-vim/#the-basics-c-a-and-c-x">The basics: &lt;C-A&gt; and &lt;C-X&gt;</a><ul>
+        
+        <li><a href="https://ccjmne.sh/blog/flight-manual/increment-decrement-vim/#automatically-jump-to-valid-target">Automatically jump to valid target</a></li>
+        <li><a href="https://ccjmne.sh/blog/flight-manual/increment-decrement-vim/#also-with-count">Also with count</a></li>
+        <li><a href="https://ccjmne.sh/blog/flight-manual/increment-decrement-vim/#also-dot-repeatable">Also dot-repeatable</a></li></ul></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/increment-decrement-vim/#choose-what-and-how-to-increment">Choose what and how to increment</a><ul>
+        
+        <li><a href="https://ccjmne.sh/blog/flight-manual/increment-decrement-vim/#the-octal-trap">The octal trap</a></li>
+        <li><a href="https://ccjmne.sh/blog/flight-manual/increment-decrement-vim/#binary-and-hexadecimal-support">Binary and hexadecimal support</a></li>
+        <li><a href="https://ccjmne.sh/blog/flight-manual/increment-decrement-vim/#alphabetic-support-too">Alphabetic support, too</a></li>
+        <li><a href="https://ccjmne.sh/blog/flight-manual/increment-decrement-vim/#the-visual-mode-s-power-multiplier">The visual mode(s) power multiplier</a></li></ul></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/increment-decrement-vim/#the-main-course-g-a-and-g-x">The main course: g^A and g^X</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/increment-decrement-vim/#more-practical-examples">More practical examples</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/increment-decrement-vim/#expanding-further-with-plug-ins">Expanding further with plug-ins</a></li>
+    <li><a href="#cited-tools">Referenced tools</a></li>
+    
+    
+    <li><a href="#cited-vimhelp">Referenced Vim help</a></li>
+    
+  </ul>
+</details>
+<article><p>Vim has a delightful built-in feature, whereby it can increment—or
+decrement—numbers directly in the text.  But, as usual, this simple
+premise gets squeezed for maximum utility when you combine with the <em>count</em>
+mechanism, the visual mode(s), and the <code>g</code> prefix.  Oh and, one very simple
+plug-in<sup class="footnote-reference" id="fr-be-wary-of-plugins-1"><a href="#fn-be-wary-of-plugins">1</a></sup> can make it more usable yet.</p>
+<div class="hi">
+<h2 id="obligatory-tl-dr"><a class="anchor-link" href="#obligatory-tl-dr" aria-label="Anchor link for: obligatory-tl-dr"></a>
+Obligatory <a rel="external" href="https://en.wikipedia.org/wiki/TL;DR">TL;DR</a></h2>
+<p>The basics are strikingly simple:</p>
+<ul>
+<li><code>&lt;C-A&gt;</code> <strong>increments</strong> the number under the cursor, or the next one on the line,</li>
+<li><code>&lt;C-X&gt;</code> <strong>decrements</strong> the number under the cursor, or the next one on the line,</li>
+<li>you may prefix with a count: <code>5&lt;C-A&gt;</code> adds <code>5</code>, <code>10&lt;C-X&gt;</code> subtracts <code>10</code>.</li>
+</ul>
+<p>In the visual selection mode(s):</p>
+<ul>
+<li><code>&lt;C-A&gt;</code> and <code>&lt;C-X&gt;</code> operate on the number closest to the beginning of each
+line in the selection, on each line, at once;</li>
+<li>you may use visual-block (<code>&lt;C-V&gt;</code>) selection to operate only on specific
+columns of a subset of lines</li>
+</ul>
+<p>And, a surprise to many, the <code>g</code> prefix turns this into a nifty <strong>sequence
+manipulator</strong>:</p>
+<ul>
+<li><code>g&lt;C-A&gt;</code> increments them <strong>sequentially</strong>: first line by <code>1</code>, second by <code>2</code>,
+third by <code>3</code>, etc.</li>
+<li><code>g&lt;C-X&gt;</code> decrements them <strong>sequentially</strong>: first line by <code>-1</code>, second by <code>-2</code>,
+third by <code>-3</code>, etc.</li>
+<li>using a <em>count</em> with <code>g</code> controls the step size: <code>5g&lt;C-A&gt;</code> increments the
+first line by <code>5</code>, the second by <code>10</code>, the third by <code>15</code>, etc.</li>
+</ul>
+<blockquote class="markdown-alert-tip">
+<p>In Vim, the <code>bin</code>, <code>octal</code> and <code>hex</code> flags of <code>nrformats</code> are on by
+default.This means that <code>007</code> becomes <code>010</code> when incremented, not <code>008</code>. You
+may want to add <code>set nrformats-=octal</code> to your <code>.vimrc</code> to disable this
+behaviour.</p>
+<p>Note that <strong>Neovim does away with the <code>octal</code> one</strong> being on <em>by default</em>,
+which alleviates that puzzlement.  You can of course still <em>choose</em> to use it.</p>
+</blockquote>
+</div>
+<h2 id="the-basics-c-a-and-c-x"><a class="anchor-link" href="#the-basics-c-a-and-c-x" aria-label="Anchor link for: the-basics-c-a-and-c-x"></a>
+The basics: <code>&lt;C-A&gt;</code> and <code>&lt;C-X&gt;</code></h2>
+<p>In normal mode, place your cursor on (or before) a number and hit <code>&lt;C-A&gt;</code> to
+increment it, or <code>&lt;C-X&gt;</code> to decrement it:</p>
+<p>Relating the good news brought about by
+<a rel="external" href="https://en.wikipedia.org/wiki/List_of_The_Hitchhiker%27s_Guide_to_the_Galaxy_characters#Deep_Thought">Deep Thought</a>?
+Place your cursor on <code>41</code>, and press <code>&lt;C-A&gt;</code>:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>The answer is 41.</span></span></code></pre><div class="note">be on <code>41</code></div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>The answer is 42.</span></span></code></pre><div class="note">after <code>&lt;C-A&gt;</code></div>
+</div>
+</div>
+<blockquote class="markdown-alert-important">
+<p>From now on, I'll use the <code>^A</code> and <code>^X</code> notations to denote <code>&lt;C-A&gt;</code> and
+<code>&lt;C-X&gt;</code>, respectively.  Also, in case that wasn't too clear, <code>&lt;C-A&gt;</code>, as well
+as <code>^A</code>, mean holding <code>Ctrl</code> and pressing <code>A</code>.</p>
+</blockquote>
+<h3 id="automatically-jump-to-valid-target"><a class="anchor-link" href="#automatically-jump-to-valid-target" aria-label="Anchor link for: automatically-jump-to-valid-target"></a>
+Automatically jump to valid target</h3>
+<p>Well, actually, <strong>you don't have to be quite <em>on</em> a number</strong>.  Anywhere on a
+line that contains a valid <code>^A</code> or <code>^X</code> target will have Vim <strong>jump to that
+target</strong> when performing said action:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>Copyright (c) 2025 ACME Inc.</span></span></code></pre><div class="note">"this is so <em>last year</em>"</div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>Copyright (c) 2026 ACME Inc.</span></span></code></pre><div class="note">with <code>^A</code>, Vim jumps to <code>2025</code> and increments it</div>
+</div>
+</div>
+<p>Neat already, but it gets yet niftier when you have <strong>{ multiple numbers on a
+line }</strong>:</p>
+<p>Get to that line, press <code>^X</code> to drop Brazil's score to <code>0</code>, then nudge your
+cursor just a smidgen to the right with <code>l</code>, and use <code>^A</code> to bump France's score
+to <code>3</code>:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>Brazil: 1, France: 2</span></span></code></pre><div class="note">assuming cursor on <code>Brazil</code></div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>Brazil: 0, France: 3</span></span></code></pre><div class="note">after <code>^X</code>, <code>l</code>, <code>^A</code></div>
+</div>
+</div>
+<p>Voilà, the final score of the <a rel="external" href="https://en.wikipedia.org/wiki/1998_FIFA_World_Cup#Bracket">1998 FIFA World
+Cup</a>, in all its
+glorious splendour.</p>
+<h3 id="also-with-count"><a class="anchor-link" href="#also-with-count" aria-label="Anchor link for: also-with-count"></a>
+Also with <code>count</code></h3>
+<p>Like most Vim commands, you can prefix with a <code>count</code> (<a rel="external" href="https://vimhelp.org/intro.txt.html#count"><code>:help count</code></a>), and these bindings will
+behave as you'd expect.  Consider the following line:</p>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>HTTP 200</span></span></code></pre>
+<p>With your cursor anywhere on this line, use <code>4^A</code>:</p>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>HTTP 204</span></span></code></pre>
+<p>This becomes particularly useful when you need to adjust multiple values quickly
+without doing arithmetic in your head.</p>
+<h3 id="also-dot-repeatable"><a class="anchor-link" href="#also-dot-repeatable" aria-label="Anchor link for: also-dot-repeatable"></a>
+Also dot-repeatable</h3>
+<p>It's dot-repeatable, as well; which may be pretty neat.  Consider this command
+spawning a Docker container with up to <code>128M</code> memory:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">docker</span><span class="z-string"> run</span><span class="z-string"> -</span><span class="z-string">it</span><span class="z-string"> -</span><span class="z-string">d</span><span class="z-constant z-character z-escape">           \</span></span>
+<span class="giallo-l"><span class="z-string">  -</span><span class="z-string">-name</span><span class="z-string">     html2pdf</span><span class="z-constant z-character z-escape">       \</span></span>
+<span class="giallo-l"><span class="z-string">  -</span><span class="z-string">-restart</span><span class="z-string">  unless-stopped</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-string">  -</span><span class="z-string">-publish</span><span class="z-string">  3000:3000</span><span class="z-constant z-character z-escape">      \</span></span>
+<span class="giallo-l"><span class="z-string">  -</span><span class="z-string">-env-file</span><span class="z-string"> html2pdf.conf</span><span class="z-constant z-character z-escape">  \</span></span>
+<span class="giallo-l"><span class="z-string">  -</span><span class="z-string">-memory</span><span class="z-string">   256M</span><span class="z-constant z-character z-escape">           \</span></span>
+<span class="giallo-l"><span class="z-string">  ghcr.io/ccjmne/puppeteer-html2pdf:latest</span></span></code></pre>
+<p>Is <code>128</code> not enough?  Modern tools do require "modern" amounts of resources,
+after all; let's say that <code>400</code>-something might be about right.</p>
+<p>Jump to the <code>--memory 128M</code> line with <code>/mem</code>, then apply one savvy <code>32^A</code>
+to have <code>256</code> turn into <code>288</code> (that's <code>32</code> more: I don't know that, I
+just applied this very procedure I'm describing).  Press <code>.</code> (<a rel="external" href="https://vimhelp.org/repeat.txt.html#single-repeat"><code>:help .</code></a>) and it goes <code>320</code>; once
+more and you get <code>352</code>, then <code>384</code>, and <code>416</code>.  Too far?  Just <code>u</code>ndo (<a rel="external" href="https://vimhelp.org/undo.txt.html#undo"><code>:help u</code></a>) back and forth!</p>
+<h2 id="choose-what-and-how-to-increment"><a class="anchor-link" href="#choose-what-and-how-to-increment" aria-label="Anchor link for: choose-what-and-how-to-increment"></a>
+Choose what and how to increment</h2>
+<p>By default, Vim recognizes different number formats
+controlled by the <code>nrformats</code> option (<a rel="external" href="https://vimhelp.org/options.txt.html#%27nrformats%27"><code>:help 'nrformats'</code></a>).  This can
+lead to <em>surprising</em> behaviour if you're not aware of it; thankfully, there are
+plenty of remedies, all baked into the system.</p>
+<h3 id="the-octal-trap"><a class="anchor-link" href="#the-octal-trap" aria-label="Anchor link for: the-octal-trap"></a>
+The octal trap</h3>
+<p>With default settings, <strong>numbers with leading zeros are treated as octal</strong>:</p>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>007</span></span></code></pre><div class="note"><code>007</code> in octal would be <code>7</code> in decimal</div>
+<p>After <code>^A</code>:</p>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>010</span></span></code></pre><div class="note">that's <strong>octal</strong> for <code>8</code>, not what most people expect!</div>
+<p>To disable octal interpretation:</p>
+<blockquote class="markdown-alert-note">
+<p>In Vim, the <code>bin</code>, <code>octal</code> and <code>hex</code> flags of <code>nrformats</code> are on by default.
+However, <strong>Neovim does away with the <code>octal</code> one</strong> being on <em>by default</em>,
+which alleviates that puzzlement.  You can of course still <em>choose</em> to use it.</p>
+<p>I am partial to <code>:set nf=bin,hex,blank</code> and won't shy away from a quick
+<code>:set nf+=alpha</code> once in a while, which can trivially be undone with <code>:set nf-=alpha</code>.</p>
+</blockquote>
+<h3 id="binary-and-hexadecimal-support"><a class="anchor-link" href="#binary-and-hexadecimal-support" aria-label="Anchor link for: binary-and-hexadecimal-support"></a>
+Binary and hexadecimal support</h3>
+<p>Vim and Neovim also handle binary and hexadecimal numbers when <code>nrformats</code>
+includes <code>bin</code> and <code>hex</code>, respectively, which both editors do by default.
+Consider the following example in some configuration file:</p>
+<p>On the <code>ASCII</code> line, use <code>32^A</code><sup class="footnote-reference" id="fr-ascii-upper-lower-1"><a href="#fn-ascii-upper-lower">2</a></sup> to switch to lower case; on
+the <code>flags</code> line, use <code>4^X</code> to unset flag <code>4</code>:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="ini"><span class="giallo-l"><span class="z-keyword z-other z-definition z-ini">ascii</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-source"> 0x41    </span><span class="z-punctuation z-definition z-comment">;</span><span class="z-comment"> the letter &#39;A&#39;</span></span>
+<span class="giallo-l"><span class="z-keyword z-other z-definition z-ini">flags</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-source"> 0b0101  </span><span class="z-punctuation z-definition z-comment">;</span><span class="z-comment"> flags 1 and 4</span></span></code></pre></div>
+<div>
+<pre class="giallo z-code"><code data-lang="ini"><span class="giallo-l"><span class="z-keyword z-other z-definition z-ini">ascii</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-source"> 0x61    </span><span class="z-punctuation z-definition z-comment">;</span><span class="z-comment"> the letter &#39;a&#39;</span></span>
+<span class="giallo-l"><span class="z-keyword z-other z-definition z-ini">flags</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-source"> 0b0001  </span><span class="z-punctuation z-definition z-comment">;</span><span class="z-comment"> flag 1 only</span></span></code></pre><div class="note">use <code>32^A</code> on the first line, <code>4^X</code> on the second</div>
+</div>
+</div>
+<h3 id="alphabetic-support-too"><a class="anchor-link" href="#alphabetic-support-too" aria-label="Anchor link for: alphabetic-support-too"></a>
+Alphabetic support, too</h3>
+<p>If <code>nrformats</code> includes <code>alpha</code>, even <strong>letters</strong> can be incremented:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>Option A</span></span></code></pre><div class="note">have your cursor on <code>A</code></div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>Option B</span></span></code></pre><div class="note">after <code>^A</code></div>
+</div>
+</div>
+<p>This neither "overflows" nor wraps around: decrementing <code>a</code> or <code>A</code> has no
+effect, neither does incrementing <code>z</code> or <code>Z</code>.  A corollary to that would be that
+the <code>[a-z]</code> and <code>[A-Z]</code> sets work independently of each other: you cannot hop
+from <code>z</code> to <code>A</code> nor from <code>Z</code> to <code>a</code>.</p>
+<h3 id="the-visual-mode-s-power-multiplier"><a class="anchor-link" href="#the-visual-mode-s-power-multiplier" aria-label="Anchor link for: the-visual-mode-s-power-multiplier"></a>
+The visual mode(s) power multiplier</h3>
+<p>It may go without saying, but you may affect several lines at once with the
+various visual modes.  For example, consider a <em>catalogue of Web server
+addresses</em>.  We use the character- or line-wise visual modes, <code>v</code> or <code>V</code>, to
+more adequately label our hosts:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="ini"><span class="giallo-l"><span class="z-keyword z-other z-definition z-ini">server0</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-source"> 192.168.1.10:8000</span></span>
+<span class="giallo-l"><span class="z-keyword z-other z-definition z-ini">server0</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-source"> 192.168.1.10:8000</span></span>
+<span class="giallo-l"><span class="z-keyword z-other z-definition z-ini">server0</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-source"> 192.168.1.10:8000</span></span></code></pre><div class="note">highlight with <code>vip</code>, increase with <code>g^A</code></div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="ini"><span class="giallo-l"><span class="z-keyword z-other z-definition z-ini">server1</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-source"> 192.168.1.10:8000</span></span>
+<span class="giallo-l"><span class="z-keyword z-other z-definition z-ini">server2</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-source"> 192.168.1.10:8000</span></span>
+<span class="giallo-l"><span class="z-keyword z-other z-definition z-ini">server3</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-source"> 192.168.1.10:8000</span></span></code></pre><div class="note">after <code>vip</code> and <code>^A</code></div>
+</div>
+</div>
+<p>You want the last octet of the IP to increment, but not the port.  Position
+cursor on the first <code>10</code>, then <code>^Vjjk</code> (or <code>2jiw</code>, <code>2jt:</code>, ...) to visually
+select the final octet of all IP addresses:</p>
+<pre class="giallo z-code"><code data-lang="ini"><span class="giallo-l"><span class="z-keyword z-other z-definition z-ini">server1</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-source"> 192.168.1.10:8000</span></span>
+<span class="giallo-l"><span class="z-keyword z-other z-definition z-ini">server2</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-source"> 192.168.1.10:8000</span></span>
+<span class="giallo-l"><span class="z-keyword z-other z-definition z-ini">server3</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-source"> 192.168.1.10:8000</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment">;</span><span class="z-comment">                   ^^</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment">;</span><span class="z-comment">    selected across all three lines</span></span></code></pre><div class="note">select the last octet of that IP address (<code>10</code>) across all three lines, in block-wise visual mode (<code>^V</code>)</div>
+<p>Then <code>g^A</code> to affect each line of <strong>the selection</strong>, rather than the first
+adequate target <strong>in the selection</strong>, rather than the first overall, on each
+line (as a mere <code>V</code> would).</p>
+<pre class="giallo z-code"><code data-lang="ini"><span class="giallo-l"><span class="z-keyword z-other z-definition z-ini">server1</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-source"> 192.168.1.11:8000</span></span>
+<span class="giallo-l"><span class="z-keyword z-other z-definition z-ini">server2</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-source"> 192.168.1.12:8000</span></span>
+<span class="giallo-l"><span class="z-keyword z-other z-definition z-ini">server3</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-source"> 192.168.1.13:8000</span></span></code></pre><div class="note">note the last octet of each IP address now reading <code>11</code>, <code>12</code>, and <code>13</code>, respectively</div>
+<h2 id="the-main-course-g-a-and-g-x"><a class="anchor-link" href="#the-main-course-g-a-and-g-x" aria-label="Anchor link for: the-main-course-g-a-and-g-x"></a>
+The main course: <code>g^A</code> and <code>g^X</code></h2>
+<p>Just in time, as I chose to use it for the note on best leveraging the visual
+modes, here's where things get genuinely scrumptious.  The <code>g^A</code> (<a rel="external" href="https://vimhelp.org/change.txt.html#v_g_CTRL-A"><code>:help v_g_CTRL-A</code></a>) command applies
+<strong>sequential</strong> increments: the first selected line is incremented by <code>1</code>, the
+second by <code>2</code>, the third by <code>3</code>, and so on.  It also works as you imagine it
+would with <code>g^X</code>.  For illustration, start with this:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>0</span></span>
+<span class="giallo-l"><span>0</span></span>
+<span class="giallo-l"><span>0</span></span>
+<span class="giallo-l"><span>0</span></span>
+<span class="giallo-l"><span>0</span></span></code></pre><div class="note">500 milliseconds before</div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>1</span></span>
+<span class="giallo-l"><span>2</span></span>
+<span class="giallo-l"><span>3</span></span>
+<span class="giallo-l"><span>4</span></span>
+<span class="giallo-l"><span>5</span></span></code></pre><div class="note">after <code>vip</code> and <code>g^A</code></div>
+</div>
+</div>
+<p>Note that even the <strong>first line</strong> is incremented: if you want to go from a block
+of <code>1</code>, <code>1</code>, <code>1</code>, <code>1</code>, <code>1</code>, to a series of <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, you'll want
+to start off (or punctuate with) a complementary <code>^X</code>.</p>
+<div class="grid-1-3">
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>1</span></span>
+<span class="giallo-l"><span>1</span></span>
+<span class="giallo-l"><span>1</span></span>
+<span class="giallo-l"><span>1</span></span>
+<span class="giallo-l"><span>1</span></span></code></pre><div class="note">1 second before</div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>2</span></span>
+<span class="giallo-l"><span>3</span></span>
+<span class="giallo-l"><span>4</span></span>
+<span class="giallo-l"><span>5</span></span>
+<span class="giallo-l"><span>6</span></span></code></pre><div class="note">after <code>vip</code> and <code>g^A</code></div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>1</span></span>
+<span class="giallo-l"><span>2</span></span>
+<span class="giallo-l"><span>3</span></span>
+<span class="giallo-l"><span>4</span></span>
+<span class="giallo-l"><span>5</span></span></code></pre><div class="note">after <code>gv</code> (<a rel="external" href="https://vimhelp.org/visual.txt.html#gv"><code>:help gv</code></a>) and <code>^X</code></div>
+</div>
+</div>
+<p>Well, either that, or you could better select your target and skip the first
+line...</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>1</span></span>
+<span class="giallo-l"><span>1     &lt; select only these lines</span></span>
+<span class="giallo-l"><span>1     &lt; select only these lines</span></span>
+<span class="giallo-l"><span>1     &lt; select only these lines</span></span>
+<span class="giallo-l"><span>1     &lt; select only these lines</span></span></code></pre><div class="note">500 milliseconds before</div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>1</span></span>
+<span class="giallo-l"><span>2</span></span>
+<span class="giallo-l"><span>3</span></span>
+<span class="giallo-l"><span>4</span></span>
+<span class="giallo-l"><span>5</span></span></code></pre><div class="note">after <code>vip</code>, <code>oj</code> (<a rel="external" href="https://vimhelp.org/visual.txt.html#v_o"><code>:help v_o</code></a>) and <code>g^A</code></div>
+</div>
+</div>
+<p>Two by two?  Five by five?  No problem, <code>count</code> now specifies the step.</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>0</span></span>
+<span class="giallo-l"><span>0</span></span>
+<span class="giallo-l"><span>0</span></span>
+<span class="giallo-l"><span>0</span></span>
+<span class="giallo-l"><span>0</span></span></code></pre><div class="note">500 milliseconds before</div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>5</span></span>
+<span class="giallo-l"><span>10</span></span>
+<span class="giallo-l"><span>15</span></span>
+<span class="giallo-l"><span>20</span></span>
+<span class="giallo-l"><span>25</span></span></code></pre><div class="note">after <code>vip</code> and <code>5g^A</code></div>
+</div>
+</div>
+<p>Let's appreciate how well all these simple tips articulate together into a
+greater whole.  The following example supposes some sort of <em>hex dump</em> you'd
+want to annotate with addresses:</p>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>4c6f 7265 6d20 6970 7375  Lorem ipsu</span></span>
+<span class="giallo-l"><span>6d20 646f 6c6f 7220 7369  m dolor si</span></span>
+<span class="giallo-l"><span>7420 616d 6574 2c20 636f  t amet, co</span></span>
+<span class="giallo-l"><span>6e73 6563 7465 7475 7220  nsectetur </span></span>
+<span class="giallo-l"><span>6164 6970 6973 6369 6e67  adipiscing</span></span>
+<span class="giallo-l"><span>2065 6c69 742c 2073 6564   elit, sed</span></span>
+<span class="giallo-l"><span>2064 6f20 6569 7573 6d6f   do eiusmo</span></span>
+<span class="giallo-l"><span>6420 7465 6d70 6f72 2069  d tempor i</span></span></code></pre>
+<p>Start by laying out your intended output with <code>vip</code> and <code>:norm I0x00000000: </code></p>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>0x00000000: 4c6f 7265 6d20 6970 7375  Lorem ipsu</span></span>
+<span class="giallo-l"><span>0x00000000: 6d20 646f 6c6f 7220 7369  m dolor si</span></span>
+<span class="giallo-l"><span>0x00000000: 7420 616d 6574 2c20 636f  t amet, co</span></span>
+<span class="giallo-l"><span>0x00000000: 6e73 6563 7465 7475 7220  nsectetur </span></span>
+<span class="giallo-l"><span>0x00000000: 6164 6970 6973 6369 6e67  adipiscing</span></span>
+<span class="giallo-l"><span>0x00000000: 2065 6c69 742c 2073 6564   elit, sed</span></span>
+<span class="giallo-l"><span>0x00000000: 2064 6f20 6569 7573 6d6f   do eiusmo</span></span>
+<span class="giallo-l"><span>0x00000000: 6420 7465 6d70 6f72 2069  d tempor i</span></span></code></pre>
+<p>Then <code>gv</code> (or <code>vip</code> again), <code>oj</code> to skip the first line, and <code>10g^A</code> to
+increment each address a further 10, for each byte of the preceding line:</p>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>0x00000000: 4c6f 7265 6d20 6970 7375  Lorem ipsu</span></span>
+<span class="giallo-l"><span>0x0000000a: 6d20 646f 6c6f 7220 7369  m dolor si</span></span>
+<span class="giallo-l"><span>0x00000014: 7420 616d 6574 2c20 636f  t amet, co</span></span>
+<span class="giallo-l"><span>0x0000001e: 6e73 6563 7465 7475 7220  nsectetur </span></span>
+<span class="giallo-l"><span>0x00000028: 6164 6970 6973 6369 6e67  adipiscing</span></span>
+<span class="giallo-l"><span>0x00000032: 2065 6c69 742c 2073 6564   elit, sed</span></span>
+<span class="giallo-l"><span>0x0000003c: 2064 6f20 6569 7573 6d6f   do eiusmo</span></span>
+<span class="giallo-l"><span>0x00000046: 6420 7465 6d70 6f72 2069  d tempor i</span></span></code></pre><div class="note">I won't ever get <em>that</em> algebraically nimble across all bases I ever encounter—but I don't need to</div>
+<h2 id="more-practical-examples"><a class="anchor-link" href="#more-practical-examples" aria-label="Anchor link for: more-practical-examples"></a>
+More practical examples</h2>
+<p>Piloting Vim's not just about some <em>quirky commands in isolation</em> or some ideal
+scenario where doing it some other way would actually give you some pause: the
+ideal would be to <strong>compose your mastery</strong>, handle simple tasks <em>without any
+struggle</em>, and ultimately have their presumed complexity be disintegrating as
+you joyfully hack through your text.</p>
+<p>In the following configuration snippet, say that you want to bump the <code>duration</code>
+of some (or all?) animations by <code>100ms</code>.  Start by searching for <code>/duration</code>,
+then simply use <code>100^A</code>: <strong>that's <code>window-open</code> taken care of</strong>.  Then press <code>n</code>
+again to jump to each other available <code>duration</code> entry, interspersed with <code>.</code>
+whenever one is due for a bump.  Done!</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="kdl"><span class="giallo-l"><span class="z-entity z-name z-tag">animations</span><span class="z-source"> {</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">    window-open</span><span class="z-source"> {</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">        duration-ms</span><span class="z-constant z-numeric"> 150</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">        curve</span><span class="z-string"> &quot;</span><span class="z-string">ease-out-expo</span><span class="z-string">&quot;</span></span>
+<span class="giallo-l"><span class="z-source">    }</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">    window-close</span><span class="z-source"> {</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">        duration-ms</span><span class="z-constant z-numeric"> 200</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">        curve</span><span class="z-string"> &quot;</span><span class="z-string">ease-out-quad</span><span class="z-string">&quot;</span></span>
+<span class="giallo-l"><span class="z-source">    }</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">    window-resize</span><span class="z-source"> {</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">        spring</span><span class="z-entity z-other z-attribute-name"> damping-ratio</span><span class="z-punctuation z-separator z-key-value">=</span><span class="z-constant z-numeric">1.0</span><span class="z-entity z-other z-attribute-name"> stiffness</span><span class="z-punctuation z-separator z-key-value">=</span><span class="z-constant z-numeric">800</span><span class="z-entity z-other z-attribute-name"> epsilon</span><span class="z-punctuation z-separator z-key-value">=</span><span class="z-constant z-numeric">0.0001</span></span>
+<span class="giallo-l"><span class="z-source">    }</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">    screenshot-ui-open</span><span class="z-source"> {</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">        duration-ms</span><span class="z-constant z-numeric"> 150</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">        curve</span><span class="z-string"> &quot;</span><span class="z-string">ease-out-quad</span><span class="z-string">&quot;</span></span>
+<span class="giallo-l"><span class="z-source">    }</span></span>
+<span class="giallo-l"><span class="z-source">}</span></span></code></pre><div class="note">before you even really know what you want</div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="kdl"><span class="giallo-l"><span class="z-entity z-name z-tag">animations</span><span class="z-source"> {</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">    window-open</span><span class="z-source"> {</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">        duration-ms</span><span class="z-constant z-numeric"> 250</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">        curve</span><span class="z-string"> &quot;</span><span class="z-string">ease-out-expo</span><span class="z-string">&quot;</span></span>
+<span class="giallo-l"><span class="z-source">    }</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">    window-close</span><span class="z-source"> {</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">        duration-ms</span><span class="z-constant z-numeric"> 300</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">        curve</span><span class="z-string"> &quot;</span><span class="z-string">ease-out-quad</span><span class="z-string">&quot;</span></span>
+<span class="giallo-l"><span class="z-source">    }</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">    window-resize</span><span class="z-source"> {</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">        spring</span><span class="z-entity z-other z-attribute-name"> damping-ratio</span><span class="z-punctuation z-separator z-key-value">=</span><span class="z-constant z-numeric">1.0</span><span class="z-entity z-other z-attribute-name"> stiffness</span><span class="z-punctuation z-separator z-key-value">=</span><span class="z-constant z-numeric">800</span><span class="z-entity z-other z-attribute-name"> epsilon</span><span class="z-punctuation z-separator z-key-value">=</span><span class="z-constant z-numeric">0.0001</span></span>
+<span class="giallo-l"><span class="z-source">    }</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">    screenshot-ui-open</span><span class="z-source"> {</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">        duration-ms</span><span class="z-constant z-numeric"> 250</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">        curve</span><span class="z-string"> &quot;</span><span class="z-string">ease-out-quad</span><span class="z-string">&quot;</span></span>
+<span class="giallo-l"><span class="z-source">    }</span></span>
+<span class="giallo-l"><span class="z-source">}</span></span></code></pre><div class="note">by the time you've figured out what you want</div>
+</div>
+</div>
+<p>And hey, if you've worked out precisely what your end goal is, don't
+shy away from the good old <code>:g</code> magic, <code>:g/duration/norm 100^A</code>!
+Though you don't have to, <a rel="external" href="https://www.amazon.com/Practical-Vim-Edit-Speed-Thought/dp/1680501275">Vim will let you edit at the speed of
+through</a>,
+no matter how much forethought, if any, went into your text-wrangling.</p>
+<p>Don't really care for that padding? <code>vi{</code> to select inside the <code>{</code>...<code>}</code> block,
+then <code>10^X</code> to nullify them all:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="kdl"><span class="giallo-l"><span class="z-entity z-name z-tag">padding</span><span class="z-source"> {</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">    left</span><span class="z-constant z-numeric"> 10</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">    right</span><span class="z-constant z-numeric"> 10</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">    top</span><span class="z-constant z-numeric"> 10</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">    bottom</span><span class="z-constant z-numeric"> 10</span></span>
+<span class="giallo-l"><span class="z-source">}</span></span></code></pre><div class="note">1 second before</div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="kdl"><span class="giallo-l"><span class="z-entity z-name z-tag">padding</span><span class="z-source"> {</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">    left</span><span class="z-constant z-numeric"> 0</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">    right</span><span class="z-constant z-numeric"> 0</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">    top</span><span class="z-constant z-numeric"> 0</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-tag">    bottom</span><span class="z-constant z-numeric"> 0</span></span>
+<span class="giallo-l"><span class="z-source">}</span></span></code></pre><div class="note">after <code>vi{10^X</code></div>
+</div>
+</div>
+<p>And, just as a reminder: <strong>you're in a terminal</strong>.  You have access to
+<strong>everything else</strong>, no plug-ins required!  Another way to "count from 4 to
+52, 3 by 3" may very well be <code>:r!seq 4 3 52</code>.  Numbering stuff may sometimes
+be best delegated to tools like <code>nl</code>—over which I go length in <a href="https://ccjmne.sh/blog/flight-manual/numbering-lines/">that
+article</a>.</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">seq</span><span class="z-constant z-numeric"> 1</span><span class="z-constant z-numeric"> 3</span><span class="z-constant z-numeric"> 25</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>1</span></span>
+<span class="giallo-l"><span>4</span></span>
+<span class="giallo-l"><span>7</span></span>
+<span class="giallo-l"><span>10</span></span>
+<span class="giallo-l"><span>13</span></span>
+<span class="giallo-l"><span>16</span></span>
+<span class="giallo-l"><span>19</span></span>
+<span class="giallo-l"><span>22</span></span>
+<span class="giallo-l"><span>25</span></span></code></pre><div class="note"><code>seq</code> is worth a mention for sequence creation</div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">nl</span><span class="z-string"> -</span><span class="z-string">s.</span><span class="z-constant z-character z-escape">\ </span><span class="z-string"> -</span><span class="z-string">w1</span><span class="z-keyword z-operator"> &lt;&lt;</span><span class="z-punctuation z-definition z-string">EOF</span></span>
+<span class="giallo-l"><span class="z-string">Acquire food</span></span>
+<span class="giallo-l"><span class="z-string">Prepare food</span></span>
+<span class="giallo-l"><span class="z-string">Consume food</span></span>
+<span class="giallo-l"><span class="z-string">Process food</span></span>
+<span class="giallo-l"><span class="z-string">Sleep it off</span></span>
+<span class="giallo-l"><span class="z-string">Repeat</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string">EOF</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>1. Acquire food</span></span>
+<span class="giallo-l"><span>2. Prepare food</span></span>
+<span class="giallo-l"><span>3. Consume food</span></span>
+<span class="giallo-l"><span>4. Process food</span></span>
+<span class="giallo-l"><span>5. Sleep it off</span></span>
+<span class="giallo-l"><span>6. Repeat</span></span></code></pre><div class="note">You could use <code>!nl</code> visually; or in normal mode use <code>!ipnl</code> to number your current paragraph, or even <code>:%!nl</code> to cover your entire file</div>
+</div>
+</div>
+<h2 id="expanding-further-with-plug-ins"><a class="anchor-link" href="#expanding-further-with-plug-ins" aria-label="Anchor link for: expanding-further-with-plug-ins"></a>
+Expanding further with plug-ins</h2>
+<p>In spite of my (learned) distaste for plug-ins in general, a few here and
+there do help a bit.  I'm sure you won't have any trouble finding tools
+that extend Vim's <code>^A</code> and <code>^X</code>, but I'll bring your attention notably to
+<a rel="external" href="https://github.com/tpope/vim-speeddating"><code>tpope/vim-speeddating</code></a>.  This
+specific plug-in has two major advantages over many alternatives, in:</p>
+<ul>
+<li>dealing with the one case I actually do want manipulate with <code>^A</code>, <code>^X</code> (I
+don't need to bump semantic versions, hex colour codes, <em>et cet</em>...)</li>
+<li>being <strong>done</strong>: if you're sheepish about downloading and running code you
+don't know, you'll want to actually <strong>review</strong> the changes brought by
+each update of each of your plug-ins: <code>speeddating.vim</code> is <strong>done—not
+<em>unmaintained</em>!</strong>, which means that updates are few and far between.  What
+do you know, figuring out which date comes after <code>2026-03-10</code> is actually a
+solved problem<sup class="footnote-reference" id="fr-programming-time-1"><a href="#fn-programming-time">3</a></sup>.</li>
+</ul>
+<p>That is indeed what it does: <code>speeddating.vim</code>, as its name playfully suggests,
+lets you turn <code>1999-12-31</code> into <code>2000-01-01</code> with a single <code>^A</code>!  But you can
+also just bump it down by months, or years, rather than days, and it'll do it
+just right.</p>
+<p>For instance, with your cursor on the <strong>month</strong> segment of <code>2026-03-31</code>, <code>^X</code>
+will yield <code>2026-02-28</code>—there are only 28 days in February in 2028.  What's
+100 days from any arbitrary date?  As easy as <code>100^A</code>.  Oh and, it understands
+other formats...  Such as date and time in <strong><code>RFC 5322</code> format</strong>, which <code>GNU</code>'s
+<code>date</code> utility outputs with the <code>-R</code>/<code>--rfc-email</code> flag.</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">date</span><span class="z-string"> -</span><span class="z-string">-rfc-email</span><span class="z-string"> -</span><span class="z-string">-date</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">next saturday 1500</span><span class="z-punctuation z-definition z-string">&#39;</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">date</span><span class="z-string"> -</span><span class="z-string">Rd</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">sat 3pm</span><span class="z-punctuation z-definition z-string">&#39;</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>Sat, 14 Mar 2026 15:00:00 +0100</span></span></code></pre><div class="note">by the way, that's <a rel="external" href="https://en.wikipedia.org/wiki/Pi_Day"><code>π</code> day</a>! <code>3-14</code> at <code>15</code></div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">date</span><span class="z-string"> -</span><span class="z-string">-iso-8601=seconds</span><span class="z-string"> -</span><span class="z-string">-date</span><span class="z-punctuation z-definition z-string"> &#39;</span><span class="z-string">next saturday 1500</span><span class="z-punctuation z-definition z-string">&#39;</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">date</span><span class="z-string"> -</span><span class="z-string">Is</span><span class="z-string"> -</span><span class="z-string">d</span><span class="z-punctuation z-definition z-string">&#39;</span><span class="z-string">sat 3pm</span><span class="z-punctuation z-definition z-string">&#39;</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>2026-03-14T15:00:00+01:00</span></span></code></pre><div class="note">works just as well with the <code>ISO 8601</code> formats</div>
+</div>
+</div>
+<p>With your cursor on <code>2026</code>, press <code>2^X</code> to get <code>π</code> day <code>2028</code>:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>Tue, 14 Mar 2028 15:00:00 +0100</span></span></code></pre><div class="note">note the weekday changing from <code>Sat</code> to <code>Tue</code>!</div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>2028-03-14 15:00</span></span>
+<span class="giallo-l"><span>2028-03-14</span></span>
+<span class="giallo-l"><span>March 14th, 2028</span></span></code></pre><div class="note">and also these formats</div>
+</div>
+</div>
+<p>Then <code>B</code>-shimmy your way to <code>Mar</code> and let your partner believe you meant
+<a rel="external" href="https://en.wikipedia.org/wiki/Valentine%27s_Day">Valentine's Day</a> all along, with a mere <code>^X</code>:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>Mon, 14 Feb 2028 15:00:00 +0100</span></span></code></pre><div class="note">the weekday changed again, from <code>Tue</code> to <code>Mon</code></div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>14-Feb-2028</span></span>
+<span class="giallo-l"><span>2028 Feb 14</span></span>
+<span class="giallo-l"><span>Feb 14, 2028</span></span></code></pre><div class="note">and also these</div>
+</div>
+</div>
+<p><a rel="external" href="https://en.wikipedia.org/wiki/127_Hours">127 hours</a> later?  <code>/15</code>, <code>127^A</code>,
+done:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>Sat, 19 Feb 2028 22:00:00 +0100</span></span></code></pre><div class="note">going by that science, you should be able cram some 600-hour university course in precisely 25 days</div>
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>22:00:00AM</span></span>
+<span class="giallo-l"><span>22:00AM</span></span>
+<span class="giallo-l"><span>22AM</span></span></code></pre><div class="note">and even more, such as <code>MMXXVIII</code></div>
+</div>
+</div>
+<blockquote class="markdown-alert-note">
+<p>To clarify, <code>speeddating.vim</code> supports a whopping <strong>22 date and time formats
+of various sorts, built-in</strong>, and lets you further define your own.  And quite
+many more ingenuous plug-ins are out there also building upon Vim's <code>^A</code> and
+<code>^X</code>'s semantics.  I go in depth and cover (about) everything pertaining
+to the Vim core incrementation prowess, but intend to do nothing more than
+scratch the surface of what exists out there.</p>
+</blockquote>
+<p>I'd like to take this time to mention again: <strong>extreme proficiency with the
+"basic" tools routinely trumps familiarity with more extravagant, well-meaning,
+specialised toys</strong>; either way, it turns out we can still wrangle text faster
+than the <code>LLM</code>s, and more precisely!</p>
+<p>The main limiting factor is how dedicated you'll be to master your craft.  My
+more certain advice to you goes as follows: whatever philosophies you'll dabble
+in or embrace, make sure to <strong>keep doing what you find to be fun</strong>.  Cheers!</p>
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn-be-wary-of-plugins">
+<p>I've mentioned this before, but I should mention it
+again: <strong>plug-ins are third-party code that you install and run on
+your machine</strong>.  Do not install plug-ins whose codebase you haven't
+assessed, whose maintainers you haven't vetted.  In <em>no case</em> is it okay
+to auto-update plug-ins.  And do pin them to a specific version; merely
+reinstalling them on a new machine shouldn't be an excuse for ignoring the
+fact that you're now running code from <em>some guy on the Internet</em>.</p>
+<p>You don't quite have to perform a full-on review each commit, but <strong>you do
+have to discern</strong> which are maintained by communities you don't have full,
+extensive confidence in, and <strong>take <em>a look</em> at <em>each commit</em></strong>, for its
+subject message and its author, complete with signature.</p>
+<p>Is that too extreme?
+<a rel="external" href="https://visualstudiomagazine.com/articles/2025/12/08/threat-actors-keep-weaponizing-vs-code-extensions.aspx">Not</a>
+<a rel="external" href="https://instatunnel.my/blog/automated-dependency-side-loading-the-invisible-supply-chain-attack-via-ai-extensions">one</a>
+<a rel="external" href="https://byteiota.com/malicious-vs-code-extensions-steal-developer-credentials/">bit</a>.
+No time for this?  Then, no plug-ins; or no updating plug-ins you've already
+reviewed.  Generally, I'll recommend plug-ins that are <strong>done</strong>, because
+these you can review and maintain! <a href="#fr-be-wary-of-plugins-1">↩</a></p>
+</li>
+<li id="fn-ascii-upper-lower">
+<p>The <code>ASCII</code> codes for upper- and lower-case are
+precisely <code>32</code> (<code>0x20</code>) apart!  In fact, the entire <code>ASCII</code> table, and its
+"extensions", like <code>UTF</code>, are quite savvily laid out.  Here's one quite tidy
+<a rel="external" href="https://www.youtube.com/watch?v=MijmeoH9LT4">video from Computerphile</a>
+on the subject: UTF-8 came from a mere <a rel="external" href="https://www.cl.cam.ac.uk/~mgk25/ucs/utf-8-history.txt">literal
+back-of-a-napkin</a>
+creation from the beautiful mind of <a rel="external" href="https://en.wikipedia.org/wiki/Ken_Thompson">Kenneth Lane
+Thompson</a>. <a href="#fr-ascii-upper-lower-1">↩</a></p>
+</li>
+<li id="fn-programming-time">
+<p>Well, anything that has to do with programming time
+manipulation is <a rel="external" href="https://infiniteundo.com/post/25509354022/more-falsehoods-programmers-believe-about-time">certain to be
+problematic</a>,
+but for your general intents and purposes, we do know what comes after New
+Year's Eve or what lurks right behind Sunday night. <a href="#fr-programming-time-1">↩</a></p>
+</li>
+</ol>
+</section>
+
+  <h2 id="cited-tools"><a class="anchor-link" href="#cited-tools" aria-label="Anchor link for: cited-tools"></a>
+Referenced tools</h2>
+  <div class="refs">
+<div class="ref tool mono">
+  <strong>date</strong>
+  <div><span class="muted">from</span>&nbsp;<a rel="external" href="https://archlinux.org/packages/core&#x2F;x86_64&#x2F;coreutils">core&#x2F;coreutils</a></div>
+  <div><a rel="external" href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;date.1.en">man</a>
+    <a rel="external" href="https:&#x2F;&#x2F;github.com&#x2F;coreutils&#x2F;coreutils">src</a>
+    <a rel="external" href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;date.1p.en">posix</a></div>
+</div>
+
+<div class="ref tool mono">
+  <strong>vim</strong>
+  <div><span class="muted">from</span>&nbsp;<a rel="external" href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;vim">extra&#x2F;vim</a></div>
+  <div><a rel="external" href="https:&#x2F;&#x2F;vimhelp.org&#x2F;">manual</a>
+    <a rel="external" href="https:&#x2F;&#x2F;github.com&#x2F;vim&#x2F;vim">source</a></div>
+</div>
+</div>
+  
+
+  
+  <h2 id="cited-vimhelp"><a class="anchor-link" href="#cited-vimhelp" aria-label="Anchor link for: cited-vimhelp"></a>
+Referenced Vim help</h2>
+  <div class="refs">
+    
+<div class="ref vimhelp mono">
+  <a rel="external" href="https://vimhelp.org/options.txt.html#%27nrformats%27"><strong>:help &#x27;nrformats&#x27;</strong></a>
+  <span class="excerpt">This defines what bases Vim will consider for numbers when using the
+<code>CTRL-A</code> and <code>CTRL-X</code> commands for adding to and subtracting from a number
+respectively.</span>
+</div>
+
+<div class="ref vimhelp mono">
+  <a rel="external" href="https://vimhelp.org/change.txt.html#v_g_CTRL-A"><strong>:help v_g_CTRL-A</strong></a>
+  <span class="excerpt">Add <code>[count]</code> to the number or alphabetic character in the highlighted
+text.  If several lines are highlighted, each one will be incremented by
+an additional <code>[count]</code> (so effectively creating a <code>[count]</code> incrementing
+sequence).</span>
+</div>
+
+<div class="ref vimhelp mono">
+  <a rel="external" href="https://vimhelp.org/visual.txt.html#v_o"><strong>:help v_o</strong></a>
+  <span class="excerpt">Go to <code>O</code>ther end of highlighted text: The current cursor position becomes
+the start of the highlighted text and the cursor is moved to the other end
+of the highlighted text.  The highlighted area remains the same.</span>
+</div>
+
+<div class="ref vimhelp mono">
+  <a rel="external" href="https://vimhelp.org/visual.txt.html#gv"><strong>:help gv</strong></a>
+  <span class="excerpt">Start Visual mode with the same area as the previous area and the same mode.
+In Visual mode the current and the previous Visual area are exchanged.</span>
+</div>
+
+  </div>
+  
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a rel="external" href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <a rel="external" href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>
+        <a rel="external" href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>
