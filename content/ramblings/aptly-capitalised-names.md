@@ -119,6 +119,10 @@ we can still strive to get it right.  Let's jump right in, alphabetically:
 
   All running [_iOS_](https://www.apple.com/os/ios/), of course.
 
+- It's [**iTerm2**](https://iterm2.com/)
+
+  Not actually an _Apple_ product, but indeed a _macOS_ application.
+
 - It's [**jQuery**](https://jquery.com/)
 
   Part of the _"camelCase"_ craze of mid-2000s JavaScript libraries; jQuery_ and
@@ -197,3 +201,7 @@ we can still strive to get it right.  Let's jump right in, alphabetically:
   Ahem.  I'd love to tell you how it came to be called that, but I'd frankly do
   a poorer job than a lot of articles out there.  I have in mind a particular
   documentary, which I sadly cannot find again.
+
+- It's [**XTerm**](https://invisible-island.net/xterm/)
+
+  The forefather of competent, modern terminal emulators, for the X Window System.
