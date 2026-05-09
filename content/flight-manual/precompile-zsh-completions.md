@@ -60,7 +60,7 @@ autoload -U compinit && compinit -d $dumpfile
 ```
 {{ note(msg="I automatically run this script once a day, with a `systemd` timer") }}
 
-Retain only this in your in your `.zshrc`.
+Retain only this in your in your `.zshrc`:
 
 ```sh
 typeset -U fpath
@@ -229,7 +229,7 @@ else
 fi
 ```
 
-### And exhaustive walk-through
+### An exhaustive walk-through
 
 Let's go over what it does, in an order that makes sense to me:
 
