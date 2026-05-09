@@ -22,9 +22,10 @@ that we've been building towards all the while.  And what
 better celebration than the whimsy-spirited [_Advent of
 Code_](https://adventofcode.com/2025/leaderboard/private)?
 
-The <abbr title="Advent of Code">`AoC`</abbr> is a yearly event running from
-December 1st through 25th[^only-12-days], just like contemporary Christian
-[Advent calendars](https://en.wikipedia.org/wiki/Advent_calendar).
+The what, now?  In a few words, the <abbr title="Advent of Code">`AoC`</abbr>
+is a global event running annually from December first through
+the 25th[^only-12-days], just like contemporary Christian [Advent
+calendars](https://en.wikipedia.org/wiki/Advent_calendar).
 
 [^only-12-days]: Well, starting this year, **it'll "only" run from the 1st
 through the 12th**, for several reasons, chief among them being [how demanding
@@ -32,9 +33,9 @@ it is to put together](https://www.youtube.com/watch?v=_oNOTknRTSU) each year.
 
 <div class="hi">
 
-So, what is it?  In a few words, it's **a collection of programming exercises,
-lovingly crafted each year** over the course of quite a few months, by a single
-creator, [Eric Wastl](https://was.tl/).  But over this fairly standard premise
+At its core, it is **a collection of programming exercises, lovingly crafted
+each year** over the course of quite a few months, by a single dedicated
+creator, [Eric Wastl](https://was.tl/), and over this fairly standard premise
 come **three!** charming twists:
 
 1. **the challenges get progressively harder as the month goes**, ranging from
@@ -53,11 +54,12 @@ another logistical nightmare in organising that celebration.
 
 </div>
 
-But the _Advent of Code_ wouldn't be complete without its rallying quality:
-**the spirit of Christmas, for me and many others, is sublimed by this now
-well-established tradition of working together** towards a common goal of having
-fun honing and sharing our skills, helping one another out, competing (for those
-who want to), claiming virtual achievement stars...
+And finally, I'd be remiss if I didn't touch on what makes it a popular
+jamboree—the _Advent of Code_ wouldn't be complete without its rallying
+quality: **the spirit of Christmas, for me and many others, is sublimed by this
+now well-established tradition of working together** towards a common goal of
+having fun honing and sharing our skills, helping one another out, competing
+(for those who want to), claiming virtual achievement stars...
 
 You can set up private "leader boards", where you don't necessarily have to
 track how fast people got to implement their solution (they do come out at `6am`
