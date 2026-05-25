@@ -172,6 +172,12 @@ package = "core/x86_64/sed"
 manual  = "https://man.archlinux.org/man/sed.1.en"
 posix   = "https://man.archlinux.org/man/sed.1p.en"
 
+[extra.tools.tmux]
+name    = "tmux"
+repo    = "https://github.com/tmux/tmux"
+package = "extra/x86_64/tmux"
+manual  = "https://man.archlinux.org/man/extra/tmux/tmux.1.en"
+
 [extra.tools.wc]
 name    = "wc"
 repo    = "https://github.com/coreutils/coreutils"
