@@ -392,7 +392,6 @@ base=$(cat spd.js)
 hyperfine      \
     --warmup 5 \
     --runs  20 \
-    --style=color \
     --command-name='for (...)'           \
     --command-name='arr.map(fn)'         \
     --command-name='[...arr].map(fn)'    \
@@ -580,7 +579,8 @@ slower.**
 
 ### The two operations in question
 
-First, comparing to `[...arr].map(fn)` in isolation:
+Let's start by comparing comparing `Array.from(arr, fn)` to `[...arr].map(fn)`
+in isolation:
 
 ```txt
                        A - B           A - B
