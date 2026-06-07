@@ -54,8 +54,8 @@ fonts, optimised for Web performance using the [Web Open Font
 Format](https://en.wikipedia.org/wiki/Web_Open_Font_Format).
 
 On the topic of the `CSS`, you won't find in there any rounded corner, any
-shadows, any opacity, any background or text gradient, nor any click or hover
-animation.  I trade generic, hyper-modern, canned design for some bold,
+shadows, any transparency, any background or text gradient, nor any click or
+hover animation.  I trade generic, hyper-modern, canned design for some bold,
 stand-alone, simple elegance.
 
 A full "production" build, creating all files from scratch, syntactically
