@@ -1,6 +1,6 @@
 +++
 title = "You're wrong about `Array.from` vs `[...arr]`"
-date = 2026-04-19
+date = 2026-05-19
 description = 'The science behind the non-functional ways—if any— where `Array.from(arr, fn)` is preferrable to its alternatives'
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'craftsmanship', 'es6', 'javascript', 'quibblery']
