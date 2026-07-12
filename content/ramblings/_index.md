@@ -2,6 +2,7 @@
 title = 'Ramblings'
 description = 'Dubito, ergo cogito, ergo scribo'
 sort_by = 'date'
-template = 'ramblings.html'
+template = 'listing.html'
 page_template = 'rambling.html'
+extra.listing = 'ramblings'
 +++

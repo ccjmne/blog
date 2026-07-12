@@ -5,9 +5,9 @@
 {%- endblock cssvars -%}
 
 {%- block content -%}
-<h1 id="ramblings">{{- section.title -}}</h1>
-<div class="subtitle">{{ section.description }}</div>
-{%- set txnm = get_taxonomy_term(kind="section", term="ramblings") -%}
+<h1 id={{section.extra.listing}}>{{- section.title -}}</h1>
+<div class="subtitle">{{- section.description -}}</div>
+{%- set txnm = get_taxonomy_term(kind="section", term=section.extra.listing) -%}
 {%- set most_recent = txnm.pages | first -%}
 <div class="hi">
   {%- set page = most_recent -%}
