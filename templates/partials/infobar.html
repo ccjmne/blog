@@ -45,7 +45,8 @@
       {%- if term is defined and term.name == tag -%}
       <span class="current">{{ tag | markdown(inline=true) | safe }}</span>
       {%- else -%}
-      <a href="{{ get_url(path="/tags/" ~ tag, trailing_slash=true) }}">{{ tag | markdown(inline=true) | safe }}</a>
+      {% set term = get_taxonomy_term(kind="tags", term=tag) %}
+      <a href="{{ term.permalink }}">{{ tag | markdown(inline=true) | safe }}</a>
       {%- endif -%}
       {%- endfor -%}
     </li>
