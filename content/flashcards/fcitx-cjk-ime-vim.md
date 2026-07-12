@@ -3,7 +3,7 @@ title = 'Reconciling your `CJK` prose with the Vim motions'
 date = 2026-06-29
 description = 'Not just <abbr title="Chinese, Japanese and Korean [writing systems]">`CJK`</abbr>, but any <abbr title="Input Method Editor">`IME`</abbr> other than the destined one that you moulded your body and mind around for your most acrobatic text navigation purposes'
 taxonomies.section = ['flashcards']
-taxonomies.tags = ['all', 'vim', 'fcitx5', 'quibblery']
+taxonomies.tags = ['all', 'vim', 'fcitx5', 'quibblery', '한국어']
 extra.cited_tools = ['fcitx5', 'vim']
 +++
 
