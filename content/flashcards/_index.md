@@ -1,5 +1,6 @@
 +++
-title = 'One page a day builds a library'
+title = 'Flashcards'
+description = 'One page a day builds a library'
 sort_by = 'date'
 template = 'flashcards.html'
 page_template = 'flight-rule.html'
