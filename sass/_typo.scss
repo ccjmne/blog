@@ -9,14 +9,14 @@ ul { list-style-type: square; }
 ol, ul { box-sizing: border-box; }
 
 body {
-  font-family: "Work Sans", serif;
+  font-family: "Work Sans", "Noto Sans KR", serif;
   font-optical-sizing: auto;
   color: var(--colour-text);
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
-  font-family: "Outfit", sans-serif;
+  font-family: "Outfit", "Noto Sans KR", sans-serif;
 }
 h1 { margin: 4rem 0; }
 h2, h3 { margin: 3rem 0 1.75rem; }

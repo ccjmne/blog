@@ -6,10 +6,11 @@ readonly project="$(readlink -f "$0" | xargs dirname | xargs dirname)"
 readonly ouft=$(curl -Ls 'https://fonts.googleapis.com/css2?family=Outfit:wght@500')
 readonly work=$(curl -Ls 'https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,600;1,400')
 readonly fira=$(curl -Ls 'https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600')
+readonly noto=$(curl -Ls 'https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500&display=optional')
 
 preload=()
 style=()
-for font in ouft work fira; do
+for font in ouft work fira noto; do
     i=1
     while read -r ff; do
         file=$font-$((i++))
