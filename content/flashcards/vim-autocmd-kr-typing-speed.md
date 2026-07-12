@@ -2,7 +2,7 @@
 title = 'An `autocmd` to track my 두벌식 typing progress'
 date = 2026-07-12
 description = """Using **a single line in my `vimrc`**, I get to merely type in my time and have Vim compute the corresponding <abbr title="Words Per Minute">`wpm`</abbr>, annotate that with the current date and align with the rest of the table"""
-taxonomies.section = ['flight-manual']
+taxonomies.section = ['flashcards']
 taxonomies.tags = ['all', 'vim', '한국어']
 extra.cited_tools = ['column', 'vim']
 +++
