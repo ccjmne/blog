@@ -72,10 +72,10 @@ skilful web of competences.
   could we expect?"_—as the ceremonial shrug-off would go.
 
 Well, we could expect better.  Some people expect better—albeit possibly
-not from us, possibly justifiably: if you're cramming all sorts of [`MCP`
+not from us, possibly justifiably.  If you're cramming all sorts of [`MCP`
 providers](https://en.wikipedia.org/wiki/Model_Context_Protocol) into your `AI`
-agent to squeeze more capabilities out of it, can you justify no doing the same
-for yourself?
+agent to squeeze more capabilities out of it, how do you justify no doing the
+same for yourself?
 
 Without some understanding of the systems we're presuming to pilot, **none
 of the above is within our reach**, certainly not with any semblance of
