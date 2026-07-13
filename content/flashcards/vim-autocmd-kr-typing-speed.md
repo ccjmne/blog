@@ -134,11 +134,11 @@ date        time   wpm
 > using the `column` utility—find its `man`ual at the bottom of this blog
 > post, as usual.
 
-  But then, I realised that _Monkeytype_ would actually round up the <abbr
-title="Words Per Minute">`wpm`</abbr>.  That's generally not much of an issue,
-since we generally type at over 100 `wpm`, but for this current case, I thought
-it too imprecise.<br>
-  Moreover, I am indeed so slow that it considered many seconds to constitute
+   But then, I realised that _Monkeytype_ would actually round up the <abbr
+title="Words Per Minute">`wpm`</abbr>: by that science, `18.018018wpm` becomes
+`19wpm`.  That's generally not much of an issue, since we generally type at over
+100wpm, but for this current case, I thought it too imprecise.<br>
+   Moreover, I am indeed so slow that it considered many seconds to constitute
 <abbr title="Away From Keyboard">`AFK`</abbr> (idle) time and **computed my
 `wpm` as if I hadn't been painstakingly scratching my head** all throughout the
 session, resulting in a largely inflated statistic: that simply won't do.
