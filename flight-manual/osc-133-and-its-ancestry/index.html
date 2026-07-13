@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/base.css?h=e470b404154f640c1139">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/noto-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/noto-2.woff2" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/work-3.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/fira-2.woff2') format('woff2'); }
+  @font-face { font-family: 'Noto Sans KR'; font-style: normal; font-weight: 400; font-display: optional; src: url('https://ccjmne.sh/blog/noto-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Noto Sans KR'; font-style: normal; font-weight: 500; font-display: optional; src: url('https://ccjmne.sh/blog/noto-2.woff2') format('woff2'); }
+</style><link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-light.css?h=280afa93e1c6dfec22ed" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-dark.css?h=8efc0ee965d80c5835b7" media="(prefers-color-scheme: dark)">
+    
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+data-path="&#x2F;flight-manual&#x2F;osc-133-and-its-ancestry&#x2F;">
+      <a href="https://ccjmne.sh/blog" data-target="home">Home</a>
+      <details class="dropdown" max-md>
+        <summary data-target="articles">Articles</summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual/"       >Flight rules</a>
+          <a href="https://ccjmne.sh/blog/ramblings/"       >Ramblings</a>
+          <a href="https://ccjmne.sh/blog/flashcards/"       >Flashcards</a>
+          <a href="https://ccjmne.sh/blog/tags/" max-sm>Sections</a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual/" min-md>Flight rules</a>
+      <a href="https://ccjmne.sh/blog/ramblings/" min-md>Ramblings</a>
+      <a href="https://ccjmne.sh/blog/flashcards/" min-md>Flashcards</a>
+      <a href="https://ccjmne.sh/blog/tags/" min-sm>Sections</a>
+      <a href="https://ccjmne.sh/blog/colophon/"       >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main><h1><span class="link-title" 
+  style="view-transition-name: view-osc-133-and-its-ancestry"
+>The ancestry of <code>OSC</code> <code>133</code>: semantic prompts</span></h1><ul class="infobar "><li><time>May 06, 2026</time></li><li>17-minute read</li>
+    <li>tagged
+      
+      <a href="https:&#x2F;&#x2F;ccjmne.sh&#x2F;blog&#x2F;tags&#x2F;cli&#x2F;">cli</a>, 
+      <a href="https:&#x2F;&#x2F;ccjmne.sh&#x2F;blog&#x2F;tags&#x2F;ansi&#x2F;">ansi</a>, 
+      <a href="https:&#x2F;&#x2F;ccjmne.sh&#x2F;blog&#x2F;tags&#x2F;zsh&#x2F;">zsh</a></li></ul>
+<details class="hi toc">
+  <summary>Table of contents</summary>
+  <ul><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/osc-133-and-its-ancestry/#obligatory-tl-dr">Obligatory TL;DR</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/osc-133-and-its-ancestry/#semantic-prompts">Semantic prompts</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/osc-133-and-its-ancestry/#what-osc-is-in-the-first-place">What OSC is in the first place</a><ul>
+        
+        <li><a href="https://ccjmne.sh/blog/flight-manual/osc-133-and-its-ancestry/#notation-notation-notation">Notation, notation notation</a></li>
+        <li><a href="https://ccjmne.sh/blog/flight-manual/osc-133-and-its-ancestry/#why-not-csi-dcs-or-something-else">Why not CSI, DCS, or something else?</a></li>
+        <li><a href="https://ccjmne.sh/blog/flight-manual/osc-133-and-its-ancestry/#the-disinterested-layperson-s-rule-of-thumb">The disinterested layperson&#x27;s rule of thumb</a></li></ul></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/osc-133-and-its-ancestry/#whence-133">Whence 133</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/osc-133-and-its-ancestry/#a-glimpse-into-the-osc-133-family">A glimpse into the OSC 133 family</a></li>
+    <li><a href="#cited-tools">Referenced tools</a></li>
+    
+    
+  </ul>
+</details>
+<article><p>Terminal emulators are nowadays making a habit of catering to the
+litany of React-born posers, by bundling hundreds (really) of popular
+colour schemes, touting <code>GPU</code> acceleration (ha!), support for
+<a rel="external" href="https://en.wikipedia.org/wiki/Ligature_(writing)">ligatures</a>, and more
+such trifling frivolities that self-proclaimed <em>"technical bloggers"</em> swoon
+over<sup class="footnote-reference" id="fr-the-coating-1"><a href="#fn-the-coating">1</a></sup>.</p>
+<p>However, there also are crafty people, communities and corporation coalescing
+around some <strong>solutions providing meaningful, savvy functionality</strong>!  Today, I
+want to talk of one such lovely affair: the semantic prompts <abbr title="Final
+Term Control Sequence"><code>FTCS</code></abbr> semantic prompts, which shall forever live
+on in the <code>OSC</code> <code>133</code> namespace.</p>
+<span id="continue-reading"></span><div class="hi">
+<h2 id="obligatory-tl-dr"><a class="anchor-link" href="#obligatory-tl-dr" aria-label="Anchor link for: obligatory-tl-dr"></a>
+Obligatory <a rel="external" href="https://en.wikipedia.org/wiki/TL;DR">TL;DR</a></h2>
+<p>A set of escape sequences that your shell and terminal emulator recognise to
+semantically annotate your interactive sessions to possibly implement additional
+controls or contextual information:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo z-code"><code data-lang="plain">ccjmne% <span class="term-fg32">seq</span> 1 5
+1
+2
+3
+4
+5
+</code></pre>
+<div class="note">a plain old shell output, running <code>seq 1 5</code></div>
+
+</div>
+<div>
+<pre class="giallo z-code"><code data-lang="plain"><span class="term-fg1">[PROMPT]</span>ccjmne% <span class="term-fg1">[COMMAND_START]</span><span class="term-fg32">seq</span> 1 5
+<span class="term-fg1">[COMMAND_EXECUTED]</span>1
+2
+3
+4
+5
+<span class="term-fg1">[COMMAND_FINISHED]</span></code></pre>
+<div class="note">its annotated counterpart using <code>OSC</code> <code>133</code></div>
+
+</div>
+</div>
+<blockquote class="markdown-alert-important">
+<p>Note of course that the bits between square brackets correspond to <code>OSC</code>
+<code>133</code> sequences <code>A</code> through <code>D</code> and are <strong>not actually visibly printed
+out</strong>: they're only used—if at all—by your terminal emulator to leverage
+that insight into the semantics of its output and possibly offer additional
+functionality.</p>
+</blockquote>
+<p>One may imagine having some hint as to the command corresponding to any output,
+maybe some key bindings to jump from a prompt to the next, an <em>"execute again"</em>
+button where it could make sense, some visual separation...  <strong>The sky, your
+imagination, and some good taste are the limits!</strong></p>
+<p>Where <code>PROMPT</code>, <code>COMMAND_START</code>, <code>COMMAND_EXECUTED</code>, <code>COMMAND_FINISHED</code> all were
+originally prefixed with <code>FTCS_</code>, for their lineage shall forever trace back to
+the giant that is <em>Final Term</em>.</p>
+<p>Under the hood, they're <code>OSC</code> escape sequences, implemented under the family
+<code>133</code>: effectively, in the literature, we refer to these four as follows:</p>
+<ul>
+<li><code>OSC 133 A BEL</code> is <code>FTCS_PROMPT</code></li>
+<li><code>OSC 133 B BEL</code> is <code>FTCS_COMMAND_START</code></li>
+<li><code>OSC 133 C BEL</code> is <code>FTCS_COMMAND_EXECUTED</code></li>
+<li><code>OSC 133 D BEL</code> is <code>FTCS_COMMAND_FINISHED</code></li>
+</ul>
+<p>With the <code>OSC</code> prefix being <code>ESC ]</code>, emitting them in your shell is therefore
+as simple as:</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-support z-function z-builtin">echo</span><span class="z-punctuation z-definition z-string"> &quot;</span><span class="z-string">\e]133;A\a</span><span class="z-punctuation z-definition z-string">&quot;</span></span></code></pre><div class="note">you may want to integrate that bit to your <code>$PS1</code>! but I won't cover that in this current article.</div>
+<p>Voilà!  Yes, it's a bit hand-wavy, but you were looking for a <code>TL;DR</code>, weren't
+you?</p>
+<!-- Be sure to check out how to [Semantically annotate your shell prompt with `OSC` -->
+<!-- `133` extensions](@/flashcards/osc133-aware-prompt.md), for some practical (and -->
+<!-- digestible) use-case to these signals. -->
+<!-- TODO: LINKME -->
+</div>
+<h2 id="semantic-prompts"><a class="anchor-link" href="#semantic-prompts" aria-label="Anchor link for: semantic-prompts"></a>
+Semantic prompts</h2>
+<p>Terminal emulators have long been in the business of pretending to not know what
+they very much should.  They show you a shell prompt, then your command, then
+its output, then another prompt; yet, without a bit of help, they are liable to
+<strong>treat the whole affair as an undifferentiated soup of bytes with line breaks
+in more or less fortunate places</strong>.</p>
+<p>That is where some <em>Final Term</em> Control Sequences (abbreviated <code>FTCS</code> in <a rel="external" href="https://github.com/p-e-w/finalterm/blob/f46ffd03e9b1ad5d7ce4b18b429f6e0a4bc15f3e/src/TerminalStream.vala#L541-L549">its
+code base</a>) enter the stage:
+among other things, what shall pique our interest today is the family of control
+sequences through which a shell may <strong>inform a supporting terminal emulator
+where a prompt begins, where the editable command line begins, where execution
+begins, and where a command ends</strong>.</p>
+<blockquote class="markdown-alert-important">
+<p><em>Final Term</em> was a popular terminal emulator
+that brought about some great ideas.  <a rel="external" href="https://worldwidemann.com/finally-terminated/">It it now
+discontinued</a>, but its
+legacy lives on in, informally, <em>iTerm2</em><sup class="footnote-reference" id="fr-iterm-not-apple-1"><a href="#fn-iterm-not-apple">2</a></sup> heralding its
+"continuation", and in some ways everywhere that integrates their idea in
+what's effectively an ever-growing de-facto specification.</p>
+</blockquote>
+<p>As you would gather from the source code shared above or from <em>iTerm2</em>'s
+documentation on the matter, these sequences that I will bundle under the
+<em>"semantic prompt"</em> umbrella <strong>are implemented as extensions to the <abbr
+title="Operating System Command"><code>OSC</code></abbr> family</strong>, most specifically under
+the code <code>133</code>.</p>
+<p>The result is that a terminal may stop guessing and start <strong>knowing</strong> where the
+bits and pieces that comprise its displaying output begin and end: that protocol
+is generally referred to as <code>OSC</code> <code>133</code>.</p>
+<h2 id="what-osc-is-in-the-first-place"><a class="anchor-link" href="#what-osc-is-in-the-first-place" aria-label="Anchor link for: what-osc-is-in-the-first-place"></a>
+What <code>OSC</code> is in the first place</h2>
+<p>Colloquially, people say <em>"escape code"</em> for the whole lot.  Strictly speaking,
+we are usually dealing with <strong>escape sequences</strong> or, more broadly, terminal
+control sequences.  They are called that because they often begin with the <code>ESC</code>
+byte (<code>0x1B</code> in hexadecimal, <code>033</code> in octal or <code>27</code> in decimal), which tells the
+terminal that <strong>what follows is not plain text to display</strong>.</p>
+<!-- [all about escape codes](@/flight-manual/all-about-escape-codes.md). TODO: LINKME -->
+<blockquote class="markdown-alert-note">
+<p>The formal (and original) home for this world is
+<a rel="external" href="https://ecma-international.org/wp-content/uploads/ECMA-48_5th_edition_june_1991.pdf"><code>ECMA-48</code></a>:
+<abbr title="European Computer Manufacturers Association"><code>ECMA</code></abbr>
+but it was also adopted by <abbr title="International
+Organization for Standardization"><code>ISO</code></abbr> at
+<a rel="external" href="https://www.iso.org/obp/ui/en/#iso:std:iso-iec:6429:ed-3:v1:en"><code>ISO-6429</code></a>,
+by <abbr title="American National Standards Institute"><code>ANSI</code></abbr> at
+<a rel="external" href="https://shuford.invisible-island.net/ansi_x3_64.txt"><code>ANSI x3.64</code></a>...  And
+surely other places; good luck keeping track of all the appendices: I haven't
+attempted to.</p>
+</blockquote>
+<p>Among the things <code>ECMA-48</code> standardises are several families of control
+functions:</p>
+<ul>
+<li><code>CSI</code>, the <strong>Control Sequence Introducer</strong>, introduced by <code>ESC [</code></li>
+<li><code>OSC</code>, the <strong>Operating System Command</strong>, introduced by <code>ESC ]</code></li>
+<li><code>DCS</code>, the <strong>Device Control String</strong>, introduced by <code>ESC P</code></li>
+<li>... and then some: I am being somewhat less exhaustive than is usually <em>de
+rigueur</em> for me, in the interest of keeping our eyes on the ball for once.</li>
+</ul>
+<p>The standard definition of <code>OSC</code> is intentionally general: it opens a string
+for an <em>operating system command</em>, terminated by <code>ST</code>, while the meaning of the
+string's payload is left to the implementation.</p>
+<blockquote class="markdown-alert-tip">
+<p><strong><code>ST</code> itself just stands for <em>"String Terminator"</em> and is specified to
+correspond to the escape sequence <code>ESC \</code></strong>: that is, the two bytes <code>0x1B</code> and
+<code>0x9C</code>.  However, for historical reasons, within <code>OSC</code> specifically, <code>BEL</code>
+(<code>ASCII</code> <code>0x07</code>) is also a valid termination signal.</p>
+<p>Well, the historical reasons aren't all that complicated: <code>XTerm</code> is the
+terminal that incepted, implemented support for, and consequently popularised
+most of these sequences a while back, and they simply chose to use <code>BEL</code> as
+that signal then.</p>
+<p>I haven't found—nor looked for—any corroborating evidence to the following
+hypothesis, but I like to imagine that <strong>it lovingly may have had to do with
+the <a rel="external" href="https://en.wikipedia.org/wiki/Typewriter">mechanical typewriters</a> ringing
+a physical bell when the carriage (just about) reaches the end of its track</strong>.</p>
+</blockquote>
+<h3 id="notation-notation-notation"><a class="anchor-link" href="#notation-notation-notation" aria-label="Anchor link for: notation-notation-notation"></a>
+Notation, notation notation</h3>
+<p>The <a rel="external" href="https://en.wikipedia.org/wiki/Location,_Location,_Location">real estate
+cliché</a> is almost
+right!  We need to take a short detour to establish some common interpretation
+baseline for the grammar we'll use in describing escape sequences going
+forward—because yes, <em>it gets much murkier skill</em>.</p>
+<p>The lot of us use many, very many, vastly different notations for all
+sort of sequences; I promise to come back and write something up on the
+matter, but for now, I'll settle on the one that is most easy to communicate
+about<sup class="footnote-reference" id="fr-escape-sequence-notation-1"><a href="#fn-escape-sequence-notation">3</a></sup>.</p>
+<p>Consider this example: I just mentioned that <code>CSI</code>, <code>OSC</code> and <code>DCS</code> are
+introduced by <code>ESC [</code>, <code>ESC ]</code> and <code>ESP P</code>, respectively.</p>
+<p>When I write <code>ESC [</code>, I mean two bytes: <code>0x1B</code> (<code>ESC</code>) and <code>0x5B</code>, a literal <code>[</code>
+in <code>ASCII</code>—see <code>man 7 ascii</code>.</p>
+<blockquote class="markdown-alert-important">
+<p>These are assuming a <strong>7-bit C1</strong> control schemes, historically most
+prominent, and still the standard today; though with the <strong>notable limitations
+of possibly representing several key combinations as the same encoding, not
+being able to represent <code>Ctrl</code>-<code>Shift</code>-<code>&lt;Anything&gt;</code></strong>, and perhaps more
+capricious behaviours we all generally internalise and stick with nonetheless,
+for <strong>compatibility with the whole software stack to back when bytes were
+7-bit long</strong>—you read that right<sup class="footnote-reference" id="fr-7-bit-bytes-1"><a href="#fn-7-bit-bytes">4</a></sup>.</p>
+<p>If the topic comes up again, I will be sure to write an article here; in the
+meantime, you will find a lot of adequate information on Wikipedia's <a rel="external" href="https://en.wikipedia.org/wiki/C0_and_C1_control_codes"><code>C0</code> and
+<code>C1</code> control codes</a>
+page.</p>
+</blockquote>
+<p>Note also that several of the most ubiquitous the <code>ASCII</code> non-printable
+characters have their own backslash-code in <code>C</code>—and, due to the overwhelming
+prevalence of that language, virtually everywhere else:</p>
+<ul>
+<li><code>\0</code> is the "null" character, <code>0x00</code>, <code>0</code> in decimal,</li>
+<li><code>\n</code> is the linefeed, "new line", <code>0x0A</code>, <code>10</code> in decimal,</li>
+<li><code>\a</code> is the bell, <code>0x07</code>, <code>7</code> in decimal; making your terminal "print it"
+would play an audible beep;</li>
+<li><code>\e</code> is escape, "<code>ESC</code>", <code>0x1B</code>, <code>27</code> in decimal—though I do not find it
+in the ASCII manual, I have been around enough to certify that it is fairly
+widely recognised and interpreted in such manner)</li>
+</ul>
+<p>As such, you may come across any and all of the following reasonable notations
+to describe, for instance, <code>OSC</code> <code>133</code> <code>A</code>:</p>
+<ul>
+<li><code>ESC ] 133 ; A BEL</code>, the most popular still, and most technically accurate;</li>
+<li><code>OSC 133 ; A BEL</code>, using the well-established <code>OSC</code> family prefix for those in
+the loop;</li>
+<li><code>ESC ] 133 ; A ST</code>, the (would-be?) "standard" notation; and</li>
+<li><code>OSC 133 ; A ST</code>, my least favourite, despite being possibly the one most <em>by
+the book</em>.</li>
+</ul>
+<p>However, <strong>these above are only for prose</strong>, when people talk to each other to
+discuss these specifications.  In reality, in <code>C</code> (and consequently, a
+staggering number of places), you're bound to rather run into the following forms:</p>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>                 ESC   ]  133  ;  A  ST-or-BEL</span></span>
+<span class="giallo-l"><span>=======================================================</span></span>
+<span class="giallo-l"><span>      octal      \033  ]  133  ;  A  \033\\         ST</span></span>
+<span class="giallo-l"><span>      octal      \033  ]  133  ;  A  \07            BEL</span></span>
+<span class="giallo-l"><span>hexadecimal      \x1B  ]  133  ;  A  \x1B\\         ST</span></span>
+<span class="giallo-l"><span>hexadecimal      \x1B  ]  133  ;  A  \x07           BEL</span></span>
+<span class="giallo-l"><span>    C-style      \e    ]  133  ;  A  \e\\           ST</span></span>
+<span class="giallo-l"><span>    C-style      \e    ]  133  ;  A  \a             BEL</span></span></code></pre>
+<blockquote class="markdown-alert-note">
+<p>These of course won't present all the whitespace I used for that table above,
+they'll instead be: <code>\033]133;A\07</code>, <code>\x1B]133;A\x07</code>, <code>\e]133;A\a</code>...</p>
+</blockquote>
+<p>Well, I have also seen the abominable mismatch between the notation style of
+<code>ESC</code> and <code>ST</code>, which means that <strong>you could run into any of no less than 18
+(EIGHTEEN!) effective notations</strong> in shell scripts, <code>C</code> code, <em>et cet.</em></p>
+<p>I am sure there are other ways—certainly through the use of variables if
+nothing else; but <strong>these are the reasonable, <code>C</code>-style ones that every piece of
+technical implementation out there is more or less certain to eventually distil
+down to</strong>.</p>
+<blockquote class="markdown-alert-tip">
+<p>There's also one additional popular and reasonable notation, the <strong>caret
+notation</strong>, which is most notably found delectable by Emacs and Vim users.
+Ah, how quaint: you'd think both would cover the entire software developer
+population; but alas, not any longer.</p>
+<p>That notation shall deserve a lot more care; so I'll defer to writing at a
+later time about its origins, and its <strong>direct translation into most practical
+application in sending all sorts of signals to your terminal while holding
+<code>Ctrl</code></strong>.  Hold me to it!</p>
+<p>In the meantime, know that <code>^[</code> also represents <code>ESC</code>, making <code>CSI</code>
+effectively <code>^[[</code> and <code>OSC</code> be <code>^[]</code>.</p>
+</blockquote>
+<!-- [caret-notation-ctrl-bindings-ascii-equivalence](@/flight-manual/caret-notation-ctrl-bindings-ascii-equivalence.md). TODO: LINKME -->
+<h3 id="why-not-csi-dcs-or-something-else"><a class="anchor-link" href="#why-not-csi-dcs-or-something-else" aria-label="Anchor link for: why-not-csi-dcs-or-something-else"></a>
+Why not <code>CSI</code>, <code>DCS</code>, or something else?</h3>
+<p>Rather than exhaust all the other existing families of escape sequences,
+documented and otherwise, ubiquitous, popular and obscure alike, I'll take
+this opportunity to <strong>only give you some (learned) intuition for the effective
+purpose of the two main "buckets", <code>CSI</code> and <code>OSC</code></strong>.</p>
+<p>Beyond these practicalities, the actual, theoretical distinction between the two
+<code>CSI</code> and <code>OSC</code> classes of escape sequences generally is that <strong><code>CSI</code> presumes
+to control the shell itself</strong>, what it should draw, where, and in what manner,
+<strong>whereas <code>OSC</code> is intended to rather integrate with the outer system</strong>, in
+providing contextual information such as the name of the foreground utility,
+the current work directory, possibly some progress report...</p>
+<p>The pragmatism is that <code>OSC</code> sequences are in principle <strong>never a unilateral
+implementation: the shell provides some data, which the terminal emulator may or
+may not interpret</strong> so as to augment to end-user experience.</p>
+<blockquote class="markdown-alert-note">
+<p>A criticism that <a rel="external" href="https://en.wikipedia.org/wiki/HashiCorp">HashiCorp's very Mitchell
+Hashimoto</a> notably makes of the most
+savvy <a rel="external" href="https://en.wikipedia.org/wiki/Tmux"><code>tmux</code></a> in sharing his vision
+for the future of <a rel="external" href="https://ghostty.org/">Ghostty</a>, is that the multiplexer
+effectively presents an extra layer of "terminal emulation", requiring the
+<code>OSC</code>-like features to be implemented and perhaps configured in tandem at no
+less than three operational levels at once.</p>
+<p>It's not wrong, but for me, the buck currently stops at <code>tmux</code> itself!</p>
+</blockquote>
+<!-- [tmux-or-not-tmux](@/flight-manual/tmux-or-not-tmux.md). TODO: LINKME -->
+<p>Note that <strong>it may also go the other way around</strong>, there the terminal emulator
+may, for instance, push some escape sequences into the shell to report, say,
+that the application focus was gained or lost, that the desktop theme was
+toggled between light and dark, <em>et cet.</em></p>
+<p><strong>That difference is what makes <code>OSC</code> most apt for semantically annotating the
+prompts</strong>: the shell itself needn't concern itself with this, but the terminal
+emulator very well might—as we'll exemplify soon after.</p>
+<h3 id="the-disinterested-layperson-s-rule-of-thumb"><a class="anchor-link" href="#the-disinterested-layperson-s-rule-of-thumb" aria-label="Anchor link for: the-disinterested-layperson-s-rule-of-thumb"></a>
+The disinterested layperson's rule of thumb</h3>
+<p><strong>These two also generally look quite different in their payload</strong>.  What
+follows doesn't answer the question, whose most adequate answer I just laid out,
+but various sources lead me to believe that, however laughably moot, this more
+or less constitutes the layman's rule of thumb: I shall not ignore it.</p>
+<p><code>CSI</code> sequences, introduced with <code>ESC [</code>, are the terse, parametrised commands
+most of us first meet through colour and cursor movement:</p>
+<ul>
+<li><code>ESC [ 31 m</code> will start using a red foreground for printing text,</li>
+<li><code>ESC [ ? 25 l</code> will hide the cursor and <code>CSI ? 25 h</code> will restore it,</li>
+<li><code>ESC [ 0 J</code> will clear from the cursor <strong><em>down</em> to the <em>end</em></strong> of the screen,
+<code>1 J</code> from the cursor <strong><em>up</em> to the <em>beginning</em></strong> of the screen, <code>2 J</code> to
+clear the entire screen, <code>3 J</code> to clear the entire screen <em>as well as the
+entirety of the scroll-back buffer</em>...</li>
+</ul>
+<p>They end with a final command byte, such as <code>m</code>, <code>J</code>, or <code>H</code>: <code>ESC [ 31 m</code> is
+essentially read as <code>CSI 31 m</code>; where <code>31</code> means "red foreground"—you will
+find much information about all the terminal colour gymnastics by searching for
+<code>SGR</code>, <em>"Select Graphic Rendition"</em>; the more palatable name for the <code>CSI &lt;x&gt; m</code>
+control sequence.</p>
+<p>By contrast, <code>OSC</code> sequences are generally more <em>"string-like"</em>.  They open with
+<code>ESC ]</code>, carry a piece of text-like payload, and run until <code>ST</code> or, as we'll
+explore later, most commonly yet-least-authoritatively-documented, <code>BEL</code>.  For
+example,</p>
+<ul>
+<li><code>OSC 0</code> can set your window title,</li>
+<li><code>OSC 8</code> will indicate hyperlinks,</li>
+<li><code>OSC 52</code> can manipulate your clipboard...</li>
+</ul>
+<p>These originally were mostly the creation of <code>XTerm</code>, but have been adopted and
+extended time and again.</p>
+<h2 id="whence-133"><a class="anchor-link" href="#whence-133" aria-label="Anchor link for: whence-133"></a>
+Whence <code>133</code></h2>
+<p><code>OSC</code> <code>133</code> did not come from <code>ECMA-48</code>, from <code>XTerm</code>, nor from <code>DEC</code>'s
+old terminal manuals.  The family was introduced by <a rel="external" href="https://worldwidemann.com/about/">Philipp Emanuel
+Weidmann</a> for <em>Final Term</em>, the ambitious
+emulator that pioneered making the terminal understand what was going on instead
+of merely drawing it.</p>
+<p>Neither I, <strong>nor any of the indexed Web as to mid-2026 has any clue as to the
+significance (if any) of <code>133</code></strong> being the command number that <em>Final Term</em>
+mapped their "semantic prompt" control sequences to within the <code>OSC</code> domain.
+Not that it's of any concern to anybody: it just needs not to conflict with any
+other reasonably popular sequence.</p>
+<h2 id="a-glimpse-into-the-osc-133-family"><a class="anchor-link" href="#a-glimpse-into-the-osc-133-family" aria-label="Anchor link for: a-glimpse-into-the-osc-133-family"></a>
+A glimpse into the <code>OSC</code> <code>133</code> family</h2>
+<p>But the source code is still available, and there in the
+<a rel="external" href="https://vala.dev/">Vala</a><sup class="footnote-reference" id="fr-vala-1"><a href="#fn-vala">5</a></sup> source lies the plainest surviving statement of
+the thing:</p>
+<pre class="giallo z-code"><code data-lang="vala"><span class="giallo-l"><span class="z-punctuation z-definition z-comment">//</span><span class="z-comment"> Final Term control sequences (note that these are actually OSC sequences)</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">add_final_term_sequence_pattern</span><span class="z-source">(</span><span class="z-entity z-name z-type">ControlSequenceType</span><span class="z-source">.</span><span class="z-variable z-other z-constant">FTCS_PROMPT</span><span class="z-source">,           </span><span class="z-string">&quot;</span><span class="z-string">A</span><span class="z-string">&quot;</span><span class="z-source">);</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">add_final_term_sequence_pattern</span><span class="z-source">(</span><span class="z-entity z-name z-type">ControlSequenceType</span><span class="z-source">.</span><span class="z-variable z-other z-constant">FTCS_COMMAND_START</span><span class="z-source">,    </span><span class="z-string">&quot;</span><span class="z-string">B</span><span class="z-string">&quot;</span><span class="z-source">);</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">add_final_term_sequence_pattern</span><span class="z-source">(</span><span class="z-entity z-name z-type">ControlSequenceType</span><span class="z-source">.</span><span class="z-variable z-other z-constant">FTCS_COMMAND_EXECUTED</span><span class="z-source">, </span><span class="z-string">&quot;</span><span class="z-string">C</span><span class="z-string">&quot;</span><span class="z-source">);</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">add_final_term_sequence_pattern</span><span class="z-source">(</span><span class="z-entity z-name z-type">ControlSequenceType</span><span class="z-source">.</span><span class="z-variable z-other z-constant">FTCS_COMMAND_FINISHED</span><span class="z-source">, </span><span class="z-string">&quot;</span><span class="z-string">D</span><span class="z-string">&quot;</span><span class="z-source">);</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">add_final_term_sequence_pattern</span><span class="z-source">(</span><span class="z-entity z-name z-type">ControlSequenceType</span><span class="z-source">.</span><span class="z-variable z-other z-constant">FTCS_TEXT_MENU_START</span><span class="z-source">,  </span><span class="z-string">&quot;</span><span class="z-string">E</span><span class="z-string">&quot;</span><span class="z-source">);</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">add_final_term_sequence_pattern</span><span class="z-source">(</span><span class="z-entity z-name z-type">ControlSequenceType</span><span class="z-source">.</span><span class="z-variable z-other z-constant">FTCS_TEXT_MENU_END</span><span class="z-source">,    </span><span class="z-string">&quot;</span><span class="z-string">F</span><span class="z-string">&quot;</span><span class="z-source">);</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">add_final_term_sequence_pattern</span><span class="z-source">(</span><span class="z-entity z-name z-type">ControlSequenceType</span><span class="z-source">.</span><span class="z-variable z-other z-constant">FTCS_PROGRESS</span><span class="z-source">,         </span><span class="z-string">&quot;</span><span class="z-string">G</span><span class="z-string">&quot;</span><span class="z-source">);</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">add_final_term_sequence_pattern</span><span class="z-source">(</span><span class="z-entity z-name z-type">ControlSequenceType</span><span class="z-source">.</span><span class="z-variable z-other z-constant">FTCS_EXECUTE_COMMANDS</span><span class="z-source">, </span><span class="z-string">&quot;</span><span class="z-string">H</span><span class="z-string">&quot;</span><span class="z-source">);</span></span></code></pre><div class="note">from <a rel="external" href="https://github.com/p-e-w/finalterm/blob/master/src/TerminalStream.vala#L541-L549"><code>TerminalStream.vala</code>, lines <code>541</code> through <code>549</code></a>; though the vertical alignment is mine</div>
+<blockquote class="markdown-alert-note">
+<p>This whole document is rather lovingly curated, this is homely and savvy, I'm
+grateful for such pieces.</p>
+</blockquote>
+<p>If you want the names' semantics corroborated by behaviour rather than by
+names alone, <code>FinalTerm</code>'s output handling makes that explicit, too, at
+<a rel="external" href="https://github.com/p-e-w/finalterm/blob/master/src/TerminalOutput.vala#L375-L461"><code>TerminalOutput.vala</code>, lines <code>375</code> through
+<code>461</code></a></p>
+<p>The spirit of the project did not vanish entirely with the terminal itself.  As
+far as prompt markers are concerned, a small and excellent piece of <em>Final Term</em>'s
+legacy lives on in <em>iTerm2</em>, whose documentation explicitly preserves and
+attributes the <code>A</code>-through-<code>D</code> scheme to <em>Final Term</em>:</p>
+<blockquote>
+<p>The goal of the <em>Final Term</em> escape sequences is to mark up a shell's
+output with semantic information about where the prompt begins, where the
+user-entered command begins, and where the command's output begins and ends.</p>
+<div class="quote-attribution"><em>iTerm2</em>, on its supported <a rel="external" href="https://iterm2.com/documentation-escape-codes.html">Proprietary Escape Codes</a></div>
+</blockquote>
+<p>This documentation puts together quite well some visual <code>TL;DR</code> of "what goes
+where":</p>
+<pre class="giallo z-code"><code data-lang="plain"><span class="term-fg1">[PROMPT]</span>ccjmne% <span class="term-fg1">[COMMAND_START]</span><span class="term-fg34">ls</span> <span class="term-fg32">-l</span>
+<span class="term-fg1">[COMMAND_EXECUTED]</span>-rw-r--r-- 1 ccjmne ccjmne 111 May 10 02:47 file
+<span class="term-fg1">[COMMAND_FINISHED]</span></code></pre>
+<div class="note">the bits between square brackets correspond to <code>OSC</code> <code>133</code> <code>A</code> through <code>D</code> and are not actually visible</div>
+<p>In practice, the enduring part of the scheme is overwhelmingly these first four.
+They are those I meant to write about; this article is the result of a mere
+introductory distraction to that (surely forthcoming) other.</p>
+<p>As for prestidigitation, I believe that the ingenuity in how the machinery is
+put together is just as marvellous as the resulting theatrics: I'm sure that
+even this will have some value for posterity.  Cheers!</p>
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn-the-coating">
+<p>Not that I refuse any sort of sugar on top!  But I rather like
+such coating to come second to an impressively competent core. <a href="#fr-the-coating-1">↩</a></p>
+</li>
+<li id="fn-iterm-not-apple">
+<p>Unlike what its name might suggest to you nowadays, <code>iTerm2</code>
+is not affiliated with Apple.  It is using that naming scheme only because, a
+while ago in the 2000s, the success of Apple products (<code>iMac</code>, <code>iPod</code>, <code>iTunes</code>,
+<em>et cet.</em>) was such that embracing their naming scheme may reasonably give a
+most desirable extra flair of modernity and tech-savviness to one's offerings. <a href="#fr-iterm-not-apple-1">↩</a></p>
+</li>
+<li id="fn-escape-sequence-notation">
+<p>The escape sequence notation I use here <strong>is very
+readable in prose</strong>, but I still find it wildly inappropriate for technical
+communication and possibly instructional content, for being too informal, vague,
+and assuming on perhaps too much underlying understanding on the part of the
+reader. <a href="#fr-escape-sequence-notation-1">↩</a></p>
+</li>
+<li id="fn-7-bit-bytes">
+<p><strong>Yep, bytes used to be generally 7-bit long</strong>.  And 6-bit,
+too!  Software bytes, that is; hardware ones used to be of variable
+length.  How quaint!  Well, you might be might be quite surprised to know
+we haven't entirely moved on; at least not in a way that wouldn't be
+backwards-compatible.</p>
+<p>There is much to say about how shrewdly we packed things there then, and
+how intelligently we built upon and integrated that venerable space to the
+loftier 8-bit that seems impossible to dethrone circa 2026.  The whole
+<code>ASCII</code>, then <code>ANSI</code>, then <code>UTF-8</code> stack is a marvel of savviness and
+simplistic design that fully, efficiently and seamlessly extends the most
+picturesque and primeval data encodings of our forefathers. <a href="#fr-7-bit-bytes-1">↩</a></p>
+</li>
+<li id="fn-vala">
+<p>Programming language bringing object-oriented syntax to <code>C</code>, which it
+"simply" transpiles down to. <a href="#fr-vala-1">↩</a></p>
+</li>
+</ol>
+</section>
+
+  <h2 id="cited-tools"><a class="anchor-link" href="#cited-tools" aria-label="Anchor link for: cited-tools"></a>
+Referenced tools</h2>
+  <div class="refs">
+<div class="ref tool mono">
+  <strong>tmux</strong>
+  <div><span class="muted">from</span>&nbsp;<a rel="external" href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;tmux">extra&#x2F;tmux</a></div>
+  <div><a rel="external" href="https:&#x2F;&#x2F;man.archlinux.org&#x2F;man&#x2F;extra&#x2F;tmux&#x2F;tmux.1.en">manual</a>
+    <a rel="external" href="https:&#x2F;&#x2F;github.com&#x2F;tmux&#x2F;tmux">source</a></div>
+</div>
+</div>
+  
+
+  
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a rel="external" href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <a rel="external" href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>
+        <a rel="external" href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/base.css?h=e470b404154f640c1139">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/fira-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/noto-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/noto-2.woff2" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; src: url('https://ccjmne.sh/blog/ouft-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; src: url('https://ccjmne.sh/blog/work-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/work-2.woff2') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/work-3.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; src: url('https://ccjmne.sh/blog/fira-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; src: url('https://ccjmne.sh/blog/fira-2.woff2') format('woff2'); }
+  @font-face { font-family: 'Noto Sans KR'; font-style: normal; font-weight: 400; font-display: optional; src: url('https://ccjmne.sh/blog/noto-1.woff2') format('woff2'); }
+  @font-face { font-family: 'Noto Sans KR'; font-style: normal; font-weight: 500; font-display: optional; src: url('https://ccjmne.sh/blog/noto-2.woff2') format('woff2'); }
+</style><link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-light.css?h=280afa93e1c6dfec22ed" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/giallo-dark.css?h=8efc0ee965d80c5835b7" media="(prefers-color-scheme: dark)">
+    
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+data-path="&#x2F;flashcards&#x2F;fcitx-cjk-ime-vim&#x2F;">
+      <a href="https://ccjmne.sh/blog" data-target="home">Home</a>
+      <details class="dropdown" max-md>
+        <summary data-target="articles">Articles</summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual/"       >Flight rules</a>
+          <a href="https://ccjmne.sh/blog/ramblings/"       >Ramblings</a>
+          <a href="https://ccjmne.sh/blog/flashcards/"       >Flashcards</a>
+          <a href="https://ccjmne.sh/blog/tags/" max-sm>Sections</a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual/" min-md>Flight rules</a>
+      <a href="https://ccjmne.sh/blog/ramblings/" min-md>Ramblings</a>
+      <a href="https://ccjmne.sh/blog/flashcards/" min-md>Flashcards</a>
+      <a href="https://ccjmne.sh/blog/tags/" min-sm>Sections</a>
+      <a href="https://ccjmne.sh/blog/colophon/"       >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main><h1><span class="link-title" 
+  style="view-transition-name: view-fcitx-cjk-ime-vim"
+>Reconciling your <code>CJK</code> prose with the Vim motions</span></h1><ul class="infobar "><li><time>June 29, 2026</time></li><li>4-minute read</li>
+    <li>tagged
+      
+      <a href="https:&#x2F;&#x2F;ccjmne.sh&#x2F;blog&#x2F;tags&#x2F;vim&#x2F;">vim</a>, 
+      <a href="https:&#x2F;&#x2F;ccjmne.sh&#x2F;blog&#x2F;tags&#x2F;fcitx5&#x2F;">fcitx5</a>, 
+      <a href="https:&#x2F;&#x2F;ccjmne.sh&#x2F;blog&#x2F;tags&#x2F;quibblery&#x2F;">quibblery</a>, 
+      <a href="https:&#x2F;&#x2F;ccjmne.sh&#x2F;blog&#x2F;tags&#x2F;hangugeo&#x2F;">한국어</a></li></ul>
+<details class="hi toc">
+  <summary>Table of contents</summary>
+  <ul><li>
+      <a href="https://ccjmne.sh/blog/flashcards/fcitx-cjk-ime-vim/#the-problem-illustrated-some-cjk-input-method">The problem illustrated: some CJK input method</a></li><li>
+      <a href="https://ccjmne.sh/blog/flashcards/fcitx-cjk-ime-vim/#my-work-in-progress-starter-solution">My work-in-progress starter solution</a></li><li>
+      <a href="https://ccjmne.sh/blog/flashcards/fcitx-cjk-ime-vim/#going-further">Going further</a></li>
+    <li><a href="#cited-tools">Referenced tools</a></li>
+    
+    
+  </ul>
+</details>
+<article><p>Say that you're not always typing some fairly boring <code>ASCII</code>-only content, to
+the point you end up using an Input Method ("<code>IM</code>") that doesn't give you access
+to <code>h</code>, <code>j</code>, <code>k</code>, <code>l</code> where you expect them—or any of the litany of other
+normal-mode mappings which you surely don't need me to tell you all about.</p>
+<h2 id="the-problem-illustrated-some-cjk-input-method"><a class="anchor-link" href="#the-problem-illustrated-some-cjk-input-method" aria-label="Anchor link for: the-problem-illustrated-some-cjk-input-method"></a>
+The problem illustrated: some <abbr title="Chinese, Japanese and Korean [writing systems]"><code>CJK</code></abbr> input method</h2>
+<p>Let's take the example of a form of Korean input method, where the
+character<sup class="footnote-reference" id="fr-not-just-a-character-1"><a href="#fn-not-just-a-character">1</a></sup> that is <em>"buffered"</em> by pressing the key
+typically labelled <code>j</code> on a keyboard using the US layout:</p>
+<blockquote class="markdown-alert-note">
+<p>Note that I'm assuming the—most standard—<em>dubeolsik</em> (두벌식) layout.</p>
+</blockquote>
+<p>While in <code>i</code>nsert mode: brilliant, you get to type away as expected; while in
+normal mode however, you don't get to navigate down, or anywhere else for that
+matter, since <abbr title="The ubiquitous text editor">Vim</abbr> doesn't come
+with a bunch of bindings mapping various 자모 and 음절 to some sort of
+actions.</p>
+<p>You could indeed just do:</p>
+<pre class="giallo z-code"><code data-lang="viml"><span class="giallo-l"><span class="z-storage z-type">nmap</span><span class="z-source"> ㅗ h</span></span>
+<span class="giallo-l"><span class="z-storage z-type">nmap</span><span class="z-source"> ㅓ j</span></span>
+<span class="giallo-l"><span class="z-storage z-type">nmap</span><span class="z-source"> ㅏ k</span></span>
+<span class="giallo-l"><span class="z-storage z-type">nmap</span><span class="z-source"> ㅣ l</span></span></code></pre><div class="note">Mapping the 자모 that "happen" via the keys labelled <code>h</code>, <code>j</code>, <code>k</code>, <code>l</code> as "expected" in <code>n</code>ormal mode</div>
+<p>But this comes with two shortcomings, each of which would already be crushing on
+its own:</p>
+<ol>
+<li>you'd have to remap <strong>everything</strong> (oh, trust me, there's a lot more to
+"everything" than the measly 26 letters of the Latin alphabet and their
+capital variants), and</li>
+<li>your <code>IME</code> doesn't commit individual letters (자모), which are buffered and
+submitted only when syllable blocks (음절) are complete.  In consequence:
+<ul>
+<li>your cursor would only go down not as you press <code>j</code>/<code>ㅓ</code>, but after you've
+trigged a commit of that character, perhaps by pressing <code>k</code>/<code>ㅏ</code>, and
+you'd visually always be lagging at least one input late.</li>
+<li>the rules for triggering a "committing" of some individual letter are quite
+intuitive when actually using the Korean writing system (한글), but would
+be impossibly tedious when trying to emit partial syllable blocks (음절).</li>
+</ul>
+</li>
+</ol>
+<h2 id="my-work-in-progress-starter-solution"><a class="anchor-link" href="#my-work-in-progress-starter-solution" aria-label="Anchor link for: my-work-in-progress-starter-solution"></a>
+My work-in-progress starter solution</h2>
+<p>Whereas all you really want would be to always switch to the plain US English
+layout whenever in <code>n</code>ormal mode, and switching back to whichever mode you were
+in, as you go into <code>i</code>nsert mode.</p>
+<p>Yep.  Your Vim brain just went: <em>"so, two <code>autocmd</code>s?"</em>, and you're exactly
+right: two <code>autocommands</code> (plus perhaps some extra trickery for the less obvious
+cases).</p>
+<p>Behold, the three lines of Vim script to drop anywhere and reconcile your <abbr
+title="Chinese, Japanese and Korean [writing systems]"><code>CJK</code></abbr> prose with
+the Vim motions!</p>
+<pre class="giallo z-code"><code data-lang="viml"><span class="giallo-l"><span class="z-source">let</span><span class="z-source"> g:fcitx_state</span><span class="z-keyword z-operator"> =</span><span class="z-entity z-name z-function"> system</span><span class="z-punctuation">(</span><span class="z-string">&quot;</span><span class="z-string">fcitx5-remote</span><span class="z-string">&quot;</span><span class="z-punctuation">)</span></span>
+<span class="giallo-l"><span class="z-source">autocmd</span><span class="z-support z-type"> InsertLeave</span><span class="z-source"> * </span><span class="z-source">let</span><span class="z-source"> g:fcitx_state</span><span class="z-keyword z-operator"> =</span><span class="z-entity z-name z-function"> system</span><span class="z-punctuation">(</span><span class="z-string">&quot;</span><span class="z-string">fcitx5-remote</span><span class="z-string">&quot;</span><span class="z-punctuation">)</span><span class="z-source"> | </span><span class="z-source">call</span><span class="z-entity z-name z-function"> system</span><span class="z-punctuation">(</span><span class="z-string">&quot;</span><span class="z-string">fcitx5-remote -c</span><span class="z-string">&quot;</span><span class="z-punctuation">)</span></span>
+<span class="giallo-l"><span class="z-source">autocmd</span><span class="z-support z-type"> InsertEnter</span><span class="z-source"> * </span><span class="z-keyword">if</span><span class="z-source"> g:fcitx_state</span><span class="z-keyword z-operator"> =</span><span class="z-keyword z-operator">=</span><span class="z-constant z-numeric"> 2</span><span class="z-source"> | </span><span class="z-source">call</span><span class="z-entity z-name z-function"> system</span><span class="z-punctuation">(</span><span class="z-string">&quot;</span><span class="z-string">fcitx5-remote -o</span><span class="z-string">&quot;</span><span class="z-punctuation">)</span><span class="z-source"> | </span><span class="z-keyword">endif</span></span></code></pre>
+<p>This code essentially relies on the presumption that your <strong>"<code>IME</code> inactive"</strong>
+state (state <code>1</code>) is something usable in <code>n</code>ormal Vim mode, such as
+<code>us-english</code>.  Conversely, the <strong>active</strong> state, <code>2</code>, corresponds to your
+prosodic input method.</p>
+<p>In a nutshell, it stores <code>fcitx5</code>'s current active or inactive state, then:</p>
+<ul>
+<li>whenever you <strong>leave <code>i</code>nsert mode</strong>, it saves that state again and
+deactivates the input method, and</li>
+<li>whenever you <strong>enter <code>i</code>nsert mode</strong>, it checks whether the saved state was
+active (2), and re-activates it if so.</li>
+</ul>
+<p>In practice, that means <code>n</code>ormal mode forces the input method "off", whereas
+<code>i</code>nsert mode <strong>restores</strong> it if it was ever set in the first place.</p>
+<h2 id="going-further"><a class="anchor-link" href="#going-further" aria-label="Anchor link for: going-further"></a>
+Going further</h2>
+<p>Though this is simple and effective, intense use may reveal it to be still rough
+around the edges.</p>
+<p>There's more that could be done, mostly generally regarding <strong>supporting the
+many other modes</strong>, such as <code>c</code>ommand; as well as possibly enforcing/restoring
+your general input method of choice input method <strong>when a normal-mode Vim gets
+or loses focus</strong>...  And possibly guard against curious mishaps when switching
+modes while replaying macros.</p>
+<p>Several people online have shared their more-or-less polished versions of this
+set-up, but none really worked most splendidly for me, so I'll start simple and
+bridge the gaps that I need bridged, over time: if nothing else, I'll get to
+hone my tools and refine my skills.</p>
+<p>And if you figure it out before me, don't hesitate to share!<br />
+In the meantime, good luck, and have fun.</p>
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn-not-just-a-character">
+<p>In the Korean writing system (한글), ㅓ isn't
+necessarily the <strong>character</strong> that would be in your <code>IME</code> buffer as you tap the
+corresponding key, but it nonetheless is the Korean Hangeul letter (자모) that
+it corresponds to. <a href="#fr-not-just-a-character-1">↩</a></p>
+</li>
+</ol>
+</section>
+
+  <h2 id="cited-tools"><a class="anchor-link" href="#cited-tools" aria-label="Anchor link for: cited-tools"></a>
+Referenced tools</h2>
+  <div class="refs">
+<div class="ref tool mono">
+  <strong>fcitx5</strong>
+  <div><span class="muted">from</span>&nbsp;<a rel="external" href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;fcitx5">extra&#x2F;fcitx5</a></div>
+  <div><a rel="external" href="https:&#x2F;&#x2F;fcitx-im.org&#x2F;wiki&#x2F;Fcitx_5">manual</a>
+    <a rel="external" href="https:&#x2F;&#x2F;github.com&#x2F;fcitx&#x2F;fcitx5">source</a></div>
+</div>
+
+<div class="ref tool mono">
+  <strong>vim</strong>
+  <div><span class="muted">from</span>&nbsp;<a rel="external" href="https://archlinux.org/packages/extra&#x2F;x86_64&#x2F;vim">extra&#x2F;vim</a></div>
+  <div><a rel="external" href="https:&#x2F;&#x2F;vimhelp.org&#x2F;">manual</a>
+    <a rel="external" href="https:&#x2F;&#x2F;github.com&#x2F;vim&#x2F;vim">source</a></div>
+</div>
+</div>
+  
+
+  
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a rel="external" href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <a rel="external" href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>
+        <a rel="external" href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>
