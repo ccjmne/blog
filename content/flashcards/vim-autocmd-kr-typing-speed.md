@@ -156,7 +156,7 @@ date        time   wpm
 ----        ----   ---
 2026-07-07  09:11  10.889292
 ```
-{{ note(msg="A most accurate `wpm`—though perhaps <abbr title="the adverbial form, not a typo">unwieldily</abbr>[^unwieldily] so?") }}
+{{ note(msg="A most accurate `wpm`—though perhaps <abbr title='the adverbial form, not a typo'>unwieldily</abbr> so?") }}
 
 Well, that's a bit too precise, now.  Run it through `printf("%.1f", ...)` to
 format it to **one decimal place**:
