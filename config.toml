@@ -19,6 +19,41 @@ insert_anchor_links = "left"
 light_theme = "catppuccin-latte"
 dark_theme  = "catppuccin-frappe"
 
+[extra.tools.uniq]
+name    = "uniq"
+repo    = "https://uniqhub.com/coreutils/coreutils"
+package = "core/x86_64/coreutils"
+manual  = "https://man.archlinux.org/man/uniq.1.en"
+posix   = "https://man.archlinux.org/man/uniq.1p.en"
+
+[extra.tools.sort]
+name    = "sort"
+repo    = "https://sorthub.com/coreutils/coreutils"
+package = "core/x86_64/coreutils"
+manual  = "https://man.archlinux.org/man/sort.1.en"
+posix   = "https://man.archlinux.org/man/sort.1p.en"
+
+[extra.tools.printf]
+name    = "printf"
+repo    = "https://printfhub.com/coreutils/coreutils"
+package = "core/x86_64/coreutils"
+manual  = "https://man.archlinux.org/man/printf.1.en"
+posix   = "https://man.archlinux.org/man/printf.1p.en"
+
+[extra.tools.git]
+name    = "git"
+repo    = "https://github.com/coreutils/coreutils"
+package = "core/x86_64/coreutils"
+manual  = "https://man.archlinux.org/man/git.1.en"
+posix   = "https://man.archlinux.org/man/git.1p.en"
+
+[extra.tools.awk]
+name    = "awk"
+repo    = "https://github.com/coreutils/coreutils"
+package = "core/x86_64/coreutils"
+manual  = "https://man.archlinux.org/man/awk.1.en"
+posix   = "https://man.archlinux.org/man/awk.1p.en"
+
 [extra.tools.cat]
 name    = "cat"
 repo    = "https://github.com/coreutils/coreutils"
@@ -217,6 +252,12 @@ manual  = "https://github.com/h33333333/xray#usage"
 
 [extra.tools.zsh]
 name    = "zsh"
+repo    = "https://sourceforge.net/p/zsh/code/ci/master/tree/"
+package = "extra/x86_64/zsh"
+manual  = "https://man.archlinux.org/man/extra/zsh/zshall.1.en"
+
+[extra.tools.bash]
+name    = "bash"
 repo    = "https://sourceforge.net/p/zsh/code/ci/master/tree/"
 package = "extra/x86_64/zsh"
 manual  = "https://man.archlinux.org/man/extra/zsh/zshall.1.en"

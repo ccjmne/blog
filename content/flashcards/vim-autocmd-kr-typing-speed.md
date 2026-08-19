@@ -5,7 +5,29 @@ description = """Using **a single line in my `vimrc`**, I get to merely type in 
 taxonomies.section = ['flashcards']
 taxonomies.tags = ['all', 'vim', '한국어']
 extra.cited_tools = ['column', 'vim']
+
+[[extra.cited_vimhelp]]
+    page = "insert.txt"
+    code = "i_CTRL-V"
+    excerpt  = """
+Insert next non-digit literally.  For special keys, the terminal code is
+inserted.  It's also possible to enter the decimal, octal or hexadecimal value
+of a character."""
+
+[[extra.cited_vimhelp]]
+    page = "change.txt"
+    code = "quote="
+    excerpt = """
+    This is not really a register that stores text, but is a way to use an
+    expression in commands which use a register.  The expression register is
+    read-write."""
 +++
+
+> function-list`](https://vimhelp.org/usr_41.txt.html#function-list)!  As far
+> strftime`](https://vimhelp.org/builtin.txt.html#strftime%28%29) gets you
+[`autocommand`](https://vimhelp.org/autocmd.txt.html#autocommand)
+InsertLeave`](https://vimhelp.org/autocmd.txt.html#InsertLeave)) in the current
+> that macro ([`:help q`](https://vimhelp.org/repeat.txt.html#recording)) right
 
 I started learning 한국어 (the Korean language) some weeks ago, and have
 set out to get comfortable with typing as well.  I settled on using the

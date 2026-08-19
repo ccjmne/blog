@@ -297,8 +297,7 @@ find -name '*.log' -print0 | grep -zv trace | xargs -0 zip archive.zip  # best, 
 > let's pretend that `grep -v archive {}` would work, but know that it doesn't
 > actually.
 
-<!-- REALLY NEED TO TALK OF -Z -0 -NULL -PRINT0 RIGHT HERE IN PARTICULAR!!! -->
-<!-- [-0-null-print0-z](@/ramblings/-0-null-print0-z.md) TODO: LINKME -->
+<!-- [The `xargs -0` and NUL-delimited files gospel](@/flight-manual/xargs/03-xargs-null-delimited-mode.md) -->
 
 You may be tempted to go for the following, but `find` actually expects
 `{}` to stand **on its own** as an operand; it won't serve as some sort of

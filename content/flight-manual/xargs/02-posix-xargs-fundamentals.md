@@ -218,8 +218,7 @@ find -name '*.h' | xargs -L1 wc
 </div>
 </div>
 
-<!-- NEXT ARTICLE TODO: LINKME -->
-<!-- [-0-null-print0-z](@/ramblings/-0-null-print0-z.md) TODO: LINKME -->
+<!-- NEXT ARTICLE: [The `xargs -0` and NUL-delimited files gospel](@/flight-manual/xargs/03-xargs-null-delimited-mode.md) -->
 
 </div>
 
@@ -311,7 +310,7 @@ However, you can squeeze more power out of this tool: I'll keep it simple and
 `POSIX`-centric, and be sure to follow this article up with another for some
 additional pragmatism.
 
-<!-- [-0-null-print0-z](@/ramblings/-0-null-print0-z.md) TODO: LINKME -->
+<!-- [The `xargs -0` and NUL-delimited files gospel](@/flight-manual/xargs/03-xargs-null-delimited-mode.md) -->
 
 ## Three indispensable flags
 
@@ -414,7 +413,7 @@ The **lines** in your input don't necessarily have a one-to-one correspondence
 to **arguments** as `xargs` would use them for downstream invocation of the
 specified tool.
 
-<!-- [-0-null-print0-z](@/ramblings/-0-null-print0-z.md) TODO: LINKME -->
+<!-- [The `xargs -0` and NUL-delimited files gospel](@/flight-manual/xargs/03-xargs-null-delimited-mode.md) -->
 Unless using `-I`, or some non-`POSIX` (albeit wonderful) `-0` or `-d`
 trickery), `xargs` will **parse your input lines using _"standard shell rules"_
 to figure out what arguments they hold**:
@@ -578,7 +577,7 @@ In the `POSIX` specification, there's only one way to bypass this interpretation
 `GNU` one I'm most familiar with) do come with additional niceties, which I'll
 keep for a follow-up article.
 
-<!-- [-0-null-print0-z](@/ramblings/-0-null-print0-z.md) TODO: LINKME -->
+<!-- [The `xargs -0` and NUL-delimited files gospel](@/flight-manual/xargs/03-xargs-null-delimited-mode.md) -->
 
 ### Max input lines: `-L` {#max-lines}
 
@@ -908,6 +907,6 @@ and only excuse its omission from any serious `xargs` guide by its distinct
 absence from the proper `POSIX` specification.  Nevertheless, that negligence
 here shall be addressed in the next and final article of this series.
 
-<!-- [-0-null-print0-z](@/ramblings/-0-null-print0-z.md) TODO: LINKME -->
+<!-- [The `xargs -0` and NUL-delimited files gospel](@/flight-manual/xargs/03-xargs-null-delimited-mode.md) -->
 
 Until then, have fun!
