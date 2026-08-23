@@ -2,7 +2,7 @@
 {%- set pages = [] -%}
 {%- for page in txnm.pages -%}
 {%- if most_recent is not defined or page.permalink != most_recent.permalink -%}
-{%- set_global pages = pages | concat(with=[page]) -%}
+{%- set_global pages = [...pages, page] -%}
 {%- endif -%}
 {%- endfor -%}
 

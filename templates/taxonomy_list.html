@@ -11,8 +11,8 @@
   {%- set alltags = get_taxonomy(kind="tags") -%}
   {%- for tag in alltags.items -%}
   {%- if tag.name == "all" -%} {% continue %} {%- endif -%}
-  {%- set_global pages = pages | concat(with=tag.pages | length) -%}
-  {%- set_global tags = tags | concat(with=tag) -%}
+  {%- set_global pages = [...pages, tag.pages | length] -%}
+  {%- set_global tags = [...tags, tag] -%}
   {%- endfor -%}
 
   {%- set median_33 = pages | length -%}
