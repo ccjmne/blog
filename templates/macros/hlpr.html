@@ -1,28 +1,28 @@
-{% macro vtn(name, static=false) %}
+{% component hlpr.vtn(name, static=false) %}
   style="view-transition-name: view-{{ name }}{% if static %}; view-transition-class: static{% endif %}"
-{% endmacro %}
+{% endcomponent hlpr.vtn %}
 
-{%- macro extract(content, which, footnotes_start=0) -%}
+{%- component hlpr.extract(content, which, footnotes_start=0) -%}
   {%- if which == "main" -%}
-    {%- set wip = content | regex_replace(pattern='(?s)\s*<section class="footnotes">.*', rep='') | safe -%}
+    {%- set wip = content | regex_replace(pattern='(?s)\\s*<section class="footnotes">.*', rep='') | safe -%}
     {%- set max = 20 -%}
     {%- for i in range(end=max) -%}
       {%- set i = max - i -%}
       {%- set j = footnotes_start + i -%}
-      {%- set pattern = '(?s)(?P<href>href="#fn-[^"]+"\s*)>' ~ i ~ '</a>' -%}
+      {%- set pattern = '(?s)(?P<href>href="#fn-[^"]+"\\s*)>' ~ i ~ '</a>' -%}
       {%- set replace = '<a $href>' ~ j ~ '</a>' -%}
       {%- set_global wip = wip | regex_replace(pattern=pattern, rep=replace) -%}
     {%- endfor -%}
     {{- wip | trim | safe -}}
   {%- elif which == "footnotes" and '<ol class="footnotes-list">' in content -%}
-    {{- content | regex_replace(pattern='(?s).*?<ol class="footnotes-list">(.*)</ol>.*', rep='$1') -}}
+    {{- content | regex_replace(pattern='(?s).*?<ol class="footnotes-list">(.*)</ol>.*', rep='$1') | safe -}}
   {%- endif -%}
-{%- endmacro -%}
+{%- endcomponent hlpr.extract -%}
 
-{%- macro footnotes(items) -%}
+{%- component hlpr.footnotes(items) -%}
   {%- if items | trim != "" -%}
     <section class="footnotes" aria-label="Footnotes">
       <ol class="footnotes-list">{{- items | safe -}}</ol>
     </section>
   {%- endif -%}
-{%- endmacro -%}
+{%- endcomponent hlpr.footnotes -%}

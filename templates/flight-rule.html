@@ -2,13 +2,13 @@
 
 {% block content %}
 {%- set parent = get_section(path=page.ancestors | last) -%}
-<h1><span class="link-title" {{ hlpr::vtn(name=page.slug) -}}>{{- page.title | markdown(inline=true) | safe -}}</span></h1>
+<h1><span class="link-title" {{<hlpr.vtn name={page.slug} />}}>{{- page.title | markdown(inline=true) | safe -}}</span></h1>
 {%- include "partials/infobar.html" -%}
 {%- if parent.extra.series -%}
 <details class="lo summary">
   <summary>Series introduction</summary>
-  <h2><a href="{{ get_url(path=parent.path) }}" class="link-title" {{ hlpr::vtn(name=parent.components | last) -}}>{{ parent.title | markdown(inline=true) | safe }}</a></h2>
-  {{ hlpr::extract(content=parent.content, which="main") }}
+  <h2><a href="{{ get_url(path=parent.path) }}" class="link-title" {{<hlpr.vtn name={parent.components | last} />}}>{{ parent.title | markdown(inline=true) | safe }}</a></h2>
+  {{<hlpr.extract content={parent.content} which="main" />}}
 </details>
 {%- endif -%}
 {%- if page.toc | default(value=false) -%}
@@ -16,11 +16,11 @@
 {%- endif -%}
 <article>
   {%- if parent.extra.series -%}
-  {%- set footnotes =        hlpr::extract(content=page.content,   which="footnotes") -%}
-  {%- set parent_footnotes = hlpr::extract(content=parent.content, which="footnotes") -%}
+  {%- set footnotes -%}{{-<hlpr.extract content={page.content} which="footnotes" />-}}{%- endset -%}
+  {%- set parent_footnotes -%}{{-<hlpr.extract content={parent.content} which="footnotes" />-}}{%- endset -%}
   {%- set offset = parent_footnotes | regex_replace(pattern='(?s)<li[^>]*>.*?</li>', rep='§') | split(pat='§') | length - 1 -%}
-  {{ hlpr::extract(content=page.content, which="main", footnotes_start=offset) }}
-  {{ hlpr::footnotes(items=parent_footnotes ~ footnotes) }}
+  {{<hlpr.extract content={page.content} which="main" footnotes_start={offset} />}}
+  {{<hlpr.footnotes items={parent_footnotes ~ footnotes} />}}
 
   {%- else -%}
   {{ page.content | safe }}
@@ -30,7 +30,7 @@
   <h2 id="cited-tools">{%- set id="cited-tools" -%}{%- include "anchor-link.html" -%}Referenced tools</h2>
   <div class="refs">
     {%- for work in page.extra.cited_tools -%}
-    {{- tmpl::cmd(tool=config.extra.tools[work]) -}}
+    {{-<tmpl.cmd tool={config.extra.tools[work]} />-}}
     {%- endfor -%}
   </div>
   {% endif %}
@@ -38,7 +38,7 @@
   {% if page.extra.cited_vimhelp is defined %}
   <h2 id="cited-vimhelp">{%- set id="cited-vimhelp" -%}{%- include "anchor-link.html" -%}Referenced Vim help</h2>
   <div class="refs">
-    {% for help in page.extra.cited_vimhelp %} {{- tmpl::vimhelp(help=help) -}} {% endfor %}
+    {% for help in page.extra.cited_vimhelp %} {{-<tmpl.vimhelp help={help} />-}} {% endfor %}
   </div>
   {% endif %}
 </article>

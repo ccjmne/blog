@@ -1,6 +1,3 @@
-{%- import "macros/hlpr.html" as hlpr -%}
-{%- import "macros/tmpl.html" as tmpl -%}
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -22,7 +19,7 @@
     </style>
   </head>
   <body>
-    <header {{ hlpr::vtn(name="header", static=true) -}} data-path="{{ current_path | default(value="/") }}">
+    <header {{<hlpr.vtn name="header" static={true} />}} data-path="{{ current_path | default(value="/") }}">
       <a href="{{ get_url(path="/") }}" data-target="home">Home</a>
       <details class="dropdown" max-md>
         <summary data-target="articles">Articles</summary>
@@ -41,12 +38,12 @@
       <span style="flex-grow: 1"></span>
       <a href="{{ get_url(path="/atom.xml", trailing_slash=false) }}">RSS</a>
     </header>
-    <div class="accent-bar" {{ hlpr::vtn(name="accent-bar", static=true) -}}></div>
+    <div class="accent-bar" {{<hlpr.vtn name="accent-bar" static={true} />}}></div>
     <main>
       {%- block content -%}
       {%- endblock content -%}
     </main>
-    <div class="hi" {{ hlpr::vtn(name="footer", static=true) -}}>
+    <div class="hi" {{<hlpr.vtn name="footer" static={true} />}}>
       <footer id="footer">
         &copy; 2025–{{ now() | date(format="%Y") }}
         <a rel="external" href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>

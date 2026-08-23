@@ -1,8 +1,8 @@
-{% macro cmd(tool) %}
+{% component tmpl.cmd(tool) %}
 <div class="ref tool mono">
   <strong>{{ tool.name }}</strong>
   <div>
-    {%- if tool.package is starting_with("aur/") -%}
+    {%- if tool.package is starting_with(pat="aur/") -%}
     <span class="muted">from</span>&nbsp;<a rel="external" href="https://aur.archlinux.org/packages/{{ tool.package | replace(from="aur/", to="") }}">{{ tool.package }}</a>
     {%- else -%}
     <span class="muted">from</span>&nbsp;<a rel="external" href="https://archlinux.org/packages/{{ tool.package }}">{{ tool.package | replace(from="/x86_64/", to="/") }}</a>
@@ -19,11 +19,11 @@
     {%- endif -%}
   </div>
 </div>
-{% endmacro %}
+{% endcomponent tmpl.cmd %}
 
-{% macro vimhelp(help) %}
+{% component tmpl.vimhelp(help) %}
 <div class="ref vimhelp mono">
   <a rel="external" href="https://vimhelp.org/{{ help.page }}.html#{{ help.code | urlencode }}"><strong>:help {{ help.code }}</strong></a>
   <span class="excerpt">{{ help.excerpt | trim | markdown(inline=true) | safe }}</span>
 </div>
-{% endmacro %}
+{% endcomponent tmpl.vimhelp %}
