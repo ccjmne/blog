@@ -14,9 +14,6 @@ sup.footnote-reference {
   > a {
     text-decoration: none;
     color: var(--colour-accent);
-    &:not(:hover) { &::before, &::after { color: var(--colour-text); } }
-    &::before { content: "["; }
-    &::after  { content: "]"; }
   }
 }
 
