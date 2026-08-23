@@ -32,6 +32,7 @@ date        time   wpm
 2026-07-11  08:32  11.7
 2026-07-11  06:14  16.0
 ```
+{{<note msg="Yeah, that's not fast alright: these are my first few days typing 한글, I'll improve soon"/>}}
 
 But I wish not to compute the <abbr title="Words Per Minute">`wpm`</abbr> in my
 head, and I find typing the date to be tedious as well: I want to put in my
@@ -52,8 +53,6 @@ au InsertLeave kr100 norm! ^"=strftime("%F  ")^MPw"ayiwE"byiw"=printf("  %.1f", 
 
 And now, whenever I open that one file, I simply type in my time, and Vim does
 the rest!
-
-Let's go over that incantation above, and demystify its sigils together.
 
 <div class="grid-1-2">
 <div>
@@ -91,6 +90,9 @@ date        time   wpm
 
 </div>
 </div>
+
+Let's go over that incantation above, and demystify its sigils together.
+
 </div>
 
 > [!TIP]
@@ -118,7 +120,6 @@ date        time   wpm
 ----        ----   ---
 2026-07-07  09:11  12
 ```
-{{ note(msg="Yeah, that's not fast alright") }}
 
 > [!TIP]
 >
@@ -227,7 +228,7 @@ B  "ayiw  E  "byiw  $  "=  printf("  %.1f", 100/(^Ra+^Rb/60.0))  ^M  p
 │  │      │  │      │  │   │           register [b] ─┘        │  │   └─ [p]ut result at cursor location
 │  │      │  │      │  │   ├──────────────────────────────────┘  └─ press Enter to complete
 │  │      │  │      │  │   └─ statement in expression register
-│  │      │  │      │  └─ start expression register (`"=`)
+│  │      │  │      │  └─ using expression register ("=)
 │  │      │  │      └─ jump to end of line
 │  │      │  └─ [y]ank [i]nner [w]ord into ["b] (register b)
 │  │      └─ jump to [E]nd of WORD
