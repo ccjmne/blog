@@ -80,12 +80,12 @@ bindkey '^I' zle-expand-omni
 
 <div class="grid-1-2">
 <div>
-<pre class="giallo z-code">
+<pre class="giallo">
 <code><span class="term-fg34"><span class="term-fg31">cd</span></span> █
 </code></pre>{{<note msg="`1.` begin entering a `cd` command"/>}}
 </div>
 <div>
-<pre class="giallo z-code">
+<pre class="giallo">
 <code><span class="term-fg34"><span class="term-fg31">cd</span></span> █
 <span class="term-0">home/ scripts/</span>
 </code></pre>{{<note msg="`2.` press `<Tab>` once for the completion menu"/>}}
@@ -94,13 +94,13 @@ bindkey '^I' zle-expand-omni
 
 <div class="grid-1-2">
 <div>
-<pre class="giallo z-code">
+<pre class="giallo">
 <code><span class="term-fg34"><span class="term-fg31">cd</span></span> scr█
 <span class="term-0">home/ scripts/</span>
 </code></pre>{{<note msg="`3.` start typing away, here `scr`"/>}}
 </div>
 <div>
-<pre class="giallo z-code">
+<pre class="giallo">
 <code><span class="term-fg34"><span class="term-fg31">cd</span></span> scripts/█
 <span class="term-0">home/ scripts/</span>
 </code></pre>{{<note msg="`4.` press `<Tab>` again to complete"/>}}
@@ -111,12 +111,12 @@ bindkey '^I' zle-expand-omni
 
 <div class="grid-1-2">
 <div>
-<pre class="giallo z-code">
+<pre class="giallo">
 <code><span class="term-fg34"><span class="term-fg31">cd</span></span> █
 </code></pre>{{<note msg="`1.` begin entering a `cd` command"/>}}
 </div>
 <div>
-<pre class="giallo z-code">
+<pre class="giallo">
 <code><span class="term-fg34"><span class="term-fg31">cd</span></span> █
 <span class="term-0">home/ scripts/</span>
 </code></pre>{{<note msg="`2.` press `<Tab>` once for the completion menu"/>}}
@@ -125,13 +125,13 @@ bindkey '^I' zle-expand-omni
 
 <div class="grid-1-2">
 <div>
-<pre class="giallo z-code">
+<pre class="giallo">
 <code><span class="term-fg34"><span class="term-fg31">cd</span></span> <span class="term-fg32">home/█</span>
 <span class="term-inv">home/</span><span class="term-fg0"> scripts/</span>
 </code></pre>{{<note msg="`3.` press `<Tab>` again for the interactive menu"/>}}
 </div>
 <div>
-<pre class="giallo z-code">
+<pre class="giallo">
 <code><span class="term-fg34"><span class="term-fg31">cd</span></span> <span class="term-fg32">scripts/█</span>
 <span class="term-fg0">home/</span> <span class="term-inv">scripts/</span>
 </code></pre>{{<note msg="`4.` navigate the menu—using other bindings"/>}}
@@ -167,12 +167,12 @@ constitutes the second dimension**
 
 <div class="grid-1-2">
 <div>
-<pre class="giallo z-code">
+<pre class="giallo">
 <code><span class="term-fg34">ls</span> <span class="term-fg33">*█</span>
 </code></pre>{{<note msg="`1.` begin entering an `ls` command"/>}}
 </div>
 <div>
-<pre class="giallo z-code">
+<pre class="giallo">
 <code><span class="term-fg34">ls</span> <span class="term-fg32">LICENSE README home/ scripts/</span> █
 </code></pre>{{<note msg="`2.` press `<Tab>` to expand the matching items"/>}}
 </div>
@@ -182,17 +182,17 @@ constitutes the second dimension**
 
 <div class="grid-1-3">
 <div>
-<pre class="giallo z-code">
+<pre class="giallo">
 <code><span class="term-fg31">alias</span> <span class="term-fg33">git</span>=<span class="term-fg32">'noglob git'</span>
 </code></pre>{{<note msg="`1.` set up some `alias`"/>}}
 </div>
 <div>
-<pre class="giallo z-code">
+<pre class="giallo">
 <span class="term-fg33">git█</span>
 </code></pre>{{<note msg="`2.` prepare to use it"/>}}
 </div>
 <div>
-<pre class="giallo z-code">
+<pre class="giallo">
 <span class="term-fg34">noglob git</span> █
 </code></pre>{{<note msg="`3.` press `<Tab>` to expand it"/>}}
 </div>
@@ -207,13 +207,13 @@ Note that it is quite intelligent in understanding your intent:
 
 <div class="grid-1-2">
 <div>
-<pre class="giallo z-code">
+<pre class="giallo">
 <code><span class="term-fg33">ll█</span>
 <span class="term-fg34">ls</span> <span class="term-fg32">-l --almost-all --human-readable</span> █
 </code></pre>{{<note msg="**expand `alias`es** with your cursor **adjacent**"/>}}
 </div>
 <div>
-<pre class="giallo z-code">
+<pre class="giallo">
 <code><span class="term-fg33">ll</span> █
 LICENSE README home/ scripts/
 </code></pre>{{<note msg="**complete commands** with a cursor **disjoined**"/>}}
@@ -255,13 +255,13 @@ talk in some other article of the now infamous [useless use of
 
 That is it: `bindkey <mapping> undo`.  Let's see it in action:
 
-<pre class="giallo z-code">
+<pre class="giallo">
 <code><span class="term-fg34">mv</span> <span class="term-fg32">-t scripts/</span> <span class="term-fg33">**</span>/<span class="term-fg33">*</span>.sh</span>█
 </code></pre>{{<note msg="preparing to move your scripts to the `scripts/` directory"/>}}
 
 Press `<Tab>` before executing it, just to be sure...
 
-<pre class="giallo z-code">
+<pre class="giallo">
 <code><span class="term-fg34">mv</span> <span class="term-fg32">-t scripts/</span> <span class="term-fg32">bin/startup.sh bin/check_env.sh bin/deploy.sh bin/cleanup.sh bin/update.sh bin/monitor.sh
 bin/restart_services.sh tools/sysinfo.sh tools/network_check.sh tools/randomizer.sh tools/service_restart.sh
 tools/optimize.sh tools/package.sh tools/install_dependencies.sh tools/benchmark.sh utils/parse_logs.sh
@@ -273,18 +273,18 @@ tools/update_packages.sh tools/reindex.sh utils/migrate_files.sh utils/cleanup_o
 
 <div class="grid-1-2">
 <div>
-<pre class="giallo z-code">
+<pre class="giallo">
 <code><span class="term-fg34">mv</span> <span class="term-fg32">-t scripts/</span> <span class="term-fg33">**</span>/<span class="term-fg33">*</span>.sh</span>█
 </code></pre>{{<note msg="roll it back with the binding of your choice"/>}}
 </div>
 <div>
-<pre class="giallo z-code">
+<pre class="giallo">
 <code><span class="term-fg34">mv</span> <span class="term-fg32">-t scripts/</span> <span class="term-fg33">{utils,bin}</span>/<span class="term-fg33">*</span>.sh</span>█
 </code></pre>{{<note msg="adjust and correct your command"/>}}
 </div>
 </div>
 
-<pre class="giallo z-code">
+<pre class="giallo">
 <code><span class="term-fg34">mv</span> <span class="term-fg32">-t scripts/</span> <span class="term-fg32">bin/startup.sh bin/check_env.sh bin/restart_services.sh bin/update_configs.sh utils/migrate_files.sh
 utils/cleanup_old.sh utils/check_integrity.sh</span>
 </code></pre>{{<note msg="that's more like it! though I had no idea of these other forsaken piles... future-me can sort it out"/>}}

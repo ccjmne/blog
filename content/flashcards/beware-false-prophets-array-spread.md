@@ -129,7 +129,7 @@ there](@/flight-manual/array-from-vs-square-brackets-spread.md).
 But the more interesting point would likely be that of its _"speed"_: how much
 faster would either method go?
 
-<pre class="giallo z-code"><code data-lang="plain"><span class="term-fg1">Benchmark 1</span>: [...arr].map(fn)
+<pre class="giallo"><code data-lang="plain"><span class="term-fg1">Benchmark 1</span>: [...arr].map(fn)
   Time (<span class="term-fg32 term-fg1">mean</span> ± <span class="term-fg32">σ</span>):     <span class="term-fg32 term-fg1"> 1.538 s</span> ± <span class="term-fg32"> 0.099 s</span>    [User: <span class="term-fg34">1.015 s</span>, System: <span class="term-fg34">0.517 s</span>]
   Range (<span class="term-fg36">min</span> … <span class="term-fg35">max</span>):   <span class="term-fg36"> 1.404 s</span> … <span class="term-fg35"> 1.754 s</span>    <span class="term-fg2">20 runs</span>
 &nbsp;

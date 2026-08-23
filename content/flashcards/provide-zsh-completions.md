@@ -89,12 +89,12 @@ And voilà, an `API` that's **discoverable**, without jumping through all the
 
 <div class="grid-1-2">
 <div>
-<pre class="giallo z-code">
+<pre class="giallo">
 <code><span class="term-fg34"><span class="term-fg31">gerp</span></span> █
 </code></pre>{{<note msg="`1.` begin entering a `gerp` command"/>}}
 </div>
 <div>
-<pre class="giallo z-code">
+<pre class="giallo">
 <code><span class="term-fg34"><span class="term-fg31">gerp</span></span> █
 <span class="term-0">completions  -- generate shell completions</span>
 <span class="term-0">hello        -- greet the user</span>
@@ -104,14 +104,14 @@ And voilà, an `API` that's **discoverable**, without jumping through all the
 
 <div class="grid-1-2">
 <div>
-<pre class="giallo z-code">
+<pre class="giallo">
 <code><span class="term-fg34"><span class="term-fg31">gerp</span></span> hel█
 <span class="term-0">completions  -- generate shell completions</span>
 <span class="term-0">hello        -- greet the user</span>
 </code></pre>{{<note msg="`3.` start typing away, here `hel`"/>}}
 </div>
 <div>
-<pre class="giallo z-code">
+<pre class="giallo">
 <code><span class="term-fg34"><span class="term-fg31">gerp</span></span> hello █
 <span class="term-0">completions  -- generate shell completions</span>
 <span class="term-0">hello        -- greet the user</span>

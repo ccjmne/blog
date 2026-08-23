@@ -26,10 +26,11 @@ pre {
   --bg: var(--bg-2); // term-inv works off --bg
 
   &:not(:has(> [data-name])) {
-    background-color: var(--bg);
+    background-color: var(--bg) !important;
   }
   &:has(> [data-name]) {
     padding-top: calc($code-padding + 1lh);
+    background-color: transparent !important;
     background: linear-gradient(
       to bottom,
       transparent 0,

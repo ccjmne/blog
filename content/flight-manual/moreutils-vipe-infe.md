@@ -105,7 +105,7 @@ and pass them along to `fzf`, offering an interactive interface for the user to
 pick an entry.  The selected quote is finally written to `$MAIL`, in a format
 suitable for plain-text e-mails:
 
-<pre class="giallo z-code">
+<pre class="giallo">
 <span class="term-fg33">Date</span>: <span class="term-fg36">Mon, 11 Aug 2025 00:20:43 +0200</span>
 <span class="term-fg33">From</span>: <span class="term-fg36">ccjmne@gmail.com</span>
 <span class="term-fg33">To</span>: <span class="term-fg36">sherlock.inbox@221b.uk</span>

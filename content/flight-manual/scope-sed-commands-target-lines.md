@@ -390,7 +390,7 @@ In summary, instead of being presented with:
 ```sh
 git commit
 ```
-<pre class="giallo z-code"><code data-lang="plain"><span class="term-fg38"># Please enter the commit message for your changes. Lines starting
+<pre class="giallo"><code data-lang="plain"><span class="term-fg38"># Please enter the commit message for your changes. Lines starting
 # with '#' will be ignored, and an empty message aborts the commit.
 #
 # On branch <span class="term-fg35">master</span>
@@ -409,7 +409,7 @@ You would instead have:
 ```sh
 git commit --verbose
 ```
-<pre class="giallo z-code"><code data-lang="plain"><span class="term-fg38"># Please enter the commit message for your changes. Lines starting
+<pre class="giallo"><code data-lang="plain"><span class="term-fg38"># Please enter the commit message for your changes. Lines starting
 # with '#' will be ignored, and an empty message aborts the commit.
 #
 # On branch <span class="term-fg35">master</span>
@@ -456,7 +456,7 @@ cleaner commit message template:
 ```sh
 git commit --verbose
 ```
-<pre class="giallo z-code"><code data-lang="plain"><span class="term-fg38"># On branch <span class="term-fg35">master</span>
+<pre class="giallo"><code data-lang="plain"><span class="term-fg38"># On branch <span class="term-fg35">master</span>
 # <span class="term-fg35">Changes to be committed:</span>
 #	<span class="term-fg34">modified</span>:   <span class="term-fg33">test</span>
 # ------------------------ >8 ------------------------</span>

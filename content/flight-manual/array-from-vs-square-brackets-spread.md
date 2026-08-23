@@ -408,7 +408,7 @@ Let's get started!  How about `100` iterations over arrays with `10,000` items?
 ```sh
 sh spd.sh 10000 100
 ```
-<pre class="giallo z-code"><code data-lang="plain"><span class="term-fg1">Benchmark 1</span>: for (...)
+<pre class="giallo"><code data-lang="plain"><span class="term-fg1">Benchmark 1</span>: for (...)
   Time (<span class="term-fg32 term-fg1">mean</span> ± <span class="term-fg32">σ</span>):     <span class="term-fg32 term-fg1"> 25.8 ms</span> ± <span class="term-fg32">  1.8 ms</span>    [User: <span class="term-fg34">21.4 ms</span>, System: <span class="term-fg34">6.7 ms</span>]
   Range (<span class="term-fg36">min</span> … <span class="term-fg35">max</span>):   <span class="term-fg36"> 22.8 ms</span> … <span class="term-fg35"> 29.4 ms</span>    <span class="term-fg2">20 runs</span>
 &nbsp;
@@ -449,14 +449,14 @@ identical under the hood...  Let's keep going.
 ```sh
 sh spd.sh 100000 100
 ```
-<pre class="giallo z-code">
+<pre class="giallo">
 <code data-lang="plain"><span class="term-fg1">Summary</span>
   <span class="term-fg36">for (...)</span> ran
 <span class="term-fg32 term-fg1">    2.19</span> ± <span class="term-fg32">0.18</span> times faster than <span class="term-fg35">arr.map(fn)</span>
 <span class="term-fg32 term-fg1">    2.61</span> ± <span class="term-fg32">0.24</span> times faster than <span class="term-fg35">[...arr].map(fn)</span>
 <span class="term-fg32 term-fg1">    5.41</span> ± <span class="term-fg32">0.36</span> times faster than <span class="term-fg35">Array.from(arr, fn)</span></code></pre>
 </summary>
-<pre class="giallo z-code"><code data-lang="plain"><span class="term-fg1">Benchmark 1</span>: for (...)
+<pre class="giallo"><code data-lang="plain"><span class="term-fg1">Benchmark 1</span>: for (...)
   Time (<span class="term-fg32 term-fg1">mean</span> ± <span class="term-fg32">σ</span>):     <span class="term-fg32 term-fg1"> 69.8 ms</span> ± <span class="term-fg32">  3.1 ms</span>    [User: <span class="term-fg34">46.0 ms</span>, System: <span class="term-fg34">29.6 ms</span>]
   Range (<span class="term-fg36">min</span> … <span class="term-fg35">max</span>):   <span class="term-fg36"> 66.0 ms</span> … <span class="term-fg35"> 77.6 ms</span>    <span class="term-fg2">20 runs</span>
 &nbsp;
@@ -483,14 +483,14 @@ sh spd.sh 100000 100
 ```sh
 sh spd.sh 10000 1000
 ```
-<pre class="giallo z-code">
+<pre class="giallo">
 <code data-lang="plain"><span class="term-fg1">Summary</span>
   <span class="term-fg36">for (...)</span> ran
 <span class="term-fg32 term-fg1">    2.71</span> ± <span class="term-fg32">0.26</span> times faster than <span class="term-fg35">arr.map(fn)</span>
 <span class="term-fg32 term-fg1">    2.90</span> ± <span class="term-fg32">0.28</span> times faster than <span class="term-fg35">[...arr].map(fn)</span>
 <span class="term-fg32 term-fg1">    6.12</span> ± <span class="term-fg32">0.64</span> times faster than <span class="term-fg35">Array.from(arr, fn)</span></code></pre>
 </summary>
-<pre class="giallo z-code"><code data-lang="plain"><span class="term-fg1">Benchmark 1</span>: for (...)
+<pre class="giallo"><code data-lang="plain"><span class="term-fg1">Benchmark 1</span>: for (...)
   Time (<span class="term-fg32 term-fg1">mean</span> ± <span class="term-fg32">σ</span>):     <span class="term-fg32 term-fg1"> 42.4 ms</span> ± <span class="term-fg32">  3.6 ms</span>    [User: <span class="term-fg34">35.2 ms</span>, System: <span class="term-fg34">11.8 ms</span>]
   Range (<span class="term-fg36">min</span> … <span class="term-fg35">max</span>):   <span class="term-fg36"> 38.5 ms</span> … <span class="term-fg35"> 52.7 ms</span>    <span class="term-fg2">20 runs</span>
 &nbsp;
@@ -517,14 +517,14 @@ sh spd.sh 10000 1000
 ```sh
 sh spd.sh 100000 1000
 ```
-<pre class="giallo z-code">
+<pre class="giallo">
 <code data-lang="plain"><span class="term-fg1">Summary</span>
   <span class="term-fg36">for (...)</span> ran
 <span class="term-fg32 term-fg1">    2.97</span> ± <span class="term-fg32">0.14</span> times faster than <span class="term-fg35">arr.map(fn)</span>
 <span class="term-fg32 term-fg1">    3.72</span> ± <span class="term-fg32">0.20</span> times faster than <span class="term-fg35">[...arr].map(fn)</span>
 <span class="term-fg32 term-fg1">    8.05</span> ± <span class="term-fg32">0.32</span> times faster than <span class="term-fg35">Array.from(arr, fn)</span></code></pre>
 </summary>
-<pre class="giallo z-code"><code data-lang="plain"><span class="term-fg1">Benchmark 1</span>: for (...)
+<pre class="giallo"><code data-lang="plain"><span class="term-fg1">Benchmark 1</span>: for (...)
   Time (<span class="term-fg32 term-fg1">mean</span> ± <span class="term-fg32">σ</span>):     <span class="term-fg32 term-fg1">406.1 ms</span> ± <span class="term-fg32">  6.1 ms</span>    [User: <span class="term-fg34">173.8 ms</span>, System: <span class="term-fg34">241.2 ms</span>]
   Range (<span class="term-fg36">min</span> … <span class="term-fg35">max</span>):   <span class="term-fg36">397.0 ms</span> … <span class="term-fg35">419.2 ms</span>    <span class="term-fg2">20 runs</span>
 &nbsp;

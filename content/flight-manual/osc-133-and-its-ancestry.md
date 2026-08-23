@@ -35,7 +35,7 @@ controls or contextual information:
 
 <div class="grid-1-2">
 <div>
-<pre class="giallo z-code"><code data-lang="plain">ccjmne% <span class="term-fg32">seq</span> 1 5
+<pre class="giallo"><code data-lang="plain">ccjmne% <span class="term-fg32">seq</span> 1 5
 1
 2
 3
@@ -45,7 +45,7 @@ controls or contextual information:
 {{<note msg="a plain old shell output, running `seq 1 5`"/>}}
 </div>
 <div>
-<pre class="giallo z-code"><code data-lang="plain"><span class="term-fg1">[PROMPT]</span>ccjmne% <span class="term-fg1">[COMMAND_START]</span><span class="term-fg32">seq</span> 1 5
+<pre class="giallo"><code data-lang="plain"><span class="term-fg1">[PROMPT]</span>ccjmne% <span class="term-fg1">[COMMAND_START]</span><span class="term-fg32">seq</span> 1 5
 <span class="term-fg1">[COMMAND_EXECUTED]</span>1
 2
 3
@@ -447,7 +447,7 @@ attributes the `A`-through-`D` scheme to _Final Term_:
 This documentation puts together quite well some visual `TL;DR` of "what goes
 where":
 
-<pre class="giallo z-code"><code data-lang="plain"><span class="term-fg1">[PROMPT]</span>ccjmne% <span class="term-fg1">[COMMAND_START]</span><span class="term-fg34">ls</span> <span class="term-fg32">-l</span>
+<pre class="giallo"><code data-lang="plain"><span class="term-fg1">[PROMPT]</span>ccjmne% <span class="term-fg1">[COMMAND_START]</span><span class="term-fg34">ls</span> <span class="term-fg32">-l</span>
 <span class="term-fg1">[COMMAND_EXECUTED]</span>-rw-r--r-- 1 ccjmne ccjmne 111 May 10 02:47 file
 <span class="term-fg1">[COMMAND_FINISHED]</span></code></pre>
 {{<note msg="the bits between square brackets correspond to `OSC` `133` `A` through `D` and are not actually visible"/>}}

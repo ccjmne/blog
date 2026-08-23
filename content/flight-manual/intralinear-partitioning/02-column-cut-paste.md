@@ -388,7 +388,7 @@ mind:
 ```sh
 xxd <<< 🦉
 ```
-<pre class="giallo z-code"><code data-lang="plain"><span class="z-string">f09f</span> <span class="z-string">a689</span> <span class="z-constant">0a</span>  <span class="z-string">....</span><span class="z-constant">.</span></pre></code>
+<pre class="giallo"><code data-lang="plain"><span class="term-fg32">f09f</span> <span class="term-fg32">a689</span> <span class="term-fg33">0a</span>  <span class="term-fg32">....</span><span class="term-fg33">.</span></pre></code>
 ```sh
 yes | head -5 | paste -d🦉 - - - - -
 ```
@@ -398,7 +398,7 @@ yyyyy
 ```sh
 yes | head -5 | paste -d🦉 - - - - - | xxd
 ```
-<pre class="giallo z-code"><code data-lang="plain"><span class="z-variable">79</span><span class="z-string">f0</span> <span class="z-variable">79</span><span class="z-string">9f</span> <span class="z-variable">79</span><span class="z-string">a6</span> <span class="z-variable">79</span><span class="z-string">89</span> <span class="z-variable">79</span><span class="z-constant">0a</span>  <span class="z-variable">y</span><span class="z-string">.</span><span class="z-variable">y</span><span class="z-string">.</span><span class="z-variable">y</span><span class="z-string">.</span><span class="z-variable">y</span><span class="z-string">.</span><span class="z-variable">y</span><span class="z-constant">.</span></pre></code>
+<pre class="giallo"><code data-lang="plain"><span class="term-fg34">79</span><span class="term-fg32">f0</span> <span class="term-fg34">79</span><span class="term-fg32">9f</span> <span class="term-fg34">79</span><span class="term-fg32">a6</span> <span class="term-fg34">79</span><span class="term-fg32">89</span> <span class="term-fg34">79</span><span class="term-fg33">0a</span>  <span class="term-fg34">y</span><span class="term-fg32">.</span><span class="term-fg34">y</span><span class="term-fg32">.</span><span class="term-fg34">y</span><span class="term-fg32">.</span><span class="term-fg34">y</span><span class="term-fg32">.</span><span class="term-fg34">y</span><span class="term-fg33">.</span></pre></code>
 </div>
 <div>
 
@@ -407,7 +407,7 @@ cat /dev/null                              \
     | paste -d🦉 <(echo [) - - - <(echo ]) \
     | xxd
 ```
-<pre class="giallo z-code"><code data-lang="plain"><span class="z-variable">5b</span><span class="z-string">f0</span> <span class="z-string">9fa6</span> <span class="z-string">89</span><span class="z-variable">5d</span> <span class="z-constant">0a</span>  <span class="z-variable">[</span><span class="z-string">....</span><span class="z-variable">]</span><span class="z-constant">.</span></pre></code>
+<pre class="giallo"><code data-lang="plain"><span class="term-fg34">5b</span><span class="term-fg32">f0</span> <span class="term-fg32">9fa6</span> <span class="term-fg32">89</span><span class="term-fg34">5d</span> <span class="term-fg33">0a</span>  <span class="term-fg34">[</span><span class="term-fg32">....</span><span class="term-fg34">]</span><span class="term-fg33">.</span></pre></code>
 ```sh
 cat /dev/null \
     | paste -d🦉 <(echo [) - - - <(echo ])
