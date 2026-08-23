@@ -28,7 +28,7 @@
     {%- endif -%}
     <li>{{- page.reading_time -}}-minute read</li>
     {% set parent = get_section(path=page.ancestors | last) %}
-    {%- if not section.extra.series and parent.extra.series -%}
+    {%- if not section?.extra?.series and parent.extra.series -%}
       <li>Part&nbsp;{{ page.slug | truncate(length=2, end="") | trim_start(pat="0") }}&nbsp;of&nbsp;<a href="{{ parent.permalink }}">{{ parent.title | markdown(inline=true) | safe }}</a></li>
     {%- endif -%}
 
@@ -42,7 +42,7 @@
     <li>tagged
       {% for tag in tags -%}
       {%- if not loop.first -%}, {% endif -%}
-      {%- if term is defined and term.name == tag -%}
+      {%- if term?.name == tag -%}
       <span class="current">{{ tag | markdown(inline=true) | safe }}</span>
       {%- else -%}
       {% set term = get_taxonomy_term(kind="tags", term=tag) %}
