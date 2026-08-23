@@ -1,18 +1,20 @@
 name: Build and deploy blog
 
 on:
- push:
-  branches:
-   - master
+  push:
+    branches:
+      - master
 
 jobs:
   build:
     name: Publish site
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-    - name: Check out repository
-      uses: actions/checkout@v4
-    - name: Build and deploy blog
-      uses: shalzz/zola-deploy-action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Check out repository
+        uses: actions/checkout@v5
+      - name: Build and deploy blog
+        uses: shalzz/zola-deploy-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
