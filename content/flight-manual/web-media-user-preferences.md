@@ -169,7 +169,7 @@ for example serve images of lower resolution:
 ```html
 <link rel="prefetch" href="readmore.html" media="(prefers-reduced-data: no-preference)">
 ```
-{{ note(msg="you can pre-load the next blog article unless the user wants to save their data") }}
+{{<note msg="you can pre-load the next blog article unless the user wants to save their data"/>}}
 
 Although, in practice, prefetching is more likely to be disabled in the data &
 privacy configuration of a Web browser than through this preference.

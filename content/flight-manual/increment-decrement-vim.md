@@ -117,14 +117,14 @@ Place your cursor on `41`, and press `<C-A>`:
 ```txt
 The answer is 41.
 ```
-{{ note(msg="be on `41`") }}
+{{<note msg="be on `41`"/>}}
 </div>
 <div>
 
 ```txt
 The answer is 42.
 ```
-{{ note(msg="after `<C-A>`") }}
+{{<note msg="after `<C-A>`"/>}}
 </div>
 </div>
 
@@ -146,14 +146,14 @@ target** when performing said action:
 ```txt
 Copyright (c) 2025 ACME Inc.
 ```
-{{ note(msg='"this is so _last year_"') }}
+{{<note msg='"this is so _last year_"'/>}}
 </div>
 <div>
 
 ```txt
 Copyright (c) 2026 ACME Inc.
 ```
-{{ note(msg="with `^A`, Vim jumps to `2025` and increments it") }}
+{{<note msg="with `^A`, Vim jumps to `2025` and increments it"/>}}
 </div>
 </div>
 
@@ -170,14 +170,14 @@ to `3`:
 ```txt
 Brazil: 1, France: 2
 ```
-{{ note(msg="assuming cursor on `Brazil`") }}
+{{<note msg="assuming cursor on `Brazil`"/>}}
 </div>
 <div>
 
 ```txt
 Brazil: 0, France: 3
 ```
-{{ note(msg="after `^X`, `l`, `^A`") }}
+{{<note msg="after `^X`, `l`, `^A`"/>}}
 </div>
 </div>
 
@@ -244,14 +244,14 @@ With default settings, **numbers with leading zeros are treated as octal**:
 ```txt
 007
 ```
-{{ note(msg="`007` in octal would be `7` in decimal") }}
+{{<note msg="`007` in octal would be `7` in decimal"/>}}
 
 After `^A`:
 
 ```txt
 010
 ```
-{{ note(msg="that's **octal** for `8`, not what most people expect!") }}
+{{<note msg="that's **octal** for `8`, not what most people expect!"/>}}
 
 To disable octal interpretation:
 
@@ -297,7 +297,7 @@ flags = 0b0101  ; flags 1 and 4
 ascii = 0x61    ; the letter 'a'
 flags = 0b0001  ; flag 1 only
 ```
-{{ note(msg="use `32^A` on the first line, `4^X` on the second") }}
+{{<note msg="use `32^A` on the first line, `4^X` on the second"/>}}
 </div>
 </div>
 
@@ -311,7 +311,7 @@ If `nrformats` includes `alpha`, even **letters** can be incremented:
 ```txt
 Option A
 ```
-{{ note(msg="have your cursor on `A`") }}
+{{<note msg="have your cursor on `A`"/>}}
 </div>
 
 <div>
@@ -319,7 +319,7 @@ Option A
 ```txt
 Option B
 ```
-{{ note(msg="after `^A`") }}
+{{<note msg="after `^A`"/>}}
 </div>
 </div>
 
@@ -343,7 +343,7 @@ server0 = 192.168.1.10:8000
 server0 = 192.168.1.10:8000
 server0 = 192.168.1.10:8000
 ```
-{{ note(msg="highlight with `vip`, increase with `g^A`") }}
+{{<note msg="highlight with `vip`, increase with `g^A`"/>}}
 </div>
 <div>
 
@@ -352,7 +352,7 @@ server1 = 192.168.1.10:8000
 server2 = 192.168.1.10:8000
 server3 = 192.168.1.10:8000
 ```
-{{ note(msg="after `vip` and `^A`") }}
+{{<note msg="after `vip` and `^A`"/>}}
 </div>
 </div>
 
@@ -367,7 +367,7 @@ server3 = 192.168.1.10:8000
 ;                   ^^
 ;    selected across all three lines
 ```
-{{ note(msg="select the last octet of that IP address (`10`) across all three lines, in block-wise visual mode (`^V`)") }}
+{{<note msg="select the last octet of that IP address (`10`) across all three lines, in block-wise visual mode (`^V`)"/>}}
 
 Then `g^A` to affect each line of **the selection**, rather than the first
 adequate target **in the selection**, rather than the first overall, on each
@@ -378,7 +378,7 @@ server1 = 192.168.1.11:8000
 server2 = 192.168.1.12:8000
 server3 = 192.168.1.13:8000
 ```
-{{ note(msg="note the last octet of each IP address now reading `11`, `12`, and `13`, respectively") }}
+{{<note msg="note the last octet of each IP address now reading `11`, `12`, and `13`, respectively"/>}}
 
 ## The main course: `g^A` and `g^X`
 
@@ -399,7 +399,7 @@ would with `g^X`.  For illustration, start with this:
 0
 0
 ```
-{{ note(msg="500 milliseconds before") }}
+{{<note msg="500 milliseconds before"/>}}
 </div>
 <div>
 
@@ -410,7 +410,7 @@ would with `g^X`.  For illustration, start with this:
 4
 5
 ```
-{{ note(msg="after `vip` and `g^A`") }}
+{{<note msg="after `vip` and `g^A`"/>}}
 </div>
 </div>
 
@@ -428,7 +428,7 @@ to start off (or punctuate with) a complementary `^X`.
 1
 1
 ```
-{{ note(msg="1 second before") }}
+{{<note msg="1 second before"/>}}
 </div>
 <div>
 
@@ -439,7 +439,7 @@ to start off (or punctuate with) a complementary `^X`.
 5
 6
 ```
-{{ note(msg="after `vip` and `g^A`") }}
+{{<note msg="after `vip` and `g^A`"/>}}
 </div>
 <div>
 
@@ -450,7 +450,7 @@ to start off (or punctuate with) a complementary `^X`.
 4
 5
 ```
-{{ note(msg="after `gv` ([`:help gv`](https://vimhelp.org/visual.txt.html#gv)) and `^X`") }}
+{{<note msg="after `gv` ([`:help gv`](https://vimhelp.org/visual.txt.html#gv)) and `^X`"/>}}
 </div>
 </div>
 
@@ -467,7 +467,7 @@ line...
 1     < select only these lines
 1     < select only these lines
 ```
-{{ note(msg="500 milliseconds before") }}
+{{<note msg="500 milliseconds before"/>}}
 </div>
 <div>
 
@@ -478,7 +478,7 @@ line...
 4
 5
 ```
-{{ note(msg="after `vip`, `oj` ([`:help v_o`](https://vimhelp.org/visual.txt.html#v_o)) and `g^A`") }}
+{{<note msg="after `vip`, `oj` ([`:help v_o`](https://vimhelp.org/visual.txt.html#v_o)) and `g^A`"/>}}
 </div>
 </div>
 
@@ -494,7 +494,7 @@ Two by two?  Five by five?  No problem, `count` now specifies the step.
 0
 0
 ```
-{{ note(msg="500 milliseconds before") }}
+{{<note msg="500 milliseconds before"/>}}
 </div>
 <div>
 
@@ -505,7 +505,7 @@ Two by two?  Five by five?  No problem, `count` now specifies the step.
 20
 25
 ```
-{{ note(msg="after `vip` and `5g^A`") }}
+{{<note msg="after `vip` and `5g^A`"/>}}
 </div>
 </div>
 
@@ -550,7 +550,7 @@ increment each address a further 10, for each byte of the preceding line:
 0x0000003c: 2064 6f20 6569 7573 6d6f   do eiusmo
 0x00000046: 6420 7465 6d70 6f72 2069  d tempor i
 ```
-{{ note(msg="I won't ever get _that_ algebraically nimble across all bases I ever encounter—but I don't need to") }}
+{{<note msg="I won't ever get _that_ algebraically nimble across all bases I ever encounter—but I don't need to"/>}}
 
 ## More practical examples
 
@@ -588,7 +588,7 @@ animations {
     }
 }
 ```
-{{ note(msg="before you even really know what you want") }}
+{{<note msg="before you even really know what you want"/>}}
 </div>
 <div>
 
@@ -611,7 +611,7 @@ animations {
     }
 }
 ```
-{{ note(msg="by the time you've figured out what you want") }}
+{{<note msg="by the time you've figured out what you want"/>}}
 </div>
 </div>
 
@@ -635,7 +635,7 @@ padding {
     bottom 10
 }
 ```
-{{ note(msg="1 second before") }}
+{{<note msg="1 second before"/>}}
 </div>
 <div>
 
@@ -647,7 +647,7 @@ padding {
     bottom 0
 }
 ```
-{{ note(msg="after `vi{10^X`") }}
+{{<note msg="after `vi{10^X`"/>}}
 </div>
 </div>
 
@@ -674,7 +674,7 @@ seq 1 3 25
 22
 25
 ```
-{{ note(msg="`seq` is worth a mention for sequence creation") }}
+{{<note msg="`seq` is worth a mention for sequence creation"/>}}
 </div>
 <div>
 
@@ -696,7 +696,7 @@ EOF
 5. Sleep it off
 6. Repeat
 ```
-{{ note(msg="You could use `!nl` visually; or in normal mode use `!ipnl` to number your current paragraph, or even `:%!nl` to cover your entire file") }}
+{{<note msg="You could use `!nl` visually; or in normal mode use `!ipnl` to number your current paragraph, or even `:%!nl` to cover your entire file"/>}}
 </div>
 </div>
 
@@ -744,7 +744,7 @@ date -Rd'sat 3pm'
 ```txt
 Sat, 14 Mar 2026 15:00:00 +0100
 ```
-{{ note(msg="by the way, that's [`π` day](https://en.wikipedia.org/wiki/Pi_Day)! `3-14` at `15`") }}
+{{<note msg="by the way, that's [`π` day](https://en.wikipedia.org/wiki/Pi_Day)! `3-14` at `15`"/>}}
 </div>
 <div>
 
@@ -755,7 +755,7 @@ date -Is -d'sat 3pm'
 ```txt
 2026-03-14T15:00:00+01:00
 ```
-{{ note(msg="works just as well with the `ISO 8601` formats") }}
+{{<note msg="works just as well with the `ISO 8601` formats"/>}}
 </div>
 </div>
 
@@ -767,7 +767,7 @@ With your cursor on `2026`, press `2^X` to get `π` day `2028`:
 ```txt
 Tue, 14 Mar 2028 15:00:00 +0100
 ```
-{{ note(msg="note the weekday changing from `Sat` to `Tue`!") }}
+{{<note msg="note the weekday changing from `Sat` to `Tue`!"/>}}
 </div>
 <div>
 
@@ -776,7 +776,7 @@ Tue, 14 Mar 2028 15:00:00 +0100
 2028-03-14
 March 14th, 2028
 ```
-{{ note(msg="and also these formats") }}
+{{<note msg="and also these formats"/>}}
 </div>
 </div>
 
@@ -789,7 +789,7 @@ Then `B`-shimmy your way to `Mar` and let your partner believe you meant
 ```txt
 Mon, 14 Feb 2028 15:00:00 +0100
 ```
-{{ note(msg="the weekday changed again, from `Tue` to `Mon`") }}
+{{<note msg="the weekday changed again, from `Tue` to `Mon`"/>}}
 </div>
 <div>
 
@@ -798,7 +798,7 @@ Mon, 14 Feb 2028 15:00:00 +0100
 2028 Feb 14
 Feb 14, 2028
 ```
-{{ note(msg="and also these") }}
+{{<note msg="and also these"/>}}
 </div>
 </div>
 
@@ -811,7 +811,7 @@ done:
 ```txt
 Sat, 19 Feb 2028 22:00:00 +0100
 ```
-{{ note(msg="going by that science, you should be able cram some 600-hour university course in precisely 25 days") }}
+{{<note msg="going by that science, you should be able cram some 600-hour university course in precisely 25 days"/>}}
 </div>
 <div>
 
@@ -820,7 +820,7 @@ Sat, 19 Feb 2028 22:00:00 +0100
 22:00AM
 22AM
 ```
-{{ note(msg="and even more, such as `MMXXVIII`") }}
+{{<note msg="and even more, such as `MMXXVIII`"/>}}
 </div>
 </div>
 

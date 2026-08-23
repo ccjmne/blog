@@ -33,7 +33,7 @@ lines it has received, and writes the result to its standard output (`stdout`,
 ```sh
 sort
 ```
-{{ note(msg="this will wait for your input") }}
+{{<note msg="this will wait for your input"/>}}
 
 Terminate your input on `stdin` with `Ctrl-D`[^ctrl-d].  As presented in [shell
 redirections 101](@/flight-manual/shell-redirections-101.md), you can open
@@ -61,13 +61,13 @@ B anana
 C oconut
 D ragonfruit
 ```
-{{ note(msg="this uses `unsorted.txt` as standard input") }}
+{{<note msg="this uses `unsorted.txt` as standard input"/>}}
 </div><div>
 
 ```sh
 sort 3< unsorted.txt
 ```
-{{ note(msg="this will wait for your input, `FD 3` has no use") }}
+{{<note msg="this will wait for your input, `FD 3` has no use"/>}}
 </div><div style="grid-area: 1 / 2 / 3 / 3;">
 
 ```txt,name=unsorted.txt
@@ -121,7 +121,7 @@ cat - < file.txt
 ```txt
 This is the content of file.txt
 ```
-{{ note(msg="`-` instructs `cat` to read from its `stdin`") }}
+{{<note msg="`-` instructs `cat` to read from its `stdin`"/>}}
 </div><div>
 
 ```sh
@@ -130,7 +130,7 @@ cat < file.txt
 ```txt
 This is the content of file.txt
 ```
-{{ note(msg="though `cat` _by default_ reads the standard input") }}
+{{<note msg="though `cat` _by default_ reads the standard input"/>}}
 </div></div>
 
 How about `cat - -`&nbsp;? It would read from `FD 0` (the standard input) twice,
@@ -153,7 +153,7 @@ cat - - < file.txt
 ```txt
 This is the content of file.txt
 ```
-{{ note(msg="`stdin` is closed after `EOF`") }}
+{{<note msg="`stdin` is closed after `EOF`"/>}}
 </div><div>
 
 ```sh
@@ -163,5 +163,5 @@ cat /proc/self/fd/0 /proc/self/fd/0 < file.txt
 This is the content of file.txt
 This is the content of file.txt
 ```
-{{ note(msg="each file descriptor indirectly points to `file.txt`") }}
+{{<note msg="each file descriptor indirectly points to `file.txt`"/>}}
 </div></div>

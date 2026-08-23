@@ -22,7 +22,7 @@ cat mentions.txt | wc -l
 cat catalina.out | tail
 cat server.cfg | sed 's/127.0.0.1/localhost/' > server.cfg
 ```
-{{ note(msg="the ailment (the last one doesn't even work without [`sponge`](https://man.archlinux.org/man/sponge.1.en))") }}
+{{<note msg="the ailment (the last one doesn't even work without [`sponge`](https://man.archlinux.org/man/sponge.1.en))"/>}}
 
 <!-- [moreutils' sponge](@/flight-manual/moreutils-sponge). TODO: LINKME -->
 
@@ -36,7 +36,7 @@ wc -l mentions.txt
 tail catalina.out 
 sed -i 's/127.0.0.1/localhost/' server.cfg
 ```
-{{ note(msg="the remedy, nice and easy") }}
+{{<note msg="the remedy, nice and easy"/>}}
 
 ## Files all the way down
 
@@ -102,7 +102,7 @@ unquestionably be more common than `cat file | grep keyword`, yet I'm fairly
 confident it isn't, despite its twin counterpart (the **output** redirection)
 being virtually omnipresent: I explain this phenomenon with the concept of
 **rampant shell illiteracy** and attempt to address it through what I refer to
-as my {% link(kind="tags", name="cli") %} `CLI` flight manual {% end %}.
+as my {% <link kind="tags" name="cli"> %} `CLI` flight manual {% </link> %}.
 
 <!-- [rampant shell illiteracy](@/flight-manual/rampant-shell-illiteracy). TODO: LINKME -->
 

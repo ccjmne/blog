@@ -67,7 +67,7 @@ Bashism[^process-substitution]:
     . <(gerp completions)         # <(...) is a Bashism
     source <(gerp completions)    # <(...) and source are Bashisms
     ```
-    {{ note(msg="note that `.` is the only `POSIX`-defined `source`-ing mechanism!") }}
+    {{<note msg="note that `.` is the only `POSIX`-defined `source`-ing mechanism!"/>}}
 
     > [!TIP]
     >
@@ -82,7 +82,7 @@ Bashism[^process-substitution]:
 ```sh
 source <(gerp completions)
 ```
-{{ note(msg="this assumes that you're already also doing somewhere `compinit` in some form or another") }}
+{{<note msg="this assumes that you're already also doing somewhere `compinit` in some form or another"/>}}
 
 And voilà, an `API` that's **discoverable**, without jumping through all the
 [`HATEOAS`](https://en.wikipedia.org/wiki/HATEOAS) loops:
@@ -91,14 +91,14 @@ And voilà, an `API` that's **discoverable**, without jumping through all the
 <div>
 <pre class="giallo z-code">
 <code><span class="term-fg34"><span class="term-fg31">gerp</span></span> █
-</code></pre>{{ note(msg="`1.` begin entering a `gerp` command") }}
+</code></pre>{{<note msg="`1.` begin entering a `gerp` command"/>}}
 </div>
 <div>
 <pre class="giallo z-code">
 <code><span class="term-fg34"><span class="term-fg31">gerp</span></span> █
 <span class="term-0">completions  -- generate shell completions</span>
 <span class="term-0">hello        -- greet the user</span>
-</code></pre>{{ note(msg="`2.` press `<Tab>` once for the completion menu") }}
+</code></pre>{{<note msg="`2.` press `<Tab>` once for the completion menu"/>}}
 </div>
 </div>
 
@@ -108,14 +108,14 @@ And voilà, an `API` that's **discoverable**, without jumping through all the
 <code><span class="term-fg34"><span class="term-fg31">gerp</span></span> hel█
 <span class="term-0">completions  -- generate shell completions</span>
 <span class="term-0">hello        -- greet the user</span>
-</code></pre>{{ note(msg="`3.` start typing away, here `hel`") }}
+</code></pre>{{<note msg="`3.` start typing away, here `hel`"/>}}
 </div>
 <div>
 <pre class="giallo z-code">
 <code><span class="term-fg34"><span class="term-fg31">gerp</span></span> hello █
 <span class="term-0">completions  -- generate shell completions</span>
 <span class="term-0">hello        -- greet the user</span>
-</code></pre>{{ note(msg="`4.` press `<Tab>` again to complete") }}
+</code></pre>{{<note msg="`4.` press `<Tab>` again to complete"/>}}
 </div>
 </div>
 

@@ -1,3 +1,5 @@
+{% component link(kind, name) -%}
 {%- set url = get_taxonomy_url(kind=kind, name=name) -%}
 <a href="{{ url | safe }}">{{ body | markdown(inline=true) | safe }}</a>
 {#- trim following space -#}
+{%- endcomponent link %}

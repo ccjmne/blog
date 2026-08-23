@@ -59,7 +59,7 @@ B anana
 C oconut
 D ragonfruit
 ```
-{{ note(msg="this uses `unsorted.txt` as standard input") }}
+{{<note msg="this uses `unsorted.txt` as standard input"/>}}
 </div><div>
 
 ```txt,name=unsorted.txt
@@ -94,7 +94,7 @@ may have it write the sorted output to a file on disk instead:
 ```sh
 sort unsorted.txt > sorted.txt
 ```
-{{ note(msg="this has no visible output, since `stdout` was redirected to `sorted.txt`") }}
+{{<note msg="this has no visible output, since `stdout` was redirected to `sorted.txt`"/>}}
 </div><div>
 
 ```txt,name=unsorted.txt
@@ -126,7 +126,7 @@ B anana
 C oconut
 D ragonfruit
 ```
-{{ note(msg="`errors.txt` would contain any error output") }}
+{{<note msg="`errors.txt` would contain any error output"/>}}
 
 You may redirect _both_ `stdout` and `stderr` at the same time, using the `&>`
 operator, though it is not `POSIX`-compliant.
@@ -191,7 +191,7 @@ B anana
 C oconut
 D ragonfruit
 ```
-{{ note(msg="`<<<` isn't part of the `POSIX` specification") }}
+{{<note msg="`<<<` isn't part of the `POSIX` specification"/>}}
 </div><div>
 
 ```sh
@@ -203,7 +203,7 @@ B anana
 C oconut
 D ragonfruit
 ```
-{{ note(msg="`<<<` and `$'...'` make this _doubly_ non-`POSIX`") }}
+{{<note msg="`<<<` and `$'...'` make this _doubly_ non-`POSIX`"/>}}
 </div></div>
 
 Since you'll already be using Bashisms if you're there, you may like to know
@@ -242,7 +242,7 @@ B
 C
 D
 ```
-{{ note(msg="the `\n` are interpreted by `printf` and therefore _aren't non-POSIX_ constructs here!") }}
+{{<note msg="the `\\n` are interpreted by `printf` and therefore _aren't non-POSIX_ constructs here!"/>}}
 
 And there we are!  The basics of redirection in the shell; nothing much fancy,
 but one learns to walk before they run and walking, however mundane, does get

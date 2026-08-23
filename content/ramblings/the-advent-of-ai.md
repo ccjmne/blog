@@ -60,7 +60,7 @@ refined in the years to come.
 
 As a programming companion, however, it's of **very little use to me**.
 
-{{ hr() }}
+{{<hr />}}
 
 **I like my craft.**  I refined it enormously and have achieved some
 mastery in some regards that I'm certain is far from being available
@@ -80,7 +80,7 @@ sense for these mechanisms, as we've built similar things in different ways,
 in different cultural and technological contexts, using different tools, for
 different purposes.
 
-{{ hr() }}
+{{<hr />}}
 
 **None of this corresponds to any sort of experience that the current
 `LLM`s could at all contemplate acquiring:** they have no experience of
@@ -109,7 +109,7 @@ There's also the seeping, encroaching problem of the horrifyingly inadequate
 bias that we are getting increasingly subject to, using sources whose influence
 only gets further and further ahead of their competency.
 
-{{ hr() }}
+{{<hr />}}
 
 My third point is that, under the hypothesis that we are to keep signing off on
 the code that an `AI` produces for us, the argument should be made that—to the

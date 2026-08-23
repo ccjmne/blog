@@ -41,7 +41,7 @@ time and have Vim do the rest.  Within minutes, my `vimrc` acquired a new line:
 ```vim
 au InsertLeave kr100 norm! ^"=strftime("%F  ")^MPw"ayiwE"byiw"=printf("  %.1f", 100/(^Ra+^Rb/60.0))^Mp
 ```
-{{ note(msg="however arcane this looks, it really isn't any more intricate than your average `Reg`ular `Exp`ression") }}
+{{<note msg="however arcane this looks, it really isn't any more intricate than your average `Reg`ular `Exp`ression"/>}}
 
 > [!IMPORTANT]
 >
@@ -69,7 +69,7 @@ date        time   wpm
 2026-07-11  06:14  16.0
 07:19
 ```
-{{ note(msg="adding a new time on the last line...") }}
+{{<note msg="adding a new time on the last line..."/>}}
 
 </div>
 <div>
@@ -86,7 +86,7 @@ date        time   wpm
 2026-07-11  06:14  16.0
 2026-07-12  07:19  13.7
 ```
-{{ note(msg="it gets automatically adopted!") }}
+{{<note msg="it gets automatically adopted!"/>}}
 
 </div>
 </div>
@@ -157,7 +157,7 @@ date        time   wpm
 ----        ----   ---
 2026-07-07  09:11  10.889292
 ```
-{{ note(msg="A most accurate `wpm`—though perhaps <abbr title='the adverbial form, not a typo'>unwieldily</abbr> so?") }}
+{{<note msg="A most accurate `wpm`—though perhaps <abbr title='the adverbial form, not a typo'>unwieldily</abbr> so?"/>}}
 
 Well, that's a bit too precise, now.  Run it through `printf("%.1f", ...)` to
 format it to **one decimal place**:
@@ -167,7 +167,7 @@ date        time   wpm
 ----        ----   ---
 2026-07-07  09:11  10.9
 ```
-{{ note(msg='`10.9` here is the result of evaluating `printf("%.1f", 100/(9+11/60.0))` through `"=`') }}
+{{<note msg='`10.9` here is the result of evaluating `printf("%.1f", 100/(9+11/60.0))` through `"=`'/>}}
 
 > [!TIP]
 >
@@ -193,7 +193,7 @@ Let's get started:
 ```vim
 autocmd InsertLeave <buffer> normal! B"ayiwE"byiw"=printf("  %.1f", 100/(^Ra+^Rb/60.0))^Mp
 ```
-{{ note(msg="I like to start off with what essentially amounts to a finished product `:-)`") }}
+{{<note msg="I like to start off with what essentially amounts to a finished product `:-)`"/>}}
 
 > [!IMPORTANT]
 >
@@ -217,7 +217,7 @@ buffer, and executes the following:
 " │       └─ when leaving insert mode
 " └─ define an autocommand
 ```
-{{ note(msg="the anatomy of our `autcommand`") }}
+{{<note msg="the anatomy of our `autcommand`"/>}}
 
 Ah, I've got some time on my end, I'll even give you the detail of what the
 `normal` statement does:
@@ -235,7 +235,7 @@ B  "ayiw  E  "byiw  $  "=  printf("  %.1f", 100/(^Ra+^Rb/60.0))  ^M  p
 │  └─ [y]ank [i]nner [w]ord into ["a] (register a)
 └─ jump [B]ackwards to start of WORD
 ```
-{{ note(msg="Vim artistry at its finest—and they say `Reg`ular `Exp`ressions are inscrutable?!") }}
+{{<note msg="Vim artistry at its finest—and they say `Reg`ular `Exp`ressions are inscrutable?!"/>}}
 
 > [!TIP]
 >
@@ -255,7 +255,7 @@ So, here's what we're currently working with:
 ```vim
 autocmd InsertLeave <buffer> normal! ^"=strftime("%F  ")^MPw"aywE"byw$"=printf("  %.1f", 100/(^Ra+^Rb/60.0))^Mp
 ```
-{{ note(msg="I did replace what was previously a `B` with a `w` to instead go forward to the next `w`ord") }}
+{{<note msg="I did replace what was previously a `B` with a `w` to instead go forward to the next `w`ord"/>}}
 
 Execute that, then enter `i`nsert mode and add a new time on a new line...
 
@@ -265,7 +265,7 @@ date        time   wpm
 2026-07-07  09:11  12
 08:40
 ```
-{{ note(msg="currently typing `08:40`, in `i`nsert mode") }}
+{{<note msg="currently typing `08:40`, in `i`nsert mode"/>}}
 
 Then, return to `n`ormal mode, with `Esc`ape (or `Ctrl`+`[`, or however else you
 do that), and see your buffer magically turn into:
@@ -276,7 +276,7 @@ date        time   wpm
 2026-07-07  09:11  10.9
 2026-07-08  08:40  11.5
 ```
-{{ note(msg="and just as you're done typing... gasp!") }}
+{{<note msg="and just as you're done typing... gasp!"/>}}
 
 Just like that, our measly `08:40` was prefaced with today's date,
 `2026-07-08`, then annotated with the corresponding <abbr title="Words Per
@@ -297,7 +297,7 @@ change its target from `<buffer>` to the actual file in question; in our case:
 ```vim
 au InsertLeave kr100 norm! ^"=strftime("%F  ")^MPw"ayiwE"byiw"=printf("  %.1f", 100/(^Ra+^Rb/60.0))^Mp
 ```
-{{ note(msg="I took the liberty of contracting `au[tocmd]` and `norm[al]`: these became natural to me") }}
+{{<note msg="I took the liberty of contracting `au[tocmd]` and `norm[al]`: these became natural to me"/>}}
 
 And there you have it.  As soon as, and as long as this simple one-liner
 is executed anytime you start Vim, this specific `kr100` file will know to

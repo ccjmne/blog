@@ -142,7 +142,7 @@ negative[^beautiful-ignorance].
     > subject, and, what is extremely rare, knows that he knows nothing, or he who
     > really knows something about it, but thinks that he knows all?
     >
-    > {% attribution() %} Henry David Thoreau, _Walking_ {% end %}
+    > {% <attribution> %} Henry David Thoreau, _Walking_ {% </attribution> %}
 
    By the time I'm asking the _World Wide
 [[sic](@/ramblings/aptly-capitalised-names.md)] Web_ about some tool, some

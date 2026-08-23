@@ -155,7 +155,7 @@ openssl rand --hex 128 | sed -r 's/.{4}/ \0/g;s/.{40}/\0\n/g' \
 00000060: 39d5 ccf4 90aa e709 63a4 e2db 8ed0 4ea5
 00000070: cdd6 5dd2 e555 24fd c3a8 d95b 38fb f8b6
 ```
-{{ note(msg="my best effort at a one-line gibberish hex dump output") }}
+{{<note msg="my best effort at a one-line gibberish hex dump output"/>}}
 
 <!-- TODO: use CAUTION rather than WARNING, here and everywhere else? -->
 
@@ -209,7 +209,7 @@ nl -w1 -s'.  ' dailytasks.txt
 4.  Get good
 5.  Get some sleep
 ```
-{{ note(msg="would you look at that, a numbered list!") }}
+{{<note msg="would you look at that, a numbered list!"/>}}
 
 > [!NOTE]
 >
@@ -254,7 +254,7 @@ nl -w1 -s'.  ' dailytasks.txt
 9.  Get some sleep
 10.  Make ends meet
 ```
-{{ note(msg="using `-w1` has `10` overflow the single column") }}
+{{<note msg="using `-w1` has `10` overflow the single column"/>}}
 </div>
 <div>
 
@@ -274,7 +274,7 @@ nl -w2 -s'.  ' dailytasks.txt
  9.  Get some sleep
 10.  Make ends meet
 ```
-{{ note(msg="using `2` columns makes `10` fit comfortably") }}
+{{<note msg="using `2` columns makes `10` fit comfortably"/>}}
 </div>
 </div>
 
@@ -387,7 +387,7 @@ nl -nrz -w4 dailytasks.txt
 > 9.   Nine
 > 10.  Ten
 > ```
-> {{ note(msg="[my article on `column`, `cut` and `paste`](@/flight-manual/intralinear-partitioning/02-column-cut-paste.md) may help make sense of that incantation, if necessary") }}
+> {{<note msg="[my article on `column`, `cut` and `paste`](@/flight-manual/intralinear-partitioning/02-column-cut-paste.md) may help make sense of that incantation, if necessary"/>}}
 
 ## Any [affine](https://en.wikipedia.org/wiki/Affine_transformation) function discretely defined over [ℕ](https://en.wikipedia.org/wiki/Natural_number)
 
@@ -426,7 +426,7 @@ printf "%s\n" {a..f} | nl -v0 -i2
  8  e
 10  f
 ```
-{{ note(msg="two by two, starting at `0`; the even numbers") }}
+{{<note msg="two by two, starting at `0`; the even numbers"/>}}
 </div>
 <div>
 
@@ -444,7 +444,7 @@ printf "%s\n" {a..f} | nl -v3 -i-1
 -1  e
 -2  f
 ```
-{{ note(msg="why not also decrease?") }}
+{{<note msg="why not also decrease?"/>}}
 </div>
 </div>
 
@@ -490,7 +490,7 @@ openssl rand --hex 128 | sed -r 's/.{4}/ \0/g s/.{40}/\0\n/g' \
 00000060: 39d5 ccf4 90aa e709 63a4 e2db 8ed0 4ea5
 00000070: cdd6 5dd2 e555 24fd c3a8 d95b 38fb f8b6
 ```
-{{ note(msg="look, ma! the `sed` addict couldn't keep it down for a single article!") }}
+{{<note msg="look, ma! the `sed` addict couldn't keep it down for a single article!"/>}}
 
 Keep your eyes on the ball, just the one `nl` call: the line numbering (the
 leftmost block of `000000?0:`) is computed _somewhat soundly_—though it won't
@@ -529,7 +529,7 @@ printf "%s\n" {a..f} ''  hello world | nl -
 7  hello
 8  world
 ```
-{{ note(msg="the empty line (`''`) isn't numbered and its following `hello` is only `1` greater than its preceding `f`") }}
+{{<note msg="the empty line (`''`) isn't numbered and its following `hello` is only `1` greater than its preceding `f`"/>}}
 
 ### The concept of sections
 
@@ -599,7 +599,7 @@ EOF
  2  Context:
     Winning entry in Tit-Bits' magazine competition, Christmas 1884
 ```
-{{ note(msg="**don't number the _header_**, number **each line of the _body_** and **each item in the _footer_**") }}
+{{<note msg="**don't number the _header_**, number **each line of the _body_** and **each item in the _footer_**"/>}}
 
 Each section may use its own algorithm to determine **which lines to
 number**, with <abbr font="mono" title="--body-numbering">`-b`</abbr>, <abbr
@@ -654,7 +654,7 @@ ignoring blank lines in the count.
    footer #2
    footer #3
 ```
-{{ note(msg="the line #3 of the body was made blank, and is therefore not numbered") }}
+{{<note msg="the line #3 of the body was made blank, and is therefore not numbered"/>}}
 
 So, let's give these options a spin!
 
@@ -682,7 +682,7 @@ nl dailytasks.txt
  9  Get some sleep
 10  Make ends meet
 ```
-{{ note(msg="number **lines with `t`ext**") }}
+{{<note msg="number **lines with `t`ext**"/>}}
 </div>
 <div>
 
@@ -707,7 +707,7 @@ nl -ba dailytasks.txt
 13  Get some sleep
 14  Make ends meet
 ```
-{{ note(msg="number **`a`ll lines**") }}
+{{<note msg="number **`a`ll lines**"/>}}
 </div>
 <div>
 
@@ -732,7 +732,7 @@ nl -bn dailytasks.txt
    Get some sleep
    Make ends meet
 ```
-{{ note(msg="number **`n`o lines**") }}
+{{<note msg="number **`n`o lines**"/>}}
 </div>
 </div>
 
@@ -772,7 +772,7 @@ nl -bp^Get -s.\  dailytasks.txt
 5. Get some sleep
    Make ends meet
 ```
-{{ note(msg="number lines that match the **`p`attern: `^Get`** (starting with `Get`)") }}
+{{<note msg="number lines that match the **`p`attern: `^Get`** (starting with `Get`)"/>}}
 
 I'll admit that this doesn't sound like much just yet, but how else would you
 intelligently number your bit and bobs?  Manually doing it isn't so bad, that's
@@ -849,7 +849,7 @@ https://specifications.freedesktop.org/basedir-spec/latest/
 https://wiki.archlinux.org/title/PAM
 https://en.wikipedia.org/wiki/Unix_philosophy
 ```
-{{ note(msg="4 seconds before") }}
+{{<note msg="4 seconds before"/>}}
 </div>
 <div>
 
@@ -861,7 +861,7 @@ https://en.wikipedia.org/wiki/Unix_philosophy
 [5]: https://wiki.archlinux.org/title/PAM
 [6]: https://en.wikipedia.org/wiki/Unix_philosophy
 ```
-{{ note(msg="after `vip:norm i[0]: <CR>gvg<C-A>`") }}
+{{<note msg="after `vip:norm i[0]: <CR>gvg<C-A>`"/>}}
 </div>
 </div>
 
@@ -883,7 +883,7 @@ the very best tools are user-friendly.
 - A project that receives (little to) no new issues and commits isn't
 abandoned, it is *done*.
 ```
-{{ note(msg="8 seconds before") }}
+{{<note msg="8 seconds before"/>}}
 </div>
 <div>
 
@@ -899,7 +899,7 @@ abandoned, it is *done*.
 6. A project that receives (little to) no new issues and commits isn't
    abandoned, it is *done*.
 ```
-{{ note(msg="after `!ipnl -bp^- -w1 -s.\ <CR>gv:s/- /`") }}
+{{<note msg="after `!ipnl -bp^- -w1 -s.\\ <CR>gv:s/- /`"/>}}
 </div>
 </div>
 
@@ -933,7 +933,7 @@ References -----------------------------------------------------------
 [5]: https://wiki.archlinux.org/title/PAM
 [6]: https://en.wikipedia.org/wiki/Unix_philosophy
 ```
-{{ note(msg="4 seconds before") }}
+{{<note msg="4 seconds before"/>}}
 </div>
 <div>
 
@@ -960,7 +960,7 @@ References -----------------------------------------------------------
     [5]: https://wiki.archlinux.org/title/PAM
     [6]: https://en.wikipedia.org/wiki/Unix_philosophy
 ```
-{{ note(msg="after `!%nl -w2 -nrz -bp---- -s.\ `") }}
+{{<note msg="after `!%nl -w2 -nrz -bp---- -s.\\ `"/>}}
 </div>
 </div>
 

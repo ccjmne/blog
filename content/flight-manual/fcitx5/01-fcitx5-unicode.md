@@ -43,7 +43,7 @@ comrades:
    > "Except—" began Winston doubtfully, and then stopped.<br> It had been on
    > the tip of his tongue to say "Except the proles," [...]
    >
-   > {% attribution() %} George Orwell, _Nineteen Eighty-Four_ {% end %}
+   > {% <attribution> %} George Orwell, _Nineteen Eighty-Four_ {% </attribution> %}
 
 - `Ctrl`-`Shift`-`U`, then `300` gives you the grave accent (`` ` ``), which
 unlocks a Frenchman's ability to start a sentence with the preposition "to",
@@ -81,7 +81,7 @@ spin](https://en.wikipedia.org/wiki/Seven_(1995_film)):
    │ └──┴──┘           │
    └───────────────────┘
    ```
-   {{ note(msg="from Wikipedia's article on [box-drawing characters](https://en.wikipedia.org/wiki/Box-drawing_characters)") }}
+   {{<note msg="from Wikipedia's article on [box-drawing characters](https://en.wikipedia.org/wiki/Box-drawing_characters)"/>}}
 
 - the ideograph for love?  [戀 is all that you
 need](https://en.wikipedia.org/wiki/All_You_Need_Is_Love)—according to the

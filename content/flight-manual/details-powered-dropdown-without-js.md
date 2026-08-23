@@ -179,7 +179,7 @@ straight to the point.  There's only a couple more things to know about the
    <span style="font-size: 3em;">🐱</span>
 </details>
 ```
-{{ note(msg="Its `[open]` attribute makes the 🦆 start out **expanded**") }}
+{{<note msg="Its `[open]` attribute makes the 🦆 start out **expanded**"/>}}
 
 <br>
 <div class="lo" style="margin: 0 auto; padding: 0;">

@@ -58,7 +58,7 @@ fpath+=($compdir)
 [ -f $dumpfile ] && rm -- $dumpfile
 autoload -U compinit && compinit -d $dumpfile
 ```
-{{ note(msg="I automatically run this script once a day, with a `systemd` timer") }}
+{{<note msg="I automatically run this script once a day, with a `systemd` timer"/>}}
 
 Retain only this in your in your `.zshrc`:
 
@@ -67,7 +67,7 @@ typeset -U fpath
 fpath+=($XDG_DATA_HOME/zsh/site-functions)
 autoload -U compinit && compinit -C
 ```
-{{ note(msg="`typeset -U` ensures that there may be no duplicate in your `$fpath`") }}
+{{<note msg="`typeset -U` ensures that there may be no duplicate in your `$fpath`"/>}}
 
 > [!IMPORTANT]
 >
@@ -152,7 +152,7 @@ packagers are less articulate (that is, generally anything on the infamous
 >   install -Dm644 "_ya"     -t "$pkgdir/usr/share/zsh/site-functions/"
 > }
 > ```
-> {{ note(msg="an excerpt from `yazi-git`'s [`PKGBUILD`](https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=yazi-git), installing completion functions for `Bash`, `Fish` and `Zsh`") }}
+> {{<note msg="an excerpt from `yazi-git`'s [`PKGBUILD`](https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=yazi-git), installing completion functions for `Bash`, `Fish` and `Zsh`"/>}}
 
 However, some others are less well-packaged, and I've been increasingly coming across
 instructions comparable to that one:
@@ -160,7 +160,7 @@ instructions comparable to that one:
 ```sh
 source <(niri completions zsh)
 ```
-{{ note(msg="now the most excellent [`niri`](https://github.com/niri-wm/niri) suggests to load completion for its `CLI`") }}
+{{<note msg="now the most excellent [`niri`](https://github.com/niri-wm/niri) suggests to load completion for its `CLI`"/>}}
 
 That'll work!  But it'll make your shell (in the case of `niri`'s) _an extra
 `~10` millisecond slower_ to become interactive.  Add a couple more of these,
@@ -343,7 +343,7 @@ Let's go over what it does, in an order that makes sense to me:
     . <(gerp completions)         # <(...) is a Bashism
     source <(gerp completions)    # <(...) and source are Bashisms
     ```
-    {{ note(msg="note that `.` is the only `POSIX`-defined `source`-ing mechanism!") }}
+    {{<note msg="note that `.` is the only `POSIX`-defined `source`-ing mechanism!"/>}}
 
     > [!TIP]
     >
@@ -394,7 +394,7 @@ mkdir -p  $HOME/bin/
 mv gerp   $HOME/bin/
 chmod u+x $HOME/bin/gerp
 ```
-{{ note(msg="install `gerp`") }}
+{{<note msg="install `gerp`"/>}}
 
 In the above, I assume that you have somehow created `gerp` in your <abbr
 title="Current Work Directory">`CWD`</abbr>.
@@ -421,7 +421,7 @@ else
 fi
 
 ```
-{{ note(msg="for an isolated, reproducible configurations, run this inside `zsh -f`") }}
+{{<note msg="for an isolated, reproducible configurations, run this inside `zsh -f`"/>}}
 
 Alright, that's step one: the tool does work.  How about completions?
 
@@ -432,7 +432,7 @@ gerp   # press <Tab> here to request completion items
 ```txt
 completions hello
 ```
-{{ note(msg="it's **that simple**") }}
+{{<note msg="it's **that simple**"/>}}
 
 Well, I'll be damned, looks like we're done!  Except that, in principle,
 invoking `gerp completions` every time you open up any shell is somewhat
@@ -454,7 +454,7 @@ Oh, and also, there are abhorrent monstrosities, such as:
 ```sh
 source <(opencode completion)
 ```
-{{ note(msg="looks quite innocuous, doesn't it?  avert your eyes, ye faint of heart, for we're about to run it") }}
+{{<note msg="looks quite innocuous, doesn't it?  avert your eyes, ye faint of heart, for we're about to run it"/>}}
 
 > [!CAUTION]
 >
@@ -508,7 +508,7 @@ fpath+=($HOME/bin/)                 # make gerp completions discoverable
 autoload -U compinit                # make the compsys system available
 compinit -i                         # and kick it off
 ````
-{{ note(msg="just like before, for an isolated, reproducible configuration, run this inside `zsh -f`") }}
+{{<note msg="just like before, for an isolated, reproducible configuration, run this inside `zsh -f`"/>}}
 
 Note that you may want to use the `-i` flag if you picked a dubious directory or
 did anything else somewhat curious with that file we just generated.
@@ -519,7 +519,7 @@ did anything else somewhat curious with that file we just generated.
 > current user. [...] ignore all insecure files and directories use the option
 > `-i`.
 >
-> {% attribution() %} `man zshcompsys`, _Use of compinit_ {% end %}
+> {% <attribution> %} `man zshcompsys`, _Use of compinit_ {% </attribution> %}
 
 The point would be to actually do this in two separate steps:
 
@@ -530,7 +530,7 @@ The point would be to actually do this in two separate steps:
 gerp completions > $HOME/bin/_gerp
 fpath+=($HOME/bin/)
 ```
-{{ note(msg="generate your completions **once** (or once in a while)") }}
+{{<note msg="generate your completions **once** (or once in a while)"/>}}
 </div>
 <div>
 
@@ -539,7 +539,7 @@ fpath+=($HOME/bin/)
 autoload -U compinit
 compinit -i
 ```
-{{ note(msg="load the pre-compiled completion definitions in your interactive sessions!") }}
+{{<note msg="load the pre-compiled completion definitions in your interactive sessions!"/>}}
 </div>
 </div>
 
@@ -578,7 +578,7 @@ _comps=(
 //...
 )
 ```
-{{ note(msg="there's more that goes into this file, I choose to focus only on the gift of the topic of the day") }}
+{{<note msg="there's more that goes into this file, I choose to focus only on the gift of the topic of the day"/>}}
 
 If I were to `rm` it, my computer takes just shy of `200ms` doing all that needs
 to be done in order to arrive to that _"completion dump"_ (`compdump`) the next
@@ -592,7 +592,7 @@ Hm...  Makes you wonder... How much is that, then?  On my machine it's about
 
 > Drop by drop is the water pot filled.
 >
-> {% attribution() %} Buddha, _the Dhammapada_ {% end %}
+> {% <attribution> %} Buddha, _the Dhammapada_ {% </attribution> %}
 
 Besides, won't you want to possibly effect a full rebuild once in a while
 anyway?  Here's what `man zshcompsys` has to say on the matter:
@@ -668,7 +668,7 @@ fpath+=($compdir)
 [ -f $dumpfile ] && rm -- $dumpfile
 autoload -U compinit && compinit -d $dumpfile
 ```
-{{ note(msg="I automatically run this script once a day, with a `systemd` timer") }}
+{{<note msg="I automatically run this script once a day, with a `systemd` timer"/>}}
 
 Run the above asynchronously, once in a while (perhaps on a `systemd` timer?),
 and/or when you install new software; retain only the below in your `.zshrc`.
@@ -678,7 +678,7 @@ typeset -U fpath
 fpath+=($XDG_DATA_HOME/zsh/site-functions)
 autoload -U compinit && compinit -C
 ```
-{{ note(msg="`typeset -U` ensures that there may be no duplicate in your `$fpath`") }}
+{{<note msg="`typeset -U` ensures that there may be no duplicate in your `$fpath`"/>}}
 
 > [!IMPORTANT]
 >

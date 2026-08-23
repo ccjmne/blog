@@ -1,1 +1,1 @@
-<div class="note">{{ msg | markdown(inline=true) | safe }}</div>
+{% component note(msg) %}<div class="note">{{ msg | markdown(inline=true) | safe }}</div>{% endcomponent note %}

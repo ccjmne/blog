@@ -138,4 +138,4 @@ withdraw '1_000_000 EUR' 2> not-today.log  # Redirect fd2 (stderr) to errors.log
 cat file                 |  process        # Connect fd1 of cat to fd0 of process
 cat                      0<in 1>out 2>err  # Read from in, write to out with errors to err
 ```
-{{ note(msg="there's a lot more to go over; I only mean this as a quick, apt first encounter with file descriptors") }}
+{{<note msg="there's a lot more to go over; I only mean this as a quick, apt first encounter with file descriptors"/>}}

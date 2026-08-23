@@ -50,7 +50,7 @@ of the possibilities that this opens up:
 > `fc` (built-in for shells like bash and zsh) will not execute the command,
 > etc.
 >
-> {% attribution() %} Vim [`:help :cq`](https://vimhelp.org/quickfix.txt.html#%3Acq) {% end %}
+> {% <attribution> %} Vim [`:help :cq`](https://vimhelp.org/quickfix.txt.html#%3Acq) {% </attribution> %}
 
 These functionalities don't sound like much, but they're part of what I would
 expect from a _script-friendly editor_.
@@ -86,7 +86,7 @@ curl https://zenquotes.io/api/quotes \
 		EOF' \
    > $MAIL
 ```
-{{ note(msg="I didn't even put quotation marks around `$MAIL`: all the variables in the script are expansion-safe!") }}
+{{<note msg="I didn't even put quotation marks around `$MAIL`: all the variables in the script are expansion-safe!"/>}}
 
 We create a temporary[^tmpfs] file with `mktemp`, using a specific _file
 extension_ with the `--suffix` flag: that'll let our text editor figure out how
@@ -115,7 +115,7 @@ Success is getting what you want, happiness is wanting what you get.
 
     — Steve Maraboli
 </pre>
-{{ note(msg="a capable editor will recognise and adequately highlight `eml` content") }}
+{{<note msg="a capable editor will recognise and adequately highlight `eml` content"/>}}
 
 On with the last two steps: if the user did select a quote, they'll get to edit
 their e-mail in their favourite `$EDITOR`, with adequate highlighting for the
@@ -187,7 +187,7 @@ Could it?  Let's try it out:
 +   | ifne vipe --suffix eml \
 +   | msmtp sherlock.inbox@221b.uk
 ```
-{{ note(msg="**two lines** replace the entire second half of the script and forgo toying with a variable in the first") }}
+{{<note msg="**two lines** replace the entire second half of the script and forgo toying with a variable in the first"/>}}
 
    Well, what do you know: it can.  That tedious business from the earlier
 script?  Gone.  The variable we were passing around?  Gone as well.<br>
@@ -214,7 +214,7 @@ curl https://zenquotes.io/api/quotes \
    | ifne vipe --suffix eml \
    | msmtp sherlock.inbox@221b.uk
 ```
-{{ note(msg="here's the full thing: the e-mail template comprises most of it") }}
+{{<note msg="here's the full thing: the e-mail template comprises most of it"/>}}
 
 ## Compose your mastery
 

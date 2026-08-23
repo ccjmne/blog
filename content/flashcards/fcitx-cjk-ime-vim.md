@@ -41,7 +41,7 @@ nmap ㅓ j
 nmap ㅏ k
 nmap ㅣ l
 ```
-{{ note(msg='Mapping the 자모 that "happen" via the keys labelled `h`, `j`, `k`, `l` as "expected" in `n`ormal mode') }}
+{{<note msg='Mapping the 자모 that "happen" via the keys labelled `h`, `j`, `k`, `l` as "expected" in `n`ormal mode'/>}}
 
 But this comes with two shortcomings, each of which would already be crushing on
 its own:

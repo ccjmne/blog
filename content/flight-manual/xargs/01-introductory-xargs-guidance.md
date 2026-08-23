@@ -27,7 +27,7 @@ touch a b c               # natural approach
 touch $(echo a b c)       # subshell approach
 echo a b c | xargs touch  # pipeline approach
 ```
-{{ note(msg="these are all functionally equivalent") }}
+{{<note msg="these are all functionally equivalent"/>}}
 
 You will find `xargs` to be quite handy in a couple of occasions:
 
@@ -93,7 +93,7 @@ wc arg.h config.def.h st.c st.h win.h x.c
   2108   6367  48343 x.c
   5504  18483 133221 total
 ```
-{{ note(msg="with `-t`, we can see that `xargs` here called: `wc arg.h config.def.h st.c st.h win.h x.c`") }}
+{{<note msg="with `-t`, we can see that `xargs` here called: `wc arg.h config.def.h st.c st.h win.h x.c`"/>}}
 
 The `-p` flag, for _"prompt"_, builds upon that mechanism and will stop before
 each invocation, asking interactively for confirmation before executing any
@@ -107,7 +107,7 @@ command:
 ./build/output/main.js.map
 -rf /
 ```
-{{ note(msg="some curious file name you've got there") }}
+{{<note msg="some curious file name you've got there"/>}}
 </div>
 <div>
 
@@ -120,7 +120,7 @@ rm ./data/export/users.csv?...y
 rm ./build/output/main.js.map?...y
 rm -rf /?...n
 ```
-{{ note(msg="`-p` here gives us a chance to dodge a bullet") }}
+{{<note msg="`-p` here gives us a chance to dodge a bullet"/>}}
 </div>
 </div>
 
@@ -152,7 +152,7 @@ The full syntax for `xargs` is as follows:
 ```txt
 xargs [options] [command [initial-arguments]]
 ```
-{{ note(msg="well, the `POSIX` one is more comprehensive, but this shall do for our purpose") }}
+{{<note msg="well, the `POSIX` one is more comprehensive, but this shall do for our purpose"/>}}
 
 As such, a few things are worthy of mention:
 
@@ -169,7 +169,7 @@ As such, a few things are worthy of mention:
    find -type f -executable | xargs -n1 ln -s -t ~/bin
    find -type f -executable | xargs -n1 -- ln -s -t ~/bin
    ```
-   {{ note(msg="I find the second version to be more easily parsed") }}
+   {{<note msg="I find the second version to be more easily parsed"/>}}
 
 Do take note that some utilities, such as `mv`, `cp`, `ln`, _et cet._, who
 usually interpret their arguments as `command [source...] destination`, can
@@ -187,7 +187,7 @@ find -type f -executable \
 ```txt
 mv -t ~/bin FILE_1 FILE_2 FILE_3
 ```
-{{ note(msg="`mv -t [dest] [src...]` is `xargs`-savvy") }}
+{{<note msg="`mv -t [dest] [src...]` is `xargs`-savvy"/>}}
 
 </div>
 <div>
@@ -201,7 +201,7 @@ ln -st ~/bin FILE_1
 ln -st ~/bin FILE_2
 ln -st ~/bin FILE_3
 ```
-{{ note(msg="`mv` isn't the sole recipient of this `-t` blessing") }}
+{{<note msg="`mv` isn't the sole recipient of this `-t` blessing"/>}}
 
 </div>
 </div>
@@ -266,7 +266,7 @@ find -name '*.tmp' -exec rm {} +          # built-in approach
 find -name '*.tmp'         | xargs    rm  # pipeline approach
 find -name '*.tmp' -print0 | xargs -0 rm  # most robust, will justify later
 ```
-{{ note(msg="my heart aches knowing full well that `-print0` and `-0` aren't quite `POSIX`") }}
+{{<note msg="my heart aches knowing full well that `-print0` and `-0` aren't quite `POSIX`"/>}}
 
 There's also the option to use **command substitution**, but that is **subject
 to word-splitting (or _"arguments parsing"_) concerns**, and doesn't quite let
@@ -275,7 +275,7 @@ you consider batching and parallelism whatsoever:
 ```sh
 rm $(find -name '*.tmp')  # subshell approach, brittle in the face of white-spaces
 ```
-{{ note(msg="command substitution is expressive, but doesn't quite fill the same niche as `xargs` generally") }}
+{{<note msg="command substitution is expressive, but doesn't quite fill the same niche as `xargs` generally"/>}}
 
 For simple cases like deleting files, `-exec` or `-delete` is more
 elegant[^elegance], but **when you need to filter `find`'s output through other
@@ -288,7 +288,7 @@ find -name '*.log' -exec grep -v trace {} | xargs zip archive.zip +     # nonsen
 find -name '*.log'         | grep  -v trace | xargs    zip archive.zip  # works
 find -name '*.log' -print0 | grep -zv trace | xargs -0 zip archive.zip  # best, but non-POSIX
 ```
-{{ note(msg="the first line is nonsensical: the pipe, `|`, **cannot be part of the `-exec` arguments** ") }}
+{{<note msg="the first line is nonsensical: the pipe, `|`, **cannot be part of the `-exec` arguments** "/>}}
 
 > [!NOTE]
 >
@@ -307,7 +307,7 @@ _"placeholder"_ within any arbitrary argument;
 ```sh
 find -name '*.log' -exec sh -c 'grep -v archive {} | xargs -0 gzip' +  # nice try; won't work
 ```
-{{ note(msg="attempting to `sh -c '...'` in `-exec` won't quite work either: `{}` won't be interpreted there") }}
+{{<note msg="attempting to `sh -c '...'` in `-exec` won't quite work either: `{}` won't be interpreted there"/>}}
 
 There's no one-size-fits-all here, though it may be tempting to
 make `xargs` for that.  After all, **idiomaticity and elegance are

@@ -60,7 +60,7 @@ async-io = { version = "2.6.0", optional = true }
 clap = { workspace = true, features = ["string"] }
 libc = "0.2.176"
 ```
-{{ note(msg="a semi-legible version number that nonetheless conforms to the [SemVer](https://semver.org/) specification") }}
+{{<note msg="a semi-legible version number that nonetheless conforms to the [SemVer](https://semver.org/) specification"/>}}
 
 Sprinkle in some impossibly dense, `POSIX`-compliant `sed` magic to **in-line
 the section names** (which also constitutes valid `toml` syntax):
@@ -78,7 +78,7 @@ dependencies.async-io = { version = "2.6.0", optional = true }
 dependencies.clap = { workspace = true, features = ["string"] }
 dependencies.libc = "0.2.176"
 ```
-{{ note(msg="foul?  possibly—beauty is in the eye of the beholder; `POSIX` compliance, however, is indisputable") }}
+{{<note msg="foul?  possibly—beauty is in the eye of the beholder; `POSIX` compliance, however, is indisputable"/>}}
 
 Note the delightfully quirky `BRE` substitution `s/[][]//g` employing the most
 savvy `[][]` character class to match either literal square bracket.  Who says I
@@ -197,7 +197,7 @@ sed '
   $!d
 ' file
 ```
-{{ note(msg="don't hesitate to format your `sed` scripts with newlines and comments for readability") }}
+{{<note msg="don't hesitate to format your `sed` scripts with newlines and comments for readability"/>}}
 
 [^8kb]: The `POSIX` specification (`man 1p sed`) guarantees that both pattern
 and hold spaces can hold at least 8192 bytes.  `GNU sed` removes practical
@@ -338,7 +338,7 @@ doctor ordered_:
 cron-scripts/          [Legacy Wranglers] @team-legacy-wranglers
 > cron█ < 1/15
 ```
-{{ note(msg="our real `CODEOWNERS` is considerably more impenetrable, and my script does come in handy") }}
+{{<note msg="our real `CODEOWNERS` is considerably more impenetrable, and my script does come in handy"/>}}
 
 ### Practical use case: pull an entry to the top
 
@@ -361,7 +361,7 @@ sed -n '
     p                 #   print the other options in their natural order
   }'
 ```
-{{ note(msg="`keepassxc-cli` actually displays that attribute as `Password: PROTECTED`, of course") }}
+{{<note msg="`keepassxc-cli` actually displays that attribute as `Password: PROTECTED`, of course"/>}}
 
 > [!NOTE]
 >

@@ -34,7 +34,7 @@ EOF
 git clone https://github.com/73/vim-klog.git
 vim -u NONE +'set rtp+=vim-klog' +'syn on' work.klg
 ```
-{{ note(msg='I like using `--rm -it`, for which you may use the mnemonic "remove it"') }}
+{{<note msg='I like using `--rm -it`, for which you may use the mnemonic "remove it"'/>}}
 
 Just like that, a fresh Vim installation, augmented with the correct file type
 detection and corresponding syntax highlighting, right off the `master` branch

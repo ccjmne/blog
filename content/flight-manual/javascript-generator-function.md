@@ -67,7 +67,7 @@ const countToThree = new GeneratorFunction(`
   yield 3
 `)
 ```
-{{ note(msg="oh yeah, JavaScript has no problem (de)serialising _code_ on the fly: [quine](https://en.wikipedia.org/wiki/Quine_(computing)) enthusiasts, take note!") }}
+{{<note msg="oh yeah, JavaScript has no problem (de)serialising _code_ on the fly: [quine](https://en.wikipedia.org/wiki/Quine_(computing)) enthusiasts, take note!"/>}}
 
 There is however **no equivalent arrow function syntax** for generators.
 
@@ -133,7 +133,7 @@ console.log(counter.next()) // { value: undefined, done: true }
 // The final 'tada' is *ignored*:
 console.log(...countToThreeAndReturn()) // 1 2 3
 ```
-{{ note(msg="the (oft left undefined) final `return` value is **ignored** by consumers of `iterable` ") }}
+{{<note msg="the (oft left undefined) final `return` value is **ignored** by consumers of `iterable` "/>}}
 
 ... Which makes for a neat segue into the next section.
 
@@ -183,7 +183,7 @@ for (const [key, value] of new Map([['a', 1], ['b', 2], ['c', 3]])) {
   console.log(key, value) // 'a' 1, then 'b' 2, then 'c' 3
 }
 ```
-{{ note(msg="the last one also employs **array destructuring**, a fan-favourite from `ES6`") }}
+{{<note msg="the last one also employs **array destructuring**, a fan-favourite from `ES6`"/>}}
 
 ## Not just `for..of`
 

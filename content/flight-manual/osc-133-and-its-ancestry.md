@@ -42,7 +42,7 @@ controls or contextual information:
 4
 5
 </code></pre>
-{{ note(msg="a plain old shell output, running `seq 1 5`") }}
+{{<note msg="a plain old shell output, running `seq 1 5`"/>}}
 </div>
 <div>
 <pre class="giallo z-code"><code data-lang="plain"><span class="term-fg1">[PROMPT]</span>ccjmne% <span class="term-fg1">[COMMAND_START]</span><span class="term-fg32">seq</span> 1 5
@@ -52,7 +52,7 @@ controls or contextual information:
 4
 5
 <span class="term-fg1">[COMMAND_FINISHED]</span></code></pre>
-{{ note(msg="its annotated counterpart using `OSC` `133`") }}
+{{<note msg="its annotated counterpart using `OSC` `133`"/>}}
 </div>
 </div>
 
@@ -87,7 +87,7 @@ as simple as:
 ```sh
 echo "\e]133;A\a"
 ```
-{{ note(msg="you may want to integrate that bit to your `$PS1`! but I won't cover that in this current article.") }}
+{{<note msg="you may want to integrate that bit to your `$PS1`! but I won't cover that in this current article."/>}}
 
 Voilà!  Yes, it's a bit hand-wavy, but you were looking for a `TL;DR`, weren't
 you?
@@ -421,7 +421,7 @@ add_final_term_sequence_pattern(ControlSequenceType.FTCS_TEXT_MENU_END,    "F");
 add_final_term_sequence_pattern(ControlSequenceType.FTCS_PROGRESS,         "G");
 add_final_term_sequence_pattern(ControlSequenceType.FTCS_EXECUTE_COMMANDS, "H");
 ```
-{{ note(msg="from [`TerminalStream.vala`, lines `541` through `549`](https://github.com/p-e-w/finalterm/blob/master/src/TerminalStream.vala#L541-L549); though the vertical alignment is mine") }}
+{{<note msg="from [`TerminalStream.vala`, lines `541` through `549`](https://github.com/p-e-w/finalterm/blob/master/src/TerminalStream.vala#L541-L549); though the vertical alignment is mine"/>}}
 
 > [!NOTE]
 >
@@ -442,7 +442,7 @@ attributes the `A`-through-`D` scheme to _Final Term_:
 > output with semantic information about where the prompt begins, where the
 > user-entered command begins, and where the command's output begins and ends.
 >
-> {% attribution() %} _iTerm2_, on its supported [Proprietary Escape Codes](https://iterm2.com/documentation-escape-codes.html) {% end %}
+> {% <attribution> %} _iTerm2_, on its supported [Proprietary Escape Codes](https://iterm2.com/documentation-escape-codes.html) {% </attribution> %}
 
 This documentation puts together quite well some visual `TL;DR` of "what goes
 where":
@@ -450,7 +450,7 @@ where":
 <pre class="giallo z-code"><code data-lang="plain"><span class="term-fg1">[PROMPT]</span>ccjmne% <span class="term-fg1">[COMMAND_START]</span><span class="term-fg34">ls</span> <span class="term-fg32">-l</span>
 <span class="term-fg1">[COMMAND_EXECUTED]</span>-rw-r--r-- 1 ccjmne ccjmne 111 May 10 02:47 file
 <span class="term-fg1">[COMMAND_FINISHED]</span></code></pre>
-{{ note(msg="the bits between square brackets correspond to `OSC` `133` `A` through `D` and are not actually visible") }}
+{{<note msg="the bits between square brackets correspond to `OSC` `133` `A` through `D` and are not actually visible"/>}}
 
 In practice, the enduring part of the scheme is overwhelmingly these first four.
 They are those I meant to write about; this article is the result of a mere

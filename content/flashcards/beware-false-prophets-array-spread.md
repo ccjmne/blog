@@ -28,7 +28,7 @@ at `@e18e/eslint-plugin`.
 > Prefer `Array.from(iterable, mapper)` over `[...iterable].map(mapper)` to
 > avoid intermediate array allocation.
 >
-> {% attribution() %} Ecosystem Performance (`e18e`), `prefer-array-from-map` {% end %}
+> {% <attribution> %} Ecosystem Performance (`e18e`), `prefer-array-from-map` {% </attribution> %}
 
   As soon as that machinery spat out prescriptivist nonsense regarding my
 beautiful tapestry of practical software, I remembered that one curious
@@ -176,7 +176,7 @@ screams at you at the `ERROR` level that this is somehow inadequate:
 const boxes = [...document.querySelectorAll('.box')]
     .map(e => e.getBoundingClientRect())
 ```
-{{ note(msg="this excerpt triggers the revolting `e18e/prefer-array-from-map` rule") }}
+{{<note msg="this excerpt triggers the revolting `e18e/prefer-array-from-map` rule"/>}}
 
 ... **Know that it is rubbish.**
 

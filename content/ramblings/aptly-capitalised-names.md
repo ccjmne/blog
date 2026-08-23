@@ -42,7 +42,7 @@ underline;">b</strong>_erg_...
 Ultimately, while we do not have to like how _NVIDIA_ or _Neovim_ are spelled,
 we can still strive to get it right.  Let's jump right in, alphabetically:
 
-{{ hr(class="alternating-list-marker") }}
+{{<hr class="alternating-list-marker"/>}}
 
 - It's [**braille**](https://www.brailleauthority.org/capitalization/capitalization.html)
 

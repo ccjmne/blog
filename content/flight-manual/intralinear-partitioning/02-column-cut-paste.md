@@ -25,7 +25,7 @@ c/s/m/j/c/a/c/c/utils/DateUtils.java               core-common      @super-nerds
 c/s/t/j/c/a/c/c/utils/ValidationUtilsTest.java     core-common      @super-nerds
 c/s/t/j/c/a/c/s/services/EmployeeServiceTest.java  core-server      @fast-and-curious
 ```
-{{ note(msg="all that data was fake even before truncation: `src/test/java/com/acme/auth/controllers`") }}
+{{<note msg="all that data was fake even before truncation: `src/test/java/com/acme/auth/controllers`"/>}}
 
    From `cut` to `xargs`, the entire incantation was met with a mixture of
 incredulity and awe: some simple, composable tools go a long way to articulate
@@ -128,7 +128,7 @@ ftp:x:14:11::/srv/ftp:/usr/bin/nologin
 http:x:33:33::/srv/http:/usr/bin/nologin
 nobody:x:65534:65534:Kernel Overflow User:/:/usr/bin/nologin
 ```
-{{ note(msg="note the startling absence of a [`UUOC`](@/flashcards/useless-use-of-cat.md)") }}
+{{<note msg="note the startling absence of a [`UUOC`](@/flashcards/useless-use-of-cat.md)"/>}}
 
 Watch it now blossom into its intended form, fit for human consumption:
 
@@ -182,7 +182,7 @@ with composable tools that I use often enough to need not browse the trusty
 ```sh
 { echo 'User:UID:Home:Shell'; head -7 /etc/passwd | cut -d: -f1,3,6,7 } | column -ts:
 ```
-{{ note(msg="this command is essentially equivalent to the one above it") }}
+{{<note msg="this command is essentially equivalent to the one above it"/>}}
 
 #### A note on field selection
 
@@ -207,7 +207,7 @@ ftp:/srv/ftp
 http:/srv/http
 nobody:/
 ```
-{{ note(msg= select fields 1 and 6  ) }}
+{{<note msg="select fields 1 and 6" />}}
 
    Note that you may identify 1-indexed, comma-separated fields, _or ranges_,
 possibly open-ended:
@@ -272,7 +272,7 @@ c	3
 d	4
 e
 ```
-{{ note(msg="these are _tabulations_") }}
+{{<note msg="these are _tabulations_"/>}}
 </div>
 </div>
 
@@ -292,7 +292,7 @@ c	3	represents an immediately preceding step. Commits with more than one
 d	4	parent represent merges of independent lines of development.
 e		
 ```
-{{ note(msg="these are still _tabulations_") }}
+{{<note msg="these are still _tabulations_"/>}}
 
 You can just about feel that there's something usable there, but we'll have to
 address some tab-related limitations before unearthing this treasure:
@@ -309,7 +309,7 @@ ozymandias	greek pharaoh
 he-who-must-not-be-named	rogue wizard
 
 ```
-{{ note(msg="data may overflow past the tabulations stops") }}
+{{<note msg="data may overflow past the tabulations stops"/>}}
 
 <br>
 
@@ -324,7 +324,7 @@ Sat, 17 July	Sun, 18 July	Mon, 19 July
 	#run 39m	#work 8h12m
 		#commute 49m
 ```
-{{ note(msg="imbalanced datasets also create problems (the `recall` command is made up)") }}
+{{<note msg="imbalanced datasets also create problems (the `recall` command is made up)"/>}}
 
 The remedy is the `--delimiters`/`-d` flag, which pairs delightfully well
 with `column -ts` in a real ah-ha moment:
@@ -346,7 +346,7 @@ Sat, 17 July:Sun, 18 July:Mon, 19 July
 :#run 39m:#work 8h12m
 ::#commute 49m
 ```
-{{ note(msg="circling back to the `/etc/passwd` format") }}
+{{<note msg="circling back to the `/etc/passwd` format"/>}}
 </div>
 <div>
 
@@ -415,7 +415,7 @@ cat /dev/null \
 ```txt
 [🦉]
 ```
-{{ note(msg="I'll allow `cat` here, for `- - -`") }}
+{{<note msg="I'll allow `cat` here, for `- - -`"/>}}
 </div>
 </div>
 

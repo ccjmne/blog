@@ -29,7 +29,7 @@ ls --classify
 node_modules/  compose.sh*  eslint.config.mjs  package.json    README.md
 src/           Dockerfile   LICENSE            pnpm-lock.yaml  TODO
 ```
-{{ note(msg="I use `--classify` to annotate various file types, like executables and directories") }}
+{{<note msg="I use `--classify` to annotate various file types, like executables and directories"/>}}
 
 ### The tabular data
 
@@ -48,7 +48,7 @@ uni identify É É 🧉
 'É'  U+00C9  201    c3 89       &Eacute;   LATIN CAPITAL LETTER E WITH ACUTE
 '🧉' U+1F9C9 129481 f0 9f a7 89 &#x1f9c9;  MATE DRINK
 ```
-{{ note(msg="ah, so that's why I appear twice in <abbr title='Summarize &apos;git log&apos; output'>`git shortlog`</abbr>` --summary`...") }}
+{{<note msg="ah, so that's why I appear twice in <abbr title='Summarize &apos;git log&apos; output'>`git shortlog`</abbr>` --summary`..."/>}}
 
 ### The adjoined and annotated fragments
 
@@ -72,7 +72,7 @@ postgres_1   2025-08-09 12:35:15 | STATEMENT:  SELECT * FROM employees;
 postgres_1   2025-08-09 12:35:20 | LOG:  disconnection: session time: 9s user=acme database=mydb host=172.18.0.5 port=5432
 webserver_1  2025-08-09 12:35:05 | GET /api/employees 200 15ms
 ```
-{{ note(msg="here, `docker compose` annotates the concatenated logs with their provenance and timestamps") }}
+{{<note msg="here, `docker compose` annotates the concatenated logs with their provenance and timestamps"/>}}
 
 The juxtaposition of pieces of content also routinely aids in visual comparison:
 
@@ -150,7 +150,7 @@ public Adyen(final GeographicalArea shop) {
         .from(Props.getFrom(PROPS_FILE));
 }
 ```
-{{ note(msg="bonus points for the serendipitously native alignment of the `JSON` and `HTTP` constants declaration") }}
+{{<note msg="bonus points for the serendipitously native alignment of the `JSON` and `HTTP` constants declaration"/>}}
 
 <br>
 
@@ -204,7 +204,7 @@ Revisions 1 through 8 ............................ 2024-01-30 through 2024-02-04
 
     Irrelevant (unpublished) and/or lost to time.
 ```
-{{ note(msg="don't worry, no trade secrets in here: it's indeed half made up for this exercise.") }}
+{{<note msg="don't worry, no trade secrets in here: it's indeed half made up for this exercise."/>}}
 
 ## What now?
 

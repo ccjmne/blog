@@ -210,7 +210,7 @@ function why() {
     echo $answer
 }
 ```
-{{ note(msg="you can use white space in the `[address[,address]]function` pattern for better readability") }}
+{{<note msg="you can use white space in the `[address[,address]]function` pattern for better readability"/>}}
 
 You can also retain only that function, one of two ways:
 
@@ -223,7 +223,7 @@ sed -n '/function handleanything/, /^}$/  p' script.sh
 # Using the negation operator (!) to operate on lines *outside* the specified range:
 sed    '/function handleanything/, /^}$/ !d' script.sh
 ```
-{{ note(msg="don't hesitate to use white-space, `/function handleanything/,  /^}$/  !d` is also legal") }}
+{{<note msg="don't hesitate to use white-space, `/function handleanything/,  /^}$/  !d` is also legal"/>}}
 
 For instance, you may refer to some of your favourite `man`ual entries in this way:
 
@@ -331,7 +331,7 @@ A more idiomatic `sed` way would be to scope your substitution to the lines cont
 sed '/proxy_/s/http/https/' nginx.conf
 sed '/proxy_/  s/http/https/' nginx.conf
 ```
-{{ note(msg="the second version is also entirely legal syntax, it merely adds white-space for readability") }}
+{{<note msg="the second version is also entirely legal syntax, it merely adds white-space for readability"/>}}
 
 How real-life is that, though?  Wouldn't you just spin up your favourite text
 editor at this point?
@@ -343,7 +343,7 @@ course">favourite text editor</abbr> offers the same function!
 :g/proxy_/s/http/https
 :g  /proxy_/  s/http/https
 ```
-{{ note(msg="Vim is more lenient and tolerates omitting the final `/` at the end of the replacement pattern") }}
+{{<note msg="Vim is more lenient and tolerates omitting the final `/` at the end of the replacement pattern"/>}}
 
 You could also have selected the `location` blocks:
 
@@ -359,7 +359,7 @@ sed '#/app1#,$s/http/https/' nginx.conf
 sed '#/app1#,  $  s/http/https/' nginx.conf
 sed '\#/app1#,  $  s/http/https/' nginx.conf  # GNU sed only
 ```
-{{ note(msg="for illustration, I used hashes (`#`) to delineate the <abbr title='Regular Expressions'>RegExp</abbr> here, to not have to escape the literal `/`") }}
+{{<note msg="for illustration, I used hashes (`#`) to delineate the <abbr title='Regular Expressions'>RegExp</abbr> here, to not have to escape the literal `/`"/>}}
 
 Or from line `5` onwards:
 
@@ -433,7 +433,7 @@ git commit --verbose
 <span class="term-fg31">-Let me show you something</span>
 <span class="term-fg32">+Let me show you something cool</span>
 </pre></code>
-{{ note(msg="I like having a recap of my changes below the [scissors line](https://git-scm.com/docs/git-mailinfo#Documentation/git-mailinfo.txt---scissors)") }}
+{{<note msg="I like having a recap of my changes below the [scissors line](https://git-scm.com/docs/git-mailinfo#Documentation/git-mailinfo.txt---scissors)"/>}}
 
 Quite handy, yet too noisy.  My `prepare-commit-msg` hook prunes the content
 that I find too busy, using `sed`:
@@ -446,7 +446,7 @@ sed -i.bak "$commit_msg_file" -e '
     /^# Changes not staged/,              /^#$/d                ;
     /^# Untracked files/,                 /^#$/d                ;'
 ```
-{{ note(msg="I use `-i.bak` to keep a backup of the original file, just in case") }}
+{{<note msg="I use `-i.bak` to keep a backup of the original file, just in case"/>}}
 
 There's some more to unpack in this snippet, but the part I want to go over
 in this article here is the selection of chunks to **`d`elete** using the
@@ -468,7 +468,7 @@ git commit --verbose
 <span class="term-fg31">-Let me show you something</span>
 <span class="term-fg32">+Let me show you something cool</span>
 </pre></code>
-{{ note(msg="in reality, I have configured `git-commit` to always use `--verbose` and needn't specify it") }}
+{{<note msg="in reality, I have configured `git-commit` to always use `--verbose` and needn't specify it"/>}}
 
 Much tidier, isn't it?
 

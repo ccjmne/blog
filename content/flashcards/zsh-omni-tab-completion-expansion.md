@@ -74,7 +74,7 @@ zstyle ':completion:*' menu select
 
 bindkey '^I' zle-expand-omni
 ```
-{{ note(msg="so little, to get you so far already") }}
+{{<note msg="so little, to get you so far already"/>}}
 
 ### Use the familiar completion system
 
@@ -82,13 +82,13 @@ bindkey '^I' zle-expand-omni
 <div>
 <pre class="giallo z-code">
 <code><span class="term-fg34"><span class="term-fg31">cd</span></span> █
-</code></pre>{{ note(msg="`1.` begin entering a `cd` command") }}
+</code></pre>{{<note msg="`1.` begin entering a `cd` command"/>}}
 </div>
 <div>
 <pre class="giallo z-code">
 <code><span class="term-fg34"><span class="term-fg31">cd</span></span> █
 <span class="term-0">home/ scripts/</span>
-</code></pre>{{ note(msg="`2.` press `<Tab>` once for the completion menu") }}
+</code></pre>{{<note msg="`2.` press `<Tab>` once for the completion menu"/>}}
 </div>
 </div>
 
@@ -97,13 +97,13 @@ bindkey '^I' zle-expand-omni
 <pre class="giallo z-code">
 <code><span class="term-fg34"><span class="term-fg31">cd</span></span> scr█
 <span class="term-0">home/ scripts/</span>
-</code></pre>{{ note(msg="`3.` start typing away, here `scr`") }}
+</code></pre>{{<note msg="`3.` start typing away, here `scr`"/>}}
 </div>
 <div>
 <pre class="giallo z-code">
 <code><span class="term-fg34"><span class="term-fg31">cd</span></span> scripts/█
 <span class="term-0">home/ scripts/</span>
-</code></pre>{{ note(msg="`4.` press `<Tab>` again to complete") }}
+</code></pre>{{<note msg="`4.` press `<Tab>` again to complete"/>}}
 </div>
 </div>
 
@@ -113,13 +113,13 @@ bindkey '^I' zle-expand-omni
 <div>
 <pre class="giallo z-code">
 <code><span class="term-fg34"><span class="term-fg31">cd</span></span> █
-</code></pre>{{ note(msg="`1.` begin entering a `cd` command") }}
+</code></pre>{{<note msg="`1.` begin entering a `cd` command"/>}}
 </div>
 <div>
 <pre class="giallo z-code">
 <code><span class="term-fg34"><span class="term-fg31">cd</span></span> █
 <span class="term-0">home/ scripts/</span>
-</code></pre>{{ note(msg="`2.` press `<Tab>` once for the completion menu") }}
+</code></pre>{{<note msg="`2.` press `<Tab>` once for the completion menu"/>}}
 </div>
 </div>
 
@@ -128,13 +128,13 @@ bindkey '^I' zle-expand-omni
 <pre class="giallo z-code">
 <code><span class="term-fg34"><span class="term-fg31">cd</span></span> <span class="term-fg32">home/█</span>
 <span class="term-inv">home/</span><span class="term-fg0"> scripts/</span>
-</code></pre>{{ note(msg="`3.` press `<Tab>` again for the interactive menu") }}
+</code></pre>{{<note msg="`3.` press `<Tab>` again for the interactive menu"/>}}
 </div>
 <div>
 <pre class="giallo z-code">
 <code><span class="term-fg34"><span class="term-fg31">cd</span></span> <span class="term-fg32">scripts/█</span>
 <span class="term-fg0">home/</span> <span class="term-inv">scripts/</span>
-</code></pre>{{ note(msg="`4.` navigate the menu—using other bindings") }}
+</code></pre>{{<note msg="`4.` navigate the menu—using other bindings"/>}}
 </div>
 </div>
 
@@ -169,12 +169,12 @@ constitutes the second dimension**
 <div>
 <pre class="giallo z-code">
 <code><span class="term-fg34">ls</span> <span class="term-fg33">*█</span>
-</code></pre>{{ note(msg="`1.` begin entering an `ls` command") }}
+</code></pre>{{<note msg="`1.` begin entering an `ls` command"/>}}
 </div>
 <div>
 <pre class="giallo z-code">
 <code><span class="term-fg34">ls</span> <span class="term-fg32">LICENSE README home/ scripts/</span> █
-</code></pre>{{ note(msg="`2.` press `<Tab>` to expand the matching items") }}
+</code></pre>{{<note msg="`2.` press `<Tab>` to expand the matching items"/>}}
 </div>
 </div>
 
@@ -184,17 +184,17 @@ constitutes the second dimension**
 <div>
 <pre class="giallo z-code">
 <code><span class="term-fg31">alias</span> <span class="term-fg33">git</span>=<span class="term-fg32">'noglob git'</span>
-</code></pre>{{ note(msg="`1.` set up some `alias`") }}
+</code></pre>{{<note msg="`1.` set up some `alias`"/>}}
 </div>
 <div>
 <pre class="giallo z-code">
 <span class="term-fg33">git█</span>
-</code></pre>{{ note(msg="`2.` prepare to use it") }}
+</code></pre>{{<note msg="`2.` prepare to use it"/>}}
 </div>
 <div>
 <pre class="giallo z-code">
 <span class="term-fg34">noglob git</span> █
-</code></pre>{{ note(msg="`3.` press `<Tab>` to expand it") }}
+</code></pre>{{<note msg="`3.` press `<Tab>` to expand it"/>}}
 </div>
 </div>
 
@@ -210,13 +210,13 @@ Note that it is quite intelligent in understanding your intent:
 <pre class="giallo z-code">
 <code><span class="term-fg33">ll█</span>
 <span class="term-fg34">ls</span> <span class="term-fg32">-l --almost-all --human-readable</span> █
-</code></pre>{{ note(msg="**expand `alias`es** with your cursor **adjacent**") }}
+</code></pre>{{<note msg="**expand `alias`es** with your cursor **adjacent**"/>}}
 </div>
 <div>
 <pre class="giallo z-code">
 <code><span class="term-fg33">ll</span> █
 LICENSE README home/ scripts/
-</code></pre>{{ note(msg="**complete commands** with a cursor **disjoined**") }}
+</code></pre>{{<note msg="**complete commands** with a cursor **disjoined**"/>}}
 </div>
 </div>
 
@@ -235,7 +235,7 @@ command:
 ```sh
 bindkey ^_ undo
 ```
-{{ note(msg="this is `Ctrl-/`, I believe I adopted that one from the _Zsh-grandmaster_ [Roman Perepelitsa](https://github.com/romkatv) himself") }}
+{{<note msg="this is `Ctrl-/`, I believe I adopted that one from the _Zsh-grandmaster_ [Roman Perepelitsa](https://github.com/romkatv) himself"/>}}
 
 > [!TIP]
 >
@@ -257,7 +257,7 @@ That is it: `bindkey <mapping> undo`.  Let's see it in action:
 
 <pre class="giallo z-code">
 <code><span class="term-fg34">mv</span> <span class="term-fg32">-t scripts/</span> <span class="term-fg33">**</span>/<span class="term-fg33">*</span>.sh</span>█
-</code></pre>{{ note(msg="preparing to move your scripts to the `scripts/` directory") }}
+</code></pre>{{<note msg="preparing to move your scripts to the `scripts/` directory"/>}}
 
 Press `<Tab>` before executing it, just to be sure...
 
@@ -269,25 +269,25 @@ utils/backup_files.sh utils/monitor.sh utils/send_alert.sh utils/archive_data.sh
 utils/sync_files.sh utils/cleanup_temp.sh tools/analyze_performance.sh tools/check_disk.sh bin/health_check.sh
 bin/cache_clear.sh bin/update_configs.sh utils/email_report.sh utils/generate_report.sh tools/security_scan.sh
 tools/update_packages.sh tools/reindex.sh utils/migrate_files.sh utils/cleanup_old.sh utils/check_integrity.sh</span>
-</code></pre>{{ note(msg="oh, no, good grief, **ABORT!** is there one such button?") }}
+</code></pre>{{<note msg="oh, no, good grief, **ABORT!** is there one such button?"/>}}
 
 <div class="grid-1-2">
 <div>
 <pre class="giallo z-code">
 <code><span class="term-fg34">mv</span> <span class="term-fg32">-t scripts/</span> <span class="term-fg33">**</span>/<span class="term-fg33">*</span>.sh</span>█
-</code></pre>{{ note(msg="roll it back with the binding of your choice") }}
+</code></pre>{{<note msg="roll it back with the binding of your choice"/>}}
 </div>
 <div>
 <pre class="giallo z-code">
 <code><span class="term-fg34">mv</span> <span class="term-fg32">-t scripts/</span> <span class="term-fg33">{utils,bin}</span>/<span class="term-fg33">*</span>.sh</span>█
-</code></pre>{{ note(msg="adjust and correct your command") }}
+</code></pre>{{<note msg="adjust and correct your command"/>}}
 </div>
 </div>
 
 <pre class="giallo z-code">
 <code><span class="term-fg34">mv</span> <span class="term-fg32">-t scripts/</span> <span class="term-fg32">bin/startup.sh bin/check_env.sh bin/restart_services.sh bin/update_configs.sh utils/migrate_files.sh
 utils/cleanup_old.sh utils/check_integrity.sh</span>
-</code></pre>{{ note(msg="that's more like it! though I had no idea of these other forsaken piles... future-me can sort it out") }}
+</code></pre>{{<note msg="that's more like it! though I had no idea of these other forsaken piles... future-me can sort it out"/>}}
 
 > [!NOTE]
 >

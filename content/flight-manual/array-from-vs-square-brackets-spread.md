@@ -27,7 +27,7 @@ that of _"Ecosystem Performance"_: that is what their name stands for.
 > Prefer `Array.from(iterable, mapper)` over `[...iterable].map(mapper)` to
 > avoid intermediate array allocation.
 >
-> {% attribution() %} Ecosystem Performance (`e18e`), `prefer-array-from-map` {% end %}
+> {% <attribution> %} Ecosystem Performance (`e18e`), `prefer-array-from-map` {% </attribution> %}
 
 **It's aggravatingly misguided at best.**  And for a newly founded, well-funded
 initiative that calls itself _"official"_, is empowered by fairly popular
@@ -74,7 +74,7 @@ would likely be:
 >
 > `O(N)` scope resolution + 2 properties access (`.prototype` and `.forEach`).
 >
-> {% attribution() %} A younger me, and [Andrea Giammarchi](https://twitter.com/WebReflection), [`[].slice` vs `Array.prototoype.slice`](https://stackoverflow.com/a/52820058/2427596) {% end %}
+> {% <attribution> %} A younger me, and [Andrea Giammarchi](https://twitter.com/WebReflection), [`[].slice` vs `Array.prototoype.slice`](https://stackoverflow.com/a/52820058/2427596) {% </attribution> %}
 
 Fascinating!  There are indeed many layers between the high-level abstraction
 that you juggle through the semantics of your programming language, and
@@ -118,7 +118,7 @@ context, and with its mitigating follow-up:
     > experience of programmers who have been using measurement tools has been
     > that their intuitive guesses fail.
     >
-    > {% attribution() %} Donald Knuth, [Structured Programming with `goto` Statements](https://pic.plover.com/knuth-GOTO.pdf) {% end %}
+    > {% <attribution> %} Donald Knuth, [Structured Programming with `goto` Statements](https://pic.plover.com/knuth-GOTO.pdf) {% </attribution> %}
 
 ## `Array.from(arr, fn)` vs `[...arr].map(fn)`
 
@@ -189,7 +189,7 @@ such is the rhetoric for this fresh new rule to help you build better software:
 > Prefer `Array.from(iterable, mapper)` over `[...iterable].map(mapper)` to
 > avoid intermediate array allocation.
 >
-> {% attribution() %} Ecosystem Performance (`e18e`), `prefer-array-from-map` {% end %}
+> {% <attribution> %} Ecosystem Performance (`e18e`), `prefer-array-from-map` {% </attribution> %}
 
 Just how much heap is either option consuming?  Trivially answered: start `node`
 with the <abbr title="Garbage Collection">`--expose-gc`</abbr> flag, and its
@@ -207,7 +207,7 @@ function measure(name, fn) {
     console.log(name.padEnd(21) + `extra heap: ${((after - before)/ 2 ** 20).toFixed(2).padStart(5)} MB`.padStart(21))
 }
 ```
-{{ note(msg="always `touch` the result to prevent optimising away the entire computation") }}
+{{<note msg="always `touch` the result to prevent optimising away the entire computation"/>}}
 
 Here's how you use it:
 
@@ -222,7 +222,7 @@ done <<-'EOF'
 	measure('Array.from(arr, fn)', () => Array.from(arr, x => x + 1))
 EOF
 ```
-{{ note(msg="no time to explain—if you don't get it, you should consider hanging out in this blog some more") }}
+{{<note msg="no time to explain—if you don't get it, you should consider hanging out in this blog some more"/>}}
 
 Each test will run in its own _Node.js_ process so as to avoid having any
 sort of unfair benefit from any engine optimisation, which **did occasionally
@@ -241,7 +241,7 @@ arr.map(fn)           extra heap:  0.76 MB
 [...arr].map(fn)      extra heap:  0.76 MB
 Array.from(arr, fn)   extra heap:  0.97 MB
 ```
-{{ note(msg="this baseline already seems quite revealing...") }}
+{{<note msg="this baseline already seems quite revealing..."/>}}
 </div>
 <div>
 
@@ -253,7 +253,7 @@ Array.from(arr, fn)   extra heap:  0.97 MB
 arr.map(fn)           extra heap:  0.76 MB
 for (...)             extra heap:  0.77 MB
 ```
-{{ note(msg="the order matters not") }}
+{{<note msg="the order matters not"/>}}
 </div>
 </div>
 
@@ -270,7 +270,7 @@ arr.map(fn)           extra heap:  7.63 MB
 [...arr].map(fn)      extra heap:  7.63 MB
 Array.from(arr, fn)   extra heap: 11.09 MB
 ```
-{{ note(msg="the number of iterations matters (almost) not") }}
+{{<note msg="the number of iterations matters (almost) not"/>}}
 </div>
 <div>
 
@@ -282,7 +282,7 @@ arr.map(fn)           extra heap:  7.64 MB
 [...arr].map(fn)      extra heap:  7.64 MB
 Array.from(arr, fn)   extra heap: 10.22 MB
 ```
-{{ note(msg="notice a curious bump **down** for `Array#from`") }}
+{{<note msg="notice a curious bump **down** for `Array#from`"/>}}
 </div>
 </div>
 
@@ -299,7 +299,7 @@ arr.map(fn)           extra heap: 76.29 MB
 [...arr].map(fn)      extra heap: 76.29 MB
 Array.from(arr, fn)   extra heap: 84.27 MB
 ```
-{{ note(msg="absolutely no surprise there") }}
+{{<note msg="absolutely no surprise there"/>}}
 </div>
 <div>
 
@@ -311,7 +311,7 @@ arr.map(fn)           extra heap: 76.30 MB
 [...arr].map(fn)      extra heap: 76.30 MB
 Array.from(arr, fn)   extra heap: 84.27 MB
 ```
-{{ note(msg="nor any here either") }}
+{{<note msg="nor any here either"/>}}
 </div>
 </div>
 
@@ -328,7 +328,7 @@ arr.map(fn)           extra heap: 75.42 MB
 [...arr].map(fn)      extra heap: 75.42 MB
 Array.from(arr, fn)   extra heap: 83.38 MB
 ```
-{{ note(msg="another marginal yet curious decrease ") }}
+{{<note msg="another marginal yet curious decrease "/>}}
 </div>
 <div>
 
@@ -340,7 +340,7 @@ arr.map(fn)           extra heap: 75.42 MB
 [...arr].map(fn)      extra heap: 75.42 MB
 Array.from(arr, fn)   extra heap: 83.39 MB
 ```
-{{ note(msg="this one ran for **7m 57s**") }}
+{{<note msg="this one ran for **7m 57s**"/>}}
 </div>
 </div>
 
@@ -382,7 +382,7 @@ function measure(fn) {
     let sum = 0; for (let i = 0; i < iterations; i++) sum += touch(fn())
 }
 ```
-{{ note(msg="the same as `mem.js`, only stripped from the explicit garbage collection triggers and logging") }}
+{{<note msg="the same as `mem.js`, only stripped from the explicit garbage collection triggers and logging"/>}}
 
 Let's run **the very same code**, take 20 sample each time and just let the
 system warm up before hand with 5 trial runs prior to the proper ones:
@@ -401,7 +401,7 @@ hyperfine      \
     "node -e '$base; measure(() => [...arr].map(x => x + 1))'    -- $*" \
     "node -e '$base; measure(() => Array.from(arr, x => x + 1))' -- $*"
 ```
-{{ note(msg="this time I'll use an extra layer of scripting goodness for ease of use") }}
+{{<note msg="this time I'll use an extra layer of scripting goodness for ease of use"/>}}
 
 Let's get started!  How about `100` iterations over arrays with `10,000` items?
 
@@ -429,7 +429,7 @@ sh spd.sh 10000 100
 <span class="term-fg32 term-fg1">    1.19</span> ± <span class="term-fg32">0.11</span> times faster than <span class="term-fg35">arr.map(fn)</span>
 <span class="term-fg32 term-fg1">    1.28</span> ± <span class="term-fg32">0.13</span> times faster than <span class="term-fg35">[...arr].map(fn)</span>
 <span class="term-fg32 term-fg1">    1.79</span> ± <span class="term-fg32">0.15</span> times faster than <span class="term-fg35">Array.from(arr, fn)</span></code></pre>
-{{ note(msg="oh yeah, `hyperfine`'s got some fancy output and I'm getting better at honouring these") }}
+{{<note msg="oh yeah, `hyperfine`'s got some fancy output and I'm getting better at honouring these"/>}}
 
 Note that we we already have a bit of variance.  These aren't all quite
 identical under the hood...  Let's keep going.
@@ -473,7 +473,7 @@ sh spd.sh 100000 100
   Range (<span class="term-fg36">min</span> … <span class="term-fg35">max</span>):   <span class="term-fg36">342.2 ms</span> … <span class="term-fg35">412.7 ms</span>    <span class="term-fg2">20 runs</span>
 </code></pre>
 </details>
-{{ note(msg="") }}
+{{<note msg=""/>}}
 
 `10,000` items, `1,000` iterations:
 
@@ -507,7 +507,7 @@ sh spd.sh 10000 1000
   Range (<span class="term-fg36">min</span> … <span class="term-fg35">max</span>):   <span class="term-fg36">227.0 ms</span> … <span class="term-fg35">283.6 ms</span>    <span class="term-fg2">20 runs</span>
 </code></pre>
 </details>
-{{ note(msg="") }}
+{{<note msg=""/>}}
 
 `100,000` items, `1,000` iterations:
 
@@ -541,7 +541,7 @@ sh spd.sh 100000 1000
   Range (<span class="term-fg36">min</span> … <span class="term-fg35">max</span>):   <span class="term-fg36"> 3.097 s</span> … <span class="term-fg35"> 3.478 s</span>    <span class="term-fg2">20 runs</span>
 </code></pre>
 </details>
-{{ note(msg="") }}
+{{<note msg=""/>}}
 
 So, there you have it.
 
@@ -562,7 +562,7 @@ packages**:
 > Prefer `Array.from(iterable, mapper)` over `[...iterable].map(mapper)` to
 > avoid intermediate array allocation.
 >
-> {% attribution() %} Ecosystem Performance (`e18e`), `prefer-array-from-map` {% end %}
+> {% <attribution> %} Ecosystem Performance (`e18e`), `prefer-array-from-map` {% </attribution> %}
 
 The **memory consumption** is **strictly** and **always** worse (`~10` to `~45%`
 worse)when using `Array.from(arr, mapper)` than with every single other method,
@@ -590,7 +590,7 @@ in isolation:
                    -------------   -------------
                    10,000  items   100,000 items
 ```
-{{ note(msg="the durations are in milliseconds, **`A` is `[...arr].map(fn)`, and `B` is `Array.from(arr, fn)`**") }}
+{{<note msg="the durations are in milliseconds, **`A` is `[...arr].map(fn)`, and `B` is `Array.from(arr, fn)`**"/>}}
 
 1. **fewer** items, **fewer** iterations:
 
@@ -629,7 +629,7 @@ Secondly, comparing the cost of the _"intermediate array allocation"_:
                    -------------   -------------
                    10,000  items   100,000 items
 ```
-{{ note(msg="the durations are in milliseconds, **`A` remains `[...arr].map(fn)`, and `C` is `arr.map(fn)`**") }}
+{{<note msg="the durations are in milliseconds, **`A` remains `[...arr].map(fn)`, and `C` is `arr.map(fn)`**"/>}}
 
 > [!IMPORTANT]
 >
@@ -658,7 +658,7 @@ screams at you at the `ERROR` level that this is somehow inadequate:
 const boxes = [...document.querySelectorAll('.box')]
     .map(e => e.getBoundingClientRect())
 ```
-{{ note(msg="this excerpt triggers the revolting `e18e/prefer-array-from-map` rule") }}
+{{<note msg="this excerpt triggers the revolting `e18e/prefer-array-from-map` rule"/>}}
 
 ... **Know that it is rubbish.**
 
