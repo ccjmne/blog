@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/base.css?h=bdef50f836b76db498fb">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2?h=b3c74e2fab27de35d142" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2?h=d503244afc2437c96ade" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2?h=5c8eb42ff6f2e2934413" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; font-display: swap; src: url('https://ccjmne.sh/blog/ouft-1.woff2?h=b3c74e2fab27de35d142') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; font-display: swap; src: url('https://ccjmne.sh/blog/work-1.woff2?h=b1481b19a684088ca0aa') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; font-display: swap; src: url('https://ccjmne.sh/blog/work-2.woff2?h=d503244afc2437c96ade') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; font-display: swap; src: url('https://ccjmne.sh/blog/work-3.woff2?h=5c8eb42ff6f2e2934413') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; font-display: swap; src: url('https://ccjmne.sh/blog/fira-1.woff2?h=a264b0cbe8b649d2258c') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; font-display: swap; src: url('https://ccjmne.sh/blog/fira-2.woff2?h=e7f9c933e970ed62349b') format('woff2'); }
+  @font-face { font-family: 'Noto Sans KR'; font-style: normal; font-weight: 400; font-display: optional; src: url('https://ccjmne.sh/blog/noto-1.woff2?h=3520ea944b4d7f33c61a') format('woff2'); }
+  @font-face { font-family: 'Noto Sans KR'; font-style: normal; font-weight: 500; font-display: optional; src: url('https://ccjmne.sh/blog/noto-2.woff2?h=2d246954251c5051f7d1') format('woff2'); }
+</style>
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+ data-path="/flashcards/reproducible-isolated-demonstration/">
+      <a href="https://ccjmne.sh/blog" data-target="home">Home</a>
+      <details class="dropdown" max-md>
+        <summary data-target="articles">Articles</summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual/"       >Flight rules</a>
+          <a href="https://ccjmne.sh/blog/ramblings/"       >Ramblings</a>
+          <a href="https://ccjmne.sh/blog/flashcards/"       >Flashcards</a>
+          <a href="https://ccjmne.sh/blog/tags/" max-sm>Sections</a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual/" min-md>Flight rules</a>
+      <a href="https://ccjmne.sh/blog/ramblings/" min-md>Ramblings</a>
+      <a href="https://ccjmne.sh/blog/flashcards/" min-md>Flashcards</a>
+      <a href="https://ccjmne.sh/blog/tags/" min-sm>Sections</a>
+      <a href="https://ccjmne.sh/blog/colophon/"       >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main><h1><span class="link-title" 
+  style="view-transition-name: view-reproducible-isolated-demonstration"
+>Reproducible, isolated demonstrations</span></h1><ul class="infobar "><li><time>August 10, 2025</time></li><li>2-minute read</li>
+    <li>tagged
+      
+      <a href="https://ccjmne.sh/blog/tags/cli/">cli</a>, 
+      <a href="https://ccjmne.sh/blog/tags/craftsmanship/">craftsmanship</a>, 
+      <a href="https://ccjmne.sh/blog/tags/docker/">docker</a></li></ul>
+<article><p>Earlier this week, I put together installation instructions for a syntax support
+package for <abbr title="The ubiquitous text editor">Vim</abbr>.</p>
+<p>I have an idea how these things work and I'm fairly confident that <code>-u NONE</code>
+will get Vim to disregard my years of sensibly crafted configuration, but I
+wanted to go one step further: <strong>from zero to a working plug-in, undoubtedly
+reproducible on any machine</strong>.</p>
+<span id="continue-reading"></span>
+<p>I spun up a fleeting shell session in a base <a rel="external" href="https://www.docker.com/">Docker</a>
+image of my distribution of choice, installed the editor, the plug-in, verified
+its functionality and <em>voilà</em>!</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#4C4F69, #C6D0F5); background-color: light-dark(#EFF1F5, #303446);" ><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;">docker</span><span style="color: light-dark(#40A02B, #A6D189);"> run</span><span style="color: light-dark(#40A02B, #A6D189);"> -</span><span style="color: light-dark(#40A02B, #A6D189);">-rm</span><span style="color: light-dark(#40A02B, #A6D189);"> -</span><span style="color: light-dark(#40A02B, #A6D189);">it</span><span style="color: light-dark(#40A02B, #A6D189);"> archlinux</span><span style="color: light-dark(#40A02B, #A6D189);"> sh</span></span>
+<span class="giallo-l"><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;">pacman</span><span style="color: light-dark(#40A02B, #A6D189);"> -</span><span style="color: light-dark(#40A02B, #A6D189);">Sy</span><span style="color: light-dark(#40A02B, #A6D189);"> -</span><span style="color: light-dark(#40A02B, #A6D189);">-noconfirm</span><span style="color: light-dark(#40A02B, #A6D189);"> vim</span><span style="color: light-dark(#40A02B, #A6D189);"> git</span></span>
+<span class="giallo-l"><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;">cat</span><span style="color: light-dark(#179299, #81C8BE);"> &gt;</span><span style="color: light-dark(#40A02B, #A6D189);"> work.klg</span><span style="color: light-dark(#179299, #81C8BE);"> &lt;&lt;</span><span style="color: light-dark(#40A02B, #A6D189);">EOF</span></span>
+<span class="giallo-l"><span style="color: light-dark(#40A02B, #A6D189);">2025-08-10 (8h!)</span></span>
+<span class="giallo-l"><span style="color: light-dark(#40A02B, #A6D189);">Getting some #work done.</span></span>
+<span class="giallo-l"><span style="color: light-dark(#40A02B, #A6D189);">    08:45 - ?</span></span>
+<span class="giallo-l"><span style="color: light-dark(#40A02B, #A6D189);">    -1h #lunch</span></span>
+<span class="giallo-l"><span style="color: light-dark(#40A02B, #A6D189);">EOF</span></span>
+<span class="giallo-l"><span style="color: light-dark(#7C7F93, #949CBB);font-style: italic;">#</span><span style="color: light-dark(#7C7F93, #949CBB);font-style: italic;"> The demonstrably complete instructions: have the plug-in on your runtimepath</span></span>
+<span class="giallo-l"><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;">git</span><span style="color: light-dark(#40A02B, #A6D189);"> clone</span><span style="color: light-dark(#40A02B, #A6D189);"> https://github.com/73/vim-klog.git</span></span>
+<span class="giallo-l"><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;">vim</span><span style="color: light-dark(#40A02B, #A6D189);"> -</span><span style="color: light-dark(#40A02B, #A6D189);">u</span><span style="color: light-dark(#40A02B, #A6D189);"> NONE</span><span style="color: light-dark(#40A02B, #A6D189);"> +</span><span style="color: light-dark(#40A02B, #A6D189);">&#39;</span><span style="color: light-dark(#40A02B, #A6D189);">set rtp+=vim-klog</span><span style="color: light-dark(#40A02B, #A6D189);">&#39;</span><span style="color: light-dark(#40A02B, #A6D189);"> +</span><span style="color: light-dark(#40A02B, #A6D189);">&#39;</span><span style="color: light-dark(#40A02B, #A6D189);">syn on</span><span style="color: light-dark(#40A02B, #A6D189);">&#39;</span><span style="color: light-dark(#40A02B, #A6D189);"> work.klg</span></span></code></pre><div class="note">I like using <code>--rm -it</code>, for which you may use the mnemonic "remove it"</div>
+<p>Just like that, a fresh Vim installation, augmented with the correct file type
+detection and corresponding syntax highlighting, right off the <code>master</code> branch
+of its plug-in's source code: no compilation even needed<sup class="footnote-reference" id="fr-bare-and-simple-1"><a href="https://ccjmne.sh/blog/flashcards/reproducible-isolated-demonstration/#fn-bare-and-simple">[1]</a></sup>.
+Wanna give it a spin?  Assuming you already have your favourite distribution's
+image ready, pasting the few commands above gets you <strong>up and running in 5
+seconds flat</strong>.</p>
+<p>With the simple <code>docker run</code> command, your container will be pruned as soon as
+you exit your shell: the above excerpt even contains all the clean-up you need.</p>
+<p>I figured I'd try with <abbr title="The one capable 'alternative' to Vim
+">Neovim</abbr>, too, to make sure that the <em>exact same instructions</em> (using
+<code>nvim</code> instead of <code>vim</code>) work just as well.  Lo and behold: of course it does.</p>
+<p>No more guesswork, no more "well, on my machine [...]"; we have access to as
+many fully isolated environments as we want: make good use of them!</p>
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn-bare-and-simple">
+<p>By the way, the entire project consists of <em>TWO!</em> measly
+files (it does two things, after all), plus a short <code>README</code> and its supporting
+<code>LICENSE</code>.  No fuss, no dependencies, no compilation: no problem. <a href="https://ccjmne.sh/blog/flashcards/reproducible-isolated-demonstration/#fr-bare-and-simple-1">↩</a></p>
+</li>
+</ol>
+</section>
+
+  <h2 id="cited-tools"><a class="anchor-link" href="#cited-tools" aria-label="Anchor link for: cited-tools"></a>
+Referenced tools</h2>
+  <div class="refs">
+<div class="ref tool mono">
+  <strong>docker</strong>
+  <div><span class="muted">from</span>&nbsp;<a rel="external" href="https://archlinux.org/packages/extra/x86_64/docker">extra/docker</a></div>
+  <div><a rel="external" href="https://docs.docker.com/">manual</a>
+    <a rel="external" href="https://github.com/moby/moby">source</a></div>
+</div>
+
+<div class="ref tool mono">
+  <strong>vim</strong>
+  <div><span class="muted">from</span>&nbsp;<a rel="external" href="https://archlinux.org/packages/extra/x86_64/vim">extra/vim</a></div>
+  <div><a rel="external" href="https://vimhelp.org/">manual</a>
+    <a rel="external" href="https://github.com/vim/vim">source</a></div>
+</div>
+</div>
+  
+
+  
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a rel="external" href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <a rel="external" href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>
+        <a rel="external" href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>

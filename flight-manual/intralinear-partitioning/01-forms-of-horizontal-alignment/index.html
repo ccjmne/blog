@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/base.css?h=bdef50f836b76db498fb">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2?h=b3c74e2fab27de35d142" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2?h=d503244afc2437c96ade" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2?h=5c8eb42ff6f2e2934413" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; font-display: swap; src: url('https://ccjmne.sh/blog/ouft-1.woff2?h=b3c74e2fab27de35d142') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; font-display: swap; src: url('https://ccjmne.sh/blog/work-1.woff2?h=b1481b19a684088ca0aa') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; font-display: swap; src: url('https://ccjmne.sh/blog/work-2.woff2?h=d503244afc2437c96ade') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; font-display: swap; src: url('https://ccjmne.sh/blog/work-3.woff2?h=5c8eb42ff6f2e2934413') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; font-display: swap; src: url('https://ccjmne.sh/blog/fira-1.woff2?h=a264b0cbe8b649d2258c') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; font-display: swap; src: url('https://ccjmne.sh/blog/fira-2.woff2?h=e7f9c933e970ed62349b') format('woff2'); }
+  @font-face { font-family: 'Noto Sans KR'; font-style: normal; font-weight: 400; font-display: optional; src: url('https://ccjmne.sh/blog/noto-1.woff2?h=3520ea944b4d7f33c61a') format('woff2'); }
+  @font-face { font-family: 'Noto Sans KR'; font-style: normal; font-weight: 500; font-display: optional; src: url('https://ccjmne.sh/blog/noto-2.woff2?h=2d246954251c5051f7d1') format('woff2'); }
+</style>
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+ data-path="/flight-manual/intralinear-partitioning/01-forms-of-horizontal-alignment/">
+      <a href="https://ccjmne.sh/blog" data-target="home">Home</a>
+      <details class="dropdown" max-md>
+        <summary data-target="articles">Articles</summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual/"       >Flight rules</a>
+          <a href="https://ccjmne.sh/blog/ramblings/"       >Ramblings</a>
+          <a href="https://ccjmne.sh/blog/flashcards/"       >Flashcards</a>
+          <a href="https://ccjmne.sh/blog/tags/" max-sm>Sections</a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual/" min-md>Flight rules</a>
+      <a href="https://ccjmne.sh/blog/ramblings/" min-md>Ramblings</a>
+      <a href="https://ccjmne.sh/blog/flashcards/" min-md>Flashcards</a>
+      <a href="https://ccjmne.sh/blog/tags/" min-sm>Sections</a>
+      <a href="https://ccjmne.sh/blog/colophon/"       >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main><h1><span class="link-title" 
+  style="view-transition-name: view-01-forms-of-horizontal-alignment"
+>Laying text out horizontally</span></h1><ul class="infobar "><li><time>July 25, 2025</time></li><li>4-minute read</li>
+    <li>Part&nbsp;1&nbsp;of&nbsp;<a href="https://ccjmne.sh/blog/flight-manual/intralinear-partitioning/">Intralinear partitioning</a></li><li>tagged
+      
+      <a href="https://ccjmne.sh/blog/tags/quibblery/">quibblery</a></li></ul>
+<details class="lo summary">
+  <summary>Series introduction</summary>
+  <h2><a href="https://ccjmne.sh/blog/flight-manual/intralinear-partitioning" class="link-title" 
+  style="view-transition-name: view-intralinear-partitioning"
+>Intralinear partitioning</a></h2>
+  <p>Professionally, I put code together. Intimately, I am compelled to make
+it neat: I get closer to that goal by wielding non-printable characters like
+monochrome photography uses light, with <em>purpose</em>.</p>
+<p>The current <em>status quo</em> regarding whitespace, in my line of work, limits our
+stylistic expression:</p>
+<ul>
+<li>vertically to the <strong>linefeed<sup class="footnote-reference" id="fr-esoteric-vertical-whitespace-1"><a href="https://ccjmne.sh/blog/flight-manual/intralinear-partitioning/#fn-esoteric-vertical-whitespace">[1]</a></sup> (coalescing into
+blank lines</strong>), to pack together logical blocks of data or instructions, and</li>
+<li>horizontally <strong>to the beginning of the line (in the form of
+indentation)</strong>, to delineate the hierarchy of our otherwise strictly
+vertically-topologically-laid-out content.</li>
+</ul>
+<p>But here's the thing: the taxonomy of text shouldn't be limited to paragraphs
+and lines.<br>
+Let's go bidimensional!</p>
+</details><details class="hi toc">
+  <summary>Table of contents</summary>
+  <ul><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/intralinear-partitioning/01-forms-of-horizontal-alignment/#the-list-in-a-grid">The list in a grid</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/intralinear-partitioning/01-forms-of-horizontal-alignment/#the-tabular-data">The tabular data</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/intralinear-partitioning/01-forms-of-horizontal-alignment/#the-adjoined-and-annotated-fragments">The adjoined and annotated fragments</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/intralinear-partitioning/01-forms-of-horizontal-alignment/#the-zealous-documents">The zealous documents</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/intralinear-partitioning/01-forms-of-horizontal-alignment/#what-now">What now?</a></li><li>
+      <a href="https://ccjmne.sh/blog/flight-manual/intralinear-partitioning/01-forms-of-horizontal-alignment/#next">Next</a></li>
+    <li><a href="#cited-tools">Referenced tools</a></li>
+    
+    
+  </ul>
+</details>
+<article><p>In the wild, I identified four classes of occurrences itching for what I
+shall refer to as <strong>intralinear partitioning</strong>.  In this article, I propose to
+classify and appreciate them.</p>
+<h3 id="the-list-in-a-grid"><a class="anchor-link" href="#the-list-in-a-grid" aria-label="Anchor link for: the-list-in-a-grid"></a>
+The list in a grid</h3>
+<p>Collections of items are quite happily organised in a grid, unless you're a
+stock exchange ticker tape designer, of course.  As such, so long as you want to
+<strong>present your data rather than have it seemingly scroll forever</strong>, <a rel="external" href="https://en.wikipedia.org/wiki/Neo_(The_Matrix)">the matrix
+is a practical ally, Neo</a>.</p>
+<p>For illustration, here's the output of <abbr title="List directory
+contents"><code>ls</code></abbr>, a specimen I'm sure you've come across before:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#4C4F69, #C6D0F5); background-color: light-dark(#EFF1F5, #303446);" ><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;">ls</span><span style="color: light-dark(#40A02B, #A6D189);"> -</span><span style="color: light-dark(#40A02B, #A6D189);">F</span></span>
+<span class="giallo-l"><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;">ls</span><span style="color: light-dark(#40A02B, #A6D189);"> -</span><span style="color: light-dark(#40A02B, #A6D189);">-classify</span></span></code></pre><pre class="giallo" style="color-scheme: light dark; color: light-dark(#4C4F69, #C6D0F5); background-color: light-dark(#EFF1F5, #303446);" ><code data-lang="plain"><span class="giallo-l"><span>node_modules/  compose.sh*  eslint.config.mjs  package.json    README.md</span></span>
+<span class="giallo-l"><span>src/           Dockerfile   LICENSE            pnpm-lock.yaml  TODO</span></span></code></pre><div class="note">I use <code>--classify</code> to annotate various file types, like executables and directories</div>
+<h3 id="the-tabular-data"><a class="anchor-link" href="#the-tabular-data" aria-label="Anchor link for: the-tabular-data"></a>
+The tabular data</h3>
+<p>This one needs no introduction, yet the only example that came to mind is
+that of probing <abbr title="Query the Unicode database"><code>uni</code></abbr> for
+whatever fantastical sigil I last came across:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#4C4F69, #C6D0F5); background-color: light-dark(#EFF1F5, #303446);" ><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;">uni</span><span style="color: light-dark(#40A02B, #A6D189);"> i</span><span style="color: light-dark(#40A02B, #A6D189);"> ÉÉ🧉</span></span>
+<span class="giallo-l"><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;">uni</span><span style="color: light-dark(#40A02B, #A6D189);"> identify</span><span style="color: light-dark(#40A02B, #A6D189);"> É</span><span style="color: light-dark(#40A02B, #A6D189);"> É</span><span style="color: light-dark(#40A02B, #A6D189);"> 🧉</span></span></code></pre><pre class="giallo" style="color-scheme: light dark; color: light-dark(#4C4F69, #C6D0F5); background-color: light-dark(#EFF1F5, #303446);" ><code data-lang="plain"><span class="giallo-l"><span>             Dec    UTF8        HTML       Name</span></span>
+<span class="giallo-l"><span>&#39;E&#39;  U+0045  69     45          &amp;#x45;     LATIN CAPITAL LETTER E</span></span>
+<span class="giallo-l"><span>&#39;◌́&#39;  U+0301  769    cc 81       &amp;#x301;    COMBINING ACUTE ACCENT</span></span>
+<span class="giallo-l"><span>&#39;É&#39;  U+00C9  201    c3 89       &amp;Eacute;   LATIN CAPITAL LETTER E WITH ACUTE</span></span>
+<span class="giallo-l"><span>&#39;🧉&#39; U+1F9C9 129481 f0 9f a7 89 &amp;#x1f9c9;  MATE DRINK</span></span></code></pre><div class="note">ah, so that's why I appear twice in <abbr title='Summarize &apos;git log&apos; output'><code>git shortlog</code></abbr><code> --summary</code>...</div>
+<h3 id="the-adjoined-and-annotated-fragments"><a class="anchor-link" href="#the-adjoined-and-annotated-fragments" aria-label="Anchor link for: the-adjoined-and-annotated-fragments"></a>
+The adjoined and annotated fragments</h3>
+<p>Serving as our penultimate stop is data that's not quite tabular enough to be
+called that; chunks of text laid out next to one another:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#4C4F69, #C6D0F5); background-color: light-dark(#EFF1F5, #303446);" ><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;">docker</span><span style="color: light-dark(#40A02B, #A6D189);"> compose</span><span style="color: light-dark(#40A02B, #A6D189);"> logs</span><span style="color: light-dark(#40A02B, #A6D189);"> -</span><span style="color: light-dark(#40A02B, #A6D189);">t</span></span>
+<span class="giallo-l"><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;">docker</span><span style="color: light-dark(#40A02B, #A6D189);"> compose</span><span style="color: light-dark(#40A02B, #A6D189);"> logs</span><span style="color: light-dark(#40A02B, #A6D189);"> -</span><span style="color: light-dark(#40A02B, #A6D189);">-timestamps</span></span></code></pre><pre class="giallo" style="color-scheme: light dark; color: light-dark(#4C4F69, #C6D0F5); background-color: light-dark(#EFF1F5, #303446);" ><code data-lang="plain"><span class="giallo-l"><span>postgres_1   2025-08-09 12:34:56 | LOG:  database system was shut down at 2025-08-09 12:30:00 UTC</span></span>
+<span class="giallo-l"><span>postgres_1   2025-08-09 12:34:56 | LOG:  MultiXact member wraparound protections are now enabled</span></span>
+<span class="giallo-l"><span>postgres_1   2025-08-09 12:35:01 | LOG:  autovacuum launcher started</span></span>
+<span class="giallo-l"><span>postgres_1   2025-08-09 12:35:10 | LOG:  connection received: host=172.18.0.5 port=5432</span></span>
+<span class="giallo-l"><span>postgres_1   2025-08-09 12:35:10 | LOG:  connection authorized: user=acme dbname=mydb application_name=psql</span></span>
+<span class="giallo-l"><span>webserver_1  2025-08-09 12:35:11 | Starting myapp web server on http://0.0.0.0:8080</span></span>
+<span class="giallo-l"><span>webserver_1  2025-08-09 12:35:11 | Listening for connections...</span></span>
+<span class="giallo-l"><span>postgres_1   2025-08-09 12:35:12 | ERROR:  relation &quot;employees&quot; does not exist at character 15</span></span>
+<span class="giallo-l"><span>postgres_1   2025-08-09 12:35:15 | STATEMENT:  SELECT * FROM employees;</span></span>
+<span class="giallo-l"><span>postgres_1   2025-08-09 12:35:20 | LOG:  disconnection: session time: 9s user=acme database=mydb host=172.18.0.5 port=5432</span></span>
+<span class="giallo-l"><span>webserver_1  2025-08-09 12:35:05 | GET /api/employees 200 15ms</span></span></code></pre><div class="note">here, <code>docker compose</code> annotates the concatenated logs with their provenance and timestamps</div>
+<p>The juxtaposition of pieces of content also routinely aids in visual comparison:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#4C4F69, #C6D0F5); background-color: light-dark(#EFF1F5, #303446);" ><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;">diff</span><span style="color: light-dark(#40A02B, #A6D189);"> &lt;(</span><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;">seq</span><span style="color: light-dark(#FE640B, #EF9F76);"> 1</span><span style="color: light-dark(#FE640B, #EF9F76);"> 5</span><span style="color: light-dark(#40A02B, #A6D189);">)</span><span style="color: light-dark(#40A02B, #A6D189);"> &lt;(</span><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;">seq</span><span style="color: light-dark(#FE640B, #EF9F76);"> 2</span><span style="color: light-dark(#FE640B, #EF9F76);"> 6</span><span style="color: light-dark(#179299, #81C8BE);"> |</span><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;"> sed</span><span style="color: light-dark(#40A02B, #A6D189);"> s/3/-/</span><span style="color: light-dark(#40A02B, #A6D189);">)</span><span style="color: light-dark(#40A02B, #A6D189);"> -</span><span style="color: light-dark(#40A02B, #A6D189);">y</span></span>
+<span class="giallo-l"><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;">diff</span><span style="color: light-dark(#40A02B, #A6D189);"> &lt;(</span><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;">seq</span><span style="color: light-dark(#FE640B, #EF9F76);"> 1</span><span style="color: light-dark(#FE640B, #EF9F76);"> 5</span><span style="color: light-dark(#40A02B, #A6D189);">)</span><span style="color: light-dark(#40A02B, #A6D189);"> &lt;(</span><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;">seq</span><span style="color: light-dark(#FE640B, #EF9F76);"> 2</span><span style="color: light-dark(#FE640B, #EF9F76);"> 6</span><span style="color: light-dark(#179299, #81C8BE);"> |</span><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;"> sed</span><span style="color: light-dark(#40A02B, #A6D189);"> -</span><span style="color: light-dark(#40A02B, #A6D189);">e</span><span style="color: light-dark(#40A02B, #A6D189);"> s/3/-/</span><span style="color: light-dark(#40A02B, #A6D189);">)</span><span style="color: light-dark(#40A02B, #A6D189);"> -</span><span style="color: light-dark(#40A02B, #A6D189);">-side-by-side</span></span></code></pre><pre class="giallo" style="color-scheme: light dark; color: light-dark(#4C4F69, #C6D0F5); background-color: light-dark(#EFF1F5, #303446);" ><code data-lang="plain"><span class="giallo-l"><span>1   &lt;</span></span>
+<span class="giallo-l"><span>2       2</span></span>
+<span class="giallo-l"><span>3   |   -</span></span>
+<span class="giallo-l"><span>4       4</span></span>
+<span class="giallo-l"><span>5       5</span></span>
+<span class="giallo-l"><span>    &gt;   6</span></span></code></pre>
+<p>These may be rather rarely come across naturally, but quite neat to arrive to
+while scripting: this goal will be the culmination of the second article.</p>
+<h3 id="the-zealous-documents"><a class="anchor-link" href="#the-zealous-documents" aria-label="Anchor link for: the-zealous-documents"></a>
+The zealous documents</h3>
+<p>Here we are, the apotheosis of intralinear partitioning (I promise, it's
+the last time I call it that): <strong>organised documents authored with intent
+and finesse</strong>, text laid out in a semantic structure, meant to be <em>read</em> and
+possibly maintained for a while.<br>
+In truth, that sounds a lot like what I and my professional peers do, in
+composing instructions for machines to follow—<em>"writing code"</em>, as we say.</p>
+<p><strong>The horizontal alignment is longing to be ubiquitous</strong>, its natural habitat
+would see it sprawl out in every bit of text that's centred, right-aligned or
+even justified, any padded value, wrapped sentence, indented paragraph...  Have
+a look at the following examples:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#4C4F69, #C6D0F5); background-color: light-dark(#EFF1F5, #303446);" ><code data-lang="typescript" data-name="profile.ts"><span class="giallo-l"><span style="color: light-dark(#8839EF, #CA9EE6);">export</span><span style="color: light-dark(#8839EF, #CA9EE6);"> const</span><span> education</span><span style="color: light-dark(#179299, #81C8BE);"> =</span><span> [</span><span style="color: light-dark(#7C7F93, #949CBB);">{</span></span>
+<span class="giallo-l"><span>  degree</span><span style="color: light-dark(#179299, #81C8BE);">:</span><span style="color: light-dark(#40A02B, #A6D189);">    `</span><span style="color: light-dark(#40A02B, #A6D189);">Engineer&#39;s Degree</span><span style="color: light-dark(#40A02B, #A6D189);">`</span><span style="color: light-dark(#7C7F93, #949CBB);">,</span></span>
+<span class="giallo-l"><span>  field</span><span style="color: light-dark(#179299, #81C8BE);">:</span><span style="color: light-dark(#40A02B, #A6D189);">     &#39;</span><span style="color: light-dark(#40A02B, #A6D189);">Network Security</span><span style="color: light-dark(#40A02B, #A6D189);">&#39;</span><span style="color: light-dark(#7C7F93, #949CBB);">,</span></span>
+<span class="giallo-l"><span>  dates</span><span style="color: light-dark(#179299, #81C8BE);">:</span><span style="color: light-dark(#40A02B, #A6D189);">     &#39;</span><span style="color: light-dark(#40A02B, #A6D189);">2010 – 2013</span><span style="color: light-dark(#40A02B, #A6D189);">&#39;</span><span style="color: light-dark(#7C7F93, #949CBB);">,</span></span>
+<span class="giallo-l"><span>  highlight</span><span style="color: light-dark(#179299, #81C8BE);">:</span><span style="color: light-dark(#40A02B, #A6D189);"> &#39;</span><span style="color: light-dark(#40A02B, #A6D189);">Upskilled in the Java language by [Rémi FORAX](https://github.com/forax), major contributor to its expansion.</span><span style="color: light-dark(#EA76CB, #F4B8E4);">\n</span><span style="color: light-dark(#40A02B, #A6D189);">Awarded with the greatest distinction. Graduated top of class.</span><span style="color: light-dark(#40A02B, #A6D189);">&#39;</span><span style="color: light-dark(#7C7F93, #949CBB);">,</span></span>
+<span class="giallo-l"><span style="color: light-dark(#7C7F93, #949CBB);">}</span><span style="color: light-dark(#7C7F93, #949CBB);">,</span><span style="color: light-dark(#7C7F93, #949CBB);"> {</span></span>
+<span class="giallo-l"><span>  degree</span><span style="color: light-dark(#179299, #81C8BE);">:</span><span style="color: light-dark(#40A02B, #A6D189);">    &#39;</span><span style="color: light-dark(#40A02B, #A6D189);">Licentiate Degree</span><span style="color: light-dark(#40A02B, #A6D189);">&#39;</span><span style="color: light-dark(#7C7F93, #949CBB);">,</span></span>
+<span class="giallo-l"><span>  field</span><span style="color: light-dark(#179299, #81C8BE);">:</span><span style="color: light-dark(#40A02B, #A6D189);">     &#39;</span><span style="color: light-dark(#40A02B, #A6D189);">Computer Science</span><span style="color: light-dark(#40A02B, #A6D189);">&#39;</span><span style="color: light-dark(#7C7F93, #949CBB);">,</span></span>
+<span class="giallo-l"><span>  dates</span><span style="color: light-dark(#179299, #81C8BE);">:</span><span style="color: light-dark(#40A02B, #A6D189);">     &#39;</span><span style="color: light-dark(#40A02B, #A6D189);">2008 – 2010</span><span style="color: light-dark(#40A02B, #A6D189);">&#39;</span><span style="color: light-dark(#7C7F93, #949CBB);">,</span></span>
+<span class="giallo-l"><span>  highlight</span><span style="color: light-dark(#179299, #81C8BE);">:</span><span style="color: light-dark(#40A02B, #A6D189);"> &#39;</span><span style="color: light-dark(#40A02B, #A6D189);">Awarded with the greatest dis-tinction. Graduated top of class.</span><span style="color: light-dark(#40A02B, #A6D189);">&#39;</span><span style="color: light-dark(#7C7F93, #949CBB);">,</span></span>
+<span class="giallo-l"><span style="color: light-dark(#7C7F93, #949CBB);">}</span><span style="color: light-dark(#7C7F93, #949CBB);">,</span><span style="color: light-dark(#7C7F93, #949CBB);"> {</span></span>
+<span class="giallo-l"><span>  degree</span><span style="color: light-dark(#179299, #81C8BE);">:</span><span style="color: light-dark(#40A02B, #A6D189);">    &#39;</span><span style="color: light-dark(#40A02B, #A6D189);">Baccalaureate</span><span style="color: light-dark(#40A02B, #A6D189);">&#39;</span><span style="color: light-dark(#7C7F93, #949CBB);">,</span></span>
+<span class="giallo-l"><span>  field</span><span style="color: light-dark(#179299, #81C8BE);">:</span><span style="color: light-dark(#40A02B, #A6D189);">     &#39;</span><span style="color: light-dark(#40A02B, #A6D189);">Applied Physics for Electronics</span><span style="color: light-dark(#40A02B, #A6D189);">&#39;</span><span style="color: light-dark(#7C7F93, #949CBB);">,</span></span>
+<span class="giallo-l"><span>  dates</span><span style="color: light-dark(#179299, #81C8BE);">:</span><span style="color: light-dark(#40A02B, #A6D189);">     &#39;</span><span style="color: light-dark(#40A02B, #A6D189);">2005 – 2008</span><span style="color: light-dark(#40A02B, #A6D189);">&#39;</span><span style="color: light-dark(#7C7F93, #949CBB);">,</span></span>
+<span class="giallo-l"><span>  highlight</span><span style="color: light-dark(#179299, #81C8BE);">:</span><span style="color: light-dark(#40A02B, #A6D189);"> &#39;</span><span style="color: light-dark(#40A02B, #A6D189);">Awarded with the greatest dis-tinction. Graduated top of class; top 0.4% nationwide.</span><span style="color: light-dark(#40A02B, #A6D189);">&#39;</span><span style="color: light-dark(#7C7F93, #949CBB);">,</span></span>
+<span class="giallo-l"><span style="color: light-dark(#7C7F93, #949CBB);">}</span><span>]</span></span></code></pre><br>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#4C4F69, #C6D0F5); background-color: light-dark(#EFF1F5, #303446);" ><code data-lang="java" data-name="Adyen.java"><span class="giallo-l"><span style="color: light-dark(#8839EF, #CA9EE6);">private</span><span style="color: light-dark(#8839EF, #CA9EE6);"> static</span><span style="color: light-dark(#8839EF, #CA9EE6);"> final</span><span style="color: light-dark(#8839EF, #CA9EE6);"> Map</span><span style="color: light-dark(#7C7F93, #949CBB);">&lt;</span><span style="color: light-dark(#8839EF, #CA9EE6);">String</span><span style="color: light-dark(#7C7F93, #949CBB);">,</span><span style="color: light-dark(#8839EF, #CA9EE6);"> String</span><span style="color: light-dark(#7C7F93, #949CBB);">&gt;</span><span> PROPS_DEFAULTS</span><span style="color: light-dark(#179299, #81C8BE);"> =</span><span> Collections</span><span style="color: light-dark(#7C7F93, #949CBB);">.</span><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;">singletonMap</span><span style="color: light-dark(#7C7F93, #949CBB);">(</span><span style="color: light-dark(#40A02B, #A6D189);">&quot;</span><span style="color: light-dark(#40A02B, #A6D189);">environment</span><span style="color: light-dark(#40A02B, #A6D189);">&quot;</span><span style="color: light-dark(#7C7F93, #949CBB);">,</span><span style="color: light-dark(#40A02B, #A6D189);"> &quot;</span><span style="color: light-dark(#40A02B, #A6D189);">test</span><span style="color: light-dark(#40A02B, #A6D189);">&quot;</span><span style="color: light-dark(#7C7F93, #949CBB);">)</span><span style="color: light-dark(#7C7F93, #949CBB);">;</span></span>
+<span class="giallo-l"><span style="color: light-dark(#8839EF, #CA9EE6);">private</span><span style="color: light-dark(#8839EF, #CA9EE6);"> static</span><span style="color: light-dark(#8839EF, #CA9EE6);"> final</span><span style="color: light-dark(#8839EF, #CA9EE6);"> String</span><span>              PROPS_FILE</span><span style="color: light-dark(#179299, #81C8BE);">     =</span><span style="color: light-dark(#40A02B, #A6D189);"> &quot;</span><span style="color: light-dark(#40A02B, #A6D189);">creditcard/adyen-x.properties</span><span style="color: light-dark(#40A02B, #A6D189);">&quot;</span><span style="color: light-dark(#7C7F93, #949CBB);">;</span></span>
+<span class="giallo-l"><span style="color: light-dark(#8839EF, #CA9EE6);">private</span><span style="color: light-dark(#8839EF, #CA9EE6);"> static</span><span style="color: light-dark(#8839EF, #CA9EE6);"> final</span><span style="color: light-dark(#8839EF, #CA9EE6);"> String</span><span style="color: light-dark(#7C7F93, #949CBB);">[</span><span style="color: light-dark(#7C7F93, #949CBB);">]</span><span>            PROPS_KEYS</span><span style="color: light-dark(#179299, #81C8BE);">     =</span></span>
+<span class="giallo-l"><span style="color: light-dark(#7C7F93, #949CBB);">    {</span><span style="color: light-dark(#40A02B, #A6D189);"> &quot;</span><span style="color: light-dark(#40A02B, #A6D189);">environment</span><span style="color: light-dark(#40A02B, #A6D189);">&quot;</span><span style="color: light-dark(#7C7F93, #949CBB);">,</span><span style="color: light-dark(#40A02B, #A6D189);"> &quot;</span><span style="color: light-dark(#40A02B, #A6D189);">expire-after</span><span style="color: light-dark(#40A02B, #A6D189);">&quot;</span><span style="color: light-dark(#7C7F93, #949CBB);">,</span><span style="color: light-dark(#40A02B, #A6D189);"> &quot;</span><span style="color: light-dark(#40A02B, #A6D189);">api-version</span><span style="color: light-dark(#40A02B, #A6D189);">&quot;</span><span style="color: light-dark(#7C7F93, #949CBB);">,</span><span style="color: light-dark(#40A02B, #A6D189);"> &quot;</span><span style="color: light-dark(#40A02B, #A6D189);">api-key!</span><span style="color: light-dark(#40A02B, #A6D189);">&quot;</span><span style="color: light-dark(#7C7F93, #949CBB);">,</span><span style="color: light-dark(#40A02B, #A6D189);"> &quot;</span><span style="color: light-dark(#40A02B, #A6D189);">client-key!</span><span style="color: light-dark(#40A02B, #A6D189);">&quot;</span><span style="color: light-dark(#7C7F93, #949CBB);">,</span><span style="color: light-dark(#40A02B, #A6D189);"> &quot;</span><span style="color: light-dark(#40A02B, #A6D189);">hmac-key!</span><span style="color: light-dark(#40A02B, #A6D189);">&quot;</span><span style="color: light-dark(#7C7F93, #949CBB);">,</span><span style="color: light-dark(#40A02B, #A6D189);"> &quot;</span><span style="color: light-dark(#40A02B, #A6D189);">merchant-account!</span><span style="color: light-dark(#40A02B, #A6D189);">&quot;</span><span style="color: light-dark(#7C7F93, #949CBB);">,</span><span style="color: light-dark(#40A02B, #A6D189);"> &quot;</span><span style="color: light-dark(#40A02B, #A6D189);">theme-id!</span><span style="color: light-dark(#40A02B, #A6D189);">&quot;</span><span style="color: light-dark(#7C7F93, #949CBB);"> }</span><span style="color: light-dark(#7C7F93, #949CBB);">;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: light-dark(#8839EF, #CA9EE6);">private</span><span style="color: light-dark(#8839EF, #CA9EE6);"> static</span><span style="color: light-dark(#8839EF, #CA9EE6);"> final</span><span style="color: light-dark(#8839EF, #CA9EE6);"> String</span><span>  HMAC_ALGORITHM</span><span style="color: light-dark(#179299, #81C8BE);"> =</span><span style="color: light-dark(#40A02B, #A6D189);"> &quot;</span><span style="color: light-dark(#40A02B, #A6D189);">HmacSHA256</span><span style="color: light-dark(#40A02B, #A6D189);">&quot;</span><span style="color: light-dark(#7C7F93, #949CBB);">;</span></span>
+<span class="giallo-l"><span style="color: light-dark(#8839EF, #CA9EE6);">private</span><span style="color: light-dark(#8839EF, #CA9EE6);"> static</span><span style="color: light-dark(#8839EF, #CA9EE6);"> final</span><span style="color: light-dark(#8839EF, #CA9EE6);"> Charset</span><span> CHARSET</span><span style="color: light-dark(#179299, #81C8BE);">        =</span><span> StandardCharsets</span><span style="color: light-dark(#7C7F93, #949CBB);">.</span><span>UTF_8</span><span style="color: light-dark(#7C7F93, #949CBB);">;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: light-dark(#8839EF, #CA9EE6);">private</span><span style="color: light-dark(#8839EF, #CA9EE6);"> static</span><span style="color: light-dark(#8839EF, #CA9EE6);"> final</span><span style="color: light-dark(#8839EF, #CA9EE6);"> ObjectMapper</span><span> JSON</span><span style="color: light-dark(#179299, #81C8BE);"> =</span><span style="color: light-dark(#8839EF, #CA9EE6);"> new</span><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;"> ObjectMapper</span><span style="color: light-dark(#7C7F93, #949CBB);">(</span><span style="color: light-dark(#7C7F93, #949CBB);">)</span><span style="color: light-dark(#7C7F93, #949CBB);">;</span></span>
+<span class="giallo-l"><span style="color: light-dark(#8839EF, #CA9EE6);">private</span><span style="color: light-dark(#8839EF, #CA9EE6);"> static</span><span style="color: light-dark(#8839EF, #CA9EE6);"> final</span><span style="color: light-dark(#8839EF, #CA9EE6);"> OkHttpClient</span><span> HTTP</span><span style="color: light-dark(#179299, #81C8BE);"> =</span><span style="color: light-dark(#8839EF, #CA9EE6);"> new</span><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;"> OkHttpClient</span><span style="color: light-dark(#7C7F93, #949CBB);">(</span><span style="color: light-dark(#7C7F93, #949CBB);">)</span><span style="color: light-dark(#7C7F93, #949CBB);">;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: light-dark(#8839EF, #CA9EE6);">private</span><span style="color: light-dark(#8839EF, #CA9EE6);"> final</span><span style="color: light-dark(#8839EF, #CA9EE6);"> GeographicalArea</span><span> shop</span><span style="color: light-dark(#7C7F93, #949CBB);">;</span></span>
+<span class="giallo-l"><span style="color: light-dark(#8839EF, #CA9EE6);">private</span><span style="color: light-dark(#8839EF, #CA9EE6);"> final</span><span style="color: light-dark(#8839EF, #CA9EE6);"> Props</span><span>            props</span><span style="color: light-dark(#7C7F93, #949CBB);">;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: light-dark(#8839EF, #CA9EE6);">public</span><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;"> Adyen</span><span style="color: light-dark(#7C7F93, #949CBB);">(</span><span style="color: light-dark(#8839EF, #CA9EE6);">final</span><span style="color: light-dark(#8839EF, #CA9EE6);"> GeographicalArea</span><span> shop</span><span style="color: light-dark(#7C7F93, #949CBB);">)</span><span style="color: light-dark(#7C7F93, #949CBB);"> {</span></span>
+<span class="giallo-l"><span style="color: light-dark(#D20F39, #E78284);">    this</span><span style="color: light-dark(#7C7F93, #949CBB);">.</span><span>shop</span><span style="color: light-dark(#179299, #81C8BE);"> =</span><span> shop</span><span style="color: light-dark(#7C7F93, #949CBB);">;</span></span>
+<span class="giallo-l"><span style="color: light-dark(#D20F39, #E78284);">    this</span><span style="color: light-dark(#7C7F93, #949CBB);">.</span><span>props</span><span style="color: light-dark(#179299, #81C8BE);"> =</span><span style="color: light-dark(#8839EF, #CA9EE6);"> Props</span></span>
+<span class="giallo-l"><span style="color: light-dark(#7C7F93, #949CBB);">        .</span><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;">load</span><span style="color: light-dark(#7C7F93, #949CBB);">(</span><span>PROPS_KEYS</span><span style="color: light-dark(#7C7F93, #949CBB);">)</span></span>
+<span class="giallo-l"><span style="color: light-dark(#7C7F93, #949CBB);">        .</span><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;">withDefaults</span><span style="color: light-dark(#7C7F93, #949CBB);">(</span><span>PROPS_DEFAULTS</span><span style="color: light-dark(#7C7F93, #949CBB);">)</span></span>
+<span class="giallo-l"><span style="color: light-dark(#7C7F93, #949CBB);">        .</span><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;">withScope</span><span style="color: light-dark(#7C7F93, #949CBB);">(</span><span>shop</span><span style="color: light-dark(#7C7F93, #949CBB);">.</span><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;">name</span><span style="color: light-dark(#7C7F93, #949CBB);">(</span><span style="color: light-dark(#7C7F93, #949CBB);">)</span><span style="color: light-dark(#7C7F93, #949CBB);">)</span></span>
+<span class="giallo-l"><span style="color: light-dark(#7C7F93, #949CBB);">        .</span><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;">from</span><span style="color: light-dark(#7C7F93, #949CBB);">(</span><span>Props</span><span style="color: light-dark(#7C7F93, #949CBB);">.</span><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;">getFrom</span><span style="color: light-dark(#7C7F93, #949CBB);">(</span><span>PROPS_FILE</span><span style="color: light-dark(#7C7F93, #949CBB);">)</span><span style="color: light-dark(#7C7F93, #949CBB);">)</span><span style="color: light-dark(#7C7F93, #949CBB);">;</span></span>
+<span class="giallo-l"><span style="color: light-dark(#7C7F93, #949CBB);">}</span></span></code></pre><div class="note">bonus points for the serendipitously native alignment of the <code>JSON</code> and <code>HTTP</code> constants declaration</div>
+<br>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#4C4F69, #C6D0F5); background-color: light-dark(#EFF1F5, #303446);" ><code data-lang="sql" data-name="queries.sql"><span class="giallo-l"><span style="color: light-dark(#8839EF, #CA9EE6);">SELECT</span><span style="color: light-dark(#8839EF, #CA9EE6);"> CASE</span><span> airport_code</span></span>
+<span class="giallo-l"><span style="color: light-dark(#8839EF, #CA9EE6);">       WHEN</span><span style="color: light-dark(#40A02B, #A6D189);"> &#39;</span><span style="color: light-dark(#40A02B, #A6D189);">CDG</span><span style="color: light-dark(#40A02B, #A6D189);">&#39;</span><span style="color: light-dark(#8839EF, #CA9EE6);"> THEN</span><span style="color: light-dark(#40A02B, #A6D189);"> &#39;</span><span style="color: light-dark(#40A02B, #A6D189);">Paris</span><span style="color: light-dark(#40A02B, #A6D189);">&#39;</span></span>
+<span class="giallo-l"><span style="color: light-dark(#8839EF, #CA9EE6);">       WHEN</span><span style="color: light-dark(#40A02B, #A6D189);"> &#39;</span><span style="color: light-dark(#40A02B, #A6D189);">ICN</span><span style="color: light-dark(#40A02B, #A6D189);">&#39;</span><span style="color: light-dark(#8839EF, #CA9EE6);"> THEN</span><span style="color: light-dark(#40A02B, #A6D189);"> &#39;</span><span style="color: light-dark(#40A02B, #A6D189);">Seoul</span><span style="color: light-dark(#40A02B, #A6D189);">&#39;</span></span>
+<span class="giallo-l"><span style="color: light-dark(#8839EF, #CA9EE6);">       END</span><span style="color: light-dark(#8839EF, #CA9EE6);"> AS</span><span> city</span></span>
+<span class="giallo-l"><span style="color: light-dark(#8839EF, #CA9EE6);">  FROM</span><span> flight_schedules</span></span>
+<span class="giallo-l"><span style="color: light-dark(#8839EF, #CA9EE6);"> WHERE</span><span> airline </span><span style="color: light-dark(#179299, #81C8BE);">=</span><span style="color: light-dark(#40A02B, #A6D189);"> &#39;</span><span style="color: light-dark(#40A02B, #A6D189);">Air Global</span><span style="color: light-dark(#40A02B, #A6D189);">&#39;</span></span>
+<span class="giallo-l"><span style="color: light-dark(#8839EF, #CA9EE6);">   AND</span><span> departure_hour </span><span style="color: light-dark(#8839EF, #CA9EE6);">BETWEEN</span><span style="color: light-dark(#FE640B, #EF9F76);"> 18</span><span style="color: light-dark(#8839EF, #CA9EE6);"> AND</span><span style="color: light-dark(#FE640B, #EF9F76);"> 20</span></span>
+<span class="giallo-l"><span style="color: light-dark(#8839EF, #CA9EE6);">   AND</span><span> airport_code </span><span style="color: light-dark(#8839EF, #CA9EE6);">IN</span><span> (</span><span style="color: light-dark(#40A02B, #A6D189);">&#39;</span><span style="color: light-dark(#40A02B, #A6D189);">CDG</span><span style="color: light-dark(#40A02B, #A6D189);">&#39;</span><span>, </span><span style="color: light-dark(#40A02B, #A6D189);">&#39;</span><span style="color: light-dark(#40A02B, #A6D189);">ICN</span><span style="color: light-dark(#40A02B, #A6D189);">&#39;</span><span>, </span><span style="color: light-dark(#40A02B, #A6D189);">&#39;</span><span style="color: light-dark(#40A02B, #A6D189);">NRT</span><span style="color: light-dark(#40A02B, #A6D189);">&#39;</span><span>, </span><span style="color: light-dark(#40A02B, #A6D189);">&#39;</span><span style="color: light-dark(#40A02B, #A6D189);">DXB</span><span style="color: light-dark(#40A02B, #A6D189);">&#39;</span><span>);</span></span></code></pre><br>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#4C4F69, #C6D0F5); background-color: light-dark(#EFF1F5, #303446);" ><code data-lang="plain" data-name="delta-reports-exchange.txt"><span class="giallo-l"><span>Status: DRAFT                DelTA Reports Exchange                 Éric NICOLAS</span></span>
+<span class="giallo-l"><span>Revisions: 12                ======================           &lt;ccjmne@gmail.com&gt;</span></span>
+<span class="giallo-l"><span>Latest: 2024-02-14</span></span>
+<span class="giallo-l"><span>                       Retiring file-based communications</span></span>
+<span class="giallo-l"><span>                           for DelTA reports analysis</span></span>
+<span class="giallo-l"><span>                               -----------------</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>    The object of these reports is the discrepancy between expected and actual</span></span>
+<span class="giallo-l"><span>delivery times.  DelTA is an acronym for [DEL]ivery [T]ime [A]nalysis, but is</span></span>
+<span class="giallo-l"><span>also the Greek letter δ or ∆, often used in calculus for differential values:</span></span>
+<span class="giallo-l"><span>How lovely!</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>                                -- CHANGELOG --</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>Revision 12 ......................................................... 2024-02-14</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>    - Address and rectify discrepancy between sections 2.1.1 and 5-C</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>Revision 11 ......................................................... 2024-02-13</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>    - Clarify usages of the &#39;deliverytime&#39; module in section 3</span></span>
+<span class="giallo-l"><span>    - Introduce section 5, Accidental Complexity vs Obsolescence</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>Revision 10 ......................................................... 2024-02-06</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>    - Explain the &quot;crashing&quot; allusion made in article 2.1.7</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>Revision 9 .......................................................... 2024-02-05</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>    - Introduce CHANGELOG</span></span>
+<span class="giallo-l"><span>    - Introduce article 2.3.2, on the reduced testability</span></span>
+<span class="giallo-l"><span>    - Fix a few typographic errors and blurts here and there</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>Revisions 1 through 8 ............................ 2024-01-30 through 2024-02-04</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>    Irrelevant (unpublished) and/or lost to time.</span></span></code></pre><div class="note">don't worry, no trade secrets in here: it's indeed half made up for this exercise.</div>
+<h2 id="what-now"><a class="anchor-link" href="#what-now" aria-label="Anchor link for: what-now"></a>
+What now?</h2>
+<p>I suppose this would be the place for the rhetorical question regarding the
+virtues of this fastidiousness, but I'll only grace you with the broad strokes
+of its answer instead: yes, it is more beautiful, it aids in visual grepping, in
+contextual parsing, and it shows that you care.</p>
+<p>However, as the saying goes: <a rel="external" href="https://en.wikipedia.org/wiki/Ain%27t_Nobody_Got_Time_for_That"><em>"ain't nobody got time for
+that"</em></a> is sure
+to be the most ready retort to my proposition, together with "the auto-formatter
+would thrash it" and "no linting rules would account for that".  I hear you, and
+you're indeed making valid arguments... in disfavour of generic auto-formatters
+and <strong>misguided stylistic linting tools</strong>!</p>
+<p><strong>You have time for this.</strong><br>
+If you're making adept, skilful contributions to meaningful software,
+you're meant to be spending your time investigating and exploring.
+Jotting down semi-legible documents that procure workable instructions
+to the machine, <strong>any fool can do<sup class="footnote-reference" id="fr-even-the-fooliest-1"><a href="https://ccjmne.sh/blog/flight-manual/intralinear-partitioning/01-forms-of-horizontal-alignment/#fn-even-the-fooliest">[1]</a></sup>: every fool
+does</strong>.  If you're tasked with authoring code, you're assumed to have
+mastered the putting-text-together aspect of it already: <a rel="external" href="https://blog.codinghorror.com/we-are-typists-first-programmers-second/">we are typists
+first</a>.</p>
+<p><strong>Use tools that help.</strong><br>
+If your tools are either not assisting or outright hindering you in some
+aspects of your goals, <em>do not blame or forsake the goal</em>.  You may simply
+need to (or get to!) use them differently.</p>
+<p>If you find neat documents desirable but the baseline auto-formatter will
+squash your style, it may be time to ask yourself whether you and your team are
+such purposeful pigs that a generic, one-size-fits-all crutch is the preferred
+cure-all elixir to your systematic, inescapable blurts.</p>
+<p>The formatter and linter help, but in no way should dictate prescriptive
+style over the learned tastes of your experienced discernment: do review code.</p>
+<p><strong>You have the go-ahead.</strong><br>
+You do not have to make your code look pretty beyond mere logical structure,
+but <strong>you do have to read it</strong>, every now and again.  This is just an
+encouragement, a call for you to assume your style and not shy away from
+crafting text with as much care as you wish.</p>
+<h2 id="next"><a class="anchor-link" href="#next" aria-label="Anchor link for: next"></a>
+Next</h2>
+<p>Find out how simple tools can help you <a href="https://ccjmne.sh/blog/flight-manual/intralinear-partitioning/02-column-cut-paste/">lay out text with polish in the
+<code>CLI</code></a>, using
+<code>column</code>, <code>cut</code> and <code>paste</code>.</p>
+  <section class="footnotes" aria-label="Footnotes">
+      <ol class="footnotes-list">
+<li id="fn-esoteric-vertical-whitespace">
+<p>Let's not talk of the
+<a rel="external" href="https://www.compart.com/en/unicode/U+000D"><code>CR</code></a>,
+<a rel="external" href="https://www.compart.com/en/unicode/U+000B"><code>VT</code></a> or
+<a rel="external" href="https://www.compart.com/en/unicode/U+000C"><code>FF</code></a> here. <a href="https://ccjmne.sh/blog/flight-manual/intralinear-partitioning/#fr-esoteric-vertical-whitespace-1">↩</a></p>
+</li>
+
+<li id="fn-even-the-fooliest">
+<p>Even the more (most?) foolish among us, the <em>"coding
+agents"</em> <code>LLM</code>s, as of the end of the first quarter of the twenty-first century. <a href="https://ccjmne.sh/blog/flight-manual/intralinear-partitioning/01-forms-of-horizontal-alignment/#fr-even-the-fooliest-1">↩</a></p>
+</li>
+</ol>
+    </section>
+  <h2 id="cited-tools"><a class="anchor-link" href="#cited-tools" aria-label="Anchor link for: cited-tools"></a>
+Referenced tools</h2>
+  <div class="refs">
+<div class="ref tool mono">
+  <strong>neovim</strong>
+  <div><span class="muted">from</span>&nbsp;<a rel="external" href="https://archlinux.org/packages/extra/x86_64/neovim">extra/neovim</a></div>
+  <div><a rel="external" href="https://neovim.io/doc/user/">manual</a>
+    <a rel="external" href="https://github.com/neovim/neovim">source</a></div>
+</div>
+
+<div class="ref tool mono">
+  <strong>uni</strong>
+  <div><span class="muted">from</span>&nbsp;<a rel="external" href="https://aur.archlinux.org/packages/uni">aur/uni</a></div>
+  <div><a rel="external" href="https://github.com/arp242/uni/#usage">manual</a>
+    <a rel="external" href="https://github.com/arp242/uni">source</a></div>
+</div>
+
+<div class="ref tool mono">
+  <strong>vim</strong>
+  <div><span class="muted">from</span>&nbsp;<a rel="external" href="https://archlinux.org/packages/extra/x86_64/vim">extra/vim</a></div>
+  <div><a rel="external" href="https://vimhelp.org/">manual</a>
+    <a rel="external" href="https://github.com/vim/vim">source</a></div>
+</div>
+</div>
+  
+
+  
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a rel="external" href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <a rel="external" href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>
+        <a rel="external" href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>

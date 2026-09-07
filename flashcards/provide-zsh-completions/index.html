@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://ccjmne.sh/blog/base.css?h=bdef50f836b76db498fb">
+    <title>~ccjmne</title><link rel="preload" href="https://ccjmne.sh/blog/ouft-1.woff2?h=b3c74e2fab27de35d142" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-2.woff2?h=d503244afc2437c96ade" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://ccjmne.sh/blog/work-3.woff2?h=5c8eb42ff6f2e2934413" as="font" type="font/woff2" crossorigin>
+<style type="text/css">
+  @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; font-display: swap; src: url('https://ccjmne.sh/blog/ouft-1.woff2?h=b3c74e2fab27de35d142') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; font-display: swap; src: url('https://ccjmne.sh/blog/work-1.woff2?h=b1481b19a684088ca0aa') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; font-display: swap; src: url('https://ccjmne.sh/blog/work-2.woff2?h=d503244afc2437c96ade') format('woff2'); }
+  @font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; font-display: swap; src: url('https://ccjmne.sh/blog/work-3.woff2?h=5c8eb42ff6f2e2934413') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; font-display: swap; src: url('https://ccjmne.sh/blog/fira-1.woff2?h=a264b0cbe8b649d2258c') format('woff2'); }
+  @font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; font-display: swap; src: url('https://ccjmne.sh/blog/fira-2.woff2?h=e7f9c933e970ed62349b') format('woff2'); }
+  @font-face { font-family: 'Noto Sans KR'; font-style: normal; font-weight: 400; font-display: optional; src: url('https://ccjmne.sh/blog/noto-1.woff2?h=3520ea944b4d7f33c61a') format('woff2'); }
+  @font-face { font-family: 'Noto Sans KR'; font-style: normal; font-weight: 500; font-display: optional; src: url('https://ccjmne.sh/blog/noto-2.woff2?h=2d246954251c5051f7d1') format('woff2'); }
+</style>
+    <link rel="alternate" type="application/atom+xml" title="rss" href="https://ccjmne.sh/blog/atom.xml">
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <style type="text/css">
+      :root {}
+    </style>
+  </head>
+  <body>
+    <header 
+  style="view-transition-name: view-header; view-transition-class: static"
+ data-path="/flashcards/provide-zsh-completions/">
+      <a href="https://ccjmne.sh/blog" data-target="home">Home</a>
+      <details class="dropdown" max-md>
+        <summary data-target="articles">Articles</summary>
+        <nav>
+          <a href="https://ccjmne.sh/blog/flight-manual/"       >Flight rules</a>
+          <a href="https://ccjmne.sh/blog/ramblings/"       >Ramblings</a>
+          <a href="https://ccjmne.sh/blog/flashcards/"       >Flashcards</a>
+          <a href="https://ccjmne.sh/blog/tags/" max-sm>Sections</a>
+        </nav>
+      </details>
+      <a href="https://ccjmne.sh/blog/flight-manual/" min-md>Flight rules</a>
+      <a href="https://ccjmne.sh/blog/ramblings/" min-md>Ramblings</a>
+      <a href="https://ccjmne.sh/blog/flashcards/" min-md>Flashcards</a>
+      <a href="https://ccjmne.sh/blog/tags/" min-sm>Sections</a>
+      <a href="https://ccjmne.sh/blog/colophon/"       >Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="https://ccjmne.sh/blog/atom.xml">RSS</a>
+    </header>
+    <div class="accent-bar" 
+  style="view-transition-name: view-accent-bar; view-transition-class: static"
+></div>
+    <main><h1><span class="link-title" 
+  style="view-transition-name: view-provide-zsh-completions"
+>Whet your appetite for providing Zsh completions</span></h1><ul class="infobar "><li><time>April 13, 2026</time></li><li>3-minute read</li>
+    <li>tagged
+      
+      <a href="https://ccjmne.sh/blog/tags/cli/">cli</a>, 
+      <a href="https://ccjmne.sh/blog/tags/zsh/">zsh</a></li></ul>
+<article><p>While putting together <a href="https://ccjmne.sh/blog/flight-manual/precompile-zsh-completions/">Pre-compile your <em>Zsh</em>
+completions</a>, I came up with
+<code>gerp</code> (<code>grep</code> + <abbr title="A foolish or ignorant person"><em>derp</em></abbr>!), a
+lovely virtual companion that never fails to greet you enthusiastically—well,
+I like naming my <em>"foo"</em>-like utilities that, I don't reserve that name for this
+one.</p>
+<p>Nevertheless, <strong>here's the topical <code>gerp</code>-of the day</strong>, in all its
+splendour<sup class="footnote-reference" id="fr-a-longer-version-1"><a href="https://ccjmne.sh/blog/flashcards/provide-zsh-completions/#fn-a-longer-version">[1]</a></sup>:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#4C4F69, #C6D0F5); background-color: light-dark(#EFF1F5, #303446);" ><code data-lang="shellscript" data-name="gerp"><span class="giallo-l"><span style="color: light-dark(#EA76CB, #F4B8E4);font-style: italic;">#!</span><span style="color: light-dark(#EA76CB, #F4B8E4);font-style: italic;"> /bin/sh</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: light-dark(#8839EF, #CA9EE6);">case</span><span style="color: light-dark(#40A02B, #A6D189);"> &quot;</span><span style="color: light-dark(#E64553, #EA999C);font-style: italic;">$</span><span style="color: light-dark(#E64553, #EA999C);font-style: italic;">1</span><span style="color: light-dark(#40A02B, #A6D189);">&quot;</span><span style="color: light-dark(#8839EF, #CA9EE6);"> in</span></span>
+<span class="giallo-l"><span style="color: light-dark(#40A02B, #A6D189);">    h</span><span style="color: light-dark(#40A02B, #A6D189);">e</span><span style="color: light-dark(#40A02B, #A6D189);">l</span><span style="color: light-dark(#40A02B, #A6D189);">l</span><span style="color: light-dark(#40A02B, #A6D189);">o</span><span style="color: light-dark(#179299, #81C8BE);">)</span><span style="color: light-dark(#D20F39, #E78284);font-style: italic;">       echo</span><span style="color: light-dark(#40A02B, #A6D189);"> &#39;</span><span style="color: light-dark(#40A02B, #A6D189);">Henlo, fren!</span><span style="color: light-dark(#40A02B, #A6D189);">&#39;</span><span style="color: light-dark(#7C7F93, #949CBB);"> ;;</span></span>
+<span class="giallo-l"><span style="color: light-dark(#40A02B, #A6D189);">    c</span><span style="color: light-dark(#40A02B, #A6D189);">o</span><span style="color: light-dark(#40A02B, #A6D189);">m</span><span style="color: light-dark(#40A02B, #A6D189);">p</span><span style="color: light-dark(#40A02B, #A6D189);">l</span><span style="color: light-dark(#40A02B, #A6D189);">e</span><span style="color: light-dark(#40A02B, #A6D189);">t</span><span style="color: light-dark(#40A02B, #A6D189);">i</span><span style="color: light-dark(#40A02B, #A6D189);">o</span><span style="color: light-dark(#40A02B, #A6D189);">n</span><span style="color: light-dark(#40A02B, #A6D189);">s</span><span style="color: light-dark(#179299, #81C8BE);">)</span><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;"> cat</span><span style="color: light-dark(#7C7F93, #949CBB);">                 ;;</span></span>
+<span class="giallo-l"><span style="color: light-dark(#179299, #81C8BE);">    *)</span><span style="color: light-dark(#D20F39, #E78284);font-style: italic;">           echo</span><span style="color: light-dark(#40A02B, #A6D189);"> &#39;</span><span style="color: light-dark(#40A02B, #A6D189);">?</span><span style="color: light-dark(#40A02B, #A6D189);">&#39;</span><span style="color: light-dark(#7C7F93, #949CBB);">            ;;</span></span>
+<span class="giallo-l"><span style="color: light-dark(#8839EF, #CA9EE6);">esac</span><span style="color: light-dark(#179299, #81C8BE);"> &lt;&lt;</span><span style="color: light-dark(#40A02B, #A6D189);">&#39;</span><span style="color: light-dark(#40A02B, #A6D189);">EOF</span><span style="color: light-dark(#40A02B, #A6D189);">&#39;</span></span>
+<span class="giallo-l"><span style="color: light-dark(#40A02B, #A6D189);">_gerp() {</span></span>
+<span class="giallo-l"><span style="color: light-dark(#40A02B, #A6D189);">    _values &#39;commands&#39;              \</span></span>
+<span class="giallo-l"><span style="color: light-dark(#40A02B, #A6D189);">            &#39;hello[greet the user]&#39; \</span></span>
+<span class="giallo-l"><span style="color: light-dark(#40A02B, #A6D189);">            &#39;completions[generate shell completions]&#39;</span></span>
+<span class="giallo-l"><span style="color: light-dark(#40A02B, #A6D189);">}</span></span>
+<span class="giallo-l"><span style="color: light-dark(#40A02B, #A6D189);">compdef _gerp gerp</span></span>
+<span class="giallo-l"><span style="color: light-dark(#40A02B, #A6D189);">EOF</span></span></code></pre>
+<p><code>gerp</code> it a piece of shell script that will reply to you when you invoke it as
+such:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#4C4F69, #C6D0F5); background-color: light-dark(#EFF1F5, #303446);" ><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;">gerp</span><span style="color: light-dark(#40A02B, #A6D189);"> hello</span></span></code></pre><pre class="giallo" style="color-scheme: light dark; color: light-dark(#4C4F69, #C6D0F5); background-color: light-dark(#EFF1F5, #303446);" ><code data-lang="plain"><span class="giallo-l"><span>Henlo, fren!</span></span></code></pre>
+<p>But the nifty thing about is it that it can instruct <em>Zsh</em> as to how its
+commands can be completed!</p>
+<p>Its <code>completions</code> subcommand will have it yield some instructions for you
+<em>Z Shell</em> <code>compsys</code> (short for <em>"completion system"</em>) to know what may come
+after <code>gerp</code> on your command line: have at it, simply execute the following
+Bashism<sup class="footnote-reference" id="fr-process-substitution-1"><a href="https://ccjmne.sh/blog/flashcards/provide-zsh-completions/#fn-process-substitution">[2]</a></sup>:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#4C4F69, #C6D0F5); background-color: light-dark(#EFF1F5, #303446);" ><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#D20F39, #E78284);font-style: italic;">source</span><span style="color: light-dark(#40A02B, #A6D189);"> &lt;(</span><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;">gerp</span><span style="color: light-dark(#40A02B, #A6D189);"> completions</span><span style="color: light-dark(#40A02B, #A6D189);">)</span></span></code></pre><div class="note">this assumes that you're already also doing somewhere <code>compinit</code> in some form or another</div>
+<p>And voilà, an <code>API</code> that's <strong>discoverable</strong>, without jumping through all the
+<a rel="external" href="https://en.wikipedia.org/wiki/HATEOAS"><code>HATEOAS</code></a> loops:</p>
+<div class="grid-1-2">
+<div>
+<pre class="giallo">
+<code><span class="term-fg34"><span class="term-fg31">gerp</span></span> █
+</code></pre><div class="note"><code>1.</code> begin entering a <code>gerp</code> command</div>
+</div>
+<div>
+<pre class="giallo">
+<code><span class="term-fg34"><span class="term-fg31">gerp</span></span> █
+<span class="term-0">completions  -- generate shell completions</span>
+<span class="term-0">hello        -- greet the user</span>
+</code></pre><div class="note"><code>2.</code> press <code>&lt;Tab&gt;</code> once for the completion menu</div>
+</div>
+</div>
+<div class="grid-1-2">
+<div>
+<pre class="giallo">
+<code><span class="term-fg34"><span class="term-fg31">gerp</span></span> hel█
+<span class="term-0">completions  -- generate shell completions</span>
+<span class="term-0">hello        -- greet the user</span>
+</code></pre><div class="note"><code>3.</code> start typing away, here <code>hel</code></div>
+</div>
+<div>
+<pre class="giallo">
+<code><span class="term-fg34"><span class="term-fg31">gerp</span></span> hello █
+<span class="term-0">completions  -- generate shell completions</span>
+<span class="term-0">hello        -- greet the user</span>
+</code></pre><div class="note"><code>4.</code> press <code>&lt;Tab&gt;</code> again to complete</div>
+</div>
+</div>
+<p>There's a lot more to <em>everything-completion</em>, but I share it here in the hopes
+that this surface-level introduction put a sparkle in your eye: be unafraid, go
+and build things, if only for yourself.</p>
+<p>If you want just another little pearl of fun, you want
+want to look into what I dubbed the <a href="https://ccjmne.sh/blog/flashcards/zsh-omni-tab-completion-expansion/">omni-<code>&lt;Tab&gt;</code> Zsh
+widget</a>.</p>
+<p>Good luck, and have fun!</p>
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn-a-longer-version">
+<p>Well, I came up with slightly more comprehensive one, since
+the object of that other article is a lot more intricate, but the gist remains
+the same. <a href="https://ccjmne.sh/blog/flashcards/provide-zsh-completions/#fr-a-longer-version-1">↩</a></p>
+</li>
+<li id="fn-process-substitution">
+<p>The lovely Bashism <code>source &lt;(gerp completions)</code> could
+be changed into the <code>POSIX</code>-compliant equivalent <code>eval "$(gerp completions)"</code>.  In short, these three are functionally equivalent, the
+first one is most portable, the last one is most elegant: be sure to read
+the following tip to help you decide for the case in point!</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#4C4F69, #C6D0F5); background-color: light-dark(#EFF1F5, #303446);" ><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#D20F39, #E78284);font-style: italic;">eval</span><span style="color: light-dark(#40A02B, #A6D189);"> &quot;</span><span style="color: light-dark(#7C7F93, #949CBB);">$(</span><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;">gerp</span><span style="color: light-dark(#40A02B, #A6D189);"> completions</span><span style="color: light-dark(#7C7F93, #949CBB);">)</span><span style="color: light-dark(#40A02B, #A6D189);">&quot;</span><span style="color: light-dark(#7C7F93, #949CBB);font-style: italic;">    #</span><span style="color: light-dark(#7C7F93, #949CBB);font-style: italic;"> full POSIX</span></span>
+<span class="giallo-l"><span style="color: light-dark(#D20F39, #E78284);font-style: italic;">.</span><span style="color: light-dark(#40A02B, #A6D189);"> &lt;(</span><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;">gerp</span><span style="color: light-dark(#40A02B, #A6D189);"> completions</span><span style="color: light-dark(#40A02B, #A6D189);">)</span><span style="color: light-dark(#7C7F93, #949CBB);font-style: italic;">         #</span><span style="color: light-dark(#7C7F93, #949CBB);font-style: italic;"> &lt;(...) is a Bashism</span></span>
+<span class="giallo-l"><span style="color: light-dark(#D20F39, #E78284);font-style: italic;">source</span><span style="color: light-dark(#40A02B, #A6D189);"> &lt;(</span><span style="color: light-dark(#1E66F5, #8CAAEE);font-style: italic;">gerp</span><span style="color: light-dark(#40A02B, #A6D189);"> completions</span><span style="color: light-dark(#40A02B, #A6D189);">)</span><span style="color: light-dark(#7C7F93, #949CBB);font-style: italic;">    #</span><span style="color: light-dark(#7C7F93, #949CBB);font-style: italic;"> &lt;(...) and source are Bashisms</span></span></code></pre><div class="note">note that <code>.</code> is the only <code>POSIX</code>-defined <code>source</code>-ing mechanism!</div>
+<blockquote class="markdown-alert-tip">
+<p>I generally maximise <code>POSIX</code> compliance where it matters, and sometimes
+even where it doesn't; but <strong>in the context of loading completions for
+your <em>Z Shell</em> specifically</strong>, then it makes absolutely no sense to be
+wary of how portable that procedure would be: <strong>it only needs to work for
+<em>Zsh</em></strong>.</p>
+</blockquote>
+<p>Embrace the process substitution! <a href="https://ccjmne.sh/blog/flashcards/provide-zsh-completions/#fr-process-substitution-1">↩</a></p>
+</li>
+</ol>
+</section>
+
+  <h2 id="cited-tools"><a class="anchor-link" href="#cited-tools" aria-label="Anchor link for: cited-tools"></a>
+Referenced tools</h2>
+  <div class="refs">
+<div class="ref tool mono">
+  <strong>zsh</strong>
+  <div><span class="muted">from</span>&nbsp;<a rel="external" href="https://archlinux.org/packages/extra/x86_64/zsh">extra/zsh</a></div>
+  <div><a rel="external" href="https://man.archlinux.org/man/extra/zsh/zshall.1.en">manual</a>
+    <a rel="external" href="https://sourceforge.net/p/zsh/code/ci/master/tree/">source</a></div>
+</div>
+</div>
+  
+
+  
+</article>
+</main>
+    <div class="hi" 
+  style="view-transition-name: view-footer; view-transition-class: static"
+>
+      <footer id="footer">
+        &copy; 2025–2026
+        <a rel="external" href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <a rel="external" href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>
+        <a rel="external" href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>
