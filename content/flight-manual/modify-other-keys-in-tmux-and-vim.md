@@ -1,16 +1,15 @@
 +++
-title = "More comprehensive key combinations with `XTerm`'s `modifyOtherKeys`"
+title = "Better recognise keys with `XTerm`'s `modifyOtherKeys`"
 date = 2026-07-16
-description = '(Most of) the science that goes into having Vim distinguish `Ctrl`+`Shift`+`Y` from `Ctrl`+`Y`'
+description = '(Most of) the science that goes into having Vim distinguish `Alt/Meta`+`J` from `Escape`, then `J`'
 taxonomies.section = ['flight-manual']
 taxonomies.tags = ['all', 'cli', 'quibblery', 'tmux', 'vim']
 extra.cited_tools = ['tmux', 'vim']
 +++
 
-Your keyboard has no trouble distinguishing `Ctrl`-`Y` from
-`Ctrl`-`Shift`-`Y`.  Your desktop has no trouble distinguishing them,
-either.  Yet, if you were to attempt to distinguish them in your Vim
-mappings, you might end up unravelling a thread not unlike that of
+Your keyboard has no trouble distinguishing `Ctrl`+`Y` from `Ctrl`+`Shift`+`Y`,
+nor does your operating system.  Yet, if you were to attempt to distinguish them
+in your Vim mappings, you might end up unravelling a thread not unlike that of
 [Ariadne](https://en.wikipedia.org/wiki/Ariadne), though leading you down a
 feverish rabbit-hole rather than out a [_"bovinarchic"_ (over which a bovine
 reigns) hedge maze](https://en.wikipedia.org/wiki/Labyrinth).
@@ -21,8 +20,11 @@ reigns) hedge maze](https://en.wikipedia.org/wiki/Labyrinth).
 
 ## Obligatory [TL;DR](https://en.wikipedia.org/wiki/TL;DR)
 
-In `tmux`, `set -g extended-keys on`; in Vim, `set keyprotocol=tmux:mok2`.<br>
-And maybe a touch of `set noesckeys` as well.
+The solution, for the more venerable among us, who still want their nifty
+`Alt`-powered `i`nsert-mode machinations to prevail, goes something like this:
+
+1. In `tmux`, `set -g extended-keys on`;
+2. in Vim, `set keyprotocol=tmux:mok2`
 
 > [!NOTE]
 >
@@ -41,35 +43,40 @@ nmap <C-Y>   <CMD>echo 'Ctrl-Y'<CR>
 And see it work as you'd expect!
 
 This set-up allows the various moving pieces to use a protocol that actually
-distinguishes `<Alt/Meta>` + `<Some letter>` pressed together, from `<Esc>`,
-then `<Some letter>` pressed in succession, which is indeed the baseline the
-(CLI) world has been running on for over half a decade.
+distinguishes `<Alt/Meta>` + `<some letter>` pressed together, from `<Esc>`,
+then `<some letter>` pressed in succession, which is indeed the baseline the
+(<abbr title="Command Line Interface, where I dwell">`CLI`</abbr>) world has
+been running on for over half a decade.
+
+But there is more.
+```vim
+au ModeChanged * call echoraw(v:event.new_mode =~# '^[itR]' ? &t_TE : &t_TI)
+```
+{{<note msg="It stops looking mad once you've spent some months arriving at that incantation, I promise."/>}}
 
 The solution here for Vim, `set keyprotocol=tmux:mok2`, does come with
 some **possibly disappointing side-effect, in dismantling the semi-arcane
 (albeit quite nifty) consequences** of that historical encoding for key
 sequences that you may have come to rely on: if you do indulge in some
 eyebrow-raising trickery (as I do), **you may find some recourse in [the
-`noesckeys` option](#noesckeys)—though only through one of its surprising
-by-products**.
+`noesckeys` option](#the-ol-reliable)—though only through one of its
+surprising by-products**.
 
 > [!NOTE]
 >
 > Again, Neovim is exempt of that peculiarly, in having rethought
-> that whole handling of keys, forgoing the more ancient
+> that whole handling of key presses, forgoing the more ancient
 > architectures.[^not-that-nvim-is-better]
 
-[^not-that-nvim-is-better]: Though I do not mean to say that Neovim is strictly
-superior by all metrics on that front: it is a more complete, more "do what
-we mean or expect", out of the box, for most people most of the time.<br>
-The set-up with `noesckeys` is only paling in that context in comparison to
-that of Neovim in, for example, not granting your possible wish for `PageUp`,
-`PageDown`, `Home`, `End`, `Left`, `Down`, `Up`, `Right`, _et cet._ to behave
-the way they would in a non-modal editor.  I—and many others—live just fine
-without these in Vim.
-
-This is **somehow remedied by a side-effect** to [setting the, otherwise
-discouraged, `noesckeys` option](#noesckeys) in Vim.
+  [^not-that-nvim-is-better]: Though I do not mean to say that Neovim is
+strictly superior by all metrics on that front: it is a more complete, more _"do
+what we mean or expect"_ experience, out of the box, for most people most of the
+time.<br>
+  The set-up disabling `modifyOtherKeys` by leaving raw mode is only paling,
+in comparison to that of Neovim in, for example, not granting your possible
+wish for `PageUp`, `PageDown`, `Home`, `End`, `Left`, `Down`, `Up`, `Right`,
+_et cet._ to behave the way they would in a non-modal editor.  I—and many
+others—live just fine without these in Vim.
 
 </div>
 
@@ -159,7 +166,7 @@ ESC x
 
 which is byte-for-byte identical to pressing `Escape`, then `x`, sufficiently
 quickly.  Applications and multiplexers disambiguate those by waiting for a
-short time.  We shall return to the resulting mischief in Insert mode.
+short time.  We shall return to the resulting mischief in `i`nsert mode.
 
 #### `XTerm`'s `modifyOtherKeys`
 
@@ -247,7 +254,7 @@ will relegate to the footnote it deserves.[^kitty-keyboard-protocol]
     disparaging communication regarding alternative to your one hallowed truth.
 
     Secondly, I do not consider protocol stewardship separable
-    from the steward's public conduct.  [This Hacker News
+    from the steward's public conduct.  [This _Hacker News_
     discussion](https://news.ycombinator.com/item?id=41224245) collects an
     extraordinary chorus of independent encounters with a maintainer variously
     described as arrogant, insulting, dismissive and openly contemptuous
@@ -386,40 +393,15 @@ Use `:verbose map` to have current Vim show the detected protocol and mappings.
 Testing at the shell with `cat -v` is liable to mislead: unless something has
 enabled an extended protocol there, it can only show you the legacy encoding.
 
-### Problems it creates
+### But sometimes, some folks want the ol' reliable {#the-ol-reliable}
 
-There is a tempting but wrong way to make the tmux setting more emphatic:
-
-```tmux
-set -s extended-keys always
-```
-
-`always` sounds reassuring.  It is not a stronger spelling of `on`.
-
-- With `on`, the application in a pane may request mode `1`, mode `2`, or the
-  normal mode.
-- With `always`, tmux substitutes mode `1` when the application requests the
-  normal mode.
-
-That can expose extended encodings to programmes that never asked for them,
-including ZLE or Readline.  More subtly, it prevents an application from fully
-returning to the old encoding when it has a good reason to do so.  **Use `on`;
-let the foreground application negotiate.**
-
-Vim has such a reason in Insert mode.  Recall that legacy `Alt-X` is `ESC x`.
-`tmux` also watches for an `ESC` prefix and, within its `escape-time`, may
-recognise `Escape` followed by `x` as the logical key `Alt-X`.  With extended
-keys active, it can re-encode that key unambiguously.  An intended pair of
-actions—leave Insert mode with `Escape`, then execute normal command `x`—has
-become one `<M-x>` key before Vim can separate it.
-
-That is especially bothersome if, like me, you use Alt mappings in Insert mode
+That is especially bothersome if, like me, you use Alt mappings in `i`nsert mode
 as one-stroke excursions into normal-mode actions:
 
 ```vim
-inoremap <M-I> <Esc>I
-inoremap <M-A> <Esc>A
-inoremap <M-O> <Esc>O
+inoremap <M-I> <Esc>I " keep typing, to the start of the line (after indentation)
+inoremap <M-A> <Esc>A " keep typing, to the end of the line
+inoremap <M-O> <Esc>O " move to a new (well-indented) empty line above
 ```
 
 One can patch individual collisions with more mappings, but that is not a
@@ -430,61 +412,3 @@ Neovim largely _Just Works_: it probes for `CSI-u` support and falls back to
 `modifyOtherKeys` when unavailable.  Through `tmux`, that generally means
 the latter.  It decodes either format, so no Neovim counterpart to Vim's
 `'keyprotocol'` line is normally required.
-
-### This just in!!! {#noesckeys}
-
-Vim already has the systematic answer:
-
-```vim
-set noesckeys
-```
-
-The name is less exciting than the result.  `'esckeys'` controls whether keys
-beginning with `Escape` are recognised in Insert mode.  Since patch `8.1.2261`,
-turning it off also makes Vim disable `modifyOtherKeys` while entering Insert
-mode, then restore it upon leaving.  In Vim's own words:
-
-> NOTE: when this option is off then the `modifyOtherKeys` and
-> `xterm-bracketed-paste` functionality is disabled while in Insert mode to
-> avoid ending Insert mode with any key that has a modifier.
-
-That qualification—_while in Insert mode_—is the elegant bit.  Normal, Visual
-and the other command-oriented modes retain their spacious extended-key
-vocabulary.  Insert mode temporarily returns to the old encoding, where Vim
-treats `ESC` as `Escape` rather than waiting to discover whether it prefaces a
-special key.  Thus `Escape`, `x` is once again `Escape`, `x`, and the protocol
-comes back on as soon as Vim has left Insert mode.
-
-There is a price.  Modified and function keys whose encodings begin with
-`Escape` no longer work normally in Insert mode; `modifyOtherKeys` mappings are
-unavailable there; and Vim also disables bracketed paste for that mode, so it
-cannot distinguish pasted text from typed text with the usual delimiters.  If
-you rely heavily on any of those, `'noesckeys'` may be the wrong trade.
-
-For my use, it is exactly right: richer mappings where Vim is interpreting
-commands; plain, immediate `Escape` semantics where I am inserting text.
-Together, the complete configuration is pleasingly small:
-
-```tmux
-# tmux.conf
-set -s extended-keys on
-set -s extended-keys-format xterm
-set -as terminal-features ',foot*:extkeys,xterm-ghostty:extkeys'
-```
-
-```vim
-" vimrc
-set keyprotocol+=tmux:mok2,screen:mok2
-set noesckeys
-```
-
-The important achievement is not that Vim has learned a cleverer mapping.  It
-is that **the entire chain has agreed not to discard the distinction before the
-mapping engine sees it**.  Yippee!
-
-So, I suppose the final verdict is: either use Neovim, or don't rely on
-semi-arcane (albeit quite nifty) consequences of the historical encoding for key
-sequences, or set both `keyprotocol=tmux:mok2` (or `kitty` in place of `mok2`,
-although...[^kitty-keyboard-protocol]) as well as `noesckeys` and live with
-the (possibly effectively innocuous) consequences of particular keys yielding
-certainly undesirable results in `i`nsert mode.
