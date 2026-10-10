@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head id="head">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>~ccjmne</title>
+    <link rel="stylesheet" href="$build.asset('base.css').link()">
+    <link rel="preload" href="$site.asset('ouft-1.woff2').link()" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="$site.asset('work-2.woff2').link()" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="$site.asset('work-3.woff2').link()" as="font" type="font/woff2" crossorigin>
+    <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "eager" }] }</script>
+    <super>
+  </head>
+  <body id="body" data-path="$page.link()">
+    <header style="view-transition-name: view-header; view-transition-class: static" data-path="$page.link()">
+      <a href="$site.link()" data-target="home">Home</a>
+      <details class="dropdown" max-md>
+        <summary data-target="articles">Articles</summary>
+        <nav>
+          <a href="$site.page('flight-manual').link()">Flight rules</a>
+          <a href="$site.page('ramblings').link()">Ramblings</a>
+          <a href="$site.page('flashcards').link()">Flashcards</a>
+          <a href="$site.page('tags').link()" max-sm>Sections</a>
+        </nav>
+      </details>
+      <a href="$site.page('flight-manual').link()" min-md>Flight rules</a>
+      <a href="$site.page('ramblings').link()" min-md>Ramblings</a>
+      <a href="$site.page('flashcards').link()" min-md>Flashcards</a>
+      <a href="$site.page('tags').link()" min-sm>Sections</a>
+      <a href="$site.page('colophon').link()">Colophon</a>
+      <span style="flex-grow: 1"></span>
+      <a href="$site.index().alternative('atom').link()">RSS</a>
+    </header>
+    <div class="accent-bar" style="view-transition-name: view-accent-bar; view-transition-class: static"></div>
+    <main id="main">
+      <super>
+    </main>
+    <div class="hi" style="view-transition-name: view-footer">
+      <footer id="footer">
+        <span>© 2025–<ctx :text="$build.generated.format('2006')"></ctx></span>
+        <a rel="external" href="https://github.com/ccjmne">Éric NICOLAS (ccjmne)</a>
+        <a rel="external" href="mailto:ccjmne@gmail.com">ccjmne@gmail.com</a>
+        <a rel="external" href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>
+      </footer>
+    </div>
+  </body>
+</html>

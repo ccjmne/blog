@@ -1,0 +1,12 @@
+---
+.title = "quibblery",
+.date = .date("2025-01-01T00:00:00"),
+.layout = "tag.shtml",
+.custom = {
+    "pages": [
+        { "path": "flight-manual/fcitx5/02-fcitx5-clipboard", "highlight": false },
+        { "path": "flight-manual/fcitx5/01-fcitx5-unicode", "highlight": true },
+        { "path": "flashcards/useless-use-of-cat", "highlight": false },
+    ],
+},
+---

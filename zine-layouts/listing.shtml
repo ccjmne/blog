@@ -1,0 +1,41 @@
+<extend template="base.shtml">
+<head id="head">
+  <style>:root { --column-width: min(90vw, 480px); }</style>
+</head>
+<main id="main">
+  <h1 id="$page.custom.get('listing')" :text="$page.title"></h1>
+  <div class="subtitle" :text="$page.description"></div>
+  <ctx latest="$site.page($page.custom.get('latest'))">
+    <div class="hi">
+      <article class="hero">
+        <span class="most-recent">Most recent</span>
+        <h2><a href="$ctx.latest.link()" class="link-title" :html="$ctx.latest.custom.getOr('display_title', $ctx.latest.title)"></a></h2>
+        <ul class="infobar oneline">
+          <li><time :text="$ctx.latest.date.format('January 02, 2006')"></time></li>
+          <ctx :if="$ctx.latest.custom.get?('reading_minutes')">
+            <li><ctx :text="$if"></ctx>-minute read</li>
+          </ctx>
+          <ctx :if="$ctx.latest.tags.empty.not()">
+            <li>tagged&nbsp;<ctx :loop="$ctx.latest.tags"><ctx :if="$loop.first.not()">, </ctx><span :text="$loop.it"></span></ctx></li>
+          </ctx>
+        </ul>
+        <div class="summary" :text="$ctx.latest.description"></div>
+      </article>
+    </div>
+  </ctx>
+  <ctx :loop="$page.custom.get('archive_groups')">
+    <time class="month-switch">
+      <h3 :text="$loop.it.get('year')"></h3>
+      <h3 :text="$loop.it.get('month')"></h3>
+    </time>
+    <ctx :loop="$loop.it.get('pages')">
+      <ctx entry="$site.page($loop.it.get('path'))">
+        <a class="$loop.it.get('type').prefix('entry ')" href="$ctx.entry.link()">
+          <span class="link-title" :html="$ctx.entry.custom.getOr('display_title', $ctx.entry.title)"></span>
+          <span class="dots"></span>
+          <time :text="$loop.it.get('day')"></time>
+        </a>
+      </ctx>
+    </ctx>
+  </ctx>
+</main>

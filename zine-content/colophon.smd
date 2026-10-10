@@ -1,0 +1,74 @@
+---
+.title = "Colophon",
+.description = "Exceptionally boring technology, by design",
+.date = .date("2025-01-01T00:00:00"),
+.layout = "plain.shtml",
+---
+
+> []($block.attrs('hi'))
+>
+> This colophon[^colophon] addresses the design principles that drive the
+> technical implementation of this blog.
+>
+> In a few words, it isn't built like one of these modern Web blobs throwing
+> heaps of heterogeneous solutions at perceptual problems.
+
+# [Not much of anything]($section.id('not-much-of-anything'))
+
+The production site is static HTML and CSS. It has no database, application
+server, hydration process, client-side router, analytics bundle, or JavaScript
+framework.
+
+The source is compiled by three deliberately boring command-line tools:
+
+- [Zig](https://ziglang.org/) describes and orchestrates the build;
+- [Sass](https://sass-lang.com/) compiles the existing SCSS design into one CSS
+  asset; and
+- [Zine](https://zine-ssg.io/) validates and renders SuperMD content through
+  structurally checked SuperHTML layouts.
+
+There is **no JavaScript required for interaction**. The drop-down navigation,
+links and back-references, collapsible table of contents, responsive layout,
+dark mode, and reduced-motion behaviour use HTML and CSS.
+
+And there are effectively **no pictures**. Text works quite well to convey
+information, although the design does indulge in a few tiny SVG masks and local
+Web fonts.
+
+# [Uncompromising simplicity]($section.id('uncompromising-simplicity'))
+
+The generated website employs a single CSS document, and each article is a
+single HTML page. The rest are a few fonts optimised for Web performance using
+the [Web Open Font Format](https://en.wikipedia.org/wiki/Web_Open_Font_Format).
+
+The CSS has no rounded corners and no animation framework. The source styles
+remain split into focused Sass partials, while browsers receive one compiled
+`base.css` file.
+
+Zine performs syntax highlighting at build time and validates internal page and
+fragment links. SuperHTML rejects malformed template structure instead of
+treating templates as arbitrary text concatenation.
+
+# [But the user experience?]($section.id('but-the-user-experience'))
+
+The site remains responsive from mobile to desktop and adapts to dark and light
+modes. It uses semantically grounded [View
+Transitions](https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API)
+where available and degrades gracefully where they are not.
+
+Content remains usable with JavaScript disabled because there is no JavaScript
+to disable.
+
+# [Some room for improvement]($section.id('room-for-improvement'))
+
+The Zine migration is still under way. A representative set of flight rules,
+flashcards, and ramblings has been ported, while the remaining Zola content is
+kept intact as the reference implementation.
+
+The largest remaining jobs are completing the content conversion, implementing
+the taxonomy and Atom feed generators, and auditing subtle styling differences
+between Zola's Markdown output and SuperMD's output.
+
+[^colophon]: A [colophon](https://en.wikipedia.org/wiki/Colophon_(publishing))
+    is a piece of content sharing meta-information about the document it
+    annotates. Examples are found as far back as antiquity, on clay tablets.

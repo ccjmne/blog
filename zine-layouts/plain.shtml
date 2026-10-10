@@ -1,0 +1,25 @@
+<extend template="base.shtml">
+<head id="head">
+  <style>:root { --column-width: min(90vw, 600px); }</style>
+</head>
+<main id="main">
+  <h1 :text="$page.title"></h1>
+  <ctx :if="$page.description.len().gt(0)">
+    <div class="subtitle" :text="$page.description"></div>
+  </ctx>
+  <article class="narrower">
+    <ctx :html="$page.content()"></ctx>
+    <ctx :if="$page.footnotes?()">
+      <section class="footnotes" aria-label="Footnotes">
+        <ol class="footnotes-list" :loop="$if">
+          <li id="$loop.it.def_id">
+            <ctx :html="$loop.it.html()"></ctx>
+            <span class="footnote-backrefs" :loop="$loop.it.ref_ids">
+              <a href="$loop.it.prefix('#')" aria-label="Back to reference">↩</a>
+            </span>
+          </li>
+        </ol>
+      </section>
+    </ctx>
+  </article>
+</main>

@@ -1,0 +1,18 @@
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title :text="$site.title"></title>
+  <link href="$site.host_url.addPath($site.link())"></link>
+  <link rel="self" href="$site.host_url.addPath($page.alternative('atom').link())"></link>
+  <id :text="$site.host_url.addPath($site.link())"></id>
+  <updated :text="$build.generated.format('2006-01-02T15:04:05Z07:00')"></updated>
+  <ctx :loop="$page.custom.get('feed_pages')">
+    <ctx entry="$site.page($loop.it)">
+      <entry>
+        <title :text="$ctx.entry.title"></title>
+        <link href="$site.host_url.addPath($ctx.entry.link())"></link>
+        <id :text="$site.host_url.addPath($ctx.entry.link())"></id>
+        <updated :text="$ctx.entry.date.format('2006-01-02T15:04:05Z07:00')"></updated>
+        <content type="html" :text="$ctx.entry.content()"></content>
+      </entry>
+    </ctx>
+  </ctx>
+</feed>

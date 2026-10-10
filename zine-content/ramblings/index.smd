@@ -1,0 +1,25 @@
+---
+.title = "Ramblings",
+.description = "Dubito, ergo cogito, ergo scribo",
+.date = .date("2025-01-01T00:00:00"),
+.layout = "listing.shtml",
+.custom = {
+    "listing": "ramblings",
+    "latest": "ramblings/be-responsible",
+    "archive_groups": [
+        {
+            "year": "2025",
+            "month": "November",
+            "pages": [
+                { "path": "flight-manual/fcitx5/02-fcitx5-clipboard", "type": "flight-manual", "day": "19th" },
+                { "path": "flight-manual/fcitx5/01-fcitx5-unicode", "type": "flight-manual", "day": "4th" },
+            ],
+        },
+        {
+            "year": "",
+            "month": "August",
+            "pages": [{ "path": "flashcards/useless-use-of-cat", "type": "flashcards", "day": "16th" }],
+        },
+    ],
+},
+---

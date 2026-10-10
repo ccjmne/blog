@@ -1,0 +1,22 @@
+.zine_version = "0.14.0",
+.supermd = .{
+    .headings_h2 = true,
+},
+.site = .simple(.{
+    .title = "ccjmne's blog",
+    .host_url = "https://ccjmne.sh",
+    .url_path_prefix = "blog",
+    .content_dir_path = "zine-content",
+    .layouts_dir_path = "zine-layouts",
+    .assets_dir_path = "static",
+    .static_assets = [
+        "ouft-1.woff2",
+        "work-1.woff2",
+        "work-2.woff2",
+        "work-3.woff2",
+        "fira-1.woff2",
+        "fira-2.woff2",
+        "noto-1.woff2",
+        "noto-2.woff2",
+    ],
+}),

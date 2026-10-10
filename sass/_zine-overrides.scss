@@ -1,0 +1,168 @@
+@use 'mxin' as *;
+
+@font-face { font-family: 'Outfit'; font-style: normal; font-weight: 500; font-display: swap; src: url('ouft-1.woff2') format('woff2'); }
+@font-face { font-family: 'Work Sans'; font-style: italic; font-weight: 400; font-display: swap; src: url('work-1.woff2') format('woff2'); }
+@font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 400; font-display: swap; src: url('work-2.woff2') format('woff2'); }
+@font-face { font-family: 'Work Sans'; font-style: normal; font-weight: 600; font-display: swap; src: url('work-3.woff2') format('woff2'); }
+@font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 400; font-display: swap; src: url('fira-1.woff2') format('woff2'); }
+@font-face { font-family: 'Fira Code'; font-style: normal; font-weight: 600; font-display: swap; src: url('fira-2.woff2') format('woff2'); }
+@font-face { font-family: 'Noto Sans KR'; font-style: normal; font-weight: 400; font-display: optional; src: url('noto-1.woff2') format('woff2'); }
+@font-face { font-family: 'Noto Sans KR'; font-style: normal; font-weight: 500; font-display: optional; src: url('noto-2.woff2') format('woff2'); }
+
+.block {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 1rem auto;
+}
+
+.block.hi { width: 100vw; }
+
+.tag-entry {
+  width: 100vw;
+  > article {
+    width: var(--column-width);
+    margin-inline: auto;
+  }
+}
+
+main > h1 + .tag-entry { padding-top: 1.75rem; }
+
+article a[href^='http']:not([href^='https://ccjmne.sh'])::after {
+  content: " ↗";
+  margin-left: -.5ch;
+  font-size: .75em;
+  font-family: "Fira Code", monospace;
+}
+
+article > div[id] > h2:first-child > a,
+article > div[id] > h3:first-child > a {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+
+  &::before {
+    @include icon(hash, (top: 50%, left: unset));
+    position: absolute;
+    right: calc(100% + 1rem);
+    padding: 1rem;
+    transform: translateY(-50%);
+    color: var(--colour-surface2);
+  }
+
+  &:hover::before { color: var(--colour-accent); }
+}
+
+.block[class*='markdown-alert-'] {
+  position: relative;
+  border-inline-start: .75ch solid;
+  padding-inline-start: 1.5ch;
+
+  > :first-child {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.35;
+    font-weight: 600;
+    font-family: "Outfit", "Noto Sans KR", sans-serif;
+  }
+
+  > p:first-of-type { margin-top: .5em; }
+  > :last-child { margin-bottom: 0; }
+}
+
+$-zine-admonitions: (
+  note:      (color: var(--colour-text),  icon: info),
+  tip:       (color: var(--colour-teal),  icon: light-bulb),
+  important: (color: var(--colour-mauve), icon: report),
+  warning:   (color: var(--colour-peach), icon: alert),
+  caution:   (color: var(--colour-red),   icon: stop),
+);
+
+@each $name, $props in $-zine-admonitions {
+  .block.markdown-alert-#{$name} {
+    border-inline-start-color: map-get($props, color);
+    > :first-child { color: map-get($props, color); }
+    > :first-child::before {
+      @include icon(map-get($props, icon));
+      margin-inline-end: .5em;
+    }
+  }
+}
+
+.block.note {
+  background: var(--bg-3);
+  color: var(--colour-subtext0);
+  padding: 0 1rem;
+  font-size: .95em;
+  margin-block: 0;
+
+  > p { margin-block: 0; }
+}
+
+.toc ul { list-style: square; }
+
+.footnote-backrefs {
+  display: inline-flex;
+  gap: .4em;
+  margin-inline-start: .5em;
+}
+
+sup.footnote-ref {
+  font-size: .8em;
+  vertical-align: super;
+  font-family: "Fira Code", monospace;
+  font-weight: 600;
+  line-height: 0;
+
+  > a {
+    color: var(--colour-accent);
+    text-decoration: none;
+  }
+
+  &::before { content: '['; }
+  &::after  { content: ']'; }
+}
+
+body[data-path$='/flight-manual/fcitx5/02-fcitx5-clipboard/'] {
+  @for $i from 1 through 4 {
+    a[href='#fn-#{$i}'] {
+      font-size: 0;
+      &::after {
+        content: '#{$i + 2}';
+        font-size: .8rem;
+      }
+    }
+  }
+}
+
+// flow-syntax emits semantic token classes rather than Zola's theme styles.
+pre code {
+  .comment { color: var(--colour-overlay0); }
+  .keyword, .variable_builtin { color: var(--colour-mauve); }
+  .type, .attribute { color: var(--colour-yellow); }
+  .string { color: var(--colour-green); }
+  .number, .constant { color: var(--colour-peach); }
+  .function, .property { color: var(--colour-blue); }
+  .operator { color: var(--colour-sky); }
+  .delimiter, .punctuation_bracket { color: var(--colour-overlay2); }
+  .tag { color: var(--colour-red); }
+}
+
+figure:has(> pre) {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 1rem 0 0;
+
+  > pre { width: 100%; }
+
+  > figcaption {
+    order: -1;
+    width: fit-content;
+    padding: 2px 1rem;
+    background-color: var(--bg-3);
+    color: var(--colour-accent);
+    font-family: "Fira Code", monospace;
+    font-size: .92em;
+    font-style: normal;
+  }
+}

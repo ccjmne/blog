@@ -1,0 +1,15 @@
+<extend template="base.shtml">
+<head id="head">
+  <style>:root { --column-width: min(90vw, 768px); }</style>
+</head>
+<main id="main">
+  <h1 class="title"><code>Man</code>ual sections</h1>
+  <ul class="tags-list" :loop="$page.custom.get('tags')">
+    <li>
+      <a class="$loop.it.get('class')" href="$site.page($loop.it.get('path')).link()">
+        <h2 class="link-title tag-name" :text="$loop.it.get('name')"></h2>
+        <ctx :text="$loop.it.get('count')"></ctx>
+      </a>
+    </li>
+  </ul>
+</main>

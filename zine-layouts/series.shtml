@@ -1,0 +1,50 @@
+<extend template="base.shtml">
+<head id="head">
+  <style>:root { --column-width: min(90vw, 768px); }</style>
+</head>
+<main id="main">
+  <h1><span class="link-title" :html="$page.custom.get('display_title')"></span></h1>
+  <ul class="infobar">
+    <li><time :text="$page.custom.get('date_start')"></time><span class="muted">–</span><time :text="$page.custom.get('date_end')"></time></li>
+    <li><ctx :text="$page.custom.get('reading_minutes')"></ctx>-minute read <span class="muted">across</span> <ctx :text="$page.subpages().len"></ctx> articles</li>
+  </ul>
+  <article>
+    <ctx :html="$page.content()"></ctx>
+    <ctx :if="$page.subpagesAlphabetic().first?()">
+      <div class="hi">
+        <article class="hero">
+          <h2><a href="$if.link()" class="link-title" :html="$if.custom.getOr('display_title', $if.title)"></a></h2>
+          <ul class="infobar oneline">
+            <li><time :text="$if.date.format('January 02, 2006')"></time></li>
+            <li><ctx :text="$if.custom.get('reading_minutes')"></ctx>-minute read</li>
+            <li>tagged&nbsp;<ctx :loop="$if.tags"><ctx :if="$loop.first.not()">, </ctx><span :text="$loop.it"></span></ctx></li>
+          </ul>
+          <div class="summary" :text="$if.description"></div>
+        </article>
+      </div>
+    </ctx>
+    <ctx :if="$page.subpagesAlphabetic().last?()">
+      <article class="hero">
+        <h2><a href="$if.link()" class="link-title" :html="$if.custom.getOr('display_title', $if.title)"></a></h2>
+        <ul class="infobar oneline">
+          <li><time :text="$if.date.format('January 02, 2006')"></time></li>
+          <li><ctx :text="$if.custom.get('reading_minutes')"></ctx>-minute read</li>
+          <li>tagged&nbsp;<ctx :loop="$if.tags"><ctx :if="$loop.first.not()">, </ctx><span :text="$loop.it"></span></ctx></li>
+        </ul>
+        <div class="summary" :text="$if.description"></div>
+      </article>
+    </ctx>
+    <ctx :if="$page.footnotes?()">
+      <section class="footnotes" aria-label="Footnotes">
+        <ol class="footnotes-list" :loop="$if">
+          <li id="$loop.it.def_id">
+            <ctx :html="$loop.it.html()"></ctx>
+            <span class="footnote-backrefs" :loop="$loop.it.ref_ids">
+              <a href="$loop.it.prefix('#')" aria-label="Back to reference">↩</a>
+            </span>
+          </li>
+        </ol>
+      </section>
+    </ctx>
+  </article>
+</main>

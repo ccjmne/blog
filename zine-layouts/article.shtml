@@ -1,0 +1,118 @@
+<extend template="base.shtml">
+<head id="head">
+  <style :text="$page.custom.getOr('column_style', '--column-width: min(90vw, 768px)').prefix(':root { ').suffix('; }')"></style>
+</head>
+<main id="main">
+  <ctx :if="$page.custom.get?('display_title')">
+    <h1><span class="link-title" :html="$if"></span></h1>
+  </ctx>
+  <ctx :if="$page.custom.has('display_title').not()">
+    <h1><span class="link-title" :text="$page.title"></span></h1>
+  </ctx>
+  <ul class="infobar">
+    <li><time :text="$page.date.format('January 02, 2006')"></time></li>
+    <ctx :if="$page.custom.get?('reading_minutes')">
+      <li><ctx :text="$if"></ctx>-minute read</li>
+    </ctx>
+    <ctx :if="$page.custom.has('reading_minutes').not()">
+      <li><ctx :text="$page.wordCount().plus(199).div(200)"></ctx>-minute read</li>
+    </ctx>
+    <ctx :if="$page.parentSection().custom.has('series')">
+      <li>Part&nbsp;<ctx :text="$page.custom.get('part')"></ctx>&nbsp;of&nbsp;<a href="$page.parentSection().link()" :html="$page.parentSection().custom.get('display_title')"></a></li>
+    </ctx>
+    <ctx :if="$page.tags.empty.not()">
+      <li>
+        tagged
+        <ctx :loop="$page.tags">
+          <ctx :if="$loop.first.not()">, </ctx><a href="$site.page('tags', $loop.it).link()" :text="$loop.it"></a>
+        </ctx>
+      </li>
+    </ctx>
+  </ul>
+  <ctx :if="$page.parentSection().custom.has('series')">
+    <details class="lo summary">
+      <summary>Series introduction</summary>
+      <h2><a href="$page.parentSection().link()" class="link-title" :text="$page.parentSection().title"></a></h2>
+      <ctx :html="$page.parentSection().custom.get('child_intro_html')"></ctx>
+    </details>
+  </ctx>
+  <ctx :if="$page.custom.has('toc')">
+    <details class="hi toc">
+      <summary>Table of contents</summary>
+      <div :html="$page.toc()"></div>
+      <ctx :if="$page.custom.get?('cited_tools')"><ul><li><a href="#cited-tools">Referenced tools</a></li></ul></ctx>
+      <ctx :if="$page.custom.get?('cited_vimhelp')"><ul><li><a href="#cited-vimhelp">Referenced Vim help</a></li></ul></ctx>
+    </details>
+  </ctx>
+  <article>
+    <ctx :html="$page.content()"></ctx>
+    <ctx :if="$page.parentSection().custom.has('series')">
+      <section class="footnotes" aria-label="Footnotes">
+        <ol class="footnotes-list">
+          <ctx :loop="$page.parentSection().custom.get('child_footnotes')">
+            <li id="$loop.it.get('id')">
+              <ctx :html="$loop.it.get('html')"></ctx>
+              <span class="footnote-backrefs"><a href="$loop.it.get('backref')" aria-label="Back to reference">↩</a></span>
+            </li>
+          </ctx>
+          <ctx :if="$page.footnotes?()">
+            <ctx :loop="$if">
+              <li id="$loop.it.def_id">
+                <ctx :html="$loop.it.html()"></ctx>
+                <span class="footnote-backrefs" :loop="$loop.it.ref_ids">
+                  <a href="$loop.it.prefix('#')" aria-label="Back to reference">↩</a>
+                </span>
+              </li>
+            </ctx>
+          </ctx>
+        </ol>
+      </section>
+    </ctx>
+    <ctx :if="$page.parentSection().custom.has('series').not()">
+      <ctx :if="$page.footnotes?()">
+        <section class="footnotes" aria-label="Footnotes">
+          <ol class="footnotes-list">
+            <ctx :loop="$if">
+              <li id="$loop.it.def_id">
+                <ctx :html="$loop.it.html()"></ctx>
+                <span class="footnote-backrefs" :loop="$loop.it.ref_ids">
+                  <a href="$loop.it.prefix('#')" aria-label="Back to reference">↩</a>
+                </span>
+              </li>
+            </ctx>
+          </ol>
+        </section>
+      </ctx>
+    </ctx>
+    <ctx tools="$site.asset('data/tools.ziggy').ziggy()">
+      <ctx :if="$page.custom.get?('cited_tools')">
+      <section>
+        <h2 id="cited-tools"><a class="anchor-link" href="#cited-tools" aria-label="Anchor link for: cited-tools"></a>Referenced tools</h2>
+          <div class="refs" :loop="$if">
+            <ctx tool="$ctx.tools.get($loop.it)">
+              <div class="ref tool mono">
+                <strong :text="$ctx.tool.get('name')"></strong>
+                <div><span class="muted">from</span>&nbsp;<a rel="external" href="$ctx.tool.get('package_url')" :text="$ctx.tool.get('package')"></a></div>
+                <div>
+                  <a rel="external" href="$ctx.tool.get('manual')">manual</a>
+                  <a rel="external" href="$ctx.tool.get('source')">source</a>
+                </div>
+              </div>
+            </ctx>
+          </div>
+        </section>
+      </ctx>
+    </ctx>
+    <ctx :if="$page.custom.get?('cited_vimhelp')">
+      <section>
+        <h2 id="cited-vimhelp"><a class="anchor-link" href="#cited-vimhelp" aria-label="Anchor link for: cited-vimhelp"></a>Referenced Vim help</h2>
+        <div class="refs" :loop="$if">
+          <div class="ref vimhelp mono">
+            <a rel="external" href="$loop.it.get('url')"><strong :text="$loop.it.get('label')"></strong></a>
+            <span class="excerpt" :html="$loop.it.get('excerpt_html')"></span>
+          </div>
+        </div>
+      </section>
+    </ctx>
+  </article>
+</main>

@@ -1,0 +1,6 @@
+---
+.title = "404 Not Found",
+.date = .date("2025-01-01T00:00:00"),
+.layout = "404.shtml",
+.aliases = ["/404.html"],
+---

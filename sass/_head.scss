@@ -17,21 +17,22 @@ header {
   }
 }
 
-[data-path='/']               [data-target='home'],
-[data-path^='/tags']          [href$='/tags/'],
-[data-path^='/flight-manual'] [href$='/flight-manual/'],
-[data-path^='/flashcards']    [href$='/flashcards/'],
-[data-path^='/ramblings']     [href$='/ramblings/'],
-[data-path^='/colophon']      [href$='/colophon/'] {
+[data-path='/']                       [data-target='home'],
+[data-path='/blog/']                  [data-target='home'],
+[data-path*='/tags']                  [href$='/tags/'],
+[data-path*='/flight-manual']         [href$='/flight-manual/'],
+[data-path*='/flashcards']            [href$='/flashcards/'],
+[data-path*='/ramblings']             [href$='/ramblings/'],
+[data-path*='/colophon']              [href$='/colophon/'] {
   font-weight: bold;
 }
 
 [data-target='articles'] {
-  @at-root [data-path^='/flight-manual'] &, [data-path^='/flashcards'] &, [data-path^='/ramblings'] &, [data-path^='/tags'] & {
+  @at-root [data-path*='/flight-manual'] &, [data-path*='/flashcards'] &, [data-path*='/ramblings'] &, [data-path*='/tags'] & {
     font-weight: bold;
   }
   @include sm {
-    @at-root [data-path^='/tags'] & { font-weight: initial; }
+    @at-root [data-path*='/tags'] & { font-weight: initial; }
   }
 }
 

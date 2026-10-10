@@ -1,0 +1,52 @@
+---
+.title = "Maybe a new fcitx",
+.date = .date("2025-11-04T00:00:00"),
+.layout = "series.shtml",
+.custom = {
+    "series": true,
+    "display_title": "Maybe a new <code>fcitx</code>",
+    "date_start": "November 04",
+    "date_end": "19, 2025",
+    "reading_minutes": 10,
+    "child_intro_html": "<p><code>IBus</code>, standing (vaguely) for <em>\"Intelligent Input Bus\"</em>, is an <strong>input framework</strong> that allows users to switch between keyboard layouts.</p><p>It is the de facto standard for many Linux users; however, it has been somewhat finicky under Wayland<sup class=\"footnote-ref\"><a href=\"#series-fn-1\" id=\"series-ref-1\">1</a></sup>—which is where <code>fcitx5</code><sup class=\"footnote-ref\"><a href=\"#series-fn-2\" id=\"series-ref-2\">2</a></sup> comes in.</p><p>But <code>fcitx5</code> <strong>is a lot other than \"Wayland's <code>IBus</code>\"</strong>, and this series delves into the most practical of its built-in modules.</p>",
+    "child_footnotes": [
+        {
+            "id": "series-fn-1",
+            "backref": "#series-ref-1",
+            "html": "Although applications being finicky under Wayland will come at no surprise, it mostly has to do with running <code>X11</code> applications through a compatibility layer, and NVIDIA historically being an execrable collaborator with Linux kernel developers.",
+        },
+        {
+            "id": "series-fn-2",
+            "backref": "#series-ref-2",
+            "html": "<code>fcitx5</code> is a fairly recent project, started around 2019, and a complete rewrite of its predecessor with first-class Wayland support.",
+        },
+    ],
+},
+---
+
+`IBus`, standing (vaguely) for *“Intelligent Input Bus”*, is an **input
+framework** that allows users to, for example, switch between different keyboard
+layouts, which any non-English native speakers reading this blog would certainly
+be familiar with.
+
+It is notably used by default by `GNOME`-based desktop environments, making it
+the *de facto* standard for many Linux users; however, it has been somewhat
+finicky for me (and others) when working with Wayland[^wayland-finicky]—which is
+where `fcitx5`[^fcitx-5] comes in.
+
+[^wayland-finicky]: Although “applications being finicky” under Wayland will
+    come at no surprise to anyone, I will note that it mostly has to do with
+    running a lot of `X11` applications through a compatibility layer, and
+    [`NVIDIA` notoriously having been an execrable
+    collaborator](https://www.youtube.com/watch?v=MShbP3OpASA) in helping the
+    Linux kernel developers integrate their hardware into the ecosystem.
+
+[^fcitx-5]: `fcitx5` is a fairly recent project (started around 2019) led by the
+    same original author, a *complete rewrite* of its predecessor, infusing new
+    life into `fcitx` with first-class Wayland support, a modern codebase,
+    greater performance, and unified theming and configuration tools.
+
+But `fcitx5` **is a lot other than “Wayland's `IBus`”**: just as vaguely, it
+stands for *“Flexible Context-aware Input Tool with eXtension support”*, and in
+this series, I mean to delve deeply into the most practical and ubiquitous of
+its built-in modules.

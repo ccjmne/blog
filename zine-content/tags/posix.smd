@@ -1,0 +1,8 @@
+---
+.title = "posix",
+.date = .date("2025-01-01T00:00:00"),
+.layout = "tag.shtml",
+.custom = {
+    "pages": [{ "path": "flashcards/useless-use-of-cat", "highlight": false }],
+},
+---

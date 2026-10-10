@@ -1,0 +1,23 @@
+<extend template="base.shtml">
+<head id="head">
+  <style>:root { --column-width: min(90vw, 768px); }</style>
+</head>
+<main id="main">
+  <h1><code>Man</code>ual on <span class="link-title accent" :text="$page.title"></span></h1>
+  <ctx :loop="$page.custom.get('pages')">
+    <ctx entry="$site.page($loop.it.get('path'))">
+      <div class="$loop.it.get('highlight').then('hi', 'tag-entry')">
+        <article class="hero">
+          <h2><a href="$ctx.entry.link()" class="link-title" :html="$ctx.entry.custom.getOr('display_title', $ctx.entry.title)"></a></h2>
+          <ul class="infobar oneline">
+            <li><time :text="$ctx.entry.date.format('January 02, 2006')"></time></li>
+            <ctx :if="$ctx.entry.custom.get?('reading_minutes')"><li><ctx :text="$if"></ctx>-minute read</li></ctx>
+            <ctx :if="$ctx.entry.custom.get?('part')"><li>Part&nbsp;<ctx :text="$if"></ctx>&nbsp;of&nbsp;<a href="$ctx.entry.parentSection().link()" :html="$ctx.entry.parentSection().custom.get('display_title')"></a></li></ctx>
+            <li>tagged&nbsp;<ctx :loop="$ctx.entry.tags"><ctx :if="$loop.first.not()">, </ctx><span :text="$loop.it"></span></ctx></li>
+          </ul>
+          <div class="summary" :text="$ctx.entry.description"></div>
+        </article>
+      </div>
+    </ctx>
+  </ctx>
+</main>

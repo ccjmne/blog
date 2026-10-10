@@ -1,0 +1,44 @@
+{
+    "cat": {
+        "name": "cat",
+        "package": "core/coreutils",
+        "package_url": "https://archlinux.org/packages/core/x86_64/coreutils",
+        "manual": "https://man.archlinux.org/man/cat.1.en",
+        "source": "https://github.com/coreutils/coreutils",
+    },
+    "fcitx5": {
+        "name": "fcitx5",
+        "package": "extra/fcitx5",
+        "package_url": "https://archlinux.org/packages/extra/x86_64/fcitx5",
+        "manual": "https://fcitx-im.org/wiki/Fcitx_5",
+        "source": "https://github.com/fcitx/fcitx5",
+    },
+    "grep": {
+        "name": "grep",
+        "package": "core/grep",
+        "package_url": "https://archlinux.org/packages/core/x86_64/grep",
+        "manual": "https://man.archlinux.org/man/grep.1.en",
+        "source": "https://git.savannah.gnu.org/cgit/grep.git/",
+    },
+    "ibus": {
+        "name": "ibus",
+        "package": "extra/ibus",
+        "package_url": "https://archlinux.org/packages/extra/x86_64/ibus",
+        "manual": "https://github.com/ibus/ibus/wiki",
+        "source": "https://github.com/ibus/ibus",
+    },
+    "keepassxc": {
+        "name": "keepassxc",
+        "package": "extra/keepassxc",
+        "package_url": "https://archlinux.org/packages/extra/x86_64/keepassxc",
+        "manual": "https://man.archlinux.org/man/extra/keepassxc/keepassxc-cli.1.en",
+        "source": "https://github.com/keepassxreboot/keepassxc",
+    },
+    "less": {
+        "name": "less",
+        "package": "core/less",
+        "package_url": "https://archlinux.org/packages/core/x86_64/less",
+        "manual": "https://man.archlinux.org/man/less.1.en",
+        "source": "https://github.com/gwsw/less",
+    },
+}
